@@ -21,7 +21,7 @@ export interface CreateChannelCommandInput extends CreateChannelRequest {}
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a channel. A channel collects data from an MQTT topic and archives the raw,
+ * <p>Used to create a channel. A channel collects data from an MQTT topic and archives the raw,
  *       unprocessed messages before publishing the data to a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

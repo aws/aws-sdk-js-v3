@@ -21,7 +21,8 @@ export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
 export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Attaches a policy to the specified target.</p>
+ * <p>Attaches the specified policy to the specified principal (certificate or other
+ *          credential).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

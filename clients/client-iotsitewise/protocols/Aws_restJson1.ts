@@ -150,12 +150,15 @@ import {
   ConflictingOperationException,
   CustomerManagedS3Storage,
   DashboardSummary,
+  DetailedError,
   ErrorDetails,
   ExpressionVariable,
+  ForwardingConfig,
   GatewayCapabilitySummary,
   GatewayPlatform,
   GatewaySummary,
   Greengrass,
+  GreengrassV2,
   GroupIdentity,
   IAMRoleIdentity,
   IAMUserIdentity,
@@ -169,7 +172,9 @@ import {
   LimitExceededException,
   LoggingOptions,
   Measurement,
+  MeasurementProcessingConfig,
   Metric,
+  MetricProcessingConfig,
   MetricWindow,
   MonitorErrorDetails,
   MultiLayerStorage,
@@ -190,6 +195,7 @@ import {
   TimeInNanos,
   TooManyTagsException,
   Transform,
+  TransformProcessingConfig,
   TumblingWindow,
   UnauthorizedException,
   UserIdentity,
@@ -8407,16 +8413,31 @@ const serializeAws_restJson1ExpressionVariables = (input: ExpressionVariable[], 
     });
 };
 
+const serializeAws_restJson1ForwardingConfig = (input: ForwardingConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.state !== undefined && input.state !== null && { state: input.state }),
+  };
+};
+
 const serializeAws_restJson1GatewayPlatform = (input: GatewayPlatform, context: __SerdeContext): any => {
   return {
     ...(input.greengrass !== undefined &&
       input.greengrass !== null && { greengrass: serializeAws_restJson1Greengrass(input.greengrass, context) }),
+    ...(input.greengrassV2 !== undefined &&
+      input.greengrassV2 !== null && { greengrassV2: serializeAws_restJson1GreengrassV2(input.greengrassV2, context) }),
   };
 };
 
 const serializeAws_restJson1Greengrass = (input: Greengrass, context: __SerdeContext): any => {
   return {
     ...(input.groupArn !== undefined && input.groupArn !== null && { groupArn: input.groupArn }),
+  };
+};
+
+const serializeAws_restJson1GreengrassV2 = (input: GreengrassV2, context: __SerdeContext): any => {
+  return {
+    ...(input.coreDeviceThingName !== undefined &&
+      input.coreDeviceThingName !== null && { coreDeviceThingName: input.coreDeviceThingName }),
   };
 };
 
@@ -8484,16 +8505,44 @@ const serializeAws_restJson1LoggingOptions = (input: LoggingOptions, context: __
 };
 
 const serializeAws_restJson1Measurement = (input: Measurement, context: __SerdeContext): any => {
-  return {};
+  return {
+    ...(input.processingConfig !== undefined &&
+      input.processingConfig !== null && {
+        processingConfig: serializeAws_restJson1MeasurementProcessingConfig(input.processingConfig, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1MeasurementProcessingConfig = (
+  input: MeasurementProcessingConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.forwardingConfig !== undefined &&
+      input.forwardingConfig !== null && {
+        forwardingConfig: serializeAws_restJson1ForwardingConfig(input.forwardingConfig, context),
+      }),
+  };
 };
 
 const serializeAws_restJson1Metric = (input: Metric, context: __SerdeContext): any => {
   return {
     ...(input.expression !== undefined && input.expression !== null && { expression: input.expression }),
+    ...(input.processingConfig !== undefined &&
+      input.processingConfig !== null && {
+        processingConfig: serializeAws_restJson1MetricProcessingConfig(input.processingConfig, context),
+      }),
     ...(input.variables !== undefined &&
       input.variables !== null && { variables: serializeAws_restJson1ExpressionVariables(input.variables, context) }),
     ...(input.window !== undefined &&
       input.window !== null && { window: serializeAws_restJson1MetricWindow(input.window, context) }),
+  };
+};
+
+const serializeAws_restJson1MetricProcessingConfig = (input: MetricProcessingConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.computeLocation !== undefined &&
+      input.computeLocation !== null && { computeLocation: input.computeLocation }),
   };
 };
 
@@ -8602,8 +8651,26 @@ const serializeAws_restJson1TimeInNanos = (input: TimeInNanos, context: __SerdeC
 const serializeAws_restJson1Transform = (input: Transform, context: __SerdeContext): any => {
   return {
     ...(input.expression !== undefined && input.expression !== null && { expression: input.expression }),
+    ...(input.processingConfig !== undefined &&
+      input.processingConfig !== null && {
+        processingConfig: serializeAws_restJson1TransformProcessingConfig(input.processingConfig, context),
+      }),
     ...(input.variables !== undefined &&
       input.variables !== null && { variables: serializeAws_restJson1ExpressionVariables(input.variables, context) }),
+  };
+};
+
+const serializeAws_restJson1TransformProcessingConfig = (
+  input: TransformProcessingConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.computeLocation !== undefined &&
+      input.computeLocation !== null && { computeLocation: input.computeLocation }),
+    ...(input.forwardingConfig !== undefined &&
+      input.forwardingConfig !== null && {
+        forwardingConfig: serializeAws_restJson1ForwardingConfig(input.forwardingConfig, context),
+      }),
   };
 };
 
@@ -9224,9 +9291,31 @@ const deserializeAws_restJson1DashboardSummary = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1DetailedError = (output: any, context: __SerdeContext): DetailedError => {
+  return {
+    code: __expectString(output.code),
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_restJson1DetailedErrors = (output: any, context: __SerdeContext): DetailedError[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DetailedError(entry, context);
+    });
+};
+
 const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
   return {
     code: __expectString(output.code),
+    details:
+      output.details !== undefined && output.details !== null
+        ? deserializeAws_restJson1DetailedErrors(output.details, context)
+        : undefined,
     message: __expectString(output.message),
   } as any;
 };
@@ -9250,6 +9339,12 @@ const deserializeAws_restJson1ExpressionVariables = (output: any, context: __Ser
       }
       return deserializeAws_restJson1ExpressionVariable(entry, context);
     });
+};
+
+const deserializeAws_restJson1ForwardingConfig = (output: any, context: __SerdeContext): ForwardingConfig => {
+  return {
+    state: __expectString(output.state),
+  } as any;
 };
 
 const deserializeAws_restJson1GatewayCapabilitySummaries = (
@@ -9282,6 +9377,10 @@ const deserializeAws_restJson1GatewayPlatform = (output: any, context: __SerdeCo
       output.greengrass !== undefined && output.greengrass !== null
         ? deserializeAws_restJson1Greengrass(output.greengrass, context)
         : undefined,
+    greengrassV2:
+      output.greengrassV2 !== undefined && output.greengrassV2 !== null
+        ? deserializeAws_restJson1GreengrassV2(output.greengrassV2, context)
+        : undefined,
   } as any;
 };
 
@@ -9308,6 +9407,10 @@ const deserializeAws_restJson1GatewaySummary = (output: any, context: __SerdeCon
         : undefined,
     gatewayId: __expectString(output.gatewayId),
     gatewayName: __expectString(output.gatewayName),
+    gatewayPlatform:
+      output.gatewayPlatform !== undefined && output.gatewayPlatform !== null
+        ? deserializeAws_restJson1GatewayPlatform(output.gatewayPlatform, context)
+        : undefined,
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
         ? new Date(Math.round(output.lastUpdateDate * 1000))
@@ -9318,6 +9421,12 @@ const deserializeAws_restJson1GatewaySummary = (output: any, context: __SerdeCon
 const deserializeAws_restJson1Greengrass = (output: any, context: __SerdeContext): Greengrass => {
   return {
     groupArn: __expectString(output.groupArn),
+  } as any;
+};
+
+const deserializeAws_restJson1GreengrassV2 = (output: any, context: __SerdeContext): GreengrassV2 => {
+  return {
+    coreDeviceThingName: __expectString(output.coreDeviceThingName),
   } as any;
 };
 
@@ -9404,12 +9513,33 @@ const deserializeAws_restJson1LoggingOptions = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1Measurement = (output: any, context: __SerdeContext): Measurement => {
-  return {} as any;
+  return {
+    processingConfig:
+      output.processingConfig !== undefined && output.processingConfig !== null
+        ? deserializeAws_restJson1MeasurementProcessingConfig(output.processingConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MeasurementProcessingConfig = (
+  output: any,
+  context: __SerdeContext
+): MeasurementProcessingConfig => {
+  return {
+    forwardingConfig:
+      output.forwardingConfig !== undefined && output.forwardingConfig !== null
+        ? deserializeAws_restJson1ForwardingConfig(output.forwardingConfig, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Metric = (output: any, context: __SerdeContext): Metric => {
   return {
     expression: __expectString(output.expression),
+    processingConfig:
+      output.processingConfig !== undefined && output.processingConfig !== null
+        ? deserializeAws_restJson1MetricProcessingConfig(output.processingConfig, context)
+        : undefined,
     variables:
       output.variables !== undefined && output.variables !== null
         ? deserializeAws_restJson1ExpressionVariables(output.variables, context)
@@ -9418,6 +9548,15 @@ const deserializeAws_restJson1Metric = (output: any, context: __SerdeContext): M
       output.window !== undefined && output.window !== null
         ? deserializeAws_restJson1MetricWindow(output.window, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MetricProcessingConfig = (
+  output: any,
+  context: __SerdeContext
+): MetricProcessingConfig => {
+  return {
+    computeLocation: __expectString(output.computeLocation),
   } as any;
 };
 
@@ -9620,9 +9759,26 @@ const deserializeAws_restJson1Timestamps = (output: any, context: __SerdeContext
 const deserializeAws_restJson1Transform = (output: any, context: __SerdeContext): Transform => {
   return {
     expression: __expectString(output.expression),
+    processingConfig:
+      output.processingConfig !== undefined && output.processingConfig !== null
+        ? deserializeAws_restJson1TransformProcessingConfig(output.processingConfig, context)
+        : undefined,
     variables:
       output.variables !== undefined && output.variables !== null
         ? deserializeAws_restJson1ExpressionVariables(output.variables, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TransformProcessingConfig = (
+  output: any,
+  context: __SerdeContext
+): TransformProcessingConfig => {
+  return {
+    computeLocation: __expectString(output.computeLocation),
+    forwardingConfig:
+      output.forwardingConfig !== undefined && output.forwardingConfig !== null
+        ? deserializeAws_restJson1ForwardingConfig(output.forwardingConfig, context)
         : undefined,
   } as any;
 };

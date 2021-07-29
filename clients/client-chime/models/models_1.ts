@@ -26,10 +26,11 @@ import {
   Credential,
   EmailStatus,
   EmergencyCallingConfiguration,
+  EngineTranscribeMedicalSettings,
+  EngineTranscribeSettings,
   EventsConfiguration,
   InviteStatus,
   License,
-  LoggingConfiguration,
   MediaCapturePipeline,
   Meeting,
   PhoneNumber,
@@ -60,6 +61,158 @@ import {
   VoiceConnectorSettings,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface GetUserSettingsResponse {
+  /**
+   * <p>The user settings.</p>
+   */
+  UserSettings?: UserSettings;
+}
+
+export namespace GetUserSettingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUserSettingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetVoiceConnectorRequest {
+  /**
+   * <p>The Amazon Chime Voice Connector ID.</p>
+   */
+  VoiceConnectorId: string | undefined;
+}
+
+export namespace GetVoiceConnectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVoiceConnectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetVoiceConnectorResponse {
+  /**
+   * <p>The Amazon Chime Voice Connector details.</p>
+   */
+  VoiceConnector?: VoiceConnector;
+}
+
+export namespace GetVoiceConnectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVoiceConnectorResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetVoiceConnectorEmergencyCallingConfigurationRequest {
+  /**
+   * <p>The Amazon Chime Voice Connector ID.</p>
+   */
+  VoiceConnectorId: string | undefined;
+}
+
+export namespace GetVoiceConnectorEmergencyCallingConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVoiceConnectorEmergencyCallingConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetVoiceConnectorEmergencyCallingConfigurationResponse {
+  /**
+   * <p>The emergency calling configuration details.</p>
+   */
+  EmergencyCallingConfiguration?: EmergencyCallingConfiguration;
+}
+
+export namespace GetVoiceConnectorEmergencyCallingConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVoiceConnectorEmergencyCallingConfigurationResponse): any => ({
+    ...obj,
+    ...(obj.EmergencyCallingConfiguration && {
+      EmergencyCallingConfiguration: EmergencyCallingConfiguration.filterSensitiveLog(
+        obj.EmergencyCallingConfiguration
+      ),
+    }),
+  });
+}
+
+export interface GetVoiceConnectorGroupRequest {
+  /**
+   * <p>The Amazon Chime Voice Connector group ID.</p>
+   */
+  VoiceConnectorGroupId: string | undefined;
+}
+
+export namespace GetVoiceConnectorGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVoiceConnectorGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetVoiceConnectorGroupResponse {
+  /**
+   * <p>The Amazon Chime Voice Connector group details.</p>
+   */
+  VoiceConnectorGroup?: VoiceConnectorGroup;
+}
+
+export namespace GetVoiceConnectorGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVoiceConnectorGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetVoiceConnectorLoggingConfigurationRequest {
+  /**
+   * <p>The Amazon Chime Voice Connector ID.</p>
+   */
+  VoiceConnectorId: string | undefined;
+}
+
+export namespace GetVoiceConnectorLoggingConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVoiceConnectorLoggingConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The logging configuration associated with an Amazon Chime Voice Connector. Specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
+ */
+export interface LoggingConfiguration {
+  /**
+   * <p>When true, enables SIP message logs for sending to Amazon CloudWatch Logs.</p>
+   */
+  EnableSIPLogs?: boolean;
+}
+
+export namespace LoggingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
+    ...obj,
+  });
+}
 
 export interface GetVoiceConnectorLoggingConfigurationResponse {
   /**
@@ -2986,6 +3139,89 @@ export namespace SendChannelMessageResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: SendChannelMessageResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration for the current transcription operation. Must contain <code>EngineTranscribeSettings</code> or <code>EngineTranscribeMedicalSettings</code>.</p>
+ */
+export interface TranscriptionConfiguration {
+  /**
+   * <p>The transcription configuration settings passed to Amazon Transcribe.</p>
+   */
+  EngineTranscribeSettings?: EngineTranscribeSettings;
+
+  /**
+   * <p>The transcription configuration settings passed to Amazon Transcribe.</p>
+   */
+  EngineTranscribeMedicalSettings?: EngineTranscribeMedicalSettings;
+}
+
+export namespace TranscriptionConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TranscriptionConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface StartMeetingTranscriptionRequest {
+  /**
+   * <p>The unique ID of the meeting being transcribed.</p>
+   */
+  MeetingId: string | undefined;
+
+  /**
+   * <p>The configuration for the current transcription operation. Must contain <code>EngineTranscribeSettings</code> or <code>EngineTranscribeMedicalSettings</code>.</p>
+   */
+  TranscriptionConfiguration: TranscriptionConfiguration | undefined;
+}
+
+export namespace StartMeetingTranscriptionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartMeetingTranscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartMeetingTranscriptionResponse {}
+
+export namespace StartMeetingTranscriptionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartMeetingTranscriptionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopMeetingTranscriptionRequest {
+  /**
+   * <p>The unique ID of the meeting for which you stop transcription.</p>
+   */
+  MeetingId: string | undefined;
+}
+
+export namespace StopMeetingTranscriptionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopMeetingTranscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopMeetingTranscriptionResponse {}
+
+export namespace StopMeetingTranscriptionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopMeetingTranscriptionResponse): any => ({
     ...obj,
   });
 }

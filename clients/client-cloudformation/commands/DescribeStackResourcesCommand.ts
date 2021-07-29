@@ -21,7 +21,7 @@ export interface DescribeStackResourcesCommandInput extends DescribeStackResourc
 export interface DescribeStackResourcesCommandOutput extends DescribeStackResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns AWS resource descriptions for running and deleted stacks. If
+ * <p>Returns Amazon Web Services resource descriptions for running and deleted stacks. If
  *             <code>StackName</code> is specified, all the associated resources that are part of the
  *          stack are returned. If <code>PhysicalResourceId</code> is specified, the associated
  *          resources of the stack that the resource belongs to are returned.</p>
@@ -34,7 +34,7 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  *          <p>You must specify either <code>StackName</code> or <code>PhysicalResourceId</code>,
  *          but not both. In addition, you can specify <code>LogicalResourceId</code> to filter the
  *          returned result. For more information about resources, the <code>LogicalResourceId</code>
- *          and <code>PhysicalResourceId</code>, go to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">AWS CloudFormation User
+ *          and <code>PhysicalResourceId</code>, go to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">CloudFormation User
  *          Guide</a>.</p>
  *          <note>
  *             <p>A <code>ValidationError</code> is returned if you specify both

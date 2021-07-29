@@ -21,10 +21,14 @@ export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
 export interface CreateEndpointCommandOutput extends CreateEndpointResult, __MetadataBearer {}
 
 /**
- * <p>S3 on Outposts access points simplify managing data access at scale for shared datasets
- *             in Amazon S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform
- *             actions within your virtual private cloud (VPC). </p>
- *         <p>This action creates an endpoint and associates it with the specified Outpost. </p>
+ * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
+ *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
+ *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
+ *         Accessing S3 on Outposts using VPC only access points</a>.</p>
+ *         <p>This action creates an endpoint and associates it with the specified Outposts.</p>
+ *         <note>
+ *             <p>It can take up to 5 minutes for this action to complete.</p>
+ *          </note>
  *         <p></p>
  *         <p>Related actions include:</p>
  *         <ul>

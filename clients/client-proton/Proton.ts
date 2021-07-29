@@ -342,7 +342,7 @@ export class Proton extends ProtonClient {
    * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is
    *             accepted, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment
    *             account.</p>
-   *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
    *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public acceptEnvironmentAccountConnection(
@@ -551,7 +551,7 @@ export class Proton extends ProtonClient {
    * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in
    *             the environment account from a management account.</p>
    *         <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an
-   *                 <i>environment account</i> that maintains authorization and permissions. For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a> in the <i>AWS Proton
+   *                 <i>environment account</i> that maintains authorization and permissions. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a> in the <i>AWS Proton
    *                 Administrator guide</i>.</p>
    */
   public createEnvironmentAccountConnection(
@@ -805,7 +805,7 @@ export class Proton extends ProtonClient {
    *         <p>After you delete an environment account connection that’s in use by an AWS Proton environment, AWS Proton <i>can’t</i>
    *             manage the environment infrastructure resources until a new environment account connection is accepted for the environment account and
    *             associated environment. You're responsible for cleaning up provisioned resources that remain without an environment connection.</p>
-   *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
    *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public deleteEnvironmentAccountConnection(
@@ -1075,7 +1075,7 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>In an environment account, view the detail data for an environment account connection.</p>
-   *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
    *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public getEnvironmentAccountConnection(
@@ -1296,7 +1296,7 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>View a list of environment account connections.</p>
-   *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
    *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public listEnvironmentAccountConnections(
@@ -1586,7 +1586,7 @@ export class Proton extends ProtonClient {
    *         <p>After you reject an environment account connection request, you <i>won’t</i> be able to accept or use the rejected
    *             environment account connection.</p>
    *         <p>You <i>can’t</i> reject an environment account connection that is connected to an environment.</p>
-   *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
    *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public rejectEnvironmentAccountConnection(
@@ -1787,7 +1787,7 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>In an environment account, update an environment account connection to use a new IAM role.</p>
-   *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
    *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public updateEnvironmentAccountConnection(

@@ -21,7 +21,7 @@ export interface DeregisterJobDefinitionCommandInput extends DeregisterJobDefini
 export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Deregisters an AWS Batch job definition. Job definitions are permanently deleted after 180 days.</p>
+ * <p>Deregisters an Batch job definition. Job definitions are permanently deleted after 180 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

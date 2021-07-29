@@ -21,7 +21,8 @@ export interface ProvisionPermissionSetCommandInput extends ProvisionPermissionS
 export interface ProvisionPermissionSetCommandOutput extends ProvisionPermissionSetResponse, __MetadataBearer {}
 
 /**
- * <p>The process by which a specified permission set is provisioned to the specified target.</p>
+ * <p>The process by which a specified permission set is provisioned to the specified
+ *       target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -249,6 +249,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN for the access point.</p>"
           }
+        },
+        "Alias": {
+          "target": "com.amazonaws.s3control#Alias",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or alias of the access point.</p>"
+          }
         }
       },
       "traits": {
@@ -269,7 +275,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 3,
-          "max": 50
+          "max": 63
         }
       }
     },
@@ -316,6 +322,16 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>A container for the activity metrics.</p>"
+      }
+    },
+    "com.amazonaws.s3control#Alias": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 63
+        },
+        "smithy.api#pattern": "^[0-9a-z\\\\-]{63}$"
       }
     },
     "com.amazonaws.s3control#AwsLambdaTransformation": {
@@ -642,6 +658,12 @@
           "target": "com.amazonaws.s3control#S3AccessPointArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the access point.</p>\n         <note>\n            <p>This is only supported by Amazon S3 on Outposts.</p>\n         </note>"
+          }
+        },
+        "Alias": {
+          "target": "com.amazonaws.s3control#Alias",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or alias of the access point.</p>"
           }
         }
       }
@@ -1467,6 +1489,15 @@
         }
       }
     },
+    "com.amazonaws.s3control#Endpoints": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.s3control#NonEmptyMaxLength64String"
+      },
+      "value": {
+        "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String"
+      }
+    },
     "com.amazonaws.s3control#ExceptionMessage": {
       "type": "string",
       "traits": {
@@ -1942,6 +1973,24 @@
           "target": "com.amazonaws.s3control#CreationDate",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the specified access point was created.</p>"
+          }
+        },
+        "Alias": {
+          "target": "com.amazonaws.s3control#Alias",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or alias of the access point.</p>"
+          }
+        },
+        "AccessPointArn": {
+          "target": "com.amazonaws.s3control#S3AccessPointArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the access point.</p>"
+          }
+        },
+        "Endpoints": {
+          "target": "com.amazonaws.s3control#Endpoints",
+          "traits": {
+            "smithy.api#documentation": "<p>The VPC endpoint for the access point.</p>"
           }
         }
       }

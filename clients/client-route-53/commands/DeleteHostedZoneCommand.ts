@@ -24,7 +24,7 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
 /**
  * <p>Deletes a hosted zone.</p>
  *
- * 		       <p>If the hosted zone was created by another service, such as AWS Cloud Map, see
+ * 		       <p>If the hosted zone was created by another service, such as Cloud Map, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service">Deleting
  * 			Public Hosted Zones That Were Created by Another Service</a> in the <i>Amazon Route 53 Developer Guide</i> for information about how to delete it.
  * 			(The process is the same for public and private hosted zones that were created by another service.)</p>
@@ -58,7 +58,7 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  *             </li>
  *             <li>
  *                <p>Use the <code>ListHostedZones</code> action to get a list of the hosted zones associated with the current
- * 				AWS account.</p>
+ * 				account.</p>
  *             </li>
  *          </ul>
  * @example

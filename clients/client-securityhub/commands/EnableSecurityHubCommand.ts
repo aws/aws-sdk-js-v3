@@ -29,23 +29,18 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  *          automatically enable the following standards.</p>
  *          <ul>
  *             <li>
- *                <p>CIS AWS Foundations</p>
+ *                <p>CIS Amazon Web Services Foundations</p>
  *             </li>
  *             <li>
- *                <p>AWS Foundational Security Best Practices</p>
+ *                <p>Amazon Web Services Foundational Security Best Practices</p>
  *             </li>
  *          </ul>
  *          <p>You do not enable the Payment Card Industry Data Security Standard (PCI DSS) standard. </p>
  *          <p>To not enable the automatically enabled standards, set
  *             <code>EnableDefaultStandards</code> to <code>false</code>.</p>
- *          <p>After you enable Security Hub, to enable a standard, use the <code>
- *                <a>BatchEnableStandards</a>
- *             </code> operation. To disable a standard, use the
- *                <code>
- *                <a>BatchDisableStandards</a>
- *             </code> operation.</p>
- *          <p>To learn more, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">Setting Up
- *             AWS Security Hub</a> in the <i>AWS Security Hub User Guide</i>.</p>
+ *          <p>After you enable Security Hub, to enable a standard, use the <code>BatchEnableStandards</code> operation. To disable a standard, use the
+ *                <code>BatchDisableStandards</code> operation.</p>
+ *          <p>To learn more, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">setup information</a> in the <i>Security Hub User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

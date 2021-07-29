@@ -23,7 +23,7 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
 /**
  * <p>Disables the standards specified by the provided
  *          <code>StandardsSubscriptionArns</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security Standards</a> section of the <i>AWS Security Hub User
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security Standards</a> section of the <i>Security Hub User
  *          Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

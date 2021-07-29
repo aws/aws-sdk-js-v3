@@ -27,7 +27,7 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all the permission sets that are provisioned to a specified AWS account.</p>
+ * <p>Lists all the permission sets that are provisioned to a specified Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

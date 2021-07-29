@@ -21,10 +21,10 @@ export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimits
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves your account's AWS CloudFormation limits, such as the maximum number of
+ * <p>Retrieves your account's CloudFormation limits, such as the maximum number of
  *          stacks that you can create in your account. For more information about account limits, see
- *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">AWS CloudFormation
- *             Limits</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+ *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation Limits</a> in the <i>CloudFormation User
+ *          Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -58,6 +58,8 @@ export * from "./commands/DescribeThemeCommand";
 export * from "./commands/DescribeThemeAliasCommand";
 export * from "./commands/DescribeThemePermissionsCommand";
 export * from "./commands/DescribeUserCommand";
+export * from "./commands/GenerateEmbedUrlForAnonymousUserCommand";
+export * from "./commands/GenerateEmbedUrlForRegisteredUserCommand";
 export * from "./commands/GetDashboardEmbedUrlCommand";
 export * from "./commands/GetSessionEmbedUrlCommand";
 export * from "./commands/ListAnalysesCommand";

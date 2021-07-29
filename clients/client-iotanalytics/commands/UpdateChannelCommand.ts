@@ -21,7 +21,7 @@ export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
 export interface UpdateChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the settings of a channel.</p>
+ * <p>Used to update the settings of a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

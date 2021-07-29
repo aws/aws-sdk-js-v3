@@ -25,7 +25,7 @@ export interface CreateNetworkInterfacePermissionCommandOutput
 /**
  * <p>Grants an Amazon Web Services-authorized account permission to attach the specified network interface to
  *             an instance in their account.</p>
- * 	        <p>You can grant permission to a single account only, and only one account at a time.</p>
+ * 	        <p>You can grant permission to a single Amazon Web Services account only, and only one account at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

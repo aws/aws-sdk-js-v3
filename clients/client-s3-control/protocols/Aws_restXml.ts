@@ -2481,10 +2481,14 @@ export const deserializeAws_restXmlCreateAccessPointCommand = async (
   const contents: CreateAccessPointCommandOutput = {
     $metadata: deserializeMetadata(output),
     AccessPointArn: undefined,
+    Alias: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data["AccessPointArn"] !== undefined) {
     contents.AccessPointArn = __expectString(data["AccessPointArn"]);
+  }
+  if (data["Alias"] !== undefined) {
+    contents.Alias = __expectString(data["Alias"]);
   }
   return Promise.resolve(contents);
 };
@@ -3339,19 +3343,34 @@ export const deserializeAws_restXmlGetAccessPointCommand = async (
   }
   const contents: GetAccessPointCommandOutput = {
     $metadata: deserializeMetadata(output),
+    AccessPointArn: undefined,
+    Alias: undefined,
     Bucket: undefined,
     CreationDate: undefined,
+    Endpoints: undefined,
     Name: undefined,
     NetworkOrigin: undefined,
     PublicAccessBlockConfiguration: undefined,
     VpcConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data["AccessPointArn"] !== undefined) {
+    contents.AccessPointArn = __expectString(data["AccessPointArn"]);
+  }
+  if (data["Alias"] !== undefined) {
+    contents.Alias = __expectString(data["Alias"]);
+  }
   if (data["Bucket"] !== undefined) {
     contents.Bucket = __expectString(data["Bucket"]);
   }
   if (data["CreationDate"] !== undefined) {
     contents.CreationDate = new Date(data["CreationDate"]);
+  }
+  if (data.Endpoints === "") {
+    contents.Endpoints = {};
+  }
+  if (data["Endpoints"] !== undefined && data["Endpoints"]["entry"] !== undefined) {
+    contents.Endpoints = deserializeAws_restXmlEndpoints(__getArrayIfSingleItem(data["Endpoints"]["entry"]), context);
   }
   if (data["Name"] !== undefined) {
     contents.Name = __expectString(data["Name"]);
@@ -6600,6 +6619,7 @@ const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext)
     VpcConfiguration: undefined,
     Bucket: undefined,
     AccessPointArn: undefined,
+    Alias: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -6615,6 +6635,9 @@ const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext)
   }
   if (output["AccessPointArn"] !== undefined) {
     contents.AccessPointArn = __expectString(output["AccessPointArn"]);
+  }
+  if (output["Alias"] !== undefined) {
+    contents.Alias = __expectString(output["Alias"]);
   }
   return contents;
 };
@@ -6694,6 +6717,18 @@ const deserializeAws_restXmlBuckets = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restXmlEndpoints = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [pair["key"]]: __expectString(pair["value"]) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restXml_Exclude = (output: any, context: __SerdeContext): _Exclude => {

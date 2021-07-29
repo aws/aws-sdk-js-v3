@@ -21,7 +21,7 @@ export interface ListDatasetContentsCommandInput extends ListDatasetContentsRequ
 export interface ListDatasetContentsCommandOutput extends ListDatasetContentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists information about data set contents that have been created.</p>
+ * <p>Lists information about dataset contents that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

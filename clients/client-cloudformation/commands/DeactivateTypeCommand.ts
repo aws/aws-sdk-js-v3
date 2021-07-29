@@ -21,8 +21,12 @@ export interface DeactivateTypeCommandInput extends DeactivateTypeInput {}
 export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Deactivates a public extension that was previously activated in this account and region.</p>
- *          <p>Once deactivated, an extension cannot be used in any CloudFormation operation. This includes stack update operations where the stack template includes the extension, even if no updates are being made to the extension. In addition, deactivated extensions are not automatically updated if a new version of the extension is released.</p>
+ * <p>Deactivates a public extension that was previously activated in this account and
+ *          region.</p>
+ *          <p>Once deactivated, an extension cannot be used in any CloudFormation operation. This
+ *          includes stack update operations where the stack template includes the extension, even if
+ *          no updates are being made to the extension. In addition, deactivated extensions are not
+ *          automatically updated if a new version of the extension is released.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

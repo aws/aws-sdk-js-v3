@@ -21,7 +21,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates tags for a resource in AWS Shield.</p>
+ * <p>Adds or updates tags for a resource in Shield.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

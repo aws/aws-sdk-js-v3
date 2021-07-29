@@ -23,6 +23,8 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
 /**
  * <p>Creates or updates an alarm and associates it with the specified metric, metric math expression,
  * 			or anomaly detection model.</p>
+ *
+ *
  * 		       <p>Alarms based on anomaly detection models cannot have Auto Scaling actions.</p>
  * 		       <p>When this operation creates an alarm, the alarm state is immediately set to
  * 			<code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set
@@ -50,11 +52,39 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *
  *
  * 		       <p>The first time you create an alarm in the
- * 			AWS Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch
+ * 			Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch
  * 			creates the necessary service-linked role for you. The service-linked roles
  * 			are called <code>AWSServiceRoleForCloudWatchEvents</code> and
  * 			<code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>.
- * 			For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS service-linked role</a>.</p>
+ * 			For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon Web Services service-linked role</a>.</p>
+ *
+ * 		       <p>
+ *             <b>Cross-account alarms</b>
+ *          </p>
+ *
+ * 		       <p>You can set an alarm on metrics in the current account, or in another
+ * 			account. To create a cross-account alarm that watches a metric in a different account, you must have completed the following
+ * 			pre-requisites:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>The account where the metrics are located (the <i>sharing account</i>) must
+ * 				already have a sharing role named <b>CloudWatch-CrossAccountSharingRole</b>. If it does not already
+ * 				have this role, you must create it using the instructions in <b>Set up a
+ * 					sharing account</b> in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region">
+ * 					Cross-account cross-Region CloudWatch console</a>. The policy for that
+ * 				role must grant access
+ * 				to the ID of the account where you are creating the alarm.
+ * 			</p>
+ *             </li>
+ *             <li>
+ *                <p>The account where you are creating the alarm (the <i>monitoring account</i>) must
+ * 				already have a service-linked role named
+ * 				<b>AWSServiceRoleForCloudWatchCrossAccount</b> to allow
+ * 				CloudWatch to assume the sharing role in the sharing account. If it does not, you must create it following the directions in <b>Set up a
+ * 					monitoring account</b> in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region">
+ * 						Cross-account cross-Region CloudWatch console</a>.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

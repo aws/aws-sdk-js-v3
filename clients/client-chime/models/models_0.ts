@@ -118,7 +118,7 @@ export interface Account {
   SupportedLicenses?: (License | string)[];
 
   /**
-   * <p>The status of the account, <code>Suspended</code> or <code>Active</code>.</p>
+   * <p>The status of the account.</p>
    */
   AccountStatus?: AccountStatus | string;
 
@@ -2911,7 +2911,7 @@ export namespace CreateMeetingRequest {
 }
 
 /**
- * <p>A set of endpoints used by clients to connect to the media service group for a Amazon Chime SDK meeting.</p>
+ * <p>A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.</p>
  */
 export interface MediaPlacement {
   /**
@@ -2950,7 +2950,7 @@ export interface MediaPlacement {
   TurnControlUrl?: string;
 
   /**
-   * <p>The event ingestion URL.</p>
+   * <p>The URL of the S3 bucket used to store the captured media.</p>
    */
   EventIngestionUrl?: string;
 }
@@ -5605,6 +5605,146 @@ export namespace EmergencyCallingConfiguration {
   });
 }
 
+export enum TranscribeMedicalLanguageCode {
+  EN_US = "en-US",
+}
+
+export enum TranscribeMedicalRegion {
+  AP_SOUTHEAST_2 = "ap-southeast-2",
+  CA_CENTRAL_1 = "ca-central-1",
+  EU_WEST_1 = "eu-west-1",
+  US_EAST_1 = "us-east-1",
+  US_EAST_2 = "us-east-2",
+  US_WEST_2 = "us-west-2",
+}
+
+export enum TranscribeMedicalSpecialty {
+  Cardiology = "CARDIOLOGY",
+  Neurology = "NEUROLOGY",
+  Oncology = "ONCOLOGY",
+  PrimaryCare = "PRIMARYCARE",
+  Radiology = "RADIOLOGY",
+  Urology = "UROLOGY",
+}
+
+export enum TranscribeMedicalType {
+  Conversation = "CONVERSATION",
+  Dictation = "DICTATION",
+}
+
+/**
+ * <p>Settings specific to the Amazon Transcribe Medical engine.</p>
+ */
+export interface EngineTranscribeMedicalSettings {
+  /**
+   * <p>The language code specified for the Amazon Transcribe Medical engine.</p>
+   */
+  LanguageCode: TranscribeMedicalLanguageCode | string | undefined;
+
+  /**
+   * <p>The specialty specified for the Amazon Transcribe Medical engine.</p>
+   */
+  Specialty: TranscribeMedicalSpecialty | string | undefined;
+
+  /**
+   * <p>The type of transcription.</p>
+   */
+  Type: TranscribeMedicalType | string | undefined;
+
+  /**
+   * <p>The name of the vocabulary passed to Amazon Transcribe Medical.</p>
+   */
+  VocabularyName?: string;
+
+  /**
+   * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the Region closest to the meeting's Region.</p>
+   */
+  Region?: TranscribeMedicalRegion | string;
+}
+
+export namespace EngineTranscribeMedicalSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EngineTranscribeMedicalSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum TranscribeLanguageCode {
+  DE_DE = "de-DE",
+  EN_AU = "en-AU",
+  EN_GB = "en-GB",
+  EN_US = "en-US",
+  ES_US = "es-US",
+  FR_CA = "fr-CA",
+  FR_FR = "fr-FR",
+  IT_IT = "it-IT",
+  JA_JP = "ja-JP",
+  KO_KR = "ko-KR",
+  PT_BR = "pt-BR",
+  ZH_CN = "zh-CN",
+}
+
+export enum TranscribeRegion {
+  AP_NORTHEAST_1 = "ap-northeast-1",
+  AP_NORTHEAST_2 = "ap-northeast-2",
+  AP_SOUTHEAST_2 = "ap-southeast-2",
+  CA_CENTRAL_1 = "ca-central-1",
+  EU_CENTRAL_1 = "eu-central-1",
+  EU_WEST_1 = "eu-west-1",
+  EU_WEST_2 = "eu-west-2",
+  SA_EAST_1 = "sa-east-1",
+  US_EAST_1 = "us-east-1",
+  US_EAST_2 = "us-east-2",
+  US_WEST_2 = "us-west-2",
+}
+
+export enum TranscribeVocabularyFilterMethod {
+  Mask = "mask",
+  Remove = "remove",
+  Tag = "tag",
+}
+
+/**
+ * <p>Settings specific to the Amazon Transcribe engine.</p>
+ */
+export interface EngineTranscribeSettings {
+  /**
+   * <p>The language code specified for the Amazon Transcribe engine.</p>
+   */
+  LanguageCode: TranscribeLanguageCode | string | undefined;
+
+  /**
+   * <p>The filtering method passed to Amazon Transcribe.</p>
+   */
+  VocabularyFilterMethod?: TranscribeVocabularyFilterMethod | string;
+
+  /**
+   * <p>The name of the vocabulary filter passed to Amazon Transcribe.</p>
+   */
+  VocabularyFilterName?: string;
+
+  /**
+   * <p>The name of the vocabulary passed to Amazon Transcribe.</p>
+   */
+  VocabularyName?: string;
+
+  /**
+   * <p>The AWS Region passed to Amazon Transcribe. If you don't specify a Region, Amazon Chime uses the Region closest to the meeting's Region.</p>
+   */
+  Region?: TranscribeRegion | string;
+}
+
+export namespace EngineTranscribeSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EngineTranscribeSettings): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The configuration that allows a bot to receive outgoing events. Can be either an HTTPS endpoint or a Lambda function ARN.</p>
  */
@@ -6737,158 +6877,6 @@ export namespace UserSettings {
    * @internal
    */
   export const filterSensitiveLog = (obj: UserSettings): any => ({
-    ...obj,
-  });
-}
-
-export interface GetUserSettingsResponse {
-  /**
-   * <p>The user settings.</p>
-   */
-  UserSettings?: UserSettings;
-}
-
-export namespace GetUserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorRequest {
-  /**
-   * <p>The Amazon Chime Voice Connector ID.</p>
-   */
-  VoiceConnectorId: string | undefined;
-}
-
-export namespace GetVoiceConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorResponse {
-  /**
-   * <p>The Amazon Chime Voice Connector details.</p>
-   */
-  VoiceConnector?: VoiceConnector;
-}
-
-export namespace GetVoiceConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorEmergencyCallingConfigurationRequest {
-  /**
-   * <p>The Amazon Chime Voice Connector ID.</p>
-   */
-  VoiceConnectorId: string | undefined;
-}
-
-export namespace GetVoiceConnectorEmergencyCallingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorEmergencyCallingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorEmergencyCallingConfigurationResponse {
-  /**
-   * <p>The emergency calling configuration details.</p>
-   */
-  EmergencyCallingConfiguration?: EmergencyCallingConfiguration;
-}
-
-export namespace GetVoiceConnectorEmergencyCallingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorEmergencyCallingConfigurationResponse): any => ({
-    ...obj,
-    ...(obj.EmergencyCallingConfiguration && {
-      EmergencyCallingConfiguration: EmergencyCallingConfiguration.filterSensitiveLog(
-        obj.EmergencyCallingConfiguration
-      ),
-    }),
-  });
-}
-
-export interface GetVoiceConnectorGroupRequest {
-  /**
-   * <p>The Amazon Chime Voice Connector group ID.</p>
-   */
-  VoiceConnectorGroupId: string | undefined;
-}
-
-export namespace GetVoiceConnectorGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorGroupResponse {
-  /**
-   * <p>The Amazon Chime Voice Connector group details.</p>
-   */
-  VoiceConnectorGroup?: VoiceConnectorGroup;
-}
-
-export namespace GetVoiceConnectorGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorLoggingConfigurationRequest {
-  /**
-   * <p>The Amazon Chime Voice Connector ID.</p>
-   */
-  VoiceConnectorId: string | undefined;
-}
-
-export namespace GetVoiceConnectorLoggingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorLoggingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The logging configuration associated with an Amazon Chime Voice Connector. Specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
- */
-export interface LoggingConfiguration {
-  /**
-   * <p>When true, enables SIP message logs for sending to Amazon CloudWatch Logs.</p>
-   */
-  EnableSIPLogs?: boolean;
-}
-
-export namespace LoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
     ...obj,
   });
 }

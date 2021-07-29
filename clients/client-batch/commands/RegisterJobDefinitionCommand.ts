@@ -21,7 +21,7 @@ export interface RegisterJobDefinitionCommandInput extends RegisterJobDefinition
 export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Registers an AWS Batch job definition.</p>
+ * <p>Registers an Batch job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

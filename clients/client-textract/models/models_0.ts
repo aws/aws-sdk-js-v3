@@ -33,7 +33,8 @@ export namespace AccessDeniedException {
  */
 export interface S3Object {
   /**
-   * <p>The name of the S3 bucket.</p>
+   * <p>The name of the S3 bucket. Note that the # character is not valid in the file
+   *          name.</p>
    */
   Bucket?: string;
 
@@ -113,12 +114,13 @@ export enum ContentClassifier {
 }
 
 /**
- * <p>Allows you to set attributes of the image. Currently, you can declare an image as free of
- *          personally identifiable information and adult content. </p>
+ * <p>Allows you to set attributes of the image. Currently, you can declare an image as free
+ *          of personally identifiable information and adult content. </p>
  */
 export interface HumanLoopDataAttributes {
   /**
-   * <p>Sets whether the input image is free of personally identifiable information or adult content.</p>
+   * <p>Sets whether the input image is free of personally identifiable information or adult
+   *          content.</p>
    */
   ContentClassifiers?: (ContentClassifier | string)[];
 }
@@ -133,12 +135,13 @@ export namespace HumanLoopDataAttributes {
 }
 
 /**
- * <p>Sets up the human review workflow the document will be sent to if one of the conditions is met. You can also set certain attributes
- *          of the image before review. </p>
+ * <p>Sets up the human review workflow the document will be sent to if one of the conditions
+ *          is met. You can also set certain attributes of the image before review. </p>
  */
 export interface HumanLoopConfig {
   /**
-   * <p>The name of the human workflow used for this image. This should be kept unique within a region.</p>
+   * <p>The name of the human workflow used for this image. This should be kept unique within a
+   *          region.</p>
    */
   HumanLoopName: string | undefined;
 
@@ -212,10 +215,10 @@ export enum EntityType {
 }
 
 /**
- * <p>The bounding box around the detected page, text, key-value pair, table, table cell, or selection element on a
- *          document page. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are
- *          coordinates that represent the top and left sides of the bounding box. Note that the
- *          upper-left corner of the image is the origin (0,0). </p>
+ * <p>The bounding box around the detected page, text, key-value pair, table, table cell, or
+ *          selection element on a document page. The <code>left</code> (x-coordinate) and
+ *             <code>top</code> (y-coordinate) are coordinates that represent the top and left sides of
+ *          the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p>
  *          <p>The <code>top</code> and <code>left</code> values returned are ratios of the overall
  *          document page size. For example, if the input image is 700 x 200 pixels, and the top-left
  *          coordinate of the bounding box is 350 x 50 pixels, the API returns a <code>left</code>
@@ -335,9 +338,10 @@ export interface Relationship {
   /**
    * <p>The type of relationship that the blocks in the IDs array have with the current block.
    *          The relationship can be <code>VALUE</code> or <code>CHILD</code>. A relationship of type
-   *          VALUE is a list that contains the ID of the VALUE block that's associated with the KEY of a key-value pair.
-   *          A relationship of type CHILD is a list of IDs that identify WORD blocks in the case of lines
-   *          Cell blocks in the case of Tables, and WORD blocks in the case of Selection Elements.</p>
+   *          VALUE is a list that contains the ID of the VALUE block that's associated with the KEY of a
+   *          key-value pair. A relationship of type CHILD is a list of IDs that identify WORD blocks in
+   *          the case of lines Cell blocks in the case of Tables, and WORD blocks in the case of
+   *          Selection Elements.</p>
    */
   Type?: RelationshipType | string;
 
@@ -461,7 +465,8 @@ export interface Block {
   Text?: string;
 
   /**
-   * <p>The kind of text that Amazon Textract has detected. Can check for handwritten text and printed text.</p>
+   * <p>The kind of text that Amazon Textract has detected. Can check for handwritten text and
+   *          printed text.</p>
    */
   TextType?: TextType | string;
 
@@ -480,15 +485,15 @@ export interface Block {
   ColumnIndex?: number;
 
   /**
-   * <p>The number of rows that a table cell spans. Currently this value is always 1, even
-   *          if the number of rows spanned is greater than 1. <code>RowSpan</code> isn't returned by
+   * <p>The number of rows that a table cell spans. Currently this value is always 1, even if
+   *          the number of rows spanned is greater than 1. <code>RowSpan</code> isn't returned by
    *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
    */
   RowSpan?: number;
 
   /**
-   * <p>The number of columns that a table cell spans. Currently this value is always 1, even
-   *          if the number of columns spanned is greater than 1. <code>ColumnSpan</code> isn't returned by
+   * <p>The number of columns that a table cell spans. Currently this value is always 1, even if
+   *          the number of columns spanned is greater than 1. <code>ColumnSpan</code> isn't returned by
    *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
    */
   ColumnSpan?: number;
@@ -541,7 +546,8 @@ export interface Block {
   EntityTypes?: (EntityType | string)[];
 
   /**
-   * <p>The selection status of a selection element, such as an option button or check box. </p>
+   * <p>The selection status of a selection element, such as an option button or check box.
+   *       </p>
    */
   SelectionStatus?: SelectionStatus | string;
 
@@ -585,8 +591,8 @@ export namespace DocumentMetadata {
 }
 
 /**
- * <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the input
- *          did not trigger human review.</p>
+ * <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the
+ *          input did not trigger human review.</p>
  */
 export interface HumanLoopActivationOutput {
   /**
@@ -600,7 +606,8 @@ export interface HumanLoopActivationOutput {
   HumanLoopActivationReasons?: string[];
 
   /**
-   * <p>Shows the result of condition evaluations, including those conditions which activated a human review.</p>
+   * <p>Shows the result of condition evaluations, including those conditions which activated a
+   *          human review.</p>
    */
   HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
 }
@@ -843,6 +850,221 @@ export namespace UnsupportedDocumentException {
   });
 }
 
+export interface AnalyzeExpenseRequest {
+  /**
+   * <p>The input document, either as bytes or as an S3 object.</p>
+   *          <p>You pass image bytes to an Amazon Textract API operation by using the <code>Bytes</code>
+   *          property. For example, you would use the <code>Bytes</code> property to pass a document
+   *          loaded from a local file system. Image bytes passed by using the <code>Bytes</code>
+   *          property must be base64 encoded. Your code might not need to encode document file bytes if
+   *          you're using an AWS SDK to call Amazon Textract API operations. </p>
+   *          <p>You pass images stored in an S3 bucket to an Amazon Textract API operation by using the
+   *             <code>S3Object</code> property. Documents stored in an S3 bucket don't need to be base64
+   *          encoded.</p>
+   *          <p>The AWS Region for the S3 bucket that contains the S3 object must match the AWS
+   *          Region that you use for Amazon Textract operations.</p>
+   *          <p>If you use the AWS CLI to call Amazon Textract operations, passing image bytes using
+   *          the Bytes property isn't supported. You must first upload the document to an Amazon S3
+   *          bucket, and then call the operation using the S3Object property.</p>
+   *
+   *          <p>For Amazon Textract to process an S3 object, the user must have permission
+   *          to access the S3 object. </p>
+   */
+  Document: Document | undefined;
+}
+
+export namespace AnalyzeExpenseRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnalyzeExpenseRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object used to store information about the Value or Label detected by Amazon Textract.</p>
+ */
+export interface ExpenseDetection {
+  /**
+   * <p>The word or line of text recognized by Amazon Textract</p>
+   */
+  Text?: string;
+
+  /**
+   * <p>Information about where the following items are located on a document page: detected
+   *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
+   */
+  Geometry?: Geometry;
+
+  /**
+   * <p>The confidence in detection, as a percentage</p>
+   */
+  Confidence?: number;
+}
+
+export namespace ExpenseDetection {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExpenseDetection): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object used to store information about the Type detected by Amazon Textract.</p>
+ */
+export interface ExpenseType {
+  /**
+   * <p>The word or line of text detected by Amazon Textract.</p>
+   */
+  Text?: string;
+
+  /**
+   * <p>The confidence of accuracy, as a percentage.</p>
+   */
+  Confidence?: number;
+}
+
+export namespace ExpenseType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExpenseType): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Breakdown of detected information, seperated into
+ *          the catagories Type, LableDetection, and ValueDetection</p>
+ */
+export interface ExpenseField {
+  /**
+   * <p>The implied label of a detected element. Present alongside LabelDetection for explicit elements.</p>
+   */
+  Type?: ExpenseType;
+
+  /**
+   * <p>The explicitly stated label of a detected element.</p>
+   */
+  LabelDetection?: ExpenseDetection;
+
+  /**
+   * <p>The value of a detected element. Present in explicit and implicit elements.</p>
+   */
+  ValueDetection?: ExpenseDetection;
+
+  /**
+   * <p>The page number the value was detected on.</p>
+   */
+  PageNumber?: number;
+}
+
+export namespace ExpenseField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExpenseField): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure that holds information about the different lines found in a document's tables.</p>
+ */
+export interface LineItemFields {
+  /**
+   * <p>ExpenseFields used to show information from detected lines on a table.</p>
+   */
+  LineItemExpenseFields?: ExpenseField[];
+}
+
+export namespace LineItemFields {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LineItemFields): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A grouping of tables which contain LineItems, with each table identified by the table's <code>LineItemGroupIndex</code>.</p>
+ */
+export interface LineItemGroup {
+  /**
+   * <p>The number used to identify a specific table in a document. The first table encountered will have a LineItemGroupIndex of 1, the second 2, etc.</p>
+   */
+  LineItemGroupIndex?: number;
+
+  /**
+   * <p>The breakdown of information on a particular line of a table. </p>
+   */
+  LineItems?: LineItemFields[];
+}
+
+export namespace LineItemGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LineItemGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The structure holding all the information returned by AnalyzeExpense</p>
+ */
+export interface ExpenseDocument {
+  /**
+   * <p>Denotes which invoice or receipt in the document the information is coming from.
+   *       First document will be 1, the second 2, and so on.</p>
+   */
+  ExpenseIndex?: number;
+
+  /**
+   * <p>Any information found outside of a table by Amazon Textract.</p>
+   */
+  SummaryFields?: ExpenseField[];
+
+  /**
+   * <p>Information detected on each table of a document, seperated into <code>LineItems</code>.</p>
+   */
+  LineItemGroups?: LineItemGroup[];
+}
+
+export namespace ExpenseDocument {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExpenseDocument): any => ({
+    ...obj,
+  });
+}
+
+export interface AnalyzeExpenseResponse {
+  /**
+   * <p>Information about the input document.</p>
+   */
+  DocumentMetadata?: DocumentMetadata;
+
+  /**
+   * <p>The expenses detected by Amazon Textract.</p>
+   */
+  ExpenseDocuments?: ExpenseDocument[];
+}
+
+export namespace AnalyzeExpenseResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnalyzeExpenseResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DetectDocumentTextRequest {
   /**
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
@@ -1042,6 +1264,26 @@ export namespace InvalidJobIdException {
   });
 }
 
+/**
+ * <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
+ *         was entered incorrectly. </p>
+ */
+export interface InvalidKMSKeyException extends __SmithyException, $MetadataBearer {
+  name: "InvalidKMSKeyException";
+  $fault: "client";
+  Message?: string;
+  Code?: string;
+}
+
+export namespace InvalidKMSKeyException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidKMSKeyException): any => ({
+    ...obj,
+  });
+}
+
 export interface GetDocumentTextDetectionRequest {
   /**
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
@@ -1143,26 +1385,6 @@ export namespace IdempotentParameterMismatchException {
 }
 
 /**
- * <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
- *         was entered incorrectly. </p>
- */
-export interface InvalidKMSKeyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidKMSKeyException";
-  $fault: "client";
-  Message?: string;
-  Code?: string;
-}
-
-export namespace InvalidKMSKeyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKMSKeyException): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>An Amazon Textract service limit was exceeded. For example, if you start too many
  *          asynchronous jobs concurrently, calls to start operations
  *             (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException
@@ -1211,9 +1433,22 @@ export namespace NotificationChannel {
 }
 
 /**
- * <p>Sets whether or not your output will go to a user created bucket.
- *          Used to set the name of the bucket, and the prefix on the output
- *          file.</p>
+ * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
+ *          of the bucket, and the prefix on the output file.</p>
+ *          <p>
+ *             <code>OutputConfig</code> is an optional parameter which lets you adjust where your output will be placed.
+ *          By default, Amazon Textract will store the results internally and can only be accessed by the Get
+ *          API operations. With OutputConfig enabled, you can set the name of the bucket the output will be
+ *          sent to and the file prefix of the results where you can download your results. Additionally, you
+ *          can set the <code>KMSKeyID</code> parameter to a customer master key (CMK) to encrypt your output. Without this
+ *          parameter set Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p>
+ *          <p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account
+ *          is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after
+ *          the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a>
+ *          </p>
+ *          <p>For more information on data privacy,
+ *          see the <a href="https://aws.amazon.com/compliance/data-privacy-faq/">Data Privacy
+ *             FAQ</a>.</p>
  */
 export interface OutputConfig {
   /**
@@ -1222,8 +1457,8 @@ export interface OutputConfig {
   S3Bucket: string | undefined;
 
   /**
-   * <p>The prefix of the object key that the output will be saved to. When
-   *          not enabled, the prefix will be “textract_output".</p>
+   * <p>The prefix of the object key that the output will be saved to. When not enabled, the
+   *          prefix will be “textract_output".</p>
    */
   S3Prefix?: string;
 }

@@ -71,6 +71,7 @@ import {
   JobSummary,
   JobTimeout,
   KeyValuePair,
+  KeyValuesPair,
   LaunchTemplateSpecification,
   LinuxParameters,
   LogConfiguration,
@@ -401,6 +402,8 @@ export const serializeAws_restJson1ListJobsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.arrayJobId !== undefined && input.arrayJobId !== null && { arrayJobId: input.arrayJobId }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_restJson1ListJobsFilterList(input.filters, context) }),
     ...(input.jobQueue !== undefined && input.jobQueue !== null && { jobQueue: input.jobQueue }),
     ...(input.jobStatus !== undefined && input.jobStatus !== null && { jobStatus: input.jobStatus }),
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -2267,6 +2270,14 @@ const serializeAws_restJson1KeyValuePair = (input: KeyValuePair, context: __Serd
   };
 };
 
+const serializeAws_restJson1KeyValuesPair = (input: KeyValuesPair, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.values !== undefined &&
+      input.values !== null && { values: serializeAws_restJson1StringList(input.values, context) }),
+  };
+};
+
 const serializeAws_restJson1LaunchTemplateSpecification = (
   input: LaunchTemplateSpecification,
   context: __SerdeContext
@@ -2293,6 +2304,17 @@ const serializeAws_restJson1LinuxParameters = (input: LinuxParameters, context: 
     ...(input.tmpfs !== undefined &&
       input.tmpfs !== null && { tmpfs: serializeAws_restJson1TmpfsList(input.tmpfs, context) }),
   };
+};
+
+const serializeAws_restJson1ListJobsFilterList = (input: KeyValuesPair[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1KeyValuesPair(entry, context);
+    });
 };
 
 const serializeAws_restJson1LogConfiguration = (input: LogConfiguration, context: __SerdeContext): any => {
@@ -3194,6 +3216,7 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
         : undefined,
     createdAt: __expectNumber(output.createdAt),
     jobArn: __expectString(output.jobArn),
+    jobDefinition: __expectString(output.jobDefinition),
     jobId: __expectString(output.jobId),
     jobName: __expectString(output.jobName),
     nodeProperties:

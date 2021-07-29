@@ -385,7 +385,8 @@ export interface Environment {
   deploymentStatusMessage?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton to make calls to other services on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton to make calls to other services on your
+   *             behalf.</p>
    */
   protonServiceRoleArn?: string;
 
@@ -1051,7 +1052,7 @@ export interface CreateEnvironmentInput {
   /**
    * <p>The ID of the environment account connection that you provide if you're provisioning your environment infrastructure resources to an
    *             environment account. You must include either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
-   *             parameter and value. For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account
+   *             parameter and value. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
    *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
    */
   environmentAccountConnectionId?: string;
@@ -1358,7 +1359,8 @@ export interface UpdateEnvironmentInput {
   templateMinorVersion?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton to make API calls to other services your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton to make API calls to other services your
+   *             behalf.</p>
    */
   protonServiceRoleArn?: string;
 
@@ -2713,8 +2715,8 @@ export interface CreateServiceInput {
   repositoryId?: string;
 
   /**
-   * <p>The name of the code repository branch that holds the code that's deployed in AWS Proton. <i>Don't</i> include this parameter
-   *             if your service template <i>doesn't</i> include a service pipeline.</p>
+   * <p>The name of the code repository branch that holds the code that's deployed in AWS Proton. <i>Don't</i> include this
+   *             parameter if your service template <i>doesn't</i> include a service pipeline.</p>
    */
   branchName?: string;
 

@@ -26,7 +26,7 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *       the instance, or all three. If an EBS volume is the root device of an instance, it can't be
  *       detached while the instance is running. To detach the root volume, stop the instance
  *       first.</p>
- *          <p>When a volume with an Marketplace product code is detached from an instance, the
+ *          <p>When a volume with an Amazon Web Services Marketplace product code is detached from an instance, the
  *       product code is no longer associated with the instance.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detach an Amazon EBS volume</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>

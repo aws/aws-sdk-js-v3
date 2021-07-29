@@ -462,6 +462,14 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
 import { SendChannelMessageCommandInput, SendChannelMessageCommandOutput } from "../commands/SendChannelMessageCommand";
+import {
+  StartMeetingTranscriptionCommandInput,
+  StartMeetingTranscriptionCommandOutput,
+} from "../commands/StartMeetingTranscriptionCommand";
+import {
+  StopMeetingTranscriptionCommandInput,
+  StopMeetingTranscriptionCommandOutput,
+} from "../commands/StopMeetingTranscriptionCommand";
 import { TagAttendeeCommandInput, TagAttendeeCommandOutput } from "../commands/TagAttendeeCommand";
 import { TagMeetingCommandInput, TagMeetingCommandOutput } from "../commands/TagMeetingCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -563,12 +571,13 @@ import {
   Credential,
   DNISEmergencyCallingConfiguration,
   EmergencyCallingConfiguration,
+  EngineTranscribeMedicalSettings,
+  EngineTranscribeSettings,
   EventsConfiguration,
   ForbiddenException,
   GeoMatchParams,
   Identity,
   License,
-  LoggingConfiguration,
   MediaCapturePipeline,
   MediaPlacement,
   Meeting,
@@ -618,6 +627,7 @@ import {
 } from "../models/models_0";
 import {
   Invite,
+  LoggingConfiguration,
   Origination,
   OriginationRoute,
   PhoneNumberCountry,
@@ -626,6 +636,7 @@ import {
   StreamingNotificationTarget,
   Termination,
   TerminationHealth,
+  TranscriptionConfiguration,
 } from "../models/models_1";
 import {
   HttpRequest as __HttpRequest,
@@ -6476,6 +6487,83 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartMeetingTranscriptionCommand = async (
+  input: StartMeetingTranscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/transcription";
+  if (input.MeetingId !== undefined) {
+    const labelValue: string = input.MeetingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MeetingId.");
+    }
+    resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  const query: any = {
+    operation: "start",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.TranscriptionConfiguration !== undefined &&
+      input.TranscriptionConfiguration !== null && {
+        TranscriptionConfiguration: serializeAws_restJson1TranscriptionConfiguration(
+          input.TranscriptionConfiguration,
+          context
+        ),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StopMeetingTranscriptionCommand = async (
+  input: StopMeetingTranscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/transcription";
+  if (input.MeetingId !== undefined) {
+    const labelValue: string = input.MeetingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MeetingId.");
+    }
+    resolvedPath = resolvedPath.replace("{MeetingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MeetingId.");
+  }
+  const query: any = {
+    operation: "stop",
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -24242,6 +24330,228 @@ const deserializeAws_restJson1SendChannelMessageCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1StartMeetingTranscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMeetingTranscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartMeetingTranscriptionCommandError(output, context);
+  }
+  const contents: StartMeetingTranscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartMeetingTranscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMeetingTranscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chime#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnprocessableEntityException":
+    case "com.amazonaws.chime#UnprocessableEntityException":
+      response = {
+        ...(await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StopMeetingTranscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopMeetingTranscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StopMeetingTranscriptionCommandError(output, context);
+  }
+  const contents: StopMeetingTranscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StopMeetingTranscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopMeetingTranscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnprocessableEntityException":
+    case "com.amazonaws.chime#UnprocessableEntityException":
+      response = {
+        ...(await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1TagAttendeeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -27504,6 +27814,36 @@ const serializeAws_restJson1EmergencyCallingConfiguration = (
   };
 };
 
+const serializeAws_restJson1EngineTranscribeMedicalSettings = (
+  input: EngineTranscribeMedicalSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
+    ...(input.Specialty !== undefined && input.Specialty !== null && { Specialty: input.Specialty }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+  };
+};
+
+const serializeAws_restJson1EngineTranscribeSettings = (
+  input: EngineTranscribeSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
+    ...(input.VocabularyFilterMethod !== undefined &&
+      input.VocabularyFilterMethod !== null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
+    ...(input.VocabularyFilterName !== undefined &&
+      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+  };
+};
+
 const serializeAws_restJson1GeoMatchParams = (input: GeoMatchParams, context: __SerdeContext): any => {
   return {
     ...(input.AreaCode !== undefined && input.AreaCode !== null && { AreaCode: input.AreaCode }),
@@ -27858,6 +28198,28 @@ const serializeAws_restJson1Termination = (input: Termination, context: __SerdeC
     ...(input.DefaultPhoneNumber !== undefined &&
       input.DefaultPhoneNumber !== null && { DefaultPhoneNumber: input.DefaultPhoneNumber }),
     ...(input.Disabled !== undefined && input.Disabled !== null && { Disabled: input.Disabled }),
+  };
+};
+
+const serializeAws_restJson1TranscriptionConfiguration = (
+  input: TranscriptionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EngineTranscribeMedicalSettings !== undefined &&
+      input.EngineTranscribeMedicalSettings !== null && {
+        EngineTranscribeMedicalSettings: serializeAws_restJson1EngineTranscribeMedicalSettings(
+          input.EngineTranscribeMedicalSettings,
+          context
+        ),
+      }),
+    ...(input.EngineTranscribeSettings !== undefined &&
+      input.EngineTranscribeSettings !== null && {
+        EngineTranscribeSettings: serializeAws_restJson1EngineTranscribeSettings(
+          input.EngineTranscribeSettings,
+          context
+        ),
+      }),
   };
 };
 

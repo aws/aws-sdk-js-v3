@@ -82,6 +82,10 @@ import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "../
 import { GetStackPolicyCommandInput, GetStackPolicyCommandOutput } from "../commands/GetStackPolicyCommand";
 import { GetTemplateCommandInput, GetTemplateCommandOutput } from "../commands/GetTemplateCommand";
 import { GetTemplateSummaryCommandInput, GetTemplateSummaryCommandOutput } from "../commands/GetTemplateSummaryCommand";
+import {
+  ImportStacksToStackSetCommandInput,
+  ImportStacksToStackSetCommandOutput,
+} from "../commands/ImportStacksToStackSetCommand";
 import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "../commands/ListChangeSetsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
@@ -220,6 +224,8 @@ import {
   GetTemplateOutput,
   GetTemplateSummaryInput,
   GetTemplateSummaryOutput,
+  ImportStacksToStackSetInput,
+  ImportStacksToStackSetOutput,
   InsufficientCapabilitiesException,
   InvalidChangeSetStatusException,
   InvalidOperationException,
@@ -294,6 +300,7 @@ import {
   StackInstanceFilter,
   StackInstanceNotFoundException,
   StackInstanceSummary,
+  StackNotFoundException,
   StackResource,
   StackResourceDetail,
   StackResourceDrift,
@@ -930,6 +937,22 @@ export const serializeAws_queryGetTemplateSummaryCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryGetTemplateSummaryInput(input, context),
     Action: "GetTemplateSummary",
+    Version: "2010-05-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryImportStacksToStackSetCommand = async (
+  input: ImportStacksToStackSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryImportStacksToStackSetInput(input, context),
+    Action: "ImportStacksToStackSet",
     Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3455,6 +3478,108 @@ const deserializeAws_queryGetTemplateSummaryCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryImportStacksToStackSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportStacksToStackSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryImportStacksToStackSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryImportStacksToStackSetOutput(data.ImportStacksToStackSetResult, context);
+  const response: ImportStacksToStackSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryImportStacksToStackSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportStacksToStackSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidOperationException":
+    case "com.amazonaws.cloudformation#InvalidOperationException":
+      response = {
+        ...(await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.cloudformation#LimitExceededException":
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationIdAlreadyExistsException":
+    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationInProgressException":
+    case "com.amazonaws.cloudformation#OperationInProgressException":
+      response = {
+        ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "StackNotFoundException":
+    case "com.amazonaws.cloudformation#StackNotFoundException":
+      response = {
+        ...(await deserializeAws_queryStackNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "StackSetNotFoundException":
+    case "com.amazonaws.cloudformation#StackSetNotFoundException":
+      response = {
+        ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "StaleRequestException":
+    case "com.amazonaws.cloudformation#StaleRequestException":
+      response = {
+        ...(await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryListChangeSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5204,6 +5329,21 @@ const deserializeAws_queryStackInstanceNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_queryStackNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<StackNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryStackNotFoundException(body.Error, context);
+  const contents: StackNotFoundException = {
+    name: "StackNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryStackSetNotEmptyExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5652,6 +5792,9 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
   }
   if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
     entries["TemplateURL"] = input.TemplateURL;
+  }
+  if (input.StackId !== undefined && input.StackId !== null) {
+    entries["StackId"] = input.StackId;
   }
   if (input.Parameters !== undefined && input.Parameters !== null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
@@ -6178,6 +6321,40 @@ const serializeAws_queryGetTemplateSummaryInput = (input: GetTemplateSummaryInpu
   }
   if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
+  }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
+  }
+  return entries;
+};
+
+const serializeAws_queryImportStacksToStackSetInput = (
+  input: ImportStacksToStackSetInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    entries["StackSetName"] = input.StackSetName;
+  }
+  if (input.StackIds !== undefined && input.StackIds !== null) {
+    const memberEntries = serializeAws_queryStackIdList(input.StackIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `StackIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
+    const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OperationPreferences.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
+  if (input.OperationId !== undefined && input.OperationId !== null) {
+    entries["OperationId"] = input.OperationId;
   }
   if (input.CallAs !== undefined && input.CallAs !== null) {
     entries["CallAs"] = input.CallAs;
@@ -6794,6 +6971,19 @@ const serializeAws_querySignalResourceInput = (input: SignalResourceInput, conte
   }
   if (input.Status !== undefined && input.Status !== null) {
     entries["Status"] = input.Status;
+  }
+  return entries;
+};
+
+const serializeAws_queryStackIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -8351,6 +8541,19 @@ const deserializeAws_queryImports = (output: any, context: __SerdeContext): stri
     });
 };
 
+const deserializeAws_queryImportStacksToStackSetOutput = (
+  output: any,
+  context: __SerdeContext
+): ImportStacksToStackSetOutput => {
+  let contents: any = {
+    OperationId: undefined,
+  };
+  if (output["OperationId"] !== undefined) {
+    contents.OperationId = __expectString(output["OperationId"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryInsufficientCapabilitiesException = (
   output: any,
   context: __SerdeContext
@@ -9679,6 +9882,16 @@ const deserializeAws_queryStackInstanceSummary = (output: any, context: __SerdeC
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
     contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryStackNotFoundException = (output: any, context: __SerdeContext): StackNotFoundException => {
+  let contents: any = {
+    Message: undefined,
+  };
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };

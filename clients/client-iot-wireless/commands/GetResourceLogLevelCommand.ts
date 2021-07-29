@@ -21,7 +21,8 @@ export interface GetResourceLogLevelCommandInput extends GetResourceLogLevelRequ
 export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelResponse, __MetadataBearer {}
 
 /**
- * <p>Fetches the log-level override if any for a given resource-ID and resource-type, coulde be a wireless device or a wireless gateway.</p>
+ * <p>Fetches the log-level override, if any, for a given resource-ID and resource-type. It can be used for
+ *             a wireless device or a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

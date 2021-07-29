@@ -20,7 +20,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
 /**
  * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>
  *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
- *       Any Marketplace product codes from the snapshot are propagated to the volume.</p>
+ *       Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p>
  *          <p>You can create encrypted volumes. Encrypted volumes must be attached to instances that
  *       support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically
  *       encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>

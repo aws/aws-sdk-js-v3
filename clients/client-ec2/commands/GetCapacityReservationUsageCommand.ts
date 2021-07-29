@@ -22,7 +22,7 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
 
 /**
  * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner
- * 			and each account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only
+ * 			and each Amazon Web Services account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only
  * 			the Capacity Reservation owner's usage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

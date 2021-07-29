@@ -2723,7 +2723,7 @@ export interface DescribeAddressesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface-owner-id</code> - The account ID of the owner.</p>
+   *                   <code>network-interface-owner-id</code> - The Amazon Web Services account ID of the owner.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3299,7 +3299,7 @@ export interface DescribeCapacityReservationsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code> - The ID of the account that owns the Capacity Reservation.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the Capacity Reservation.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3320,11 +3320,11 @@ export interface DescribeCapacityReservationsRequest {
    * 	  			         <ul>
    *                   <li>
    *                      <p>
-   *                         <code>default</code> - The Capacity Reservation is created on hardware that is shared with other accounts.</p>
+   *                         <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single account.</p>
+   *                         <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
    *                   </li>
    *                </ul>
    * 	  			      </li>
@@ -3463,7 +3463,7 @@ export interface DescribeCarrierGatewaysRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>owner-id</code> - The account ID of the owner of the carrier gateway.</p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner of the carrier gateway.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5087,7 +5087,7 @@ export interface DescribeDhcpOptionsRequest {
    * 		          </li>
    *             <li>
    * 		             <p>
-   *                   <code>owner-id</code> - The ID of the account that owns the DHCP options set.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the DHCP options set.</p>
    * 		          </li>
    *             <li>
    * 		             <p>
@@ -5582,7 +5582,7 @@ export interface DescribeFastSnapshotRestoresRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code>: The ID of the account that enabled fast snapshot restore on the snapshot.</p>
+   *                   <code>owner-id</code>: The ID of the Amazon Web Services account that enabled fast snapshot restore on the snapshot.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5668,7 +5668,7 @@ export interface DescribeFastSnapshotRestoreSuccessItem {
   StateTransitionReason?: string;
 
   /**
-   * <p>The ID of the account that enabled fast snapshot restores on the snapshot.</p>
+   * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
    */
   OwnerId?: string;
 
@@ -7793,7 +7793,7 @@ export interface HostInstance {
   InstanceType?: string;
 
   /**
-   * <p>The ID of the account that owns the instance.</p>
+   * <p>The ID of the Amazon Web Services account that owns the instance.</p>
    */
   OwnerId?: string;
 }
@@ -7886,7 +7886,7 @@ export interface Host {
   AllowsMultipleInstanceTypes?: AllowsMultipleInstanceTypes | string;
 
   /**
-   * <p>The ID of the account that owns the Dedicated Host.</p>
+   * <p>The ID of the Amazon Web Services account that owns the Dedicated Host.</p>
    */
   OwnerId?: string;
 

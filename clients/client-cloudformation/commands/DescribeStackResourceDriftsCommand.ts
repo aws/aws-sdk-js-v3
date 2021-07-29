@@ -23,7 +23,7 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
 /**
  * <p>Returns drift information for the resources that have been checked for drift in the
  *          specified stack. This includes actual and expected configuration values for resources where
- *          AWS CloudFormation detects configuration drift.</p>
+ *          CloudFormation detects configuration drift.</p>
  *          <p>For a given stack, there will be one <code>StackResourceDrift</code> for each stack
  *          resource that has been checked for drift. Resources that have not yet been checked for
  *          drift are not included. Resources that do not currently support drift detection are not

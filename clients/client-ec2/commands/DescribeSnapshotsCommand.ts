@@ -24,29 +24,29 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * <p>Describes the specified EBS snapshots available to you or all of the EBS snapshots
  *       available to you.</p>
  *          <p>The snapshots available to you include public snapshots, private snapshots that you own,
- *       and private snapshots owned by other accounts for which you have explicit create volume
+ *       and private snapshots owned by other Amazon Web Services accounts for which you have explicit create volume
  *       permissions.</p>
  *          <p>The create volume permissions fall into the following categories:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <i>public</i>: The owner of the snapshot granted create volume
- *           permissions for the snapshot to the <code>all</code> group. All accounts have create
+ *           permissions for the snapshot to the <code>all</code> group. All Amazon Web Services accounts have create
  *           volume permissions for these snapshots.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <i>explicit</i>: The owner of the snapshot granted create volume
- *           permissions to a specific account.</p>
+ *           permissions to a specific Amazon Web Services account.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <i>implicit</i>: An account has implicit create volume permissions
+ *                   <i>implicit</i>: An Amazon Web Services account has implicit create volume permissions
  *           for all snapshots it owns.</p>
  *             </li>
  *          </ul>
  *          <p>The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot
- *       owners, or accounts with create volume permissions. If no options are specified,
+ *       owners, or Amazon Web Services accounts with create volume permissions. If no options are specified,
  *       Amazon EC2 returns all snapshots for which you have create volume permissions.</p>
  *          <p>If you specify one or more snapshot IDs, only snapshots that have the specified IDs are
  *       returned. If you specify an invalid snapshot ID, an error is returned. If you specify a
@@ -54,10 +54,10 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  *       results.</p>
  *          <p>If you specify one or more snapshot owners using the <code>OwnerIds</code> option, only
  *       snapshots from the specified owners and for which you have access are returned. The results
- *       can include the account IDs of the specified owners, <code>amazon</code> for snapshots
+ *       can include the Amazon Web Services account IDs of the specified owners, <code>amazon</code> for snapshots
  *       owned by Amazon, or <code>self</code> for snapshots that you own.</p>
  *          <p>If you specify a list of restorable users, only snapshots with create snapshot permissions
- *       for those users are returned. You can specify account IDs (if you own the snapshots),
+ *       for those users are returned. You can specify Amazon Web Services account IDs (if you own the snapshots),
  *         <code>self</code> for snapshots for which you own or have explicit permissions, or
  *         <code>all</code> for public snapshots.</p>
  *          <p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the

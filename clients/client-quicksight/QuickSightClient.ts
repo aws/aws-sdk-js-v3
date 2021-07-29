@@ -126,6 +126,14 @@ import {
 } from "./commands/DescribeThemePermissionsCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import {
+  GenerateEmbedUrlForAnonymousUserCommandInput,
+  GenerateEmbedUrlForAnonymousUserCommandOutput,
+} from "./commands/GenerateEmbedUrlForAnonymousUserCommand";
+import {
+  GenerateEmbedUrlForRegisteredUserCommandInput,
+  GenerateEmbedUrlForRegisteredUserCommandOutput,
+} from "./commands/GenerateEmbedUrlForRegisteredUserCommand";
+import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput,
 } from "./commands/GetDashboardEmbedUrlCommand";
@@ -349,6 +357,8 @@ export type ServiceInputTypes =
   | DescribeThemeCommandInput
   | DescribeThemePermissionsCommandInput
   | DescribeUserCommandInput
+  | GenerateEmbedUrlForAnonymousUserCommandInput
+  | GenerateEmbedUrlForRegisteredUserCommandInput
   | GetDashboardEmbedUrlCommandInput
   | GetSessionEmbedUrlCommandInput
   | ListAnalysesCommandInput
@@ -462,6 +472,8 @@ export type ServiceOutputTypes =
   | DescribeThemeCommandOutput
   | DescribeThemePermissionsCommandOutput
   | DescribeUserCommandOutput
+  | GenerateEmbedUrlForAnonymousUserCommandOutput
+  | GenerateEmbedUrlForRegisteredUserCommandOutput
   | GetDashboardEmbedUrlCommandOutput
   | GetSessionEmbedUrlCommandOutput
   | ListAnalysesCommandOutput
@@ -658,7 +670,7 @@ export interface QuickSightClientResolvedConfig extends QuickSightClientResolved
 /**
  * <fullname>Amazon QuickSight API Reference</fullname>
  *         <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the
- *             AWS Cloud that makes it easy to extend data and insights to every user in your
+ *             Cloud that makes it easy to extend data and insights to every user in your
  *             organization. This API reference contains documentation for a programming interface that
  *             you can use to manage Amazon QuickSight. </p>
  */

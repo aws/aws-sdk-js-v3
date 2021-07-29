@@ -21,7 +21,7 @@ export interface DeleteAccountAssignmentCommandInput extends DeleteAccountAssign
 export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssignmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a principal's access from a specified AWS account using a specified permission
+ * <p>Deletes a principal's access from a specified Amazon Web Services account using a specified permission
  *       set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

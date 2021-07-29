@@ -27,7 +27,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *         <p>A dashboard is an entity in QuickSight that identifies QuickSight reports, created
  *             from analyses. You can share QuickSight dashboards. With the right permissions, you can
  *             create scheduled email reports from them. If you have the correct permissions, you can
- *             create a dashboard from a template that exists in a different AWS account.</p>
+ *             create a dashboard from a template that exists in a different Amazon Web Services account;.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

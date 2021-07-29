@@ -8,7 +8,7 @@
 AWS SDK for JavaScript RedshiftData Client for Node.js, Browser and React Native.
 
 <p>You can use the Amazon Redshift Data API to run queries on Amazon Redshift tables. You
-can run individual SQL statements, which are committed if the statement succeeds. </p>
+can run SQL statements, which are committed if the statement succeeds. </p>
 <p>For more information about the Amazon Redshift Data API, see
 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
 <i>Amazon Redshift Cluster Management Guide</i>. </p>
@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RedshiftDataClient` and
-the commands you need, for example `CancelStatementCommand`:
+the commands you need, for example `BatchExecuteStatementCommand`:
 
 ```js
 // ES5 example
-const { RedshiftDataClient, CancelStatementCommand } = require("@aws-sdk/client-redshift-data");
+const { RedshiftDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-redshift-data");
 ```
 
 ```ts
 // ES6+ example
-import { RedshiftDataClient, CancelStatementCommand } from "@aws-sdk/client-redshift-data";
+import { RedshiftDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-redshift-data";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new RedshiftDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelStatementCommand(params);
+const command = new BatchExecuteStatementCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.RedshiftData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelStatement(params);
+  const data = await client.batchExecuteStatement(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .cancelStatement(params)
+  .batchExecuteStatement(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.cancelStatement(params, (err, data) => {
+client.batchExecuteStatement(params, (err, data) => {
   // proccess err and data.
 });
 ```

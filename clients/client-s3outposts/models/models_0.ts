@@ -36,14 +36,20 @@ export namespace ConflictException {
   });
 }
 
+export enum EndpointAccessType {
+  CUSTOMER_OWNED_IP = "CustomerOwnedIp",
+  PRIVATE = "Private",
+}
+
 export interface CreateEndpointRequest {
   /**
-   * <p>The ID of the AWS Outpost. </p>
+   * <p>The ID of the AWS Outposts. </p>
    */
   OutpostId: string | undefined;
 
   /**
-   * <p>The ID of the subnet in the selected VPC.</p>
+   * <p>The ID of the subnet in the selected VPC. The endpoint subnet
+   *             must belong to the Outpost that has the Amazon S3 on Outposts provisioned.</p>
    */
   SubnetId: string | undefined;
 
@@ -51,6 +57,19 @@ export interface CreateEndpointRequest {
    * <p>The ID of the security group to use with the endpoint.</p>
    */
   SecurityGroupId: string | undefined;
+
+  /**
+   * <p>The type of access for the on-premise network connectivity for the
+   *             Outpost endpoint. To access the endpoint from an on-premises network, you must
+   *             specify the access type and provide the customer owned IPv4 pool.</p>
+   */
+  AccessType?: EndpointAccessType | string;
+
+  /**
+   * <p>The ID of the customer-owned IPv4 pool for the endpoint.
+   *             IP addresses will be allocated from this pool for the endpoint.</p>
+   */
+  CustomerOwnedIpv4Pool?: string;
 }
 
 export namespace CreateEndpointRequest {
@@ -134,12 +153,12 @@ export namespace ValidationException {
 
 export interface DeleteEndpointRequest {
   /**
-   * <p>The ID of the end point.</p>
+   * <p>The ID of the endpoint.</p>
    */
   EndpointId: string | undefined;
 
   /**
-   * <p>The ID of the AWS Outpost. </p>
+   * <p>The ID of the AWS Outposts. </p>
    */
   OutpostId: string | undefined;
 }
@@ -173,14 +192,16 @@ export namespace NetworkInterface {
 }
 
 export enum EndpointStatus {
-  AVAILABLE = "AVAILABLE",
-  PENDING = "PENDING",
+  AVAILABLE = "Available",
+  DELETING = "Deleting",
+  PENDING = "Pending",
 }
 
 /**
- * <p>S3 on Outposts access points simplify managing data access at scale for shared datasets
- *             in Amazon S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform
- *             actions within your virtual private cloud (VPC). </p>
+ * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
+ *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
+ *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
+ *         Accessing S3 on Outposts using VPC only access points</a>.</p>
  */
 export interface Endpoint {
   /**
@@ -189,7 +210,7 @@ export interface Endpoint {
   EndpointArn?: string;
 
   /**
-   * <p>The ID of the AWS Outpost.</p>
+   * <p>The ID of the AWS Outposts.</p>
    */
   OutpostsId?: string;
 
@@ -212,6 +233,31 @@ export interface Endpoint {
    * <p>The network interface of the endpoint.</p>
    */
   NetworkInterfaces?: NetworkInterface[];
+
+  /**
+   * <p>The ID of the VPC used for the endpoint.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the subnet used for the endpoint.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The ID of the security group used for the endpoint.</p>
+   */
+  SecurityGroupId?: string;
+
+  /**
+   * <p></p>
+   */
+  AccessType?: EndpointAccessType | string;
+
+  /**
+   * <p>The ID of the customer-owned IPv4 pool used for the endpoint.</p>
+   */
+  CustomerOwnedIpv4Pool?: string;
 }
 
 export namespace Endpoint {
@@ -246,7 +292,7 @@ export namespace ListEndpointsRequest {
 
 export interface ListEndpointsResult {
   /**
-   * <p>Returns an array of endpoints associated with AWS Outpost.</p>
+   * <p>Returns an array of endpoints associated with AWS Outposts.</p>
    */
   Endpoints?: Endpoint[];
 

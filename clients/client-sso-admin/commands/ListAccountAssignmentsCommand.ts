@@ -21,8 +21,8 @@ export interface ListAccountAssignmentsCommandInput extends ListAccountAssignmen
 export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the assignee of the specified AWS account with the specified permission
- *        set.</p>
+ * <p>Lists the assignee of the specified Amazon Web Services account with the specified permission
+ *       set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

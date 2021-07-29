@@ -80,6 +80,11 @@ export interface AccessPoint {
    * <p>The ARN for the access point.</p>
    */
   AccessPointArn?: string;
+
+  /**
+   * <p>The name or alias of the access point.</p>
+   */
+  Alias?: string;
 }
 
 export namespace AccessPoint {
@@ -375,6 +380,11 @@ export interface CreateAccessPointResult {
    *          </note>
    */
   AccessPointArn?: string;
+
+  /**
+   * <p>The name or alias of the access point.</p>
+   */
+  Alias?: string;
 }
 
 export namespace CreateAccessPointResult {
@@ -2276,6 +2286,21 @@ export interface GetAccessPointResult {
    * <p>The date and time when the specified access point was created.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>The name or alias of the access point.</p>
+   */
+  Alias?: string;
+
+  /**
+   * <p>The ARN of the access point.</p>
+   */
+  AccessPointArn?: string;
+
+  /**
+   * <p>The VPC endpoint for the access point.</p>
+   */
+  Endpoints?: { [key: string]: string };
 }
 
 export namespace GetAccessPointResult {

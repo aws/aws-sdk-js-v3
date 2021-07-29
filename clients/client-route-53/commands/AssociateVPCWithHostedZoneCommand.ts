@@ -28,8 +28,8 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * 			You can't convert a public hosted zone into a private hosted zone.</p>
  *          </important>
  * 		       <note>
- *             <p>If you want to associate a VPC that was created by using one AWS account with a private hosted zone that was created
- * 			by using a different account, the AWS account that created the private hosted zone must first submit a
+ *             <p>If you want to associate a VPC that was created by using one account with a private hosted zone that was created
+ * 			by using a different account, the account that created the private hosted zone must first submit a
  * 			<code>CreateVPCAssociationAuthorization</code> request. Then the account that created the VPC must submit an
  * 			<code>AssociateVPCWithHostedZone</code> request.</p>
  *          </note>

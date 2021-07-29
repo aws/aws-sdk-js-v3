@@ -44,7 +44,7 @@ export interface InternetGateway {
   InternetGatewayId?: string;
 
   /**
-   * <p>The ID of the account that owns the internet gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the internet gateway.</p>
    */
   OwnerId?: string;
 
@@ -3156,7 +3156,7 @@ export interface NetworkAcl {
   VpcId?: string;
 
   /**
-   * <p>The ID of the account that owns the network ACL.</p>
+   * <p>The ID of the Amazon Web Services account that owns the network ACL.</p>
    */
   OwnerId?: string;
 }
@@ -3604,7 +3604,7 @@ export interface NetworkInterfaceAttachment {
   InstanceId?: string;
 
   /**
-   * <p>The account ID of the owner of the instance.</p>
+   * <p>The Amazon Web Services account ID of the owner of the instance.</p>
    */
   InstanceOwnerId?: string;
 
@@ -3778,7 +3778,7 @@ export interface NetworkInterface {
   OutpostArn?: string;
 
   /**
-   * <p>The account ID of the owner of the network interface.</p>
+   * <p>The Amazon Web Services account ID of the owner of the network interface.</p>
    */
   OwnerId?: string;
 
@@ -3812,7 +3812,7 @@ export interface NetworkInterface {
   Ipv6Prefixes?: Ipv6PrefixSpecification[];
 
   /**
-   * <p>The alias or account ID of the principal or service that created the network interface.</p>
+   * <p>The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p>
    */
   RequesterId?: string;
 
@@ -3892,7 +3892,7 @@ export interface CreateNetworkInterfacePermissionRequest {
   NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>The account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId?: string;
 
@@ -3964,7 +3964,7 @@ export interface NetworkInterfacePermission {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>The account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId?: string;
 
@@ -4651,7 +4651,7 @@ export interface Route {
   InstanceId?: string;
 
   /**
-   * <p>The ID of account that owns the instance.</p>
+   * <p>The ID of Amazon Web Services account that owns the instance.</p>
    */
   InstanceOwnerId?: string;
 
@@ -4756,7 +4756,7 @@ export interface RouteTable {
   VpcId?: string;
 
   /**
-   * <p>The ID of the account that owns the route table.</p>
+   * <p>The ID of the Amazon Web Services account that owns the route table.</p>
    */
   OwnerId?: string;
 }
@@ -4940,7 +4940,7 @@ export interface Snapshot {
   KmsKeyId?: string;
 
   /**
-   * <p>The ID of the account that owns the EBS snapshot.</p>
+   * <p>The ID of the Amazon Web Services account that owns the EBS snapshot.</p>
    */
   OwnerId?: string;
 
@@ -4986,7 +4986,7 @@ export interface Snapshot {
 
   /**
    * <p>The Amazon Web Services owner alias, from an Amazon-maintained list (<code>amazon</code>). This is not
-   *       the user-configured account alias set using the IAM console.</p>
+   *       the user-configured Amazon Web Services account alias set using the IAM console.</p>
    */
   OwnerAlias?: string;
 
@@ -5263,7 +5263,7 @@ export interface SpotDatafeedSubscription {
   Fault?: SpotInstanceStateFault;
 
   /**
-   * <p>The account ID of the account.</p>
+   * <p>The Amazon Web Services account ID of the account.</p>
    */
   OwnerId?: string;
 
@@ -8518,8 +8518,8 @@ export interface CreateVpcPeeringConnectionRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The account ID of the owner of the accepter VPC.</p>
-   *          <p>Default: Your account ID</p>
+   * <p>The Amazon Web Services account ID of the owner of the accepter VPC.</p>
+   *          <p>Default: Your Amazon Web Services account ID</p>
    */
   PeerOwnerId?: string;
 

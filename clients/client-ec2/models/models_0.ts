@@ -729,7 +729,7 @@ export interface VpcPeeringConnectionVpcInfo {
   CidrBlockSet?: CidrBlock[];
 
   /**
-   * <p>The ID of the account that owns the VPC.</p>
+   * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
    */
   OwnerId?: string;
 
@@ -1009,7 +1009,7 @@ export interface Address {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>The ID of the account that owns the network interface.</p>
+   * <p>The ID of the Amazon Web Services account that owns the network interface.</p>
    */
   NetworkInterfaceOwnerId?: string;
 
@@ -1286,7 +1286,7 @@ export interface TagSpecification {
    *     	   <code>transit-gateway-attachment</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |
    *             <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |
    *             <code>vpc-endpoint</code> (for interface and gateway endpoints) |
-   *     	   <code>vpc-endpoint-service</code> (for PrivateLink) | <code>vpc-flow-log</code> |
+   *     	   <code>vpc-endpoint-service</code> (for Amazon Web Services PrivateLink) | <code>vpc-flow-log</code> |
    *             <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
    *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
@@ -3692,7 +3692,7 @@ export interface ReferencedSecurityGroup {
   PeeringStatus?: string;
 
   /**
-   * <p>The account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   UserId?: string;
 
@@ -3731,7 +3731,7 @@ export interface SecurityGroupRule {
   GroupId?: string;
 
   /**
-   * <p>The ID of the account that owns the security group. </p>
+   * <p>The ID of the Amazon Web Services account that owns the security group. </p>
    */
   GroupOwnerId?: string;
 
@@ -4734,7 +4734,7 @@ export namespace ConfirmProductInstanceRequest {
 
 export interface ConfirmProductInstanceResult {
   /**
-   * <p>The account ID of the instance owner. This is only present if the product code is
+   * <p>The Amazon Web Services account ID of the instance owner. This is only present if the product code is
    *             attached to the instance.</p>
    */
   OwnerId?: string;
@@ -5113,11 +5113,11 @@ export interface CreateCapacityReservationRequest {
    * 		       <ul>
    *             <li>
    *                <p>
-   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other accounts.</p>
+   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single account.</p>
+   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
    *             </li>
    *          </ul>
    */
@@ -5234,7 +5234,7 @@ export interface CapacityReservation {
   CapacityReservationId?: string;
 
   /**
-   * <p>The ID of the account that owns the Capacity Reservation.</p>
+   * <p>The ID of the Amazon Web Services account that owns the Capacity Reservation.</p>
    */
   OwnerId?: string;
 
@@ -5268,11 +5268,11 @@ export interface CapacityReservation {
    * 		       <ul>
    *             <li>
    *                <p>
-   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other accounts.</p>
+   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single account.</p>
+   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
    *             </li>
    *          </ul>
    */
@@ -5481,7 +5481,7 @@ export interface CarrierGateway {
   State?: CarrierGatewayState | string;
 
   /**
-   * <p>The account ID of the owner of the carrier gateway.</p>
+   * <p>The Amazon Web Services account ID of the owner of the carrier gateway.</p>
    */
   OwnerId?: string;
 
@@ -6186,7 +6186,7 @@ export interface Subnet {
   VpcId?: string;
 
   /**
-   * <p>The ID of the account that owns the subnet.</p>
+   * <p>The ID of the Amazon Web Services account that owns the subnet.</p>
    */
   OwnerId?: string;
 
@@ -6289,7 +6289,7 @@ export interface Vpc {
   VpcId?: string;
 
   /**
-   * <p>The ID of the account that owns the VPC.</p>
+   * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
    */
   OwnerId?: string;
 
@@ -6454,7 +6454,7 @@ export interface DhcpOptions {
   DhcpOptionsId?: string;
 
   /**
-   * <p>The ID of the account that owns the DHCP options set.</p>
+   * <p>The ID of the Amazon Web Services account that owns the DHCP options set.</p>
    */
   OwnerId?: string;
 
@@ -6755,8 +6755,10 @@ export type _InstanceType =
   | "g3.8xlarge"
   | "g3s.xlarge"
   | "g4ad.16xlarge"
+  | "g4ad.2xlarge"
   | "g4ad.4xlarge"
   | "g4ad.8xlarge"
+  | "g4ad.xlarge"
   | "g4dn.12xlarge"
   | "g4dn.16xlarge"
   | "g4dn.2xlarge"

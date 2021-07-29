@@ -1770,7 +1770,10 @@ export enum WirelessDeviceEvent {
 }
 
 /**
- * <p>The log option for a wireless device event. Can be used to set log level for a specific wireless device event. For a LoRaWAN device, the possible events for a log messsage are: Join, Rejoin, Downlink_Data, Uplink_Data. For a Sidewalk device, the possible events for a log message are: Registration, Downlink_Data, Uplink_Data.</p>
+ * <p>The log options for a wireless device event and can be used to set log levels for a specific wireless device event.</p>
+ *          <p>For a LoRaWAN device, possible events for a log messsage are: <code>Join</code>, <code>Rejoin</code>,
+ *              <code>Downlink_Data</code>, and <code>Uplink_Data</code>. For a Sidewalk device, possible events for a log message are
+ *              <code>Registration</code>, <code>Downlink_Data</code>, and <code>Uplink_Data</code>.</p>
  */
 export interface WirelessDeviceEventLogOption {
   /**
@@ -1794,7 +1797,7 @@ export namespace WirelessDeviceEventLogOption {
 }
 
 /**
- * <p>The log option for wireless devices. Can be used to set log level for a specific type of wireless device.</p>
+ * <p>The log options for wireless devices and can be used to set log levels for a specific type of wireless device.</p>
  */
 export interface WirelessDeviceLogOption {
   /**
@@ -1828,7 +1831,8 @@ export enum WirelessGatewayEvent {
 }
 
 /**
- * <p>The log option for a wireless gateway event. Can be used to set log level for a specific wireless gateway event. For a LoRaWAN gateway, the possible events for a log message are: CUPS_Request, Certificate.</p>
+ * <p>The log options for a wireless gateway event and can be used to set log levels for a specific wireless gateway event.</p>
+ *          <p>For a LoRaWAN gateway, possible events for a log message are <code>CUPS_Request</code> and <code>Certificate</code>.</p>
  */
 export interface WirelessGatewayEventLogOption {
   /**
@@ -1856,7 +1860,7 @@ export enum WirelessGatewayType {
 }
 
 /**
- * <p>The log option for wireless gateways. Can be used to set log level for a specific type of wireless gateway.</p>
+ * <p>The log options for wireless gateways and can be used to set log levels for a specific type of wireless gateway.</p>
  */
 export interface WirelessGatewayLogOption {
   /**
@@ -1985,12 +1989,13 @@ export namespace GetPartnerAccountResponse {
 
 export interface GetResourceLogLevelRequest {
   /**
-   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device id. For a wireless gateway, it is the wireless gateway id.</p>
+   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID. For a wireless gateway,
+   *             it is the wireless gateway ID.</p>
    */
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The type of the resource, currently support WirelessDevice and WirelessGateway.</p>
+   * <p>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</p>
    */
   ResourceType: string | undefined;
 }
@@ -2225,6 +2230,7 @@ export namespace GetServiceProfileResponse {
 
 export enum WirelessDeviceIdType {
   DevEui = "DevEui",
+  SidewalkManufacturingSn = "SidewalkManufacturingSn",
   ThingName = "ThingName",
   WirelessDeviceId = "WirelessDeviceId",
 }
@@ -2254,6 +2260,11 @@ export namespace GetWirelessDeviceRequest {
  * <p>Sidewalk device object.</p>
  */
 export interface SidewalkDevice {
+  /**
+   * <p>The Sidewalk Amazon ID.</p>
+   */
+  AmazonId?: string;
+
   /**
    * <p>The sidewalk device identification.</p>
    */
@@ -3389,12 +3400,13 @@ export namespace ListWirelessGatewayTaskDefinitionsResponse {
 
 export interface PutResourceLogLevelRequest {
   /**
-   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device id. For a wireless gateway, it is the wireless gateway id.</p>
+   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID. For a wireless gateway,
+   *             it is the wireless gateway ID.</p>
    */
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The type of the resource, currently support WirelessDevice and WirelessGateway.</p>
+   * <p>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</p>
    */
   ResourceType: string | undefined;
 
@@ -3448,12 +3460,13 @@ export namespace ResetAllResourceLogLevelsResponse {
 
 export interface ResetResourceLogLevelRequest {
   /**
-   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device id. For a wireless gateway, it is the wireless gateway id.</p>
+   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID. For a wireless gateway,
+   *             it is the wireless gateway ID.</p>
    */
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The type of the resource, currently support WirelessDevice and WirelessGateway.</p>
+   * <p>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</p>
    */
   ResourceType: string | undefined;
 }
@@ -3514,7 +3527,7 @@ export interface SidewalkSendDataToDevice {
   Seq?: number;
 
   /**
-   * <p>Sidewalk device message type.</p>
+   * <p>Sidewalk device message type. Default value is <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
    */
   MessageType?: MessageType | string;
 }
@@ -3564,7 +3577,7 @@ export interface SendDataToWirelessDeviceRequest {
   TransmitMode: number | undefined;
 
   /**
-   * <p>The message payload to send.</p>
+   * <p>The binary to be sent to the end device, encoded in base64.</p>
    */
   PayloadData: string | undefined;
 

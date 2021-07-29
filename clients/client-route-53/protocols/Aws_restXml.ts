@@ -2620,6 +2620,14 @@ const deserializeAws_restXmlActivateKeySigningKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      response = {
+        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidKeySigningKeyStatus":
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
       response = {
@@ -3898,6 +3906,14 @@ const deserializeAws_restXmlDeactivateKeySigningKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      response = {
+        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidKeySigningKeyStatus":
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
       response = {
@@ -4143,6 +4159,14 @@ const deserializeAws_restXmlDeleteKeySigningKeyCommandError = async (
     case "com.amazonaws.route53#ConcurrentModification":
       response = {
         ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      response = {
+        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4617,6 +4641,14 @@ const deserializeAws_restXmlDisableHostedZoneDNSSECCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      response = {
+        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidKeySigningKeyStatus":
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
       response = {
@@ -4811,6 +4843,14 @@ const deserializeAws_restXmlEnableHostedZoneDNSSECCommandError = async (
     case "com.amazonaws.route53#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      response = {
+        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5083,6 +5123,14 @@ const deserializeAws_restXmlGetDNSSECCommandError = async (
     case "com.amazonaws.route53#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      response = {
+        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9068,6 +9116,12 @@ const serializeAws_restXmlHealthCheckConfig = (input: HealthCheckConfig, context
       .withName("InsufficientDataHealthStatus");
     bodyNode.addChildNode(node);
   }
+  if (input.RoutingControlArn !== undefined && input.RoutingControlArn !== null) {
+    const node = new __XmlNode("RoutingControlArn")
+      .addChildNode(new __XmlText(input.RoutingControlArn))
+      .withName("RoutingControlArn");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -9616,6 +9670,7 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
     Regions: undefined,
     AlarmIdentifier: undefined,
     InsufficientDataHealthStatus: undefined,
+    RoutingControlArn: undefined,
   };
   if (output["IPAddress"] !== undefined) {
     contents.IPAddress = __expectString(output["IPAddress"]);
@@ -9679,6 +9734,9 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
   }
   if (output["InsufficientDataHealthStatus"] !== undefined) {
     contents.InsufficientDataHealthStatus = __expectString(output["InsufficientDataHealthStatus"]);
+  }
+  if (output["RoutingControlArn"] !== undefined) {
+    contents.RoutingControlArn = __expectString(output["RoutingControlArn"]);
   }
   return contents;
 };

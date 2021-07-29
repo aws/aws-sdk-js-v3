@@ -23,11 +23,12 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
 /**
  * <p>Deletes the specified change set. Deleting change sets ensures that no one executes
  *          the wrong change set.</p>
- *          <p>If the call successfully completes, AWS CloudFormation successfully deleted the
+ *          <p>If the call successfully completes, CloudFormation successfully deleted the
  *          change set.</p>
  *          <p>If <code>IncludeNestedStacks</code> specifies <code>True</code> during the creation of
- *          the nested change set, then <code>DeleteChangeSet</code> will delete all change sets that belong to the stacks hierarchy and
- *           will also delete all change sets for nested stacks with the status of <code>REVIEW_IN_PROGRESS</code>.</p>
+ *          the nested change set, then <code>DeleteChangeSet</code> will delete all change sets that
+ *          belong to the stacks hierarchy and will also delete all change sets for nested stacks with
+ *          the status of <code>REVIEW_IN_PROGRESS</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

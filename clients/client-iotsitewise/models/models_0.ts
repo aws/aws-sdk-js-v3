@@ -586,17 +586,95 @@ export namespace Attribute {
   });
 }
 
+export enum ForwardingConfigState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>The forwarding configuration for a given property.</p>
+ */
+export interface ForwardingConfig {
+  /**
+   * <p>The forwarding state for the given property. </p>
+   */
+  state: ForwardingConfigState | string | undefined;
+}
+
+export namespace ForwardingConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ForwardingConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The processing configuration for the given measurement property.
+ *       You can configure measurements to be kept at the edge or forwarded to the Amazon Web Services Cloud.
+ *       By default, measurements are forwarded to the cloud.</p>
+ */
+export interface MeasurementProcessingConfig {
+  /**
+   * <p>The forwarding configuration for the given measurement property. </p>
+   */
+  forwardingConfig: ForwardingConfig | undefined;
+}
+
+export namespace MeasurementProcessingConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MeasurementProcessingConfig): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Contains an asset measurement property. For more information, see
  *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#measurements">Measurements</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
-export interface Measurement {}
+export interface Measurement {
+  /**
+   * <p>The processing configuration for the given measurement property.
+   *       You can configure measurements to be kept at the edge or forwarded to the Amazon Web Services Cloud.
+   *       By default, measurements are forwarded to the cloud.</p>
+   */
+  processingConfig?: MeasurementProcessingConfig;
+}
 
 export namespace Measurement {
   /**
    * @internal
    */
   export const filterSensitiveLog = (obj: Measurement): any => ({
+    ...obj,
+  });
+}
+
+export enum ComputeLocation {
+  CLOUD = "CLOUD",
+  EDGE = "EDGE",
+}
+
+/**
+ * <p>The processing configuration for the given metric property.
+ *       You can configure metrics to be computed at the edge or in the Amazon Web Services Cloud.
+ *       By default, metrics are forwarded to the cloud.</p>
+ */
+export interface MetricProcessingConfig {
+  /**
+   * <p>The compute location for the given metric property. </p>
+   */
+  computeLocation: ComputeLocation | string | undefined;
+}
+
+export namespace MetricProcessingConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricProcessingConfig): any => ({
     ...obj,
   });
 }
@@ -732,6 +810,13 @@ export interface Metric {
    *       IoT SiteWise computes one data point per <code>window</code>.</p>
    */
   window: MetricWindow | undefined;
+
+  /**
+   * <p>The processing configuration for the given metric property.
+   *       You can configure metrics to be computed at the edge or in the Amazon Web Services Cloud.
+   *       By default, metrics are forwarded to the cloud.</p>
+   */
+  processingConfig?: MetricProcessingConfig;
 }
 
 export namespace Metric {
@@ -739,6 +824,32 @@ export namespace Metric {
    * @internal
    */
   export const filterSensitiveLog = (obj: Metric): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The processing configuration for the given transform property.
+ *       You can configure transforms to be kept at the edge or forwarded to the Amazon Web Services Cloud.
+ *       You can also configure transforms to be computed at the edge or in the cloud.</p>
+ */
+export interface TransformProcessingConfig {
+  /**
+   * <p>The compute location for the given transform property. </p>
+   */
+  computeLocation: ComputeLocation | string | undefined;
+
+  /**
+   * <p>The forwarding configuration for a given property.</p>
+   */
+  forwardingConfig?: ForwardingConfig;
+}
+
+export namespace TransformProcessingConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransformProcessingConfig): any => ({
     ...obj,
   });
 }
@@ -764,6 +875,13 @@ export interface Transform {
    * <p>The list of variables used in the expression.</p>
    */
   variables: ExpressionVariable[] | undefined;
+
+  /**
+   * <p>The processing configuration for the given transform property.
+   *       You can configure transforms to be kept at the edge or forwarded to the Amazon Web Services Cloud.
+   *       You can also configure transforms to be computed at the edge or in the cloud.</p>
+   */
+  processingConfig?: TransformProcessingConfig;
 }
 
 export namespace Transform {
@@ -1054,6 +1172,35 @@ export enum ErrorCode {
   VALIDATION_ERROR = "VALIDATION_ERROR",
 }
 
+export enum DetailedErrorCode {
+  INCOMPATIBLE_COMPUTE_LOCATION = "INCOMPATIBLE_COMPUTE_LOCATION",
+  INCOMPATIBLE_FORWARDING_CONFIGURATION = "INCOMPATIBLE_FORWARDING_CONFIGURATION",
+}
+
+/**
+ * <p>Contains detailed error information. </p>
+ */
+export interface DetailedError {
+  /**
+   * <p>The error code. </p>
+   */
+  code: DetailedErrorCode | string | undefined;
+
+  /**
+   * <p>The error message. </p>
+   */
+  message: string | undefined;
+}
+
+export namespace DetailedError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetailedError): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Contains the details of an IoT SiteWise error.</p>
  */
@@ -1067,6 +1214,11 @@ export interface ErrorDetails {
    * <p>The error message.</p>
    */
   message: string | undefined;
+
+  /**
+   * <p> A list of detailed errors. </p>
+   */
+  details?: DetailedError[];
 }
 
 export namespace ErrorDetails {
@@ -2175,13 +2327,42 @@ export namespace Greengrass {
 }
 
 /**
+ * <p>Contains details for a gateway that runs on IoT Greengrass V2. To create a gateway that runs on IoT Greengrass V2,
+ *       you must deploy the IoT SiteWise Edge component to your gateway device.
+ *       Your <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/device-service-role.html">Greengrass device role</a>
+ *       must use the <code>AWSIoTSiteWiseEdgeAccess</code> policy. For more information,
+ *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/sw-gateways.html">Using IoT SiteWise at the edge</a>
+ *       in the <i>IoT SiteWise User Guide</i>.</p>
+ */
+export interface GreengrassV2 {
+  /**
+   * <p>The name of the IoT thing for your IoT Greengrass V2 core device.</p>
+   */
+  coreDeviceThingName: string | undefined;
+}
+
+export namespace GreengrassV2 {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GreengrassV2): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains a gateway's platform information.</p>
  */
 export interface GatewayPlatform {
   /**
    * <p>A gateway that runs on IoT Greengrass.</p>
    */
-  greengrass: Greengrass | undefined;
+  greengrass?: Greengrass;
+
+  /**
+   * <p>A gateway that runs on IoT Greengrass V2.</p>
+   */
+  greengrassV2?: GreengrassV2;
 }
 
 export namespace GatewayPlatform {
@@ -3325,6 +3506,7 @@ export enum CapabilitySyncStatus {
   IN_SYNC = "IN_SYNC",
   OUT_OF_SYNC = "OUT_OF_SYNC",
   SYNC_FAILED = "SYNC_FAILED",
+  UNKNOWN = "UNKNOWN",
 }
 
 /**
@@ -4700,6 +4882,11 @@ export interface GatewaySummary {
    * <p>The name of the asset.</p>
    */
   gatewayName: string | undefined;
+
+  /**
+   * <p>Contains a gateway's platform information.</p>
+   */
+  gatewayPlatform?: GatewayPlatform;
 
   /**
    * <p>A list of gateway capability summaries that each contain a namespace and status. Each

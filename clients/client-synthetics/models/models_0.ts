@@ -1,5 +1,19 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export interface BaseScreenshot {
+  ScreenshotName: string | undefined;
+  IgnoreCoordinates?: string[];
+}
+
+export namespace BaseScreenshot {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BaseScreenshot): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>This structure contains information about the canary's Lambda handler and
  *       where its code is stored by CloudWatch Synthetics.</p>
@@ -41,7 +55,7 @@ export interface CanaryRunConfigOutput {
   MemoryInMB?: number;
 
   /**
-   * <p>Displays whether this canary run used active AWS X-Ray tracing. </p>
+   * <p>Displays whether this canary run used active X-Ray tracing. </p>
    */
   ActiveTracing?: boolean;
 }
@@ -61,14 +75,20 @@ export namespace CanaryRunConfigOutput {
  */
 export interface CanaryScheduleOutput {
   /**
-   * <p>A rate expression that defines how often the canary is to run. The syntax is
+   * <p>A <code>rate</code> expression or a <code>cron</code> expression that defines how often the canary is to run.</p>
+   *          <p>For a rate expression, The syntax is
    *          <code>rate(<i>number unit</i>)</code>. <i>unit</i>
    *          can be <code>minute</code>, <code>minutes</code>, or <code>hour</code>. </p>
    *          <p>For example, <code>rate(1 minute)</code> runs the canary once a minute, <code>rate(10 minutes)</code> runs it once every
-   *          10 minutes, and <code>rate(1 hour)</code> runs it once every hour.</p>
+   *          10 minutes, and <code>rate(1 hour)</code> runs it once every hour. You can
+   *          specify a frequency between <code>rate(1 minute)</code> and <code>rate(1 hour)</code>.</p>
    *          <p>Specifying <code>rate(0 minute)</code> or <code>rate(0 hour)</code> is a special value
    *          that causes the
    *          canary to run only once when it is started.</p>
+   *          <p>Use <code>cron(<i>expression</i>)</code> to specify a cron
+   *          expression. For information about the syntax for cron expressions, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html">
+   *             Scheduling canary runs using cron</a>.</p>
    */
   Expression?: string;
 
@@ -164,6 +184,20 @@ export namespace CanaryTimeline {
    * @internal
    */
   export const filterSensitiveLog = (obj: CanaryTimeline): any => ({
+    ...obj,
+  });
+}
+
+export interface VisualReferenceOutput {
+  BaseScreenshots?: BaseScreenshot[];
+  BaseCanaryRunId?: string;
+}
+
+export namespace VisualReferenceOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VisualReferenceOutput): any => ({
     ...obj,
   });
 }
@@ -285,6 +319,7 @@ export interface Canary {
    */
   VpcConfig?: VpcConfigOutput;
 
+  VisualReference?: VisualReferenceOutput;
   /**
    * <p>The list of key-value pairs that are associated with the canary.</p>
    */
@@ -439,8 +474,7 @@ export namespace CanaryLastRun {
  */
 export interface CanaryCodeInput {
   /**
-   * <p>If your canary script is located in S3, specify the full bucket name here. The bucket
-   *          must already exist. Specify the full bucket name, including <code>s3://</code> as the
+   * <p>If your canary script is located in S3, specify the bucket name here. Do not include <code>s3://</code> as the
    *          start of the bucket name.</p>
    */
   S3Bucket?: string;
@@ -457,14 +491,15 @@ export interface CanaryCodeInput {
 
   /**
    * <p>If you input your canary script directly into the canary instead of referring to an S3
-   *          location, the value of this parameter is the .zip file that contains the script. It can be
+   *          location, the value of this parameter is the base64-encoded contents of the .zip file that
+   *          contains the script. It can be
    *          up to 5 MB.</p>
    */
   ZipFile?: Uint8Array;
 
   /**
    * <p>The entry point to use for the source code when running the canary. This value must end
-   *          with the string <code>.handler</code>.</p>
+   *          with the string <code>.handler</code>. The string is limited to 29 characters or fewer.</p>
    */
   Handler: string | undefined;
 }
@@ -496,10 +531,10 @@ export interface CanaryRunConfigInput {
   MemoryInMB?: number;
 
   /**
-   * <p>Specifies whether this canary is to use active AWS X-Ray tracing when it runs. Active tracing
+   * <p>Specifies whether this canary is to use active X-Ray tracing when it runs. Active tracing
    *          enables
-   *       this canary run to be displayed in the ServiceLens and X-Ray service maps even if the canary does
-   *       not hit an endpoint that has X-ray tracing enabled. Using X-Ray tracing incurs charges.
+   *          this canary run to be displayed in the ServiceLens and X-Ray service maps even if the canary does
+   *          not hit an endpoint that has X-Ray tracing enabled. Using X-Ray tracing incurs charges.
    *       For more information, see  <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html">
    *          Canaries and X-Ray tracing</a>.</p>
    *          <p>You can enable active tracing only for canaries that use version <code>syn-nodejs-2.0</code>
@@ -535,7 +570,8 @@ export namespace CanaryRunConfigInput {
  */
 export interface CanaryScheduleInput {
   /**
-   * <p>A rate expression that defines how often the canary is to run. The syntax is
+   * <p>A <code>rate</code> expression or a <code>cron</code> expression that defines how often the canary is to run.</p>
+   *          <p>For a rate expression, The syntax is
    *                <code>rate(<i>number unit</i>)</code>. <i>unit</i>
    *          can be <code>minute</code>, <code>minutes</code>, or <code>hour</code>. </p>
    *          <p>For example, <code>rate(1 minute)</code> runs the canary once a minute, <code>rate(10 minutes)</code> runs it once every
@@ -544,6 +580,10 @@ export interface CanaryScheduleInput {
    *          <p>Specifying <code>rate(0 minute)</code> or <code>rate(0 hour)</code> is a special value
    *          that causes the
    *          canary to run only once when it is started.</p>
+   *          <p>Use <code>cron(<i>expression</i>)</code> to specify a cron
+   *          expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html">
+   *             Scheduling canary runs using cron</a>.</p>
    */
   Expression: string | undefined;
 
@@ -630,7 +670,8 @@ export interface CreateCanaryRequest {
 
   /**
    * <p>The location in Amazon S3 where Synthetics stores artifacts from the test runs of this
-   *          canary. Artifacts include the log file, screenshots, and HAR files.</p>
+   *          canary. Artifacts include the log file, screenshots, and HAR files.  The name of the
+   *          S3 bucket can't include a period (.).</p>
    */
   ArtifactS3Location: string | undefined;
 
@@ -1264,6 +1305,20 @@ export namespace UntagResourceResponse {
   });
 }
 
+export interface VisualReferenceInput {
+  BaseScreenshots?: BaseScreenshot[];
+  BaseCanaryRunId: string | undefined;
+}
+
+export namespace VisualReferenceInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VisualReferenceInput): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateCanaryRequest {
   /**
    * <p>The name of the canary that you want to update. To find the names of your
@@ -1361,6 +1416,8 @@ export interface UpdateCanaryRequest {
    *             Running a Canary in a VPC</a>.</p>
    */
   VpcConfig?: VpcConfigInput;
+
+  VisualReference?: VisualReferenceInput;
 }
 
 export namespace UpdateCanaryRequest {

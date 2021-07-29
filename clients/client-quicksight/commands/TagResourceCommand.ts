@@ -40,7 +40,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * 					resources.</p>
  *             </li>
  *             <li>
- *                <p>QuickSight doesn't currently support the Tag Editor for AWS Resource Groups.</p>
+ *                <p>QuickSight doesn't currently support the Tag Editor for Resource Groups.</p>
  *             </li>
  *          </ul>
  * @example

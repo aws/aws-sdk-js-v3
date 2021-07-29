@@ -21,12 +21,14 @@ export interface DescribeTypeRegistrationCommandInput extends DescribeTypeRegist
 export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegistrationOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about an extension's registration, including its current status and type and version identifiers.</p>
+ * <p>Returns information about an extension's registration, including its current status and
+ *          type and version identifiers.</p>
  *          <p>When you initiate a registration request using <code>
  *                <a>RegisterType</a>
  *             </code>, you can then use <code>
  *                <a>DescribeTypeRegistration</a>
- *             </code> to monitor the progress of that registration request.</p>
+ *             </code> to
+ *          monitor the progress of that registration request.</p>
  *          <p>Once the registration request has completed, use <code>
  *                <a>DescribeType</a>
  *             </code> to return detailed information about an extension.</p>

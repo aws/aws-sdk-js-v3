@@ -21,7 +21,7 @@ export interface GetDatasetContentCommandInput extends GetDatasetContentRequest 
 export interface GetDatasetContentCommandOutput extends GetDatasetContentResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the contents of a data set as presigned URIs.</p>
+ * <p>Retrieves the contents of a dataset as presigned URIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1745,6 +1745,10 @@
           {
             "value": "SYNC_FAILED",
             "name": "SYNC_FAILED"
+          },
+          {
+            "value": "UNKNOWN",
+            "name": "UNKNOWN"
           }
         ]
       }
@@ -1785,6 +1789,21 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains information about a composite model property on an asset.</p>"
+      }
+    },
+    "com.amazonaws.iotsitewise#ComputeLocation": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "EDGE",
+            "name": "EDGE"
+          },
+          {
+            "value": "CLOUD",
+            "name": "CLOUD"
+          }
+        ]
       }
     },
     "com.amazonaws.iotsitewise#ConfigurationErrorDetails": {
@@ -1877,6 +1896,15 @@
         "smithy.api#documentation": "<p>Your request has conflicting operations. This can occur if you're trying to perform more\n      than one operation on the same resource at the same time.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.iotsitewise#CoreDeviceThingName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
       }
     },
     "com.amazonaws.iotsitewise#CreateAccessPolicy": {
@@ -4359,7 +4387,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves information about the storage configuration for IoT SiteWise.</p>",
+        "smithy.api#documentation": "<p>Retrieves information about the storage configuration for IoT SiteWise.</p>\n         <note>\n            <p>Exporting data to Amazon S3 is currently in preview release and is subject to change. We\n        recommend that you use this feature only with test data, and not in production\n        environments.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "api."
         },
@@ -4412,6 +4440,52 @@
           "max": 2048
         },
         "smithy.api#pattern": "^[^\\u0000-\\u001F\\u007F]+$"
+      }
+    },
+    "com.amazonaws.iotsitewise#DetailedError": {
+      "type": "structure",
+      "members": {
+        "code": {
+          "target": "com.amazonaws.iotsitewise#DetailedErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.iotsitewise#DetailedErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains detailed error information. </p>"
+      }
+    },
+    "com.amazonaws.iotsitewise#DetailedErrorCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "INCOMPATIBLE_COMPUTE_LOCATION",
+            "name": "INCOMPATIBLE_COMPUTE_LOCATION"
+          },
+          {
+            "value": "INCOMPATIBLE_FORWARDING_CONFIGURATION",
+            "name": "INCOMPATIBLE_FORWARDING_CONFIGURATION"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.iotsitewise#DetailedErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.iotsitewise#DetailedErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.iotsitewise#DetailedError"
       }
     },
     "com.amazonaws.iotsitewise#DisassociateAssets": {
@@ -4548,6 +4622,12 @@
             "smithy.api#documentation": "<p>The error message.</p>",
             "smithy.api#required": {}
           }
+        },
+        "details": {
+          "target": "com.amazonaws.iotsitewise#DetailedErrors",
+          "traits": {
+            "smithy.api#documentation": "<p> A list of detailed errors. </p>"
+          }
         }
       },
       "traits": {
@@ -4597,6 +4677,36 @@
         "target": "com.amazonaws.iotsitewise#ExpressionVariable"
       }
     },
+    "com.amazonaws.iotsitewise#ForwardingConfig": {
+      "type": "structure",
+      "members": {
+        "state": {
+          "target": "com.amazonaws.iotsitewise#ForwardingConfigState",
+          "traits": {
+            "smithy.api#documentation": "<p>The forwarding state for the given property. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The forwarding configuration for a given property.</p>"
+      }
+    },
+    "com.amazonaws.iotsitewise#ForwardingConfigState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
+            "name": "DISABLED"
+          },
+          {
+            "value": "ENABLED",
+            "name": "ENABLED"
+          }
+        ]
+      }
+    },
     "com.amazonaws.iotsitewise#GatewayCapabilitySummaries": {
       "type": "list",
       "member": {
@@ -4631,8 +4741,13 @@
         "greengrass": {
           "target": "com.amazonaws.iotsitewise#Greengrass",
           "traits": {
-            "smithy.api#documentation": "<p>A gateway that runs on IoT Greengrass.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A gateway that runs on IoT Greengrass.</p>"
+          }
+        },
+        "greengrassV2": {
+          "target": "com.amazonaws.iotsitewise#GreengrassV2",
+          "traits": {
+            "smithy.api#documentation": "<p>A gateway that runs on IoT Greengrass V2.</p>"
           }
         }
       },
@@ -4662,6 +4777,9 @@
             "smithy.api#documentation": "<p>The name of the asset.</p>",
             "smithy.api#required": {}
           }
+        },
+        "gatewayPlatform": {
+          "target": "com.amazonaws.iotsitewise#GatewayPlatform"
         },
         "gatewayCapabilitySummaries": {
           "target": "com.amazonaws.iotsitewise#GatewayCapabilitySummaries",
@@ -5062,7 +5180,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Get interpolated values for an asset property for a specified time interval, during a period of time. \n      For example, you can use the this operation to return the interpolated temperature values for a wind turbine every 24 hours \n      over a duration of 7 days.</p>\n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Get interpolated values for an asset property for a specified time interval, during a\n      period of time. For example, you can use the this operation to return the interpolated\n      temperature values for a wind turbine every 24 hours over a duration of 7 days.</p>\n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "data."
         },
@@ -5203,6 +5321,21 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains details for a gateway that runs on IoT Greengrass. To create a gateway that runs on IoT Greengrass,\n      you must add the IoT SiteWise connector to a Greengrass group and deploy it. Your Greengrass\n      group must also have permissions to upload data to IoT SiteWise. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html\">Ingesting data using a\n        gateway</a> in the <i>IoT SiteWise User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.iotsitewise#GreengrassV2": {
+      "type": "structure",
+      "members": {
+        "coreDeviceThingName": {
+          "target": "com.amazonaws.iotsitewise#CoreDeviceThingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the IoT thing for your IoT Greengrass V2 core device.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details for a gateway that runs on IoT Greengrass V2. To create a gateway that runs on IoT Greengrass V2, \n      you must deploy the IoT SiteWise Edge component to your gateway device. \n      Your <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/device-service-role.html\">Greengrass device role</a> \n      must use the <code>AWSIoTSiteWiseEdgeAccess</code> policy. For more information, \n      see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/sw-gateways.html\">Using IoT SiteWise at the edge</a> \n      in the <i>IoT SiteWise User Guide</i>.</p>"
       }
     },
     "com.amazonaws.iotsitewise#GroupIdentity": {
@@ -6522,9 +6655,31 @@
     },
     "com.amazonaws.iotsitewise#Measurement": {
       "type": "structure",
-      "members": {},
+      "members": {
+        "processingConfig": {
+          "target": "com.amazonaws.iotsitewise#MeasurementProcessingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The processing configuration for the given measurement property. \n      You can configure measurements to be kept at the edge or forwarded to the Amazon Web Services Cloud. \n      By default, measurements are forwarded to the cloud.</p>"
+          }
+        }
+      },
       "traits": {
         "smithy.api#documentation": "<p>Contains an asset measurement property. For more information, see\n      <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#measurements\">Measurements</a> in the <i>IoT SiteWise User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.iotsitewise#MeasurementProcessingConfig": {
+      "type": "structure",
+      "members": {
+        "forwardingConfig": {
+          "target": "com.amazonaws.iotsitewise#ForwardingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The forwarding configuration for the given measurement property. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The processing configuration for the given measurement property. \n      You can configure measurements to be kept at the edge or forwarded to the Amazon Web Services Cloud. \n      By default, measurements are forwarded to the cloud.</p>"
       }
     },
     "com.amazonaws.iotsitewise#Metric": {
@@ -6550,10 +6705,31 @@
             "smithy.api#documentation": "<p>The window (time interval) over which IoT SiteWise computes the metric's aggregation expression.\n      IoT SiteWise computes one data point per <code>window</code>.</p>",
             "smithy.api#required": {}
           }
+        },
+        "processingConfig": {
+          "target": "com.amazonaws.iotsitewise#MetricProcessingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The processing configuration for the given metric property. \n      You can configure metrics to be computed at the edge or in the Amazon Web Services Cloud. \n      By default, metrics are forwarded to the cloud.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains an asset metric property. With metrics, you can calculate aggregate functions,\n      such as an average, maximum, or minimum, as specified through an expression. A metric maps\n      several values to a single value (such as a sum).</p>\n         <p>The maximum number of dependent/cascading variables used in any one metric calculation is\n      10. Therefore, a <i>root</i> metric can have\n      up to 10 cascading metrics in its computational dependency\n      tree. Additionally, a metric can only have a data type of <code>DOUBLE</code> and consume\n      properties with data types of <code>INTEGER</code> or <code>DOUBLE</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics\">Metrics</a> in the <i>IoT SiteWise User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.iotsitewise#MetricProcessingConfig": {
+      "type": "structure",
+      "members": {
+        "computeLocation": {
+          "target": "com.amazonaws.iotsitewise#ComputeLocation",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute location for the given metric property. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The processing configuration for the given metric property. \n      You can configure metrics to be computed at the edge or in the Amazon Web Services Cloud. \n      By default, metrics are forwarded to the cloud.</p>"
       }
     },
     "com.amazonaws.iotsitewise#MetricWindow": {
@@ -7277,7 +7453,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Configures storage settings for IoT SiteWise.</p>",
+        "smithy.api#documentation": "<p>Configures storage settings for IoT SiteWise.</p>\n         <note>\n            <p>Exporting data to Amazon S3 is currently in preview release and is subject to change. We\n        recommend that you use this feature only with test data, and not in production\n        environments.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "api."
         },
@@ -7720,10 +7896,34 @@
             "smithy.api#documentation": "<p>The list of variables used in the expression.</p>",
             "smithy.api#required": {}
           }
+        },
+        "processingConfig": {
+          "target": "com.amazonaws.iotsitewise#TransformProcessingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The processing configuration for the given transform property. \n      You can configure transforms to be kept at the edge or forwarded to the Amazon Web Services Cloud. \n      You can also configure transforms to be computed at the edge or in the cloud.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains an asset transform property. A transform is a one-to-one mapping of a property's\n      data points from one form to another. For example, you can use a transform to convert a\n      Celsius data stream to Fahrenheit by applying the transformation expression to each data point\n      of the Celsius stream. A transform can only have a data type of <code>DOUBLE</code> and\n      consume properties with data types of <code>INTEGER</code> or <code>DOUBLE</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms\">Transforms</a> in the <i>IoT SiteWise User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.iotsitewise#TransformProcessingConfig": {
+      "type": "structure",
+      "members": {
+        "computeLocation": {
+          "target": "com.amazonaws.iotsitewise#ComputeLocation",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute location for the given transform property. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "forwardingConfig": {
+          "target": "com.amazonaws.iotsitewise#ForwardingConfig"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The processing configuration for the given transform property. \n      You can configure transforms to be kept at the edge or forwarded to the Amazon Web Services Cloud. \n      You can also configure transforms to be computed at the edge or in the cloud.</p>"
       }
     },
     "com.amazonaws.iotsitewise#TraversalDirection": {

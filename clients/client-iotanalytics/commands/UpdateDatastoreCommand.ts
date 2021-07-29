@@ -21,7 +21,7 @@ export interface UpdateDatastoreCommandInput extends UpdateDatastoreRequest {}
 export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the settings of a data store.</p>
+ * <p>Used to update the settings of a data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

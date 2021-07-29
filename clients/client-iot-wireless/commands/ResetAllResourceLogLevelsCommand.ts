@@ -21,7 +21,7 @@ export interface ResetAllResourceLogLevelsCommandInput extends ResetAllResourceL
 export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResourceLogLevelsResponse, __MetadataBearer {}
 
 /**
- * <p>Remove log-level overrides if any for all resources (both wireless devices and wireless gateways).</p>
+ * <p>Removes the log-level overrides for all resources; both wireless devices and wireless gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

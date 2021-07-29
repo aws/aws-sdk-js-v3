@@ -21,8 +21,7 @@ export interface CreateDatastoreCommandInput extends CreateDatastoreRequest {}
 export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data store, which is a repository for messages.
- *       Only data stores that are used to save pipeline data can be configured with <code>ParquetConfiguration</code>.</p>
+ * <p>Creates a data store, which is a repository for messages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
