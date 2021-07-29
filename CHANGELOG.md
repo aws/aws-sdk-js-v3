@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.24.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.23.0...v3.24.0) (2021-07-29)
+
+
+### Bug Fixes
+
+* **credential-provider-node:** add missing dependency ([#2623](https://github.com/aws/aws-sdk-js-v3/issues/2623)) ([9b9a3a6](https://github.com/aws/aws-sdk-js-v3/commit/9b9a3a6b9f1c6fd07469667ea111416fa55cf0c1))
+
+
+### Features
+
+* **clients:** update clients as of 07/29/2021 ([#2631](https://github.com/aws/aws-sdk-js-v3/issues/2631)) ([a34551e](https://github.com/aws/aws-sdk-js-v3/commit/a34551e2590b01aeacc40d1afd9ee1076f000a77))
+
+
+
+
+
 # [3.23.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.22.0...v3.23.0) (2021-07-23)
 
 
