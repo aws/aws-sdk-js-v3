@@ -304,10 +304,10 @@ it("RestJsonQueryStringMap:Request", async () => {
   });
 
   const command = new AllQueryStringTypesCommand({
-    queryParamsMapOfStrings: {
-      QueryParamsStringKeyA: "Foo",
+    queryParamsMapOfStringList: {
+      QueryParamsStringKeyA: ["Foo"],
 
-      QueryParamsStringKeyB: "Bar",
+      QueryParamsStringKeyB: ["Bar"],
     } as any,
   } as any);
   try {
