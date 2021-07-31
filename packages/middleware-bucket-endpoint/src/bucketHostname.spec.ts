@@ -15,6 +15,7 @@ describe("bucketHostname", () => {
             bucketName: "foo",
             baseHostname,
             isCustomEndpoint,
+            clientRegion: region,
           });
 
           expect(bucketEndpoint).toBe(true);
@@ -26,6 +27,7 @@ describe("bucketHostname", () => {
             bucketName: "foo",
             baseHostname,
             isCustomEndpoint,
+            clientRegion: region,
             pathStyleEndpoint: true,
           });
 
@@ -38,6 +40,7 @@ describe("bucketHostname", () => {
             bucketName: "foo.bar",
             baseHostname,
             isCustomEndpoint,
+            clientRegion: region,
           });
 
           expect(bucketEndpoint).toBe(false);
@@ -49,6 +52,7 @@ describe("bucketHostname", () => {
             bucketName: "foo.bar",
             baseHostname,
             isCustomEndpoint,
+            clientRegion: region,
             tlsCompatible: false,
           });
 
@@ -78,6 +82,7 @@ describe("bucketHostname", () => {
               bucketName: nonDnsCompliantBucketName,
               baseHostname,
               isCustomEndpoint,
+              clientRegion: region,
             });
 
             expect(bucketEndpoint).toBe(false);
@@ -479,6 +484,8 @@ describe("bucketHostname", () => {
           bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
           baseHostname: `s3.${region}.amazonaws.com`,
           disableMultiregionAccessPoints: false,
+          clientRegion: region,
+          isCustomEndpoint: false,
         });
         expect(bucketEndpoint).toBe(true);
         expect(hostname).toBe("mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com");
@@ -492,6 +499,8 @@ describe("bucketHostname", () => {
         clientPartition: "aws-cn",
         baseHostname: `s3.${region}.amazonaws.com.cn`,
         disableMultiregionAccessPoints: false,
+        clientRegion: region,
+        isCustomEndpoint: false,
       });
       expect(bucketEndpoint).toBe(true);
       expect(hostname).toBe("mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com.cn");
@@ -504,6 +513,8 @@ describe("bucketHostname", () => {
           bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
           baseHostname: `s3.us-west-2.amazonaws.com`,
           disableMultiregionAccessPoints: true,
+          clientRegion: region,
+          isCustomEndpoint: false,
         })
       ).toThrow("SDK is attempting to use a MRAP ARN. Please enable to feature.");
     });
@@ -514,6 +525,8 @@ describe("bucketHostname", () => {
           bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
           baseHostname: `s3.us-west-2.amazonaws.com`,
           dualstackEndpoint: true,
+          clientRegion: region,
+          isCustomEndpoint: false,
         })
       ).toThrow("Dualstack endpoint is not supported with Outpost or Multi-region Access Point ARN.");
     });
@@ -524,6 +537,8 @@ describe("bucketHostname", () => {
           bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
           baseHostname: `s3.us-west-2.amazonaws.com`,
           accelerateEndpoint: true,
+          clientRegion: region,
+          isCustomEndpoint: false,
         })
       ).toThrow("Accelerate endpoint is not supported when bucket is an ARN");
     });
@@ -534,6 +549,8 @@ describe("bucketHostname", () => {
           bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:myendpoint"),
           baseHostname: `s3.us-west-2.amazonaws.com`,
           disableMultiregionAccessPoints: true,
+          clientRegion: region,
+          isCustomEndpoint: false,
         })
       ).toThrow("");
     });
@@ -543,6 +560,8 @@ describe("bucketHostname", () => {
         bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:myendpoint"),
         baseHostname: `s3.us-west-2.amazonaws.com`,
         disableMultiregionAccessPoints: false,
+        clientRegion: region,
+        isCustomEndpoint: false,
       });
       expect(bucketEndpoint).toBe(true);
       expect(hostname).toBe("myendpoint.accesspoint.s3-global.amazonaws.com");
@@ -553,6 +572,8 @@ describe("bucketHostname", () => {
         bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:my.bucket"),
         baseHostname: `s3.us-west-2.amazonaws.com`,
         disableMultiregionAccessPoints: false,
+        clientRegion: region,
+        isCustomEndpoint: false,
       });
       expect(bucketEndpoint).toBe(true);
       expect(hostname).toBe("my.bucket.accesspoint.s3-global.amazonaws.com");

@@ -91,7 +91,6 @@ const getEndpointFromArn = (options: ArnHostnameParams): BucketHostname => {
   validateService(service);
   validatePartition(partition, { clientPartition });
   validateAccountId(accountId);
-  validateRegionalClient(clientRegion);
   const { accesspointName, outpostId } = getArnResources(resource);
   if (service === "s3-object-lambda") {
     return getEndpointFromObjectLambdaArn({ ...options, tlsCompatible, bucketName, accesspointName, hostnameSuffix });
@@ -120,6 +119,7 @@ const getEndpointFromObjectLambdaArn = ({
   hostnameSuffix: string;
 }): BucketHostname => {
   const { accountId, region, service } = bucketName;
+  validateRegionalClient(clientRegion);
   validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion, allowFipsRegion: true });
   validateNoDualstack(dualstackEndpoint);
   const DNSHostLabel = `${accesspointName}-${accountId}`;
@@ -171,6 +171,7 @@ const getEndpointFromOutpostArn = ({
   hostnameSuffix,
 }: ArnHostnameParams & { outpostId: string; accesspointName: string; hostnameSuffix: string }): BucketHostname => {
   // if this is an Outpost ARN
+  validateRegionalClient(clientRegion);
   validateRegion(bucketName.region, { useArnRegion, clientRegion, clientSigningRegion });
   const DNSHostLabel = `${accesspointName}-${bucketName.accountId}`;
   validateDNSHostLabel(DNSHostLabel, { tlsCompatible });
@@ -201,6 +202,7 @@ const getEndpointFromAccessPointArn = ({
   hostnameSuffix,
 }: ArnHostnameParams & { accesspointName: string; hostnameSuffix: string }): BucketHostname => {
   // construct endpoint from Accesspoint ARN
+  validateRegionalClient(clientRegion);
   validateRegion(bucketName.region, { useArnRegion, clientRegion, clientSigningRegion, allowFipsRegion: true });
   const hostnamePrefix = `${accesspointName}-${bucketName.accountId}`;
   validateDNSHostLabel(hostnamePrefix, { tlsCompatible });
