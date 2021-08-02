@@ -44,7 +44,7 @@ export class S3SignatureV4 implements RequestPresigner, RequestSigner {
   public async presign(originalRequest: HttpRequest, options: RequestPresigningArguments = {}): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
       if (!this.sigv4aSigner)
-        throw new Error("This request requires singing with SigV4Asymmetric algorithm. It's only available in Node.js");
+        throw new Error("This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js");
       return this.sigv4aSigner.presign(originalRequest, options);
     }
     return this.sigv4Signer.presign(originalRequest, options);

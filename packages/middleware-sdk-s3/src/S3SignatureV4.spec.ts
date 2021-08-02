@@ -60,16 +60,16 @@ describe("S3SignatureV4", () => {
   it("should throw if sign with SigV4a in unsupported runtime", async () => {
     expect.assertions(1);
     const signer = new S3SignatureV4({ ...params, runtime: "browser" });
-    await expect(signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toMatchObject({
-      message: "This request requires singing with SigV4Asymmetric algorithm. It's only available in Node.js",
-    });
+    await expect(async () => await signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
+      "This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js"
+    );
   });
 
   it("should throw if preSign with SigV4a in unsupported runtime", async () => {
     expect.assertions(1);
     const signer = new S3SignatureV4({ ...params, runtime: "browser" });
-    await expect(signer.presign(minimalRequest, { signingRegion: "*" })).rejects.toMatchObject({
-      message: "This request requires singing with SigV4Asymmetric algorithm. It's only available in Node.js",
-    });
+    await expect(signer.presign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
+      "This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js"
+    );
   });
 });
