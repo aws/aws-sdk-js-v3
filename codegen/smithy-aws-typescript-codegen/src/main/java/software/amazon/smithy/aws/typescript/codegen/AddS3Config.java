@@ -86,15 +86,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                 return MapUtils.of("signingEscapePath", writer -> {
                     writer.write("false");
                 }, "useArnRegion", writer -> {
-<<<<<<< HEAD
                     writer.write("false");
-=======
-                    writer.write("useArnRegion: false,");
                 }, "signerConstructor", writer -> {
                     writer.addDependency(AwsDependency.S3_MIDDLEWARE)
                             .addImport("S3SignatureV4", "S3SignatureV4", AwsDependency.S3_MIDDLEWARE.packageName)
-                            .write("signerConstructor: S3SignatureV4,");
->>>>>>> 656a427ad5 (feat(s3): support multi-regional access point (#5))
+                            .write("S3SignatureV4");
                 });
             case NODE:
                 return MapUtils.of("useArnRegion", writer -> {
