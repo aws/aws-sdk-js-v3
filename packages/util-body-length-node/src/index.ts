@@ -11,6 +11,8 @@ export function calculateBodyLength(body: any): number | undefined {
     return body.byteLength;
   } else if (typeof body.size === "number") {
     return body.size;
+  } else if (typeof body.start === "number" && typeof body.end === "number") {
+    return body.end + 1 - body.start;
   } else if (typeof body.path === "string") {
     // handles fs readable streams
     return lstatSync(body.path).size;

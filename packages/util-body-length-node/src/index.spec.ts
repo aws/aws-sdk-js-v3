@@ -1,3 +1,8 @@
+import { promises } from 'fs';
+import { createReadStream, writeFile } from "fs-extra";
+import * as os from "os";
+import * as path from "path";
+
 import { calculateBodyLength } from "./";
 
 const arrayBuffer = new ArrayBuffer(1);
@@ -27,5 +32,29 @@ describe("caclulateBodyLength", () => {
 
   it("should handle DataView inputs", () => {
     expect(calculateBodyLength(view)).toEqual(1);
+  });
+
+  it("should handle a Readable from a file", async () => {
+    const tmpDir = await promises.mkdtemp(path.join(os.tmpdir(), 'test1-'));
+    const filePath = path.join(tmpDir, "foo");
+    await writeFile(filePath, "foo");
+    const handle = await promises.open(filePath, 'r');
+    const readStream = createReadStream(filePath, {fd: handle.fd});
+    expect(calculateBodyLength(readStream)).toEqual(3);
+    readStream.destroy();
+    await promises.unlink(filePath);
+    await promises.rmdir(tmpDir);
+  });
+
+  it("should handle Readable with start end from a file", async () => {
+    const tmpDir = await promises.mkdtemp(path.join(os.tmpdir(), 'test2-'));
+    const filePath = path.join(tmpDir, "foo");
+    await writeFile(filePath, "foo");
+    const handle = await promises.open(filePath, 'r');
+    const readStream = createReadStream(filePath, {fd: handle.fd, start: 1, end: 1});
+    expect(calculateBodyLength(readStream)).toEqual(1);
+    readStream.destroy();
+    await promises.unlink(filePath);
+    await promises.rmdir(tmpDir);
   });
 });
