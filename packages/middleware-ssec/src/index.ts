@@ -1,7 +1,7 @@
 import {
   Decoder,
   Encoder,
-  Hash,
+  HashConstructor,
   InitializeHandler,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 interface PreviouslyResolved {
   base64Encoder: Encoder;
-  md5: { new (): Hash };
+  md5: HashConstructor;
   utf8Decoder: Decoder;
 }
 
