@@ -29,13 +29,16 @@
   "dependencies": {
     "@aws-sdk/types": "3.22.0",
     "@aws-sdk/util-utf8-browser": "3.23.0",
+    "@aws-sdk/util-utf8-node": "3.23.0",
     "tslib": "^2.3.0"
   },
   "browser": {
-    "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser"
+    "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser",
+    "@aws-sdk/util-utf8-node": "@aws-sdk/util-utf8-browser"
   },
   "react-native": {
-    "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser"
+    "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser",
+    "@aws-sdk/util-utf8-node": "@aws-sdk/util-utf8-browser"
   },
   "typesVersions": {
     "<4.0": {
