@@ -4078,7 +4078,7 @@ export interface PutResourcePolicyRequest {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>By using the <b>Grant permissions</b> command on the Management Console.</p>
+   *                <p>By using the <b>Grant permissions</b> command on the Amazon Web Services Management Console.</p>
    *             </li>
    *          </ul>
    *          <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to

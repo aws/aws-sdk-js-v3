@@ -9512,6 +9512,7 @@ const serializeAws_restJson1InputContextsList = (input: InputContext[], context:
 
 const serializeAws_restJson1IntentClosingSetting = (input: IntentClosingSetting, context: __SerdeContext): any => {
   return {
+    ...(input.active !== undefined && input.active !== null && { active: input.active }),
     ...(input.closingResponse !== undefined &&
       input.closingResponse !== null && {
         closingResponse: serializeAws_restJson1ResponseSpecification(input.closingResponse, context),
@@ -9524,6 +9525,7 @@ const serializeAws_restJson1IntentConfirmationSetting = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.active !== undefined && input.active !== null && { active: input.active }),
     ...(input.declinationResponse !== undefined &&
       input.declinationResponse !== null && {
         declinationResponse: serializeAws_restJson1ResponseSpecification(input.declinationResponse, context),
@@ -10026,6 +10028,7 @@ const serializeAws_restJson1WaitAndContinueSpecification = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.active !== undefined && input.active !== null && { active: input.active }),
     ...(input.continueResponse !== undefined &&
       input.continueResponse !== null && {
         continueResponse: serializeAws_restJson1ResponseSpecification(input.continueResponse, context),
@@ -10610,6 +10613,7 @@ const deserializeAws_restJson1InputContextsList = (output: any, context: __Serde
 
 const deserializeAws_restJson1IntentClosingSetting = (output: any, context: __SerdeContext): IntentClosingSetting => {
   return {
+    active: __expectBoolean(output.active),
     closingResponse:
       output.closingResponse !== undefined && output.closingResponse !== null
         ? deserializeAws_restJson1ResponseSpecification(output.closingResponse, context)
@@ -10622,6 +10626,7 @@ const deserializeAws_restJson1IntentConfirmationSetting = (
   context: __SerdeContext
 ): IntentConfirmationSetting => {
   return {
+    active: __expectBoolean(output.active),
     declinationResponse:
       output.declinationResponse !== undefined && output.declinationResponse !== null
         ? deserializeAws_restJson1ResponseSpecification(output.declinationResponse, context)
@@ -11090,6 +11095,7 @@ const deserializeAws_restJson1WaitAndContinueSpecification = (
   context: __SerdeContext
 ): WaitAndContinueSpecification => {
   return {
+    active: __expectBoolean(output.active),
     continueResponse:
       output.continueResponse !== undefined && output.continueResponse !== null
         ? deserializeAws_restJson1ResponseSpecification(output.continueResponse, context)

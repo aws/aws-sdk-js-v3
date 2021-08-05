@@ -23,8 +23,8 @@ export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, 
 /**
  * <p>Returns one or more snapshot objects, which contain metadata about your cluster
  *             snapshots. By default, this operation returns information about all snapshots of all
- *             clusters that are owned by your account. No information is returned for
- *             snapshots owned by inactive accounts.</p>
+ *             clusters that are owned by your Amazon Web Services account. No information is returned for
+ *             snapshots owned by inactive Amazon Web Services accounts.</p>
  *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all snapshots that match any combination of the specified keys and values. For example,
  *             if you have <code>owner</code> and <code>environment</code> for tag keys, and

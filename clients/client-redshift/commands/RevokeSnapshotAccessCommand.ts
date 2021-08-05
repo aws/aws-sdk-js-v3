@@ -21,7 +21,7 @@ export interface RevokeSnapshotAccessCommandInput extends RevokeSnapshotAccessMe
 export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessResult, __MetadataBearer {}
 
 /**
- * <p>Removes the ability of the specified  account to restore the specified
+ * <p>Removes the ability of the specified  Amazon Web Services account to restore the specified
  *             snapshot. If the account is currently restoring the snapshot, the restore will run to
  *             completion.</p>
  *         <p>

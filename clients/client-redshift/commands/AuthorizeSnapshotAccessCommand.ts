@@ -21,7 +21,7 @@ export interface AuthorizeSnapshotAccessCommandInput extends AuthorizeSnapshotAc
 export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotAccessResult, __MetadataBearer {}
 
 /**
- * <p>Authorizes the specified account to restore the specified
+ * <p>Authorizes the specified Amazon Web Services account to restore the specified
  *             snapshot.</p>
  *         <p>
  * For more information about working with snapshots, go to

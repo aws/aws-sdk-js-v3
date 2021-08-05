@@ -4,9 +4,14 @@ import {
 } from "./commands/AcceptReservedNodeExchangeCommand";
 import { AddPartnerCommandInput, AddPartnerCommandOutput } from "./commands/AddPartnerCommand";
 import {
+  AssociateDataShareConsumerCommandInput,
+  AssociateDataShareConsumerCommandOutput,
+} from "./commands/AssociateDataShareConsumerCommand";
+import {
   AuthorizeClusterSecurityGroupIngressCommandInput,
   AuthorizeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeClusterSecurityGroupIngressCommand";
+import { AuthorizeDataShareCommandInput, AuthorizeDataShareCommandOutput } from "./commands/AuthorizeDataShareCommand";
 import {
   AuthorizeEndpointAccessCommandInput,
   AuthorizeEndpointAccessCommandOutput,
@@ -79,6 +84,10 @@ import {
 } from "./commands/CreateSnapshotScheduleCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "./commands/CreateUsageLimitCommand";
+import {
+  DeauthorizeDataShareCommandInput,
+  DeauthorizeDataShareCommandOutput,
+} from "./commands/DeauthorizeDataShareCommand";
 import {
   DeleteAuthenticationProfileCommandInput,
   DeleteAuthenticationProfileCommandOutput,
@@ -172,6 +181,15 @@ import {
   DescribeClusterVersionsCommandOutput,
 } from "./commands/DescribeClusterVersionsCommand";
 import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand";
+import { DescribeDataSharesCommandInput, DescribeDataSharesCommandOutput } from "./commands/DescribeDataSharesCommand";
+import {
+  DescribeDataSharesForConsumerCommandInput,
+  DescribeDataSharesForConsumerCommandOutput,
+} from "./commands/DescribeDataSharesForConsumerCommand";
+import {
+  DescribeDataSharesForProducerCommandInput,
+  DescribeDataSharesForProducerCommandOutput,
+} from "./commands/DescribeDataSharesForProducerCommand";
 import {
   DescribeDefaultClusterParametersCommandInput,
   DescribeDefaultClusterParametersCommandOutput,
@@ -250,6 +268,10 @@ import {
   DisableSnapshotCopyCommandInput,
   DisableSnapshotCopyCommandOutput,
 } from "./commands/DisableSnapshotCopyCommand";
+import {
+  DisassociateDataShareConsumerCommandInput,
+  DisassociateDataShareConsumerCommandOutput,
+} from "./commands/DisassociateDataShareConsumerCommand";
 import { EnableLoggingCommandInput, EnableLoggingCommandOutput } from "./commands/EnableLoggingCommand";
 import { EnableSnapshotCopyCommandInput, EnableSnapshotCopyCommandOutput } from "./commands/EnableSnapshotCopyCommand";
 import {
@@ -324,6 +346,7 @@ import {
   PurchaseReservedNodeOfferingCommandOutput,
 } from "./commands/PurchaseReservedNodeOfferingCommand";
 import { RebootClusterCommandInput, RebootClusterCommandOutput } from "./commands/RebootClusterCommand";
+import { RejectDataShareCommandInput, RejectDataShareCommandOutput } from "./commands/RejectDataShareCommand";
 import {
   ResetClusterParameterGroupCommandInput,
   ResetClusterParameterGroupCommandOutput,
@@ -413,7 +436,9 @@ import {
 export type ServiceInputTypes =
   | AcceptReservedNodeExchangeCommandInput
   | AddPartnerCommandInput
+  | AssociateDataShareConsumerCommandInput
   | AuthorizeClusterSecurityGroupIngressCommandInput
+  | AuthorizeDataShareCommandInput
   | AuthorizeEndpointAccessCommandInput
   | AuthorizeSnapshotAccessCommandInput
   | BatchDeleteClusterSnapshotsCommandInput
@@ -435,6 +460,7 @@ export type ServiceInputTypes =
   | CreateSnapshotScheduleCommandInput
   | CreateTagsCommandInput
   | CreateUsageLimitCommandInput
+  | DeauthorizeDataShareCommandInput
   | DeleteAuthenticationProfileCommandInput
   | DeleteClusterCommandInput
   | DeleteClusterParameterGroupCommandInput
@@ -462,6 +488,9 @@ export type ServiceInputTypes =
   | DescribeClusterTracksCommandInput
   | DescribeClusterVersionsCommandInput
   | DescribeClustersCommandInput
+  | DescribeDataSharesCommandInput
+  | DescribeDataSharesForConsumerCommandInput
+  | DescribeDataSharesForProducerCommandInput
   | DescribeDefaultClusterParametersCommandInput
   | DescribeEndpointAccessCommandInput
   | DescribeEndpointAuthorizationCommandInput
@@ -486,6 +515,7 @@ export type ServiceInputTypes =
   | DescribeUsageLimitsCommandInput
   | DisableLoggingCommandInput
   | DisableSnapshotCopyCommandInput
+  | DisassociateDataShareConsumerCommandInput
   | EnableLoggingCommandInput
   | EnableSnapshotCopyCommandInput
   | GetClusterCredentialsCommandInput
@@ -509,6 +539,7 @@ export type ServiceInputTypes =
   | PauseClusterCommandInput
   | PurchaseReservedNodeOfferingCommandInput
   | RebootClusterCommandInput
+  | RejectDataShareCommandInput
   | ResetClusterParameterGroupCommandInput
   | ResizeClusterCommandInput
   | RestoreFromClusterSnapshotCommandInput
@@ -523,7 +554,9 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptReservedNodeExchangeCommandOutput
   | AddPartnerCommandOutput
+  | AssociateDataShareConsumerCommandOutput
   | AuthorizeClusterSecurityGroupIngressCommandOutput
+  | AuthorizeDataShareCommandOutput
   | AuthorizeEndpointAccessCommandOutput
   | AuthorizeSnapshotAccessCommandOutput
   | BatchDeleteClusterSnapshotsCommandOutput
@@ -545,6 +578,7 @@ export type ServiceOutputTypes =
   | CreateSnapshotScheduleCommandOutput
   | CreateTagsCommandOutput
   | CreateUsageLimitCommandOutput
+  | DeauthorizeDataShareCommandOutput
   | DeleteAuthenticationProfileCommandOutput
   | DeleteClusterCommandOutput
   | DeleteClusterParameterGroupCommandOutput
@@ -572,6 +606,9 @@ export type ServiceOutputTypes =
   | DescribeClusterTracksCommandOutput
   | DescribeClusterVersionsCommandOutput
   | DescribeClustersCommandOutput
+  | DescribeDataSharesCommandOutput
+  | DescribeDataSharesForConsumerCommandOutput
+  | DescribeDataSharesForProducerCommandOutput
   | DescribeDefaultClusterParametersCommandOutput
   | DescribeEndpointAccessCommandOutput
   | DescribeEndpointAuthorizationCommandOutput
@@ -596,6 +633,7 @@ export type ServiceOutputTypes =
   | DescribeUsageLimitsCommandOutput
   | DisableLoggingCommandOutput
   | DisableSnapshotCopyCommandOutput
+  | DisassociateDataShareConsumerCommandOutput
   | EnableLoggingCommandOutput
   | EnableSnapshotCopyCommandOutput
   | GetClusterCredentialsCommandOutput
@@ -619,6 +657,7 @@ export type ServiceOutputTypes =
   | PauseClusterCommandOutput
   | PurchaseReservedNodeOfferingCommandOutput
   | RebootClusterCommandOutput
+  | RejectDataShareCommandOutput
   | ResetClusterParameterGroupCommandOutput
   | ResizeClusterCommandOutput
   | RestoreFromClusterSnapshotCommandOutput

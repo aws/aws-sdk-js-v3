@@ -500,6 +500,30 @@ export interface ProtonClientResolvedConfig extends ProtonClientResolvedConfigTy
  *             </li>
  *          </ul>
  *         <p>
+ *             <b>Idempotent create APIs</b>
+ *          </p>
+ *         <p>Given a request action that has succeeded:</p>
+ *         <p>If you retry the request with an API from this group, and the original resource <i>hasn't</i> been modified, the retry
+ *             succeeds without performing any further actions other than returning the original resource detail data in the response.</p>
+ *         <p>If the original resource has been modified, the retry throws a <code>ConflictException</code>.</p>
+ *         <p>If you retry with different input parameters, the retry throws a <code>ValidationException</code> with an
+ *                 <code>IdempotentParameterMismatch</code> error.</p>
+ *         <p>Idempotent create APIs:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>CreateEnvironmentTemplate</p>
+ *             </li>
+ *             <li>
+ *                 <p>CreateServiceTemplate</p>
+ *             </li>
+ *             <li>
+ *                 <p>CreateEnvironment</p>
+ *             </li>
+ *             <li>
+ *                 <p>CreateService</p>
+ *             </li>
+ *          </ul>
+ *         <p>
  *             <b>Idempotent delete APIs</b>
  *          </p>
  *         <p>Given a request action that has succeeded:</p>

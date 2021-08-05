@@ -3575,7 +3575,7 @@ export interface ConnectionInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MARKETPLACE</code> - Uses configuration settings contained in a connector purchased from Marketplace to read from and write to data stores that are not natively supported by Glue.</p>
+   *                   <code>MARKETPLACE</code> - Uses configuration settings contained in a connector purchased from Amazon Web Services Marketplace to read from and write to data stores that are not natively supported by Glue.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3745,6 +3745,27 @@ export namespace CreateCrawlerResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateCrawlerResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Two processes are trying to modify a resource simultaneously.</p>
+ */
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
+  name: "ConcurrentModificationException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
 }
@@ -4198,27 +4219,6 @@ export namespace ValidationException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Two processes are trying to modify a resource simultaneously.</p>
- */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
 }

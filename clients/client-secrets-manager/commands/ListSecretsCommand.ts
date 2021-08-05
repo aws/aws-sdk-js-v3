@@ -21,7 +21,7 @@ export interface ListSecretsCommandInput extends ListSecretsRequest {}
 export interface ListSecretsCommandOutput extends ListSecretsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all of the secrets that are stored by Secrets Manager in the AWS account. To list the
+ * <p>Lists all of the secrets that are stored by Secrets Manager in the Amazon Web Services account. To list the
  *       versions currently stored for a specific secret, use <a>ListSecretVersionIds</a>.
  *       The encrypted fields <code>SecretString</code> and <code>SecretBinary</code> are not included
  *       in the output. To get that information, call the <a>GetSecretValue</a>

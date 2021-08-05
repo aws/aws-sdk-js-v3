@@ -22,7 +22,50 @@ export enum AuthenticationType {
   AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
   API_KEY = "API_KEY",
   AWS_IAM = "AWS_IAM",
+  AWS_LAMBDA = "AWS_LAMBDA",
   OPENID_CONNECT = "OPENID_CONNECT",
+}
+
+/**
+ * <p>A <code>LambdaAuthorizerConfig</code> holds configuration on how to authorize AppSync API access when using
+ *       the <code>AWS_LAMBDA</code> authorizer mode. Be aware that an AppSync API may have only one Lambda authorizer configured
+ *       at a time.</p>
+ */
+export interface LambdaAuthorizerConfig {
+  /**
+   * <p>The number of seconds a response should be cached for. The default is 5 minutes (300 seconds).
+   *          The Lambda function can override this by returning a
+   *             <code>ttlOverride</code> key in its response. A value of 0 disables caching of
+   *          responses.</p>
+   */
+  authorizerResultTtlInSeconds?: number;
+
+  /**
+   * <p>The ARN of the lambda function to be called for authorization. This may be a standard
+   *          Lambda ARN, a version ARN (<code>.../v3</code>) or alias ARN. </p>
+   *          <p>
+   *             <i>Note</i>: This Lambda function must have the following resource-based
+   *          policy assigned to it. When configuring Lambda authorizers in the Console, this is done for
+   *          you. To do so with the AWS CLI, run the following:</p>
+   *          <p>
+   *             <code>aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function" --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction</code>
+   *          </p>
+   */
+  authorizerUri: string | undefined;
+
+  /**
+   * <p>A regular expression for validation of tokens before the Lambda Function is called.</p>
+   */
+  identityValidationExpression?: string;
+}
+
+export namespace LambdaAuthorizerConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LambdaAuthorizerConfig): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -38,7 +81,7 @@ export interface OpenIDConnectConfig {
   /**
    * <p>The client identifier of the Relying party at the OpenID identity provider. This
    *          identifier is typically obtained when the Relying party is registered with the OpenID
-   *          identity provider. You can specify a regular expression so the AWS AppSync can validate
+   *          identity provider. You can specify a regular expression so the AppSync can validate
    *          against multiple client identifiers at a time.</p>
    */
   clientId?: string;
@@ -73,7 +116,7 @@ export interface CognitoUserPoolConfig {
   userPoolId: string | undefined;
 
   /**
-   * <p>The AWS Region in which the user pool was created.</p>
+   * <p>The Amazon Web Services Region in which the user pool was created.</p>
    */
   awsRegion: string | undefined;
 
@@ -98,7 +141,7 @@ export namespace CognitoUserPoolConfig {
  */
 export interface AdditionalAuthenticationProvider {
   /**
-   * <p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>
+   * <p>The authentication type: API key, Identity and Access Management, OIDC, or Amazon Cognito user pools.</p>
    */
   authenticationType?: AuthenticationType | string;
 
@@ -111,6 +154,11 @@ export interface AdditionalAuthenticationProvider {
    * <p>The Amazon Cognito user pool configuration.</p>
    */
   userPoolConfig?: CognitoUserPoolConfig;
+
+  /**
+   * <p>Configuration for AWS Lambda function authorization.</p>
+   */
+  lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
 
 export namespace AdditionalAuthenticationProvider {
@@ -313,7 +361,7 @@ export namespace ApiCache {
 
 /**
  * <p>Describes an API key.</p>
- *          <p>Customers invoke AWS AppSync GraphQL API operations with API keys as an identity
+ *          <p>Customers invoke AppSync GraphQL API operations with API keys as an identity
  *          mechanism. There are two key versions:</p>
  *          <p>
  *             <b>da1</b>: This version was introduced at launch in November
@@ -474,16 +522,16 @@ export enum AuthorizationType {
 }
 
 /**
- * <p>The AWS IAM configuration.</p>
+ * <p>The Identity and Access Management configuration.</p>
  */
 export interface AwsIamConfig {
   /**
-   * <p>The signing region for AWS IAM authorization.</p>
+   * <p>The signing region for Identity and Access Management authorization.</p>
    */
   signingRegion?: string;
 
   /**
-   * <p>The signing service name for AWS IAM authorization.</p>
+   * <p>The signing service name for Identity and Access Management authorization.</p>
    */
   signingServiceName?: string;
 }
@@ -514,7 +562,7 @@ export interface AuthorizationConfig {
   authorizationType: AuthorizationType | string | undefined;
 
   /**
-   * <p>The AWS IAM settings.</p>
+   * <p>The Identity and Access Management settings.</p>
    */
   awsIamConfig?: AwsIamConfig;
 }
@@ -717,7 +765,7 @@ export namespace CreateApiCacheResponse {
 }
 
 /**
- * <p>An internal AWS AppSync error occurred. Try your request again.</p>
+ * <p>An internal AppSync error occurred. Try your request again.</p>
  */
 export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
@@ -872,7 +920,7 @@ export interface DynamodbDataSourceConfig {
   tableName: string | undefined;
 
   /**
-   * <p>The AWS Region.</p>
+   * <p>The Amazon Web Services Region.</p>
    */
   awsRegion: string | undefined;
 
@@ -911,7 +959,7 @@ export interface ElasticsearchDataSourceConfig {
   endpoint: string | undefined;
 
   /**
-   * <p>The AWS Region.</p>
+   * <p>The Amazon Web Services Region.</p>
    */
   awsRegion: string | undefined;
 }
@@ -931,8 +979,7 @@ export namespace ElasticsearchDataSourceConfig {
 export interface HttpDataSourceConfig {
   /**
    * <p>The HTTP URL endpoint. You can either specify the domain name or IP, and port
-   *          combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS
-   *          AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS
+   *          combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS
    *          endpoints.</p>
    */
   endpoint?: string;
@@ -953,7 +1000,7 @@ export namespace HttpDataSourceConfig {
 }
 
 /**
- * <p>Describes an AWS Lambda data source configuration.</p>
+ * <p>Describes an Amazon Web Services Lambda data source configuration.</p>
  */
 export interface LambdaDataSourceConfig {
   /**
@@ -976,7 +1023,7 @@ export namespace LambdaDataSourceConfig {
  */
 export interface RdsHttpEndpointConfig {
   /**
-   * <p>AWS Region for RDS HTTP endpoint.</p>
+   * <p>Amazon Web Services Region for RDS HTTP endpoint.</p>
    */
   awsRegion?: string;
 
@@ -996,7 +1043,7 @@ export interface RdsHttpEndpointConfig {
   schema?: string;
 
   /**
-   * <p>AWS secret store ARN for database credentials.</p>
+   * <p>Amazon Web Services secret store ARN for database credentials.</p>
    */
   awsSecretStoreArn?: string;
 }
@@ -1076,7 +1123,7 @@ export interface CreateDataSourceRequest {
   type: DataSourceType | string | undefined;
 
   /**
-   * <p>The AWS IAM service role ARN for the data source. The system assumes this role when
+   * <p>The Identity and Access Management service role ARN for the data source. The system assumes this role when
    *          accessing the data source.</p>
    */
   serviceRoleArn?: string;
@@ -1087,7 +1134,7 @@ export interface CreateDataSourceRequest {
   dynamodbConfig?: DynamodbDataSourceConfig;
 
   /**
-   * <p>AWS Lambda settings.</p>
+   * <p>Amazon Web Services Lambda settings.</p>
    */
   lambdaConfig?: LambdaDataSourceConfig;
 
@@ -1150,7 +1197,7 @@ export interface DataSource {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>AWS_LAMBDA</b>: The data source is an AWS Lambda
+   *                   <b>AWS_LAMBDA</b>: The data source is an Amazon Web Services Lambda
    *                function.</p>
    *             </li>
    *             <li>
@@ -1175,7 +1222,7 @@ export interface DataSource {
   type?: DataSourceType | string;
 
   /**
-   * <p>The AWS IAM service role ARN for the data source. The system assumes this role when
+   * <p>The Identity and Access Management service role ARN for the data source. The system assumes this role when
    *          accessing the data source.</p>
    */
   serviceRoleArn?: string;
@@ -1186,7 +1233,7 @@ export interface DataSource {
   dynamodbConfig?: DynamodbDataSourceConfig;
 
   /**
-   * <p>AWS Lambda settings.</p>
+   * <p>Amazon Web Services Lambda settings.</p>
    */
   lambdaConfig?: LambdaDataSourceConfig;
 
@@ -1515,7 +1562,7 @@ export interface LogConfig {
   fieldLogLevel: FieldLogLevel | string | undefined;
 
   /**
-   * <p>The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in
+   * <p>The service role that AppSync will assume to publish to Amazon CloudWatch logs in
    *          your account. </p>
    */
   cloudWatchLogsRoleArn: string | undefined;
@@ -1551,7 +1598,7 @@ export interface UserPoolConfig {
   userPoolId: string | undefined;
 
   /**
-   * <p>The AWS Region in which the user pool was created.</p>
+   * <p>The Amazon Web Services Region in which the user pool was created.</p>
    */
   awsRegion: string | undefined;
 
@@ -1590,7 +1637,7 @@ export interface CreateGraphqlApiRequest {
   logConfig?: LogConfig;
 
   /**
-   * <p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>
+   * <p>The authentication type: API key, Identity and Access Management, OIDC, or Amazon Cognito user pools.</p>
    */
   authenticationType: AuthenticationType | string | undefined;
 
@@ -1620,6 +1667,11 @@ export interface CreateGraphqlApiRequest {
    *          <code>GraphqlApi</code>.</p>
    */
   xrayEnabled?: boolean;
+
+  /**
+   * <p>Configuration for AWS Lambda function authorization.</p>
+   */
+  lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
 
 export namespace CreateGraphqlApiRequest {
@@ -1693,10 +1745,16 @@ export interface GraphqlApi {
   xrayEnabled?: boolean;
 
   /**
-   * <p>The ARN of the AWS Web Application Firewall (WAF) ACL associated with this
+   * <p>The ARN of the WAF ACL associated with this
    *          <code>GraphqlApi</code>, if one exists.</p>
    */
   wafWebAclArn?: string;
+
+  /**
+   * <p></p>
+   *          <p>Configuration for AWS Lambda function authorization.</p>
+   */
+  lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
 
 export namespace GraphqlApi {
@@ -3344,7 +3402,7 @@ export interface UpdateDataSourceRequest {
   dynamodbConfig?: DynamodbDataSourceConfig;
 
   /**
-   * <p>The new AWS Lambda configuration.</p>
+   * <p>The new Amazon Web Services Lambda configuration.</p>
    */
   lambdaConfig?: LambdaDataSourceConfig;
 
@@ -3509,6 +3567,11 @@ export interface UpdateGraphqlApiRequest {
    *          <code>GraphqlApi</code>.</p>
    */
   xrayEnabled?: boolean;
+
+  /**
+   * <p>Configuration for AWS Lambda function authorization.</p>
+   */
+  lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
 
 export namespace UpdateGraphqlApiRequest {

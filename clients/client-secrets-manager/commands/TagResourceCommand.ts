@@ -40,8 +40,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *                <p>Tag keys and values are case sensitive.</p>
  *             </li>
  *             <li>
- *                <p>Do not use the <code>aws:</code> prefix in your tag names or values because AWS reserves it
- *             for AWS use. You can't edit or delete tag names or values with this
+ *                <p>Do not use the <code>aws:</code> prefix in your tag names or values because Amazon Web Services reserves it
+ *             for Amazon Web Services use. You can't edit or delete tag names or values with this
  *               prefix. Tags with this prefix do not count against your tags per secret limit.</p>
  *             </li>
  *             <li>

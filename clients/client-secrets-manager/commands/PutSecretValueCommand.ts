@@ -27,8 +27,8 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *       specify the staging labels that are initially attached to the new version.</p>
  *          <note>
  *             <p>The Secrets Manager console uses only the <code>SecretString</code> field. To add binary data to a
- *         secret with the <code>SecretBinary</code> field you must use the AWS CLI or one of the
- *         AWS SDKs.</p>
+ *         secret with the <code>SecretBinary</code> field you must use the Amazon Web Services CLI or one of the
+ *         Amazon Web Services SDKs.</p>
  *          </note>
  *          <ul>
  *             <li>
@@ -57,22 +57,22 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *                <li>
  *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
  *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
- *           secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default
- *           AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
+ *           secret doesn't specify a Amazon Web Services KMS encryption key, Secrets Manager uses the account's default
+ *           Amazon Web Services managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
  *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
- *           users and roles in the same AWS account automatically have access to use the default CMK.
- *           Note that if an Secrets Manager API call results in AWS creating the account's
- *           AWS-managed CMK, it can result in a one-time significant delay in returning the
+ *           users and roles in the same Amazon Web Services account automatically have access to use the default CMK.
+ *           Note that if an Secrets Manager API call results in Amazon Web Services creating the account's
+ *           Amazon Web Services-managed CMK, it can result in a one-time significant delay in returning the
  *           result.</p>
  *                </li>
  *                <li>
- *                   <p>If the secret resides in a different AWS account from the credentials calling an API that
+ *                   <p>If the secret resides in a different Amazon Web Services account from the credentials calling an API that
  *           requires encryption or decryption of the secret value then you must create and use a custom
- *           AWS KMS CMK because you can't access the default CMK for the account using credentials
- *           from a different AWS account. Store the ARN of the CMK in the secret when you create the
+ *           Amazon Web Services KMS CMK because you can't access the default CMK for the account using credentials
+ *           from a different Amazon Web Services account. Store the ARN of the CMK in the secret when you create the
  *           secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an
  *           API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
- *           using credentials from a different account then the AWS KMS key policy must grant cross-account
+ *           using credentials from a different account then the Amazon Web Services KMS key policy must grant cross-account
  *           access to that other account's user or role for both the kms:GenerateDataKey and
  *           kms:Decrypt operations.</p>
  *                </li>
@@ -87,8 +87,8 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *                <p>secretsmanager:PutSecretValue</p>
  *             </li>
  *             <li>
- *                <p>kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt
- *           the secret. You do not need this permission to use the account's default AWS managed CMK
+ *                <p>kms:GenerateDataKey - needed only if you use a customer-managed Amazon Web Services KMS key to encrypt
+ *           the secret. You do not need this permission to use the account's default Amazon Web Services managed CMK
  *           for Secrets Manager.</p>
  *             </li>
  *          </ul>

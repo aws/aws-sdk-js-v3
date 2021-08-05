@@ -1,5 +1,10 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export enum AcceptCodeValidation {
+  ENFORCE = "ENFORCE",
+  IGNORE = "IGNORE",
+}
+
 export enum AcceptType {
   DELIVERED = "DELIVERED",
   READ = "READ",
@@ -30,6 +35,19 @@ export interface AcceptPageRequest {
    * <p>The accept code is a 6-digit code used to acknowledge the page.</p>
    */
   AcceptCode: string | undefined;
+
+  /**
+   * <p>An
+   *          optional field that Incident Manager uses to <code>ENFORCE</code>
+   *             <code>AcceptCode</code> validation when acknowledging an page.
+   *          Acknowledgement can occur by replying to a page, or when entering the AcceptCode in the
+   *          console. Enforcing AcceptCode validation causes Incident Manager to verify that the code
+   *          entered by the user matches the code sent by Incident Manager with the page.</p>
+   *          <p>Incident Manager can also <code>IGNORE</code>
+   *             <code>AcceptCode</code> validation. Ignoring <code>AcceptCode</code> validation causes
+   *          Incident Manager to accept any value entered for the <code>AcceptCode</code>.</p>
+   */
+  AcceptCodeValidation?: AcceptCodeValidation | string;
 }
 
 export namespace AcceptPageRequest {
@@ -493,7 +511,8 @@ export namespace Target {
  */
 export interface Stage {
   /**
-   * <p>The time to wait until beginning the next stage.</p>
+   * <p>The time to wait until beginning the next stage. The duration can only be set to 0 if a
+   *          target is specified.</p>
    */
   DurationInMinutes: number | undefined;
 

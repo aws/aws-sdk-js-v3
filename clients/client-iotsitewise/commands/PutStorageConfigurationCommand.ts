@@ -22,11 +22,6 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
 
 /**
  * <p>Configures storage settings for IoT SiteWise.</p>
- *          <note>
- *             <p>Exporting data to Amazon S3 is currently in preview release and is subject to change. We
- *         recommend that you use this feature only with test data, and not in production
- *         environments.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

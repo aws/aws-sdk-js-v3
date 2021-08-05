@@ -21,7 +21,7 @@ export interface GetCoreDeviceCommandInput extends GetCoreDeviceRequest {}
 export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves metadata for a AWS IoT Greengrass core device.</p>
+ * <p>Retrieves metadata for a Greengrass core device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

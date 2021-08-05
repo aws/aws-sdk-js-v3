@@ -1,6 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { LoggingStatus } from "../models/models_0";
-import { DisableLoggingMessage } from "../models/models_1";
+import { DisableLoggingMessage, LoggingStatus } from "../models/models_1";
 import {
   deserializeAws_queryDisableLoggingCommand,
   serializeAws_queryDisableLoggingCommand,

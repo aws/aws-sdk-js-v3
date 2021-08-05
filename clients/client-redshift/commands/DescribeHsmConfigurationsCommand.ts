@@ -23,7 +23,7 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
 /**
  * <p>Returns information about the specified Amazon Redshift HSM configuration. If no
  *             configuration ID is specified, returns information about all the HSM configurations
- *             owned by your account.</p>
+ *             owned by your Amazon Web Services account.</p>
  *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all HSM connections that match any combination of the specified keys and values. For
  *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and

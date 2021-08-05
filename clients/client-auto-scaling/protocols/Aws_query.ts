@@ -249,6 +249,7 @@ import {
   DescribeTerminationPolicyTypesAnswer,
   DescribeWarmPoolAnswer,
   DescribeWarmPoolType,
+  DesiredConfiguration,
   DetachInstancesAnswer,
   DetachInstancesQuery,
   DetachLoadBalancerTargetGroupsResultType,
@@ -5955,6 +5956,25 @@ const serializeAws_queryDescribeWarmPoolType = (input: DescribeWarmPoolType, con
   return entries;
 };
 
+const serializeAws_queryDesiredConfiguration = (input: DesiredConfiguration, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.LaunchTemplate !== undefined && input.LaunchTemplate !== null) {
+    const memberEntries = serializeAws_queryLaunchTemplateSpecification(input.LaunchTemplate, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LaunchTemplate.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MixedInstancesPolicy !== undefined && input.MixedInstancesPolicy !== null) {
+    const memberEntries = serializeAws_queryMixedInstancesPolicy(input.MixedInstancesPolicy, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MixedInstancesPolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryDetachInstancesQuery = (input: DetachInstancesQuery, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceIds !== undefined && input.InstanceIds !== null) {
@@ -6881,6 +6901,9 @@ const serializeAws_queryRefreshPreferences = (input: RefreshPreferences, context
   if (input.CheckpointDelay !== undefined && input.CheckpointDelay !== null) {
     entries["CheckpointDelay"] = input.CheckpointDelay;
   }
+  if (input.SkipMatching !== undefined && input.SkipMatching !== null) {
+    entries["SkipMatching"] = input.SkipMatching;
+  }
   return entries;
 };
 
@@ -7032,6 +7055,13 @@ const serializeAws_queryStartInstanceRefreshType = (input: StartInstanceRefreshT
   }
   if (input.Strategy !== undefined && input.Strategy !== null) {
     entries["Strategy"] = input.Strategy;
+  }
+  if (input.DesiredConfiguration !== undefined && input.DesiredConfiguration !== null) {
+    const memberEntries = serializeAws_queryDesiredConfiguration(input.DesiredConfiguration, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DesiredConfiguration.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.Preferences !== undefined && input.Preferences !== null) {
     const memberEntries = serializeAws_queryRefreshPreferences(input.Preferences, context);
@@ -7878,6 +7908,17 @@ const deserializeAws_queryCapacityForecast = (output: any, context: __SerdeConte
   return contents;
 };
 
+const deserializeAws_queryCheckpointPercentages = (output: any, context: __SerdeContext): number[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return parseInt(entry);
+    });
+};
+
 const deserializeAws_queryClassicLinkVPCSecurityGroups = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -8216,6 +8257,20 @@ const deserializeAws_queryDescribeWarmPoolAnswer = (output: any, context: __Serd
   return contents;
 };
 
+const deserializeAws_queryDesiredConfiguration = (output: any, context: __SerdeContext): DesiredConfiguration => {
+  let contents: any = {
+    LaunchTemplate: undefined,
+    MixedInstancesPolicy: undefined,
+  };
+  if (output["LaunchTemplate"] !== undefined) {
+    contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(output["LaunchTemplate"], context);
+  }
+  if (output["MixedInstancesPolicy"] !== undefined) {
+    contents.MixedInstancesPolicy = deserializeAws_queryMixedInstancesPolicy(output["MixedInstancesPolicy"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDetachInstancesAnswer = (output: any, context: __SerdeContext): DetachInstancesAnswer => {
   let contents: any = {
     Activities: undefined,
@@ -8482,6 +8537,8 @@ const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContex
     PercentageComplete: undefined,
     InstancesToUpdate: undefined,
     ProgressDetails: undefined,
+    Preferences: undefined,
+    DesiredConfiguration: undefined,
   };
   if (output["InstanceRefreshId"] !== undefined) {
     contents.InstanceRefreshId = __expectString(output["InstanceRefreshId"]);
@@ -8509,6 +8566,12 @@ const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContex
   }
   if (output["ProgressDetails"] !== undefined) {
     contents.ProgressDetails = deserializeAws_queryInstanceRefreshProgressDetails(output["ProgressDetails"], context);
+  }
+  if (output["Preferences"] !== undefined) {
+    contents.Preferences = deserializeAws_queryRefreshPreferences(output["Preferences"], context);
+  }
+  if (output["DesiredConfiguration"] !== undefined) {
+    contents.DesiredConfiguration = deserializeAws_queryDesiredConfiguration(output["DesiredConfiguration"], context);
   }
   return contents;
 };
@@ -9411,6 +9474,38 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatAnswer = (
   context: __SerdeContext
 ): RecordLifecycleActionHeartbeatAnswer => {
   let contents: any = {};
+  return contents;
+};
+
+const deserializeAws_queryRefreshPreferences = (output: any, context: __SerdeContext): RefreshPreferences => {
+  let contents: any = {
+    MinHealthyPercentage: undefined,
+    InstanceWarmup: undefined,
+    CheckpointPercentages: undefined,
+    CheckpointDelay: undefined,
+    SkipMatching: undefined,
+  };
+  if (output["MinHealthyPercentage"] !== undefined) {
+    contents.MinHealthyPercentage = parseInt(output["MinHealthyPercentage"]);
+  }
+  if (output["InstanceWarmup"] !== undefined) {
+    contents.InstanceWarmup = parseInt(output["InstanceWarmup"]);
+  }
+  if (output.CheckpointPercentages === "") {
+    contents.CheckpointPercentages = [];
+  }
+  if (output["CheckpointPercentages"] !== undefined && output["CheckpointPercentages"]["member"] !== undefined) {
+    contents.CheckpointPercentages = deserializeAws_queryCheckpointPercentages(
+      __getArrayIfSingleItem(output["CheckpointPercentages"]["member"]),
+      context
+    );
+  }
+  if (output["CheckpointDelay"] !== undefined) {
+    contents.CheckpointDelay = parseInt(output["CheckpointDelay"]);
+  }
+  if (output["SkipMatching"] !== undefined) {
+    contents.SkipMatching = __parseBoolean(output["SkipMatching"]);
+  }
   return contents;
 };
 

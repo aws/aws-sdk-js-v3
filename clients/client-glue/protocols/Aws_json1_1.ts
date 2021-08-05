@@ -4261,6 +4261,14 @@ const deserializeAws_json1_1CreateDatabaseCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       response = {
@@ -5209,6 +5217,14 @@ const deserializeAws_json1_1CreateTableCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       response = {
@@ -5983,6 +5999,14 @@ const deserializeAws_json1_1DeleteDatabaseCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       response = {
@@ -6857,6 +6881,14 @@ const deserializeAws_json1_1DeleteTableCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       response = {
@@ -14573,6 +14605,14 @@ const deserializeAws_json1_1UpdateDatabaseCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       response = {

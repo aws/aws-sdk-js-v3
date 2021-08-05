@@ -21,7 +21,7 @@ export interface GetDeploymentCommandInput extends GetDeploymentRequest {}
 export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a deployment. Deployments define the components that run on AWS IoT Greengrass core devices.</p>
+ * <p>Gets a deployment. Deployments define the components that run on Greengrass core devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

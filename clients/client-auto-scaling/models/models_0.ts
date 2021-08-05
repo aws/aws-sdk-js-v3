@@ -627,11 +627,9 @@ export namespace CompleteLifecycleActionType {
 }
 
 /**
- * <p>Describes the Amazon EC2 launch template and the launch template version that can be used
- *             by an Auto Scaling group to configure Amazon EC2 instances.</p>
- *         <p>The launch template that is specified must be configured for use with an Auto Scaling group.
- *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html">Creating a launch
- *                 template for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * <p>Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling
+ *             uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch
+ *                 templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export interface LaunchTemplateSpecification {
   /**
@@ -777,13 +775,13 @@ export namespace LifecycleHookSpecification {
  *         <p>The instances distribution specifies the distribution of On-Demand Instances and Spot
  *             Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates
  *             instance types to fulfill On-Demand and Spot capacities.</p>
- *         <p>When you update <code>SpotAllocationStrategy</code>, <code>SpotInstancePools</code>,
- *             or <code>SpotMaxPrice</code>, this update action does not deploy any changes across the
- *             running Amazon EC2 instances in the group. Your existing Spot Instances continue to run
- *             as long as the maximum price for those instances is higher than the current Spot price.
- *             When scale out occurs, Amazon EC2 Auto Scaling launches instances based on the new settings. When scale
- *             in occurs, Amazon EC2 Auto Scaling terminates instances according to the group's termination
- *             policies.</p>
+ *         <p>When you modify <code>SpotAllocationStrategy</code>, <code>SpotInstancePools</code>,
+ *             or <code>SpotMaxPrice</code> in the <a>UpdateAutoScalingGroup</a> API call,
+ *             this update action does not deploy any changes across the running Amazon EC2 instances
+ *             in the group. Your existing Spot Instances continue to run as long as the maximum price
+ *             for those instances is higher than the current Spot price. When scale out occurs,
+ *             Amazon EC2 Auto Scaling launches instances based on the new settings. When scale in occurs, Amazon EC2 Auto Scaling
+ *             terminates instances according to the group's termination policies.</p>
  */
 export interface InstancesDistribution {
   /**
@@ -908,7 +906,7 @@ export namespace LaunchTemplateOverrides {
 /**
  * <p>Describes a launch template and overrides. </p>
  *         <p>You specify these properties as part of a mixed instances policy. </p>
- *         <p>When you update the launch template or overrides, existing Amazon EC2 instances continue to
+ *         <p>When you update the launch template or overrides in the <a>UpdateAutoScalingGroup</a> API call, existing Amazon EC2 instances continue to
  *             run. When scale out occurs, Amazon EC2 Auto Scaling launches instances to match the new settings. When
  *             scale in occurs, Amazon EC2 Auto Scaling terminates instances according to the group's termination
  *             policies.</p>
@@ -937,20 +935,17 @@ export namespace LaunchTemplate {
 }
 
 /**
- * <p>Describes a mixed instances policy for an Auto Scaling group. With mixed instances, your Auto Scaling
- *             group can provision a combination of On-Demand Instances and Spot Instances across
- *             multiple instance types. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
+ * <p>Describes a mixed instances policy. A mixed instances policy contains the instance
+ *             types Amazon EC2 Auto Scaling can launch, and other information Amazon EC2 Auto Scaling can use to launch instances to
+ *             help you optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
  *                 instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User
  *                 Guide</i>.</p>
- *         <p>You can create a mixed instances policy for a new Auto Scaling group, or you can create it for
- *             an existing group by updating the group to specify <code>MixedInstancesPolicy</code> as
- *             the top-level property instead of a launch configuration or launch template.</p>
  */
 export interface MixedInstancesPolicy {
   /**
-   * <p>Specifies the launch template to use and optionally the instance types (overrides)
-   *             that are used to provision EC2 instances to fulfill On-Demand and Spot capacities.
-   *             Required when creating a mixed instances policy.</p>
+   * <p>Specifies the launch template to use and the instance types (overrides) that are used
+   *             to provision EC2 instances to fulfill On-Demand and Spot capacities. Required when
+   *             creating a mixed instances policy.</p>
    */
   LaunchTemplate?: LaunchTemplate;
 
@@ -2705,6 +2700,99 @@ export namespace DescribeAutoScalingNotificationTypesAnswer {
 }
 
 /**
+ * <p>Describes the desired configuration for an instance refresh. </p>
+ *         <p>If you specify a desired configuration, you must specify either a
+ *                 <code>LaunchTemplate</code> or a <code>MixedInstancesPolicy</code>. </p>
+ */
+export interface DesiredConfiguration {
+  /**
+   * <p>Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling
+   *             uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch
+   *                 templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  LaunchTemplate?: LaunchTemplateSpecification;
+
+  /**
+   * <p>Describes a mixed instances policy. A mixed instances policy contains the instance
+   *             types Amazon EC2 Auto Scaling can launch, and other information Amazon EC2 Auto Scaling can use to launch instances to
+   *             help you optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
+   *                 instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User
+   *                 Guide</i>.</p>
+   */
+  MixedInstancesPolicy?: MixedInstancesPolicy;
+}
+
+export namespace DesiredConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DesiredConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the preferences for an instance refresh.</p>
+ */
+export interface RefreshPreferences {
+  /**
+   * <p>The amount of capacity in the Auto Scaling group that must remain healthy during an instance
+   *             refresh to allow the operation to continue. The value is expressed as a percentage of
+   *             the desired capacity of the Auto Scaling group (rounded up to the nearest integer). The default
+   *             is <code>90</code>.</p>
+   *         <p>Setting the minimum healthy percentage to 100 percent limits the rate of replacement
+   *             to one instance at a time. In contrast, setting it to 0 percent has the effect of
+   *             replacing all instances at the same time. </p>
+   */
+  MinHealthyPercentage?: number;
+
+  /**
+   * <p>The number of seconds until a newly launched instance is configured and ready to use.
+   *             During this time, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. The
+   *             default is to use the value for the health check grace period defined for the
+   *             group.</p>
+   */
+  InstanceWarmup?: number;
+
+  /**
+   * <p>Threshold values for each checkpoint in ascending order. Each number must be unique.
+   *             To replace all instances in the Auto Scaling group, the last number in the array must be
+   *                 <code>100</code>.</p>
+   *         <p>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding
+   *                 checkpoints to an instance refresh</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  CheckpointPercentages?: number[];
+
+  /**
+   * <p>The amount of time, in seconds, to wait after a checkpoint before continuing. This
+   *             property is optional, but if you specify a value for it, you must also specify a value
+   *             for <code>CheckpointPercentages</code>. If you specify a value for
+   *                 <code>CheckpointPercentages</code> and not for <code>CheckpointDelay</code>, the
+   *                 <code>CheckpointDelay</code> defaults to <code>3600</code> (1 hour). </p>
+   */
+  CheckpointDelay?: number;
+
+  /**
+   * <p>A boolean value that indicates whether skip matching is enabled. If true, then
+   *             Amazon EC2 Auto Scaling skips replacing instances that match the desired configuration. If no desired
+   *             configuration is specified, then it skips replacing instances that have the same
+   *             configuration that is already set on the group. The default is
+   *             <code>false</code>.</p>
+   */
+  SkipMatching?: boolean;
+}
+
+export namespace RefreshPreferences {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RefreshPreferences): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Reports the progress of an instance refresh on instances that are in the Auto Scaling
  *             group.</p>
  */
@@ -2881,6 +2969,16 @@ export interface InstanceRefresh {
    * <p>Additional progress details for an Auto Scaling group that has a warm pool.</p>
    */
   ProgressDetails?: InstanceRefreshProgressDetails;
+
+  /**
+   * <p>Describes the preferences for an instance refresh.</p>
+   */
+  Preferences?: RefreshPreferences;
+
+  /**
+   * <p>Describes the specific update you want to deploy.</p>
+   */
+  DesiredConfiguration?: DesiredConfiguration;
 }
 
 export namespace InstanceRefresh {
@@ -6336,58 +6434,6 @@ export namespace StartInstanceRefreshAnswer {
   });
 }
 
-/**
- * <p>Describes information used to start an instance refresh. </p>
- *         <p>All properties are optional. However, if you specify a value for
- *                 <code>CheckpointDelay</code>, you must also provide a value for
- *                 <code>CheckpointPercentages</code>. </p>
- */
-export interface RefreshPreferences {
-  /**
-   * <p>The amount of capacity in the Auto Scaling group that must remain healthy during an instance
-   *             refresh to allow the operation to continue, as a percentage of the desired capacity of
-   *             the Auto Scaling group (rounded up to the nearest integer). The default is <code>90</code>.
-   *         </p>
-   */
-  MinHealthyPercentage?: number;
-
-  /**
-   * <p>The number of seconds until a newly launched instance is configured and ready to use.
-   *             During this time, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. The
-   *             default is to use the value for the health check grace period defined for the
-   *             group.</p>
-   */
-  InstanceWarmup?: number;
-
-  /**
-   * <p>Threshold values for each checkpoint in ascending order. Each number must be unique.
-   *             To replace all instances in the Auto Scaling group, the last number in the array must be
-   *                 <code>100</code>.</p>
-   *         <p>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding
-   *                 checkpoints to an instance refresh</a> in the
-   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  CheckpointPercentages?: number[];
-
-  /**
-   * <p>The amount of time, in seconds, to wait after a checkpoint before continuing. This
-   *             property is optional, but if you specify a value for it, you must also specify a value
-   *             for <code>CheckpointPercentages</code>. If you specify a value for
-   *                 <code>CheckpointPercentages</code> and not for <code>CheckpointDelay</code>, the
-   *                 <code>CheckpointDelay</code> defaults to <code>3600</code> (1 hour). </p>
-   */
-  CheckpointDelay?: number;
-}
-
-export namespace RefreshPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RefreshPreferences): any => ({
-    ...obj,
-  });
-}
-
 export enum RefreshStrategy {
   Rolling = "Rolling",
 }
@@ -6401,21 +6447,32 @@ export interface StartInstanceRefreshType {
   /**
    * <p>The strategy to use for the instance refresh. The only valid value is
    *                 <code>Rolling</code>.</p>
-   *         <p>A rolling update is an update that is applied to all instances in an Auto Scaling group until
-   *             all instances have been updated. A rolling update can fail due to failed health checks
-   *             or if instances are on standby or are protected from scale in. If the rolling update
-   *             process fails, any instances that were already replaced are not rolled back to their
-   *             previous configuration. </p>
+   *         <p>A rolling update helps you update your instances gradually. A rolling update can fail
+   *             due to failed health checks or if instances are on standby or are protected from scale
+   *             in. If the rolling update process fails, any instances that are replaced are not rolled
+   *             back to their previous configuration. </p>
    */
   Strategy?: RefreshStrategy | string;
 
   /**
-   * <p>Set of preferences associated with the instance refresh request.</p>
-   *         <p>If not provided, the default values are used. For <code>MinHealthyPercentage</code>,
-   *             the default value is <code>90</code>. For <code>InstanceWarmup</code>, the default is to
-   *             use the value specified for the health check grace period for the Auto Scaling group.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html">RefreshPreferences</a> in the <i>Amazon EC2 Auto Scaling API
-   *             Reference</i>.</p>
+   * <p>The desired configuration. For example, the desired configuration can specify a new
+   *             launch template or a new version of the current launch template.</p>
+   *         <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to
+   *             reflect the new desired configuration. </p>
+   *         <note>
+   *             <p>When you specify a new launch template or a new version of the current launch
+   *                 template for your desired configuration, consider enabling the
+   *                     <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling
+   *                 skips replacing instances that already use the specified launch template and
+   *                 version. This can help you reduce the number of replacements that are required to
+   *                 apply updates. </p>
+   *         </note>
+   */
+  DesiredConfiguration?: DesiredConfiguration;
+
+  /**
+   * <p>Set of preferences associated with the instance refresh request. If not provided, the
+   *             default values are used.</p>
    */
   Preferences?: RefreshPreferences;
 }

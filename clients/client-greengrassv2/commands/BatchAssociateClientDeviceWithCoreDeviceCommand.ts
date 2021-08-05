@@ -29,16 +29,16 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
 /**
  * <p>Associate a list of client devices with a core device. Use this API operation to specify
  *       which client devices can discover a core device through cloud discovery. With cloud discovery,
- *       client devices connect to AWS IoT Greengrass to retrieve associated core devices' connectivity information
+ *       client devices connect to IoT Greengrass to retrieve associated core devices' connectivity information
  *       and certificates. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html">Configure cloud
- *         discovery</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</p>
+ *         discovery</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
  *
  *          <note>
- *             <p>Client devices are local IoT devices that connect to and communicate with an AWS IoT Greengrass core
+ *             <p>Client devices are local IoT devices that connect to and communicate with an IoT Greengrass core
  *         device over MQTT. You can connect client devices to a core device to sync MQTT messages and
- *         data to AWS IoT Core and interact with client devices in AWS IoT Greengrass components. For more information,
+ *         data to Amazon Web Services IoT Core and interact with client devices in Greengrass components. For more information,
  *         see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interact-with-local-iot-devices.html">Interact with
- *           local IoT devices</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</p>
+ *           local IoT devices</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -22,7 +22,7 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
 
 /**
  * <p>Returns information about the specified HSM client certificate. If no certificate
- *             ID is specified, returns information about all the HSM certificates owned by your account.</p>
+ *             ID is specified, returns information about all the HSM certificates owned by your Amazon Web Services account.</p>
  *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all HSM client certificates that match any combination of the specified keys and values.
  *             For example, if you have <code>owner</code> and <code>environment</code> for tag keys,

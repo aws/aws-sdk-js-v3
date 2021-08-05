@@ -91,9 +91,11 @@ import {
   LambdaFunctionRecipeSource,
   LambdaLinuxProcessParams,
   LambdaVolumeMount,
+  RequestAlreadyInProgressException,
   ResolvedComponentVersion,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  SystemResourceLimits,
   ThrottlingException,
   ValidationException,
   ValidationExceptionField,
@@ -114,6 +116,7 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand = async (
   input: BatchAssociateClientDeviceWithCoreDeviceCommandInput,
@@ -233,6 +236,7 @@ export const serializeAws_restJson1CreateComponentVersionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/v2/createComponentVersion";
   let body: any;
   body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.inlineRecipe !== undefined &&
       input.inlineRecipe !== null && { inlineRecipe: context.base64Encoder(input.inlineRecipe) }),
     ...(input.lambdaFunction !== undefined &&
@@ -264,6 +268,7 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/v2/deployments";
   let body: any;
   body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.components !== undefined &&
       input.components !== null && {
         components: serializeAws_restJson1ComponentDeploymentSpecifications(input.components, context),
@@ -1204,6 +1209,14 @@ const deserializeAws_restJson1CreateComponentVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "RequestAlreadyInProgressException":
+    case "com.amazonaws.greengrassv2#RequestAlreadyInProgressException":
+      response = {
+        ...(await deserializeAws_restJson1RequestAlreadyInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.greengrassv2#ServiceQuotaExceededException":
       response = {
@@ -1295,6 +1308,14 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
     case "com.amazonaws.greengrassv2#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RequestAlreadyInProgressException":
+    case "com.amazonaws.greengrassv2#RequestAlreadyInProgressException":
+      response = {
+        ...(await deserializeAws_restJson1RequestAlreadyInProgressExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3057,6 +3078,23 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1RequestAlreadyInProgressExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RequestAlreadyInProgressException> => {
+  const contents: RequestAlreadyInProgressException = {
+    name: "RequestAlreadyInProgressException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3319,6 +3357,10 @@ const serializeAws_restJson1ComponentPlatformList = (input: ComponentPlatform[],
 const serializeAws_restJson1ComponentRunWith = (input: ComponentRunWith, context: __SerdeContext): any => {
   return {
     ...(input.posixUser !== undefined && input.posixUser !== null && { posixUser: input.posixUser }),
+    ...(input.systemResourceLimits !== undefined &&
+      input.systemResourceLimits !== null && {
+        systemResourceLimits: serializeAws_restJson1SystemResourceLimits(input.systemResourceLimits, context),
+      }),
   };
 };
 
@@ -3690,6 +3732,13 @@ const serializeAws_restJson1PlatformAttributesMap = (
   }, {});
 };
 
+const serializeAws_restJson1SystemResourceLimits = (input: SystemResourceLimits, context: __SerdeContext): any => {
+  return {
+    ...(input.cpus !== undefined && input.cpus !== null && { cpus: __serializeFloat(input.cpus) }),
+    ...(input.memory !== undefined && input.memory !== null && { memory: input.memory }),
+  };
+};
+
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -3890,6 +3939,10 @@ const deserializeAws_restJson1ComponentPlatformList = (output: any, context: __S
 const deserializeAws_restJson1ComponentRunWith = (output: any, context: __SerdeContext): ComponentRunWith => {
   return {
     posixUser: __expectString(output.posixUser),
+    systemResourceLimits:
+      output.systemResourceLimits !== undefined && output.systemResourceLimits !== null
+        ? deserializeAws_restJson1SystemResourceLimits(output.systemResourceLimits, context)
+        : undefined,
   } as any;
 };
 
@@ -4226,6 +4279,13 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1SystemResourceLimits = (output: any, context: __SerdeContext): SystemResourceLimits => {
+  return {
+    cpus: __handleFloat(output.cpus),
+    memory: __expectNumber(output.memory),
+  } as any;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

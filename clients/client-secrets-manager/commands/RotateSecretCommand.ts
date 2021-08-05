@@ -26,14 +26,14 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  *       starts a rotation. If you do not include the configuration parameters, the operation starts a
  *       rotation with the values already stored in the secret. After the rotation completes, the
  *       protected service and its clients all use the new version of the secret. </p>
- *          <p>This required configuration information includes the ARN of an AWS Lambda function and
- *       the time between scheduled rotations. The Lambda rotation function creates a new version of
- *       the secret and creates or updates the credentials on the protected service to match. After
- *       testing the new credentials, the function marks the new secret with the staging label
- *       <code>AWSCURRENT</code> so that your clients all immediately begin to use the new version. For more
+ *          <p>This required configuration information includes the ARN of an Amazon Web Services Lambda function and
+ *       optionally, the time between scheduled rotations. The Lambda rotation function creates a new
+ *       version of the secret and creates or updates the credentials on the protected service to
+ *       match. After testing the new credentials, the function marks the new secret with the staging
+ *       label <code>AWSCURRENT</code> so that your clients all immediately begin to use the new version. For more
  *       information about rotating secrets and how to configure a Lambda function to rotate the
- *       secrets for your protected service, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in AWS Secrets Manager</a> in the
- *         <i>AWS Secrets Manager User Guide</i>.</p>
+ *       secrets for your protected service, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in Amazon Web Services Secrets Manager</a> in the
+ *         <i>Amazon Web Services Secrets Manager User Guide</i>.</p>
  *          <p>Secrets Manager schedules the next rotation when the previous
  *     one completes. Secrets Manager schedules the date by adding the rotation interval (number of days) to the
  *     actual date of the last rotation. The service chooses the hour within that 24-hour date window

@@ -36,8 +36,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *             and source identifier = my-cluster-1, notifications will be sent for all the cluster
  *             events for my-cluster-1. If you specify a source type but do not specify a source
  *             identifier, you will receive notice of the events for the objects of that type in your
- *             account. If you do not specify either the SourceType nor the SourceIdentifier, you
- *             will be notified of events generated from all Amazon Redshift sources belonging to your account. You must specify a source type if you specify a source ID.</p>
+ *             Amazon Web Services account. If you do not specify either the SourceType nor the SourceIdentifier, you
+ *             will be notified of events generated from all Amazon Redshift sources belonging to your Amazon Web Services account. You must specify a source type if you specify a source ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

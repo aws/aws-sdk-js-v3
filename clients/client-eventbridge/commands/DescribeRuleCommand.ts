@@ -23,7 +23,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
 /**
  * <p>Describes the specified rule.</p>
  *          <p>DescribeRule does not list the targets of a rule. To see the targets associated with a
- *       rule, use <a>ListTargetsByRule</a>.</p>
+ *       rule, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,8 +23,8 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Modifies the number of days to retain snapshots in the destination Region after
- *             they are copied from the source Region. By default, this operation only changes the
+ * <p>Modifies the number of days to retain snapshots in the destination Amazon Web Services Region after
+ *             they are copied from the source Amazon Web Services Region. By default, this operation only changes the
  *             retention period of copied automated snapshots. The retention periods for both new and
  *             existing copied automated snapshots are updated with the new retention period. You can
  *             set the manual option to change only the retention periods of copied manual snapshots.

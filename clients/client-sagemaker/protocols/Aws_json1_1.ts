@@ -1114,6 +1114,7 @@ import {
   LabelCountersForWorkteam,
   LabelingJobForWorkteamSummary,
   LabelingJobSummary,
+  LambdaStepMetadata,
   ListActionsRequest,
   ListActionsResponse,
   ListAlgorithmsInput,
@@ -1313,7 +1314,6 @@ import {
   UpdateExperimentRequest,
   UpdateExperimentResponse,
   UpdateImageRequest,
-  UpdateImageResponse,
   UserProfileDetails,
   VariantProperty,
   Workforce,
@@ -1322,6 +1322,7 @@ import {
 import {
   SearchExpression,
   SearchRequest,
+  UpdateImageResponse,
   UpdateModelPackageInput,
   UpdateModelPackageOutput,
   UpdateMonitoringScheduleRequest,
@@ -29174,6 +29175,16 @@ const deserializeAws_json1_1LabelingJobSummaryList = (output: any, context: __Se
     });
 };
 
+const deserializeAws_json1_1LambdaStepMetadata = (output: any, context: __SerdeContext): LambdaStepMetadata => {
+  return {
+    Arn: __expectString(output.Arn),
+    OutputParameters:
+      output.OutputParameters !== undefined && output.OutputParameters !== null
+        ? deserializeAws_json1_1OutputParameterList(output.OutputParameters, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1LineageEntityParameters = (
   output: any,
   context: __SerdeContext
@@ -31288,6 +31299,10 @@ const deserializeAws_json1_1PipelineExecutionStepMetadata = (
     Condition:
       output.Condition !== undefined && output.Condition !== null
         ? deserializeAws_json1_1ConditionStepMetadata(output.Condition, context)
+        : undefined,
+    Lambda:
+      output.Lambda !== undefined && output.Lambda !== null
+        ? deserializeAws_json1_1LambdaStepMetadata(output.Lambda, context)
         : undefined,
     Model:
       output.Model !== undefined && output.Model !== null

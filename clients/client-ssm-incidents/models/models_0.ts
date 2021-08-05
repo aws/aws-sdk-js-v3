@@ -563,9 +563,7 @@ export namespace ValidationException {
 }
 
 /**
- * <p>The SNS topic that's used by
- *          AWS
- *          Chatbot to notify the incidents chat channel.</p>
+ * <p>The SNS targets that are notified when updates are made to an incident.</p>
  */
 export type NotificationTargetItem = NotificationTargetItem.SnsTopicArnMember | NotificationTargetItem.$UnknownMember;
 
@@ -628,9 +626,7 @@ export interface IncidentTemplate {
   dedupeString?: string;
 
   /**
-   * <p>The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an
-   *          incident. You can also make updates to the incident through the chat channel using the SNS
-   *          topics. </p>
+   * <p>The SNS targets that are notified when updates are made to an incident.</p>
    */
   notificationTargets?: NotificationTargetItem[];
 }
@@ -771,7 +767,7 @@ export interface CreateTimelineEventInput {
   eventType: string | undefined;
 
   /**
-   * <p>A short description of the event.</p>
+   * <p>A valid JSON string. There is no other schema imposed. A short description of the event.</p>
    */
   eventData: string | undefined;
 }
@@ -1165,9 +1161,7 @@ export interface IncidentRecord {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The SNS targets that
-   *          AWS Chatbot uses
-   *          to notify the chat channels and perform actions on the incident record.</p>
+   * <p>The SNS targets that are notified when updates are made to an incident.</p>
    */
   notificationTargets?: NotificationTargetItem[];
 }
@@ -1302,6 +1296,11 @@ export enum ReplicationSetStatus {
  *          to encrypt the data. </p>
  */
 export interface ReplicationSet {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replication set.</p>
+   */
+  arn?: string;
+
   /**
    * <p>The map between each Region in your replication set and the KMS key that is used to
    *          encrypt the data in that Region.</p>
@@ -2548,9 +2547,7 @@ export interface UpdateIncidentRecordInput {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an
-   *             incident. You can also make updates to the incident through the chat channel using the
-   *             SNS topics. </p>
+   * <p>The SNS targets that are notified when updates are made to an incident.</p>
    *         <p>Using multiple SNS topics creates redundancy in the case that a Region is down during
    *             the incident.</p>
    */
@@ -2781,10 +2778,7 @@ export interface UpdateResponsePlanInput {
   incidentTemplateDedupeString?: string;
 
   /**
-   * <p>The SNS targets that
-   *             AWS
-   *             Chatbot uses to notify the chat channels and perform actions on the
-   *             incident record.</p>
+   * <p>The SNS targets that are notified when updates are made to an incident.</p>
    */
   incidentTemplateNotificationTargets?: NotificationTargetItem[];
 
@@ -2793,6 +2787,7 @@ export interface UpdateResponsePlanInput {
    *             AWS
    *             Chatbot chat channel used for collaboration during an
    *             incident.</p>
+   *         <p>Use the empty structure to remove the chat channel from the response plan.</p>
    */
   chatChannel?: ChatChannel;
 

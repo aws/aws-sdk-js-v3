@@ -2847,7 +2847,7 @@ export interface ValidStorageOptions {
   StorageType?: string;
 
   /**
-   * <p>The valid range of storage in gibibytes.
+   * <p>The valid range of storage in gibibytes (GiB).
    *             For example, 100 to 16384.
    *         </p>
    */
@@ -4014,7 +4014,7 @@ export interface ModifyDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The new amount of storage (in gibibytes) to allocate for the DB instance.
+   * <p>The new amount of storage in gibibytes (GiB) to allocate for the DB instance.
    *       </p>
    *
    *          <p>For MariaDB, MySQL, Oracle, and PostgreSQL,
@@ -4618,7 +4618,7 @@ export interface ModifyDBInstanceMessage {
   DeletionProtection?: boolean;
 
   /**
-   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   * <p>The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.</p>
    *         <p>For more information about this setting, including limitations that apply to it, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
    *                 Managing capacity automatically with Amazon RDS storage autoscaling</a>
@@ -7924,7 +7924,7 @@ export interface RestoreDBInstanceFromS3Message {
   DeletionProtection?: boolean;
 
   /**
-   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   * <p>The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.</p>
    *         <p>For more information about this setting, including limitations that apply to it, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
    *                 Managing capacity automatically with Amazon RDS storage autoscaling</a>
@@ -8327,7 +8327,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   SourceDbiResourceId?: string;
 
   /**
-   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   * <p>The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.</p>
    *          <p>For more information about this setting, including limitations that apply to it, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
    *               Managing capacity automatically with Amazon RDS storage autoscaling</a>

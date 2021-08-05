@@ -436,7 +436,7 @@ export interface CreateArchiveRequest {
   ArchiveName: string | undefined;
 
   /**
-   * <p>The ARN of the event source associated with the archive.</p>
+   * <p>The ARN of the event bus that sends events to the archive.</p>
    */
   EventSourceArn: string | undefined;
 
@@ -871,7 +871,7 @@ export namespace CreateConnectionResponse {
 }
 
 /**
- * <p>A key-value pair associated with an AWS resource. In EventBridge, rules and event buses
+ * <p>A key-value pair associated with an Amazon Web Services resource. In EventBridge, rules and event buses
  *       support tagging.</p>
  */
 export interface Tag {
@@ -950,13 +950,13 @@ export interface CreatePartnerEventSourceRequest {
    *           <code>
    *                <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i>
    *             </code>.
-   *       The AWS account that wants to use this partner event source must create a partner event bus
+   *       The Amazon Web Services account that wants to use this partner event source must create a partner event bus
    *       with a name that matches the name of the partner event source.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The AWS account ID that is permitted to create a matching partner event bus for this
+   * <p>The Amazon Web Services account ID that is permitted to create a matching partner event bus for this
    *       partner event source.</p>
    */
   Account: string | undefined;
@@ -1186,7 +1186,7 @@ export interface DeletePartnerEventSourceRequest {
   Name: string | undefined;
 
   /**
-   * <p>The AWS account ID of the AWS customer that the event source was created for.</p>
+   * <p>The Amazon Web Services account ID of the Amazon Web Services customer that the event source was created for.</p>
    */
   Account: string | undefined;
 }
@@ -1213,7 +1213,7 @@ export interface DeleteRuleRequest {
   EventBusName?: string;
 
   /**
-   * <p>If this is a managed rule, created by an AWS service on your behalf, you must specify
+   * <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, you must specify
    *         <code>Force</code> as <code>True</code> to delete the rule. This parameter is ignored for
    *       rules that are not managed rules. You can check whether a rule is a managed rule by using
    *         <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code>
@@ -1232,7 +1232,7 @@ export namespace DeleteRuleRequest {
 }
 
 /**
- * <p>This rule was created by an AWS service on behalf of your account. It is managed by that
+ * <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that
  *       service. If you see this error in response to <code>DeleteRule</code> or
  *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
  *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
@@ -1957,8 +1957,8 @@ export interface DescribeRuleResponse {
   RoleArn?: string;
 
   /**
-   * <p>If this is a managed rule, created by an AWS service on your behalf, this field displays
-   *       the principal name of the AWS service that created the rule.</p>
+   * <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, this field displays
+   *       the principal name of the Amazon Web Services service that created the rule.</p>
    */
   ManagedBy?: string;
 
@@ -2280,7 +2280,7 @@ export namespace ListEventBusesRequest {
 
 /**
  * <p>An event bus receives events from a source and routes them to rules associated with that
- *       event bus. Your account's default event bus receives events from AWS services. A custom event
+ *       event bus. Your account's default event bus receives events from Amazon Web Services services. A custom event
  *       bus can receive events from your custom applications and services. A partner event bus
  *       receives events from an event source created by an SaaS partner. These events come from the
  *       partners services or applications.</p>
@@ -2297,7 +2297,7 @@ export interface EventBus {
   Arn?: string;
 
   /**
-   * <p>The permissions policy of the event bus, describing which other AWS accounts can write
+   * <p>The permissions policy of the event bus, describing which other Amazon Web Services accounts can write
    *       events to this event bus.</p>
    */
   Policy?: string;
@@ -2364,7 +2364,7 @@ export namespace ListEventSourcesRequest {
 
 /**
  * <p>A partner event source is created by an SaaS partner. If a customer creates a partner
- *       event bus that matches this event source, that AWS account can receive events from the
+ *       event bus that matches this event source, that Amazon Web Services account can receive events from the
  *       partner's applications or services.</p>
  */
 export interface EventSource {
@@ -2384,7 +2384,7 @@ export interface EventSource {
   CreationTime?: Date;
 
   /**
-   * <p>The date and time that the event source will expire, if the AWS account doesn't create a
+   * <p>The date and time that the event source will expire, if the Amazon Web Services account doesn't create a
    *       matching event bus for it.</p>
    */
   ExpirationTime?: Date;
@@ -2463,11 +2463,11 @@ export namespace ListPartnerEventSourceAccountsRequest {
 }
 
 /**
- * <p>The AWS account that a partner event source has been offered to.</p>
+ * <p>The Amazon Web Services account that a partner event source has been offered to.</p>
  */
 export interface PartnerEventSourceAccount {
   /**
-   * <p>The AWS account ID that the partner event source was offered to.</p>
+   * <p>The Amazon Web Services account ID that the partner event source was offered to.</p>
    */
   Account?: string;
 
@@ -2477,7 +2477,7 @@ export interface PartnerEventSourceAccount {
   CreationTime?: Date;
 
   /**
-   * <p>The date and time that the event source will expire, if the AWS account doesn't create a
+   * <p>The date and time that the event source will expire, if the Amazon Web Services account doesn't create a
    *       matching event bus for it.</p>
    */
   ExpirationTime?: Date;
@@ -2553,7 +2553,7 @@ export namespace ListPartnerEventSourcesRequest {
 
 /**
  * <p>A partner event source is created by an SaaS partner. If a customer creates a partner
- *       event bus that matches this event source, that AWS account can receive events from the
+ *       event bus that matches this event source, that Amazon Web Services account can receive events from the
  *       partner's applications or services.</p>
  */
 export interface PartnerEventSource {
@@ -2611,7 +2611,7 @@ export interface ListReplaysRequest {
   State?: ReplayState | string;
 
   /**
-   * <p>The ARN of the event source associated with the replay.</p>
+   * <p>The ARN of the archive from which the events are replayed.</p>
    */
   EventSourceArn?: string;
 
@@ -2834,17 +2834,21 @@ export interface Rule {
   Description?: string;
 
   /**
-   * <p>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".</p>
+   * <p>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html">Creating an Amazon EventBridge rule that runs on a schedule</a>.</p>
    */
   ScheduleExpression?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role that is used for target invocation.</p>
+   *          <p>If you're setting an event bus in another account as the target and that account granted
+   *       permission to your account through an organization instead of directly by the account ID, you
+   *       must specify a <code>RoleArn</code> with proper permissions in the <code>Target</code>
+   *       structure, instead of here in this parameter.</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>If the rule was created on behalf of your account by an AWS service, this field displays
+   * <p>If the rule was created on behalf of your account by an Amazon Web Services service, this field displays
    *       the principal name of the service that created the rule.</p>
    */
   ManagedBy?: string;
@@ -2954,7 +2958,7 @@ export namespace ListTargetsByRuleRequest {
 /**
  * <p>The array properties for the submitted job, such as the size of the array. The array size
  *       can be between 2 and 10,000. If you specify array properties for a job, it becomes an array
- *       job. This parameter is used only if the target is an AWS Batch job.</p>
+ *       job. This parameter is used only if the target is an Batch job.</p>
  */
 export interface BatchArrayProperties {
   /**
@@ -2974,7 +2978,7 @@ export namespace BatchArrayProperties {
 }
 
 /**
- * <p>The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you
+ * <p>The retry strategy to use for failed jobs, if the target is an Batch job. If you
  *       specify a retry strategy here, it overrides the retry strategy defined in the job
  *       definition.</p>
  */
@@ -2995,29 +2999,29 @@ export namespace BatchRetryStrategy {
 }
 
 /**
- * <p>The custom parameters to be used when the target is an AWS Batch job.</p>
+ * <p>The custom parameters to be used when the target is an Batch job.</p>
  */
 export interface BatchParameters {
   /**
-   * <p>The ARN or name of the job definition to use if the event target is an AWS Batch job. This
+   * <p>The ARN or name of the job definition to use if the event target is an Batch job. This
    *       job definition must already exist.</p>
    */
   JobDefinition: string | undefined;
 
   /**
-   * <p>The name to use for this execution of the job, if the target is an AWS Batch job.</p>
+   * <p>The name to use for this execution of the job, if the target is an Batch job.</p>
    */
   JobName: string | undefined;
 
   /**
    * <p>The array properties for the submitted job, such as the size of the array. The array size
    *       can be between 2 and 10,000. If you specify array properties for a job, it becomes an array
-   *       job. This parameter is used only if the target is an AWS Batch job.</p>
+   *       job. This parameter is used only if the target is an Batch job.</p>
    */
   ArrayProperties?: BatchArrayProperties;
 
   /**
-   * <p>The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry
+   * <p>The retry strategy to use for failed jobs, if the target is an Batch job. The retry
    *       strategy is the number of times to retry the failed job execution. Valid values are 1–10. When
    *       you specify a retry strategy here, it overrides the retry strategy defined in the job
    *       definition.</p>
@@ -3190,7 +3194,7 @@ export enum PlacementStrategyType {
 }
 
 /**
- * <p>The task placement strategy for a task or service. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the Amazon Elastic Container Service Developer
+ * <p>The task placement strategy for a task or service. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the Amazon Elastic Container Service Service Developer
  *       Guide.</p>
  */
 export interface PlacementStrategy {
@@ -3245,14 +3249,14 @@ export interface EcsParameters {
   /**
    * <p>Specifies the launch type on which your task is running. The launch type that you specify
    *       here must match one of the launch type (compatibilities) of the target task. The
-   *         <code>FARGATE</code> value is supported only in the Regions where AWS Fargate with Amazon
-   *       ECS is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">AWS Fargate on Amazon ECS</a> in
+   *       <code>FARGATE</code> value is supported only in the Regions where Fargate witt Amazon ECS
+   *      is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate on Amazon ECS</a> in
    *       the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   LaunchType?: LaunchType | string;
 
   /**
-   * <p>Use this structure if the ECS task uses the <code>awsvpc</code> network mode. This
+   * <p>Use this structure if the Amazon ECS task uses the <code>awsvpc</code> network mode. This
    *       structure specifies the VPC subnets and security groups associated with the task, and whether
    *       a public IP address is to be used. This structure is required if <code>LaunchType</code> is
    *         <code>FARGATE</code> because the <code>awsvpc</code> mode is required for Fargate
@@ -3266,7 +3270,7 @@ export interface EcsParameters {
    * <p>Specifies the platform version for the task. Specify only the numeric portion of the
    *       platform version, such as <code>1.1.0</code>.</p>
    *          <p>This structure is used only if <code>LaunchType</code> is <code>FARGATE</code>. For more
-   *       information about valid platform versions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
+   *       information about valid platform versions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform
    *         Versions</a> in the <i>Amazon Elastic Container Service Developer
    *         Guide</i>.</p>
    */
@@ -3360,8 +3364,8 @@ export interface HttpParameters {
   HeaderParameters?: { [key: string]: string };
 
   /**
-   * <p>The query string keys/values that need to be sent as part of request invoking the API
-   *       Gateway REST API or EventBridge ApiDestination.</p>
+   * <p>The query string keys/values that need to be sent as part of request invoking the API Gateway
+   *       REST API or EventBridge ApiDestination.</p>
    */
   QueryStringParameters?: { [key: string]: string };
 }
@@ -3388,7 +3392,7 @@ export interface InputTransformer {
    *             <code>InputPathsMap</code> is an array key-value pairs, where each value is a valid JSON
    *       path. You can have as many as 100 key-value pairs. You must use JSON dot notation, not bracket
    *       notation.</p>
-   *          <p>The keys cannot start with "AWS." </p>
+   *          <p>The keys cannot start with "Amazon Web Services." </p>
    */
   InputPathsMap?: { [key: string]: string };
 
@@ -3498,13 +3502,13 @@ export namespace KinesisParameters {
 }
 
 /**
- * <p>These are custom parameters to be used when the target is a Redshift cluster to invoke the
- *       Redshift Data API ExecuteStatement based on EventBridge events.</p>
+ * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the
+ *       Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>
  */
 export interface RedshiftDataParameters {
   /**
    * <p>The name or ARN of the secret that enables access to the database. Required when
-   *       authenticating using AWS Secrets Manager.</p>
+   *       authenticating using Amazon Web Services Secrets Manager.</p>
    */
   SecretManagerArn?: string;
 
@@ -3691,18 +3695,18 @@ export namespace SqsParameters {
 
 /**
  * <p>Targets are the resources to be invoked when a rule is triggered. For a complete list of
- *       services and resources that can be set as a target, see <a>PutTargets</a>.</p>
+ *       services and resources that can be set as a target, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutTargets.html">PutTargets</a>.</p>
  *
  *          <p>If you are setting the event bus of another account as the target, and that account
  *       granted permission to your account through an organization instead of directly by the account
  *       ID, then you must specify a <code>RoleArn</code> with proper permissions in the
  *         <code>Target</code> structure. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending and
- *         Receiving Events Between AWS Accounts</a> in the <i>Amazon EventBridge User
+ *           Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User
  *         Guide</i>.</p>
  */
 export interface Target {
   /**
-   * <p>The ID of the target.</p>
+   * <p>The ID of the target. We recommend using a memorable and unique string.</p>
    */
   Id: string | undefined;
 
@@ -3760,8 +3764,8 @@ export interface Target {
   EcsParameters?: EcsParameters;
 
   /**
-   * <p>If the event target is an AWS Batch job, this contains the job definition, job name, and
-   *       other parameters. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the <i>AWS Batch User
+   * <p>If the event target is an Batch job, this contains the job definition, job name, and
+   *       other parameters. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the <i>Batch User
    *         Guide</i>.</p>
    */
   BatchParameters?: BatchParameters;
@@ -3785,10 +3789,10 @@ export interface Target {
   HttpParameters?: HttpParameters;
 
   /**
-   * <p>Contains the Redshift Data API parameters to use when the target is a Redshift
+   * <p>Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift
    *       cluster.</p>
-   *          <p>If you specify a Redshift Cluster as a Target, you can use this to specify parameters to
-   *       invoke the Redshift Data API ExecuteStatement based on EventBridge events.</p>
+   *          <p>If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to
+   *       invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>
    */
   RedshiftDataParameters?: RedshiftDataParameters;
 
@@ -3849,7 +3853,7 @@ export namespace ListTargetsByRuleResponse {
  */
 export interface PutEventsRequestEntry {
   /**
-   * <p>The time stamp of the event, per <a href="https://www.rfc-editor.org/rfc/rfc3339.txt">RFC3339</a>. If no time stamp is provided, the time stamp of the <a>PutEvents</a> call is used.</p>
+   * <p>The time stamp of the event, per <a href="https://www.rfc-editor.org/rfc/rfc3339.txt">RFC3339</a>. If no time stamp is provided, the time stamp of the <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html">PutEvents</a> call is used.</p>
    */
   Time?: Date;
 
@@ -3859,7 +3863,7 @@ export interface PutEventsRequestEntry {
   Source?: string;
 
   /**
-   * <p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily
+   * <p>Amazon Web Services resources, identified by Amazon Resource Name (ARN), which the event primarily
    *       concerns. Any number, including zero, may be present.</p>
    */
   Resources?: string[];
@@ -3883,9 +3887,9 @@ export interface PutEventsRequestEntry {
   EventBusName?: string;
 
   /**
-   * <p>An AWS X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that contains the
+   * <p>An X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that contains the
    *       trace-id associated with the event.</p>
-   *          <p>To learn more about X-Ray trace headers, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader">Tracing header</a> in the AWS X-Ray Developer Guide.</p>
+   *          <p>To learn more about X-Ray trace headers, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader">Tracing header</a> in the X-Ray Developer Guide.</p>
    */
   TraceHeader?: string;
 }
@@ -3979,12 +3983,12 @@ export interface PutPartnerEventsRequestEntry {
   Time?: Date;
 
   /**
-   * <p>The event source that is generating the evntry.</p>
+   * <p>The event source that is generating the entry.</p>
    */
   Source?: string;
 
   /**
-   * <p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily
+   * <p>Amazon Web Services resources, identified by Amazon Resource Name (ARN), which the event primarily
    *       concerns. Any number, including zero, may be present.</p>
    */
   Resources?: string[];
@@ -4099,9 +4103,9 @@ export namespace PolicyLengthExceededException {
 /**
  * <p>A JSON string which you can use to limit the event bus permissions you are granting to
  *       only accounts that fulfill the condition. Currently, the only supported condition is
- *       membership in a certain AWS organization. The string must contain <code>Type</code>,
+ *       membership in a certain Amazon Web Services organization. The string must contain <code>Type</code>,
  *         <code>Key</code>, and <code>Value</code> fields. The <code>Value</code> field specifies the
- *       ID of the AWS organization. Following is an example value for <code>Condition</code>:</p>
+ *       ID of the Amazon Web Services organization. Following is an example value for <code>Condition</code>:</p>
  *          <p>
  *             <code>'{"Type" : "StringEquals", "Key": "aws:PrincipalOrgID", "Value":
  *         "o-1234567890"}'</code>
@@ -4144,13 +4148,12 @@ export interface PutPermissionRequest {
   EventBusName?: string;
 
   /**
-   * <p>The action that you are enabling the other account to perform. Currently, this must be
-   *         <code>events:PutEvents</code>.</p>
+   * <p>The action that you are enabling the other account to perform.</p>
    */
   Action?: string;
 
   /**
-   * <p>The 12-digit AWS account ID that you are permitting to put events to your default event
+   * <p>The 12-digit Amazon Web Services account ID that you are permitting to put events to your default event
    *       bus. Specify "*" to permit any account to put events to your default event bus.</p>
    *
    *          <p>If you specify "*" without specifying <code>Condition</code>, avoid creating rules that
@@ -4164,16 +4167,16 @@ export interface PutPermissionRequest {
   /**
    * <p>An identifier string for the external account that you are granting permissions to. If you
    *       later want to revoke the permission for this external account, specify this
-   *         <code>StatementId</code> when you run <a>RemovePermission</a>.</p>
+   *       <code>StatementId</code> when you run <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html">RemovePermission</a>.</p>
    */
   StatementId?: string;
 
   /**
    * <p>This parameter enables you to limit the permission to accounts that fulfill a certain
-   *       condition, such as being a member of a certain AWS organization. For more information about
-   *       AWS Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What Is AWS
-   *         Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
-   *          <p>If you specify <code>Condition</code> with an AWS organization ID, and specify "*" as the
+   *       condition, such as being a member of a certain Amazon Web Services organization. For more information about
+   *       Amazon Web Services Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What Is Amazon Web Services
+   *         Organizations</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
+   *          <p>If you specify <code>Condition</code> with an Amazon Web Services organization ID, and specify "*" as the
    *       value for <code>Principal</code>, you grant permission to all the accounts in the named
    *       organization.</p>
    *
@@ -4228,6 +4231,10 @@ export interface PutRuleRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p>
+   *          <p>If you're setting an event bus in another account as the target and that account granted
+   *       permission to your account through an organization instead of directly by the account ID, you
+   *       must specify a <code>RoleArn</code> with proper permissions in the <code>Target</code>
+   *       structure, instead of here in this parameter.</p>
    */
   RoleArn?: string;
 
@@ -4393,7 +4400,7 @@ export interface RemoveTargetsRequest {
   Ids: string[] | undefined;
 
   /**
-   * <p>If this is a managed rule, created by an AWS service on your behalf, you must specify
+   * <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, you must specify
    *         <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored for
    *       rules that are not managed rules. You can check whether a rule is a managed rule by using
    *         <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code>
@@ -4579,7 +4586,7 @@ export interface TestEventPatternRequest {
 
   /**
    * <p>The event, in JSON format, to test against the event pattern. The JSON must follow the
-   *       format specified in <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html">AWS Events</a>, and the following
+   *       format specified in <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html">Amazon Web Services Events</a>, and the following
    *       fields are mandatory:</p>
    *          <ul>
    *             <li>

@@ -21,7 +21,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds tags to an AWS IoT Greengrass resource. If a tag already exists for the resource, this operation
+ * <p>Adds tags to an IoT Greengrass resource. If a tag already exists for the resource, this operation
  *       updates the tag's value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

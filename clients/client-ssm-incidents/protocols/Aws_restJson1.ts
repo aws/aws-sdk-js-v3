@@ -4257,6 +4257,7 @@ const deserializeAws_restJson1RelatedItemList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ReplicationSet = (output: any, context: __SerdeContext): ReplicationSet => {
   return {
+    arn: __expectString(output.arn),
     createdBy: __expectString(output.createdBy),
     createdTime:
       output.createdTime !== undefined && output.createdTime !== null

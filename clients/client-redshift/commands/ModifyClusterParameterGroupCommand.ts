@@ -22,7 +22,7 @@ export interface ModifyClusterParameterGroupCommandInput extends ModifyClusterPa
 export interface ModifyClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * <p>Modifies the parameters of a parameter group.</p>
+ * <p>Modifies the parameters of a parameter group. For the parameters parameter, it can't contain ASCII characters.</p>
  *         <p>
  * For more information about parameters and parameter groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>

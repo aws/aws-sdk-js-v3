@@ -25,6 +25,22 @@ import {
   Workteam,
 } from "./models_2";
 
+export interface UpdateImageResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   */
+  ImageArn?: string;
+}
+
+export namespace UpdateImageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateImageResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateModelPackageInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the model.</p>

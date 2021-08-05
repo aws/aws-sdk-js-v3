@@ -2994,28 +2994,36 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates whether the two headers (<code>x-amzn-tls-version</code> and
-   *           <code>x-amzn-tls-cipher-suite</code>), which contain information about
-   *           the negotiated TLS version and cipher suite, are added to the client request
-   *           before sending it to the target. The <code>x-amzn-tls-version</code> header
-   *           has information about the TLS protocol version negotiated with the client,
-   *           and the <code>x-amzn-tls-cipher-suite</code> header has information about
-   *           the cipher suite negotiated with the client. Both headers are in OpenSSL
-   *           format. The possible values for the attribute are <code>true</code> and
-   *           <code>false</code>. The default is <code>false</code>.</p>
+   *                   <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates
+   *           whether the two headers (<code>x-amzn-tls-version</code> and
+   *             <code>x-amzn-tls-cipher-suite</code>), which contain information about the negotiated
+   *           TLS version and cipher suite, are added to the client request before sending it to the
+   *           target. The <code>x-amzn-tls-version</code> header has information about the TLS protocol
+   *           version negotiated with the client, and the <code>x-amzn-tls-cipher-suite</code> header
+   *           has information about the cipher suite negotiated with the client. Both headers are in
+   *           OpenSSL format. The possible values for the attribute are <code>true</code> and
+   *             <code>false</code>. The default is <code>false</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>routing.http2.enabled</code> - Indicates whether HTTP/2 is enabled. The value is
-   *             <code>true</code> or <code>false</code>. The default is <code>true</code>. Elastic Load
-   *           Balancing requires that message header names contain only alphanumeric characters and
-   *           hyphens.</p>
+   *                   <code>routing.http.xff_client_port.enabled</code> - Indicates whether the
+   *             <code>X-Forwarded-For</code> header should preserve the source port that the client used
+   *           to connect to the load balancer. The possible values are <code>true</code> and
+   *             <code>false</code>. The default is <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http2.enabled</code> - Indicates whether HTTP/2 is enabled. The possible
+   *           values are <code>true</code> and <code>false</code>. The default is <code>true</code>.
+   *           Elastic Load Balancing requires that message header names contain only alphanumeric
+   *           characters and hyphens.</p>
+   *
    *             </li>
    *             <li>
    *                <p>
    *                   <code>waf.fail_open.enabled</code> - Indicates whether to allow a WAF-enabled load
-   *           balancer to route requests to targets if it is unable to forward the request to Amazon Web Services WAF. The value is <code>true</code> or <code>false</code>. The default is
-   *             <code>false</code>.</p>
+   *           balancer to route requests to targets if it is unable to forward the request to Amazon Web Services WAF. The possible values are <code>true</code> and <code>false</code>. The
+   *           default is <code>false</code>.</p>
    *             </li>
    *          </ul>
    *
@@ -3025,8 +3033,8 @@ export interface LoadBalancerAttribute {
    *             <li>
    *                <p>
    *                   <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load
-   *           balancing is enabled. The value is <code>true</code> or <code>false</code>. The default is
-   *             <code>false</code>.</p>
+   *           balancing is enabled. The possible values are <code>true</code> and <code>false</code>.
+   *           The default is <code>false</code>.</p>
    *             </li>
    *          </ul>
    */

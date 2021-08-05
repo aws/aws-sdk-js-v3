@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TranscribeClient` and
-the commands you need, for example `CreateLanguageModelCommand`:
+the commands you need, for example `CreateCallAnalyticsCategoryCommand`:
 
 ```js
 // ES5 example
-const { TranscribeClient, CreateLanguageModelCommand } = require("@aws-sdk/client-transcribe");
+const { TranscribeClient, CreateCallAnalyticsCategoryCommand } = require("@aws-sdk/client-transcribe");
 ```
 
 ```ts
 // ES6+ example
-import { TranscribeClient, CreateLanguageModelCommand } from "@aws-sdk/client-transcribe";
+import { TranscribeClient, CreateCallAnalyticsCategoryCommand } from "@aws-sdk/client-transcribe";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new TranscribeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateLanguageModelCommand(params);
+const command = new CreateCallAnalyticsCategoryCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.Transcribe({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createLanguageModel(params);
+  const data = await client.createCallAnalyticsCategory(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createLanguageModel(params)
+  .createCallAnalyticsCategory(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createLanguageModel(params, (err, data) => {
+client.createCallAnalyticsCategory(params, (err, data) => {
   // proccess err and data.
 });
 ```

@@ -22,7 +22,7 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
 
 /**
  * <p>Tests whether the specified event pattern matches the provided event.</p>
- *          <p>Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs).
+ *          <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs).
  *       However, EventBridge uses an exact match in event patterns and rules. Be sure to use the
  *       correct ARN characters when creating event patterns so that they match the ARN syntax in the
  *       event you want to match.</p>
