@@ -3780,7 +3780,7 @@ it("SimpleScalarPropertiesWithWhiteSpace:Request", async () => {
 /**
  * Serializes string containing exclusively whitespace
  */
-it("SimpleScalarPropertiesPureWhiteSpace:Request", async () => {
+it.skip("SimpleScalarPropertiesPureWhiteSpace:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -4203,7 +4203,7 @@ it("SimpleScalarPropertiesWithWhiteSpace:Response", async () => {
 /**
  * Serializes string containing white space
  */
-it("SimpleScalarPropertiesPureWhiteSpace:Response", async () => {
+it.skip("SimpleScalarPropertiesPureWhiteSpace:Response", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
