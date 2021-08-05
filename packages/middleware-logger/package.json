@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-logger",
-  "version": "3.23.0",
+  "version": "3.25.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -18,11 +18,11 @@
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/types": "3.22.0",
+    "@aws-sdk/types": "3.25.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/protocol-http": "3.23.0",
+    "@aws-sdk/protocol-http": "3.25.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
     "jest": "^26.1.0",

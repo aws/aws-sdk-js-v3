@@ -1,7 +1,7 @@
 {
   "name": "aws-sdk-js-v3",
   "private": true,
-  "version": "3.24.0",
+  "version": "3.25.0",
   "description": "AWS SDK for JavaScript from the future",
   "main": "index.js",
   "scripts": {

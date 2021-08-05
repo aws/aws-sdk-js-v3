@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3-control",
-  "version": "3.23.0",
+  "version": "3.25.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -17,14 +17,14 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-bucket-endpoint": "3.23.0",
-    "@aws-sdk/protocol-http": "3.23.0",
-    "@aws-sdk/types": "3.22.0",
+    "@aws-sdk/middleware-bucket-endpoint": "3.25.0",
+    "@aws-sdk/protocol-http": "3.25.0",
+    "@aws-sdk/types": "3.25.0",
     "@aws-sdk/util-arn-parser": "3.23.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/middleware-stack": "3.23.0",
+    "@aws-sdk/middleware-stack": "3.25.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.3.2"

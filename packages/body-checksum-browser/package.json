@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-browser",
-  "version": "3.23.0",
+  "version": "3.25.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -18,9 +18,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/chunked-blob-reader": "3.23.0",
-    "@aws-sdk/protocol-http": "3.23.0",
-    "@aws-sdk/sha256-tree-hash": "3.23.0",
-    "@aws-sdk/types": "3.22.0",
+    "@aws-sdk/protocol-http": "3.25.0",
+    "@aws-sdk/sha256-tree-hash": "3.25.0",
+    "@aws-sdk/types": "3.25.0",
     "@aws-sdk/util-hex-encoding": "3.23.0",
     "tslib": "^2.3.0"
   },

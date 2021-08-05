@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.25.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.24.0...v3.25.0) (2021-08-05)
+
+
+### Bug Fixes
+
+* **middleware-apply-body-checksum:** use lowercase content-md5 header ([#2645](https://github.com/aws/aws-sdk-js-v3/issues/2645)) ([e1f2dfc](https://github.com/aws/aws-sdk-js-v3/commit/e1f2dfcb8dbfd999829e3843bab6578518496728))
+* **packages:** use HashConstructor instead of { new: Hash } ([#2638](https://github.com/aws/aws-sdk-js-v3/issues/2638)) ([6890a47](https://github.com/aws/aws-sdk-js-v3/commit/6890a47322fa37efb7a5589ab57d3273da69ac67))
+
+
+
+
+
 # [3.23.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.22.0...v3.23.0) (2021-07-23)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.25.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.24.0...v3.25.0) (2021-08-05)
+
+
+### Features
+
+* **clients:** update clients as of 08/05/2021 ([#2647](https://github.com/aws/aws-sdk-js-v3/issues/2647)) ([4dc7ff7](https://github.com/aws/aws-sdk-js-v3/commit/4dc7ff7692d020960ea827f33aeb1e593717106c))
+
+
+
+
+
 # [3.24.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.23.0...v3.24.0) (2021-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

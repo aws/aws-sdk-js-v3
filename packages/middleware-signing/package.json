@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-signing",
-  "version": "3.23.0",
+  "version": "3.25.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -22,10 +22,10 @@
     "typescript": "~4.3.2"
   },
   "dependencies": {
-    "@aws-sdk/property-provider": "3.23.0",
-    "@aws-sdk/protocol-http": "3.23.0",
-    "@aws-sdk/signature-v4": "3.23.0",
-    "@aws-sdk/types": "3.22.0",
+    "@aws-sdk/property-provider": "3.25.0",
+    "@aws-sdk/protocol-http": "3.25.0",
+    "@aws-sdk/signature-v4": "3.25.0",
+    "@aws-sdk/types": "3.25.0",
     "tslib": "^2.3.0"
   },
   "engines": {

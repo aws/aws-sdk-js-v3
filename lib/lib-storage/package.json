@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/lib-storage",
-  "version": "3.24.0",
+  "version": "3.25.0",
   "description": "Storage higher order operation",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
@@ -30,8 +30,8 @@
     "@aws-sdk/client-s3": "^3.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/abort-controller": "3.23.0",
-    "@aws-sdk/client-s3": "3.24.0",
+    "@aws-sdk/abort-controller": "3.25.0",
+    "@aws-sdk/client-s3": "3.25.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^14.11.2",
     "jasmine-core": "^3.6.0",
