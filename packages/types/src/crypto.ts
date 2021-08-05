@@ -38,7 +38,7 @@ export interface HashConstructor {
  * implementation of this interface.
  */
 export interface StreamHasher<StreamType = any> {
-  (hashCtor: { new (): Hash }, stream: StreamType): Promise<Uint8Array>;
+  (hashCtor: HashConstructor, stream: StreamType): Promise<Uint8Array>;
 }
 
 /**
