@@ -20,7 +20,7 @@ export const applyMd5BodyChecksumMiddleware =
     let { request } = args;
     if (HttpRequest.isInstance(request)) {
       const { body, headers } = request;
-      if (!hasHeader("Content-MD5", headers)) {
+      if (!hasHeader("content-md5", headers)) {
         let digest: Promise<Uint8Array>;
         if (body === undefined || typeof body === "string" || ArrayBuffer.isView(body) || isArrayBuffer(body)) {
           const hash = new options.md5();
@@ -34,7 +34,7 @@ export const applyMd5BodyChecksumMiddleware =
           ...request,
           headers: {
             ...headers,
-            "Content-MD5": options.base64Encoder(await digest),
+            "content-md5": options.base64Encoder(await digest),
           },
         };
       }
