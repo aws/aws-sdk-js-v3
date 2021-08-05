@@ -9,6 +9,7 @@ import { EndpointOperationCommand } from "../../commands/EndpointOperationComman
 import { EndpointWithHostLabelOperationCommand } from "../../commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommand } from "../../commands/GreetingWithErrorsCommand";
 import { HostWithPathOperationCommand } from "../../commands/HostWithPathOperationCommand";
+import { HttpChecksumRequiredCommand } from "../../commands/HttpChecksumRequiredCommand";
 import { HttpEnumPayloadCommand } from "../../commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommand } from "../../commands/HttpPayloadTraitsCommand";
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../commands/HttpPayloadTraitsWithMediaTypeCommand";
@@ -1888,6 +1889,47 @@ it("RestJsonHostWithPath:Request", async () => {
     expect(r.path).toBe("/custom/HostWithPathOperation");
 
     expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Adds Content-MD5 header
+ */
+it("RestJsonHttpChecksumRequired:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpChecksumRequiredCommand({
+    foo: "base64 encoded md5 checksum",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/HttpChecksumRequired");
+
+    expect(r.headers["content-md5"]).toBeDefined();
+    expect(r.headers["content-md5"]).toBe("iB0/3YSo7maijL0IGOgA9g==");
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"foo\":\"base64 encoded md5 checksum\"
+    }
+    `;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
   }
 });
 

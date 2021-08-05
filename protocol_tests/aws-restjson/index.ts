@@ -10,6 +10,7 @@ export * from "./commands/EndpointOperationCommand";
 export * from "./commands/EndpointWithHostLabelOperationCommand";
 export * from "./commands/GreetingWithErrorsCommand";
 export * from "./commands/HostWithPathOperationCommand";
+export * from "./commands/HttpChecksumRequiredCommand";
 export * from "./commands/HttpEnumPayloadCommand";
 export * from "./commands/HttpPayloadTraitsCommand";
 export * from "./commands/HttpPayloadTraitsWithMediaTypeCommand";

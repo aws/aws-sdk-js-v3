@@ -29,6 +29,10 @@ import {
   HostWithPathOperationCommandInput,
   HostWithPathOperationCommandOutput,
 } from "./commands/HostWithPathOperationCommand";
+import {
+  HttpChecksumRequiredCommandInput,
+  HttpChecksumRequiredCommandOutput,
+} from "./commands/HttpChecksumRequiredCommand";
 import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "./commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
@@ -159,9 +163,11 @@ import {
   Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
+  StreamHasher as __StreamHasher,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 export type ServiceInputTypes =
   | AllQueryStringTypesCommandInput
@@ -174,6 +180,7 @@ export type ServiceInputTypes =
   | EndpointWithHostLabelOperationCommandInput
   | GreetingWithErrorsCommandInput
   | HostWithPathOperationCommandInput
+  | HttpChecksumRequiredCommandInput
   | HttpEnumPayloadCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
@@ -221,6 +228,7 @@ export type ServiceOutputTypes =
   | EndpointWithHostLabelOperationCommandOutput
   | GreetingWithErrorsCommandOutput
   | HostWithPathOperationCommandOutput
+  | HttpChecksumRequiredCommandOutput
   | HttpEnumPayloadCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
@@ -357,6 +365,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * A function that, given a hash constructor and a stream, calculates the
+   * hash of the streamed value.
+   * @internal
+   */
+  streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
+
+  /**
+   * A constructor for a class implementing the {@link __Hash} interface
+   * that computes MD5 hashes.
+   * @internal
+   */
+  md5?: __HashConstructor;
 }
 
 type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

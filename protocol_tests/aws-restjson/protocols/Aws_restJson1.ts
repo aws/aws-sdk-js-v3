@@ -29,6 +29,10 @@ import {
   HostWithPathOperationCommandInput,
   HostWithPathOperationCommandOutput,
 } from "../commands/HostWithPathOperationCommand";
+import {
+  HttpChecksumRequiredCommandInput,
+  HttpChecksumRequiredCommandOutput,
+} from "../commands/HttpChecksumRequiredCommand";
 import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "../commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "../commands/HttpPayloadTraitsCommand";
 import {
@@ -462,6 +466,30 @@ export const serializeAws_restJson1HostWithPathOperationCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1HttpChecksumRequiredCommand = async (
+  input: HttpChecksumRequiredCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpChecksumRequired";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.foo !== undefined && input.foo !== null && { foo: input.foo }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -2064,6 +2092,53 @@ const deserializeAws_restJson1HostWithPathOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HostWithPathOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1HttpChecksumRequiredCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpChecksumRequiredCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1HttpChecksumRequiredCommandError(output, context);
+  }
+  const contents: HttpChecksumRequiredCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    foo: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.foo !== undefined && data.foo !== null) {
+    contents.foo = __expectString(data.foo);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1HttpChecksumRequiredCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpChecksumRequiredCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),

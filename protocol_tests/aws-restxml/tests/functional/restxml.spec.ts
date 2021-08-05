@@ -3746,7 +3746,7 @@ it("SimpleScalarPropertiesWithWhiteSpace:Request", async () => {
   const command = new SimpleScalarPropertiesCommand({
     foo: "Foo",
 
-    stringValue: "string with white    space",
+    stringValue: "  string with white    space  ",
   } as any);
   try {
     await client.send(command);
@@ -3769,7 +3769,50 @@ it("SimpleScalarPropertiesWithWhiteSpace:Request", async () => {
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `<SimpleScalarPropertiesInputOutput>
-        <stringValue>string with white    space</stringValue>
+        <stringValue>  string with white    space  </stringValue>
+    </SimpleScalarPropertiesInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes string containing exclusively whitespace
+ */
+it.skip("SimpleScalarPropertiesPureWhiteSpace:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleScalarPropertiesCommand({
+    foo: "Foo",
+
+    stringValue: "   ",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/SimpleScalarProperties");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<SimpleScalarPropertiesInputOutput>
+        <stringValue>   </stringValue>
     </SimpleScalarPropertiesInputOutput>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
@@ -4127,7 +4170,7 @@ it("SimpleScalarPropertiesWithWhiteSpace:Response", async () => {
       },
       `<?xml version = "1.0" encoding = "UTF-8"?>
       <SimpleScalarPropertiesInputOutput>
-          <stringValue>string with white    space</stringValue>
+          <stringValue> string with white    space </stringValue>
       </SimpleScalarPropertiesInputOutput>
       `
     ),
@@ -4148,7 +4191,52 @@ it("SimpleScalarPropertiesWithWhiteSpace:Response", async () => {
     {
       foo: "Foo",
 
-      stringValue: "string with white    space",
+      stringValue: " string with white    space ",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes string containing white space
+ */
+it.skip("SimpleScalarPropertiesPureWhiteSpace:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-foo": "Foo",
+        "content-type": "application/xml",
+      },
+      `<?xml version = "1.0" encoding = "UTF-8"?>
+      <SimpleScalarPropertiesInputOutput>
+          <stringValue>  </stringValue>
+      </SimpleScalarPropertiesInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      foo: "Foo",
+
+      stringValue: "  ",
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

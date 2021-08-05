@@ -246,6 +246,19 @@ export namespace InvalidGreeting {
   });
 }
 
+export interface HttpChecksumRequiredInputOutput {
+  foo?: string;
+}
+
+export namespace HttpChecksumRequiredInputOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpChecksumRequiredInputOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface HttpPayloadTraitsInputOutput {
   foo?: string;
   blob?: Uint8Array;

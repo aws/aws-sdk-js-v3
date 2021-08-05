@@ -50,6 +50,11 @@ import {
   HostWithPathOperationCommandOutput,
 } from "./commands/HostWithPathOperationCommand";
 import {
+  HttpChecksumRequiredCommand,
+  HttpChecksumRequiredCommandInput,
+  HttpChecksumRequiredCommandOutput,
+} from "./commands/HttpChecksumRequiredCommand";
+import {
   HttpEnumPayloadCommand,
   HttpEnumPayloadCommandInput,
   HttpEnumPayloadCommandOutput,
@@ -525,6 +530,38 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: HostWithPathOperationCommandOutput) => void
   ): Promise<HostWithPathOperationCommandOutput> | void {
     const command = new HostWithPathOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example tests httpChecksumRequired trait
+   */
+  public httpChecksumRequired(
+    args: HttpChecksumRequiredCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpChecksumRequiredCommandOutput>;
+  public httpChecksumRequired(
+    args: HttpChecksumRequiredCommandInput,
+    cb: (err: any, data?: HttpChecksumRequiredCommandOutput) => void
+  ): void;
+  public httpChecksumRequired(
+    args: HttpChecksumRequiredCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpChecksumRequiredCommandOutput) => void
+  ): void;
+  public httpChecksumRequired(
+    args: HttpChecksumRequiredCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpChecksumRequiredCommandOutput) => void),
+    cb?: (err: any, data?: HttpChecksumRequiredCommandOutput) => void
+  ): Promise<HttpChecksumRequiredCommandOutput> | void {
+    const command = new HttpChecksumRequiredCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
