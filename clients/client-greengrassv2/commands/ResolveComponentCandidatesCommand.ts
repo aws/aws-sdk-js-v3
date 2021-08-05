@@ -22,19 +22,19 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
 
 /**
  * <p>Retrieves a list of components that meet the component, version, and platform requirements
- *       of a deployment. AWS IoT Greengrass core devices call this operation when they receive a deployment to
+ *       of a deployment. Greengrass core devices call this operation when they receive a deployment to
  *       identify the components to install.</p>
  *          <p>This operation identifies components that meet all dependency requirements for a
  *       deployment. If the requirements conflict, then this operation returns an error and the
  *       deployment fails. For example, this occurs if component <code>A</code> requires version
  *         <code>>2.0.0</code> and component <code>B</code> requires version <code><2.0.0</code>
  *       of a component dependency.</p>
- *          <p>When you specify the component candidates to resolve, AWS IoT Greengrass compares each component's
- *       digest from the core device with the component's digest in the AWS Cloud. If the digests don't
- *       match, then AWS IoT Greengrass specifies to use the version from the AWS Cloud.</p>
+ *          <p>When you specify the component candidates to resolve, IoT Greengrass compares each component's
+ *       digest from the core device with the component's digest in the Amazon Web Services Cloud. If the digests don't
+ *       match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.</p>
  *          <important>
  *             <p>To use this operation, you must use the data plane API endpoint and authenticate with an
- *         AWS IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/greengrass.html">AWS IoT Greengrass endpoints and quotas</a>.</p>
+ *         IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/greengrass.html">IoT Greengrass endpoints and quotas</a>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

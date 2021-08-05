@@ -167,7 +167,7 @@ import { UpdateTypeCommand, UpdateTypeCommandInput, UpdateTypeCommandOutput } fr
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AWS AppSync provides API actions for creating and interacting with data sources using
+ * <p>AppSync  provides API actions for creating and interacting with data sources using
  *          GraphQL from your application.</p>
  */
 export class AppSync extends AppSyncClient {

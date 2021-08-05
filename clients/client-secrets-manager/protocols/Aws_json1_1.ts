@@ -796,6 +796,14 @@ const deserializeAws_json1_1DescribeSecretCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       response = {
@@ -924,6 +932,14 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
     case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1158,6 +1174,14 @@ const deserializeAws_json1_1ListSecretVersionIdsCommandError = async (
     case "com.amazonaws.secretsmanager#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2931,6 +2955,17 @@ const deserializeAws_json1_1InvalidRequestException = (
   } as any;
 };
 
+const deserializeAws_json1_1KmsKeyIdListType = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: __expectString(output.Message),
@@ -3164,6 +3199,10 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
+        : undefined,
+    KmsKeyIds:
+      output.KmsKeyIds !== undefined && output.KmsKeyIds !== null
+        ? deserializeAws_json1_1KmsKeyIdListType(output.KmsKeyIds, context)
         : undefined,
     LastAccessedDate:
       output.LastAccessedDate !== undefined && output.LastAccessedDate !== null

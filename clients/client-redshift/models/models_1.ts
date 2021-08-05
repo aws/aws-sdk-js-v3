@@ -1,12 +1,13 @@
 import {
+  ActionType,
   AquaConfiguration,
   AquaConfigurationStatus,
+  AvailabilityZone,
   Cluster,
   ClusterSecurityGroup,
   ClusterSubnetGroup,
   EventSubscription,
   Parameter,
-  PartnerIntegrationStatus,
   RecurringCharge,
   ReservedNode,
   ReservedNodeOfferingType,
@@ -21,6 +22,482 @@ import {
   UsageLimitFeatureType,
 } from "./models_0";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+/**
+ * <p>Describes the status of logging for a cluster.</p>
+ */
+export interface LoggingStatus {
+  /**
+   * <p>
+   *             <code>true</code> if logging is on, <code>false</code> if logging is off.</p>
+   */
+  LoggingEnabled?: boolean;
+
+  /**
+   * <p>The name of the S3 bucket where the log files are stored.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>The prefix applied to the log file names.</p>
+   */
+  S3KeyPrefix?: string;
+
+  /**
+   * <p>The last time that logs were delivered.</p>
+   */
+  LastSuccessfulDeliveryTime?: Date;
+
+  /**
+   * <p>The last time when logs failed to be delivered.</p>
+   */
+  LastFailureTime?: Date;
+
+  /**
+   * <p>The message indicating that logs failed to be delivered.</p>
+   */
+  LastFailureMessage?: string;
+}
+
+export namespace LoggingStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoggingStatus): any => ({
+    ...obj,
+  });
+}
+
+export enum NodeConfigurationOptionsFilterName {
+  ESTIMATED_DISK_UTILIZATION_PERCENT = "EstimatedDiskUtilizationPercent",
+  MODE = "Mode",
+  NODE_TYPE = "NodeType",
+  NUM_NODES = "NumberOfNodes",
+}
+
+export enum OperatorType {
+  BETWEEN = "between",
+  EQ = "eq",
+  GE = "ge",
+  GT = "gt",
+  IN = "in",
+  LE = "le",
+  LT = "lt",
+}
+
+/**
+ * <p>A set of elements to filter the returned node configurations.</p>
+ */
+export interface NodeConfigurationOptionsFilter {
+  /**
+   * <p>The name of the element to filter.</p>
+   */
+  Name?: NodeConfigurationOptionsFilterName | string;
+
+  /**
+   * <p>The filter operator.
+   *             If filter Name is NodeType only the 'in' operator is supported.
+   *             Provide one value to evaluate for 'eq', 'lt', 'le', 'gt', and 'ge'.
+   *             Provide two values to evaluate for 'between'.
+   *             Provide a list of values for 'in'.</p>
+   */
+  Operator?: OperatorType | string;
+
+  /**
+   * <p>List of values. Compare Name using Operator to Values.
+   *             If filter Name is NumberOfNodes, then values can range from 0 to 200.
+   *             If filter Name is EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
+   *             For example, filter NumberOfNodes (name) GT (operator) 3 (values).</p>
+   */
+  Values?: string[];
+}
+
+export namespace NodeConfigurationOptionsFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NodeConfigurationOptionsFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeNodeConfigurationOptionsMessage {
+  /**
+   * <p>The action type to evaluate for possible node configurations.
+   *             Specify "restore-cluster" to get configuration combinations based on an existing snapshot.
+   *             Specify "recommend-node-config" to get configuration recommendations based on an existing cluster or snapshot.
+   *             Specify "resize-cluster" to get configuration combinations for elastic resize based on an existing cluster.
+   *         </p>
+   */
+  ActionType: ActionType | string | undefined;
+
+  /**
+   * <p>The identifier of the cluster to evaluate for possible node configurations.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The identifier of the snapshot to evaluate for possible node configurations.</p>
+   */
+  SnapshotIdentifier?: string;
+
+  /**
+   * <p>The Amazon Web Services account used to create or copy the snapshot.
+   *             Required if you are restoring a snapshot you do not own,
+   *             optional if you own the snapshot.</p>
+   */
+  OwnerAccount?: string;
+
+  /**
+   * <p>A set of name, operator, and value items to filter the results.</p>
+   */
+  Filters?: NodeConfigurationOptionsFilter[];
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeNodeConfigurationOptions</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>500</code>
+   *         </p>
+   *         <p>Constraints: minimum 100, maximum 500.</p>
+   */
+  MaxRecords?: number;
+}
+
+export namespace DescribeNodeConfigurationOptionsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeNodeConfigurationOptionsMessage): any => ({
+    ...obj,
+  });
+}
+
+export enum Mode {
+  HIGH_PERFORMANCE = "high-performance",
+  STANDARD = "standard",
+}
+
+/**
+ * <p>A list of node configurations.</p>
+ */
+export interface NodeConfigurationOption {
+  /**
+   * <p>The node type, such as, "ds2.8xlarge".</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>The number of nodes.</p>
+   */
+  NumberOfNodes?: number;
+
+  /**
+   * <p>The estimated disk utilizaton percentage.</p>
+   */
+  EstimatedDiskUtilizationPercent?: number;
+
+  /**
+   * <p>The category of the node configuration recommendation.</p>
+   */
+  Mode?: Mode | string;
+}
+
+export namespace NodeConfigurationOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NodeConfigurationOption): any => ({
+    ...obj,
+  });
+}
+
+export interface NodeConfigurationOptionsMessage {
+  /**
+   * <p>A list of valid node configurations.</p>
+   */
+  NodeConfigurationOptionList?: NodeConfigurationOption[];
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+}
+
+export namespace NodeConfigurationOptionsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NodeConfigurationOptionsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeOrderableClusterOptionsMessage {
+  /**
+   * <p>The version filter value. Specify this parameter to show only the available
+   *             offerings matching the specified version.</p>
+   *         <p>Default: All versions.</p>
+   *         <p>Constraints: Must be one of the version returned from <a>DescribeClusterVersions</a>.</p>
+   */
+  ClusterVersion?: string;
+
+  /**
+   * <p>The node type filter value. Specify this parameter to show only the available
+   *             offerings matching the specified node type.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeOrderableClusterOptions</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeOrderableClusterOptionsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeOrderableClusterOptionsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an orderable cluster option.</p>
+ */
+export interface OrderableClusterOption {
+  /**
+   * <p>The version of the orderable cluster.</p>
+   */
+  ClusterVersion?: string;
+
+  /**
+   * <p>The cluster type, for example <code>multi-node</code>. </p>
+   */
+  ClusterType?: string;
+
+  /**
+   * <p>The node type for the orderable cluster.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>A list of availability zones for the orderable cluster.</p>
+   */
+  AvailabilityZones?: AvailabilityZone[];
+}
+
+export namespace OrderableClusterOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OrderableClusterOption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output from the <a>DescribeOrderableClusterOptions</a>
+ *             action. </p>
+ */
+export interface OrderableClusterOptionsMessage {
+  /**
+   * <p>An <code>OrderableClusterOption</code> structure containing information about
+   *             orderable options for the cluster.</p>
+   */
+  OrderableClusterOptions?: OrderableClusterOption[];
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+}
+
+export namespace OrderableClusterOptionsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OrderableClusterOptionsMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePartnersInputMessage {
+  /**
+   * <p>The Amazon Web Services account ID that owns the cluster.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The cluster identifier of the cluster whose partner integration is being described.</p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the database whose partner integration is being described. If database name is not specified, then all databases in the cluster are described.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The name of the partner that is being described. If partner name is not specified, then all partner integrations are described.</p>
+   */
+  PartnerName?: string;
+}
+
+export namespace DescribePartnersInputMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePartnersInputMessage): any => ({
+    ...obj,
+  });
+}
+
+export enum PartnerIntegrationStatus {
+  Active = "Active",
+  ConnectionFailure = "ConnectionFailure",
+  Inactive = "Inactive",
+  RuntimeFailure = "RuntimeFailure",
+}
+
+/**
+ * <p>Describes a partner integration.</p>
+ */
+export interface PartnerIntegrationInfo {
+  /**
+   * <p>The name of the database that receives data from a partner.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The name of the partner.</p>
+   */
+  PartnerName?: string;
+
+  /**
+   * <p>The partner integration status.</p>
+   */
+  Status?: PartnerIntegrationStatus | string;
+
+  /**
+   * <p>The status message provided by the partner.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The date (UTC) that the partner integration was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The date (UTC) that the partner integration status was last updated by the partner.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+export namespace PartnerIntegrationInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PartnerIntegrationInfo): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePartnersOutputMessage {
+  /**
+   * <p>A list of partner integrations.</p>
+   */
+  PartnerIntegrationInfoList?: PartnerIntegrationInfo[];
+}
+
+export namespace DescribePartnersOutputMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePartnersOutputMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeReservedNodeOfferingsMessage {
+  /**
+   * <p>The unique identifier for the offering.</p>
+   */
+  ReservedNodeOfferingId?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeReservedNodeOfferings</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeReservedNodeOfferingsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReservedNodeOfferingsMessage): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes a reserved node offering.</p>
@@ -189,7 +666,7 @@ export interface DescribeResizeMessage {
   /**
    * <p>The unique identifier of a cluster whose resize progress you are requesting. This
    *             parameter is case-sensitive.</p>
-   *         <p>By default, resize operations for all clusters defined for an account are
+   *         <p>By default, resize operations for all clusters defined for an Amazon Web Services account are
    *             returned.</p>
    */
   ClusterIdentifier: string | undefined;
@@ -1028,6 +1505,34 @@ export namespace SnapshotCopyAlreadyDisabledFault {
   });
 }
 
+export interface DisassociateDataShareConsumerMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the datashare to remove association for. </p>
+   */
+  DataShareArn: string | undefined;
+
+  /**
+   * <p>A value that specifies whether association for the datashare is removed from the
+   *             entire account.</p>
+   */
+  DisassociateEntireAccount?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consumer that association for
+   *             the datashare is removed from.</p>
+   */
+  ConsumerArn?: string;
+}
+
+export namespace DisassociateDataShareConsumerMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateDataShareConsumerMessage): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p></p>
  */
@@ -1166,8 +1671,8 @@ export interface EnableSnapshotCopyMessage {
   ClusterIdentifier: string | undefined;
 
   /**
-   * <p>The destination Region that you want to copy snapshots to.</p>
-   *         <p>Constraints: Must be the name of a valid Region. For more information, see
+   * <p>The destination Amazon Web Services Region that you want to copy snapshots to.</p>
+   *         <p>Constraints: Must be the name of a valid Amazon Web Services Region. For more information, see
    *                 <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.
    *         </p>
    */
@@ -1188,8 +1693,8 @@ export interface EnableSnapshotCopyMessage {
   SnapshotCopyGrantName?: string;
 
   /**
-   * <p>The number of days to retain newly copied snapshots in the destination Region
-   *             after they are copied from the source Region. If the value is -1, the manual
+   * <p>The number of days to retain newly copied snapshots in the destination Amazon Web Services Region
+   *             after they are copied from the source Amazon Web Services Region. If the value is -1, the manual
    *             snapshot is retained indefinitely. </p>
    *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
    */
@@ -1541,7 +2046,7 @@ export interface ModifyAquaInputMessage {
    * <p>The new value of AQUA configuration status. Possible values include the following.</p>
    *         <ul>
    *             <li>
-   *                <p>enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.</p>
+   *                <p>enabled - Use AQUA if it is available for the current Amazon Web Services Region and Amazon Redshift node type.</p>
    *             </li>
    *             <li>
    *                <p>disabled - Don't use AQUA. </p>
@@ -1829,7 +2334,7 @@ export interface ModifyClusterMessage {
    *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>Must be unique for all clusters within an account.</p>
+   *                <p>Must be unique for all clusters within an Amazon Web Services account.</p>
    *             </li>
    *          </ul>
    *
@@ -2323,7 +2828,7 @@ export interface ModifyEventSubscriptionMessage {
    * <p>The type of source that will be generating the events. For example, if you want to
    *             be notified of events generated by a cluster, you would set this parameter to cluster.
    *             If this value is not specified, events are returned for all Amazon Redshift objects in your
-   *             account. You must specify a source type in order to specify source IDs.</p>
+   *             Amazon Web Services account. You must specify a source type in order to specify source IDs.</p>
    *         <p>Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.</p>
    */
   SourceType?: string;
@@ -2342,7 +2847,7 @@ export interface ModifyEventSubscriptionMessage {
   /**
    * <p>Specifies the Amazon Redshift event categories to be published by the event notification
    *             subscription.</p>
-   *         <p>Values: configuration, management, monitoring, security</p>
+   *         <p>Values: configuration, management, monitoring, security, pending</p>
    */
   EventCategories?: string[];
 
@@ -2447,19 +2952,19 @@ export namespace ModifyScheduledActionMessage {
 export interface ModifySnapshotCopyRetentionPeriodMessage {
   /**
    * <p>The unique identifier of the cluster for which you want to change the retention
-   *             period for either automated or manual snapshots that are copied to a destination Region.</p>
+   *             period for either automated or manual snapshots that are copied to a destination Amazon Web Services Region.</p>
    *         <p>Constraints: Must be the valid name of an existing cluster that has cross-region
    *             snapshot copy enabled.</p>
    */
   ClusterIdentifier: string | undefined;
 
   /**
-   * <p>The number of days to retain automated snapshots in the destination Region
-   *             after they are copied from the source Region.</p>
+   * <p>The number of days to retain automated snapshots in the destination Amazon Web Services Region
+   *             after they are copied from the source Amazon Web Services Region.</p>
    *         <p>By default, this only changes the retention period of copied automated snapshots. </p>
    *         <p>If you decrease the retention period for automated snapshots that are copied to a
-   *             destination Region, Amazon Redshift deletes any existing automated snapshots that were
-   *             copied to the destination Region and that fall outside of the new retention
+   *             destination Amazon Web Services Region, Amazon Redshift deletes any existing automated snapshots that were
+   *             copied to the destination Amazon Web Services Region and that fall outside of the new retention
    *             period.</p>
    *         <p>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </p>
    *         <p>If you specify the <code>manual</code> option, only newly copied manual snapshots will
@@ -2705,6 +3210,22 @@ export namespace RebootClusterResult {
   });
 }
 
+export interface RejectDataShareMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the datashare to reject.</p>
+   */
+  DataShareArn: string | undefined;
+}
+
+export namespace RejectDataShareMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectDataShareMessage): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p></p>
  */
@@ -2778,7 +3299,7 @@ export interface RestoreFromClusterSnapshotMessage {
    *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>Must be unique for all clusters within an account.</p>
+   *                <p>Must be unique for all clusters within an Amazon Web Services account.</p>
    *             </li>
    *          </ul>
    */
@@ -2835,7 +3356,7 @@ export interface RestoreFromClusterSnapshotMessage {
   PubliclyAccessible?: boolean;
 
   /**
-   * <p>The account used to create or copy the snapshot. Required if you are
+   * <p>The Amazon Web Services account used to create or copy the snapshot. Required if you are
    *             restoring a snapshot you do not own, optional if you own the snapshot.</p>
    */
   OwnerAccount?: string;
@@ -2998,7 +3519,7 @@ export interface RestoreFromClusterSnapshotMessage {
    * <p>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.</p>
    *         <ul>
    *             <li>
-   *                <p>enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.</p>
+   *                <p>enabled - Use AQUA if it is available for the current Amazon Web Services Region and Amazon Redshift node type.</p>
    *             </li>
    *             <li>
    *                <p>disabled - Don't use AQUA. </p>
@@ -3159,7 +3680,7 @@ export interface RevokeClusterSecurityGroupIngressMessage {
   EC2SecurityGroupName?: string;
 
   /**
-   * <p>The account number of the owner of the security group specified in the
+   * <p>The Amazon Web Services account number of the owner of the security group specified in the
    *                 <code>EC2SecurityGroupName</code> parameter. The Amazon Web Services access key ID is not an
    *             acceptable value. If <code>EC2SecurityGroupOwnerId</code> is specified,
    *                 <code>EC2SecurityGroupName</code> must also be provided. and <code>CIDRIP</code>
@@ -3202,7 +3723,7 @@ export interface RevokeEndpointAccessMessage {
   ClusterIdentifier?: string;
 
   /**
-   * <p>The account ID whose access is to be revoked.</p>
+   * <p>The Amazon Web Services account ID whose access is to be revoked.</p>
    */
   Account?: string;
 
@@ -3244,7 +3765,7 @@ export interface RevokeSnapshotAccessMessage {
   SnapshotClusterIdentifier?: string;
 
   /**
-   * <p>The identifier of the account that can no longer restore the specified
+   * <p>The identifier of the Amazon Web Services account that can no longer restore the specified
    *             snapshot.</p>
    */
   AccountWithRestoreAccess: string | undefined;
@@ -3315,7 +3836,7 @@ export namespace RotateEncryptionKeyResult {
 
 export interface UpdatePartnerStatusInputMessage {
   /**
-   * <p>The Region ID that owns the cluster.</p>
+   * <p>The Amazon Web Services account ID that owns the cluster.</p>
    */
   AccountId: string | undefined;
 

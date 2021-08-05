@@ -26,8 +26,8 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput
  * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is
  *             accepted, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment
  *             account.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
- *             in the <i>AWS Proton Administrator guide</i>.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
+ *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,5 +1,10 @@
 import { TranscribeClient } from "./TranscribeClient";
 import {
+  CreateCallAnalyticsCategoryCommand,
+  CreateCallAnalyticsCategoryCommandInput,
+  CreateCallAnalyticsCategoryCommandOutput,
+} from "./commands/CreateCallAnalyticsCategoryCommand";
+import {
   CreateLanguageModelCommand,
   CreateLanguageModelCommandInput,
   CreateLanguageModelCommandOutput,
@@ -19,6 +24,16 @@ import {
   CreateVocabularyFilterCommandInput,
   CreateVocabularyFilterCommandOutput,
 } from "./commands/CreateVocabularyFilterCommand";
+import {
+  DeleteCallAnalyticsCategoryCommand,
+  DeleteCallAnalyticsCategoryCommandInput,
+  DeleteCallAnalyticsCategoryCommandOutput,
+} from "./commands/DeleteCallAnalyticsCategoryCommand";
+import {
+  DeleteCallAnalyticsJobCommand,
+  DeleteCallAnalyticsJobCommandInput,
+  DeleteCallAnalyticsJobCommandOutput,
+} from "./commands/DeleteCallAnalyticsJobCommand";
 import {
   DeleteLanguageModelCommand,
   DeleteLanguageModelCommandInput,
@@ -55,6 +70,16 @@ import {
   DescribeLanguageModelCommandOutput,
 } from "./commands/DescribeLanguageModelCommand";
 import {
+  GetCallAnalyticsCategoryCommand,
+  GetCallAnalyticsCategoryCommandInput,
+  GetCallAnalyticsCategoryCommandOutput,
+} from "./commands/GetCallAnalyticsCategoryCommand";
+import {
+  GetCallAnalyticsJobCommand,
+  GetCallAnalyticsJobCommandInput,
+  GetCallAnalyticsJobCommandOutput,
+} from "./commands/GetCallAnalyticsJobCommand";
+import {
   GetMedicalTranscriptionJobCommand,
   GetMedicalTranscriptionJobCommandInput,
   GetMedicalTranscriptionJobCommandOutput,
@@ -79,6 +104,16 @@ import {
   GetVocabularyFilterCommandInput,
   GetVocabularyFilterCommandOutput,
 } from "./commands/GetVocabularyFilterCommand";
+import {
+  ListCallAnalyticsCategoriesCommand,
+  ListCallAnalyticsCategoriesCommandInput,
+  ListCallAnalyticsCategoriesCommandOutput,
+} from "./commands/ListCallAnalyticsCategoriesCommand";
+import {
+  ListCallAnalyticsJobsCommand,
+  ListCallAnalyticsJobsCommandInput,
+  ListCallAnalyticsJobsCommandOutput,
+} from "./commands/ListCallAnalyticsJobsCommand";
 import {
   ListLanguageModelsCommand,
   ListLanguageModelsCommandInput,
@@ -110,6 +145,11 @@ import {
   ListVocabularyFiltersCommandOutput,
 } from "./commands/ListVocabularyFiltersCommand";
 import {
+  StartCallAnalyticsJobCommand,
+  StartCallAnalyticsJobCommandInput,
+  StartCallAnalyticsJobCommandOutput,
+} from "./commands/StartCallAnalyticsJobCommand";
+import {
   StartMedicalTranscriptionJobCommand,
   StartMedicalTranscriptionJobCommandInput,
   StartMedicalTranscriptionJobCommandOutput,
@@ -119,6 +159,11 @@ import {
   StartTranscriptionJobCommandInput,
   StartTranscriptionJobCommandOutput,
 } from "./commands/StartTranscriptionJobCommand";
+import {
+  UpdateCallAnalyticsCategoryCommand,
+  UpdateCallAnalyticsCategoryCommandInput,
+  UpdateCallAnalyticsCategoryCommandOutput,
+} from "./commands/UpdateCallAnalyticsCategoryCommand";
 import {
   UpdateMedicalVocabularyCommand,
   UpdateMedicalVocabularyCommandInput,
@@ -140,6 +185,42 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * <p>Operations and objects for transcribing speech to text.</p>
  */
 export class Transcribe extends TranscribeClient {
+  /**
+   * <p>Creates an analytics category. Amazon Transcribe applies the conditions specified by your
+   *             analytics categories to your call analytics jobs. For each analytics category, you specify one or
+   *             more rules. For example, you can specify a rule that the customer sentiment was neutral or
+   *             negative within that category. If you start a call analytics job, Amazon Transcribe applies the
+   *             category to the analytics job that you've specified.</p>
+   */
+  public createCallAnalyticsCategory(
+    args: CreateCallAnalyticsCategoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCallAnalyticsCategoryCommandOutput>;
+  public createCallAnalyticsCategory(
+    args: CreateCallAnalyticsCategoryCommandInput,
+    cb: (err: any, data?: CreateCallAnalyticsCategoryCommandOutput) => void
+  ): void;
+  public createCallAnalyticsCategory(
+    args: CreateCallAnalyticsCategoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCallAnalyticsCategoryCommandOutput) => void
+  ): void;
+  public createCallAnalyticsCategory(
+    args: CreateCallAnalyticsCategoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCallAnalyticsCategoryCommandOutput) => void),
+    cb?: (err: any, data?: CreateCallAnalyticsCategoryCommandOutput) => void
+  ): Promise<CreateCallAnalyticsCategoryCommandOutput> | void {
+    const command = new CreateCallAnalyticsCategoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your
    *             input files. The time it takes to create your model depends on the size of your training
@@ -264,6 +345,70 @@ export class Transcribe extends TranscribeClient {
     cb?: (err: any, data?: CreateVocabularyFilterCommandOutput) => void
   ): Promise<CreateVocabularyFilterCommandOutput> | void {
     const command = new CreateVocabularyFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a call analytics category using its name.</p>
+   */
+  public deleteCallAnalyticsCategory(
+    args: DeleteCallAnalyticsCategoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCallAnalyticsCategoryCommandOutput>;
+  public deleteCallAnalyticsCategory(
+    args: DeleteCallAnalyticsCategoryCommandInput,
+    cb: (err: any, data?: DeleteCallAnalyticsCategoryCommandOutput) => void
+  ): void;
+  public deleteCallAnalyticsCategory(
+    args: DeleteCallAnalyticsCategoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCallAnalyticsCategoryCommandOutput) => void
+  ): void;
+  public deleteCallAnalyticsCategory(
+    args: DeleteCallAnalyticsCategoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCallAnalyticsCategoryCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCallAnalyticsCategoryCommandOutput) => void
+  ): Promise<DeleteCallAnalyticsCategoryCommandOutput> | void {
+    const command = new DeleteCallAnalyticsCategoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a call analytics job using its name.</p>
+   */
+  public deleteCallAnalyticsJob(
+    args: DeleteCallAnalyticsJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCallAnalyticsJobCommandOutput>;
+  public deleteCallAnalyticsJob(
+    args: DeleteCallAnalyticsJobCommandInput,
+    cb: (err: any, data?: DeleteCallAnalyticsJobCommandOutput) => void
+  ): void;
+  public deleteCallAnalyticsJob(
+    args: DeleteCallAnalyticsJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCallAnalyticsJobCommandOutput) => void
+  ): void;
+  public deleteCallAnalyticsJob(
+    args: DeleteCallAnalyticsJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCallAnalyticsJobCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCallAnalyticsJobCommandOutput) => void
+  ): Promise<DeleteCallAnalyticsJobCommandOutput> | void {
+    const command = new DeleteCallAnalyticsJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -469,11 +614,11 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Gets information about a single custom language model. Use this information to see
-   *             details about the language model in your AWS account. You can also see whether the base
-   *             language model used to create your custom language model has been updated. If Amazon Transcribe has
-   *             updated the base model, you can create a new custom language model using the updated
-   *             base model. If the language model wasn't created, you can use this operation to
-   *             understand why Amazon Transcribe couldn't create it. </p>
+   *             details about the language model in your Amazon Web Services account. You can also see
+   *             whether the base language model used to create your custom language model has been
+   *             updated. If Amazon Transcribe has updated the base model, you can create a new custom language model
+   *             using the updated base model. If the language model wasn't created, you can use this
+   *             operation to understand why Amazon Transcribe couldn't create it. </p>
    */
   public describeLanguageModel(
     args: DescribeLanguageModelCommandInput,
@@ -494,6 +639,74 @@ export class Transcribe extends TranscribeClient {
     cb?: (err: any, data?: DescribeLanguageModelCommandOutput) => void
   ): Promise<DescribeLanguageModelCommandOutput> | void {
     const command = new DescribeLanguageModelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about a call analytics category.</p>
+   */
+  public getCallAnalyticsCategory(
+    args: GetCallAnalyticsCategoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCallAnalyticsCategoryCommandOutput>;
+  public getCallAnalyticsCategory(
+    args: GetCallAnalyticsCategoryCommandInput,
+    cb: (err: any, data?: GetCallAnalyticsCategoryCommandOutput) => void
+  ): void;
+  public getCallAnalyticsCategory(
+    args: GetCallAnalyticsCategoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCallAnalyticsCategoryCommandOutput) => void
+  ): void;
+  public getCallAnalyticsCategory(
+    args: GetCallAnalyticsCategoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCallAnalyticsCategoryCommandOutput) => void),
+    cb?: (err: any, data?: GetCallAnalyticsCategoryCommandOutput) => void
+  ): Promise<GetCallAnalyticsCategoryCommandOutput> | void {
+    const command = new GetCallAnalyticsCategoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a call analytics job. To see the status of the job, check the
+   *             <code>CallAnalyticsJobStatus</code> field. If the status is <code>COMPLETED</code>, the job
+   *             is finished and you can find the results at the location specified in the <code>TranscriptFileUri</code>
+   *             field. If you enable personally identifiable information (PII) redaction, the redacted transcript appears
+   *             in the <code>RedactedTranscriptFileUri</code> field.</p>
+   */
+  public getCallAnalyticsJob(
+    args: GetCallAnalyticsJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCallAnalyticsJobCommandOutput>;
+  public getCallAnalyticsJob(
+    args: GetCallAnalyticsJobCommandInput,
+    cb: (err: any, data?: GetCallAnalyticsJobCommandOutput) => void
+  ): void;
+  public getCallAnalyticsJob(
+    args: GetCallAnalyticsJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCallAnalyticsJobCommandOutput) => void
+  ): void;
+  public getCallAnalyticsJob(
+    args: GetCallAnalyticsJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCallAnalyticsJobCommandOutput) => void),
+    cb?: (err: any, data?: GetCallAnalyticsJobCommandOutput) => void
+  ): Promise<GetCallAnalyticsJobCommandOutput> | void {
+    const command = new GetCallAnalyticsJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -661,6 +874,72 @@ export class Transcribe extends TranscribeClient {
     cb?: (err: any, data?: GetVocabularyFilterCommandOutput) => void
   ): Promise<GetVocabularyFilterCommandOutput> | void {
     const command = new GetVocabularyFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides more information about the call analytics categories that you've created. You
+   *             can use the information in this list to find a specific category. You can then use the
+   *              operation to get more information about it.</p>
+   */
+  public listCallAnalyticsCategories(
+    args: ListCallAnalyticsCategoriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCallAnalyticsCategoriesCommandOutput>;
+  public listCallAnalyticsCategories(
+    args: ListCallAnalyticsCategoriesCommandInput,
+    cb: (err: any, data?: ListCallAnalyticsCategoriesCommandOutput) => void
+  ): void;
+  public listCallAnalyticsCategories(
+    args: ListCallAnalyticsCategoriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCallAnalyticsCategoriesCommandOutput) => void
+  ): void;
+  public listCallAnalyticsCategories(
+    args: ListCallAnalyticsCategoriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCallAnalyticsCategoriesCommandOutput) => void),
+    cb?: (err: any, data?: ListCallAnalyticsCategoriesCommandOutput) => void
+  ): Promise<ListCallAnalyticsCategoriesCommandOutput> | void {
+    const command = new ListCallAnalyticsCategoriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List call analytics jobs with a specified status or substring that matches their names.</p>
+   */
+  public listCallAnalyticsJobs(
+    args: ListCallAnalyticsJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCallAnalyticsJobsCommandOutput>;
+  public listCallAnalyticsJobs(
+    args: ListCallAnalyticsJobsCommandInput,
+    cb: (err: any, data?: ListCallAnalyticsJobsCommandOutput) => void
+  ): void;
+  public listCallAnalyticsJobs(
+    args: ListCallAnalyticsJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCallAnalyticsJobsCommandOutput) => void
+  ): void;
+  public listCallAnalyticsJobs(
+    args: ListCallAnalyticsJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCallAnalyticsJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListCallAnalyticsJobsCommandOutput) => void
+  ): Promise<ListCallAnalyticsJobsCommandOutput> | void {
+    const command = new ListCallAnalyticsJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -870,6 +1149,43 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * <p>Starts an asynchronous analytics job that not only transcribes the audio recording of a caller and
+   *             agent, but also returns additional insights. These insights include how quickly or loudly the caller
+   *             or agent was speaking. To retrieve additional insights with your analytics jobs, create
+   *             categories. A category is a way to classify analytics jobs based on attributes, such as a customer's
+   *             sentiment or a particular phrase being used during the call. For more information, see the
+   *              operation. </p>
+   */
+  public startCallAnalyticsJob(
+    args: StartCallAnalyticsJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCallAnalyticsJobCommandOutput>;
+  public startCallAnalyticsJob(
+    args: StartCallAnalyticsJobCommandInput,
+    cb: (err: any, data?: StartCallAnalyticsJobCommandOutput) => void
+  ): void;
+  public startCallAnalyticsJob(
+    args: StartCallAnalyticsJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCallAnalyticsJobCommandOutput) => void
+  ): void;
+  public startCallAnalyticsJob(
+    args: StartCallAnalyticsJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartCallAnalyticsJobCommandOutput) => void),
+    cb?: (err: any, data?: StartCallAnalyticsJobCommandOutput) => void
+  ): Promise<StartCallAnalyticsJobCommandOutput> | void {
+    const command = new StartCallAnalyticsJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts a batch job to transcribe medical speech to text.</p>
    */
   public startMedicalTranscriptionJob(
@@ -923,6 +1239,40 @@ export class Transcribe extends TranscribeClient {
     cb?: (err: any, data?: StartTranscriptionJobCommandOutput) => void
   ): Promise<StartTranscriptionJobCommandOutput> | void {
     const command = new StartTranscriptionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the call analytics category with new values. The <code>UpdateCallAnalyticsCategory</code>
+   *             operation overwrites all of the existing information with the values that you provide in the
+   *             request. </p>
+   */
+  public updateCallAnalyticsCategory(
+    args: UpdateCallAnalyticsCategoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCallAnalyticsCategoryCommandOutput>;
+  public updateCallAnalyticsCategory(
+    args: UpdateCallAnalyticsCategoryCommandInput,
+    cb: (err: any, data?: UpdateCallAnalyticsCategoryCommandOutput) => void
+  ): void;
+  public updateCallAnalyticsCategory(
+    args: UpdateCallAnalyticsCategoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCallAnalyticsCategoryCommandOutput) => void
+  ): void;
+  public updateCallAnalyticsCategory(
+    args: UpdateCallAnalyticsCategoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCallAnalyticsCategoryCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCallAnalyticsCategoryCommandOutput) => void
+  ): Promise<UpdateCallAnalyticsCategoryCommandOutput> | void {
+    const command = new UpdateCallAnalyticsCategoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

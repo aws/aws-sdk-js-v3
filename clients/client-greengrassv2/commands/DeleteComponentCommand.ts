@@ -21,7 +21,7 @@ export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
 export interface DeleteComponentCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a version of a component from AWS IoT Greengrass.</p>
+ * <p>Deletes a version of a component from IoT Greengrass.</p>
  *          <note>
  *             <p>This operation deletes the component's recipe and artifacts. As a result, deployments
  *         that refer to this component version will fail. If you have deployments that use this

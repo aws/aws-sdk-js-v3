@@ -104,11 +104,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <fullname>AWS Secrets Manager API Reference</fullname>
- *          <p>AWS Secrets Manager provides a service to enable you to store, manage, and retrieve, secrets.</p>
+ * <fullname>Amazon Web Services Secrets Manager</fullname>
+ *          <p>Amazon Web Services Secrets Manager provides a service to enable you to store, manage, and retrieve, secrets.</p>
  *
  *          <p>This guide provides descriptions of the Secrets Manager API. For more information about using this
- *       service, see the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/introduction.html">AWS Secrets Manager User Guide</a>.</p>
+ *       service, see the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/introduction.html">Amazon Web Services Secrets Manager User Guide</a>.</p>
  *
  *          <p>
  *             <b>API Version</b>
@@ -116,17 +116,17 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *
  *          <p>This version of the Secrets Manager API Reference documents the Secrets Manager API version 2017-10-17.</p>
  *          <note>
- *             <p>As an alternative to using the API, you can use one of the AWS SDKs, which consist of
+ *             <p>As an alternative to using the API, you can use one of the Amazon Web Services SDKs, which consist of
  *         libraries and sample code for various programming languages and platforms such as Java,
  *         Ruby, .NET, iOS, and Android. The SDKs provide a convenient way to create programmatic
- *         access to AWS Secrets Manager. For example, the SDKs provide cryptographically signing requests,
- *         managing errors, and retrying requests automatically. For more information about the AWS
+ *         access to Amazon Web Services Secrets Manager. For example, the SDKs provide cryptographically signing requests,
+ *         managing errors, and retrying requests automatically. For more information about the Amazon Web Services
  *         SDKs, including downloading and installing them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          </note>
- *          <p>We recommend you use the AWS SDKs to make programmatic API calls to Secrets Manager. However, you
+ *          <p>We recommend you use the Amazon Web Services SDKs to make programmatic API calls to Secrets Manager. However, you
  *       also can use the Secrets Manager HTTP Query API to make direct calls to the Secrets Manager web service. To learn
  *       more about the Secrets Manager HTTP Query API, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html">Making Query Requests</a> in the
- *         <i>AWS Secrets Manager User Guide</i>. </p>
+ *       <i>Amazon Web Services Secrets Manager User Guide</i>. </p>
  *          <p>Secrets Manager API supports GET and POST requests for all actions, and doesn't require you to use
  *       GET for some actions and POST for others. However, GET requests are subject to the limitation
  *       size of a URL. Therefore, for operations that require larger sizes, use a POST request.</p>
@@ -138,18 +138,18 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *
  *
  *          <p>
- *             <b>Support and Feedback for AWS Secrets Manager</b>
+ *             <b>Support and Feedback for Amazon Web Services Secrets Manager</b>
  *          </p>
  *
- *          <p>We welcome your feedback. Send your comments to <a href="mailto:awssecretsmanager-feedback@amazon.com">awssecretsmanager-feedback@amazon.com</a>, or post your feedback and questions in the <a href="http://forums.aws.amazon.com/forum.jspa?forumID=296">AWS Secrets Manager Discussion Forum</a>. For more
- *       information about the AWS Discussion Forums, see <a href="http://forums.aws.amazon.com/help.jspa">Forums
+ *          <p>We welcome your feedback. Send your comments to <a href="mailto:awssecretsmanager-feedback@amazon.com">awssecretsmanager-feedback@amazon.com</a>, or post your feedback and questions in the <a href="http://forums.aws.amazon.com/forum.jspa?forumID=296">Amazon Web Services Secrets Manager Discussion Forum</a>. For more
+ *       information about the Amazon Web Services Discussion Forums, see <a href="http://forums.aws.amazon.com/help.jspa">Forums
  *         Help</a>.</p>
  *
  *          <p>
  *             <b>How examples are presented</b>
  *          </p>
  *
- *          <p>The JSON that AWS Secrets Manager expects as your request parameters and the service returns as a
+ *          <p>The JSON that Amazon Web Services Secrets Manager expects as your request parameters and the service returns as a
  *       response to HTTP query requests contain single, long strings without line breaks or white
  *       space formatting. The JSON shown in the examples displays the code formatted with both line
  *       breaks and white space to improve readability. When example input parameters can also cause
@@ -160,13 +160,13 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>
  *             <b>Logging API Requests</b>
  *          </p>
- *          <p>AWS Secrets Manager supports AWS CloudTrail, a service that records AWS API calls for your AWS
+ *          <p>Amazon Web Services Secrets Manager supports Amazon Web Services CloudTrail, a service that records Amazon Web Services API calls for your Amazon Web Services
  *       account and delivers log files to an Amazon S3 bucket. By using information that's collected
- *       by AWS CloudTrail, you can determine the requests successfully made to Secrets Manager, who made the
- *       request, when it was made, and so on. For more about AWS Secrets Manager and support for AWS
+ *       by Amazon Web Services CloudTrail, you can determine the requests successfully made to Secrets Manager, who made the
+ *       request, when it was made, and so on. For more about Amazon Web Services Secrets Manager and support for Amazon Web Services
  *       CloudTrail, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging
- *         AWS Secrets Manager Events with AWS CloudTrail</a> in the <i>AWS Secrets Manager User Guide</i>.
- *       To learn more about CloudTrail, including enabling it and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail User Guide</a>.</p>
+ *         Amazon Web Services Secrets Manager Events with Amazon Web Services CloudTrail</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>.
+ *       To learn more about CloudTrail, including enabling it and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">Amazon Web Services CloudTrail User Guide</a>.</p>
  */
 export class SecretsManager extends SecretsManagerClient {
   /**
@@ -272,22 +272,22 @@ export class SecretsManager extends SecretsManagerClient {
    *                <li>
    *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
    *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
-   *           secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default
-   *           AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
+   *           secret doesn't specify a Amazon Web Services KMS encryption key, Secrets Manager uses the account's default
+   *           Amazon Web Services managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
    *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
-   *           users and roles in the same AWS account automatically have access to use the default CMK.
-   *           Note that if an Secrets Manager API call results in AWS creating the account's
-   *           AWS-managed CMK, it can result in a one-time significant delay in returning the
+   *           users and roles in the same Amazon Web Services account automatically have access to use the default CMK.
+   *           Note that if an Secrets Manager API call results in Amazon Web Services creating the account's
+   *           Amazon Web Services-managed CMK, it can result in a one-time significant delay in returning the
    *           result.</p>
    *                </li>
    *                <li>
-   *                   <p>If the secret resides in a different AWS account from the credentials calling an API that
+   *                   <p>If the secret resides in a different Amazon Web Services account from the credentials calling an API that
    *           requires encryption or decryption of the secret value then you must create and use a custom
-   *           AWS KMS CMK because you can't access the default CMK for the account using credentials
-   *           from a different AWS account. Store the ARN of the CMK in the secret when you create the
+   *           Amazon Web Services KMS CMK because you can't access the default CMK for the account using credentials
+   *           from a different Amazon Web Services account. Store the ARN of the CMK in the secret when you create the
    *           secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an
    *           API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
-   *           using credentials from a different account then the AWS KMS key policy must grant cross-account
+   *           using credentials from a different account then the Amazon Web Services KMS key policy must grant cross-account
    *           access to that other account's user or role for both the kms:GenerateDataKey and
    *           kms:Decrypt operations.</p>
    *                </li>
@@ -303,13 +303,13 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>secretsmanager:CreateSecret</p>
    *             </li>
    *             <li>
-   *                <p>kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt
-   *           the secret. You do not need this permission to use the account default AWS managed CMK
+   *                <p>kms:GenerateDataKey - needed only if you use a customer-managed Amazon Web Services KMS key to encrypt
+   *           the secret. You do not need this permission to use the account default Amazon Web Services managed CMK
    *           for Secrets Manager.</p>
    *             </li>
    *             <li>
-   *                <p>kms:Decrypt - needed only if you use a customer-managed AWS KMS key to encrypt the
-   *           secret. You do not need this permission to use the account default AWS managed CMK for
+   *                <p>kms:Decrypt - needed only if you use a customer-managed Amazon Web Services KMS key to encrypt the
+   *           secret. You do not need this permission to use the account default Amazon Web Services managed CMK for
    *           Secrets Manager.</p>
    *             </li>
    *             <li>
@@ -524,7 +524,7 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To retrieve the encrypted secret information in a version of the secret, use <a>GetSecretValue</a>.</p>
    *             </li>
    *             <li>
-   *                <p>To list all of the secrets in the AWS account, use <a>ListSecrets</a>.</p>
+   *                <p>To list all of the secrets in the Amazon Web Services account, use <a>ListSecrets</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -672,8 +672,8 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>secretsmanager:GetSecretValue</p>
    *             </li>
    *             <li>
-   *                <p>kms:Decrypt - required only if you use a customer-managed AWS KMS key to encrypt the
-   *           secret. You do not need this permission to use the account's default AWS managed CMK for
+   *                <p>kms:Decrypt - required only if you use a customer-managed Amazon Web Services KMS key to encrypt the
+   *           secret. You do not need this permission to use the account's default Amazon Web Services managed CMK for
    *           Secrets Manager.</p>
    *             </li>
    *          </ul>
@@ -719,7 +719,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Lists all of the secrets that are stored by Secrets Manager in the AWS account. To list the
+   * <p>Lists all of the secrets that are stored by Secrets Manager in the Amazon Web Services account. To list the
    *       versions currently stored for a specific secret, use <a>ListSecretVersionIds</a>.
    *       The encrypted fields <code>SecretString</code> and <code>SecretBinary</code> are not included
    *       in the output. To get that information, call the <a>GetSecretValue</a>
@@ -840,7 +840,7 @@ export class SecretsManager extends SecretsManagerClient {
    *         <code>Resources</code> element. You can also use a combination of both identity-based and
    *       resource-based policies. The affected users and roles receive the permissions that are
    *       permitted by all of the relevant policies. For more information, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">Using Resource-Based
-   *         Policies for AWS Secrets Manager</a>. For the complete description of the AWS policy syntax and
+   *         Policies for Amazon Web Services Secrets Manager</a>. For the complete description of the Amazon Web Services policy syntax and
    *       grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON
    *         Policy Reference</a> in the <i>IAM User Guide</i>.</p>
    *          <p>
@@ -903,8 +903,8 @@ export class SecretsManager extends SecretsManagerClient {
    *       specify the staging labels that are initially attached to the new version.</p>
    *          <note>
    *             <p>The Secrets Manager console uses only the <code>SecretString</code> field. To add binary data to a
-   *         secret with the <code>SecretBinary</code> field you must use the AWS CLI or one of the
-   *         AWS SDKs.</p>
+   *         secret with the <code>SecretBinary</code> field you must use the Amazon Web Services CLI or one of the
+   *         Amazon Web Services SDKs.</p>
    *          </note>
    *          <ul>
    *             <li>
@@ -933,22 +933,22 @@ export class SecretsManager extends SecretsManagerClient {
    *                <li>
    *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
    *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
-   *           secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default
-   *           AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
+   *           secret doesn't specify a Amazon Web Services KMS encryption key, Secrets Manager uses the account's default
+   *           Amazon Web Services managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
    *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
-   *           users and roles in the same AWS account automatically have access to use the default CMK.
-   *           Note that if an Secrets Manager API call results in AWS creating the account's
-   *           AWS-managed CMK, it can result in a one-time significant delay in returning the
+   *           users and roles in the same Amazon Web Services account automatically have access to use the default CMK.
+   *           Note that if an Secrets Manager API call results in Amazon Web Services creating the account's
+   *           Amazon Web Services-managed CMK, it can result in a one-time significant delay in returning the
    *           result.</p>
    *                </li>
    *                <li>
-   *                   <p>If the secret resides in a different AWS account from the credentials calling an API that
+   *                   <p>If the secret resides in a different Amazon Web Services account from the credentials calling an API that
    *           requires encryption or decryption of the secret value then you must create and use a custom
-   *           AWS KMS CMK because you can't access the default CMK for the account using credentials
-   *           from a different AWS account. Store the ARN of the CMK in the secret when you create the
+   *           Amazon Web Services KMS CMK because you can't access the default CMK for the account using credentials
+   *           from a different Amazon Web Services account. Store the ARN of the CMK in the secret when you create the
    *           secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an
    *           API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
-   *           using credentials from a different account then the AWS KMS key policy must grant cross-account
+   *           using credentials from a different account then the Amazon Web Services KMS key policy must grant cross-account
    *           access to that other account's user or role for both the kms:GenerateDataKey and
    *           kms:Decrypt operations.</p>
    *                </li>
@@ -963,8 +963,8 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>secretsmanager:PutSecretValue</p>
    *             </li>
    *             <li>
-   *                <p>kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt
-   *           the secret. You do not need this permission to use the account's default AWS managed CMK
+   *                <p>kms:GenerateDataKey - needed only if you use a customer-managed Amazon Web Services KMS key to encrypt
+   *           the secret. You do not need this permission to use the account's default Amazon Web Services managed CMK
    *           for Secrets Manager.</p>
    *             </li>
    *          </ul>
@@ -1136,14 +1136,14 @@ export class SecretsManager extends SecretsManagerClient {
    *       starts a rotation. If you do not include the configuration parameters, the operation starts a
    *       rotation with the values already stored in the secret. After the rotation completes, the
    *       protected service and its clients all use the new version of the secret. </p>
-   *          <p>This required configuration information includes the ARN of an AWS Lambda function and
-   *       the time between scheduled rotations. The Lambda rotation function creates a new version of
-   *       the secret and creates or updates the credentials on the protected service to match. After
-   *       testing the new credentials, the function marks the new secret with the staging label
-   *       <code>AWSCURRENT</code> so that your clients all immediately begin to use the new version. For more
+   *          <p>This required configuration information includes the ARN of an Amazon Web Services Lambda function and
+   *       optionally, the time between scheduled rotations. The Lambda rotation function creates a new
+   *       version of the secret and creates or updates the credentials on the protected service to
+   *       match. After testing the new credentials, the function marks the new secret with the staging
+   *       label <code>AWSCURRENT</code> so that your clients all immediately begin to use the new version. For more
    *       information about rotating secrets and how to configure a Lambda function to rotate the
-   *       secrets for your protected service, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in AWS Secrets Manager</a> in the
-   *         <i>AWS Secrets Manager User Guide</i>.</p>
+   *       secrets for your protected service, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in Amazon Web Services Secrets Manager</a> in the
+   *         <i>Amazon Web Services Secrets Manager User Guide</i>.</p>
    *          <p>Secrets Manager schedules the next rotation when the previous
    *     one completes. Secrets Manager schedules the date by adding the rotation interval (number of days) to the
    *     actual date of the last rotation. The service chooses the hour within that 24-hour date window
@@ -1272,8 +1272,8 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use the <code>aws:</code> prefix in your tag names or values because AWS reserves it
-   *             for AWS use. You can't edit or delete tag names or values with this
+   *                <p>Do not use the <code>aws:</code> prefix in your tag names or values because Amazon Web Services reserves it
+   *             for Amazon Web Services use. You can't edit or delete tag names or values with this
    *               prefix. Tags with this prefix do not count against your tags per secret limit.</p>
    *             </li>
    *             <li>
@@ -1403,7 +1403,7 @@ export class SecretsManager extends SecretsManagerClient {
    *          <note>
    *             <p>The Secrets Manager console uses only the <code>SecretString</code> parameter and therefore limits
    *         you to encrypting and storing only a text string. To encrypt and store binary data as part
-   *         of the version of a secret, you must use either the AWS CLI or one of the AWS
+   *         of the version of a secret, you must use either the Amazon Web Services CLI or one of the Amazon Web Services
    *         SDKs.</p>
    *          </note>
    *          <ul>
@@ -1423,22 +1423,22 @@ export class SecretsManager extends SecretsManagerClient {
    *                <li>
    *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
    *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
-   *           secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default
-   *           AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
+   *           secret doesn't specify a Amazon Web Services KMS encryption key, Secrets Manager uses the account's default
+   *           Amazon Web Services managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
    *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
-   *           users and roles in the same AWS account automatically have access to use the default CMK.
-   *           Note that if an Secrets Manager API call results in AWS creating the account's
-   *           AWS-managed CMK, it can result in a one-time significant delay in returning the
+   *           users and roles in the same Amazon Web Services account automatically have access to use the default CMK.
+   *           Note that if an Secrets Manager API call results in Amazon Web Services creating the account's
+   *           Amazon Web Services-managed CMK, it can result in a one-time significant delay in returning the
    *           result.</p>
    *                </li>
    *                <li>
-   *                   <p>If the secret resides in a different AWS account from the credentials calling an API that
+   *                   <p>If the secret resides in a different Amazon Web Services account from the credentials calling an API that
    *           requires encryption or decryption of the secret value then you must create and use a custom
-   *           AWS KMS CMK because you can't access the default CMK for the account using credentials
-   *           from a different AWS account. Store the ARN of the CMK in the secret when you create the
+   *           Amazon Web Services KMS CMK because you can't access the default CMK for the account using credentials
+   *           from a different Amazon Web Services account. Store the ARN of the CMK in the secret when you create the
    *           secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an
    *           API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
-   *           using credentials from a different account then the AWS KMS key policy must grant cross-account
+   *           using credentials from a different account then the Amazon Web Services KMS key policy must grant cross-account
    *           access to that other account's user or role for both the kms:GenerateDataKey and
    *           kms:Decrypt operations.</p>
    *                </li>
@@ -1453,13 +1453,13 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>secretsmanager:UpdateSecret</p>
    *             </li>
    *             <li>
-   *                <p>kms:GenerateDataKey - needed only if you use a custom AWS KMS key to encrypt the secret.
-   *           You do not need this permission to use the account's AWS managed CMK for
+   *                <p>kms:GenerateDataKey - needed only if you use a custom Amazon Web Services KMS key to encrypt the secret.
+   *           You do not need this permission to use the account's Amazon Web Services managed CMK for
    *           Secrets Manager.</p>
    *             </li>
    *             <li>
-   *                <p>kms:Decrypt - needed only if you use a custom AWS KMS key to encrypt the secret. You do
-   *           not need this permission to use the account's AWS managed CMK for Secrets Manager.</p>
+   *                <p>kms:Decrypt - needed only if you use a custom Amazon Web Services KMS key to encrypt the secret. You do
+   *           not need this permission to use the account's Amazon Web Services managed CMK for Secrets Manager.</p>
    *             </li>
    *          </ul>
    *          <p>
@@ -1512,7 +1512,7 @@ export class SecretsManager extends SecretsManagerClient {
    *       label to only one version of a secret at a time. If a staging label to be added is already
    *       attached to another version, then it is moved--removed from the other version first and
    *       then attached to this one. For more information about staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
-   *         Labels</a> in the <i>AWS Secrets Manager User Guide</i>. </p>
+   *         Labels</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>. </p>
    *          <p>The staging labels that you specify in the <code>VersionStage</code> parameter are added
    *       to the existing list of staging labels--they don't replace it.</p>
    *          <p>You can move the <code>AWSCURRENT</code> staging label to this version by including it in this

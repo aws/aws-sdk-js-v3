@@ -99,7 +99,7 @@ export namespace ImageState {
  */
 export interface Ami {
   /**
-   * <p>The Region of the Amazon EC2 AMI.</p>
+   * <p>The Amazon Web Services Region of the Amazon EC2 AMI.</p>
    */
   region?: string;
 
@@ -147,7 +147,7 @@ export namespace Ami {
  */
 export interface LaunchPermissionConfiguration {
   /**
-   * <p>The account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   userIds?: string[];
 
@@ -196,7 +196,7 @@ export interface AmiDistributionConfiguration {
   kmsKeyId?: string;
 
   /**
-   * <p> Launch permissions can be used to configure which accounts can use the AMI to launch
+   * <p> Launch permissions can be used to configure which Amazon Web Services accounts can use the AMI to launch
    * 			instances.</p>
    */
   launchPermission?: LaunchPermissionConfiguration;
@@ -667,7 +667,7 @@ export namespace ComponentSummary {
 }
 
 /**
- * <p>The defining characteristics of a specific version of an TOE component.</p>
+ * <p>The defining characteristics of a specific version of an Amazon Web Services TOE component.</p>
  */
 export interface ComponentVersion {
   /**
@@ -3613,7 +3613,39 @@ export interface ListComponentsRequest {
   owner?: Ownership | string;
 
   /**
-   * <p>The filters.</p>
+   * <p>Use the following filters to streamline results:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supportedOsVersion</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>version</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   filters?: Filter[];
 
@@ -3682,7 +3714,29 @@ export interface ListContainerRecipesRequest {
   owner?: Ownership | string;
 
   /**
-   * <p>Request filters that are used to narrow the list of container images that are returned.</p>
+   * <p>Use the following filters to streamline results:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>containerType</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>parentImage</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   filters?: Filter[];
 
@@ -3734,13 +3788,7 @@ export namespace ListContainerRecipesResponse {
 
 export interface ListDistributionConfigurationsRequest {
   /**
-   * <p>The filters.</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   * 					             <code>name</code> - The name of this distribution configuration.</p>
-   * 			         </li>
-   *          </ul>
+   * <p>You can filter on <code>name</code> to streamline results.</p>
    */
   filters?: Filter[];
 
@@ -3800,7 +3848,34 @@ export interface ListImageBuildVersionsRequest {
   imageVersionArn: string | undefined;
 
   /**
-   * <p>The filters.</p>
+   * <p>Use the following filters to streamline results:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>osVersion</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>version</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   filters?: Filter[];
 
@@ -4006,7 +4081,19 @@ export interface ListImagePipelineImagesRequest {
   imagePipelineArn: string | undefined;
 
   /**
-   * <p>The filters.</p>
+   * <p>Use the following filters to streamline results:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>version</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   filters?: Filter[];
 
@@ -4061,7 +4148,39 @@ export namespace ListImagePipelineImagesResponse {
 
 export interface ListImagePipelinesRequest {
   /**
-   * <p>The filters.</p>
+   * <p>Use the following filters to streamline results:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>distributionConfigurationArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>imageRecipeArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>infrastructureConfigurationArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   filters?: Filter[];
 
@@ -4124,7 +4243,24 @@ export interface ListImageRecipesRequest {
   owner?: Ownership | string;
 
   /**
-   * <p>The filters.</p>
+   * <p>Use the following filters to streamline results:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>parentImage</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   filters?: Filter[];
 
@@ -4236,7 +4372,34 @@ export interface ListImagesRequest {
   owner?: Ownership | string;
 
   /**
-   * <p>The filters.</p>
+   * <p>Use the following filters to streamline results:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>osVersion</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>version</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   filters?: Filter[];
 
@@ -4400,7 +4563,7 @@ export namespace ListImagesResponse {
 
 export interface ListInfrastructureConfigurationsRequest {
   /**
-   * <p>The filters.</p>
+   * <p>You can filter on <code>name</code> to streamline results.</p>
    */
   filters?: Filter[];
 

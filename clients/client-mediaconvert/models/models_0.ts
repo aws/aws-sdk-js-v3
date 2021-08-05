@@ -3462,6 +3462,40 @@ export namespace EsamSettings {
   });
 }
 
+export enum CopyProtectionAction {
+  PASSTHROUGH = "PASSTHROUGH",
+  STRIP = "STRIP",
+}
+
+export enum VchipAction {
+  PASSTHROUGH = "PASSTHROUGH",
+  STRIP = "STRIP",
+}
+
+/**
+ * Hexadecimal value as per EIA-608 Line 21 Data Services, section 9.5.1.5 05h Content Advisory.
+ */
+export interface ExtendedDataServices {
+  /**
+   * The action to take on copy and redistribution control XDS packets.  If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.
+   */
+  CopyProtectionAction?: CopyProtectionAction | string;
+
+  /**
+   * The action to take on content advisory XDS packets.  If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.
+   */
+  VchipAction?: VchipAction | string;
+}
+
+export namespace ExtendedDataServices {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExtendedDataServices): any => ({
+    ...obj,
+  });
+}
+
 /**
  * Use these settings only when you use Kantar watermarking. Specify the values that MediaConvert uses to generate and place Kantar watermarks in your output audio. These settings apply to every output in your job. In addition to specifying these values, you also need to store your Kantar credentials in AWS Secrets Manager. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/kantar-watermarking.html.
  */
@@ -5742,97 +5776,4 @@ export namespace MxfXavcProfileSettings {
   export const filterSensitiveLog = (obj: MxfXavcProfileSettings): any => ({
     ...obj,
   });
-}
-
-/**
- * These settings relate to your MXF output container.
- */
-export interface MxfSettings {
-  /**
-   * Optional. When you have AFD signaling set up in your output video stream, use this setting to choose whether to also include it in the MXF wrapper. Choose Don't copy (NO_COPY) to exclude AFD signaling from the MXF wrapper. Choose Copy from video stream (COPY_FROM_VIDEO) to copy the AFD values from the video stream for this output to the MXF wrapper. Regardless of which option you choose, the AFD values remain in the video stream. Related settings: To set up your output to include or exclude AFD values, see AfdSignaling, under VideoDescription. On the console, find AFD signaling under the output's video encoding settings.
-   */
-  AfdSignaling?: MxfAfdSignaling | string;
-
-  /**
-   * Specify the MXF profile, also called shim, for this output. When you choose Auto, MediaConvert chooses a profile based on the video codec and resolution. For a list of codecs supported with each MXF profile, see https://docs.aws.amazon.com/mediaconvert/latest/ug/codecs-supported-with-each-mxf-profile.html. For more information about the automatic selection behavior, see https://docs.aws.amazon.com/mediaconvert/latest/ug/default-automatic-selection-of-mxf-profiles.html.
-   */
-  Profile?: MxfProfile | string;
-
-  /**
-   * Specify the XAVC profile settings for MXF outputs when you set your MXF profile to XAVC.
-   */
-  XavcProfileSettings?: MxfXavcProfileSettings;
-}
-
-export namespace MxfSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MxfSettings): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Container specific settings.
- */
-export interface ContainerSettings {
-  /**
-   * These settings relate to the fragmented MP4 container for the segments in your CMAF outputs.
-   */
-  CmfcSettings?: CmfcSettings;
-
-  /**
-   * Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
-   */
-  Container?: ContainerType | string;
-
-  /**
-   * Settings for F4v container
-   */
-  F4vSettings?: F4vSettings;
-
-  /**
-   * MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container (ContainerType) is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset.
-   */
-  M2tsSettings?: M2tsSettings;
-
-  /**
-   * These settings relate to the MPEG-2 transport stream (MPEG2-TS) container for the MPEG2-TS segments in your HLS outputs.
-   */
-  M3u8Settings?: M3u8Settings;
-
-  /**
-   * These settings relate to your QuickTime MOV output container.
-   */
-  MovSettings?: MovSettings;
-
-  /**
-   * These settings relate to your MP4 output container. You can create audio only outputs with this container. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
-   */
-  Mp4Settings?: Mp4Settings;
-
-  /**
-   * These settings relate to the fragmented MP4 container for the segments in your DASH outputs.
-   */
-  MpdSettings?: MpdSettings;
-
-  /**
-   * These settings relate to your MXF output container.
-   */
-  MxfSettings?: MxfSettings;
-}
-
-export namespace ContainerSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum HlsAudioOnlyContainer {
-  AUTOMATIC = "AUTOMATIC",
-  M2TS = "M2TS",
 }

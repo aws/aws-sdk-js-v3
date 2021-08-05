@@ -1,5 +1,6 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeLoggingStatusMessage, LoggingStatus } from "../models/models_0";
+import { DescribeLoggingStatusMessage } from "../models/models_0";
+import { LoggingStatus } from "../models/models_1";
 import {
   deserializeAws_queryDescribeLoggingStatusCommand,
   serializeAws_queryDescribeLoggingStatusCommand,

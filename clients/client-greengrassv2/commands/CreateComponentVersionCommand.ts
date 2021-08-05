@@ -21,9 +21,9 @@ export interface CreateComponentVersionCommandInput extends CreateComponentVersi
 export interface CreateComponentVersionCommandOutput extends CreateComponentVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a component. Components are software that run on AWS IoT Greengrass core devices. After you
+ * <p>Creates a component. Components are software that run on Greengrass core devices. After you
  *       develop and test a component on your core device, you can use this operation to upload your
- *       component to AWS IoT Greengrass. Then, you can deploy the component to other core devices.</p>
+ *       component to IoT Greengrass. Then, you can deploy the component to other core devices.</p>
  *          <p>You can use this operation to do the following:</p>
  *          <ul>
  *             <li>
@@ -32,8 +32,8 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *                </p>
  *                <p>Create a component from a recipe, which is a file that defines the component's
  *           metadata, parameters, dependencies, lifecycle, artifacts, and platform capability. For
- *           more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html">AWS IoT Greengrass component recipe
- *             reference</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</p>
+ *           more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html">IoT Greengrass component recipe
+ *             reference</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
  *                <p>To create a component from a recipe, specify <code>inlineRecipe</code> when you call
  *           this operation.</p>
  *             </li>
@@ -41,9 +41,9 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *                <p>
  *                   <b>Create components from Lambda functions</b>
  *                </p>
- *                <p>Create a component from an AWS Lambda function that runs on AWS IoT Greengrass. This creates a recipe
+ *                <p>Create a component from an Lambda function that runs on IoT Greengrass. This creates a recipe
  *           and artifacts from the Lambda function's deployment package. You can use this operation to
- *           migrate Lambda functions from AWS IoT Greengrass V1 to AWS IoT Greengrass V2.</p>
+ *           migrate Lambda functions from IoT Greengrass V1 to IoT Greengrass V2.</p>
  *                <p>This function only accepts Lambda functions that use the following runtimes:</p>
  *                <ul>
  *                   <li>

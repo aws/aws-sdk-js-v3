@@ -6,10 +6,20 @@ import {
 } from "./commands/AcceptReservedNodeExchangeCommand";
 import { AddPartnerCommand, AddPartnerCommandInput, AddPartnerCommandOutput } from "./commands/AddPartnerCommand";
 import {
+  AssociateDataShareConsumerCommand,
+  AssociateDataShareConsumerCommandInput,
+  AssociateDataShareConsumerCommandOutput,
+} from "./commands/AssociateDataShareConsumerCommand";
+import {
   AuthorizeClusterSecurityGroupIngressCommand,
   AuthorizeClusterSecurityGroupIngressCommandInput,
   AuthorizeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeClusterSecurityGroupIngressCommand";
+import {
+  AuthorizeDataShareCommand,
+  AuthorizeDataShareCommandInput,
+  AuthorizeDataShareCommandOutput,
+} from "./commands/AuthorizeDataShareCommand";
 import {
   AuthorizeEndpointAccessCommand,
   AuthorizeEndpointAccessCommandInput,
@@ -111,6 +121,11 @@ import {
   CreateUsageLimitCommandInput,
   CreateUsageLimitCommandOutput,
 } from "./commands/CreateUsageLimitCommand";
+import {
+  DeauthorizeDataShareCommand,
+  DeauthorizeDataShareCommandInput,
+  DeauthorizeDataShareCommandOutput,
+} from "./commands/DeauthorizeDataShareCommand";
 import {
   DeleteAuthenticationProfileCommand,
   DeleteAuthenticationProfileCommandInput,
@@ -243,6 +258,21 @@ import {
   DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
 import {
+  DescribeDataSharesCommand,
+  DescribeDataSharesCommandInput,
+  DescribeDataSharesCommandOutput,
+} from "./commands/DescribeDataSharesCommand";
+import {
+  DescribeDataSharesForConsumerCommand,
+  DescribeDataSharesForConsumerCommandInput,
+  DescribeDataSharesForConsumerCommandOutput,
+} from "./commands/DescribeDataSharesForConsumerCommand";
+import {
+  DescribeDataSharesForProducerCommand,
+  DescribeDataSharesForProducerCommandInput,
+  DescribeDataSharesForProducerCommandOutput,
+} from "./commands/DescribeDataSharesForProducerCommand";
+import {
   DescribeDefaultClusterParametersCommand,
   DescribeDefaultClusterParametersCommandInput,
   DescribeDefaultClusterParametersCommandOutput,
@@ -363,6 +393,11 @@ import {
   DisableSnapshotCopyCommandOutput,
 } from "./commands/DisableSnapshotCopyCommand";
 import {
+  DisassociateDataShareConsumerCommand,
+  DisassociateDataShareConsumerCommandInput,
+  DisassociateDataShareConsumerCommandOutput,
+} from "./commands/DisassociateDataShareConsumerCommand";
+import {
   EnableLoggingCommand,
   EnableLoggingCommandInput,
   EnableLoggingCommandOutput,
@@ -477,6 +512,11 @@ import {
   RebootClusterCommandInput,
   RebootClusterCommandOutput,
 } from "./commands/RebootClusterCommand";
+import {
+  RejectDataShareCommand,
+  RejectDataShareCommandInput,
+  RejectDataShareCommandOutput,
+} from "./commands/RejectDataShareCommand";
 import {
   ResetClusterParameterGroupCommand,
   ResetClusterParameterGroupCommandInput,
@@ -617,6 +657,40 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>From a datashare consumer account, associates a datashare with the
+   *             account (AssociateEntireAccount) or the specified namespace (ConsumerArn). If you make this association, the consumer
+   *             can consume the datashare.</p>
+   */
+  public associateDataShareConsumer(
+    args: AssociateDataShareConsumerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateDataShareConsumerCommandOutput>;
+  public associateDataShareConsumer(
+    args: AssociateDataShareConsumerCommandInput,
+    cb: (err: any, data?: AssociateDataShareConsumerCommandOutput) => void
+  ): void;
+  public associateDataShareConsumer(
+    args: AssociateDataShareConsumerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateDataShareConsumerCommandOutput) => void
+  ): void;
+  public associateDataShareConsumer(
+    args: AssociateDataShareConsumerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDataShareConsumerCommandOutput) => void),
+    cb?: (err: any, data?: AssociateDataShareConsumerCommandOutput) => void
+  ): Promise<AssociateDataShareConsumerCommandOutput> | void {
+    const command = new AssociateDataShareConsumerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether
    *             the application accessing your cluster is running on the Internet or an Amazon EC2
    *             instance, you can authorize inbound access to either a Classless Interdomain Routing
@@ -625,7 +699,7 @@ export class Redshift extends RedshiftClient {
    *         <p>If you authorize access to an Amazon EC2 security group, specify
    *                 <i>EC2SecurityGroupName</i> and
    *                 <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and
-   *             Amazon Redshift cluster must be in the same Region. </p>
+   *             Amazon Redshift cluster must be in the same Amazon Web Services Region. </p>
    *         <p>If you authorize access to a CIDR/IP address range, specify
    *                 <i>CIDRIP</i>. For an overview of CIDR blocks, see the Wikipedia
    *             article on <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>. </p>
@@ -653,6 +727,40 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void
   ): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput> | void {
     const command = new AuthorizeClusterSecurityGroupIngressCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>From a data producer account, authorizes the sharing of a datashare with one or more
+   *             consumer accounts. To authorize a datashare for a data consumer, the producer account
+   *             must have the correct access privileges.</p>
+   */
+  public authorizeDataShare(
+    args: AuthorizeDataShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AuthorizeDataShareCommandOutput>;
+  public authorizeDataShare(
+    args: AuthorizeDataShareCommandInput,
+    cb: (err: any, data?: AuthorizeDataShareCommandOutput) => void
+  ): void;
+  public authorizeDataShare(
+    args: AuthorizeDataShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AuthorizeDataShareCommandOutput) => void
+  ): void;
+  public authorizeDataShare(
+    args: AuthorizeDataShareCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeDataShareCommandOutput) => void),
+    cb?: (err: any, data?: AuthorizeDataShareCommandOutput) => void
+  ): Promise<AuthorizeDataShareCommandOutput> | void {
+    const command = new AuthorizeDataShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -696,7 +804,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Authorizes the specified account to restore the specified
+   * <p>Authorizes the specified Amazon Web Services account to restore the specified
    *             snapshot.</p>
    *         <p>
    * For more information about working with snapshots, go to
@@ -1138,8 +1246,8 @@ export class Redshift extends RedshiftClient {
    *             and source identifier = my-cluster-1, notifications will be sent for all the cluster
    *             events for my-cluster-1. If you specify a source type but do not specify a source
    *             identifier, you will receive notice of the events for the objects of that type in your
-   *             account. If you do not specify either the SourceType nor the SourceIdentifier, you
-   *             will be notified of events generated from all Amazon Redshift sources belonging to your account. You must specify a source type if you specify a source ID.</p>
+   *             Amazon Web Services account. If you do not specify either the SourceType nor the SourceIdentifier, you
+   *             will be notified of events generated from all Amazon Redshift sources belonging to your Amazon Web Services account. You must specify a source type if you specify a source ID.</p>
    */
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -1405,6 +1513,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: CreateUsageLimitCommandOutput) => void
   ): Promise<CreateUsageLimitCommandOutput> | void {
     const command = new CreateUsageLimitCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>From the producer account, removes authorization from the specified datashare. </p>
+   */
+  public deauthorizeDataShare(
+    args: DeauthorizeDataShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeauthorizeDataShareCommandOutput>;
+  public deauthorizeDataShare(
+    args: DeauthorizeDataShareCommandInput,
+    cb: (err: any, data?: DeauthorizeDataShareCommandOutput) => void
+  ): void;
+  public deauthorizeDataShare(
+    args: DeauthorizeDataShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeauthorizeDataShareCommandOutput) => void
+  ): void;
+  public deauthorizeDataShare(
+    args: DeauthorizeDataShareCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeauthorizeDataShareCommandOutput) => void),
+    cb?: (err: any, data?: DeauthorizeDataShareCommandOutput) => void
+  ): Promise<DeauthorizeDataShareCommandOutput> | void {
+    const command = new DeauthorizeDataShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2236,8 +2376,8 @@ export class Redshift extends RedshiftClient {
   /**
    * <p>Returns one or more snapshot objects, which contain metadata about your cluster
    *             snapshots. By default, this operation returns information about all snapshots of all
-   *             clusters that are owned by your account. No information is returned for
-   *             snapshots owned by inactive accounts.</p>
+   *             clusters that are owned by your Amazon Web Services account. No information is returned for
+   *             snapshots owned by inactive Amazon Web Services accounts.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
    *             all snapshots that match any combination of the specified keys and values. For example,
    *             if you have <code>owner</code> and <code>environment</code> for tag keys, and
@@ -2280,7 +2420,7 @@ export class Redshift extends RedshiftClient {
   /**
    * <p>Returns one or more cluster subnet group objects, which contain metadata about your
    *             cluster subnet groups. By default, this operation returns information about all cluster
-   *             subnet groups that are defined in your account.</p>
+   *             subnet groups that are defined in your Amazon Web Services account.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
    *             all subnet groups that match any combination of the specified keys and values. For
    *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
@@ -2378,6 +2518,103 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: DescribeClusterVersionsCommandOutput) => void
   ): Promise<DescribeClusterVersionsCommandOutput> | void {
     const command = new DescribeClusterVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Shows the status of any inbound or outbound datashares available in the specified
+   *             account.</p>
+   */
+  public describeDataShares(
+    args: DescribeDataSharesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataSharesCommandOutput>;
+  public describeDataShares(
+    args: DescribeDataSharesCommandInput,
+    cb: (err: any, data?: DescribeDataSharesCommandOutput) => void
+  ): void;
+  public describeDataShares(
+    args: DescribeDataSharesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataSharesCommandOutput) => void
+  ): void;
+  public describeDataShares(
+    args: DescribeDataSharesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSharesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDataSharesCommandOutput) => void
+  ): Promise<DescribeDataSharesCommandOutput> | void {
+    const command = new DescribeDataSharesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of datashares where the account identifier being called is a consumer account identifier.</p>
+   */
+  public describeDataSharesForConsumer(
+    args: DescribeDataSharesForConsumerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataSharesForConsumerCommandOutput>;
+  public describeDataSharesForConsumer(
+    args: DescribeDataSharesForConsumerCommandInput,
+    cb: (err: any, data?: DescribeDataSharesForConsumerCommandOutput) => void
+  ): void;
+  public describeDataSharesForConsumer(
+    args: DescribeDataSharesForConsumerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataSharesForConsumerCommandOutput) => void
+  ): void;
+  public describeDataSharesForConsumer(
+    args: DescribeDataSharesForConsumerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSharesForConsumerCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDataSharesForConsumerCommandOutput) => void
+  ): Promise<DescribeDataSharesForConsumerCommandOutput> | void {
+    const command = new DescribeDataSharesForConsumerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of datashares when the account identifier being called is a producer account identifier.</p>
+   */
+  public describeDataSharesForProducer(
+    args: DescribeDataSharesForProducerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataSharesForProducerCommandOutput>;
+  public describeDataSharesForProducer(
+    args: DescribeDataSharesForProducerCommandInput,
+    cb: (err: any, data?: DescribeDataSharesForProducerCommandOutput) => void
+  ): void;
+  public describeDataSharesForProducer(
+    args: DescribeDataSharesForProducerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataSharesForProducerCommandOutput) => void
+  ): void;
+  public describeDataSharesForProducer(
+    args: DescribeDataSharesForProducerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSharesForProducerCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDataSharesForProducerCommandOutput) => void
+  ): Promise<DescribeDataSharesForProducerCommandOutput> | void {
+    const command = new DescribeDataSharesForProducerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2602,7 +2839,7 @@ export class Redshift extends RedshiftClient {
 
   /**
    * <p>Returns information about the specified HSM client certificate. If no certificate
-   *             ID is specified, returns information about all the HSM certificates owned by your account.</p>
+   *             ID is specified, returns information about all the HSM certificates owned by your Amazon Web Services account.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
    *             all HSM client certificates that match any combination of the specified keys and values.
    *             For example, if you have <code>owner</code> and <code>environment</code> for tag keys,
@@ -2644,7 +2881,7 @@ export class Redshift extends RedshiftClient {
   /**
    * <p>Returns information about the specified Amazon Redshift HSM configuration. If no
    *             configuration ID is specified, returns information about all the HSM configurations
-   *             owned by your account.</p>
+   *             owned by your Amazon Web Services account.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
    *             all HSM connections that match any combination of the specified keys and values. For
    *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
@@ -2752,7 +2989,7 @@ export class Redshift extends RedshiftClient {
   /**
    * <p>Returns a list of orderable cluster options. Before you create a new cluster you
    *             can use this operation to find what options are available, such as the EC2 Availability
-   *             Zones (AZ) in the specific Region that you can specify, and the node types you can
+   *             Zones (AZ) in the specific Amazon Web Services Region that you can specify, and the node types you can
    *             request. The node types differ by available storage, memory, CPU and price. With the
    *             cost involved you might want to obtain a list of cluster options in the specific region
    *             and specify values when creating a cluster.
@@ -2965,7 +3202,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Returns a list of snapshot copy grants owned by the account in the destination
+   * <p>Returns a list of snapshot copy grants owned by the Amazon Web Services account in the destination
    *             region.</p>
    *         <p>
    * For more information about managing snapshot copy grants, go to
@@ -3266,6 +3503,39 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: DisableSnapshotCopyCommandOutput) => void
   ): Promise<DisableSnapshotCopyCommandOutput> | void {
     const command = new DisableSnapshotCopyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>From a consumer account, remove association for the specified datashare.
+   *             </p>
+   */
+  public disassociateDataShareConsumer(
+    args: DisassociateDataShareConsumerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateDataShareConsumerCommandOutput>;
+  public disassociateDataShareConsumer(
+    args: DisassociateDataShareConsumerCommandInput,
+    cb: (err: any, data?: DisassociateDataShareConsumerCommandOutput) => void
+  ): void;
+  public disassociateDataShareConsumer(
+    args: DisassociateDataShareConsumerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateDataShareConsumerCommandOutput) => void
+  ): void;
+  public disassociateDataShareConsumer(
+    args: DisassociateDataShareConsumerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateDataShareConsumerCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateDataShareConsumerCommandOutput) => void
+  ): Promise<DisassociateDataShareConsumerCommandOutput> | void {
+    const command = new DisassociateDataShareConsumerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3631,7 +3901,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Modifies the parameters of a parameter group.</p>
+   * <p>Modifies the parameters of a parameter group. For the parameters parameter, it can't contain ASCII characters.</p>
    *         <p>
    * For more information about parameters and parameter groups, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
@@ -3862,8 +4132,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Modifies the number of days to retain snapshots in the destination Region after
-   *             they are copied from the source Region. By default, this operation only changes the
+   * <p>Modifies the number of days to retain snapshots in the destination Amazon Web Services Region after
+   *             they are copied from the source Amazon Web Services Region. By default, this operation only changes the
    *             retention period of copied automated snapshots. The retention periods for both new and
    *             existing copied automated snapshots are updated with the new retention period. You can
    *             set the manual option to change only the retention periods of copied manual snapshots.
@@ -4063,6 +4333,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: RebootClusterCommandOutput) => void
   ): Promise<RebootClusterCommandOutput> | void {
     const command = new RebootClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>From the consumer account, rejects the specified datashare.</p>
+   */
+  public rejectDataShare(
+    args: RejectDataShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectDataShareCommandOutput>;
+  public rejectDataShare(
+    args: RejectDataShareCommandInput,
+    cb: (err: any, data?: RejectDataShareCommandOutput) => void
+  ): void;
+  public rejectDataShare(
+    args: RejectDataShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectDataShareCommandOutput) => void
+  ): void;
+  public rejectDataShare(
+    args: RejectDataShareCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectDataShareCommandOutput) => void),
+    cb?: (err: any, data?: RejectDataShareCommandOutput) => void
+  ): Promise<RejectDataShareCommandOutput> | void {
+    const command = new RejectDataShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4369,7 +4671,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Removes the ability of the specified  account to restore the specified
+   * <p>Removes the ability of the specified  Amazon Web Services account to restore the specified
    *             snapshot. If the account is currently restoring the snapshot, the restore will run to
    *             completion.</p>
    *         <p>

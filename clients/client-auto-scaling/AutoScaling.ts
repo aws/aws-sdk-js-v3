@@ -2528,11 +2528,16 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Starts a new instance refresh operation, which triggers a rolling replacement of
-   *             previously launched instances in the Auto Scaling group with a new group of instances.</p>
+   * <p>Starts a new instance refresh operation. An instance refresh performs a rolling
+   *             replacement of all or some instances in an Auto Scaling group. Each instance is terminated first
+   *             and then replaced, which temporarily reduces the capacity available within your Auto Scaling
+   *             group.</p>
    *         <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
-   *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
-   *             after you make configuration changes.</p>
+   *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group.
+   *             This feature is helpful, for example, when you have a new AMI or a new user data script.
+   *             You just need to create a new launch template that specifies the new AMI or user data
+   *             script. Then start an instance refresh to immediately begin the process of updating
+   *             instances in the group. </p>
    *         <p>If the call succeeds, it creates a new instance refresh request with a unique ID that
    *             you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that
    *             have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an

@@ -23,8 +23,8 @@ export interface ListPartnerEventSourceAccountsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>An SaaS partner can use this operation to display the AWS account ID that a particular
- *       partner event source name is associated with. This operation is not used by AWS
+ * <p>An SaaS partner can use this operation to display the Amazon Web Services account ID that a particular
+ *       partner event source name is associated with. This operation is not used by Amazon Web Services
  *       customers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

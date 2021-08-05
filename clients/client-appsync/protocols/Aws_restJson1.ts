@@ -77,6 +77,7 @@ import {
   GraphqlApi,
   HttpDataSourceConfig,
   InternalFailureException,
+  LambdaAuthorizerConfig,
   LambdaConflictHandlerConfig,
   LambdaDataSourceConfig,
   LimitExceededException,
@@ -308,6 +309,10 @@ export const serializeAws_restJson1CreateGraphqlApiCommand = async (
       }),
     ...(input.authenticationType !== undefined &&
       input.authenticationType !== null && { authenticationType: input.authenticationType }),
+    ...(input.lambdaAuthorizerConfig !== undefined &&
+      input.lambdaAuthorizerConfig !== null && {
+        lambdaAuthorizerConfig: serializeAws_restJson1LambdaAuthorizerConfig(input.lambdaAuthorizerConfig, context),
+      }),
     ...(input.logConfig !== undefined &&
       input.logConfig !== null && { logConfig: serializeAws_restJson1LogConfig(input.logConfig, context) }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
@@ -1607,6 +1612,10 @@ export const serializeAws_restJson1UpdateGraphqlApiCommand = async (
       }),
     ...(input.authenticationType !== undefined &&
       input.authenticationType !== null && { authenticationType: input.authenticationType }),
+    ...(input.lambdaAuthorizerConfig !== undefined &&
+      input.lambdaAuthorizerConfig !== null && {
+        lambdaAuthorizerConfig: serializeAws_restJson1LambdaAuthorizerConfig(input.lambdaAuthorizerConfig, context),
+      }),
     ...(input.logConfig !== undefined &&
       input.logConfig !== null && { logConfig: serializeAws_restJson1LogConfig(input.logConfig, context) }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
@@ -5407,6 +5416,10 @@ const serializeAws_restJson1AdditionalAuthenticationProvider = (
   return {
     ...(input.authenticationType !== undefined &&
       input.authenticationType !== null && { authenticationType: input.authenticationType }),
+    ...(input.lambdaAuthorizerConfig !== undefined &&
+      input.lambdaAuthorizerConfig !== null && {
+        lambdaAuthorizerConfig: serializeAws_restJson1LambdaAuthorizerConfig(input.lambdaAuthorizerConfig, context),
+      }),
     ...(input.openIDConnectConfig !== undefined &&
       input.openIDConnectConfig !== null && {
         openIDConnectConfig: serializeAws_restJson1OpenIDConnectConfig(input.openIDConnectConfig, context),
@@ -5535,6 +5548,20 @@ const serializeAws_restJson1HttpDataSourceConfig = (input: HttpDataSourceConfig,
   };
 };
 
+const serializeAws_restJson1LambdaAuthorizerConfig = (input: LambdaAuthorizerConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.authorizerResultTtlInSeconds !== undefined &&
+      input.authorizerResultTtlInSeconds !== null && {
+        authorizerResultTtlInSeconds: input.authorizerResultTtlInSeconds,
+      }),
+    ...(input.authorizerUri !== undefined && input.authorizerUri !== null && { authorizerUri: input.authorizerUri }),
+    ...(input.identityValidationExpression !== undefined &&
+      input.identityValidationExpression !== null && {
+        identityValidationExpression: input.identityValidationExpression,
+      }),
+  };
+};
+
 const serializeAws_restJson1LambdaConflictHandlerConfig = (
   input: LambdaConflictHandlerConfig,
   context: __SerdeContext
@@ -5650,6 +5677,10 @@ const deserializeAws_restJson1AdditionalAuthenticationProvider = (
 ): AdditionalAuthenticationProvider => {
   return {
     authenticationType: __expectString(output.authenticationType),
+    lambdaAuthorizerConfig:
+      output.lambdaAuthorizerConfig !== undefined && output.lambdaAuthorizerConfig !== null
+        ? deserializeAws_restJson1LambdaAuthorizerConfig(output.lambdaAuthorizerConfig, context)
+        : undefined,
     openIDConnectConfig:
       output.openIDConnectConfig !== undefined && output.openIDConnectConfig !== null
         ? deserializeAws_restJson1OpenIDConnectConfig(output.openIDConnectConfig, context)
@@ -5875,6 +5906,10 @@ const deserializeAws_restJson1GraphqlApi = (output: any, context: __SerdeContext
     apiId: __expectString(output.apiId),
     arn: __expectString(output.arn),
     authenticationType: __expectString(output.authenticationType),
+    lambdaAuthorizerConfig:
+      output.lambdaAuthorizerConfig !== undefined && output.lambdaAuthorizerConfig !== null
+        ? deserializeAws_restJson1LambdaAuthorizerConfig(output.lambdaAuthorizerConfig, context)
+        : undefined,
     logConfig:
       output.logConfig !== undefined && output.logConfig !== null
         ? deserializeAws_restJson1LogConfig(output.logConfig, context)
@@ -5919,6 +5954,17 @@ const deserializeAws_restJson1HttpDataSourceConfig = (output: any, context: __Se
         ? deserializeAws_restJson1AuthorizationConfig(output.authorizationConfig, context)
         : undefined,
     endpoint: __expectString(output.endpoint),
+  } as any;
+};
+
+const deserializeAws_restJson1LambdaAuthorizerConfig = (
+  output: any,
+  context: __SerdeContext
+): LambdaAuthorizerConfig => {
+  return {
+    authorizerResultTtlInSeconds: __expectNumber(output.authorizerResultTtlInSeconds),
+    authorizerUri: __expectString(output.authorizerUri),
+    identityValidationExpression: __expectString(output.identityValidationExpression),
   } as any;
 };
 

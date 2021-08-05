@@ -1072,7 +1072,7 @@ export namespace ResourceConfig {
  *             hyperparameter tuning job can run. It also specifies how long a managed Spot training
  *             job has to complete. When the job reaches the time limit, Amazon SageMaker ends the training or
  *             compilation job. Use this API to cap model training costs.</p>
- *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+ *         <p>To stop a training job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
  *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
  *             model artifacts, so the results of training are not lost. </p>
  *         <p>The training algorithms provided by Amazon SageMaker automatically save the intermediate results
@@ -1089,12 +1089,14 @@ export namespace ResourceConfig {
  */
 export interface StoppingCondition {
   /**
-   * <p>The maximum length of time, in seconds, that a training or compilation job can run. If
-   *             the job does not complete during this time, Amazon SageMaker ends the job.</p>
-   *         <p>When <code>RetryStrategy</code> is specified in the job request,
+   * <p>The maximum length of time, in seconds, that a training or compilation job can run.</p>
+   *         <p>For compilation jobs, if the job does not complete during this time, you will
+   *             receive a <code>TimeOut</code> error. We recommend starting with 900 seconds and increase as
+   *             necessary based on your model.</p>
+   *         <p>For all other jobs, if the job does not complete during this time, Amazon SageMaker ends the job. When
+   *             <code>RetryStrategy</code> is specified in the job request,
    *                 <code>MaxRuntimeInSeconds</code> specifies the maximum time for all of the attempts
-   *             in total, not each individual attempt.</p>
-   *         <p>The default value is 1 day. The maximum value is 28 days.</p>
+   *             in total, not each individual attempt. The default value is 1 day. The maximum value is 28 days.</p>
    */
   MaxRuntimeInSeconds?: number;
 
@@ -3388,6 +3390,14 @@ export enum AppInstanceType {
   ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
   ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
   ML_G4DN_XLARGE = "ml.g4dn.xlarge",
+  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
+  ML_M5D_16XLARGE = "ml.m5d.16xlarge",
+  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
+  ML_M5D_8XLARGE = "ml.m5d.8xlarge",
+  ML_M5D_LARGE = "ml.m5d.large",
+  ML_M5D_XLARGE = "ml.m5d.xlarge",
   ML_M5_12XLARGE = "ml.m5.12xlarge",
   ML_M5_16XLARGE = "ml.m5.16xlarge",
   ML_M5_24XLARGE = "ml.m5.24xlarge",
@@ -3396,9 +3406,18 @@ export enum AppInstanceType {
   ML_M5_8XLARGE = "ml.m5.8xlarge",
   ML_M5_LARGE = "ml.m5.large",
   ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
   ML_P3_16XLARGE = "ml.p3.16xlarge",
   ML_P3_2XLARGE = "ml.p3.2xlarge",
   ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_R5_12XLARGE = "ml.r5.12xlarge",
+  ML_R5_16XLARGE = "ml.r5.16xlarge",
+  ML_R5_24XLARGE = "ml.r5.24xlarge",
+  ML_R5_2XLARGE = "ml.r5.2xlarge",
+  ML_R5_4XLARGE = "ml.r5.4xlarge",
+  ML_R5_8XLARGE = "ml.r5.8xlarge",
+  ML_R5_LARGE = "ml.r5.large",
+  ML_R5_XLARGE = "ml.r5.xlarge",
   ML_T3_2XLARGE = "ml.t3.2xlarge",
   ML_T3_LARGE = "ml.t3.large",
   ML_T3_MEDIUM = "ml.t3.medium",

@@ -21,10 +21,10 @@ export interface DeleteCoreDeviceCommandInput extends DeleteCoreDeviceRequest {}
 export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a AWS IoT Greengrass core device, which is an AWS IoT thing. This operation removes the core
- *       device from the list of core devices. This operation doesn't delete the AWS IoT thing. For more
- *       information about how to delete the AWS IoT thing, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html">DeleteThing</a> in the
- *         <i>AWS IoT API Reference</i>.</p>
+ * <p>Deletes a Greengrass core device, which is an IoT thing. This operation removes the core
+ *       device from the list of core devices. This operation doesn't delete the IoT thing. For more
+ *       information about how to delete the IoT thing, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html">DeleteThing</a> in the
+ *         <i>IoT API Reference</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

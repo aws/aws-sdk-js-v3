@@ -3059,6 +3059,8 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 const serializeAws_json1_1AcceptPageRequest = (input: AcceptPageRequest, context: __SerdeContext): any => {
   return {
     ...(input.AcceptCode !== undefined && input.AcceptCode !== null && { AcceptCode: input.AcceptCode }),
+    ...(input.AcceptCodeValidation !== undefined &&
+      input.AcceptCodeValidation !== null && { AcceptCodeValidation: input.AcceptCodeValidation }),
     ...(input.AcceptType !== undefined && input.AcceptType !== null && { AcceptType: input.AcceptType }),
     ...(input.ContactChannelId !== undefined &&
       input.ContactChannelId !== null && { ContactChannelId: input.ContactChannelId }),

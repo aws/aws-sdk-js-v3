@@ -21,26 +21,26 @@ export interface PutPermissionCommandInput extends PutPermissionRequest {}
 export interface PutPermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Running <code>PutPermission</code> permits the specified AWS account or AWS organization
+ * <p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization
  *       to put events to the specified <i>event bus</i>. Amazon EventBridge (CloudWatch
  *       Events) rules in your account are triggered by these events arriving to an event bus in your
  *       account. </p>
  *          <p>For another account to send events to your account, that external account must have an
  *       EventBridge rule with your account's event bus as a target.</p>
  *
- *          <p>To enable multiple AWS accounts to put events to your event bus, run
+ *          <p>To enable multiple Amazon Web Services accounts to put events to your event bus, run
  *         <code>PutPermission</code> once for each of these accounts. Or, if all the accounts are
- *       members of the same AWS organization, you can run <code>PutPermission</code> once specifying
- *         <code>Principal</code> as "*" and specifying the AWS organization ID in
+ *       members of the same Amazon Web Services organization, you can run <code>PutPermission</code> once specifying
+ *         <code>Principal</code> as "*" and specifying the Amazon Web Services organization ID in
  *         <code>Condition</code>, to grant permissions to all accounts in that organization.</p>
  *
  *          <p>If you grant permissions using an organization, then accounts in that organization must
  *       specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code> to
  *       add your account's event bus as a target. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending and
- *         Receiving Events Between AWS Accounts</a> in the <i>Amazon EventBridge User
+ *         Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User
  *         Guide</i>.</p>
  *
- *          <p>The permission policy on the default event bus cannot exceed 10 KB in size.</p>
+ *          <p>The permission policy on the event bus cannot exceed 10 KB in size.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

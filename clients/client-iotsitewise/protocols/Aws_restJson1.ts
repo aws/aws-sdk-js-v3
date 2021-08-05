@@ -8677,6 +8677,7 @@ const serializeAws_restJson1TransformProcessingConfig = (
 const serializeAws_restJson1TumblingWindow = (input: TumblingWindow, context: __SerdeContext): any => {
   return {
     ...(input.interval !== undefined && input.interval !== null && { interval: input.interval }),
+    ...(input.offset !== undefined && input.offset !== null && { offset: input.offset }),
   };
 };
 
@@ -9786,6 +9787,7 @@ const deserializeAws_restJson1TransformProcessingConfig = (
 const deserializeAws_restJson1TumblingWindow = (output: any, context: __SerdeContext): TumblingWindow => {
   return {
     interval: __expectString(output.interval),
+    offset: __expectString(output.offset),
   } as any;
 };
 

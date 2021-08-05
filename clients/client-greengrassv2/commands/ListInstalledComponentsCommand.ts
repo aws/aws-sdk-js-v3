@@ -21,7 +21,7 @@ export interface ListInstalledComponentsCommandInput extends ListInstalledCompon
 export interface ListInstalledComponentsCommandOutput extends ListInstalledComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of the components that a AWS IoT Greengrass core device runs.</p>
+ * <p>Retrieves a paginated list of the components that a Greengrass core device runs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -332,7 +332,7 @@ type AppSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
 export interface AppSyncClientResolvedConfig extends AppSyncClientResolvedConfigType {}
 
 /**
- * <p>AWS AppSync provides API actions for creating and interacting with data sources using
+ * <p>AppSync  provides API actions for creating and interacting with data sources using
  *          GraphQL from your application.</p>
  */
 export class AppSyncClient extends __Client<

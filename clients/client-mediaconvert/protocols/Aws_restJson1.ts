@@ -59,7 +59,6 @@ import {
   CmafEncryptionSettings,
   CmafGroupSettings,
   CmfcSettings,
-  ContainerSettings,
   DashAdditionalManifest,
   DashIsoEncryptionSettings,
   DashIsoGroupSettings,
@@ -77,6 +76,7 @@ import {
   EsamManifestConfirmConditionNotification,
   EsamSettings,
   EsamSignalProcessingNotification,
+  ExtendedDataServices,
   F4vSettings,
   FileGroupSettings,
   FileSourceSettings,
@@ -112,7 +112,6 @@ import {
   MsSmoothAdditionalManifest,
   MsSmoothEncryptionSettings,
   MsSmoothGroupSettings,
-  MxfSettings,
   MxfXavcProfileSettings,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
@@ -152,6 +151,7 @@ import {
   BadRequestException,
   ColorCorrector,
   ConflictException,
+  ContainerSettings,
   Deinterlacer,
   DolbyVision,
   DolbyVisionLevel6Metadata,
@@ -169,6 +169,7 @@ import {
   JobTemplate,
   JobTemplateSettings,
   Mpeg2Settings,
+  MxfSettings,
   NexGuardFileMarkerSettings,
   NoiseReducer,
   NoiseReducerFilterSettings,
@@ -4814,6 +4815,14 @@ const serializeAws_restJson1EsamSignalProcessingNotification = (
   };
 };
 
+const serializeAws_restJson1ExtendedDataServices = (input: ExtendedDataServices, context: __SerdeContext): any => {
+  return {
+    ...(input.CopyProtectionAction !== undefined &&
+      input.CopyProtectionAction !== null && { copyProtectionAction: input.CopyProtectionAction }),
+    ...(input.VchipAction !== undefined && input.VchipAction !== null && { vchipAction: input.VchipAction }),
+  };
+};
+
 const serializeAws_restJson1F4vSettings = (input: F4vSettings, context: __SerdeContext): any => {
   return {
     ...(input.MoovPlacement !== undefined && input.MoovPlacement !== null && { moovPlacement: input.MoovPlacement }),
@@ -5396,6 +5405,10 @@ const serializeAws_restJson1JobSettings = (input: JobSettings, context: __SerdeC
       }),
     ...(input.Esam !== undefined &&
       input.Esam !== null && { esam: serializeAws_restJson1EsamSettings(input.Esam, context) }),
+    ...(input.ExtendedDataServices !== undefined &&
+      input.ExtendedDataServices !== null && {
+        extendedDataServices: serializeAws_restJson1ExtendedDataServices(input.ExtendedDataServices, context),
+      }),
     ...(input.Inputs !== undefined &&
       input.Inputs !== null && { inputs: serializeAws_restJson1__listOfInput(input.Inputs, context) }),
     ...(input.KantarWatermark !== undefined &&
@@ -5441,6 +5454,10 @@ const serializeAws_restJson1JobTemplateSettings = (input: JobTemplateSettings, c
       }),
     ...(input.Esam !== undefined &&
       input.Esam !== null && { esam: serializeAws_restJson1EsamSettings(input.Esam, context) }),
+    ...(input.ExtendedDataServices !== undefined &&
+      input.ExtendedDataServices !== null && {
+        extendedDataServices: serializeAws_restJson1ExtendedDataServices(input.ExtendedDataServices, context),
+      }),
     ...(input.Inputs !== undefined &&
       input.Inputs !== null && { inputs: serializeAws_restJson1__listOfInputTemplate(input.Inputs, context) }),
     ...(input.KantarWatermark !== undefined &&
@@ -7959,6 +7976,13 @@ const deserializeAws_restJson1EsamSignalProcessingNotification = (
   } as any;
 };
 
+const deserializeAws_restJson1ExtendedDataServices = (output: any, context: __SerdeContext): ExtendedDataServices => {
+  return {
+    CopyProtectionAction: __expectString(output.copyProtectionAction),
+    VchipAction: __expectString(output.vchipAction),
+  } as any;
+};
+
 const deserializeAws_restJson1F4vSettings = (output: any, context: __SerdeContext): F4vSettings => {
   return {
     MoovPlacement: __expectString(output.moovPlacement),
@@ -8493,6 +8517,10 @@ const deserializeAws_restJson1JobSettings = (output: any, context: __SerdeContex
       output.esam !== undefined && output.esam !== null
         ? deserializeAws_restJson1EsamSettings(output.esam, context)
         : undefined,
+    ExtendedDataServices:
+      output.extendedDataServices !== undefined && output.extendedDataServices !== null
+        ? deserializeAws_restJson1ExtendedDataServices(output.extendedDataServices, context)
+        : undefined,
     Inputs:
       output.inputs !== undefined && output.inputs !== null
         ? deserializeAws_restJson1__listOfInput(output.inputs, context)
@@ -8571,6 +8599,10 @@ const deserializeAws_restJson1JobTemplateSettings = (output: any, context: __Ser
     Esam:
       output.esam !== undefined && output.esam !== null
         ? deserializeAws_restJson1EsamSettings(output.esam, context)
+        : undefined,
+    ExtendedDataServices:
+      output.extendedDataServices !== undefined && output.extendedDataServices !== null
+        ? deserializeAws_restJson1ExtendedDataServices(output.extendedDataServices, context)
         : undefined,
     Inputs:
       output.inputs !== undefined && output.inputs !== null

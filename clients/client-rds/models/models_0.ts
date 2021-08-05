@@ -4007,6 +4007,11 @@ export interface DBCluster {
   Status?: string;
 
   /**
+   * <p>The time when a stopped DB cluster is restarted automatically.</p>
+   */
+  AutomaticRestartTime?: Date;
+
+  /**
    * <p>Specifies the progress of the operation as a percentage.</p>
    */
   PercentProgress?: string;
@@ -5077,7 +5082,7 @@ export interface CreateDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The amount of storage (in gibibytes) to allocate for the DB instance.</p>
+   * <p>The amount of storage in gibibytes (GiB) to allocate for the DB instance.</p>
    *          <p>Type: Integer</p>
    *          <p>
    *             <b>Amazon Aurora</b>
@@ -5983,7 +5988,7 @@ export interface CreateDBInstanceMessage {
   DeletionProtection?: boolean;
 
   /**
-   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   * <p>The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.</p>
    *         <p>For more information about this setting, including limitations that apply to it, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
    *                 Managing capacity automatically with Amazon RDS storage autoscaling</a>
@@ -6369,7 +6374,7 @@ export interface PendingModifiedValues {
   DBInstanceClass?: string;
 
   /**
-   * <p>The allocated storage size for the DB instance specified in gibibytes .</p>
+   * <p>The allocated storage size for the DB instance specified in gibibytes (GiB).</p>
    */
   AllocatedStorage?: number;
 
@@ -6530,6 +6535,11 @@ export interface DBInstance {
   DBInstanceStatus?: string;
 
   /**
+   * <p>The time when a stopped DB instance is restarted automatically.</p>
+   */
+  AutomaticRestartTime?: Date;
+
+  /**
    * <p>Contains the master username for the DB instance.</p>
    */
   MasterUsername?: string;
@@ -6550,11 +6560,14 @@ export interface DBInstance {
 
   /**
    * <p>Specifies the connection endpoint.</p>
+   *          <note>
+   *             <p>The endpoint might not be shown for instances whose status is <code>creating</code>.</p>
+   *          </note>
    */
   Endpoint?: Endpoint;
 
   /**
-   * <p>Specifies the allocated storage size specified in gibibytes.</p>
+   * <p>Specifies the allocated storage size specified in gibibytes (GiB).</p>
    */
   AllocatedStorage?: number;
 
@@ -6887,7 +6900,7 @@ export interface DBInstance {
   ListenerEndpoint?: Endpoint;
 
   /**
-   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   * <p>The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.</p>
    */
   MaxAllocatedStorage?: number;
 
@@ -7477,7 +7490,7 @@ export interface CreateDBInstanceReadReplicaMessage {
   ReplicaMode?: ReplicaMode | string;
 
   /**
-   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   * <p>The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.</p>
    *         <p>For more information about this setting, including limitations that apply to it, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
    *                 Managing capacity automatically with Amazon RDS storage autoscaling</a>

@@ -21,7 +21,7 @@ export interface ListCoreDevicesCommandInput extends ListCoreDevicesRequest {}
 export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of AWS IoT Greengrass core devices.</p>
+ * <p>Retrieves a paginated list of Greengrass core devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

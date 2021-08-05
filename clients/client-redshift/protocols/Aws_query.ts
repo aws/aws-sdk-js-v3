@@ -4,9 +4,14 @@ import {
 } from "../commands/AcceptReservedNodeExchangeCommand";
 import { AddPartnerCommandInput, AddPartnerCommandOutput } from "../commands/AddPartnerCommand";
 import {
+  AssociateDataShareConsumerCommandInput,
+  AssociateDataShareConsumerCommandOutput,
+} from "../commands/AssociateDataShareConsumerCommand";
+import {
   AuthorizeClusterSecurityGroupIngressCommandInput,
   AuthorizeClusterSecurityGroupIngressCommandOutput,
 } from "../commands/AuthorizeClusterSecurityGroupIngressCommand";
+import { AuthorizeDataShareCommandInput, AuthorizeDataShareCommandOutput } from "../commands/AuthorizeDataShareCommand";
 import {
   AuthorizeEndpointAccessCommandInput,
   AuthorizeEndpointAccessCommandOutput,
@@ -79,6 +84,10 @@ import {
 } from "../commands/CreateSnapshotScheduleCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "../commands/CreateUsageLimitCommand";
+import {
+  DeauthorizeDataShareCommandInput,
+  DeauthorizeDataShareCommandOutput,
+} from "../commands/DeauthorizeDataShareCommand";
 import {
   DeleteAuthenticationProfileCommandInput,
   DeleteAuthenticationProfileCommandOutput,
@@ -172,6 +181,15 @@ import {
   DescribeClusterVersionsCommandOutput,
 } from "../commands/DescribeClusterVersionsCommand";
 import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "../commands/DescribeClustersCommand";
+import { DescribeDataSharesCommandInput, DescribeDataSharesCommandOutput } from "../commands/DescribeDataSharesCommand";
+import {
+  DescribeDataSharesForConsumerCommandInput,
+  DescribeDataSharesForConsumerCommandOutput,
+} from "../commands/DescribeDataSharesForConsumerCommand";
+import {
+  DescribeDataSharesForProducerCommandInput,
+  DescribeDataSharesForProducerCommandOutput,
+} from "../commands/DescribeDataSharesForProducerCommand";
 import {
   DescribeDefaultClusterParametersCommandInput,
   DescribeDefaultClusterParametersCommandOutput,
@@ -250,6 +268,10 @@ import {
   DisableSnapshotCopyCommandInput,
   DisableSnapshotCopyCommandOutput,
 } from "../commands/DisableSnapshotCopyCommand";
+import {
+  DisassociateDataShareConsumerCommandInput,
+  DisassociateDataShareConsumerCommandOutput,
+} from "../commands/DisassociateDataShareConsumerCommand";
 import { EnableLoggingCommandInput, EnableLoggingCommandOutput } from "../commands/EnableLoggingCommand";
 import { EnableSnapshotCopyCommandInput, EnableSnapshotCopyCommandOutput } from "../commands/EnableSnapshotCopyCommand";
 import {
@@ -324,6 +346,7 @@ import {
   PurchaseReservedNodeOfferingCommandOutput,
 } from "../commands/PurchaseReservedNodeOfferingCommand";
 import { RebootClusterCommandInput, RebootClusterCommandOutput } from "../commands/RebootClusterCommand";
+import { RejectDataShareCommandInput, RejectDataShareCommandOutput } from "../commands/RejectDataShareCommand";
 import {
   ResetClusterParameterGroupCommandInput,
   ResetClusterParameterGroupCommandOutput,
@@ -367,6 +390,7 @@ import {
   AccountAttributeList,
   AccountWithRestoreAccess,
   AquaConfiguration,
+  AssociateDataShareConsumerMessage,
   AttributeValueTarget,
   AuthenticationProfile,
   AuthenticationProfileAlreadyExistsFault,
@@ -377,6 +401,7 @@ import {
   AuthorizationQuotaExceededFault,
   AuthorizeClusterSecurityGroupIngressMessage,
   AuthorizeClusterSecurityGroupIngressResult,
+  AuthorizeDataShareMessage,
   AuthorizeEndpointAccessMessage,
   AuthorizeSnapshotAccessMessage,
   AuthorizeSnapshotAccessResult,
@@ -457,7 +482,10 @@ import {
   CreateTagsMessage,
   CreateUsageLimitMessage,
   CustomerStorageMessage,
+  DataShare,
+  DataShareAssociation,
   DataTransferProgress,
+  DeauthorizeDataShareMessage,
   DefaultClusterParameters,
   DeferredMaintenanceWindow,
   DeleteAuthenticationProfileMessage,
@@ -492,6 +520,12 @@ import {
   DescribeClusterTracksMessage,
   DescribeClusterVersionsMessage,
   DescribeClustersMessage,
+  DescribeDataSharesForConsumerMessage,
+  DescribeDataSharesForConsumerResult,
+  DescribeDataSharesForProducerMessage,
+  DescribeDataSharesForProducerResult,
+  DescribeDataSharesMessage,
+  DescribeDataSharesResult,
   DescribeDefaultClusterParametersMessage,
   DescribeDefaultClusterParametersResult,
   DescribeEndpointAccessMessage,
@@ -502,11 +536,6 @@ import {
   DescribeHsmClientCertificatesMessage,
   DescribeHsmConfigurationsMessage,
   DescribeLoggingStatusMessage,
-  DescribeNodeConfigurationOptionsMessage,
-  DescribeOrderableClusterOptionsMessage,
-  DescribePartnersInputMessage,
-  DescribePartnersOutputMessage,
-  DescribeReservedNodeOfferingsMessage,
   EC2SecurityGroup,
   ElasticIpStatus,
   Endpoint,
@@ -551,10 +580,12 @@ import {
   InvalidClusterSubnetGroupStateFault,
   InvalidClusterSubnetStateFault,
   InvalidClusterTrackFault,
+  InvalidDataShareFault,
   InvalidElasticIpFault,
   InvalidEndpointStateFault,
   InvalidHsmClientCertificateStateFault,
   InvalidHsmConfigurationStateFault,
+  InvalidNamespaceFault,
   InvalidReservedNodeStateFault,
   InvalidRetentionPeriodFault,
   InvalidScheduleFault,
@@ -566,18 +597,11 @@ import {
   InvalidUsageLimitFault,
   InvalidVPCNetworkStateFault,
   LimitExceededFault,
-  LoggingStatus,
   MaintenanceTrack,
   NetworkInterface,
-  NodeConfigurationOption,
-  NodeConfigurationOptionsFilter,
-  NodeConfigurationOptionsMessage,
   NumberOfNodesPerClusterLimitExceededFault,
   NumberOfNodesQuotaExceededFault,
-  OrderableClusterOption,
-  OrderableClusterOptionsMessage,
   Parameter,
-  PartnerIntegrationInfo,
   PartnerIntegrationInputMessage,
   PartnerIntegrationOutputMessage,
   PartnerNotFoundFault,
@@ -642,6 +666,11 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DescribeNodeConfigurationOptionsMessage,
+  DescribeOrderableClusterOptionsMessage,
+  DescribePartnersInputMessage,
+  DescribePartnersOutputMessage,
+  DescribeReservedNodeOfferingsMessage,
   DescribeReservedNodesMessage,
   DescribeResizeMessage,
   DescribeScheduledActionsMessage,
@@ -654,6 +683,7 @@ import {
   DisableLoggingMessage,
   DisableSnapshotCopyMessage,
   DisableSnapshotCopyResult,
+  DisassociateDataShareConsumerMessage,
   EnableLoggingMessage,
   EnableSnapshotCopyMessage,
   EnableSnapshotCopyResult,
@@ -668,6 +698,7 @@ import {
   InvalidS3BucketNameFault,
   InvalidS3KeyPrefixFault,
   InvalidTableRestoreArgumentFault,
+  LoggingStatus,
   ModifyAquaInputMessage,
   ModifyAquaOutputMessage,
   ModifyAuthenticationProfileMessage,
@@ -694,11 +725,18 @@ import {
   ModifySnapshotCopyRetentionPeriodResult,
   ModifySnapshotScheduleMessage,
   ModifyUsageLimitMessage,
+  NodeConfigurationOption,
+  NodeConfigurationOptionsFilter,
+  NodeConfigurationOptionsMessage,
+  OrderableClusterOption,
+  OrderableClusterOptionsMessage,
+  PartnerIntegrationInfo,
   PauseClusterResult,
   PurchaseReservedNodeOfferingMessage,
   PurchaseReservedNodeOfferingResult,
   RebootClusterMessage,
   RebootClusterResult,
+  RejectDataShareMessage,
   ReservedNodeOffering,
   ReservedNodeOfferingsMessage,
   ReservedNodeQuotaExceededFault,
@@ -787,6 +825,22 @@ export const serializeAws_queryAddPartnerCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryAssociateDataShareConsumerCommand = async (
+  input: AssociateDataShareConsumerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryAssociateDataShareConsumerMessage(input, context),
+    Action: "AssociateDataShareConsumer",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryAuthorizeClusterSecurityGroupIngressCommand = async (
   input: AuthorizeClusterSecurityGroupIngressCommandInput,
   context: __SerdeContext
@@ -798,6 +852,22 @@ export const serializeAws_queryAuthorizeClusterSecurityGroupIngressCommand = asy
   body = buildFormUrlencodedString({
     ...serializeAws_queryAuthorizeClusterSecurityGroupIngressMessage(input, context),
     Action: "AuthorizeClusterSecurityGroupIngress",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryAuthorizeDataShareCommand = async (
+  input: AuthorizeDataShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryAuthorizeDataShareMessage(input, context),
+    Action: "AuthorizeDataShare",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1134,6 +1204,22 @@ export const serializeAws_queryCreateUsageLimitCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateUsageLimitMessage(input, context),
     Action: "CreateUsageLimit",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeauthorizeDataShareCommand = async (
+  input: DeauthorizeDataShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeauthorizeDataShareMessage(input, context),
+    Action: "DeauthorizeDataShare",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1571,6 +1657,54 @@ export const serializeAws_queryDescribeClusterVersionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeDataSharesCommand = async (
+  input: DescribeDataSharesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeDataSharesMessage(input, context),
+    Action: "DescribeDataShares",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeDataSharesForConsumerCommand = async (
+  input: DescribeDataSharesForConsumerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeDataSharesForConsumerMessage(input, context),
+    Action: "DescribeDataSharesForConsumer",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeDataSharesForProducerCommand = async (
+  input: DescribeDataSharesForProducerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeDataSharesForProducerMessage(input, context),
+    Action: "DescribeDataSharesForProducer",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDescribeDefaultClusterParametersCommand = async (
   input: DescribeDefaultClusterParametersCommandInput,
   context: __SerdeContext
@@ -1953,6 +2087,22 @@ export const serializeAws_queryDisableSnapshotCopyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDisassociateDataShareConsumerCommand = async (
+  input: DisassociateDataShareConsumerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDisassociateDataShareConsumerMessage(input, context),
+    Action: "DisassociateDataShareConsumer",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryEnableLoggingCommand = async (
   input: EnableLoggingCommandInput,
   context: __SerdeContext
@@ -2321,6 +2471,22 @@ export const serializeAws_queryRebootClusterCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryRejectDataShareCommand = async (
+  input: RejectDataShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryRejectDataShareMessage(input, context),
+    Action: "RejectDataShare",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryResetClusterParameterGroupCommand = async (
   input: ResetClusterParameterGroupCommandInput,
   context: __SerdeContext
@@ -2656,6 +2822,68 @@ const deserializeAws_queryAddPartnerCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryAssociateDataShareConsumerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateDataShareConsumerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryAssociateDataShareConsumerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDataShare(data.AssociateDataShareConsumerResult, context);
+  const response: AssociateDataShareConsumerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryAssociateDataShareConsumerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateDataShareConsumerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidDataShareFault":
+    case "com.amazonaws.redshift#InvalidDataShareFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDataShareFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNamespaceFault":
+    case "com.amazonaws.redshift#InvalidNamespaceFault":
+      response = {
+        ...(await deserializeAws_queryInvalidNamespaceFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2716,6 +2944,60 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError = asy
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryAuthorizeDataShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AuthorizeDataShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryAuthorizeDataShareCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDataShare(data.AuthorizeDataShareResult, context);
+  const response: AuthorizeDataShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryAuthorizeDataShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AuthorizeDataShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidDataShareFault":
+    case "com.amazonaws.redshift#InvalidDataShareFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDataShareFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4746,6 +5028,60 @@ const deserializeAws_queryCreateUsageLimitCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDeauthorizeDataShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeauthorizeDataShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeauthorizeDataShareCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDataShare(data.DeauthorizeDataShareResult, context);
+  const response: DeauthorizeDataShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeauthorizeDataShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeauthorizeDataShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidDataShareFault":
+    case "com.amazonaws.redshift#InvalidDataShareFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDataShareFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDeleteAuthenticationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6422,6 +6758,168 @@ const deserializeAws_queryDescribeClusterVersionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDescribeDataSharesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSharesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeDataSharesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeDataSharesResult(data.DescribeDataSharesResult, context);
+  const response: DescribeDataSharesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeDataSharesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSharesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidDataShareFault":
+    case "com.amazonaws.redshift#InvalidDataShareFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDataShareFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeDataSharesForConsumerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSharesForConsumerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeDataSharesForConsumerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeDataSharesForConsumerResult(data.DescribeDataSharesForConsumerResult, context);
+  const response: DescribeDataSharesForConsumerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeDataSharesForConsumerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSharesForConsumerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNamespaceFault":
+    case "com.amazonaws.redshift#InvalidNamespaceFault":
+      response = {
+        ...(await deserializeAws_queryInvalidNamespaceFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeDataSharesForProducerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSharesForProducerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeDataSharesForProducerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeDataSharesForProducerResult(data.DescribeDataSharesForProducerResult, context);
+  const response: DescribeDataSharesForProducerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeDataSharesForProducerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSharesForProducerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNamespaceFault":
+    case "com.amazonaws.redshift#InvalidNamespaceFault":
+      response = {
+        ...(await deserializeAws_queryInvalidNamespaceFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDescribeDefaultClusterParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7836,6 +8334,68 @@ const deserializeAws_queryDisableSnapshotCopyCommandError = async (
     case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDisassociateDataShareConsumerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateDataShareConsumerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDisassociateDataShareConsumerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDataShare(data.DisassociateDataShareConsumerResult, context);
+  const response: DisassociateDataShareConsumerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDisassociateDataShareConsumerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateDataShareConsumerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidDataShareFault":
+    case "com.amazonaws.redshift#InvalidDataShareFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDataShareFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNamespaceFault":
+    case "com.amazonaws.redshift#InvalidNamespaceFault":
+      response = {
+        ...(await deserializeAws_queryInvalidNamespaceFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9798,6 +10358,60 @@ const deserializeAws_queryRebootClusterCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryRejectDataShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectDataShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryRejectDataShareCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDataShare(data.RejectDataShareResult, context);
+  const response: RejectDataShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryRejectDataShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectDataShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidDataShareFault":
+    case "com.amazonaws.redshift#InvalidDataShareFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDataShareFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryResetClusterParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11669,6 +12283,21 @@ const deserializeAws_queryInvalidClusterTrackFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryInvalidDataShareFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidDataShareFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidDataShareFault(body.Error, context);
+  const contents: InvalidDataShareFault = {
+    name: "InvalidDataShareFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryInvalidElasticIpFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11722,6 +12351,21 @@ const deserializeAws_queryInvalidHsmConfigurationStateFaultResponse = async (
   const deserialized: any = deserializeAws_queryInvalidHsmConfigurationStateFault(body.Error, context);
   const contents: InvalidHsmConfigurationStateFault = {
     name: "InvalidHsmConfigurationStateFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidNamespaceFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidNamespaceFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidNamespaceFault(body.Error, context);
+  const contents: InvalidNamespaceFault = {
+    name: "InvalidNamespaceFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -12643,6 +13287,23 @@ const serializeAws_queryAcceptReservedNodeExchangeInputMessage = (
   return entries;
 };
 
+const serializeAws_queryAssociateDataShareConsumerMessage = (
+  input: AssociateDataShareConsumerMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DataShareArn !== undefined && input.DataShareArn !== null) {
+    entries["DataShareArn"] = input.DataShareArn;
+  }
+  if (input.AssociateEntireAccount !== undefined && input.AssociateEntireAccount !== null) {
+    entries["AssociateEntireAccount"] = input.AssociateEntireAccount;
+  }
+  if (input.ConsumerArn !== undefined && input.ConsumerArn !== null) {
+    entries["ConsumerArn"] = input.ConsumerArn;
+  }
+  return entries;
+};
+
 const serializeAws_queryAttributeNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -12672,6 +13333,20 @@ const serializeAws_queryAuthorizeClusterSecurityGroupIngressMessage = (
   }
   if (input.EC2SecurityGroupOwnerId !== undefined && input.EC2SecurityGroupOwnerId !== null) {
     entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
+  }
+  return entries;
+};
+
+const serializeAws_queryAuthorizeDataShareMessage = (
+  input: AuthorizeDataShareMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DataShareArn !== undefined && input.DataShareArn !== null) {
+    entries["DataShareArn"] = input.DataShareArn;
+  }
+  if (input.ConsumerIdentifier !== undefined && input.ConsumerIdentifier !== null) {
+    entries["ConsumerIdentifier"] = input.ConsumerIdentifier;
   }
   return entries;
 };
@@ -13290,6 +13965,20 @@ const serializeAws_queryDbGroupList = (input: string[], context: __SerdeContext)
   return entries;
 };
 
+const serializeAws_queryDeauthorizeDataShareMessage = (
+  input: DeauthorizeDataShareMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DataShareArn !== undefined && input.DataShareArn !== null) {
+    entries["DataShareArn"] = input.DataShareArn;
+  }
+  if (input.ConsumerIdentifier !== undefined && input.ConsumerIdentifier !== null) {
+    entries["ConsumerIdentifier"] = input.ConsumerIdentifier;
+  }
+  return entries;
+};
+
 const serializeAws_queryDeleteAuthenticationProfileMessage = (
   input: DeleteAuthenticationProfileMessage,
   context: __SerdeContext
@@ -13751,6 +14440,63 @@ const serializeAws_queryDescribeClusterVersionsMessage = (
   }
   if (input.ClusterParameterGroupFamily !== undefined && input.ClusterParameterGroupFamily !== null) {
     entries["ClusterParameterGroupFamily"] = input.ClusterParameterGroupFamily;
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeDataSharesForConsumerMessage = (
+  input: DescribeDataSharesForConsumerMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ConsumerArn !== undefined && input.ConsumerArn !== null) {
+    entries["ConsumerArn"] = input.ConsumerArn;
+  }
+  if (input.Status !== undefined && input.Status !== null) {
+    entries["Status"] = input.Status;
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeDataSharesForProducerMessage = (
+  input: DescribeDataSharesForProducerMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ProducerArn !== undefined && input.ProducerArn !== null) {
+    entries["ProducerArn"] = input.ProducerArn;
+  }
+  if (input.Status !== undefined && input.Status !== null) {
+    entries["Status"] = input.Status;
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeDataSharesMessage = (
+  input: DescribeDataSharesMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DataShareArn !== undefined && input.DataShareArn !== null) {
+    entries["DataShareArn"] = input.DataShareArn;
   }
   if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
@@ -14287,6 +15033,23 @@ const serializeAws_queryDisableSnapshotCopyMessage = (
   const entries: any = {};
   if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  return entries;
+};
+
+const serializeAws_queryDisassociateDataShareConsumerMessage = (
+  input: DisassociateDataShareConsumerMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DataShareArn !== undefined && input.DataShareArn !== null) {
+    entries["DataShareArn"] = input.DataShareArn;
+  }
+  if (input.DisassociateEntireAccount !== undefined && input.DisassociateEntireAccount !== null) {
+    entries["DisassociateEntireAccount"] = input.DisassociateEntireAccount;
+  }
+  if (input.ConsumerArn !== undefined && input.ConsumerArn !== null) {
+    entries["ConsumerArn"] = input.ConsumerArn;
   }
   return entries;
 };
@@ -14926,6 +15689,14 @@ const serializeAws_queryRebootClusterMessage = (input: RebootClusterMessage, con
   const entries: any = {};
   if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
     entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  return entries;
+};
+
+const serializeAws_queryRejectDataShareMessage = (input: RejectDataShareMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DataShareArn !== undefined && input.DataShareArn !== null) {
+    entries["DataShareArn"] = input.DataShareArn;
   }
   return entries;
 };
@@ -17149,6 +17920,78 @@ const deserializeAws_queryCustomerStorageMessage = (output: any, context: __Serd
   return contents;
 };
 
+const deserializeAws_queryDataShare = (output: any, context: __SerdeContext): DataShare => {
+  let contents: any = {
+    DataShareArn: undefined,
+    ProducerArn: undefined,
+    AllowPubliclyAccessibleConsumers: undefined,
+    DataShareAssociations: undefined,
+  };
+  if (output["DataShareArn"] !== undefined) {
+    contents.DataShareArn = __expectString(output["DataShareArn"]);
+  }
+  if (output["ProducerArn"] !== undefined) {
+    contents.ProducerArn = __expectString(output["ProducerArn"]);
+  }
+  if (output["AllowPubliclyAccessibleConsumers"] !== undefined) {
+    contents.AllowPubliclyAccessibleConsumers = __parseBoolean(output["AllowPubliclyAccessibleConsumers"]);
+  }
+  if (output.DataShareAssociations === "") {
+    contents.DataShareAssociations = [];
+  }
+  if (output["DataShareAssociations"] !== undefined && output["DataShareAssociations"]["member"] !== undefined) {
+    contents.DataShareAssociations = deserializeAws_queryDataShareAssociationList(
+      __getArrayIfSingleItem(output["DataShareAssociations"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryDataShareAssociation = (output: any, context: __SerdeContext): DataShareAssociation => {
+  let contents: any = {
+    ConsumerIdentifier: undefined,
+    Status: undefined,
+    CreatedDate: undefined,
+    StatusChangeDate: undefined,
+  };
+  if (output["ConsumerIdentifier"] !== undefined) {
+    contents.ConsumerIdentifier = __expectString(output["ConsumerIdentifier"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["CreatedDate"] !== undefined) {
+    contents.CreatedDate = new Date(output["CreatedDate"]);
+  }
+  if (output["StatusChangeDate"] !== undefined) {
+    contents.StatusChangeDate = new Date(output["StatusChangeDate"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryDataShareAssociationList = (output: any, context: __SerdeContext): DataShareAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryDataShareAssociation(entry, context);
+    });
+};
+
+const deserializeAws_queryDataShareList = (output: any, context: __SerdeContext): DataShare[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryDataShare(entry, context);
+    });
+};
+
 const deserializeAws_queryDataTransferProgress = (output: any, context: __SerdeContext): DataTransferProgress => {
   let contents: any = {
     Status: undefined,
@@ -17318,6 +18161,75 @@ const deserializeAws_queryDescribeAuthenticationProfilesResult = (
       __getArrayIfSingleItem(output["AuthenticationProfiles"]["member"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryDescribeDataSharesForConsumerResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeDataSharesForConsumerResult => {
+  let contents: any = {
+    DataShares: undefined,
+    Marker: undefined,
+  };
+  if (output.DataShares === "") {
+    contents.DataShares = [];
+  }
+  if (output["DataShares"] !== undefined && output["DataShares"]["member"] !== undefined) {
+    contents.DataShares = deserializeAws_queryDataShareList(
+      __getArrayIfSingleItem(output["DataShares"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryDescribeDataSharesForProducerResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeDataSharesForProducerResult => {
+  let contents: any = {
+    DataShares: undefined,
+    Marker: undefined,
+  };
+  if (output.DataShares === "") {
+    contents.DataShares = [];
+  }
+  if (output["DataShares"] !== undefined && output["DataShares"]["member"] !== undefined) {
+    contents.DataShares = deserializeAws_queryDataShareList(
+      __getArrayIfSingleItem(output["DataShares"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryDescribeDataSharesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeDataSharesResult => {
+  let contents: any = {
+    DataShares: undefined,
+    Marker: undefined,
+  };
+  if (output.DataShares === "") {
+    contents.DataShares = [];
+  }
+  if (output["DataShares"] !== undefined && output["DataShares"]["member"] !== undefined) {
+    contents.DataShares = deserializeAws_queryDataShareList(
+      __getArrayIfSingleItem(output["DataShares"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
   }
   return contents;
 };
@@ -18488,6 +19400,16 @@ const deserializeAws_queryInvalidClusterTrackFault = (
   return contents;
 };
 
+const deserializeAws_queryInvalidDataShareFault = (output: any, context: __SerdeContext): InvalidDataShareFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryInvalidElasticIpFault = (output: any, context: __SerdeContext): InvalidElasticIpFault => {
   let contents: any = {
     message: undefined,
@@ -18528,6 +19450,16 @@ const deserializeAws_queryInvalidHsmConfigurationStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidHsmConfigurationStateFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidNamespaceFault = (output: any, context: __SerdeContext): InvalidNamespaceFault => {
   let contents: any = {
     message: undefined,
   };

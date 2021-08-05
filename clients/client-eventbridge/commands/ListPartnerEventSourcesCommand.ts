@@ -22,7 +22,7 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
 
 /**
  * <p>An SaaS partner can use this operation to list all the partner event source names that
- *       they have created. This operation is not used by AWS customers.</p>
+ *       they have created. This operation is not used by Amazon Web Services customers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

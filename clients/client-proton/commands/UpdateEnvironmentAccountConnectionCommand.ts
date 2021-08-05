@@ -24,8 +24,8 @@ export interface UpdateEnvironmentAccountConnectionCommandOutput
 
 /**
  * <p>In an environment account, update an environment account connection to use a new IAM role.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
- *             in the <i>AWS Proton Administrator guide</i>.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
+ *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

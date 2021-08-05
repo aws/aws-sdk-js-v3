@@ -21,7 +21,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the list of tags for an AWS IoT Greengrass resource.</p>
+ * <p>Retrieves the list of tags for an IoT Greengrass resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

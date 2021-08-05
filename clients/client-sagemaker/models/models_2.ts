@@ -2518,6 +2518,30 @@ export namespace LabelingJobSummary {
   });
 }
 
+/**
+ * <p>Metadata for a Lambda step.</p>
+ */
+export interface LambdaStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of the output parameters of the Lambda step.</p>
+   */
+  OutputParameters?: OutputParameter[];
+}
+
+export namespace LambdaStepMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LambdaStepMetadata): any => ({
+    ...obj,
+  });
+}
+
 export enum SortActionsBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
@@ -6253,24 +6277,31 @@ export interface PipelineExecutionStepMetadata {
   TuningJob?: TuningJobStepMetaData;
 
   /**
-   * <p>Metadata for the Model step.</p>
+   * <p>The Amazon Resource Name (ARN) of the model that was created by this step execution.</p>
    */
   Model?: ModelStepMetadata;
 
   /**
-   * <p>Metadata for the RegisterModel step.</p>
+   * <p>The Amazon Resource Name (ARN) of the model package the model was registered to by this step execution.</p>
    */
   RegisterModel?: RegisterModelStepMetadata;
 
   /**
-   * <p>If this is a Condition step metadata object, details on the condition.</p>
+   * <p>The outcome of the condition evaluation that was run by this step execution.</p>
    */
   Condition?: ConditionStepMetadata;
 
   /**
-   * <p>Metadata about a callback step.</p>
+   * <p>The URL of the Amazon SQS queue used by this step execution, the pipeline generated token,
+   *         and a list of output parameters.</p>
    */
   Callback?: CallbackStepMetadata;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution and a list of
+   *         output parameters.</p>
+   */
+  Lambda?: LambdaStepMetadata;
 }
 
 export namespace PipelineExecutionStepMetadata {
@@ -10518,22 +10549,6 @@ export namespace UpdateImageRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateImageRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateImageResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
-   */
-  ImageArn?: string;
-}
-
-export namespace UpdateImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateImageResponse): any => ({
     ...obj,
   });
 }

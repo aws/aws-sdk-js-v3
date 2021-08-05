@@ -46,7 +46,7 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  *                <p>To retrieve the encrypted secret information in a version of the secret, use <a>GetSecretValue</a>.</p>
  *             </li>
  *             <li>
- *                <p>To list all of the secrets in the AWS account, use <a>ListSecrets</a>.</p>
+ *                <p>To list all of the secrets in the Amazon Web Services account, use <a>ListSecrets</a>.</p>
  *             </li>
  *          </ul>
  * @example

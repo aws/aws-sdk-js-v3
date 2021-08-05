@@ -26,7 +26,7 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  *       label to only one version of a secret at a time. If a staging label to be added is already
  *       attached to another version, then it is moved--removed from the other version first and
  *       then attached to this one. For more information about staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
- *         Labels</a> in the <i>AWS Secrets Manager User Guide</i>. </p>
+ *         Labels</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>. </p>
  *          <p>The staging labels that you specify in the <code>VersionStage</code> parameter are added
  *       to the existing list of staging labels--they don't replace it.</p>
  *          <p>You can move the <code>AWSCURRENT</code> staging label to this version by including it in this

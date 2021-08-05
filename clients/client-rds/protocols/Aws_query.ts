@@ -20802,6 +20802,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     DBClusterParameterGroup: undefined,
     DBSubnetGroup: undefined,
     Status: undefined,
+    AutomaticRestartTime: undefined,
     PercentProgress: undefined,
     EarliestRestorableTime: undefined,
     Endpoint: undefined,
@@ -20882,6 +20883,9 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
+  }
+  if (output["AutomaticRestartTime"] !== undefined) {
+    contents.AutomaticRestartTime = new Date(output["AutomaticRestartTime"]);
   }
   if (output["PercentProgress"] !== undefined) {
     contents.PercentProgress = __expectString(output["PercentProgress"]);
@@ -22035,6 +22039,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     DBInstanceClass: undefined,
     Engine: undefined,
     DBInstanceStatus: undefined,
+    AutomaticRestartTime: undefined,
     MasterUsername: undefined,
     DBName: undefined,
     Endpoint: undefined,
@@ -22112,6 +22117,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["DBInstanceStatus"] !== undefined) {
     contents.DBInstanceStatus = __expectString(output["DBInstanceStatus"]);
+  }
+  if (output["AutomaticRestartTime"] !== undefined) {
+    contents.AutomaticRestartTime = new Date(output["AutomaticRestartTime"]);
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);

@@ -21,7 +21,7 @@ export interface ListEffectiveDeploymentsCommandInput extends ListEffectiveDeplo
 export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDeploymentsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of deployment jobs that AWS IoT Greengrass sends to AWS IoT Greengrass core
+ * <p>Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass core
  *       devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
