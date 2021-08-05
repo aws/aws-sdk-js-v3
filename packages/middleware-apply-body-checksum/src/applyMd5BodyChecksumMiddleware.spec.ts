@@ -23,7 +23,7 @@ describe("applyMd5BodyChecksumMiddleware", () => {
   });
 
   for (const body of ["body", new ArrayBuffer(10), new Uint8Array(10), void 0]) {
-    it("should calculate the body hash, encode the result, and set the encoded hash to Content-MD5 header", async () => {
+    it("should calculate the body hash, encode the result, and set the encoded hash to content-md5 header", async () => {
       const handler = applyMd5BodyChecksumMiddleware({
         md5: MockHash,
         base64Encoder: mockEncoder,
@@ -40,7 +40,7 @@ describe("applyMd5BodyChecksumMiddleware", () => {
 
       expect(next.mock.calls.length).toBe(1);
       const { request } = next.mock.calls[0][0];
-      expect(request.headers["Content-MD5"]).toBe("encoded");
+      expect(request.headers["content-md5"]).toBe("encoded");
       expect(mockHashUpdate.mock.calls).toEqual([[body || ""]]);
     });
 
@@ -65,7 +65,7 @@ describe("applyMd5BodyChecksumMiddleware", () => {
       expect(next.mock.calls.length).toBe(1);
       const { request } = next.mock.calls[0][0];
       expect(request.headers["CoNtEnT-Md5"]).toBe("foo");
-      expect(request.headers["Content-MD5"]).toBe(undefined);
+      expect(request.headers["content-md5"]).toBe(undefined);
       expect(mockHashUpdate.mock.calls.length).toBe(0);
       expect(mockHashDigest.mock.calls.length).toBe(0);
       expect(mockEncoder.mock.calls.length).toBe(0);
@@ -90,7 +90,7 @@ describe("applyMd5BodyChecksumMiddleware", () => {
     expect(next.mock.calls.length).toBe(1);
     const { request } = next.mock.calls[0][0];
     expect(request.body).toStrictEqual(new ExoticStream());
-    expect(request.headers["Content-MD5"]).toBe("encoded");
+    expect(request.headers["content-md5"]).toBe("encoded");
     expect(mockHashDigest.mock.calls.length).toBe(0);
     expect(mockEncoder.mock.calls.length).toBe(1);
     expect(mockEncoder.mock.calls).toEqual([[new Uint8Array(5)]]);
