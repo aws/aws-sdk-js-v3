@@ -41,6 +41,7 @@ describe("chunkFromReadable.name", () => {
     expect(chunks.length).toBe(1);
     expect(byteLength(chunks[0].data)).toEqual(68);
     expect(chunks[0].partNumber).toEqual(1);
+    expect(chunks[0].lastPart).toBe(true);
 
     done();
   });
@@ -51,12 +52,15 @@ describe("chunkFromReadable.name", () => {
     expect(chunks.length).toBe(3);
     expect(byteLength(chunks[0].data)).toEqual(20);
     expect(chunks[0].partNumber).toEqual(1);
+    expect(chunks[0].lastPart).toBe(undefined);
 
     expect(byteLength(chunks[1].data)).toEqual(20);
     expect(chunks[1].partNumber).toEqual(2);
+    expect(chunks[1].lastPart).toBe(undefined);
 
     expect(byteLength(chunks[2].data)).toEqual(18);
     expect(chunks[2].partNumber).toEqual(3);
+    expect(chunks[2].lastPart).toBe(true);
     done();
   });
 
@@ -66,8 +70,10 @@ describe("chunkFromReadable.name", () => {
     expect(chunks.length).toEqual(11);
     for (let index = 0; index < 10; index++) {
       expect(byteLength(chunks[index].data)).toEqual(_6MB);
+      expect(chunks[index].lastPart).toBe(undefined);
     }
     expect(byteLength(chunks[10].data)).toEqual(_6MB / 2);
+    expect(chunks[10].lastPart).toBe(true);
     done();
   });
 });
