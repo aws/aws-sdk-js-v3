@@ -25,7 +25,12 @@ function writeBody(
     if (Buffer.isBuffer(body) || typeof body === "string") {
       httpRequest.end(body);
     } else {
-      httpRequest.end(Buffer.from(body));
+      // buffer.from copies TypedArrays but can reuse ArrayBuffers
+      if (body instanceof Uint8Array) {
+        httpRequest.end(Buffer.from(body.buffer, body.byteOffset, body.byteLength));
+      } else {
+        httpRequest.end(Buffer.from(body));
+      }
     }
   } else {
     httpRequest.end();

@@ -10,9 +10,11 @@ import { NodeHttpHandler } from "./node-http-handler";
 import { ReadFromBuffers } from "./readable.mock";
 import {
   createContinueResponseFunction,
+  createMirrorResponseFunction,
   createMockHttpServer,
   createMockHttpsServer,
   createResponseFunction,
+  getResponseBody,
 } from "./server.mock";
 
 describe("NodeHttpHandler", () => {
@@ -131,36 +133,39 @@ describe("NodeHttpHandler", () => {
       expect(response.body).toBeDefined();
     });
 
-    it("can send requests with bodies", async () => {
-      const body = Buffer.from("test");
-      const mockResponse = {
-        statusCode: 200,
-        headers: {},
-      };
-      mockHttpServer.addListener("request", createResponseFunction(mockResponse));
-      const spy = jest.spyOn(http, "request").mockImplementationOnce(() => {
-        const calls = spy.mock.calls;
-        const currentIndex = calls.length - 1;
-        return http.request(calls[currentIndex][0], calls[currentIndex][1]);
-      });
-
-      const nodeHttpHandler = new NodeHttpHandler();
-      const { response } = await nodeHttpHandler.handle(
-        new HttpRequest({
-          hostname: "localhost",
-          method: "PUT",
-          port: (mockHttpServer.address() as AddressInfo).port,
-          protocol: "http:",
-          path: "/",
+    [
+      { name: "buffer", body: Buffer.from("Buffering🚀") },
+      { name: "uint8Array", body: Uint8Array.from(Buffer.from("uint8Array 🚀")) },
+      { name: "string", body: Buffer.from("string-test 🚀") },
+      { name: "uint8Array subarray", body: Uint8Array.from(Buffer.from("test")).subarray(1, 3) },
+      { name: "buffer subarray", body: Buffer.from("test").subarray(1, 3) },
+    ].forEach(({ body, name }) => {
+      it(`can send requests with bodies ${name}`, async () => {
+        const mockResponse = {
+          statusCode: 200,
           headers: {},
-          body,
-        }),
-        {}
-      );
+        };
+        mockHttpServer.addListener("request", createMirrorResponseFunction(mockResponse));
+        const nodeHttpHandler = new NodeHttpHandler();
+        const { response } = await nodeHttpHandler.handle(
+          new HttpRequest({
+            hostname: "localhost",
+            method: "PUT",
+            port: (mockHttpServer.address() as AddressInfo).port,
+            protocol: "http:",
+            path: "/",
+            headers: {},
+            body,
+          }),
+          {}
+        );
 
-      expect(response.statusCode).toEqual(mockResponse.statusCode);
-      expect(response.headers).toBeDefined();
-      expect(response.headers).toMatchObject(mockResponse.headers);
+        expect(response.statusCode).toEqual(mockResponse.statusCode);
+        expect(response.headers).toBeDefined();
+        expect(response.headers).toMatchObject(mockResponse.headers);
+        const responseBody = await getResponseBody(response);
+        expect(responseBody).toEqual(Buffer.from(body).toString());
+      });
     });
 
     it("can handle expect 100-continue", async () => {

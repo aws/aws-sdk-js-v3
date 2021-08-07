@@ -1,39 +1,39 @@
 const sendMock = jest.fn().mockImplementation((x) => x);
 const createMultipartMock = jest.fn().mockResolvedValue({
-  UploadId: "mockuploadId",
+    UploadId: "mockuploadId",
 });
 const uploadPartMock = jest
-  .fn()
-  .mockResolvedValueOnce({
-    ETag: "mock-upload-Etag",
-  })
-  .mockResolvedValueOnce({
-    ETag: "mock-upload-Etag-2",
-  });
+    .fn()
+    .mockResolvedValueOnce({
+        ETag: "mock-upload-Etag",
+    })
+    .mockResolvedValueOnce({
+        ETag: "mock-upload-Etag-2",
+    });
 const putObjectMock = jest.fn().mockResolvedValue({
-  ETag: "mockEtag",
+    ETag: "mockEtag",
 });
 const completeMultipartMock = jest.fn().mockResolvedValue({
-  Success: "This actually works!",
+    Success: "This actually works!",
 });
 
 const putObjectTaggingMock = jest.fn().mockResolvedValue({
-  Success: "Tags have been applied!",
+    Success: "Tags have been applied!",
 });
 
 jest.mock("@aws-sdk/client-s3", () => ({
-  ...(jest.requireActual("@aws-sdk/client-s3") as {}),
-  S3: jest.fn().mockReturnValue({
-    send: sendMock,
-  }),
-  S3Client: jest.fn().mockReturnValue({
-    send: sendMock,
-  }),
-  CreateMultipartUploadCommand: createMultipartMock,
-  UploadPartCommand: uploadPartMock,
-  CompleteMultipartUploadCommand: completeMultipartMock,
-  PutObjectTaggingCommand: putObjectTaggingMock,
-  PutObjectCommand: putObjectMock,
+    ...(jest.requireActual("@aws-sdk/client-s3") as {}),
+    S3: jest.fn().mockReturnValue({
+        send: sendMock,
+    }),
+    S3Client: jest.fn().mockReturnValue({
+        send: sendMock,
+    }),
+    CreateMultipartUploadCommand: createMultipartMock,
+    UploadPartCommand: uploadPartMock,
+    CompleteMultipartUploadCommand: completeMultipartMock,
+    PutObjectTaggingCommand: putObjectTaggingMock,
+    PutObjectCommand: putObjectMock,
 }));
 
 import { S3 } from "@aws-sdk/client-s3";
@@ -44,499 +44,527 @@ import { Progress, Upload } from "./index";
 const DEFAULT_PART_SIZE = 1024 * 1024 * 5;
 
 describe(Upload.name, () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-    uploadPartMock
-      .mockReset()
-      .mockResolvedValueOnce({
-        ETag: "mock-upload-Etag",
-      })
-      .mockResolvedValueOnce({
-        ETag: "mock-upload-Etag-2",
-      });
-  });
-
-  const params = {
-    Key: "example-key",
-    Bucket: "example-bucket",
-    Body: "this-is-a-sample-payload",
-  };
-
-  it("correctly exposes the event emitter API", () => {
-    const upload = new Upload({
-      params,
-      client: new S3({}),
-    });
-    expect(upload.addListener).toBeDefined();
-    expect(upload.getMaxListeners).toBeDefined();
-    expect(upload.eventNames).toBeDefined();
-    expect(upload.off).toBeDefined();
-    expect(upload.on).toBeDefined();
-  });
-
-  it("should upload using PUT when empty buffer", async () => {
-    const buffer = Buffer.from("");
-    const actionParams = { ...params, Body: buffer };
-    const upload = new Upload({
-      params: actionParams,
-      client: new S3({}),
+    beforeEach(() => {
+        jest.clearAllMocks();
+        uploadPartMock
+            .mockReset()
+            .mockResolvedValueOnce({
+                ETag: "mock-upload-Etag",
+            })
+            .mockResolvedValueOnce({
+                ETag: "mock-upload-Etag-2",
+            });
     });
 
-    await upload.done();
+    const params = {
+        Key: "example-key",
+        Bucket: "example-bucket",
+        Body: "this-is-a-sample-payload",
+    };
 
-    expect(sendMock).toHaveBeenCalledTimes(1);
-
-    expect(putObjectMock).toHaveBeenCalledTimes(1);
-    expect(putObjectMock).toHaveBeenCalledWith({
-      ...params,
-      Body: Buffer.from(""),
-    });
-    // create multipartMock is not called.
-    expect(createMultipartMock).toHaveBeenCalledTimes(0);
-    // upload parts is not called.
-    expect(uploadPartMock).toHaveBeenCalledTimes(0);
-    // complete multipart upload is not called.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(0);
-    // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-  });
-
-  it("should upload using PUT when empty stream", async () => {
-    const stream = new Readable({});
-    stream.push(null);
-    const actionParams = { ...params, Body: stream };
-    const upload = new Upload({
-      params: actionParams,
-      client: new S3({}),
+    it("correctly exposes the event emitter API", () => {
+        const upload = new Upload({
+            params,
+            client: new S3({}),
+        });
+        expect(upload.addListener).toBeDefined();
+        expect(upload.getMaxListeners).toBeDefined();
+        expect(upload.eventNames).toBeDefined();
+        expect(upload.off).toBeDefined();
+        expect(upload.on).toBeDefined();
     });
 
-    await upload.done();
+    it("should upload using PUT when empty buffer", async () => {
+        const buffer = Buffer.from("");
+        const actionParams = { ...params, Body: buffer };
+        const upload = new Upload({
+            params: actionParams,
+            client: new S3({}),
+        });
 
-    expect(sendMock).toHaveBeenCalledTimes(1);
+        await upload.done();
 
-    expect(putObjectMock).toHaveBeenCalledTimes(1);
-    expect(putObjectMock).toHaveBeenCalledWith({
-      ...params,
-      Body: Buffer.from(""),
-    });
-    // create multipartMock is not called.
-    expect(createMultipartMock).toHaveBeenCalledTimes(0);
-    // upload parts is not called.
-    expect(uploadPartMock).toHaveBeenCalledTimes(0);
-    // complete multipart upload is not called.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(0);
-    // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-  });
+        expect(sendMock).toHaveBeenCalledTimes(1);
 
-  it("should upload using PUT when parts are smaller than one part", async () => {
-    const upload = new Upload({
-      params,
-      client: new S3({}),
-    });
-
-    await upload.done();
-
-    expect(sendMock).toHaveBeenCalledTimes(1);
-
-    expect(putObjectMock).toHaveBeenCalledTimes(1);
-    expect(putObjectMock).toHaveBeenCalledWith({
-      ...params,
-      Body: Buffer.from(params.Body),
-    });
-    // create multipartMock is not called.
-    expect(createMultipartMock).toHaveBeenCalledTimes(0);
-    // upload parts is not called.
-    expect(uploadPartMock).toHaveBeenCalledTimes(0);
-    // complete multipart upload is not called.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(0);
-    // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-  });
-
-  it("should upload using PUT when parts are smaller than one part stream", async () => {
-    const streamBody = Readable.from(
-      (function* () {
-        yield params.Body;
-      })()
-    );
-    const upload = new Upload({
-      params: { ...params, Body: streamBody },
-      client: new S3({}),
+        expect(putObjectMock).toHaveBeenCalledTimes(1);
+        expect(putObjectMock).toHaveBeenCalledWith({
+            ...params,
+            Body: Buffer.from(""),
+        });
+        // create multipartMock is not called.
+        expect(createMultipartMock).toHaveBeenCalledTimes(0);
+        // upload parts is not called.
+        expect(uploadPartMock).toHaveBeenCalledTimes(0);
+        // complete multipart upload is not called.
+        expect(completeMultipartMock).toHaveBeenCalledTimes(0);
+        // no tags were passed.
+        expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
     });
 
-    await upload.done();
+    it("should upload using PUT when empty stream", async () => {
+        const stream = new Readable({});
+        stream.push(null);
+        const actionParams = { ...params, Body: stream };
+        const upload = new Upload({
+            params: actionParams,
+            client: new S3({}),
+        });
 
-    expect(sendMock).toHaveBeenCalledTimes(1);
+        await upload.done();
 
-    expect(putObjectMock).toHaveBeenCalledTimes(1);
-    expect(putObjectMock).toHaveBeenCalledWith({
-      ...params,
-      Body: Buffer.from(params.Body),
-    });
-    // create multipartMock is not called.
-    expect(createMultipartMock).toHaveBeenCalledTimes(0);
-    // upload parts is not called.
-    expect(uploadPartMock).toHaveBeenCalledTimes(0);
-    // complete multipart upload is not called.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(0);
-    // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-  });
+        expect(sendMock).toHaveBeenCalledTimes(1);
 
-  it("should upload using multi-part when parts are larger than part size", async () => {
-    // create a string that's larger than 5MB.
-    const partSize = 1024 * 1024 * 5;
-    const largeBuffer = Buffer.from("#".repeat(partSize + 10));
-    const firstBuffer = largeBuffer.subarray(0, partSize);
-    const secondBuffer = largeBuffer.subarray(partSize);
-    const actionParams = { ...params, Body: largeBuffer };
-    const upload = new Upload({
-      params: actionParams,
-      client: new S3({}),
+        expect(putObjectMock).toHaveBeenCalledTimes(1);
+        expect(putObjectMock).toHaveBeenCalledWith({
+            ...params,
+            Body: Buffer.from(""),
+        });
+        // create multipartMock is not called.
+        expect(createMultipartMock).toHaveBeenCalledTimes(0);
+        // upload parts is not called.
+        expect(uploadPartMock).toHaveBeenCalledTimes(0);
+        // complete multipart upload is not called.
+        expect(completeMultipartMock).toHaveBeenCalledTimes(0);
+        // no tags were passed.
+        expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
     });
 
-    await upload.done();
+    it("should upload using PUT when parts are smaller than one part", async () => {
+        const upload = new Upload({
+            params,
+            client: new S3({}),
+        });
 
-    expect(sendMock).toHaveBeenCalledTimes(4);
-    // create multipartMock is called correctly.
-    expect(createMultipartMock).toHaveBeenCalledTimes(1);
-    expect(createMultipartMock).toHaveBeenCalledWith({
-      ...actionParams,
-      Body: undefined,
+        await upload.done();
+
+        expect(sendMock).toHaveBeenCalledTimes(1);
+
+        expect(putObjectMock).toHaveBeenCalledTimes(1);
+        expect(putObjectMock).toHaveBeenCalledWith({
+            ...params,
+            Body: Buffer.from(params.Body),
+        });
+        // create multipartMock is not called.
+        expect(createMultipartMock).toHaveBeenCalledTimes(0);
+        // upload parts is not called.
+        expect(uploadPartMock).toHaveBeenCalledTimes(0);
+        // complete multipart upload is not called.
+        expect(completeMultipartMock).toHaveBeenCalledTimes(0);
+        // no tags were passed.
+        expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
     });
 
-    // upload parts is called correctly.
-    expect(uploadPartMock).toHaveBeenCalledTimes(2);
-    expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
-      ...actionParams,
-      Body: firstBuffer,
-      PartNumber: 1,
-      UploadId: "mockuploadId",
+    it("should upload using PUT when parts are smaller than one part stream", async () => {
+        const streamBody = Readable.from(
+            (function* () {
+                yield params.Body;
+            })()
+        );
+        const upload = new Upload({
+            params: { ...params, Body: streamBody },
+            client: new S3({}),
+        });
+
+        await upload.done();
+
+        expect(sendMock).toHaveBeenCalledTimes(1);
+
+        expect(putObjectMock).toHaveBeenCalledTimes(1);
+        expect(putObjectMock).toHaveBeenCalledWith({
+            ...params,
+            Body: Buffer.from(params.Body),
+        });
+        // create multipartMock is not called.
+        expect(createMultipartMock).toHaveBeenCalledTimes(0);
+        // upload parts is not called.
+        expect(uploadPartMock).toHaveBeenCalledTimes(0);
+        // complete multipart upload is not called.
+        expect(completeMultipartMock).toHaveBeenCalledTimes(0);
+        // no tags were passed.
+        expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
     });
 
-    expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
-      ...actionParams,
-      Body: secondBuffer,
-      PartNumber: 2,
-      UploadId: "mockuploadId",
+    it("should upload using PUT when parts are smaller than one part Uint8Array", async () => {
+        const buffer = Buffer.from(params.Body);
+        const uint8Array = Uint8Array.from(buffer);
+        const curParams = { ...params, Body: uint8Array };
+        const upload = new Upload({
+            params: curParams,
+            client: new S3({}),
+        });
+
+        await upload.done();
+
+        expect(sendMock).toHaveBeenCalledTimes(1);
+
+        expect(putObjectMock).toHaveBeenCalledTimes(1);
+        expect(putObjectMock).toHaveBeenCalledWith({
+            ...params,
+            Body: uint8Array,
+        });
+        // create multipartMock is not called.
+        expect(createMultipartMock).toHaveBeenCalledTimes(0);
+        // upload parts is not called.
+        expect(uploadPartMock).toHaveBeenCalledTimes(0);
+        // complete multipart upload is not called.
+        expect(completeMultipartMock).toHaveBeenCalledTimes(0);
+        // no tags were passed.
+        expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
     });
 
-    // complete multipart upload is called correctly.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(1);
-    expect(completeMultipartMock).toHaveBeenLastCalledWith({
-      ...actionParams,
-      Body: undefined,
-      UploadId: "mockuploadId",
-      MultipartUpload: {
-        Parts: [
-          {
-            ETag: "mock-upload-Etag",
-            PartNumber: 1,
-          },
-          {
-            ETag: "mock-upload-Etag-2",
-            PartNumber: 2,
-          },
-        ],
-      },
+    [
+        { type: "buffer", largeBuffer: Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10)) },
+        { type: "Uint8array", largeBuffer: Uint8Array.from(Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10))) },
+    ].forEach(({ type, largeBuffer }) => {
+        it(`should upload using multi-part when parts are larger than part size ${type}`, async () => {
+            const firstBuffer = largeBuffer.subarray(0, DEFAULT_PART_SIZE);
+            const secondBuffer = largeBuffer.subarray(DEFAULT_PART_SIZE);
+            const actionParams = { ...params, Body: largeBuffer };
+            const upload = new Upload({
+                params: actionParams,
+                client: new S3({}),
+            });
+
+            await upload.done();
+
+            expect(sendMock).toHaveBeenCalledTimes(4);
+            // create multipartMock is called correctly.
+            expect(createMultipartMock).toHaveBeenCalledTimes(1);
+            expect(createMultipartMock).toHaveBeenCalledWith({
+                ...actionParams,
+                Body: undefined,
+            });
+
+            // upload parts is called correctly.
+            expect(uploadPartMock).toHaveBeenCalledTimes(2);
+            expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
+                ...actionParams,
+                Body: firstBuffer,
+                PartNumber: 1,
+                UploadId: "mockuploadId",
+            });
+
+            expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
+                ...actionParams,
+                Body: secondBuffer,
+                PartNumber: 2,
+                UploadId: "mockuploadId",
+            });
+
+            // complete multipart upload is called correctly.
+            expect(completeMultipartMock).toHaveBeenCalledTimes(1);
+            expect(completeMultipartMock).toHaveBeenLastCalledWith({
+                ...actionParams,
+                Body: undefined,
+                UploadId: "mockuploadId",
+                MultipartUpload: {
+                    Parts: [
+                        {
+                            ETag: "mock-upload-Etag",
+                            PartNumber: 1,
+                        },
+                        {
+                            ETag: "mock-upload-Etag-2",
+                            PartNumber: 2,
+                        },
+                    ],
+                },
+            });
+
+            // no tags were passed.
+            expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
+            // put was not called
+            expect(putObjectMock).toHaveBeenCalledTimes(0);
+        });
+
+        it(`should upload using multi-part when parts are larger than part size stream ${type}`, async () => {
+            const firstBuffer = largeBuffer.subarray(0, DEFAULT_PART_SIZE);
+            const secondBuffer = largeBuffer.subarray(DEFAULT_PART_SIZE);
+            const streamBody = Readable.from(
+                (function* () {
+                    yield largeBuffer;
+                })()
+            );
+            const actionParams = { ...params, Body: streamBody };
+            const upload = new Upload({
+                params: actionParams,
+                client: new S3({}),
+            });
+
+            await upload.done();
+
+            expect(sendMock).toHaveBeenCalledTimes(4);
+            // create multipartMock is called correctly.
+            expect(createMultipartMock).toHaveBeenCalledTimes(1);
+            expect(createMultipartMock).toHaveBeenCalledWith({
+                ...actionParams,
+                Body: undefined,
+            });
+
+            // upload parts is called correctly.
+            expect(uploadPartMock).toHaveBeenCalledTimes(2);
+            expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
+                ...actionParams,
+                Body: firstBuffer,
+                PartNumber: 1,
+                UploadId: "mockuploadId",
+            });
+
+            expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
+                ...actionParams,
+                Body: secondBuffer,
+                PartNumber: 2,
+                UploadId: "mockuploadId",
+            });
+
+            // complete multipart upload is called correctly.
+            expect(completeMultipartMock).toHaveBeenCalledTimes(1);
+            expect(completeMultipartMock).toHaveBeenLastCalledWith({
+                ...actionParams,
+                Body: undefined,
+                UploadId: "mockuploadId",
+                MultipartUpload: {
+                    Parts: [
+                        {
+                            ETag: "mock-upload-Etag",
+                            PartNumber: 1,
+                        },
+                        {
+                            ETag: "mock-upload-Etag-2",
+                            PartNumber: 2,
+                        },
+                    ],
+                },
+            });
+
+            // no tags were passed.
+            expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
+            // put was not called
+            expect(putObjectMock).toHaveBeenCalledTimes(0);
+        });
     });
 
-    // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-    // put was not called
-    expect(putObjectMock).toHaveBeenCalledTimes(0);
-  });
+    it("should add tags to the object if tags have been added PUT", async () => {
+        const tags = [
+            {
+                Key: "k1",
+                Value: "v1",
+            },
+            {
+                Key: "k2",
+                Value: "v2",
+            },
+        ];
 
-  it("should upload using multi-part when parts are larger than part size stream", async () => {
-    // create a string that's larger than 5MB.
-    const largeBuffer = Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10));
-    const firstBuffer = largeBuffer.subarray(0, DEFAULT_PART_SIZE);
-    const secondBuffer = largeBuffer.subarray(DEFAULT_PART_SIZE);
-    const streamBody = Readable.from(
-      (function* () {
-        yield largeBuffer;
-      })()
-    );
-    const actionParams = { ...params, Body: streamBody };
-    const upload = new Upload({
-      params: actionParams,
-      client: new S3({}),
+        const upload = new Upload({
+            params,
+            tags,
+            client: new S3({}),
+        });
+
+        await upload.done();
+
+        expect(sendMock).toHaveBeenCalledTimes(2);
+
+        // tags were passed.
+        expect(putObjectTaggingMock).toHaveBeenCalledTimes(1);
+        expect(putObjectTaggingMock).toHaveBeenCalledWith({
+            ...params,
+            Tagging: {
+                TagSet: tags,
+            },
+        });
     });
 
-    await upload.done();
+    it("should add tags to the object if tags have been added multi-part", async () => {
+        const largeBuffer = Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10));
+        const actionParams = { ...params, Body: largeBuffer };
+        const tags = [
+            {
+                Key: "k1",
+                Value: "v1",
+            },
+            {
+                Key: "k2",
+                Value: "v2",
+            },
+        ];
 
-    expect(sendMock).toHaveBeenCalledTimes(4);
-    // create multipartMock is called correctly.
-    expect(createMultipartMock).toHaveBeenCalledTimes(1);
-    expect(createMultipartMock).toHaveBeenCalledWith({
-      ...actionParams,
-      Body: undefined,
+        const upload = new Upload({
+            params: actionParams,
+            tags,
+            client: new S3({}),
+        });
+
+        await upload.done();
+
+        expect(sendMock).toHaveBeenCalledTimes(5);
+
+        // tags were passed.
+        expect(putObjectTaggingMock).toHaveBeenCalledTimes(1);
+        expect(putObjectTaggingMock).toHaveBeenCalledWith({
+            ...actionParams,
+            Tagging: {
+                TagSet: tags,
+            },
+        });
     });
 
-    // upload parts is called correctly.
-    expect(uploadPartMock).toHaveBeenCalledTimes(2);
-    expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
-      ...actionParams,
-      Body: firstBuffer,
-      PartNumber: 1,
-      UploadId: "mockuploadId",
+    it("should validate partsize", () => {
+        try {
+            new Upload({
+                params,
+                partSize: 6,
+                client: new S3({}),
+            });
+            fail();
+        } catch (error) {
+            expect(error).toBeDefined();
+        }
     });
 
-    expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
-      ...actionParams,
-      Body: secondBuffer,
-      PartNumber: 2,
-      UploadId: "mockuploadId",
+    it("should validate queue size", () => {
+        try {
+            new Upload({
+                params,
+                queueSize: -1,
+                client: new S3({}),
+            });
+            fail();
+        } catch (error) {
+            expect(error).toBeDefined();
+        }
     });
 
-    // complete multipart upload is called correctly.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(1);
-    expect(completeMultipartMock).toHaveBeenLastCalledWith({
-      ...actionParams,
-      Body: undefined,
-      UploadId: "mockuploadId",
-      MultipartUpload: {
-        Parts: [
-          {
-            ETag: "mock-upload-Etag",
-            PartNumber: 1,
-          },
-          {
-            ETag: "mock-upload-Etag-2",
-            PartNumber: 2,
-          },
-        ],
-      },
+    it("should provide progress updates", async () => {
+        const upload = new Upload({
+            params,
+            client: new S3({}),
+        });
+
+        upload.on("httpUploadProgress", (progress: Progress) => {
+            expect(progress).toEqual({
+                Key: params.Key,
+                Bucket: params.Bucket,
+                loaded: 24,
+                part: 1,
+                total: 24,
+            });
+        });
+        await upload.done();
     });
 
-    // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-    // put was not called
-    expect(putObjectMock).toHaveBeenCalledTimes(0);
-  });
+    it("should provide progress updates multi-part buffer", async () => {
+        const partSize = 1024 * 1024 * 5;
+        const largeBuffer = Buffer.from("#".repeat(partSize + 10));
+        const firstBuffer = largeBuffer.subarray(0, partSize);
+        const actionParams = { ...params, Body: largeBuffer };
+        const upload = new Upload({
+            params: actionParams,
+            client: new S3({}),
+        });
 
-  it("should add tags to the object if tags have been added PUT", async () => {
-    const tags = [
-      {
-        Key: "k1",
-        Value: "v1",
-      },
-      {
-        Key: "k2",
-        Value: "v2",
-      },
-    ];
-
-    const upload = new Upload({
-      params,
-      tags,
-      client: new S3({}),
+        const received = [];
+        upload.on("httpUploadProgress", (progress: Progress) => {
+            received.push(progress);
+        });
+        await upload.done();
+        expect(received[0]).toEqual({
+            Key: params.Key,
+            Bucket: params.Bucket,
+            loaded: firstBuffer.byteLength,
+            part: 1,
+            total: largeBuffer.byteLength,
+        });
+        expect(received[1]).toEqual({
+            Key: params.Key,
+            Bucket: params.Bucket,
+            loaded: largeBuffer.byteLength,
+            part: 2,
+            total: largeBuffer.byteLength,
+        });
+        expect(received.length).toBe(2);
     });
 
-    await upload.done();
+    it("should provide progress updates multi-part stream", async () => {
+        const partSize = 1024 * 1024 * 5;
+        const largeBuffer = Buffer.from("#".repeat(partSize + 10));
+        const streamBody = Readable.from(
+            (function* () {
+                yield largeBuffer;
+            })()
+        );
+        const actionParams = { ...params, Body: streamBody };
+        const upload = new Upload({
+            params: actionParams,
+            client: new S3({}),
+        });
 
-    expect(sendMock).toHaveBeenCalledTimes(2);
-
-    // tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(1);
-    expect(putObjectTaggingMock).toHaveBeenCalledWith({
-      ...params,
-      Tagging: {
-        TagSet: tags,
-      },
-    });
-  });
-
-  it("should add tags to the object if tags have been added multi-part", async () => {
-    const largeBuffer = Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10));
-    const actionParams = { ...params, Body: largeBuffer };
-    const tags = [
-      {
-        Key: "k1",
-        Value: "v1",
-      },
-      {
-        Key: "k2",
-        Value: "v2",
-      },
-    ];
-
-    const upload = new Upload({
-      params: actionParams,
-      tags,
-      client: new S3({}),
-    });
-
-    await upload.done();
-
-    expect(sendMock).toHaveBeenCalledTimes(5);
-
-    // tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(1);
-    expect(putObjectTaggingMock).toHaveBeenCalledWith({
-      ...actionParams,
-      Tagging: {
-        TagSet: tags,
-      },
-    });
-  });
-
-  it("should validate partsize", () => {
-    try {
-      new Upload({
-        params,
-        partSize: 6,
-        client: new S3({}),
-      });
-      fail();
-    } catch (error) {
-      expect(error).toBeDefined();
-    }
-  });
-
-  it("should validate queue size", () => {
-    try {
-      new Upload({
-        params,
-        queueSize: -1,
-        client: new S3({}),
-      });
-      fail();
-    } catch (error) {
-      expect(error).toBeDefined();
-    }
-  });
-
-  it("should provide progress updates", async () => {
-    const upload = new Upload({
-      params,
-      client: new S3({}),
+        const received = [];
+        upload.on("httpUploadProgress", (progress: Progress) => {
+            received.push(progress);
+        });
+        await upload.done();
+        expect(received[0]).toEqual({
+            Key: params.Key,
+            Bucket: params.Bucket,
+            loaded: partSize,
+            part: 1,
+            total: undefined,
+        });
+        expect(received[1]).toEqual({
+            Key: params.Key,
+            Bucket: params.Bucket,
+            loaded: partSize + 10,
+            part: 2,
+            total: undefined,
+        });
+        expect(received.length).toBe(2);
     });
 
-    upload.on("httpUploadProgress", (progress: Progress) => {
-      expect(progress).toEqual({
-        Key: params.Key,
-        Bucket: params.Bucket,
-        loaded: 24,
-        part: 1,
-        total: 24,
-      });
-    });
-    await upload.done();
-  });
+    it("should provide progress updates empty buffer", async () => {
+        const buffer = Buffer.from("");
+        const actionParams = { ...params, Body: buffer };
+        const upload = new Upload({
+            params: actionParams,
+            client: new S3({}),
+        });
 
-  it("should provide progress updates multi-part buffer", async () => {
-    const partSize = 1024 * 1024 * 5;
-    const largeBuffer = Buffer.from("#".repeat(partSize + 10));
-    const firstBuffer = largeBuffer.subarray(0, partSize);
-    const actionParams = { ...params, Body: largeBuffer };
-    const upload = new Upload({
-      params: actionParams,
-      client: new S3({}),
-    });
-
-    const received = [];
-    upload.on("httpUploadProgress", (progress: Progress) => {
-      received.push(progress);
-    });
-    await upload.done();
-    expect(received[0]).toEqual({
-      Key: params.Key,
-      Bucket: params.Bucket,
-      loaded: firstBuffer.byteLength,
-      part: 1,
-      total: largeBuffer.byteLength,
-    });
-    expect(received[1]).toEqual({
-      Key: params.Key,
-      Bucket: params.Bucket,
-      loaded: largeBuffer.byteLength,
-      part: 2,
-      total: largeBuffer.byteLength,
-    });
-    expect(received.length).toBe(2);
-  });
-
-  it("should provide progress updates multi-part stream", async () => {
-    const partSize = 1024 * 1024 * 5;
-    const largeBuffer = Buffer.from("#".repeat(partSize + 10));
-    const streamBody = Readable.from(
-      (function* () {
-        yield largeBuffer;
-      })()
-    );
-    const actionParams = { ...params, Body: streamBody };
-    const upload = new Upload({
-      params: actionParams,
-      client: new S3({}),
+        const received = [];
+        upload.on("httpUploadProgress", (progress: Progress) => {
+            received.push(progress);
+        });
+        await upload.done();
+        expect(received[0]).toEqual({
+            Key: params.Key,
+            Bucket: params.Bucket,
+            loaded: 0,
+            part: 1,
+            total: 0,
+        });
+        expect(received.length).toBe(1);
     });
 
-    const received = [];
-    upload.on("httpUploadProgress", (progress: Progress) => {
-      received.push(progress);
-    });
-    await upload.done();
-    expect(received[0]).toEqual({
-      Key: params.Key,
-      Bucket: params.Bucket,
-      loaded: partSize,
-      part: 1,
-      total: undefined,
-    });
-    expect(received[1]).toEqual({
-      Key: params.Key,
-      Bucket: params.Bucket,
-      loaded: partSize + 10,
-      part: 2,
-      total: undefined,
-    });
-    expect(received.length).toBe(2);
-  });
+    it("should provide progress updates empty stream", async () => {
+        const stream = Readable.from((function* () { })());
+        const actionParams = { ...params, Body: stream };
+        const upload = new Upload({
+            params: actionParams,
+            client: new S3({}),
+        });
 
-  it("should provide progress updates empty buffer", async () => {
-    const buffer = Buffer.from("");
-    const actionParams = { ...params, Body: buffer };
-    const upload = new Upload({
-      params: actionParams,
-      client: new S3({}),
+        const received = [];
+        upload.on("httpUploadProgress", (progress: Progress) => {
+            received.push(progress);
+        });
+        await upload.done();
+        expect(received[0]).toEqual({
+            Key: params.Key,
+            Bucket: params.Bucket,
+            loaded: 0,
+            part: 1,
+            total: 0,
+        });
+        expect(received.length).toBe(1);
     });
-
-    const received = [];
-    upload.on("httpUploadProgress", (progress: Progress) => {
-      received.push(progress);
-    });
-    await upload.done();
-    expect(received[0]).toEqual({
-      Key: params.Key,
-      Bucket: params.Bucket,
-      loaded: 0,
-      part: 1,
-      total: 0,
-    });
-    expect(received.length).toBe(1);
-  });
-
-  it("should provide progress updates empty stream", async () => {
-    const stream = Readable.from((function* () {})());
-    const actionParams = { ...params, Body: stream };
-    const upload = new Upload({
-      params: actionParams,
-      client: new S3({}),
-    });
-
-    const received = [];
-    upload.on("httpUploadProgress", (progress: Progress) => {
-      received.push(progress);
-    });
-    await upload.done();
-    expect(received[0]).toEqual({
-      Key: params.Key,
-      Bucket: params.Bucket,
-      loaded: 0,
-      part: 1,
-      total: 0,
-    });
-    expect(received.length).toBe(1);
-  });
 });
