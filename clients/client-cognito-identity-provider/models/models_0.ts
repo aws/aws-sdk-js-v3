@@ -6136,6 +6136,8 @@ export interface CreateUserPoolClientRequest {
    *         <p>Set to <code>client_credentials</code> to specify that the client should get the
    *             access token (and, optionally, ID token, based on scopes) from the token endpoint using
    *             a combination of client and client_secret.</p>
+   *         <p>Note that <code>client_credentials</code> flow can not be selected along with 
+   *             <code>code</code> flow or <code>implicit</code> flow.</p>
    */
   AllowedOAuthFlows?: (OAuthFlowType | string)[];
 
