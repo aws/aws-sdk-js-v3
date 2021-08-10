@@ -54,7 +54,7 @@ describe("fromInstanceMetadata", () => {
   });
 
   beforeEach(() => {
-    (getInstanceMetadataHost as jest.Mock).mockReturnValue(host);
+    (getInstanceMetadataHost as jest.Mock).mockResolvedValue(host);
     (isImdsCredentials as unknown as jest.Mock).mockReturnValue(true);
     (providerConfigFromInit as jest.Mock).mockReturnValue({
       timeout: mockTimeout,

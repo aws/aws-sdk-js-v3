@@ -18,7 +18,6 @@ const IMDS_TOKEN_PATH = "/latest/api/token";
 export const fromInstanceMetadata = (init: RemoteProviderInit = {}): CredentialProvider => {
   // when set to true, metadata service will not fetch token
   let disableFetchToken = false;
-  const host = getInstanceMetadataHost();
   const { timeout, maxRetries } = providerConfigFromInit(init);
 
   const getCredentials = async (maxRetries: number, options: RequestOptions) => {
@@ -52,6 +51,7 @@ export const fromInstanceMetadata = (init: RemoteProviderInit = {}): CredentialP
   };
 
   return async () => {
+    const host = await getInstanceMetadataHost();
     if (disableFetchToken) {
       return getCredentials(maxRetries, { host, timeout });
     } else {
