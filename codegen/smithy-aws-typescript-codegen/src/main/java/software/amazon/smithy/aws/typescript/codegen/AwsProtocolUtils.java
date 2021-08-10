@@ -293,12 +293,6 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("QueryCustomizedError")) {
             return true;
         }
-        //TODO: enable with Smithy 1.10
-        if ((testCase.getId().equals("RestJsonAllQueryStringTypes")
-                || testCase.getId().equals("RestJsonQueryStringEscaping"))
-                && settings.generateServerSdk()) {
-            return true;
-        }
         // TODO: follow-up with smithy on whether whitespace strings should be trimmed.
         if (testCase.getId().equals("SimpleScalarPropertiesPureWhiteSpace")) {
             return true;
