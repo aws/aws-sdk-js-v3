@@ -32,16 +32,9 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public class AddOmitRetryHeadersDependency implements TypeScriptIntegration {
     private static final Set<String> SERVICE_IDS = SetUtils.of(
         "ConnectParticipant", // P43593766
-        "IoT Data Plane", // P40355845
         "IoT", // P39759657
         "Kinesis Video Signaling",
-        "AppFlow", // P44424582
-        "AppIntegrations", // P44426207
-        "AuditManager", // P44428767
-        "Connect Contact Lens", // P44429036
-        "Customer Profiles", // P44430824
-        "DevOps Guru", // P44429743
-        "Service Catalog AppRegistry" // P44430229
+        "AppIntegrations" // P44426207
     );
 
     @Override
