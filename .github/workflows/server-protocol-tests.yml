@@ -27,7 +27,12 @@ jobs:
           git clone --depth 1 https://github.com/awslabs/smithy-typescript.git
           cd smithy-typescript
           ./gradlew clean build publishToMavenLocal
-          cd ..
+          cd smithy-typescript-ssdk-libs
+          yarn install
+          yarn build
+          cd server-common
+          yarn link
+          cd ../..
 
       - name: install dependencies
         run: |
@@ -40,6 +45,7 @@ jobs:
       # there are new dependencies as a result of generating server protocol tests
       - name: install dependencies again
         run: |
+          yarn link @aws-smithy/server-common
           yarn install
 
       - name: run protocol tests
