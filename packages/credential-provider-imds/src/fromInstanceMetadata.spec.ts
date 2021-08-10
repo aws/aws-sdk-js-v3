@@ -1,6 +1,7 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 
 import { fromInstanceMetadata } from "./fromInstanceMetadata";
+import { getInstanceMetadataHost } from "./getInstanceMetadataHost";
 import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
@@ -10,9 +11,10 @@ jest.mock("./remoteProvider/httpRequest");
 jest.mock("./remoteProvider/ImdsCredentials");
 jest.mock("./remoteProvider/retry");
 jest.mock("./remoteProvider/RemoteProviderInit");
+jest.mock("./getInstanceMetadataHost");
 
 describe("fromInstanceMetadata", () => {
-  const host = "169.254.169.254";
+  const host = "127.0.0.1";
   const mockTimeout = 1000;
   const mockMaxRetries = 3;
   const mockToken = "fooToken";
@@ -52,6 +54,7 @@ describe("fromInstanceMetadata", () => {
   });
 
   beforeEach(() => {
+    (getInstanceMetadataHost as jest.Mock).mockReturnValue(host);
     (isImdsCredentials as unknown as jest.Mock).mockReturnValue(true);
     (providerConfigFromInit as jest.Mock).mockReturnValue({
       timeout: mockTimeout,
