@@ -1,4 +1,4 @@
-import { handleFloat, parseBoolean } from "./parse-utils";
+import { expectInt, limitedParseFloat, parseBoolean, strictParseFloat, strictParseInt } from "./parse-utils";
 import { expectBoolean, expectNumber, expectString } from "./parse-utils";
 
 describe("parseBoolean", () => {
@@ -75,7 +75,6 @@ describe("expectNumber", () => {
     expect(expectNumber(1.1)).toEqual(1.1);
     expect(expectNumber(Infinity)).toEqual(Infinity);
     expect(expectNumber(-Infinity)).toEqual(-Infinity);
-    expect(expectNumber(NaN)).toEqual(NaN);
     expect(expectNumber(null)).toEqual(undefined);
     expect(expectNumber(undefined)).toEqual(undefined);
   });
@@ -90,6 +89,28 @@ describe("expectNumber", () => {
     expect(() => expectNumber(false)).toThrowError();
     expect(() => expectNumber([])).toThrowError();
     expect(() => expectNumber({})).toThrowError();
+  });
+});
+
+describe("expectInt", () => {
+  it("accepts integers", () => {
+    expect(expectInt(1)).toEqual(1);
+  });
+
+  it("accepts null/undefined", () => {
+    expect(expectInt(null)).toEqual(undefined);
+    expect(expectInt(undefined)).toEqual(undefined);
+  });
+
+  it("rejects non-integers", () => {
+    expect(() => expectInt(1.1)).toThrowError();
+    expect(() => expectInt("1")).toThrowError();
+    expect(() => expectInt("1.1")).toThrowError();
+    expect(() => expectInt(NaN)).toThrowError();
+    expect(() => expectInt(true)).toThrowError();
+    expect(() => expectInt(false)).toThrowError();
+    expect(() => expectInt([])).toThrowError();
+    expect(() => expectInt({})).toThrowError();
   });
 });
 
@@ -112,25 +133,83 @@ describe("expectString", () => {
   });
 });
 
-describe("handleFloat", () => {
+describe("strictParseFloat", () => {
   it("accepts non-numeric floats as strings", () => {
-    expect(handleFloat("NaN")).toEqual(NaN);
-    expect(handleFloat("Infinity")).toEqual(Infinity);
-    expect(handleFloat("-Infinity")).toEqual(-Infinity);
+    expect(strictParseFloat("Infinity")).toEqual(Infinity);
+    expect(strictParseFloat("-Infinity")).toEqual(-Infinity);
+    expect(strictParseFloat("NaN")).toEqual(NaN);
   });
 
-  it("rejects numeric strings", () => {
-    expect(() => handleFloat("1")).toThrowError();
-    expect(() => handleFloat("1.1")).toThrowError();
+  it("rejects implicit NaN", () => {
+    expect(() => strictParseFloat("foo")).toThrowError();
+  });
+
+  it("accepts numeric strings", () => {
+    expect(strictParseFloat("1")).toEqual(1);
+    expect(strictParseFloat("1.1")).toEqual(1.1);
   });
 
   it("accepts numbers", () => {
-    expect(expectNumber(1)).toEqual(1);
-    expect(expectNumber(1.1)).toEqual(1.1);
-    expect(expectNumber(Infinity)).toEqual(Infinity);
-    expect(expectNumber(-Infinity)).toEqual(-Infinity);
-    expect(expectNumber(NaN)).toEqual(NaN);
-    expect(expectNumber(null)).toEqual(undefined);
-    expect(expectNumber(undefined)).toEqual(undefined);
+    expect(strictParseFloat(1)).toEqual(1);
+    expect(strictParseFloat(1.1)).toEqual(1.1);
+    expect(strictParseFloat(Infinity)).toEqual(Infinity);
+    expect(strictParseFloat(-Infinity)).toEqual(-Infinity);
+    expect(strictParseFloat(NaN)).toEqual(NaN);
+    expect(strictParseFloat(null)).toEqual(undefined);
+    expect(strictParseFloat(undefined)).toEqual(undefined);
+  });
+});
+
+describe("limitedParseFloat", () => {
+  it("accepts non-numeric floats as strings", () => {
+    expect(limitedParseFloat("Infinity")).toEqual(Infinity);
+    expect(limitedParseFloat("-Infinity")).toEqual(-Infinity);
+    expect(limitedParseFloat("NaN")).toEqual(NaN);
+  });
+
+  it("rejects implicit NaN", () => {
+    expect(() => limitedParseFloat("foo")).toThrowError();
+  });
+
+  it("rejects numeric strings", () => {
+    expect(() => limitedParseFloat("1")).toThrowError();
+    expect(() => limitedParseFloat("1.1")).toThrowError();
+  });
+
+  it("accepts numbers", () => {
+    expect(limitedParseFloat(1)).toEqual(1);
+    expect(limitedParseFloat(1.1)).toEqual(1.1);
+    expect(limitedParseFloat(Infinity)).toEqual(Infinity);
+    expect(limitedParseFloat(-Infinity)).toEqual(-Infinity);
+    expect(limitedParseFloat(NaN)).toEqual(NaN);
+    expect(limitedParseFloat(null)).toEqual(undefined);
+    expect(limitedParseFloat(undefined)).toEqual(undefined);
+  });
+});
+
+describe("strictParseInt", () => {
+  it("accepts integers", () => {
+    expect(strictParseInt(1)).toEqual(1);
+    expect(strictParseInt("1")).toEqual(1);
+  });
+
+  it("accepts null/undefined", () => {
+    expect(strictParseInt(null)).toEqual(undefined);
+    expect(strictParseInt(undefined)).toEqual(undefined);
+  });
+
+  it("rejects non-integers", () => {
+    expect(() => strictParseInt(1.1)).toThrowError();
+    expect(() => strictParseInt("1.1")).toThrowError();
+    expect(() => strictParseInt("NaN")).toThrowError();
+    expect(() => strictParseInt("Infinity")).toThrowError();
+    expect(() => strictParseInt("-Infinity")).toThrowError();
+    expect(() => strictParseInt(NaN)).toThrowError();
+    expect(() => strictParseInt(Infinity)).toThrowError();
+    expect(() => strictParseInt(-Infinity)).toThrowError();
+    expect(() => strictParseInt(true as any)).toThrowError();
+    expect(() => strictParseInt(false as any)).toThrowError();
+    expect(() => strictParseInt([] as any)).toThrowError();
+    expect(() => strictParseInt({} as any)).toThrowError();
   });
 });
