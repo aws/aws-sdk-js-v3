@@ -23,13 +23,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getOmitRetryHeadersPlugin,
-  getRetryPlugin,
-  resolveRetryConfig,
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -257,7 +251,6 @@ export class IoTDataPlaneClient extends __Client<
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
-    this.middlewareStack.use(getOmitRetryHeadersPlugin(this.config));
   }
 
   /**
