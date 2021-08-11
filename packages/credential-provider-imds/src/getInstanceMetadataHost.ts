@@ -1,18 +1,14 @@
 import { loadConfig } from "@aws-sdk/node-config-provider";
 import { parseUrl } from "@aws-sdk/url-parser";
 
-import { Endpoint } from "./remoteProvider/Endpoint";
-import {
-  CONFIG_ENDPOINT_NAME,
-  ENDPOINT_CONFIG_OPTIONS,
-  ENV_ENDPOINT_NAME,
-} from "./remoteProvider/EndpointConfigOptions";
-import { EndpointMode } from "./remoteProvider/EndpointMode";
+import { Endpoint } from "./config/Endpoint";
+import { CONFIG_ENDPOINT_NAME, ENDPOINT_CONFIG_OPTIONS, ENV_ENDPOINT_NAME } from "./config/EndpointConfigOptions";
+import { EndpointMode } from "./config/EndpointMode";
 import {
   CONFIG_ENDPOINT_MODE_NAME,
   ENDPOINT_MODE_CONFIG_OPTIONS,
   ENV_ENDPOINT_MODE_NAME,
-} from "./remoteProvider/EndpointModeConfigOptions";
+} from "./config/EndpointModeConfigOptions";
 
 /**
  * Returns the host to use for instance metadata service call.

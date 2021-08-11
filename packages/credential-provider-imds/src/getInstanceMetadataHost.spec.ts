@@ -1,11 +1,11 @@
 import { loadConfig } from "@aws-sdk/node-config-provider";
 import { parseUrl } from "@aws-sdk/url-parser";
 
+import { Endpoint } from "./config/Endpoint";
+import { ENDPOINT_CONFIG_OPTIONS } from "./config/EndpointConfigOptions";
+import { EndpointMode } from "./config/EndpointMode";
+import { ENDPOINT_MODE_CONFIG_OPTIONS } from "./config/EndpointModeConfigOptions";
 import { getInstanceMetadataHost } from "./getInstanceMetadataHost";
-import { Endpoint } from "./remoteProvider/Endpoint";
-import { ENDPOINT_CONFIG_OPTIONS } from "./remoteProvider/EndpointConfigOptions";
-import { EndpointMode } from "./remoteProvider/EndpointMode";
-import { ENDPOINT_MODE_CONFIG_OPTIONS } from "./remoteProvider/EndpointModeConfigOptions";
 
 jest.mock("@aws-sdk/node-config-provider");
 jest.mock("@aws-sdk/url-parser");
