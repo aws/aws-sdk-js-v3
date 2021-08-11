@@ -2,11 +2,11 @@ import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { RequestOptions } from "http";
 
-import { getInstanceMetadataHost } from "./getInstanceMetadataHost";
 import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit, RemoteProviderInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
+import { getInstanceMetadataHost } from "./utils/getInstanceMetadataHost";
 
 const IMDS_PATH = "/latest/meta-data/iam/security-credentials/";
 const IMDS_TOKEN_PATH = "/latest/api/token";

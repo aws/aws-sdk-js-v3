@@ -1,17 +1,17 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 
 import { fromInstanceMetadata } from "./fromInstanceMetadata";
-import { getInstanceMetadataHost } from "./getInstanceMetadataHost";
 import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
+import { getInstanceMetadataHost } from "./utils/getInstanceMetadataHost";
 
 jest.mock("./remoteProvider/httpRequest");
 jest.mock("./remoteProvider/ImdsCredentials");
 jest.mock("./remoteProvider/retry");
 jest.mock("./remoteProvider/RemoteProviderInit");
-jest.mock("./getInstanceMetadataHost");
+jest.mock("./utils/getInstanceMetadataHost");
 
 describe("fromInstanceMetadata", () => {
   const host = "127.0.0.1";
@@ -55,7 +55,7 @@ describe("fromInstanceMetadata", () => {
 
   beforeEach(() => {
     (getInstanceMetadataHost as jest.Mock).mockResolvedValue(host);
-    (isImdsCredentials as unknown as jest.Mock).mockReturnValue(true);
+    ((isImdsCredentials as unknown) as jest.Mock).mockReturnValue(true);
     (providerConfigFromInit as jest.Mock).mockReturnValue({
       timeout: mockTimeout,
       maxRetries: mockMaxRetries,
@@ -134,7 +134,7 @@ describe("fromInstanceMetadata", () => {
       .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
 
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
-    (isImdsCredentials as unknown as jest.Mock).mockReturnValueOnce(false);
+    ((isImdsCredentials as unknown) as jest.Mock).mockReturnValueOnce(false);
 
     await expect(fromInstanceMetadata()()).rejects.toEqual(
       new CredentialsProviderError("Invalid response received from instance metadata service.")
