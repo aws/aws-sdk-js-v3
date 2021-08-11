@@ -1,4 +1,5 @@
 import { loadConfig } from "@aws-sdk/node-config-provider";
+import { parseUrl } from "@aws-sdk/url-parser";
 
 import { Endpoint } from "./remoteProvider/Endpoint";
 import {
@@ -43,6 +44,7 @@ export const getInstanceMetadataHost = async () => {
         throw new Error(`Unsupported endpoint mode: ${endpointMode}.` + ` Select from ${Object.values(EndpointMode)}`);
     }
   }
-  const { host } = new URL(endpoint);
-  return host;
+
+  const { hostname, port } = parseUrl(endpoint);
+  return `${hostname}${port ? `:${port}` : ""}`;
 };
