@@ -1,3 +1,4 @@
+import { EndpointMode } from "./EndpointMode";
 import { ENDPOINT_MODE_CONFIG_OPTIONS } from "./EndpointModeConfigOptions";
 
 const ENV_ENDPOINT_MODE_NAME = "AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE";
@@ -18,8 +19,8 @@ describe("ENDPOINT_MODE_CONFIG_OPTIONS", () => {
     });
   });
 
-  it("default returns IPv4", () => {
+  it(`default returns ${EndpointMode.IPv4}`, () => {
     const { default: defaultKey } = ENDPOINT_MODE_CONFIG_OPTIONS;
-    expect(defaultKey).toBe("IPv4");
+    expect(defaultKey).toBe(EndpointMode.IPv4);
   });
 });
