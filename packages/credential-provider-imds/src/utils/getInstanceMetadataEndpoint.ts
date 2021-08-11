@@ -1,6 +1,6 @@
 import { loadConfig } from "@aws-sdk/node-config-provider";
+import { Endpoint } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
-import { Endpoint } from "packages/types/src/http";
 
 import { Endpoint as InstanceMetadataEndpoint } from "../config/Endpoint";
 import { CONFIG_ENDPOINT_NAME, ENDPOINT_CONFIG_OPTIONS, ENV_ENDPOINT_NAME } from "../config/EndpointConfigOptions";
