@@ -1,7 +1,4 @@
-import { ENDPOINT_CONFIG_OPTIONS } from "./EndpointConfigOptions";
-
-const ENV_ENDPOINT_NAME = "AWS_EC2_METADATA_SERVICE_ENDPOINT";
-const CONFIG_ENDPOINT_NAME = "ec2_metadata_service_endpoint";
+import { CONFIG_ENDPOINT_NAME, ENDPOINT_CONFIG_OPTIONS, ENV_ENDPOINT_NAME } from "./EndpointConfigOptions";
 
 describe("ENDPOINT_CONFIG_OPTIONS", () => {
   describe("environmentVariableSelector", () => {
