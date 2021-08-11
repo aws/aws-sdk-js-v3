@@ -5,23 +5,23 @@ import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
-import { getInstanceMetadataHost } from "./utils/getInstanceMetadataHost";
+import { getInstanceMetadataEndpoint } from "./utils/getInstanceMetadataEndpoint";
 
 jest.mock("./remoteProvider/httpRequest");
 jest.mock("./remoteProvider/ImdsCredentials");
 jest.mock("./remoteProvider/retry");
 jest.mock("./remoteProvider/RemoteProviderInit");
-jest.mock("./utils/getInstanceMetadataHost");
+jest.mock("./utils/getInstanceMetadataEndpoint");
 
 describe("fromInstanceMetadata", () => {
-  const host = "127.0.0.1";
+  const hostname = "127.0.0.1";
   const mockTimeout = 1000;
   const mockMaxRetries = 3;
   const mockToken = "fooToken";
   const mockProfile = "fooProfile";
 
   const mockTokenRequestOptions = {
-    host,
+    hostname,
     path: "/latest/api/token",
     method: "PUT",
     headers: {
@@ -31,7 +31,7 @@ describe("fromInstanceMetadata", () => {
   };
 
   const mockProfileRequestOptions = {
-    host,
+    hostname,
     path: "/latest/meta-data/iam/security-credentials/",
     timeout: mockTimeout,
     headers: {
@@ -54,8 +54,8 @@ describe("fromInstanceMetadata", () => {
   });
 
   beforeEach(() => {
-    (getInstanceMetadataHost as jest.Mock).mockResolvedValue(host);
-    ((isImdsCredentials as unknown) as jest.Mock).mockReturnValue(true);
+    (getInstanceMetadataEndpoint as jest.Mock).mockResolvedValue({ hostname });
+    (isImdsCredentials as unknown as jest.Mock).mockReturnValue(true);
     (providerConfigFromInit as jest.Mock).mockReturnValue({
       timeout: mockTimeout,
       maxRetries: mockMaxRetries,
@@ -134,7 +134,7 @@ describe("fromInstanceMetadata", () => {
       .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
 
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
-    ((isImdsCredentials as unknown) as jest.Mock).mockReturnValueOnce(false);
+    (isImdsCredentials as unknown as jest.Mock).mockReturnValueOnce(false);
 
     await expect(fromInstanceMetadata()()).rejects.toEqual(
       new CredentialsProviderError("Invalid response received from instance metadata service.")

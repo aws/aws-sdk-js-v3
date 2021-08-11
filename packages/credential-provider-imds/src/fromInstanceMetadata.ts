@@ -51,13 +51,13 @@ export const fromInstanceMetadata = (init: RemoteProviderInit = {}): CredentialP
   };
 
   return async () => {
-    const host = await getInstanceMetadataEndpoint();
+    const endpoint = await getInstanceMetadataEndpoint();
     if (disableFetchToken) {
-      return getCredentials(maxRetries, { host, timeout });
+      return getCredentials(maxRetries, { ...endpoint, timeout });
     } else {
       let token: string;
       try {
-        token = (await getMetadataToken({ host, timeout })).toString();
+        token = (await getMetadataToken({ ...endpoint, timeout })).toString();
       } catch (error) {
         if (error?.statusCode === 400) {
           throw Object.assign(error, {
@@ -66,10 +66,10 @@ export const fromInstanceMetadata = (init: RemoteProviderInit = {}): CredentialP
         } else if (error.message === "TimeoutError" || [403, 404, 405].includes(error.statusCode)) {
           disableFetchToken = true;
         }
-        return getCredentials(maxRetries, { host, timeout });
+        return getCredentials(maxRetries, { ...endpoint, timeout });
       }
       return getCredentials(maxRetries, {
-        host,
+        ...endpoint,
         headers: {
           "x-aws-ec2-metadata-token": token,
         },
