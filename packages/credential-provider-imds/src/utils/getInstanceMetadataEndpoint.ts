@@ -1,7 +1,8 @@
 import { loadConfig } from "@aws-sdk/node-config-provider";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { Endpoint } from "packages/types/src/http";
 
-import { Endpoint } from "../config/Endpoint";
+import { Endpoint as InstanceMetadataEndpoint } from "../config/Endpoint";
 import { CONFIG_ENDPOINT_NAME, ENDPOINT_CONFIG_OPTIONS, ENV_ENDPOINT_NAME } from "../config/EndpointConfigOptions";
 import { EndpointMode } from "../config/EndpointMode";
 import {
@@ -27,20 +28,19 @@ import {
  *
  * @returns Host to use for instance metadata service call.
  */
-export const getInstanceMetadataHost = async () => {
-  const endpoint = await loadConfig(ENDPOINT_CONFIG_OPTIONS)();
-  if (!endpoint) {
-    const endpointMode = await loadConfig(ENDPOINT_MODE_CONFIG_OPTIONS)();
-    switch (endpointMode) {
-      case EndpointMode.IPv4:
-        return Endpoint.IPv4;
-      case EndpointMode.IPv6:
-        return Endpoint.IPv6;
-      default:
-        throw new Error(`Unsupported endpoint mode: ${endpointMode}.` + ` Select from ${Object.values(EndpointMode)}`);
-    }
-  }
+export const getInstanceMetadataEndpoint = async (): Promise<Endpoint> =>
+  parseUrl((await getFromEndpointConfig()) || (await getFromEndpointModeConfig()));
 
-  const { hostname, port } = parseUrl(endpoint);
-  return `${hostname}${port ? `:${port}` : ""}`;
+const getFromEndpointConfig = async (): Promise<string | undefined> => loadConfig(ENDPOINT_CONFIG_OPTIONS)();
+
+const getFromEndpointModeConfig = async (): Promise<string> => {
+  const endpointMode = await loadConfig(ENDPOINT_MODE_CONFIG_OPTIONS)();
+  switch (endpointMode) {
+    case EndpointMode.IPv4:
+      return InstanceMetadataEndpoint.IPv4;
+    case EndpointMode.IPv6:
+      return InstanceMetadataEndpoint.IPv6;
+    default:
+      throw new Error(`Unsupported endpoint mode: ${endpointMode}.` + ` Select from ${Object.values(EndpointMode)}`);
+  }
 };

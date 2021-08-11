@@ -6,7 +6,7 @@ import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit, RemoteProviderInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
-import { getInstanceMetadataHost } from "./utils/getInstanceMetadataHost";
+import { getInstanceMetadataEndpoint } from "./utils/getInstanceMetadataEndpoint";
 
 const IMDS_PATH = "/latest/meta-data/iam/security-credentials/";
 const IMDS_TOKEN_PATH = "/latest/api/token";
@@ -51,7 +51,7 @@ export const fromInstanceMetadata = (init: RemoteProviderInit = {}): CredentialP
   };
 
   return async () => {
-    const host = await getInstanceMetadataHost();
+    const host = await getInstanceMetadataEndpoint();
     if (disableFetchToken) {
       return getCredentials(maxRetries, { host, timeout });
     } else {

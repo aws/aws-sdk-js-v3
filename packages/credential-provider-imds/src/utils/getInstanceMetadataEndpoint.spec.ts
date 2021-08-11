@@ -5,13 +5,19 @@ import { Endpoint } from "../config/Endpoint";
 import { ENDPOINT_CONFIG_OPTIONS } from "../config/EndpointConfigOptions";
 import { EndpointMode } from "../config/EndpointMode";
 import { ENDPOINT_MODE_CONFIG_OPTIONS } from "../config/EndpointModeConfigOptions";
-import { getInstanceMetadataHost } from "./getInstanceMetadataHost";
+import { getInstanceMetadataEndpoint } from "./getInstanceMetadataEndpoint";
 
 jest.mock("@aws-sdk/node-config-provider");
 jest.mock("@aws-sdk/url-parser");
 
-describe(getInstanceMetadataHost.name, () => {
-  let mockEndpoint: string;
+describe(getInstanceMetadataEndpoint.name, () => {
+  let mockURL: string;
+  const mockEndpoint = { protocol: "http:", hostname: "localhost", port: "80" };
+
+  beforeEach(() => {
+    (parseUrl as jest.Mock).mockReturnValue(mockEndpoint);
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -21,35 +27,34 @@ describe(getInstanceMetadataHost.name, () => {
       expect(loadConfig).toHaveBeenCalledTimes(1);
       expect(loadConfig).toHaveBeenCalledWith(ENDPOINT_CONFIG_OPTIONS);
       expect(parseUrl).toHaveBeenCalledTimes(1);
-      expect(parseUrl).toHaveBeenCalledWith(mockEndpoint);
+      expect(parseUrl).toHaveBeenCalledWith(mockURL);
     });
 
     it("throws error when endpoint is invalid", () => {
-      mockEndpoint = "invalid_endpoint";
-      const mockError = new Error(`Invalid endpoint: ${mockEndpoint}`);
-      (loadConfig as jest.Mock).mockReturnValueOnce(() => Promise.resolve(mockEndpoint));
-      (parseUrl as jest.Mock).mockImplementationOnce(() => {
+      mockURL = "invalid_endpoint";
+      const mockError = new Error(`Invalid endpoint: ${mockURL}`);
+      (loadConfig as jest.Mock).mockReturnValueOnce(() => Promise.resolve(mockURL));
+      (parseUrl as jest.Mock).mockImplementation(() => {
         throw mockError;
       });
-      return expect(getInstanceMetadataHost()).rejects.toThrow(mockError);
+      return expect(getInstanceMetadataEndpoint()).rejects.toThrow(mockError);
     });
 
     describe("returns host when endpoint is valid", () => {
-      it("with port", () => {
-        const mockHostname = "127.0.0.1";
+      const mockProtocol = "http:";
+      const mockHostname = "127.0.0.1";
+
+      it("with port", async () => {
         const mockPort = 80;
-        mockEndpoint = `http://${mockHostname}:${mockPort}`;
-        (loadConfig as jest.Mock).mockReturnValueOnce(() => Promise.resolve(mockEndpoint));
-        (parseUrl as jest.Mock).mockReturnValue({ hostname: mockHostname, port: mockPort });
-        return expect(getInstanceMetadataHost()).resolves.toBe(`${mockHostname}:${mockPort}`);
+        mockURL = `${mockProtocol}://${mockHostname}:${mockPort}`;
+        (loadConfig as jest.Mock).mockReturnValueOnce(() => Promise.resolve(mockURL));
+        expect(await getInstanceMetadataEndpoint()).toStrictEqual(mockEndpoint);
       });
 
-      it("without port", () => {
-        const mockHostname = "127.0.0.1";
-        mockEndpoint = `http://${mockHostname}`;
-        (loadConfig as jest.Mock).mockReturnValueOnce(() => Promise.resolve(mockEndpoint));
-        (parseUrl as jest.Mock).mockReturnValue({ hostname: mockHostname });
-        return expect(getInstanceMetadataHost()).resolves.toBe(mockHostname);
+      it("without port", async () => {
+        mockURL = `${mockProtocol}://${mockHostname}`;
+        (loadConfig as jest.Mock).mockReturnValueOnce(() => Promise.resolve(mockURL));
+        expect(await getInstanceMetadataEndpoint()).toStrictEqual(mockEndpoint);
       });
     });
   });
@@ -68,15 +73,17 @@ describe(getInstanceMetadataHost.name, () => {
     it.each([
       [Endpoint.IPv4, EndpointMode.IPv4],
       [Endpoint.IPv6, EndpointMode.IPv6],
-    ])("returns %s when endpointMode=%s", (endpoint, endpointMode) => {
+    ])("returns %s when endpointMode=%s", async (endpoint, endpointMode) => {
       (loadConfig as jest.Mock).mockReturnValueOnce(() => Promise.resolve(endpointMode));
-      return expect(getInstanceMetadataHost()).resolves.toEqual(endpoint);
+      expect(await getInstanceMetadataEndpoint()).toEqual(mockEndpoint);
+      expect(parseUrl).toHaveBeenCalledTimes(1);
+      expect(parseUrl).toHaveBeenCalledWith(endpoint);
     });
 
     it(`throws Error when endpointMode is unsupported`, () => {
       const unsupportedEndpointMode = "unsupportedEndpointMode";
       (loadConfig as jest.Mock).mockReturnValueOnce(() => Promise.resolve(unsupportedEndpointMode));
-      return expect(getInstanceMetadataHost()).rejects.toThrowError(
+      return expect(getInstanceMetadataEndpoint()).rejects.toThrowError(
         `Unsupported endpoint mode: ${unsupportedEndpointMode}.` + ` Select from ${Object.values(EndpointMode)}`
       );
     });
@@ -84,7 +91,7 @@ describe(getInstanceMetadataHost.name, () => {
     it(`rethrows Error when reading endpointMode throws error`, () => {
       const error = new Error("error");
       (loadConfig as jest.Mock).mockReturnValueOnce(() => Promise.reject(error));
-      return expect(getInstanceMetadataHost()).rejects.toThrow(error);
+      return expect(getInstanceMetadataEndpoint()).rejects.toThrow(error);
     });
   });
 
@@ -92,7 +99,7 @@ describe(getInstanceMetadataHost.name, () => {
     it("rethrows error", () => {
       const error = new Error("error");
       (loadConfig as jest.Mock).mockReturnValueOnce(() => Promise.reject(error));
-      expect(getInstanceMetadataHost()).rejects.toThrow(error);
+      expect(getInstanceMetadataEndpoint()).rejects.toThrow(error);
       expect(loadConfig).toHaveBeenCalledTimes(1);
       expect(loadConfig).toHaveBeenCalledWith(ENDPOINT_CONFIG_OPTIONS);
     });
