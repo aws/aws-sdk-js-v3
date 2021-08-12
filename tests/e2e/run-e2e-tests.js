@@ -26,6 +26,10 @@ exports.runE2ETests = async (resourcesEnv) => {
     .split("\n")
     .map((record) => record.split(":").slice(0, 2));
   const packagesToTest = changedPackages.filter((changedPackage) => hasE2Etest(changedPackage[0]));
+  if (packagesToTest?.length === 0) {
+    console.log("no changed package contains e2e test.");
+    return;
+  }
   console.log(`packages to run e2e test:
 ${packagesToTest.map((package) => package[0]).join("\n")}`);
   await spawnPromise(
