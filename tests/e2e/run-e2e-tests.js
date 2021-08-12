@@ -24,7 +24,9 @@ exports.runE2ETests = async (resourcesEnv) => {
   const changedPackages = changedPackagesRecord
     .toString()
     .split("\n")
+    .filter((record) => record.includes(":"))
     .map((record) => record.split(":").slice(0, 2));
+  console.log(changedPackages);
   const packagesToTest = changedPackages.filter((changedPackage) => hasE2Etest(changedPackage[0]));
   if (packagesToTest?.length === 0) {
     console.log("no changed package contains e2e test.");

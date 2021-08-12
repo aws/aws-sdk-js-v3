@@ -6,6 +6,7 @@ const run = async () => {
     const integTestResourcesEnv = await getIntegTestResources();
     await runE2ETests(integTestResourcesEnv);
   } catch (e) {
+    console.error(e);
     process.exit(1);
   }
 };
