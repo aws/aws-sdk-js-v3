@@ -30,6 +30,13 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
           signingRegion: context["signing_region"],
           signingService: context["signing_service"],
         }),
+      }).catch((error) => {
+        if (error.Code === "RequestTimeTooSkewed" && error.ServerTime) {
+          const serverTime = Date.parse(error.ServerTime);
+          const newOffset = serverTime - Date.now();
+          options.systemClockOffset = newOffset;
+        }
+        throw error;
       });
 
       const { headers } = output.response as any;
