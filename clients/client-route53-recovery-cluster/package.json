@@ -9,7 +9,7 @@
     "remove-definitions": "rimraf ./types",
     "remove-dist": "rimraf ./dist",
     "remove-documentation": "rimraf ./docs",
-    "test": "yarn build && jest --coverage --passWithNoTests",
+    "test": "jest --coverage --passWithNoTests",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es"
