@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.26.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.25.0...v3.26.0) (2021-08-13)
+
+
+### Features
+
+* **credential-provider-imds:** support IMDS for IPv6 endpoints ([#2660](https://github.com/aws/aws-sdk-js-v3/issues/2660)) ([c458481](https://github.com/aws/aws-sdk-js-v3/commit/c458481ce07b14017a671603b79111a9958d7f0c))
+
+
+
+
+
 # [3.25.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.24.0...v3.25.0) (2021-08-05)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-imds

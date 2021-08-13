@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-sso-oidc",
   "description": "AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native",
-  "version": "3.25.0",
+  "version": "3.26.0",
   "scripts": {
     "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
     "build-documentation": "yarn remove-documentation && typedoc ./",

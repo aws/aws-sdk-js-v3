@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-codebuild",
   "description": "AWS SDK for JavaScript Codebuild Client for Node.js, Browser and React Native",
-  "version": "3.25.0",
+  "version": "3.26.0",
   "scripts": {
     "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
     "build-documentation": "yarn remove-documentation && typedoc ./",
@@ -27,9 +27,9 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "^1.0.0",
     "@aws-crypto/sha256-js": "^1.0.0",
-    "@aws-sdk/client-sts": "3.25.0",
+    "@aws-sdk/client-sts": "3.26.0",
     "@aws-sdk/config-resolver": "3.25.0",
-    "@aws-sdk/credential-provider-node": "3.25.0",
+    "@aws-sdk/credential-provider-node": "3.26.0",
     "@aws-sdk/fetch-http-handler": "3.25.0",
     "@aws-sdk/hash-node": "3.25.0",
     "@aws-sdk/invalid-dependency": "3.25.0",

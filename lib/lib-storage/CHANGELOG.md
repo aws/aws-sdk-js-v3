@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.26.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.25.0...v3.26.0) (2021-08-13)
+
+
+### Features
+
+* **lib-storage:** use PUT from small uploads ([#2605](https://github.com/aws/aws-sdk-js-v3/issues/2605)) ([7374720](https://github.com/aws/aws-sdk-js-v3/commit/737472069cc9255ba1d0a7230f5f86b089b2e891))
+
+
+
+
+
 # [3.25.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.24.0...v3.25.0) (2021-08-05)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage
