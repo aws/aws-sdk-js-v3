@@ -3,7 +3,7 @@ import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 
 export interface FromTemporaryCredentialsOptions {
-  params: AssumeRoleCommandInput;
+  params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string };
   masterCredentials?: Credentials | CredentialProvider;
   stsConfig?: STSClientConfig;
   mfaCodeProvider?: (mfaSerial: string) => Promise<string>;
@@ -12,7 +12,7 @@ export interface FromTemporaryCredentialsOptions {
 export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOptions): CredentialProvider => {
   let stsClient: STSClient;
   return async (): Promise<Credentials> => {
-    const params = { ...options.params };
+    const params = { ...options.params, RoleSessionName: options.params.RoleSessionName ?? "aws-sdk-js-" + Date.now() };
     if (params?.SerialNumber) {
       if (!options.mfaCodeProvider) {
         throw new CredentialsProviderError(
