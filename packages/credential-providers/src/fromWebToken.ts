@@ -3,11 +3,10 @@ import * as core from "@aws-sdk/credential-provider-web-identity";
 import { CredentialProvider } from "@aws-sdk/types";
 
 export interface FromWebTokenInit extends core.FromWebTokenInit {
-  stsClientConfig?: STSClientConfig;
+  stsConfig?: STSClientConfig;
 }
 export const fromWebToken = (init: FromWebTokenInit): CredentialProvider =>
   core.fromWebToken({
     ...init,
-    roleAssumerWithWebIdentity:
-      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.stsClientConfig),
+    roleAssumerWithWebIdentity: init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.stsConfig),
   });

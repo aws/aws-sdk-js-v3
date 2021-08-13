@@ -19,6 +19,7 @@ describe("fromIni", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
+
   it("should inject default role assumers", () => {
     const profile = "profile";
     fromIni({ profile });
@@ -43,5 +44,15 @@ describe("fromIni", () => {
     });
     expect(getDefaultRoleAssumer).not.toBeCalled();
     expect(getDefaultRoleAssumerWithWebIdentity).not.toBeCalled();
+  });
+
+  it("should use supplied sts options", () => {
+    const profile = "profile";
+    const stsOptions = {
+      region: "US_BAR_1",
+    };
+    fromIni({ profile, stsOptions });
+    expect(getDefaultRoleAssumer).toBeCalledWith(stsOptions);
+    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(stsOptions);
   });
 });

@@ -35,17 +35,17 @@ describe("fromWebToken", () => {
   });
 
   it("should supply sts config to role assumer", () => {
-    const stsClientConfig = {
+    const stsConfig = {
       region: "US_FOO_0",
     };
     fromWebToken({
       roleArn,
       webIdentityToken,
-      stsClientConfig,
+      stsConfig,
     });
     expect((coreProvider as jest.Mock).mock.calls[0][0]).toMatchObject({
       roleAssumerWithWebIdentity: ROLE_ASSUMER_WITH_WEB_IDENTITY,
     });
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(stsClientConfig);
+    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(stsConfig);
   });
 });
