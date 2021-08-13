@@ -1,6 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateImageRequest } from "../models/models_2";
-import { UpdateImageResponse } from "../models/models_3";
+import { UpdateImageRequest, UpdateImageResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateImageCommand,
   serializeAws_json1_1UpdateImageCommand,

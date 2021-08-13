@@ -21,7 +21,8 @@ export interface CreateRegexPatternSetCommandInput extends CreateRegexPatternSet
 export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>, to have WAF inspect a web request component for the specified patterns.</p>
+ * <p>Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>, to have WAF inspect a web request
+ *          component for the specified patterns.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -24,7 +24,12 @@ import {
   AssociateSecurityKeyCommandInput,
   AssociateSecurityKeyCommandOutput,
 } from "./commands/AssociateSecurityKeyCommand";
+import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "./commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
+import {
+  CreateHoursOfOperationCommandInput,
+  CreateHoursOfOperationCommandOutput,
+} from "./commands/CreateHoursOfOperationCommand";
 import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
 import {
   CreateIntegrationAssociationCommandInput,
@@ -42,6 +47,10 @@ import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
+import {
+  DeleteHoursOfOperationCommandInput,
+  DeleteHoursOfOperationCommandOutput,
+} from "./commands/DeleteHoursOfOperationCommand";
 import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
 import {
   DeleteIntegrationAssociationCommandInput,
@@ -54,6 +63,10 @@ import {
   DeleteUserHierarchyGroupCommandInput,
   DeleteUserHierarchyGroupCommandOutput,
 } from "./commands/DeleteUserHierarchyGroupCommand";
+import {
+  DescribeAgentStatusCommandInput,
+  DescribeAgentStatusCommandOutput,
+} from "./commands/DescribeAgentStatusCommand";
 import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
@@ -125,6 +138,7 @@ import {
 } from "./commands/GetCurrentMetricDataCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
+import { ListAgentStatusesCommandInput, ListAgentStatusesCommandOutput } from "./commands/ListAgentStatusesCommand";
 import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
@@ -209,6 +223,7 @@ import {
 } from "./commands/SuspendContactRecordingCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAgentStatusCommandInput, UpdateAgentStatusCommandOutput } from "./commands/UpdateAgentStatusCommand";
 import {
   UpdateContactAttributesCommandInput,
   UpdateContactAttributesCommandOutput,
@@ -221,6 +236,10 @@ import {
   UpdateContactFlowNameCommandInput,
   UpdateContactFlowNameCommandOutput,
 } from "./commands/UpdateContactFlowNameCommand";
+import {
+  UpdateHoursOfOperationCommandInput,
+  UpdateHoursOfOperationCommandOutput,
+} from "./commands/UpdateHoursOfOperationCommand";
 import {
   UpdateInstanceAttributeCommandInput,
   UpdateInstanceAttributeCommandOutput,
@@ -356,7 +375,9 @@ export type ServiceInputTypes =
   | AssociateQueueQuickConnectsCommandInput
   | AssociateRoutingProfileQueuesCommandInput
   | AssociateSecurityKeyCommandInput
+  | CreateAgentStatusCommandInput
   | CreateContactFlowCommandInput
+  | CreateHoursOfOperationCommandInput
   | CreateInstanceCommandInput
   | CreateIntegrationAssociationCommandInput
   | CreateQueueCommandInput
@@ -365,12 +386,14 @@ export type ServiceInputTypes =
   | CreateUseCaseCommandInput
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
+  | DeleteHoursOfOperationCommandInput
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
   | DeleteQuickConnectCommandInput
   | DeleteUseCaseCommandInput
   | DeleteUserCommandInput
   | DeleteUserHierarchyGroupCommandInput
+  | DescribeAgentStatusCommandInput
   | DescribeContactFlowCommandInput
   | DescribeHoursOfOperationCommandInput
   | DescribeInstanceAttributeCommandInput
@@ -394,6 +417,7 @@ export type ServiceInputTypes =
   | GetCurrentMetricDataCommandInput
   | GetFederationTokenCommandInput
   | GetMetricDataCommandInput
+  | ListAgentStatusesCommandInput
   | ListApprovedOriginsCommandInput
   | ListBotsCommandInput
   | ListContactFlowsCommandInput
@@ -427,9 +451,11 @@ export type ServiceInputTypes =
   | SuspendContactRecordingCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAgentStatusCommandInput
   | UpdateContactAttributesCommandInput
   | UpdateContactFlowContentCommandInput
   | UpdateContactFlowNameCommandInput
+  | UpdateHoursOfOperationCommandInput
   | UpdateInstanceAttributeCommandInput
   | UpdateInstanceStorageConfigCommandInput
   | UpdateQueueHoursOfOperationCommandInput
@@ -460,7 +486,9 @@ export type ServiceOutputTypes =
   | AssociateQueueQuickConnectsCommandOutput
   | AssociateRoutingProfileQueuesCommandOutput
   | AssociateSecurityKeyCommandOutput
+  | CreateAgentStatusCommandOutput
   | CreateContactFlowCommandOutput
+  | CreateHoursOfOperationCommandOutput
   | CreateInstanceCommandOutput
   | CreateIntegrationAssociationCommandOutput
   | CreateQueueCommandOutput
@@ -469,12 +497,14 @@ export type ServiceOutputTypes =
   | CreateUseCaseCommandOutput
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
+  | DeleteHoursOfOperationCommandOutput
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
   | DeleteQuickConnectCommandOutput
   | DeleteUseCaseCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserHierarchyGroupCommandOutput
+  | DescribeAgentStatusCommandOutput
   | DescribeContactFlowCommandOutput
   | DescribeHoursOfOperationCommandOutput
   | DescribeInstanceAttributeCommandOutput
@@ -498,6 +528,7 @@ export type ServiceOutputTypes =
   | GetCurrentMetricDataCommandOutput
   | GetFederationTokenCommandOutput
   | GetMetricDataCommandOutput
+  | ListAgentStatusesCommandOutput
   | ListApprovedOriginsCommandOutput
   | ListBotsCommandOutput
   | ListContactFlowsCommandOutput
@@ -531,9 +562,11 @@ export type ServiceOutputTypes =
   | SuspendContactRecordingCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAgentStatusCommandOutput
   | UpdateContactAttributesCommandOutput
   | UpdateContactFlowContentCommandOutput
   | UpdateContactFlowNameCommandOutput
+  | UpdateHoursOfOperationCommandOutput
   | UpdateInstanceAttributeCommandOutput
   | UpdateInstanceStorageConfigCommandOutput
   | UpdateQueueHoursOfOperationCommandOutput

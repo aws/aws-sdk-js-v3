@@ -26,7 +26,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *          </p>
  *          <ul>
  *             <li>
- *                 <p>A customer can use this operation to test automatic failover on up to 5 shards (called node groups in the ElastiCache API and AWS CLI)
+ *                 <p>A customer can use this operation to test automatic failover on up to 5 shards (called node groups in the ElastiCache API and Amazon CLI)
  *                     in any rolling 24-hour period.</p>
  *             </li>
  *             <li>
@@ -39,7 +39,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *             </li>
  *             <li>
  *                 <p>To determine whether the node replacement is complete you can check Events using the Amazon ElastiCache console,
- *                     the AWS CLI, or the ElastiCache API.
+ *                     the Amazon CLI, or the ElastiCache API.
  *                     Look for the following automatic failover related events, listed here in order of occurrance:</p>
  *                 <ol>
  *                   <li>

@@ -40,10 +40,20 @@ import {
   AssociateSecurityKeyCommandOutput,
 } from "./commands/AssociateSecurityKeyCommand";
 import {
+  CreateAgentStatusCommand,
+  CreateAgentStatusCommandInput,
+  CreateAgentStatusCommandOutput,
+} from "./commands/CreateAgentStatusCommand";
+import {
   CreateContactFlowCommand,
   CreateContactFlowCommandInput,
   CreateContactFlowCommandOutput,
 } from "./commands/CreateContactFlowCommand";
+import {
+  CreateHoursOfOperationCommand,
+  CreateHoursOfOperationCommandInput,
+  CreateHoursOfOperationCommandOutput,
+} from "./commands/CreateHoursOfOperationCommand";
 import {
   CreateInstanceCommand,
   CreateInstanceCommandInput,
@@ -77,6 +87,11 @@ import {
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
 import {
+  DeleteHoursOfOperationCommand,
+  DeleteHoursOfOperationCommandInput,
+  DeleteHoursOfOperationCommandOutput,
+} from "./commands/DeleteHoursOfOperationCommand";
+import {
   DeleteInstanceCommand,
   DeleteInstanceCommandInput,
   DeleteInstanceCommandOutput,
@@ -102,6 +117,11 @@ import {
   DeleteUserHierarchyGroupCommandInput,
   DeleteUserHierarchyGroupCommandOutput,
 } from "./commands/DeleteUserHierarchyGroupCommand";
+import {
+  DescribeAgentStatusCommand,
+  DescribeAgentStatusCommandInput,
+  DescribeAgentStatusCommandOutput,
+} from "./commands/DescribeAgentStatusCommand";
 import {
   DescribeContactFlowCommand,
   DescribeContactFlowCommandInput,
@@ -217,6 +237,11 @@ import {
   GetMetricDataCommandInput,
   GetMetricDataCommandOutput,
 } from "./commands/GetMetricDataCommand";
+import {
+  ListAgentStatusesCommand,
+  ListAgentStatusesCommandInput,
+  ListAgentStatusesCommandOutput,
+} from "./commands/ListAgentStatusesCommand";
 import {
   ListApprovedOriginsCommand,
   ListApprovedOriginsCommandInput,
@@ -355,6 +380,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAgentStatusCommand,
+  UpdateAgentStatusCommandInput,
+  UpdateAgentStatusCommandOutput,
+} from "./commands/UpdateAgentStatusCommand";
+import {
   UpdateContactAttributesCommand,
   UpdateContactAttributesCommandInput,
   UpdateContactAttributesCommandOutput,
@@ -369,6 +399,11 @@ import {
   UpdateContactFlowNameCommandInput,
   UpdateContactFlowNameCommandOutput,
 } from "./commands/UpdateContactFlowNameCommand";
+import {
+  UpdateHoursOfOperationCommand,
+  UpdateHoursOfOperationCommandInput,
+  UpdateHoursOfOperationCommandOutput,
+} from "./commands/UpdateHoursOfOperationCommand";
 import {
   UpdateInstanceAttributeCommand,
   UpdateInstanceAttributeCommandInput,
@@ -756,6 +791,39 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Creates an agent status for the specified Amazon Connect instance.</p>
+   */
+  public createAgentStatus(
+    args: CreateAgentStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAgentStatusCommandOutput>;
+  public createAgentStatus(
+    args: CreateAgentStatusCommandInput,
+    cb: (err: any, data?: CreateAgentStatusCommandOutput) => void
+  ): void;
+  public createAgentStatus(
+    args: CreateAgentStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAgentStatusCommandOutput) => void
+  ): void;
+  public createAgentStatus(
+    args: CreateAgentStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAgentStatusCommandOutput) => void),
+    cb?: (err: any, data?: CreateAgentStatusCommandOutput) => void
+  ): Promise<CreateAgentStatusCommandOutput> | void {
+    const command = new CreateAgentStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a contact flow for the specified Amazon Connect instance.</p>
    *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
@@ -779,6 +847,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: CreateContactFlowCommandOutput) => void
   ): Promise<CreateContactFlowCommandOutput> | void {
     const command = new CreateContactFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Creates hours of operation. </p>
+   */
+  public createHoursOfOperation(
+    args: CreateHoursOfOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHoursOfOperationCommandOutput>;
+  public createHoursOfOperation(
+    args: CreateHoursOfOperationCommandInput,
+    cb: (err: any, data?: CreateHoursOfOperationCommandOutput) => void
+  ): void;
+  public createHoursOfOperation(
+    args: CreateHoursOfOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHoursOfOperationCommandOutput) => void
+  ): void;
+  public createHoursOfOperation(
+    args: CreateHoursOfOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHoursOfOperationCommandOutput) => void),
+    cb?: (err: any, data?: CreateHoursOfOperationCommandOutput) => void
+  ): Promise<CreateHoursOfOperationCommandOutput> | void {
+    const command = new CreateHoursOfOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1044,6 +1145,39 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Deletes an hours of operation.</p>
+   */
+  public deleteHoursOfOperation(
+    args: DeleteHoursOfOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHoursOfOperationCommandOutput>;
+  public deleteHoursOfOperation(
+    args: DeleteHoursOfOperationCommandInput,
+    cb: (err: any, data?: DeleteHoursOfOperationCommandOutput) => void
+  ): void;
+  public deleteHoursOfOperation(
+    args: DeleteHoursOfOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHoursOfOperationCommandOutput) => void
+  ): void;
+  public deleteHoursOfOperation(
+    args: DeleteHoursOfOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHoursOfOperationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteHoursOfOperationCommandOutput) => void
+  ): Promise<DeleteHoursOfOperationCommandOutput> | void {
+    const command = new DeleteHoursOfOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Deletes the Amazon Connect instance.</p>
    *          <p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
    * If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances.
@@ -1227,6 +1361,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DeleteUserHierarchyGroupCommandOutput) => void
   ): Promise<DeleteUserHierarchyGroupCommandOutput> | void {
     const command = new DeleteUserHierarchyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Describes an agent status.</p>
+   */
+  public describeAgentStatus(
+    args: DescribeAgentStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAgentStatusCommandOutput>;
+  public describeAgentStatus(
+    args: DescribeAgentStatusCommandInput,
+    cb: (err: any, data?: DescribeAgentStatusCommandOutput) => void
+  ): void;
+  public describeAgentStatus(
+    args: DescribeAgentStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAgentStatusCommandOutput) => void
+  ): void;
+  public describeAgentStatus(
+    args: DescribeAgentStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAgentStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAgentStatusCommandOutput) => void
+  ): Promise<DescribeAgentStatusCommandOutput> | void {
+    const command = new DescribeAgentStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1997,6 +2164,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: GetMetricDataCommandOutput) => void
   ): Promise<GetMetricDataCommandOutput> | void {
     const command = new GetMetricDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Lists agent statuses.</p>
+   */
+  public listAgentStatuses(
+    args: ListAgentStatusesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgentStatusesCommandOutput>;
+  public listAgentStatuses(
+    args: ListAgentStatusesCommandInput,
+    cb: (err: any, data?: ListAgentStatusesCommandOutput) => void
+  ): void;
+  public listAgentStatuses(
+    args: ListAgentStatusesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgentStatusesCommandOutput) => void
+  ): void;
+  public listAgentStatuses(
+    args: ListAgentStatusesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAgentStatusesCommandOutput) => void),
+    cb?: (err: any, data?: ListAgentStatusesCommandOutput) => void
+  ): Promise<ListAgentStatusesCommandOutput> | void {
+    const command = new ListAgentStatusesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3058,8 +3258,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Adds the specified tags to the specified resource.</p>
-   *          <p>The supported resource types are users, routing profiles, queues, quick connects, and
-   *    contact flows.</p>
+   *          <p>The supported resource types are users, routing profiles, queues, quick connects,
+   *    contact flows, agent status, and hours of operation.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
    *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -3108,6 +3308,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates agent status.</p>
+   */
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentStatusCommandOutput>;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    cb: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): void;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): void;
+  public updateAgentStatus(
+    args: UpdateAgentStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAgentStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAgentStatusCommandOutput) => void
+  ): Promise<UpdateAgentStatusCommandOutput> | void {
+    const command = new UpdateAgentStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3227,6 +3460,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateContactFlowNameCommandOutput) => void
   ): Promise<UpdateContactFlowNameCommandOutput> | void {
     const command = new UpdateContactFlowNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates the hours of operation.</p>
+   */
+  public updateHoursOfOperation(
+    args: UpdateHoursOfOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHoursOfOperationCommandOutput>;
+  public updateHoursOfOperation(
+    args: UpdateHoursOfOperationCommandInput,
+    cb: (err: any, data?: UpdateHoursOfOperationCommandOutput) => void
+  ): void;
+  public updateHoursOfOperation(
+    args: UpdateHoursOfOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHoursOfOperationCommandOutput) => void
+  ): void;
+  public updateHoursOfOperation(
+    args: UpdateHoursOfOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHoursOfOperationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateHoursOfOperationCommandOutput) => void
+  ): Promise<UpdateHoursOfOperationCommandOutput> | void {
+    const command = new UpdateHoursOfOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

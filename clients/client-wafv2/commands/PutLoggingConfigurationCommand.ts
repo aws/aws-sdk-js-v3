@@ -21,25 +21,34 @@ export interface PutLoggingConfigurationCommandInput extends PutLoggingConfigura
 export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL, according to the configuration provided.</p>
+ * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a
+ *          web ACL, according to the configuration provided.</p>
  *          <p>You can access information about all traffic that WAF inspects using the following
  *          steps:</p>
  *          <ol>
  *             <li>
- *                <p>Create an Amazon Kinesis Data
- *             Firehose. </p>
- *                <p>Create the data firehose with a PUT source and in the Region that you are operating. If you are capturing logs for Amazon CloudFront, always create the firehose in US East (N. Virginia). </p>
- *                <p>Give the data firehose a name that starts with the prefix <code>aws-waf-logs-</code>. For example, <code>aws-waf-logs-us-east-2-analytics</code>.</p>
+ *                <p>Create an Amazon Kinesis Data Firehose. </p>
+ *                <p>Create the data firehose with a PUT source and in the Region that you are
+ *                operating. If you are capturing logs for Amazon CloudFront, always create the firehose in US
+ *                East (N. Virginia). </p>
+ *                <p>Give the data firehose a name that starts with the prefix
+ *                   <code>aws-waf-logs-</code>. For example,
+ *                   <code>aws-waf-logs-us-east-2-analytics</code>.</p>
  *                <note>
- *                   <p>Do not create the data firehose using a <code>Kinesis stream</code> as your source.</p>
+ *                   <p>Do not create the data firehose using a <code>Kinesis stream</code> as your
+ *                   source.</p>
  *                </note>
  *             </li>
  *             <li>
- *                <p>Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code> request.</p>
+ *                <p>Associate that firehose to your web ACL using a
+ *                   <code>PutLoggingConfiguration</code> request.</p>
  *             </li>
  *          </ol>
- *
- *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code> request, WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose.  For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL Traffic Information</a> in the <i>WAF Developer Guide</i>.</p>
+ *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code>
+ *          request, WAF will create a service linked role with the necessary permissions to write
+ *          logs to the Amazon Kinesis Data Firehose. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL
+ *             Traffic Information</a> in the <i>WAF Developer
+ *          Guide</i>.</p>
  *          <note>
  *             <p>This operation completely replaces the mutable specifications that you already have for the logging configuration with the ones that you provide to this call. To modify the logging configuration, retrieve it by calling <a>GetLoggingConfiguration</a>, update the settings as needed, and then provide the complete logging configuration specification to this call.</p>
  *          </note>

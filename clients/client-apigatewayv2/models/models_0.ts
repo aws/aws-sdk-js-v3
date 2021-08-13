@@ -329,6 +329,8 @@ export namespace Deployment {
 
 export enum DomainNameStatus {
   AVAILABLE = "AVAILABLE",
+  PENDING_CERTIFICATE_REIMPORT = "PENDING_CERTIFICATE_REIMPORT",
+  PENDING_OWNERSHIP_VERIFICATION = "PENDING_OWNERSHIP_VERIFICATION",
   UPDATING = "UPDATING",
 }
 
@@ -367,7 +369,7 @@ export interface DomainNameConfiguration {
   CertificateUploadDate?: Date;
 
   /**
-   * <p>The status of the domain name migration. The valid values are AVAILABLE and UPDATING. If the status is UPDATING, the domain cannot be modified further until the existing operation is complete. If it is AVAILABLE, the domain can be updated.</p>
+   * <p>The status of the domain name migration. The valid values are AVAILABLE, UPDATING, PENDING_CERTIFICATE_REIMPORT, and PENDING_OWNERSHIP_VERIFICATION. If the status is UPDATING, the domain cannot be modified further until the existing operation is complete. If it is AVAILABLE, the domain can be updated.</p>
    */
   DomainNameStatus?: DomainNameStatus | string;
 
@@ -390,6 +392,11 @@ export interface DomainNameConfiguration {
    * <p>The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
    */
   SecurityPolicy?: SecurityPolicy | string;
+
+  /**
+   * <p>The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the regionalCertificateArn</p>
+   */
+  OwnershipVerificationCertificateArn?: string;
 }
 
 export namespace DomainNameConfiguration {

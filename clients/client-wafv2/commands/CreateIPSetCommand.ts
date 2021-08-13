@@ -21,7 +21,10 @@ export interface CreateIPSetCommandInput extends CreateIPSetRequest {}
 export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an <a>IPSet</a>, which you use to identify web requests that originate from specific IP addresses or ranges of IP addresses. For example, if you're receiving a lot of requests from a ranges of IP addresses, you can configure WAF to block them using an IPSet that lists those IP addresses. </p>
+ * <p>Creates an <a>IPSet</a>, which you use to identify web requests that
+ *          originate from specific IP addresses or ranges of IP addresses. For example, if you're
+ *          receiving a lot of requests from a ranges of IP addresses, you can configure WAF to
+ *          block them using an IPSet that lists those IP addresses. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -24,6 +24,9 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * <p>Updates the properties of a domain, including creating or selecting a dead letter queue
  *          or an encryption key.</p>
  *          <p>After a domain is created, the name can’t be changed.</p>
+ *          <p>Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a> to
+ *          enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
+ *             resolution</a>: set <code>Matching</code> to true. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

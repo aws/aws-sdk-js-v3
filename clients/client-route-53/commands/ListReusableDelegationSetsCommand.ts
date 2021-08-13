@@ -21,7 +21,7 @@ export interface ListReusableDelegationSetsCommandInput extends ListReusableDele
 export interface ListReusableDelegationSetsCommandOutput extends ListReusableDelegationSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of the reusable delegation sets that are associated with the current account.</p>
+ * <p>Retrieves a list of the reusable delegation sets that are associated with the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

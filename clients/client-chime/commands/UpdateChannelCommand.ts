@@ -23,12 +23,11 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
 /**
  * <p>Update a channel's attributes.</p>
  *          <p>
- *             <b>Restriction</b>: You can't change a channel's privacy.
- * </p>
- *
+ *             <b>Restriction</b>: You can't change a channel's privacy. </p>
  *          <note>
- *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
- *         the API call as the value in the header.</p>
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             the header.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

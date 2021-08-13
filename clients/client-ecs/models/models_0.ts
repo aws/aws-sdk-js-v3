@@ -620,6 +620,7 @@ export namespace ClusterConfiguration {
  * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
  * 			available to all accounts and only need to be associated with a cluster to be used in a
  * 			capacity provider strategy.</p>
+ *          <p>A capacity provider strategy may contain a maximum of 6 capacity providers.</p>
  */
 export interface CapacityProviderStrategyItem {
   /**
@@ -780,7 +781,7 @@ export interface CreateClusterRequest {
 
   /**
    * <p>The capacity provider strategy to set as the default for the cluster. When a default
-   * 			capacity provider strategy is set for a cluster, when calling the <a>RunTask</a> or <a>CreateService</a> APIs wtih no capacity
+   * 			capacity provider strategy is set for a cluster, when calling the <a>RunTask</a> or <a>CreateService</a> APIs with no capacity
    * 			provider strategy or launch type specified, the default capacity provider strategy for
    * 			the cluster is used.</p>
    * 		       <p>If a default capacity provider strategy is not defined for a cluster during creation,
@@ -870,7 +871,7 @@ export namespace Attachment {
  */
 export interface Cluster {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the cluster, the account ID of the cluster owner, the <code>cluster</code> namespace, and then the cluster name. For example, <code>arn:aws:ecs:region:012345678910:cluster/test</code>.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the cluster, the Amazon Web Services account ID of the cluster owner, the <code>cluster</code> namespace, and then the cluster name. For example, <code>arn:aws:ecs:region:012345678910:cluster/test</code>.</p>
    */
   clusterArn?: string;
 
@@ -1419,9 +1420,9 @@ export interface PlacementConstraint {
   type?: PlacementConstraintType | string;
 
   /**
-   * <p>A cluster query language expression to apply to the constraint. You cannot specify an
-   * 			expression if the constraint type is <code>distinctInstance</code>. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the
+   * <p>A cluster query language expression to apply to the constraint. The expression can
+   * 			have a maximum length of 2000 characters. You can't specify an expression if the
+   * 			constraint type is <code>distinctInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster query language</a> in the
    * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   expression?: string;
@@ -1656,6 +1657,7 @@ export interface CreateServiceRequest {
    * 			parameter must be omitted. If no <code>capacityProviderStrategy</code> or
    * 				<code>launchType</code> is specified, the
    * 				<code>defaultCapacityProviderStrategy</code> for the cluster is used.</p>
+   * 		       <p>A capacity provider strategy may contain a maximum of 6 capacity providers.</p>
    */
   capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
@@ -1701,13 +1703,13 @@ export interface CreateServiceRequest {
   /**
    * <p>An array of placement constraint objects to use for tasks in your service. You can
    * 			specify a maximum of 10 constraints per task (this limit includes constraints in the
-   * 			task definition and those specified at runtime). </p>
+   * 			task definition and those specified at runtime).</p>
    */
   placementConstraints?: PlacementConstraint[];
 
   /**
    * <p>The placement strategy objects to use for tasks in your service. You can specify a
-   * 			maximum of five strategy rules per service.</p>
+   * 			maximum of 5 strategy rules per service.</p>
    */
   placementStrategy?: PlacementStrategy[];
 
@@ -2274,7 +2276,7 @@ export namespace TaskSet {
  */
 export interface Service {
   /**
-   * <p>The ARN that identifies the service. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the service, the account ID of the service owner, the <code>service</code> namespace, and then the service name. For example, <code>arn:aws:ecs:region:012345678910:service/my-service</code>.</p>
+   * <p>The ARN that identifies the service. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the service, the Amazon Web Services account ID of the service owner, the <code>service</code> namespace, and then the service name. For example, <code>arn:aws:ecs:region:012345678910:service/my-service</code>.</p>
    */
   serviceArn?: string;
 
@@ -3237,7 +3239,7 @@ export interface DeregisterContainerInstanceRequest {
 
   /**
    * <p>The container instance ID or full ARN of the container instance to deregister.
-   * 			The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
+   * 			The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the Amazon Web Services account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
    */
   containerInstance: string | undefined;
 
@@ -3352,7 +3354,7 @@ export namespace VersionInfo {
  */
 export interface ContainerInstance {
   /**
-   * <p>The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the Amazon Web Services account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
    */
   containerInstanceArn?: string;
 
@@ -3823,9 +3825,14 @@ export interface HealthCheck {
    * <p>A string array representing the command that the container runs to determine if it is
    * 			healthy. The string array must start with <code>CMD</code> to execute the command
    * 			arguments directly, or <code>CMD-SHELL</code> to run the command with the container's
-   * 			default shell. For example:</p>
+   * 			default shell. </p>
+   * 		       <p> When you use the Amazon Web Services Management Console JSON panel, the Command Line Interface, or the APIs, you should enclose the list of commands in brackets, as shown below.</p>
    * 		       <p>
    * 			         <code>[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]</code>
+   * 		       </p>
+   * 		       <p>You do not need to include the brackets when you use the Amazon Web Services Management Consoleas shown below.</p>
+   * 		       <p>
+   * 			         <code> "CMD-SHELL", "curl -f http://localhost/ || exit 1" </code>
    * 		       </p>
    * 		       <p>An exit code of 0 indicates success, and non-zero exit code indicates failure. For
    * 			more information, see <code>HealthCheck</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a>
@@ -6181,6 +6188,8 @@ export interface DescribeClustersRequest {
    * 			or tasks within the cluster are included.</p>
    * 		       <p>If <code>SETTINGS</code> is specified, the settings for the cluster are
    * 			included.</p>
+   * 		       <p>If <code>CONFIGURATIONS</code> is specified, the configuration for the cluster is
+   * 			included.</p>
    * 		       <p>If <code>STATISTICS</code> is specified, the task and service count is included,
    * 			separated by launch type.</p>
    * 		       <p>If <code>TAGS</code> is specified, the metadata tags associated with the cluster are
@@ -7222,7 +7231,7 @@ export namespace DescribeTaskSetsResponse {
 export interface DiscoverPollEndpointRequest {
   /**
    * <p>The container instance ID or full ARN of the container instance.
-   * 			The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
+   * 			The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the Amazon Web Services account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
    */
   containerInstance?: string;
 
@@ -8868,6 +8877,7 @@ export interface RunTaskRequest {
    * 				<code>launchType</code> is specified, the
    * 				<code>defaultCapacityProviderStrategy</code> for the cluster is used.</p>
    * 		       <p>When you use cluster auto scaling, you must specify <code>capacityProviderStrategy</code> and not <code>launchType</code>. </p>
+   * 		       <p>A capacity provider strategy may contain a maximum of 6 capacity providers.</p>
    */
   capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
@@ -8899,7 +8909,7 @@ export interface RunTaskRequest {
 
   /**
    * <p>The name of the task group to associate with the task. The default value is the family
-   * 			name of the task definition (for example, family:my-family-name).</p>
+   * 			name of the task definition (for example, <code>family:my-family-name</code>).</p>
    */
   group?: string;
 
@@ -8928,7 +8938,7 @@ export interface RunTaskRequest {
    * <p>The network configuration for the task. This parameter is required for task
    * 			definitions that use the <code>awsvpc</code> network mode to receive their own elastic
    * 			network interface, and it is not supported for other network modes. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task Networking</a>
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task networking</a>
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   networkConfiguration?: NetworkConfiguration;
@@ -8940,10 +8950,8 @@ export interface RunTaskRequest {
    * 			image) with a <code>command</code> override. You can also override existing environment
    * 			variables (that are specified in the task definition or Docker image) on a container or
    * 			add new environment variables to it with an <code>environment</code> override.</p>
-   * 		       <note>
-   * 			         <p>A total of 8192 characters are allowed for overrides. This limit includes the JSON
-   * 				formatting characters of the override structure.</p>
-   * 		       </note>
+   * 		       <p>A total of 8192 characters are allowed for overrides. This limit includes the JSON
+   * 			formatting characters of the override structure.</p>
    */
   overrides?: TaskOverride;
 
@@ -8955,17 +8963,16 @@ export interface RunTaskRequest {
   placementConstraints?: PlacementConstraint[];
 
   /**
-   * <p>The placement strategy objects to use for the task. You can specify a maximum of five
+   * <p>The placement strategy objects to use for the task. You can specify a maximum of 5
    * 			strategy rules per task.</p>
    */
   placementStrategy?: PlacementStrategy[];
 
   /**
-   * <p>The platform version the task should run. A platform version is only specified for
-   * 			tasks using the Fargate launch type. If one is not specified, the
-   * 				<code>LATEST</code> platform version is used by default. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform
-   * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The platform version the task should use. A platform version is only specified for
+   * 			tasks hosted on Fargate. If one is not specified, the <code>LATEST</code>
+   * 			platform version is used by default. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate platform versions</a> in the
+   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
 
@@ -8981,7 +8988,8 @@ export interface RunTaskRequest {
   propagateTags?: PropagateTags | string;
 
   /**
-   * <p>The reference ID to use for the task.</p>
+   * <p>The reference ID to use for the task. The reference ID can have a maximum length of
+   * 			1024 characters.</p>
    */
   referenceId?: string;
 

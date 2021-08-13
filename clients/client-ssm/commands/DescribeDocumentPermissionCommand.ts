@@ -23,7 +23,7 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
 /**
  * <p>Describes the permissions for a Amazon Web Services Systems Manager document (SSM document). If you created the
  *    document, you are the owner. If a document is shared, it can either be shared privately (by
- *    specifying a user's account ID) or publicly (<i>All</i>). </p>
+ *    specifying a user's Amazon Web Services account ID) or publicly (<i>All</i>). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

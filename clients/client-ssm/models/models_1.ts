@@ -787,31 +787,31 @@ export namespace GetAutomationExecutionRequest {
  */
 export interface ProgressCounters {
   /**
-   * <p>The total number of steps run in all specified Regions and accounts for the
+   * <p>The total number of steps run in all specified Amazon Web Services Regions and Amazon Web Services accounts for the
    *    current Automation execution.</p>
    */
   TotalSteps?: number;
 
   /**
-   * <p>The total number of steps that successfully completed in all specified Regions and
-   *    accounts for the current Automation execution.</p>
+   * <p>The total number of steps that successfully completed in all specified Amazon Web Services Regions and
+   *    Amazon Web Services accounts for the current Automation execution.</p>
    */
   SuccessSteps?: number;
 
   /**
-   * <p>The total number of steps that failed to run in all specified Regions and
-   *    accounts for the current Automation execution.</p>
+   * <p>The total number of steps that failed to run in all specified Amazon Web Services Regions and
+   *    Amazon Web Services accounts for the current Automation execution.</p>
    */
   FailedSteps?: number;
 
   /**
-   * <p>The total number of steps that the system cancelled in all specified Regions and
-   *    accounts for the current Automation execution.</p>
+   * <p>The total number of steps that the system cancelled in all specified Amazon Web Services Regions and
+   *    Amazon Web Services accounts for the current Automation execution.</p>
    */
   CancelledSteps?: number;
 
   /**
-   * <p>The total number of steps that timed out in all specified Regions and accounts
+   * <p>The total number of steps that timed out in all specified Amazon Web Services Regions and Amazon Web Services accounts
    *    for the current Automation execution.</p>
    */
   TimedOutSteps?: number;
@@ -950,7 +950,7 @@ export interface AutomationExecution {
   Target?: string;
 
   /**
-   * <p>The combination of Regions and/or accounts where you want to run the
+   * <p>The combination of Amazon Web Services Regions and/or Amazon Web Services accounts where you want to run the
    *    Automation.</p>
    */
   TargetLocations?: TargetLocation[];
@@ -1406,7 +1406,7 @@ export namespace InvocationDoesNotExist {
 
 export interface GetConnectionStatusRequest {
   /**
-   * <p>The ID of the instance.</p>
+   * <p>The instance ID.</p>
    */
   Target: string | undefined;
 }
@@ -1584,7 +1584,7 @@ export namespace GetDeployablePatchSnapshotForInstanceRequest {
 
 export interface GetDeployablePatchSnapshotForInstanceResult {
   /**
-   * <p>The ID of the instance.</p>
+   * <p>The instance ID.</p>
    */
   InstanceId?: string;
 
@@ -3049,13 +3049,22 @@ export namespace GetOpsItemRequest {
 
 /**
  * <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
- *    remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
- *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a> in the
- *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+ *    remediate operational work items (OpsItems) impacting the performance and health of their Amazon Web Services
+ *    resources. OpsCenter is integrated with Amazon EventBridge and Amazon CloudWatch. This
+ *    means you can configure these services to automatically create an OpsItem in OpsCenter when a
+ *     CloudWatch alarm enters the ALARM state or when EventBridge processes an event from
+ *    any Amazon Web Services service that publishes events. Configuring Amazon CloudWatch alarms and EventBridge events to automatically create OpsItems allows you to quickly diagnose and remediate
+ *    issues with Amazon Web Services resources from a single console.</p>
+ *          <p>To help you diagnose issues, each OpsItem includes contextually relevant information such as
+ *    the name and ID of the Amazon Web Services resource that generated the OpsItem, alarm or event details, alarm
+ *    history, and an alarm timeline graph. For the Amazon Web Services resource, OpsCenter aggregates information
+ *    from Config, CloudTrail logs, and EventBridge, so you don't have
+ *    to navigate across multiple console pages during your investigation. For more information, see
+ *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  */
 export interface OpsItem {
   /**
-   * <p>The ARN of the account that created the OpsItem.</p>
+   * <p>The ARN of the Amazon Web Services account that created the OpsItem.</p>
    */
   CreatedBy?: string;
 
@@ -3076,7 +3085,7 @@ export interface OpsItem {
   Description?: string;
 
   /**
-   * <p>The ARN of the account that last updated the OpsItem.</p>
+   * <p>The ARN of the Amazon Web Services account that last updated the OpsItem.</p>
    */
   LastModifiedBy?: string;
 
@@ -3377,7 +3386,7 @@ export namespace OpsEntity {
 
 export interface GetOpsSummaryResult {
   /**
-   * <p>The list of aggregated and filtered OpsData.</p>
+   * <p>The list of aggregated details and filtered OpsData.</p>
    */
   Entities?: OpsEntity[];
 
@@ -3400,6 +3409,8 @@ export namespace GetOpsSummaryResult {
 export interface GetParameterRequest {
   /**
    * <p>The name of the parameter you want to query.</p>
+   *          <p>To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
+   *    version, use <code>"Name": "name:version"</code>.</p>
    */
   Name: string | undefined;
 
@@ -3680,6 +3691,8 @@ export namespace GetParameterHistoryResult {
 export interface GetParametersRequest {
   /**
    * <p>Names of the parameters for which you want to query information.</p>
+   *          <p>To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
+   *    version, use <code>"Name": "name:version"</code>.</p>
    */
   Names: string[] | undefined;
 
@@ -3808,6 +3821,13 @@ export namespace GetParametersByPathResult {
 export interface GetPatchBaselineRequest {
   /**
    * <p>The ID of the patch baseline to retrieve.</p>
+   *          <note>
+   *             <p>To retrieve information about an Amazon Web Services managed patch baseline, specify the full Amazon
+   *     Resource Name (ARN) of the baseline. For example, for the baseline
+   *      <code>AWS-AmazonLinuxDefaultPatchBaseline</code>, specify
+   *      <code>arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0e392de35e7c563b7</code> instead of
+   *      <code>pb-0e392de35e7c563b7</code>.</p>
+   *          </note>
    */
   BaselineId: string | undefined;
 }
@@ -4273,7 +4293,7 @@ export interface Association {
   Name?: string;
 
   /**
-   * <p>The ID of the instance.</p>
+   * <p>The instance ID.</p>
    */
   InstanceId?: string;
 
@@ -4498,7 +4518,7 @@ export interface AssociationVersionInfo {
   CalendarNames?: string[];
 
   /**
-   * <p>The combination of Regions and accounts where you wanted to run the association
+   * <p>The combination of Amazon Web Services Regions and Amazon Web Services accounts where you wanted to run the association
    *    when this association version was created.</p>
    */
   TargetLocations?: TargetLocation[];
@@ -5202,7 +5222,7 @@ export interface Command {
 
   /**
    * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
-   *    automatically determines the Region of the S3 bucket.</p>
+   *    automatically determines the Amazon Web Services Region of the S3 bucket.</p>
    */
   OutputS3Region?: string;
 
@@ -5721,12 +5741,12 @@ export enum DocumentMetadataEnum {
 
 export interface ListDocumentMetadataHistoryRequest {
   /**
-   * <p>The name of the document.</p>
+   * <p>The name of the change template.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The version of the document.</p>
+   * <p>The version of the change template.</p>
    */
   DocumentVersion?: string;
 
@@ -5853,22 +5873,23 @@ export namespace DocumentMetadataResponseInfo {
 
 export interface ListDocumentMetadataHistoryResponse {
   /**
-   * <p>The name of the document.</p>
+   * <p>The name of the change template.</p>
    */
   Name?: string;
 
   /**
-   * <p>The version of the document.</p>
+   * <p>The version of the change template.</p>
    */
   DocumentVersion?: string;
 
   /**
-   * <p>The user ID of the person in the organization who requested the document review.</p>
+   * <p>The user ID of the person in the organization who requested the review of the
+   *    change template.</p>
    */
   Author?: string;
 
   /**
-   * <p>Information about the response to the document approval request.</p>
+   * <p>Information about the response to the change template approval request.</p>
    */
   Metadata?: DocumentMetadataResponseInfo;
 
@@ -6962,7 +6983,7 @@ export interface ListResourceDataSyncRequest {
   /**
    * <p>View a list of resource data syncs according to the sync type. Specify
    *     <code>SyncToDestination</code> to view resource data syncs that synchronize data to an Amazon S3 bucket. Specify <code>SyncFromSource</code> to view resource data syncs from Organizations
-   *    or from multiple Regions.</p>
+   *    or from multiple Amazon Web Services Regions.</p>
    */
   SyncType?: string;
 
@@ -7023,12 +7044,12 @@ export interface ResourceDataSyncSourceWithState {
   AwsOrganizationsSource?: ResourceDataSyncAwsOrganizationsSource;
 
   /**
-   * <p>The <code>SyncSource</code> Regions included in the resource data sync.</p>
+   * <p>The <code>SyncSource</code> Amazon Web Services Regions included in the resource data sync.</p>
    */
   SourceRegions?: string[];
 
   /**
-   * <p>Whether to automatically synchronize and aggregate data from new Regions when those
+   * <p>Whether to automatically synchronize and aggregate data from new Amazon Web Services Regions when those
    *    Regions come online.</p>
    */
   IncludeFutureRegions?: boolean;
@@ -7052,7 +7073,7 @@ export interface ResourceDataSyncSourceWithState {
 
   /**
    * <p>When you create a resource data sync, if you choose one of the Organizations options, then Systems Manager
-   *    automatically enables all OpsData sources in the selected Regions for all accounts in
+   *    automatically enables all OpsData sources in the selected Amazon Web Services Regions for all Amazon Web Services accounts in
    *    your organization (or in the selected organization units). For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html">About multiple account and Region resource data syncs</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
@@ -7082,7 +7103,7 @@ export interface ResourceDataSyncItem {
    * <p>The type of resource data sync. If <code>SyncType</code> is <code>SyncToDestination</code>,
    *    then the resource data sync synchronizes data to an S3 bucket. If the <code>SyncType</code> is
    *     <code>SyncFromSource</code> then the resource data sync synchronizes data from Organizations or from
-   *    multiple Regions.</p>
+   *    multiple Amazon Web Services Regions.</p>
    */
   SyncType?: string;
 
@@ -7813,7 +7834,7 @@ export namespace ParameterAlreadyExists {
 }
 
 /**
- * <p>You have exceeded the number of parameters for this account. Delete one or more
+ * <p>You have exceeded the number of parameters for this Amazon Web Services account. Delete one or more
  *    parameters and try again.</p>
  */
 export interface ParameterLimitExceeded extends __SmithyException, $MetadataBearer {
@@ -7917,7 +7938,7 @@ export interface PutParameterRequest {
    *                <p>Parameter names are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>A parameter name must be unique within an Region</p>
+   *                <p>A parameter name must be unique within an Amazon Web Services Region</p>
    *             </li>
    *             <li>
    *                <p>A parameter name can't be prefixed with "<code>aws</code>" or "<code>ssm</code>"
@@ -7989,11 +8010,11 @@ export interface PutParameterRequest {
 
   /**
    * <p>The Key Management Service (KMS) ID that you want to use to encrypt a
-   *    parameter. Either the default KMS key automatically assigned to your account
+   *    parameter. Either the default KMS key automatically assigned to your Amazon Web Services account
    *    or a custom key. Required for parameters that use the <code>SecureString</code>
    *    data type.</p>
    *          <p>If you don't specify a key ID, the system uses the default key associated with your
-   *    account.</p>
+   *    Amazon Web Services account.</p>
    *          <ul>
    *             <li>
    *                <p>To use your default KMS key, choose the <code>SecureString</code> data type, and do <i>not</i> specify the <code>Key ID</code> when you create the parameter. The system automatically populates
@@ -8052,11 +8073,11 @@ export interface PutParameterRequest {
    * <p>The parameter tier to assign to a parameter.</p>
    *          <p>Parameter Store offers a standard tier and an advanced tier for parameters. Standard
    *    parameters have a content size limit of 4 KB and can't be configured to use parameter policies.
-   *    You can create a maximum of 10,000 standard parameters for each Region in an account.
+   *    You can create a maximum of 10,000 standard parameters for each Region in an Amazon Web Services account.
    *    Standard parameters are offered at no additional cost. </p>
    *          <p>Advanced parameters have a content size limit of 8 KB and can be configured to use parameter
    *    policies. You can create a maximum of 100,000 advanced parameters for each Region in an
-   *    account. Advanced parameters incur a charge. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">Standard and
+   *    Amazon Web Services account. Advanced parameters incur a charge. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">Standard and
    *     advanced parameter tiers</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <p>You can change a standard parameter to an advanced parameter any time. But you can't revert
    *    an advanced parameter to a standard parameter. Reverting an advanced parameter to a standard
@@ -8101,8 +8122,8 @@ export interface PutParameterRequest {
    *                <p>The parameter uses a parameter policy.</p>
    *             </li>
    *             <li>
-   *                <p>More than 10,000 parameters already exist in your account in the current
-   *      Region.</p>
+   *                <p>More than 10,000 parameters already exist in your Amazon Web Services account in the current
+   *      Amazon Web Services Region.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about configuring the default tier option, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html">Specifying a
@@ -8150,7 +8171,7 @@ export interface PutParameterRequest {
    *          <p>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
    *    Amazon Web Services Systems Manager validates the parameter value is in the required format, such as
    *     <code>ami-12345abcdeEXAMPLE</code>, and that the specified AMI is available in your
-   *    account. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native parameter support
+   *    Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native parameter support
    *     for Amazon Machine Image (AMI) IDs</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   DataType?: string;
@@ -8748,7 +8769,7 @@ export interface ResumeSessionResponse {
    *    receive output from the instance. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>.</p>
    *          <p>
    *             <b>region</b> represents the Region identifier for an
-   * 						Region supported by Amazon Web Services Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region.
+   * 						Amazon Web Services Region supported by Amazon Web Services Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region.
    * 						For a list of supported <b>region</b> values, see the <b>Region</b> column in <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region">Systems Manager service endpoints</a> in the
    *         <i>Amazon Web Services General Reference</i>.</p>
    *          <p>
@@ -9003,7 +9024,7 @@ export interface SendCommandRequest {
 
   /**
    * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
-   *    automatically determines the Region of the S3 bucket.</p>
+   *    automatically determines the Amazon Web Services Region of the S3 bucket.</p>
    */
   OutputS3Region?: string;
 
@@ -9269,9 +9290,9 @@ export interface StartAutomationExecutionRequest {
   MaxErrors?: string;
 
   /**
-   * <p>A location is a combination of Regions and/or accounts where you want to run the
-   *    automation. Use this operation to start an automation in multiple Regions and multiple
-   *    accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple Regions and accounts</a> in the
+   * <p>A location is a combination of Amazon Web Services Regions and/or Amazon Web Services accounts where you want to run the
+   *    automation. Use this operation to start an automation in multiple Amazon Web Services Regions and multiple
+   *    Amazon Web Services accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple Amazon Web Services Regions and Amazon Web Services accounts</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
    */
   TargetLocations?: TargetLocation[];
@@ -9396,7 +9417,7 @@ export interface StartChangeRequestExecutionRequest {
    * <p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for
    *    a change request. Tags enable you to categorize a resource in different ways, such as by
    *    purpose, owner, or environment. For example, you might want to tag a change request to identify
-   *    an environment or target Region. In this case, you could specify the following key-value
+   *    an environment or target Amazon Web Services Region. In this case, you could specify the following key-value
    *    pairs:</p>
    *          <ul>
    *             <li>
@@ -9499,7 +9520,7 @@ export interface StartSessionResponse {
    *          </p>
    *          <p>
    *             <b>region</b> represents the Region identifier for an
-   * 						Region supported by Amazon Web Services Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region.
+   * 						Amazon Web Services Region supported by Amazon Web Services Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region.
    * 						For a list of supported <b>region</b> values, see the <b>Region</b> column in <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region">Systems Manager service endpoints</a> in the
    *         <i>Amazon Web Services General Reference</i>.</p>
    *          <p>
@@ -9745,7 +9766,7 @@ export interface UpdateAssociationRequest {
    *    information for the instance.</p>
    *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
    *    shared with you from another account.</p>
-   *          <p>For Systems Manager document (SSM document) that are shared with you from other accounts, you
+   *          <p>For Systems Manager document (SSM document) that are shared with you from other Amazon Web Services accounts, you
    *    must specify the complete SSM document ARN, in the following format:</p>
    *          <p>
    *             <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
@@ -9851,7 +9872,7 @@ export interface UpdateAssociationRequest {
   CalendarNames?: string[];
 
   /**
-   * <p>A location is a combination of Regions and accounts where you want to run the
+   * <p>A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the
    *    association. Use this action to update an association in multiple Regions and multiple
    *    accounts.</p>
    */
@@ -9907,7 +9928,7 @@ export interface UpdateAssociationStatusRequest {
   Name: string | undefined;
 
   /**
-   * <p>The ID of the instance.</p>
+   * <p>The instance ID.</p>
    */
   InstanceId: string | undefined;
 
@@ -10172,17 +10193,17 @@ export namespace DocumentReviews {
 
 export interface UpdateDocumentMetadataRequest {
   /**
-   * <p>The name of the document for which a version is to be updated.</p>
+   * <p>The name of the change template for which a version's metadata is to be updated.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The version of a document to update.</p>
+   * <p>The version of a change template in which to update approval metadata.</p>
    */
   DocumentVersion?: string;
 
   /**
-   * <p>The document review details to update.</p>
+   * <p>The change template review details to update.</p>
    */
   DocumentReviews: DocumentReviews | undefined;
 }

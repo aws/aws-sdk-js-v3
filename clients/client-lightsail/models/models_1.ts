@@ -18,7 +18,6 @@ import {
   InputOrigin,
   InstanceHardware,
   InstanceNetworking,
-  InstanceState,
   IpAddressType,
   KeyPair,
   MetricDatapoint,
@@ -35,6 +34,30 @@ import {
   TreatMissingData,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+/**
+ * <p>Describes the virtual private server (or <i>instance</i>) status.</p>
+ */
+export interface InstanceState {
+  /**
+   * <p>The status code for the instance.</p>
+   */
+  code?: number;
+
+  /**
+   * <p>The state of the instance (e.g., <code>running</code> or <code>pending</code>).</p>
+   */
+  name?: string;
+}
+
+export namespace InstanceState {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceState): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes an instance (a virtual private server).</p>

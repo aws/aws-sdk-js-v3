@@ -21,7 +21,7 @@ export interface DescribePatchBaselinesCommandInput extends DescribePatchBaselin
 export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaselinesResult, __MetadataBearer {}
 
 /**
- * <p>Lists the patch baselines in your account.</p>
+ * <p>Lists the patch baselines in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

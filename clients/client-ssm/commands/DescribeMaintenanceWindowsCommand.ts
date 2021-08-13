@@ -21,7 +21,7 @@ export interface DescribeMaintenanceWindowsCommandInput extends DescribeMaintena
 export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMaintenanceWindowsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the maintenance windows in an account.</p>
+ * <p>Retrieves the maintenance windows in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -25,7 +25,7 @@ export interface CreateReusableDelegationSetCommandOutput
 
 /**
  * <p>Creates a delegation set (a group of four name servers) that can be reused by multiple hosted zones that were created by
- * 			the same account. </p>
+ * 			the same Amazon Web Services account. </p>
  * 		       <p>You can also create a reusable delegation set that uses the four name servers that are associated
  * 			with an existing hosted zone. Specify the hosted zone ID in the <code>CreateReusableDelegationSet</code> request.</p>
  * 		       <note>

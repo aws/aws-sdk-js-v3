@@ -1,6 +1,105 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export enum AgentStatusState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum AgentStatusType {
+  CUSTOM = "CUSTOM",
+  OFFLINE = "OFFLINE",
+  ROUTABLE = "ROUTABLE",
+}
+
+/**
+ * <p>Contains information about an agent status.</p>
+ */
+export interface AgentStatus {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent status.</p>
+   */
+  AgentStatusARN?: string;
+
+  /**
+   * <p>The identifier of the agent status.</p>
+   */
+  AgentStatusId?: string;
+
+  /**
+   * <p>The name of the agent status.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the agent status.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of agent status.</p>
+   */
+  Type?: AgentStatusType | string;
+
+  /**
+   * <p>The display order of the agent status.</p>
+   */
+  DisplayOrder?: number;
+
+  /**
+   * <p>The state of the agent status.</p>
+   */
+  State?: AgentStatusState | string;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace AgentStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AgentStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary information for an agent status.</p>
+ */
+export interface AgentStatusSummary {
+  /**
+   * <p>The identifier for an agent status.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the agent status.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the agent status.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of the agent status.</p>
+   */
+  Type?: AgentStatusType | string;
+}
+
+export namespace AgentStatusSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AgentStatusSummary): any => ({
+    ...obj,
+  });
+}
+
 export interface AssociateApprovedOriginRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -676,6 +775,86 @@ export namespace AssociateSecurityKeyResponse {
   });
 }
 
+export interface CreateAgentStatusRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the status.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the status.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The state of the status.</p>
+   */
+  State: AgentStatusState | string | undefined;
+
+  /**
+   * <p>The display order of the status.</p>
+   */
+  DisplayOrder?: number;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateAgentStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAgentStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAgentStatusResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent status.</p>
+   */
+  AgentStatusARN?: string;
+
+  /**
+   * <p>The identifier of the agent status.</p>
+   */
+  AgentStatusId?: string;
+}
+
+export namespace CreateAgentStatusResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAgentStatusResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A resource with the specified name already exists.</p>
+ */
+export interface DuplicateResourceException extends __SmithyException, $MetadataBearer {
+  name: "DuplicateResourceException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace DuplicateResourceException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DuplicateResourceException): any => ({
+    ...obj,
+  });
+}
+
 export enum ContactFlowType {
   AGENT_HOLD = "AGENT_HOLD",
   AGENT_TRANSFER = "AGENT_TRANSFER",
@@ -752,24 +931,6 @@ export namespace CreateContactFlowResponse {
 }
 
 /**
- * <p>A resource with the specified name already exists.</p>
- */
-export interface DuplicateResourceException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateResourceException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace DuplicateResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateResourceException): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Information about a problem detail.</p>
  */
 export interface ProblemDetail {
@@ -805,6 +966,131 @@ export namespace InvalidContactFlowException {
    * @internal
    */
   export const filterSensitiveLog = (obj: InvalidContactFlowException): any => ({
+    ...obj,
+  });
+}
+
+export enum HoursOfOperationDays {
+  FRIDAY = "FRIDAY",
+  MONDAY = "MONDAY",
+  SATURDAY = "SATURDAY",
+  SUNDAY = "SUNDAY",
+  THURSDAY = "THURSDAY",
+  TUESDAY = "TUESDAY",
+  WEDNESDAY = "WEDNESDAY",
+}
+
+/**
+ * <p>The start time or end time for an hours of operation.</p>
+ */
+export interface HoursOfOperationTimeSlice {
+  /**
+   * <p>The hours.</p>
+   */
+  Hours: number | undefined;
+
+  /**
+   * <p>The minutes.</p>
+   */
+  Minutes: number | undefined;
+}
+
+export namespace HoursOfOperationTimeSlice {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HoursOfOperationTimeSlice): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the hours of operation.</p>
+ */
+export interface HoursOfOperationConfig {
+  /**
+   * <p>The day that the hours of operation applies to.</p>
+   */
+  Day: HoursOfOperationDays | string | undefined;
+
+  /**
+   * <p>The start time that your contact center is open.</p>
+   */
+  StartTime: HoursOfOperationTimeSlice | undefined;
+
+  /**
+   * <p>The end time that your contact center is closes.</p>
+   */
+  EndTime: HoursOfOperationTimeSlice | undefined;
+}
+
+export namespace HoursOfOperationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HoursOfOperationConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateHoursOfOperationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the hours of operation.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the hours of operation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The time zone of the hours of operation.</p>
+   */
+  TimeZone: string | undefined;
+
+  /**
+   * <p>Configuration information for the hours of operation: day, start time, and end time.</p>
+   */
+  Config: HoursOfOperationConfig[] | undefined;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateHoursOfOperationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateHoursOfOperationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateHoursOfOperationResponse {
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   */
+  HoursOfOperationId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the hours of operation.</p>
+   */
+  HoursOfOperationArn?: string;
+}
+
+export namespace CreateHoursOfOperationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateHoursOfOperationResponse): any => ({
     ...obj,
   });
 }
@@ -1587,6 +1873,27 @@ export namespace CreateUserHierarchyGroupResponse {
   });
 }
 
+export interface DeleteHoursOfOperationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   */
+  HoursOfOperationId: string | undefined;
+}
+
+export namespace DeleteHoursOfOperationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteHoursOfOperationRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteInstanceRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -1750,6 +2057,43 @@ export namespace ResourceInUseException {
   });
 }
 
+export interface DescribeAgentStatusRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the agent status.</p>
+   */
+  AgentStatusId: string | undefined;
+}
+
+export namespace DescribeAgentStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAgentStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAgentStatusResponse {
+  /**
+   * <p>The agent status.</p>
+   */
+  AgentStatus?: AgentStatus;
+}
+
+export namespace DescribeAgentStatusResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAgentStatusResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The contact flow has not been published.</p>
  */
@@ -1872,69 +2216,6 @@ export namespace DescribeHoursOfOperationRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeHoursOfOperationRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum HoursOfOperationDays {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
-
-/**
- * <p>The start time or end time for an hours of operation.</p>
- */
-export interface HoursOfOperationTimeSlice {
-  /**
-   * <p>The hours.</p>
-   */
-  Hours?: number;
-
-  /**
-   * <p>The minutes.</p>
-   */
-  Minutes?: number;
-}
-
-export namespace HoursOfOperationTimeSlice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HoursOfOperationTimeSlice): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about the hours of operation.</p>
- */
-export interface HoursOfOperationConfig {
-  /**
-   * <p>The day that the hours of operation applies to.</p>
-   */
-  Day?: HoursOfOperationDays | string;
-
-  /**
-   * <p>The start time that your contact center is open.</p>
-   */
-  StartTime?: HoursOfOperationTimeSlice;
-
-  /**
-   * <p>The end time that your contact center is closes.</p>
-   */
-  EndTime?: HoursOfOperationTimeSlice;
-}
-
-export namespace HoursOfOperationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HoursOfOperationConfig): any => ({
     ...obj,
   });
 }
@@ -3899,6 +4180,59 @@ export namespace GetMetricDataResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetMetricDataResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAgentStatusRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Available agent status types.</p>
+   */
+  AgentStatusTypes?: (AgentStatusType | string)[];
+}
+
+export namespace ListAgentStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAgentStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAgentStatusResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A summary of agent statuses.</p>
+   */
+  AgentStatusSummaryList?: AgentStatusSummary[];
+}
+
+export namespace ListAgentStatusResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAgentStatusResponse): any => ({
     ...obj,
   });
 }
@@ -6464,6 +6798,52 @@ export namespace UntagResourceRequest {
   });
 }
 
+export interface UpdateAgentStatusRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the agent status.</p>
+   */
+  AgentStatusId: string | undefined;
+
+  /**
+   * <p>The name of the agent status.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the agent status.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The state of the agent status.</p>
+   */
+  State?: AgentStatusState | string;
+
+  /**
+   * <p>The display order of the agent status.</p>
+   */
+  DisplayOrder?: number;
+
+  /**
+   * <p>A number indicating the reset order of the agent status.</p>
+   */
+  ResetOrderNumber?: boolean;
+}
+
+export namespace UpdateAgentStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAgentStatusRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateContactAttributesRequest {
   /**
    * <p>The identifier of the contact. This is the identifier of the contact associated with the
@@ -6560,6 +6940,47 @@ export namespace UpdateContactFlowNameRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateContactFlowNameRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateHoursOfOperationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the hours of operation.</p>
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The name of the hours of operation.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the hours of operation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The time zone of the hours of operation.</p>
+   */
+  TimeZone?: string;
+
+  /**
+   * <p>Configuration information of the hours of operation.</p>
+   */
+  Config?: HoursOfOperationConfig[];
+}
+
+export namespace UpdateHoursOfOperationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateHoursOfOperationRequest): any => ({
     ...obj,
   });
 }

@@ -25,12 +25,12 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  *    Amazon Web Services Systems Manager offers two types of resource data sync: <code>SyncToDestination</code> and
  *     <code>SyncFromSource</code>.</p>
  *          <p>You can configure Systems Manager Inventory to use the <code>SyncToDestination</code> type to
- *    synchronize Inventory data from multiple Regions to a single Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring resource data
+ *    synchronize Inventory data from multiple Amazon Web Services Regions to a single Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring resource data
  *     sync for Inventory</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          <p>You can configure Systems Manager Explorer to use the <code>SyncFromSource</code> type to synchronize
- *    operational work items (OpsItems) and operational data (OpsData) from multiple Regions to a
+ *    operational work items (OpsItems) and operational data (OpsData) from multiple Amazon Web Services Regions to a
  *    single Amazon S3 bucket. This type can synchronize OpsItems and OpsData from multiple
- *    accounts and Regions or <code>EntireOrganization</code> by using Organizations. For more
+ *    Amazon Web Services accounts and Amazon Web Services Regions or <code>EntireOrganization</code> by using Organizations. For more
  *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting up Systems Manager
  *     Explorer to display data from multiple accounts and Regions</a> in the
  *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>

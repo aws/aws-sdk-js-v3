@@ -33,7 +33,7 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * <p>Writes a block of data to a snapshot. If the specified block contains
  *             data, the existing data is overwritten. The target snapshot must be in the
  *                 <code>pending</code> state.</p>
- *     	    <p>Data written to a snapshot must be aligned with 512-byte sectors.</p>
+ *     	    <p>Data written to a snapshot must be aligned with 512-KiB sectors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

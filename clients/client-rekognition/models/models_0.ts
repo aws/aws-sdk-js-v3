@@ -199,6 +199,47 @@ export namespace Beard {
   });
 }
 
+/**
+ * <p>
+ *       A filter that allows you to control the black frame detection by specifying the black levels
+ *       and pixel coverage of black pixels in a frame. As videos can come from multiple sources, formats,
+ *       and time periods, they may contain different standards and varying noise levels for black frames that need to be accounted for.
+ *       For more information, see <a>StartSegmentDetection</a>.
+ *     </p>
+ */
+export interface BlackFrame {
+  /**
+   * <p>
+   *       A threshold used to determine the maximum luminance value for a pixel to be considered black. In a full color range video,
+   *       luminance values range from 0-255. A pixel value of 0 is pure black, and the most strict filter. The maximum black pixel
+   *       value is computed as follows: max_black_pixel_value = minimum_luminance + MaxPixelThreshold *luminance_range.
+   *     </p>
+   *          <p>For example, for a full range video with BlackPixelThreshold = 0.1,  max_black_pixel_value is 0 + 0.1 * (255-0) = 25.5.</p>
+   *          <p>The default value of MaxPixelThreshold is 0.2, which maps to a max_black_pixel_value of 51 for a full range video.
+   *       You can lower this threshold to be more strict on black levels.</p>
+   */
+  MaxPixelThreshold?: number;
+
+  /**
+   * <p>
+   *       The minimum percentage of pixels in a frame that need to have a luminance below the max_black_pixel_value for a frame to be considered
+   *       a black frame. Luminance is calculated using the BT.709 matrix.
+   *     </p>
+   *          <p>The default value is 99, which means at least 99% of all pixels in the frame are black pixels as per the <code>MaxPixelThreshold</code>
+   *       set. You can reduce this value to allow more noise on the black frame.</p>
+   */
+  MinCoveragePercentage?: number;
+}
+
+export namespace BlackFrame {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlackFrame): any => ({
+    ...obj,
+  });
+}
+
 export enum BodyPart {
   FACE = "FACE",
   HEAD = "HEAD",
@@ -1385,9 +1426,9 @@ export enum ContentClassifier {
 }
 
 /**
- * <p>Provides information about a single type of unsafe content found in an image or video. Each type of
+ * <p>Provides information about a single type of inappropriate, unwanted, or offensive content found in an image or video. Each type of
  *       moderated content has a label within a hierarchical taxonomy. For more information, see
- *       Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
+ *       Content moderation in the Amazon Rekognition Developer Guide.</p>
  */
 export interface ModerationLabel {
   /**
@@ -1421,16 +1462,16 @@ export namespace ModerationLabel {
 }
 
 /**
- * <p>Information about an unsafe content label detection in a stored video.</p>
+ * <p>Information about an inappropriate, unwanted, or offensive content label detection in a stored video.</p>
  */
 export interface ContentModerationDetection {
   /**
-   * <p>Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.</p>
+   * <p>Time, in milliseconds from the beginning of the video, that the content moderation label was detected.</p>
    */
   Timestamp?: number;
 
   /**
-   * <p>The unsafe content label detected by in the stored video.</p>
+   * <p>The content moderation label detected by in the stored video.</p>
    */
   ModerationLabel?: ModerationLabel;
 }
@@ -1711,7 +1752,9 @@ export interface CreateProjectVersionRequest {
   VersionName: string | undefined;
 
   /**
-   * <p>The Amazon S3 location to store the results of training.</p>
+   * <p>The Amazon S3 bucket location to store the results of training.
+   *       The S3 bucket can be in any AWS account as long as the caller has
+   *       <code>s3:PutObject</code> permissions on the S3 bucket.</p>
    */
   OutputConfig: OutputConfig | undefined;
 
@@ -1735,10 +1778,25 @@ export interface CreateProjectVersionRequest {
   /**
    * <p>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK).
    *          You can supply the Amazon Resource Name (ARN) of your CMK, the ID of your CMK,
-   *          or an alias for your CMK.
-   *          The key is used to encrypt training and test images copied into the service for model training. Your
-   *          source images are unaffected. The key is also used to encrypt training results and manifest files written
-   *          to the output Amazon S3 bucket (<code>OutputConfig</code>).</p>
+   *          an alias for your CMK, or an alias ARN.
+   *          The key is used to encrypt training and test images copied into the service for model training.
+   *          Your source images are unaffected. The key is also used to encrypt training results
+   *          and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p>
+   *          <p>If you choose to use your own CMK, you need the following permissions on the CMK.</p>
+   *          <ul>
+   *             <li>
+   *                <p>kms:CreateGrant</p>
+   *             </li>
+   *             <li>
+   *                <p>kms:DescribeKey</p>
+   *             </li>
+   *             <li>
+   *                <p>kms:GenerateDataKey</p>
+   *             </li>
+   *             <li>
+   *                <p>kms:Decrypt</p>
+   *             </li>
+   *          </ul>
    *          <p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted
    *          using a key that AWS owns and manages.</p>
    */
@@ -3848,6 +3906,11 @@ export enum VideoJobStatus {
   SUCCEEDED = "SUCCEEDED",
 }
 
+export enum VideoColorRange {
+  FULL = "FULL",
+  LIMITED = "LIMITED",
+}
+
 /**
  * <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in
  *             every page of paginated responses from a Amazon Rekognition video operation.</p>
@@ -3882,6 +3945,13 @@ export interface VideoMetadata {
    * <p>Horizontal pixel dimension of the video.</p>
    */
   FrameWidth?: number;
+
+  /**
+   * <p>
+   *       A description of the range of luminance values in a video, either LIMITED (16 to 235) or FULL (0 to 255).
+   *     </p>
+   */
+  ColorRange?: VideoColorRange | string;
 }
 
 export namespace VideoMetadata {
@@ -3933,7 +4003,7 @@ export namespace GetCelebrityRecognitionResponse {
 
 export interface GetContentModerationRequest {
   /**
-   * <p>The identifier for the unsafe content job. Use <code>JobId</code> to identify the job in
+   * <p>The identifier for the inappropriate, unwanted, or offensive content moderation job. Use <code>JobId</code> to identify the job in
    *        a subsequent call to <code>GetContentModeration</code>.</p>
    */
   JobId: string | undefined;
@@ -3948,7 +4018,7 @@ export interface GetContentModerationRequest {
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition
    *         returns a pagination token in the response. You can use this pagination token
-   *         to retrieve the next set of unsafe content labels.</p>
+   *         to retrieve the next set of content moderation labels.</p>
    */
   NextToken?: string;
 
@@ -3973,7 +4043,7 @@ export namespace GetContentModerationRequest {
 
 export interface GetContentModerationResponse {
   /**
-   * <p>The current status of the unsafe content analysis job.</p>
+   * <p>The current status of the content moderation analysis job.</p>
    */
   JobStatus?: VideoJobStatus | string;
 
@@ -3989,18 +4059,18 @@ export interface GetContentModerationResponse {
   VideoMetadata?: VideoMetadata;
 
   /**
-   * <p>The detected unsafe content labels and the time(s) they were detected.</p>
+   * <p>The detected inappropriate, unwanted, or offensive content moderation labels and the time(s) they were detected.</p>
    */
   ModerationLabels?: ContentModerationDetection[];
 
   /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
-   *      request to retrieve the next set of unsafe content labels. </p>
+   *      request to retrieve the next set of content moderation labels. </p>
    */
   NextToken?: string;
 
   /**
-   * <p>Version number of the moderation detection model that was used to detect unsafe content.</p>
+   * <p>Version number of the moderation detection model that was used to detect inappropriate, unwanted, or offensive content.</p>
    */
   ModerationModelVersion?: string;
 }
@@ -4497,7 +4567,11 @@ export namespace ShotSegment {
 export enum TechnicalCueType {
   BLACK_FRAMES = "BlackFrames",
   COLOR_BARS = "ColorBars",
+  CONTENT = "Content",
   END_CREDITS = "EndCredits",
+  OPENING_CREDITS = "OpeningCredits",
+  SLATE = "Slate",
+  STUDIO_LOGO = "StudioLogo",
 }
 
 /**
@@ -4587,6 +4661,27 @@ export interface SegmentDetection {
    * <p>If the segment is a shot detection, contains information about the shot detection.</p>
    */
   ShotSegment?: ShotSegment;
+
+  /**
+   * <p>
+   *       The frame number of the start of a video segment, using a frame index that starts with 0.
+   *     </p>
+   */
+  StartFrameNumber?: number;
+
+  /**
+   * <p>
+   *       The frame number at the end of a video segment, using a frame index that starts with 0.
+   *     </p>
+   */
+  EndFrameNumber?: number;
+
+  /**
+   * <p>
+   *       The duration of a video segment, expressed in frames.
+   *     </p>
+   */
+  DurationFrames?: number;
 }
 
 export namespace SegmentDetection {
@@ -5217,7 +5312,8 @@ export namespace ListTagsForResourceResponse {
 
 /**
  * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
- *             <a>api-video</a>.</p>
+ *           <a>api-video</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.
+ *           For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
  */
 export interface NotificationChannel {
   /**
@@ -5486,7 +5582,7 @@ export interface StartCelebrityRecognitionRequest {
 
   /**
    * <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the
-   *       celebrity recognition analysis to.</p>
+   *       celebrity recognition analysis to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    */
   NotificationChannel?: NotificationChannel;
 
@@ -5549,7 +5645,7 @@ export namespace VideoTooLargeException {
 
 export interface StartContentModerationRequest {
   /**
-   * <p>The video in which you want to detect unsafe content. The video must be stored
+   * <p>The video in which you want to detect inappropriate, unwanted, or offensive content. The video must be stored
    *       in an Amazon S3 bucket.</p>
    */
   Video: Video | undefined;
@@ -5572,7 +5668,7 @@ export interface StartContentModerationRequest {
 
   /**
    * <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the
-   *       unsafe content analysis to.</p>
+   *       content analysis to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
    */
   NotificationChannel?: NotificationChannel;
 
@@ -5594,7 +5690,7 @@ export namespace StartContentModerationRequest {
 
 export interface StartContentModerationResponse {
   /**
-   * <p>The identifier for the unsafe content analysis job. Use <code>JobId</code> to identify the job in
+   * <p>The identifier for the content analysis job. Use <code>JobId</code> to identify the job in
    *       a subsequent call to <code>GetContentModeration</code>.</p>
    */
   JobId?: string;
@@ -5625,7 +5721,7 @@ export interface StartFaceDetectionRequest {
 
   /**
    * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
-   *          face detection operation.</p>
+   *          face detection operation. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    */
   NotificationChannel?: NotificationChannel;
 
@@ -5696,7 +5792,7 @@ export interface StartFaceSearchRequest {
   CollectionId: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. </p>
+   * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
    */
   NotificationChannel?: NotificationChannel;
 
@@ -5758,7 +5854,7 @@ export interface StartLabelDetectionRequest {
 
   /**
    * <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection
-   *         operation to. </p>
+   *         operation to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    */
   NotificationChannel?: NotificationChannel;
 
@@ -5811,7 +5907,7 @@ export interface StartPersonTrackingRequest {
 
   /**
    * <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection
-   *         operation to.</p>
+   *         operation to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    */
   NotificationChannel?: NotificationChannel;
 
@@ -5928,6 +6024,14 @@ export interface StartTechnicalCueDetectionFilter {
    *       segments with confidence values greater than or equal to 50 percent.</p>
    */
   MinSegmentConfidence?: number;
+
+  /**
+   * <p>
+   *       A filter that allows you to control the black frame detection by specifying the black levels and pixel coverage of black pixels in a frame.
+   *       Videos can come from multiple sources, formats, and time periods, with different standards and varying noise levels for black frames that need to be accounted for.
+   *     </p>
+   */
+  BlackFrame?: BlackFrame;
 }
 
 export namespace StartTechnicalCueDetectionFilter {
@@ -5981,7 +6085,7 @@ export interface StartSegmentDetectionRequest {
 
   /**
    * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
-   *       segment detection operation.</p>
+   *       segment detection operation. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
    */
   NotificationChannel?: NotificationChannel;
 
@@ -6098,7 +6202,8 @@ export interface StartTextDetectionRequest {
 
   /**
    * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
-   *             <a>api-video</a>.</p>
+   *           <a>api-video</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.
+   *           For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
    */
   NotificationChannel?: NotificationChannel;
 

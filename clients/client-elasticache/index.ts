@@ -29,6 +29,7 @@ export * from "./commands/DeleteUserGroupCommand";
 export * from "./commands/DescribeCacheClustersCommand";
 export * from "./pagination/DescribeCacheClustersPaginator";
 export * from "./waiters/waitForCacheClusterAvailable";
+export * from "./waiters/waitForCacheClusterDeleted";
 export * from "./commands/DescribeCacheEngineVersionsCommand";
 export * from "./pagination/DescribeCacheEngineVersionsPaginator";
 export * from "./commands/DescribeCacheParameterGroupsCommand";

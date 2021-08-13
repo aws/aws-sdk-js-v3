@@ -89,6 +89,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingService: "appstream",
       };
       break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "appstream2.eu-west-2.amazonaws.com",
+        partition: "aws",
+        signingService: "appstream",
+      };
+      break;
     case "fips":
       regionInfo = {
         hostname: "appstream2-fips.us-gov-west-1.amazonaws.com",

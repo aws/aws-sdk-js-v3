@@ -31,7 +31,7 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  * 			with a hosted zone that was created by a different account. You must use the account that created the hosted zone
  * 			to submit a <code>DeleteVPCAssociationAuthorization</code> request.</p>
  * 		       <important>
- * 			         <p>Sending this request only prevents the account that created the VPC from associating the VPC
+ * 			         <p>Sending this request only prevents the Amazon Web Services account that created the VPC from associating the VPC
  * 				with the Amazon Route 53 hosted zone in the future. If the VPC is already associated with the hosted zone,
  * 				<code>DeleteVPCAssociationAuthorization</code> won't disassociate the VPC from the hosted zone.
  * 				If you want to delete an existing association, use <code>DisassociateVPCFromHostedZone</code>.</p>

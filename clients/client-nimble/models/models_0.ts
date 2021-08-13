@@ -311,7 +311,7 @@ export interface ActiveDirectoryConfiguration {
   computerAttributes?: ActiveDirectoryComputerAttribute[];
 
   /**
-   * <p>The directory ID of the AWS Directory Service for Microsoft AD to access using this studio component.</p>
+   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.</p>
    */
   directoryId?: string;
 
@@ -820,6 +820,11 @@ export interface CreateStreamingSessionRequest {
   launchProfileId?: string;
 
   /**
+   * <p>The user ID of the user that owns the streaming session.</p>
+   */
+  ownedBy?: string;
+
+  /**
    * <p>The ID of the streaming image.</p>
    */
   streamingImageId?: string;
@@ -892,6 +897,11 @@ export interface StreamingSession {
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId?: string;
+
+  /**
+   * <p>The user ID of the user that owns the streaming session.</p>
+   */
+  ownedBy?: string;
 
   /**
    * <p>The session ID.</p>
@@ -1031,6 +1041,11 @@ export interface StreamingSessionStream {
    * <p>The Unix epoch timestamp in seconds for when the resource expires.</p>
    */
   expiresAt?: Date;
+
+  /**
+   * <p>The user ID of the user that owns the streaming session.</p>
+   */
+  ownedBy?: string;
 
   /**
    * <p>The current state.</p>
@@ -1210,12 +1225,12 @@ export interface Studio {
   displayName?: string;
 
   /**
-   * <p>The AWS region where the studio resource is located.</p>
+   * <p>The Amazon Web Services Region where the studio resource is located.</p>
    */
   homeRegion?: string;
 
   /**
-   * <p>The AWS SSO application client ID used to integrate with AWS SSO to enable AWS SSO users to log in to Nimble portal.</p>
+   * <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble portal.</p>
    */
   ssoClientId?: string;
 
@@ -2224,7 +2239,7 @@ export interface LaunchProfileInitializationActiveDirectory {
   computerAttributes?: ActiveDirectoryComputerAttribute[];
 
   /**
-   * <p>The directory ID of the AWS Directory Service for Microsoft AD to access using this launch profile.</p>
+   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this launch profile.</p>
    */
   directoryId?: string;
 
@@ -2932,7 +2947,7 @@ export namespace ListStreamingImagesResponse {
 
 export interface ListStreamingSessionsRequest {
   /**
-   * <p>The user ID.</p>
+   * <p>The user ID of the user that created the streaming session.</p>
    */
   createdBy?: string;
 
@@ -2940,6 +2955,11 @@ export interface ListStreamingSessionsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The user ID of the user that owns the streaming session.</p>
+   */
+  ownedBy?: string;
 
   /**
    * <p>A collection of session IDs.</p>

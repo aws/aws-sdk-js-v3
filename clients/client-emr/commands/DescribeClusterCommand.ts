@@ -22,7 +22,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
 
 /**
  * <p>Provides cluster-level details including status, hardware and software configuration,
- *          VPC settings, and so on. </p>
+ *          VPC settings, and so on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

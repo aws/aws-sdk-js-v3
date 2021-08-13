@@ -54,6 +54,7 @@ export * from "./commands/StartBuildBatchCommand";
 export * from "./commands/StopBuildCommand";
 export * from "./commands/StopBuildBatchCommand";
 export * from "./commands/UpdateProjectCommand";
+export * from "./commands/UpdateProjectVisibilityCommand";
 export * from "./commands/UpdateReportGroupCommand";
 export * from "./commands/UpdateWebhookCommand";
 export * from "./pagination/Interfaces";

@@ -68,6 +68,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingRegion: "ap-northeast-2",
       };
       break;
+    case "ap-northeast-3":
+      regionInfo = {
+        hostname: "waf-regional.ap-northeast-3.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-northeast-3",
+      };
+      break;
     case "ap-south-1":
       regionInfo = {
         hostname: "waf-regional.ap-south-1.amazonaws.com",
@@ -94,6 +101,20 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         hostname: "waf-regional.ca-central-1.amazonaws.com",
         partition: "aws",
         signingRegion: "ca-central-1",
+      };
+      break;
+    case "cn-north-1":
+      regionInfo = {
+        hostname: "waf-regional.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+        signingRegion: "cn-north-1",
+      };
+      break;
+    case "cn-northwest-1":
+      regionInfo = {
+        hostname: "waf-regional.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
+        signingRegion: "cn-northwest-1",
       };
       break;
     case "eu-central-1":
@@ -166,6 +187,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingRegion: "ap-northeast-2",
       };
       break;
+    case "fips-ap-northeast-3":
+      regionInfo = {
+        hostname: "waf-regional-fips.ap-northeast-3.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-northeast-3",
+      };
+      break;
     case "fips-ap-south-1":
       regionInfo = {
         hostname: "waf-regional-fips.ap-south-1.amazonaws.com",
@@ -192,6 +220,20 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         hostname: "waf-regional-fips.ca-central-1.amazonaws.com",
         partition: "aws",
         signingRegion: "ca-central-1",
+      };
+      break;
+    case "fips-cn-north-1":
+      regionInfo = {
+        hostname: "waf-regional-fips.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+        signingRegion: "cn-north-1",
+      };
+      break;
+    case "fips-cn-northwest-1":
+      regionInfo = {
+        hostname: "waf-regional-fips.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
+        signingRegion: "cn-northwest-1",
       };
       break;
     case "fips-eu-central-1":

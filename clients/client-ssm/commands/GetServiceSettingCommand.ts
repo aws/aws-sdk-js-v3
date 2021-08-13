@@ -34,7 +34,7 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  *    permission for the setting. Use the <a>UpdateServiceSetting</a> API operation to
  *    change the default setting. Or use the <a>ResetServiceSetting</a> to change the value
  *    back to the original value defined by the Amazon Web Services service team.</p>
- *          <p>Query the current service setting for the account. </p>
+ *          <p>Query the current service setting for the Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,7 +21,7 @@ export interface ListStreamingImagesCommandInput extends ListStreamingImagesRequ
 export interface ListStreamingImagesCommandOutput extends ListStreamingImagesResponse, __MetadataBearer {}
 
 /**
- * <p>List the streaming image resources available to this studio.</p> <p>This list will contain both images provided by AWS, as well as streaming images that you have created in your studio.</p>
+ * <p>List the streaming image resources available to this studio.</p> <p>This list will contain both images provided by Amazon Web Services, as well as streaming images that you have created in your studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,7 +21,7 @@ export interface ListCommandsCommandInput extends ListCommandsRequest {}
 export interface ListCommandsCommandOutput extends ListCommandsResult, __MetadataBearer {}
 
 /**
- * <p>Lists the commands requested by users of the account.</p>
+ * <p>Lists the commands requested by users of the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

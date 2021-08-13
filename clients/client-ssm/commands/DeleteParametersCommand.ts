@@ -21,7 +21,8 @@ export interface DeleteParametersCommandInput extends DeleteParametersRequest {}
 export interface DeleteParametersCommandOutput extends DeleteParametersResult, __MetadataBearer {}
 
 /**
- * <p>Delete a list of parameters.</p>
+ * <p>Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to
+ *    create a parameter with the same name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -46,6 +46,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "healthlake.us-east-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "healthlake.us-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

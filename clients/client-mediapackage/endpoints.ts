@@ -112,6 +112,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "mediapackage.us-east-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "us-iso-east-1":
       regionInfo = {
         hostname: "mediapackage.us-iso-east-1.c2s.ic.gov",

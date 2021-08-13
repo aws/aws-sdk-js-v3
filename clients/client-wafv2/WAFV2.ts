@@ -73,6 +73,11 @@ import {
   GetLoggingConfigurationCommandOutput,
 } from "./commands/GetLoggingConfigurationCommand";
 import {
+  GetManagedRuleSetCommand,
+  GetManagedRuleSetCommandInput,
+  GetManagedRuleSetCommandOutput,
+} from "./commands/GetManagedRuleSetCommand";
+import {
   GetPermissionPolicyCommand,
   GetPermissionPolicyCommandInput,
   GetPermissionPolicyCommandOutput,
@@ -104,6 +109,11 @@ import {
   GetWebACLForResourceCommandOutput,
 } from "./commands/GetWebACLForResourceCommand";
 import {
+  ListAvailableManagedRuleGroupVersionsCommand,
+  ListAvailableManagedRuleGroupVersionsCommandInput,
+  ListAvailableManagedRuleGroupVersionsCommandOutput,
+} from "./commands/ListAvailableManagedRuleGroupVersionsCommand";
+import {
   ListAvailableManagedRuleGroupsCommand,
   ListAvailableManagedRuleGroupsCommandInput,
   ListAvailableManagedRuleGroupsCommandOutput,
@@ -114,6 +124,11 @@ import {
   ListLoggingConfigurationsCommandInput,
   ListLoggingConfigurationsCommandOutput,
 } from "./commands/ListLoggingConfigurationsCommand";
+import {
+  ListManagedRuleSetsCommand,
+  ListManagedRuleSetsCommandInput,
+  ListManagedRuleSetsCommandOutput,
+} from "./commands/ListManagedRuleSetsCommand";
 import {
   ListRegexPatternSetsCommand,
   ListRegexPatternSetsCommandInput,
@@ -141,6 +156,11 @@ import {
   PutLoggingConfigurationCommandOutput,
 } from "./commands/PutLoggingConfigurationCommand";
 import {
+  PutManagedRuleSetVersionsCommand,
+  PutManagedRuleSetVersionsCommandInput,
+  PutManagedRuleSetVersionsCommandOutput,
+} from "./commands/PutManagedRuleSetVersionsCommand";
+import {
   PutPermissionPolicyCommand,
   PutPermissionPolicyCommandInput,
   PutPermissionPolicyCommandOutput,
@@ -152,6 +172,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateIPSetCommand, UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
+import {
+  UpdateManagedRuleSetVersionExpiryDateCommand,
+  UpdateManagedRuleSetVersionExpiryDateCommandInput,
+  UpdateManagedRuleSetVersionExpiryDateCommandOutput,
+} from "./commands/UpdateManagedRuleSetVersionExpiryDateCommand";
 import {
   UpdateRegexPatternSetCommand,
   UpdateRegexPatternSetCommandInput,
@@ -172,29 +197,31 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <fullname>WAF</fullname>
  *          <note>
- *             <p>This is the latest version of the <b>WAF</b> API, released in
- *             November, 2019. The names of the entities that you use to access this API, like
- *             endpoints and namespaces, all have the versioning information added, like "V2" or "v2",
- *             to distinguish from the prior version. We recommend migrating your resources to this
- *             version, because it has a number of significant improvements.</p>
- *             <p>If you used WAF prior to this release, you can't use this WAFV2 API to access
- *             any WAF resources that you created before. You can access your old rules, web ACLs,
- *             and other WAF resources only through the WAF Classic APIs. The WAF Classic
- *             APIs have retained the prior names, endpoints, and namespaces. </p>
- *             <p>For information, including how to migrate your WAF resources to this version, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF
- *                Developer Guide</a>. </p>
+ *             <p>This is the latest version of the <b>WAF</b> API,
+ *             released in November, 2019. The names of the entities that you use to access this API,
+ *             like endpoints and namespaces, all have the versioning information added, like "V2" or
+ *             "v2", to distinguish from the prior version. We recommend migrating your resources to
+ *             this version, because it has a number of significant improvements.</p>
+ *             <p>If you used WAF prior to this release, you can't use this WAFV2 API to access any
+ *             WAF resources that you created before. You can access your old rules, web ACLs, and
+ *             other WAF resources only through the WAF Classic APIs. The WAF Classic APIs
+ *             have retained the prior names, endpoints, and namespaces. </p>
+ *             <p>For information, including how to migrate your WAF resources to this version,
+ *             see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
  *          </note>
- *          <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
- *          that are forwarded to Amazon CloudFront, an Amazon API Gateway REST API, an Application Load Balancer, or an AppSync GraphQL API. WAF also lets you control access to your content. Based on conditions that
+ *          <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS
+ *          requests that are forwarded to Amazon CloudFront, an Amazon API Gateway REST API, an Application Load Balancer, or an AppSync
+ *          GraphQL API. WAF also lets you control access to your content. Based on conditions that
  *          you specify, such as the IP addresses that requests originate from or the values of query
- *           strings, the Amazon API Gateway REST API, CloudFront distribution, the Application Load Balancer,
- *           or the AppSync GraphQL API responds to requests
- *          either with the requested content or with an HTTP 403 status code (Forbidden). You also can
- *          configure CloudFront to return a custom error page when a request is blocked.</p>
- *          <p>This API guide is for developers who need detailed information about WAF API
- *          actions, data types, and errors. For detailed information about WAF features and an
- *          overview of how to use WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">WAF Developer Guide</a>.</p>
- *          <p>You can make calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">Amazon Web Services Service Endpoints for WAF</a>. </p>
+ *          strings, the Amazon API Gateway REST API, CloudFront distribution, the Application Load Balancer, or the AppSync GraphQL
+ *          API responds to requests either with the requested content or with an HTTP 403 status code
+ *          (Forbidden). You also can configure CloudFront to return a custom error page when a request is
+ *          blocked.</p>
+ *          <p>This API guide is for developers who need detailed information about WAF API actions,
+ *          data types, and errors. For detailed information about WAF features and an overview of
+ *          how to use WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">WAF Developer
+ *          Guide</a>.</p>
+ *          <p>You can make calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/waf.html">WAF endpoints and quotas</a>. </p>
  *          <ul>
  *             <li>
  *                <p>For regional applications, you can use any of the endpoints in the list.
@@ -208,8 +235,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to the
  *          programming language or platform that you're using. For more information, see <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
  *          <p>We currently provide two versions of the WAF API: this API and the prior versions,
- *          the classic WAF APIs. This new API provides the same functionality as the older
- *          versions, with the following major improvements:</p>
+ *          the classic WAF APIs. This new API provides the same functionality as the older versions,
+ *          with the following major improvements:</p>
  *          <ul>
  *             <li>
  *                <p>You use one API for both global and regional applications. Where you need to
@@ -230,8 +257,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class WAFV2 extends WAFV2Client {
   /**
-   * <p>Associates a web ACL with a regional application resource, to protect the resource. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API.  </p>
-   *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To associate a web ACL, in the CloudFront call <code>UpdateDistribution</code>, set the web ACL ID to the Amazon Resource Name (ARN) of the web ACL. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
+   * <p>Associates a web ACL with a regional application resource, to protect the resource.
+   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API.  </p>
+   *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
+   *          associate a web ACL, in the CloudFront call <code>UpdateDistribution</code>, set the web ACL ID
+   *          to the Amazon Resource Name (ARN) of the web ACL. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
    */
   public associateWebACL(
     args: AssociateWebACLCommandInput,
@@ -306,7 +336,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Creates an <a>IPSet</a>, which you use to identify web requests that originate from specific IP addresses or ranges of IP addresses. For example, if you're receiving a lot of requests from a ranges of IP addresses, you can configure WAF to block them using an IPSet that lists those IP addresses. </p>
+   * <p>Creates an <a>IPSet</a>, which you use to identify web requests that
+   *          originate from specific IP addresses or ranges of IP addresses. For example, if you're
+   *          receiving a lot of requests from a ranges of IP addresses, you can configure WAF to
+   *          block them using an IPSet that lists those IP addresses. </p>
    */
   public createIPSet(args: CreateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateIPSetCommandOutput>;
   public createIPSet(args: CreateIPSetCommandInput, cb: (err: any, data?: CreateIPSetCommandOutput) => void): void;
@@ -332,7 +365,8 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>, to have WAF inspect a web request component for the specified patterns.</p>
+   * <p>Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>, to have WAF inspect a web request
+   *          component for the specified patterns.</p>
    */
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
@@ -428,7 +462,8 @@ export class WAFV2 extends WAFV2Client {
 
   /**
    * <p>Deletes all rule groups that are managed by Firewall Manager for the specified web ACL. </p>
-   *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified <a>WebACL</a>.  </p>
+   *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
+   *             <a>WebACL</a>. </p>
    */
   public deleteFirewallManagerRuleGroups(
     args: DeleteFirewallManagerRuleGroupsCommandInput,
@@ -486,8 +521,7 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Deletes the <a>LoggingConfiguration</a> from the specified web
-   *          ACL.</p>
+   * <p>Deletes the <a>LoggingConfiguration</a> from the specified web ACL.</p>
    */
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
@@ -520,7 +554,7 @@ export class WAFV2 extends WAFV2Client {
 
   /**
    * <p>Permanently deletes an IAM policy from the specified rule group.</p>
-   *         <p>You must be the owner of the rule group to perform this operation.</p>
+   *          <p>You must be the owner of the rule group to perform this operation.</p>
    */
   public deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
@@ -617,7 +651,8 @@ export class WAFV2 extends WAFV2Client {
 
   /**
    * <p>Deletes the specified <a>WebACL</a>.</p>
-   *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified <a>WebACL</a>.  </p>
+   *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
+   *             <a>WebACL</a>. </p>
    */
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
@@ -646,7 +681,8 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Provides high-level information for a managed rule group, including descriptions of the rules. </p>
+   * <p>Provides high-level information for a managed rule group, including descriptions of the
+   *          rules. </p>
    */
   public describeManagedRuleGroup(
     args: DescribeManagedRuleGroupCommandInput,
@@ -679,7 +715,9 @@ export class WAFV2 extends WAFV2Client {
 
   /**
    * <p>Disassociates a web ACL from a regional application resource. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API.  </p>
-   *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To disassociate a web ACL, provide an empty web ACL ID in the CloudFront call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
+   *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
+   *          disassociate a web ACL, provide an empty web ACL ID in the CloudFront call
+   *             <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
    */
   public disassociateWebACL(
     args: DisassociateWebACLCommandInput,
@@ -769,8 +807,44 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
+   * <p>Retrieves the specified managed rule set. </p>
+   *          <note>
+   *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Marketplace sellers. </p>
+   *             <p>Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>, <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.</p>
+   *          </note>
+   */
+  public getManagedRuleSet(
+    args: GetManagedRuleSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetManagedRuleSetCommandOutput>;
+  public getManagedRuleSet(
+    args: GetManagedRuleSetCommandInput,
+    cb: (err: any, data?: GetManagedRuleSetCommandOutput) => void
+  ): void;
+  public getManagedRuleSet(
+    args: GetManagedRuleSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetManagedRuleSetCommandOutput) => void
+  ): void;
+  public getManagedRuleSet(
+    args: GetManagedRuleSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetManagedRuleSetCommandOutput) => void),
+    cb?: (err: any, data?: GetManagedRuleSetCommandOutput) => void
+  ): Promise<GetManagedRuleSetCommandOutput> | void {
+    const command = new GetManagedRuleSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the IAM policy that is attached to the specified rule group.</p>
-   *         <p>You must be the owner of the rule group to perform this operation.</p>
+   *          <p>You must be the owner of the rule group to perform this operation.</p>
    */
   public getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
@@ -802,7 +876,9 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Retrieves the keys that are currently blocked by a rate-based rule. The maximum number of managed keys that can be blocked for a single rate-based rule is 10,000. If more than 10,000 addresses exceed the rate limit, those with the highest rates are blocked.</p>
+   * <p>Retrieves the keys that are currently blocked by a rate-based rule. The maximum number
+   *          of managed keys that can be blocked for a single rate-based rule is 10,000. If more than
+   *          10,000 addresses exceed the rate limit, those with the highest rates are blocked.</p>
    */
   public getRateBasedStatementManagedKeys(
     args: GetRateBasedStatementManagedKeysCommandInput,
@@ -895,11 +971,16 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Gets detailed information about a specified number of requests--a sample--that WAF randomly selects from among the first 5,000 requests that your Amazon Web Services resource received during a time range that you choose. You can specify a sample size of up to 500 requests, and you can specify any time range in the previous three hours.</p>
+   * <p>Gets detailed information about a specified number of requests--a sample--that WAF
+   *          randomly selects from among the first 5,000 requests that your Amazon Web Services resource received
+   *          during a time range that you choose. You can specify a sample size of up to 500 requests,
+   *          and you can specify any time range in the previous three hours.</p>
    *          <p>
-   *             <code>GetSampledRequests</code> returns a time range, which is usually the time range that you specified. However, if your resource
-   *          (such as a CloudFront distribution) received 5,000 requests before the specified time range elapsed, <code>GetSampledRequests</code>
-   *          returns an updated time range. This new time range indicates the actual period during which WAF selected the requests in the sample.</p>
+   *             <code>GetSampledRequests</code> returns a time range, which is usually the time range that
+   *          you specified. However, if your resource (such as a CloudFront distribution) received 5,000
+   *          requests before the specified time range elapsed, <code>GetSampledRequests</code> returns
+   *          an updated time range. This new time range indicates the actual period during which WAF
+   *          selected the requests in the sample.</p>
    */
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
@@ -989,7 +1070,9 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Retrieves an array of managed rule groups that are available for you to use. This list includes all Amazon Web Services Managed Rules rule groups and the Marketplace managed rule groups that you're subscribed to.</p>
+   * <p>Retrieves an array of managed rule groups that are available for you to use. This list
+   *          includes all Amazon Web Services Managed Rules rule groups and all of the Marketplace managed rule groups that you're
+   *          subscribed to.</p>
    */
   public listAvailableManagedRuleGroups(
     args: ListAvailableManagedRuleGroupsCommandInput,
@@ -1021,7 +1104,42 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you manage.</p>
+   * <p>Returns a list of the available versions for the specified managed rule group. </p>
+   */
+  public listAvailableManagedRuleGroupVersions(
+    args: ListAvailableManagedRuleGroupVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAvailableManagedRuleGroupVersionsCommandOutput>;
+  public listAvailableManagedRuleGroupVersions(
+    args: ListAvailableManagedRuleGroupVersionsCommandInput,
+    cb: (err: any, data?: ListAvailableManagedRuleGroupVersionsCommandOutput) => void
+  ): void;
+  public listAvailableManagedRuleGroupVersions(
+    args: ListAvailableManagedRuleGroupVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAvailableManagedRuleGroupVersionsCommandOutput) => void
+  ): void;
+  public listAvailableManagedRuleGroupVersions(
+    args: ListAvailableManagedRuleGroupVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAvailableManagedRuleGroupVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListAvailableManagedRuleGroupVersionsCommandOutput) => void
+  ): Promise<ListAvailableManagedRuleGroupVersionsCommandOutput> | void {
+    const command = new ListAvailableManagedRuleGroupVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you
+   *          manage.</p>
    */
   public listIPSets(args: ListIPSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListIPSetsCommandOutput>;
   public listIPSets(args: ListIPSetsCommandInput, cb: (err: any, data?: ListIPSetsCommandOutput) => void): void;
@@ -1079,7 +1197,44 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Retrieves an array of <a>RegexPatternSetSummary</a> objects for the regex pattern sets that you manage.</p>
+   * <p>Retrieves the managed rule sets that you own. </p>
+   *          <note>
+   *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Marketplace sellers. </p>
+   *             <p>Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>, <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.</p>
+   *          </note>
+   */
+  public listManagedRuleSets(
+    args: ListManagedRuleSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedRuleSetsCommandOutput>;
+  public listManagedRuleSets(
+    args: ListManagedRuleSetsCommandInput,
+    cb: (err: any, data?: ListManagedRuleSetsCommandOutput) => void
+  ): void;
+  public listManagedRuleSets(
+    args: ListManagedRuleSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedRuleSetsCommandOutput) => void
+  ): void;
+  public listManagedRuleSets(
+    args: ListManagedRuleSetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListManagedRuleSetsCommandOutput) => void),
+    cb?: (err: any, data?: ListManagedRuleSetsCommandOutput) => void
+  ): Promise<ListManagedRuleSetsCommandOutput> | void {
+    const command = new ListManagedRuleSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves an array of <a>RegexPatternSetSummary</a> objects for the regex
+   *          pattern sets that you manage.</p>
    */
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
@@ -1111,7 +1266,9 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that are associated with the specified web ACL. If you want the list of Amazon CloudFront resources, use the CloudFront call <code>ListDistributionsByWebACLId</code>. </p>
+   * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that
+   *          are associated with the specified web ACL. If you want the list of Amazon CloudFront resources, use
+   *          the CloudFront call <code>ListDistributionsByWebACLId</code>. </p>
    */
   public listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
@@ -1143,7 +1300,8 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups that you manage. </p>
+   * <p>Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups
+   *          that you manage. </p>
    */
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
@@ -1175,9 +1333,14 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Retrieves the <a>TagInfoForResource</a> for the specified resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a resource.</p>
-   *         <p>You can tag the Amazon Web Services resources that you manage through WAF: web ACLs, rule groups, IP
-   *   sets, and regex pattern sets. You can't manage or view tags through the WAF console. </p>
+   * <p>Retrieves the <a>TagInfoForResource</a> for the specified resource. Tags are
+   *          key:value pairs that you can use to categorize and manage your resources, for purposes like
+   *          billing. For example, you might set the tag key to "customer" and the value to the customer
+   *          name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags
+   *          for a resource.</p>
+   *          <p>You can tag the Amazon Web Services resources that you manage through WAF: web ACLs, rule
+   *          groups, IP sets, and regex pattern sets. You can't manage or view tags through the WAF
+   *          console. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1209,7 +1372,8 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Retrieves an array of <a>WebACLSummary</a> objects for the web ACLs that you manage.</p>
+   * <p>Retrieves an array of <a>WebACLSummary</a> objects for the web ACLs that you
+   *          manage.</p>
    */
   public listWebACLs(args: ListWebACLsCommandInput, options?: __HttpHandlerOptions): Promise<ListWebACLsCommandOutput>;
   public listWebACLs(args: ListWebACLsCommandInput, cb: (err: any, data?: ListWebACLsCommandOutput) => void): void;
@@ -1235,25 +1399,34 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL, according to the configuration provided.</p>
+   * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a
+   *          web ACL, according to the configuration provided.</p>
    *          <p>You can access information about all traffic that WAF inspects using the following
    *          steps:</p>
    *          <ol>
    *             <li>
-   *                <p>Create an Amazon Kinesis Data
-   *             Firehose. </p>
-   *                <p>Create the data firehose with a PUT source and in the Region that you are operating. If you are capturing logs for Amazon CloudFront, always create the firehose in US East (N. Virginia). </p>
-   *                <p>Give the data firehose a name that starts with the prefix <code>aws-waf-logs-</code>. For example, <code>aws-waf-logs-us-east-2-analytics</code>.</p>
+   *                <p>Create an Amazon Kinesis Data Firehose. </p>
+   *                <p>Create the data firehose with a PUT source and in the Region that you are
+   *                operating. If you are capturing logs for Amazon CloudFront, always create the firehose in US
+   *                East (N. Virginia). </p>
+   *                <p>Give the data firehose a name that starts with the prefix
+   *                   <code>aws-waf-logs-</code>. For example,
+   *                   <code>aws-waf-logs-us-east-2-analytics</code>.</p>
    *                <note>
-   *                   <p>Do not create the data firehose using a <code>Kinesis stream</code> as your source.</p>
+   *                   <p>Do not create the data firehose using a <code>Kinesis stream</code> as your
+   *                   source.</p>
    *                </note>
    *             </li>
    *             <li>
-   *                <p>Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code> request.</p>
+   *                <p>Associate that firehose to your web ACL using a
+   *                   <code>PutLoggingConfiguration</code> request.</p>
    *             </li>
    *          </ol>
-   *
-   *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code> request, WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose.  For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL Traffic Information</a> in the <i>WAF Developer Guide</i>.</p>
+   *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code>
+   *          request, WAF will create a service linked role with the necessary permissions to write
+   *          logs to the Amazon Kinesis Data Firehose. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL
+   *             Traffic Information</a> in the <i>WAF Developer
+   *          Guide</i>.</p>
    *          <note>
    *             <p>This operation completely replaces the mutable specifications that you already have for the logging configuration with the ones that you provide to this call. To modify the logging configuration, retrieve it by calling <a>GetLoggingConfiguration</a>, update the settings as needed, and then provide the complete logging configuration specification to this call.</p>
    *          </note>
@@ -1288,15 +1461,61 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Attaches an IAM policy to the specified resource. Use this to share a rule group across accounts.</p>
-   *         <p>You must be the owner of the rule group to perform this operation.</p>
+   * <p>Defines the versions of your managed rule set that you are offering to the customers.
+   *          Customers see your offerings as managed rule groups with versioning.</p>
+   *          <note>
+   *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Marketplace sellers. </p>
+   *             <p>Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>, <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.</p>
+   *          </note>
+   *          <p>Customers retrieve their managed rule group list by calling <a>ListAvailableManagedRuleGroups</a>. The name that you provide here for your
+   *          managed rule set is the name the customer sees for the corresponding managed rule group.
+   *          Customers can retrieve the available versions for a managed rule group by calling <a>ListAvailableManagedRuleGroupVersions</a>. You provide a rule group
+   *          specification for each version. For each managed rule set, you must specify a version that
+   *          you recommend using. </p>
+   *          <p>To initiate the expiration of a managed rule group version, use <a>UpdateManagedRuleSetVersionExpiryDate</a>.</p>
+   */
+  public putManagedRuleSetVersions(
+    args: PutManagedRuleSetVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutManagedRuleSetVersionsCommandOutput>;
+  public putManagedRuleSetVersions(
+    args: PutManagedRuleSetVersionsCommandInput,
+    cb: (err: any, data?: PutManagedRuleSetVersionsCommandOutput) => void
+  ): void;
+  public putManagedRuleSetVersions(
+    args: PutManagedRuleSetVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutManagedRuleSetVersionsCommandOutput) => void
+  ): void;
+  public putManagedRuleSetVersions(
+    args: PutManagedRuleSetVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutManagedRuleSetVersionsCommandOutput) => void),
+    cb?: (err: any, data?: PutManagedRuleSetVersionsCommandOutput) => void
+  ): Promise<PutManagedRuleSetVersionsCommandOutput> | void {
+    const command = new PutManagedRuleSetVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Attaches an IAM policy to the specified resource. Use this to share a rule group across
+   *          accounts.</p>
+   *          <p>You must be the owner of the rule group to perform this operation.</p>
    *          <p>This action is subject to the following restrictions:</p>
    *          <ul>
    *             <li>
-   *                <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p>
+   *                <p>You can attach only one policy with each <code>PutPermissionPolicy</code>
+   *                request.</p>
    *             </li>
    *             <li>
-   *                <p>The ARN in the request must be a valid WAF <a>RuleGroup</a> ARN and the rule group must exist in the same Region.</p>
+   *                <p>The ARN in the request must be a valid WAF <a>RuleGroup</a> ARN and the
+   *                rule group must exist in the same Region.</p>
    *             </li>
    *             <li>
    *                <p>The user making the request must be the owner of the rule group.</p>
@@ -1333,9 +1552,14 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Associates tags with the specified Amazon Web Services resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a resource.</p>
-   *         <p>You can tag the Amazon Web Services resources that you manage through WAF: web ACLs, rule groups, IP
-   *   sets, and regex pattern sets. You can't manage or view tags through the WAF console. </p>
+   * <p>Associates tags with the specified Amazon Web Services resource. Tags are key:value pairs that you can
+   *          use to categorize and manage your resources, for purposes like billing. For example, you
+   *          might set the tag key to "customer" and the value to the customer name or ID. You can
+   *          specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a
+   *          resource.</p>
+   *          <p>You can tag the Amazon Web Services resources that you manage through WAF: web ACLs, rule
+   *          groups, IP sets, and regex pattern sets. You can't manage or view tags through the WAF
+   *          console. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1361,7 +1585,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   * <p>Disassociates tags from an Amazon Web Services resource. Tags are key:value pairs that you can associate with Amazon Web Services resources. For example, the tag key might be "customer" and the tag value might be "companyA." You can specify one or more tags to add to each container. You can add up to 50 tags to each Amazon Web Services resource.</p>
+   * <p>Disassociates tags from an Amazon Web Services resource. Tags are key:value pairs that you can
+   *          associate with Amazon Web Services resources. For example, the tag key might be "customer" and the tag
+   *          value might be "companyA." You can specify one or more tags to add to each container. You
+   *          can add up to 50 tags to each Amazon Web Services resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1411,6 +1638,46 @@ export class WAFV2 extends WAFV2Client {
     cb?: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): Promise<UpdateIPSetCommandOutput> | void {
     const command = new UpdateIPSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the expiration information for your managed rule set. Use this to initiate the
+   *          expiration of a managed rule group version. After you initiate expiration for a version,
+   *          WAF excludes it from the reponse to <a>ListAvailableManagedRuleGroupVersions</a> for the managed rule group. </p>
+   *          <note>
+   *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Marketplace sellers. </p>
+   *             <p>Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>, <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.</p>
+   *          </note>
+   */
+  public updateManagedRuleSetVersionExpiryDate(
+    args: UpdateManagedRuleSetVersionExpiryDateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput>;
+  public updateManagedRuleSetVersionExpiryDate(
+    args: UpdateManagedRuleSetVersionExpiryDateCommandInput,
+    cb: (err: any, data?: UpdateManagedRuleSetVersionExpiryDateCommandOutput) => void
+  ): void;
+  public updateManagedRuleSetVersionExpiryDate(
+    args: UpdateManagedRuleSetVersionExpiryDateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateManagedRuleSetVersionExpiryDateCommandOutput) => void
+  ): void;
+  public updateManagedRuleSetVersionExpiryDate(
+    args: UpdateManagedRuleSetVersionExpiryDateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateManagedRuleSetVersionExpiryDateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateManagedRuleSetVersionExpiryDateCommandOutput) => void
+  ): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput> | void {
+    const command = new UpdateManagedRuleSetVersionExpiryDateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

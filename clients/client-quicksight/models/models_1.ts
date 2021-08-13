@@ -1454,7 +1454,7 @@ export namespace ListNamespacesRequest {
 export interface ListNamespacesResponse {
   /**
    * <p>The information about the namespaces in this Amazon Web Services account;. The response includes
-   *         the namespace ARN, name, Region;, notification email address, creation status, and
+   *         the namespace ARN, name, Amazon Web Services Region;, notification email address, creation status, and
    *         identity store.</p>
    */
   Namespaces?: NamespaceInfoV2[];
@@ -1625,7 +1625,7 @@ export interface TemplateSummary {
   Arn?: string;
 
   /**
-   * <p>The ID of the template. This ID is unique per Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the template. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
    */
   TemplateId?: string;
 
@@ -1913,7 +1913,7 @@ export interface ThemeSummary {
   Name?: string;
 
   /**
-   * <p>The ID of the theme. This ID is unique per Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the theme. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
    */
   ThemeId?: string;
 
@@ -2739,7 +2739,7 @@ export interface UpdateAccountCustomizationRequest {
   Namespace?: string;
 
   /**
-   * <p>The QuickSight customizations you're updating in the current Region;. </p>
+   * <p>The QuickSight customizations you're updating in the current Amazon Web Services Region;. </p>
    */
   AccountCustomization: AccountCustomization | undefined;
 }
@@ -2771,7 +2771,7 @@ export interface UpdateAccountCustomizationResponse {
   Namespace?: string;
 
   /**
-   * <p>The QuickSight customizations you're updating in the current Region;. </p>
+   * <p>The QuickSight customizations you're updating in the current Amazon Web Services Region;. </p>
    */
   AccountCustomization?: AccountCustomization;
 
@@ -3027,7 +3027,7 @@ export interface UpdateDashboardRequest {
    *             to a template by using the <a>CreateTemplate</a> API operation. For
    *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
    *             template. The <code>SourceTemplate</code> ARN can contain any Amazon Web Services account; and any
-   *             QuickSight-supported Region;. </p>
+   *             QuickSight-supported Amazon Web Services Region;. </p>
    *         <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
    *             list the replacement datasets for the placeholders listed in the original. The schema in
    *             each dataset must match its placeholder. </p>
@@ -3266,7 +3266,7 @@ export interface UpdateDataSetRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to update. This ID is unique per Region; for each
+   * <p>The ID for the dataset that you want to update. This ID is unique per Amazon Web Services Region; for each
    * 			Amazon Web Services account;.</p>
    */
   DataSetId: string | undefined;
@@ -3358,7 +3358,7 @@ export interface UpdateDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Region; for each Amazon Web Services account;.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
    */
   DataSetId?: string;
 
@@ -3402,7 +3402,7 @@ export interface UpdateDataSetPermissionsRequest {
 
   /**
    * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
-   * 			Region; for each Amazon Web Services account;.</p>
+   * 			Amazon Web Services Region; for each Amazon Web Services account;.</p>
    */
   DataSetId: string | undefined;
 
@@ -3434,7 +3434,7 @@ export interface UpdateDataSetPermissionsResponse {
 
   /**
    * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
-   * 			Region; for each Amazon Web Services account;.</p>
+   * 			Amazon Web Services Region; for each Amazon Web Services account;.</p>
    */
   DataSetId?: string;
 
@@ -3465,7 +3465,7 @@ export interface UpdateDataSourceRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Region; for each Amazon Web Services account;. </p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;. </p>
    */
   DataSourceId: string | undefined;
 
@@ -3518,7 +3518,7 @@ export interface UpdateDataSourceResponse {
   Arn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
    */
   DataSourceId?: string;
 
@@ -3554,7 +3554,7 @@ export interface UpdateDataSourcePermissionsRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Region; for each Amazon Web Services account;. </p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;. </p>
    */
   DataSourceId: string | undefined;
 
@@ -3585,7 +3585,7 @@ export interface UpdateDataSourcePermissionsResponse {
   DataSourceArn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
    */
   DataSourceId?: string;
 
@@ -3930,7 +3930,7 @@ export interface UpdateTemplateRequest {
    * 			analysis. Both of these require an Amazon Resource Name (ARN). For
    * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
    * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any Amazon Web Services account; and any QuickSight-supported Region;. </p>
+   * 			ARN can contain any Amazon Web Services account; and any QuickSight-supported Amazon Web Services Region;. </p>
    * 		       <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
    * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
    * 			in the original. The schema in each dataset must match its placeholder. </p>

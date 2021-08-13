@@ -21,7 +21,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the tags associated with an Athena workgroup or data catalog resource.</p>
+ * <p>Lists the tags associated with an Athena workgroup or data catalog
+ *             resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

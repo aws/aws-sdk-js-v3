@@ -1078,7 +1078,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Adds a specified number of users to a channel. </p>
+   * <p>Adds a specified number of users to a channel.</p>
    */
   public batchCreateChannelMembership(
     args: BatchCreateChannelMembershipCommandInput,
@@ -1552,11 +1552,13 @@ export class Chime extends ChimeClient {
    * <p>Creates a channel to which you can add users and send messages.</p>
    *
    *          <p>
-   *             <b>Restriction</b>: You can't change a channel's privacy.</p>
+   *             <b>Restriction</b>: You can't change a channel's
+   *          privacy.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public createChannel(
@@ -1589,15 +1591,17 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Permanently bans a member from a channel. Moderators can't add banned members to a channel.
-   *             To undo a ban, you first have to <code>DeleteChannelBan</code>, and then
-   *                 <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or
-   *             channels.</p>
-   *          <p>If you ban a user who is already part of a channel, that user is automatically kicked from the channel.</p>
+   * <p>Permanently bans a member from a channel. Moderators can't add banned members to a
+   *          channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then
+   *             <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or
+   *          channels.</p>
+   *          <p>If you ban a user who is already part of a channel, that user is automatically kicked
+   *          from the channel.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public createChannelBan(
@@ -1631,7 +1635,7 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the
-   *             request header. A channel member can:</p>
+   *          request header. A channel member can:</p>
    *
    *          <ul>
    *             <li>
@@ -1655,7 +1659,8 @@ export class Chime extends ChimeClient {
    *
    *          <ul>
    *             <li>
-   *                <p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p>
+   *                <p>Public Channels: You do not need to be a member to list messages, but you must be
+   *                a member to send messages.</p>
    *             </li>
    *             <li>
    *                <p>Private Channels: You must be a member to list or send messages.</p>
@@ -1663,8 +1668,9 @@ export class Chime extends ChimeClient {
    *          </ul>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public createChannelMembership(
@@ -1718,8 +1724,9 @@ export class Chime extends ChimeClient {
    *          </ul>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public createChannelModerator(
@@ -2434,11 +2441,13 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Immediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.</p>
+   * <p>Immediately makes a channel and its memberships inaccessible and marks them for
+   *          deletion. This is an irreversible process.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public deleteChannel(
@@ -2474,8 +2483,9 @@ export class Chime extends ChimeClient {
    * <p>Removes a user from a channel's ban list.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public deleteChannelBan(
@@ -2511,8 +2521,9 @@ export class Chime extends ChimeClient {
    * <p>Removes a member from a channel.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public deleteChannelMembership(
@@ -2546,12 +2557,13 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages
-   *             inaccessible immediately. A background process deletes any revisions created by
-   *                 <code>UpdateChannelMessage</code>.</p>
+   *          inaccessible immediately. A background process deletes any revisions created by
+   *             <code>UpdateChannelMessage</code>.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public deleteChannelMessage(
@@ -2587,8 +2599,9 @@ export class Chime extends ChimeClient {
    * <p>Deletes a channel moderator.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public deleteChannelModerator(
@@ -3250,11 +3263,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>
-   * Returns the full details of an
-   * <code>AppInstanceUser</code>
-   * .
-   * </p>
+   * <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
    */
   public describeAppInstanceUser(
     args: DescribeAppInstanceUserCommandInput,
@@ -3286,12 +3295,14 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Returns the full details of a channel in an Amazon Chime <code>AppInstance</code>.</p>
+   * <p>Returns the full details of a channel in an Amazon Chime
+   *          <code>AppInstance</code>.</p>
    *
    *          <note>
    *
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public describeChannel(
@@ -3328,8 +3339,9 @@ export class Chime extends ChimeClient {
    *
    *          <note>
    *
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public describeChannelBan(
@@ -3364,8 +3376,9 @@ export class Chime extends ChimeClient {
   /**
    * <p>Returns the full details of a user's channel membership.</p>
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public describeChannelMembership(
@@ -3398,12 +3411,13 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>
-   * Returns the details of a channel based on the membership of the specified <code>AppInstanceUser</code>.</p>
+   * <p> Returns the details of a channel based on the membership of the specified
+   *             <code>AppInstanceUser</code>.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public describeChannelMembershipForAppInstanceUser(
@@ -3438,11 +3452,13 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code>.</p>
+   * <p>Returns the full details of a channel moderated by the specified
+   *             <code>AppInstanceUser</code>.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public describeChannelModeratedByAppInstanceUser(
@@ -3479,8 +3495,9 @@ export class Chime extends ChimeClient {
   /**
    * <p>Returns the full details of a single ChannelModerator.</p>
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public describeChannelModerator(
@@ -3836,8 +3853,9 @@ export class Chime extends ChimeClient {
    * <p>Gets the full details of a channel message.</p>
    *
    *          <note>
-   *             <p>The x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the
-   *         value in the header.</p>
+   *             <p>The x-amz-chime-bearer request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public getChannelMessage(
@@ -4797,11 +4815,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>
-   * List all
-   * <code>AppInstanceUsers</code>
-   * created under a single <code>AppInstance</code>.
-   * </p>
+   * <p>List all <code>AppInstanceUsers</code>
+   *             created under a single <code>AppInstance</code>.
+   *         </p>
    */
   public listAppInstanceUsers(
     args: ListAppInstanceUsersCommandInput,
@@ -4931,8 +4947,9 @@ export class Chime extends ChimeClient {
    *
    *          <note>
    *
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public listChannelBans(
@@ -4969,8 +4986,9 @@ export class Chime extends ChimeClient {
    *
    *          <note>
    *
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public listChannelMemberships(
@@ -5004,12 +5022,12 @@ export class Chime extends ChimeClient {
 
   /**
    * <p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an
-   *                 <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their
-   *             own. </p>
+   *             <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public listChannelMembershipsForAppInstanceUser(
@@ -5044,13 +5062,16 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p>
+   * <p>List all the messages in a channel. Returns a paginated list of
+   *             <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending
+   *          order.</p>
    *          <note>
-   *             <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted.
-   *                 Deleted messages do not appear in the results. This action always returns the latest
-   *                 version of an edited message.</p>
-   *             <p>Also, the x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the
-   *         value in the header.</p>
+   *             <p>Redacted messages appear in the results as empty, since they are only redacted, not
+   *             deleted. Deleted messages do not appear in the results. This action always returns the
+   *             latest version of an edited message.</p>
+   *             <p>Also, the x-amz-chime-bearer request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public listChannelMessages(
@@ -5084,11 +5105,10 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Lists all the moderators for a channel.</p>
-   *
    *          <note>
-   *
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public listChannelModerators(
@@ -5121,24 +5141,27 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p>
+   * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
+   *          filters to narrow results.</p>
    *
    *          <p class="title">
    *             <b>Functionality & restrictions</b>
    *          </p>
    *          <ul>
    *             <li>
-   *                <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p>
+   *                <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the
+   *                account.</p>
    *             </li>
    *             <li>
-   *                <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the
-   *                     private channels in an account.</p>
+   *                <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to
+   *                list the private channels in an account.</p>
    *             </li>
    *          </ul>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public listChannels(
@@ -5171,8 +5194,9 @@ export class Chime extends ChimeClient {
    * <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public listChannelsModeratedByAppInstanceUser(
@@ -6155,11 +6179,13 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p>
+   * <p>Redacts message content, but not metadata. The message exists in the back end, but the
+   *          action returns null content, and the state shows as redacted.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public redactChannelMessage(
@@ -6393,11 +6419,12 @@ export class Chime extends ChimeClient {
    * <p>Sends a message to a particular channel that the member is a part of.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *
-   *             <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of
-   *     data and no metadata.</p>
+   *             <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
+   *                <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p>
    *          </note>
    */
   public sendChannelMessage(
@@ -6825,12 +6852,11 @@ export class Chime extends ChimeClient {
   /**
    * <p>Update a channel's attributes.</p>
    *          <p>
-   *             <b>Restriction</b>: You can't change a channel's privacy.
-   * </p>
-   *
+   *             <b>Restriction</b>: You can't change a channel's privacy. </p>
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public updateChannel(
@@ -6866,8 +6892,9 @@ export class Chime extends ChimeClient {
    * <p>Updates the content of a message.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public updateChannelMessage(
@@ -6903,8 +6930,9 @@ export class Chime extends ChimeClient {
    * <p>The details of the time when a user last read messages in a channel.</p>
    *
    *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
-   *         the API call as the value in the header.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             the header.</p>
    *          </note>
    */
   public updateChannelReadMarker(

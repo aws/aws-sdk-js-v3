@@ -22,7 +22,7 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
 
 /**
  * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
- *             created are visible to all users of the same AWS account.</p>
+ *             created are visible to all users of the same Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

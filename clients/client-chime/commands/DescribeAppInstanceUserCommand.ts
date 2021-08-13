@@ -21,11 +21,7 @@ export interface DescribeAppInstanceUserCommandInput extends DescribeAppInstance
 export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanceUserResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Returns the full details of an
- * <code>AppInstanceUser</code>
- * .
- * </p>
+ * <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

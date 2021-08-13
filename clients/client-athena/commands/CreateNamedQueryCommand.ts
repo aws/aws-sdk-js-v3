@@ -23,8 +23,9 @@ export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, _
 /**
  * <p>Creates a named query in the specified workgroup. Requires that you have access to the
  *             workgroup.</p>
- *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
- *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *                 Code Samples</a> in the <i>Amazon Athena User
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

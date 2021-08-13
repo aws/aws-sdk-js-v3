@@ -21,7 +21,7 @@ export interface ListHealthChecksCommandInput extends ListHealthChecksRequest {}
 export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve a list of the health checks that are associated with the current account. </p>
+ * <p>Retrieve a list of the health checks that are associated with the current Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

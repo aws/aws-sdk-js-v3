@@ -122,6 +122,7 @@ import {
   Attribute,
   AudioMetadata,
   Beard,
+  BlackFrame,
   BoundingBox,
   Celebrity,
   CelebrityDetail,
@@ -6735,6 +6736,15 @@ const serializeAws_json1_1Attributes = (input: (Attribute | string)[], context: 
     });
 };
 
+const serializeAws_json1_1BlackFrame = (input: BlackFrame, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxPixelThreshold !== undefined &&
+      input.MaxPixelThreshold !== null && { MaxPixelThreshold: __serializeFloat(input.MaxPixelThreshold) }),
+    ...(input.MinCoveragePercentage !== undefined &&
+      input.MinCoveragePercentage !== null && { MinCoveragePercentage: __serializeFloat(input.MinCoveragePercentage) }),
+  };
+};
+
 const serializeAws_json1_1BoundingBox = (input: BoundingBox, context: __SerdeContext): any => {
   return {
     ...(input.Height !== undefined && input.Height !== null && { Height: __serializeFloat(input.Height) }),
@@ -7495,6 +7505,8 @@ const serializeAws_json1_1StartTechnicalCueDetectionFilter = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.BlackFrame !== undefined &&
+      input.BlackFrame !== null && { BlackFrame: serializeAws_json1_1BlackFrame(input.BlackFrame, context) }),
     ...(input.MinSegmentConfidence !== undefined &&
       input.MinSegmentConfidence !== null && { MinSegmentConfidence: __serializeFloat(input.MinSegmentConfidence) }),
   };
@@ -9349,14 +9361,17 @@ const deserializeAws_json1_1SearchFacesResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1SegmentDetection = (output: any, context: __SerdeContext): SegmentDetection => {
   return {
+    DurationFrames: __expectNumber(output.DurationFrames),
     DurationMillis: __expectNumber(output.DurationMillis),
     DurationSMPTE: __expectString(output.DurationSMPTE),
+    EndFrameNumber: __expectNumber(output.EndFrameNumber),
     EndTimecodeSMPTE: __expectString(output.EndTimecodeSMPTE),
     EndTimestampMillis: __expectNumber(output.EndTimestampMillis),
     ShotSegment:
       output.ShotSegment !== undefined && output.ShotSegment !== null
         ? deserializeAws_json1_1ShotSegment(output.ShotSegment, context)
         : undefined,
+    StartFrameNumber: __expectNumber(output.StartFrameNumber),
     StartTimecodeSMPTE: __expectString(output.StartTimecodeSMPTE),
     StartTimestampMillis: __expectNumber(output.StartTimestampMillis),
     TechnicalCueSegment:
@@ -9770,6 +9785,7 @@ const deserializeAws_json1_1ValidationData = (output: any, context: __SerdeConte
 const deserializeAws_json1_1VideoMetadata = (output: any, context: __SerdeContext): VideoMetadata => {
   return {
     Codec: __expectString(output.Codec),
+    ColorRange: __expectString(output.ColorRange),
     DurationMillis: __expectNumber(output.DurationMillis),
     Format: __expectString(output.Format),
     FrameHeight: __expectNumber(output.FrameHeight),

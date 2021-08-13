@@ -22,7 +22,7 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
 
 /**
  * <p>Permanently deletes an IAM policy from the specified rule group.</p>
- *         <p>You must be the owner of the rule group to perform this operation.</p>
+ *          <p>You must be the owner of the rule group to perform this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

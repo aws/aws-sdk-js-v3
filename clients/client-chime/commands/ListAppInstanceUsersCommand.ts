@@ -21,11 +21,9 @@ export interface ListAppInstanceUsersCommandInput extends ListAppInstanceUsersRe
 export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersResponse, __MetadataBearer {}
 
 /**
- * <p>
- * List all
- * <code>AppInstanceUsers</code>
- * created under a single <code>AppInstance</code>.
- * </p>
+ * <p>List all <code>AppInstanceUsers</code>
+ *             created under a single <code>AppInstance</code>.
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -178,15 +178,18 @@ export namespace BatchGetQueryExecutionInput {
  */
 export interface EngineVersion {
   /**
-   * <p>The engine version requested by the user. Possible values are determined by the output of <code>ListEngineVersions</code>, including Auto. The default is Auto.</p>
+   * <p>The engine version requested by the user. Possible values are determined by the output
+   *             of <code>ListEngineVersions</code>, including Auto. The default is Auto.</p>
    */
   SelectedEngineVersion?: string;
 
   /**
-   * <p>Read only. The engine version on which the query runs. If the user requests
-   *             a valid engine version other than Auto, the effective engine version is the same as the
-   *             engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a <code>CreateWorkGroup</code> or <code>UpdateWorkGroup</code> operation, the
-   *             <code>EffectiveEngineVersion</code> field is ignored.</p>
+   * <p>Read only. The engine version on which the query runs. If the user requests a valid
+   *             engine version other than Auto, the effective engine version is the same as the engine
+   *             version that the user requested. If the user requests Auto, the effective engine version
+   *             is chosen by Athena. When a request to update the engine version is made by
+   *             a <code>CreateWorkGroup</code> or <code>UpdateWorkGroup</code> operation, the
+   *                 <code>EffectiveEngineVersion</code> field is ignored.</p>
    */
   EffectiveEngineVersion?: string;
 }
@@ -205,7 +208,7 @@ export namespace EngineVersion {
  */
 export interface QueryExecutionContext {
   /**
-   * <p>The name of the database used in the query execution.</p>
+   * <p>The name of the database used in the query execution. The database must exist in the catalog.</p>
    */
   Database?: string;
 
@@ -231,13 +234,13 @@ export enum EncryptionOption {
 }
 
 /**
- * <p>If query results are encrypted in Amazon S3, indicates the encryption option used (for
- *             example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.</p>
+ * <p>If query results are encrypted in Amazon S3, indicates the encryption option
+ *             used (for example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key
+ *             information.</p>
  */
 export interface EncryptionConfiguration {
   /**
-   * <p>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys
-   *                 (<code>SSE-S3</code>), server-side encryption with KMS-managed keys
+   * <p>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE-S3</code>), server-side encryption with KMS-managed keys
    *                 (<code>SSE-KMS</code>), or client-side encryption with KMS-managed keys (CSE-KMS) is
    *             used.</p>
    *         <p>If a query runs in a workgroup and the workgroup overrides client-side settings, then
@@ -263,9 +266,9 @@ export namespace EncryptionConfiguration {
 }
 
 /**
- * <p>The location in Amazon S3 where query results are stored and the encryption option, if
- *             any, used for query results. These are known as "client-side settings". If workgroup
- *             settings override client-side settings, then the query uses the workgroup
+ * <p>The location in Amazon S3 where query results are stored and the encryption
+ *             option, if any, used for query results. These are known as "client-side settings". If
+ *             workgroup settings override client-side settings, then the query uses the workgroup
  *             settings.</p>
  */
 export interface ResultConfiguration {
@@ -273,19 +276,19 @@ export interface ResultConfiguration {
    * <p>The location in Amazon S3 where your query results are stored, such as
    *                 <code>s3://path/to/query/bucket/</code>. To run the query, you must specify the
    *             query results location using one of the ways: either for individual queries using either
-   *             this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>. If none of them is set, Athena issues an error
-   *             that no output location is provided. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a>. If
+   *             this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>. If none of them is set, Athena
+   *             issues an error that no output location is provided. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a>. If
    *             workgroup settings override client-side settings, then the query uses the settings
    *             specified for the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
    */
   OutputLocation?: string;
 
   /**
-   * <p>If query results are encrypted in Amazon S3, indicates the encryption option used (for
-   *             example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information. This is a
-   *             client-side setting. If workgroup settings override client-side settings, then the query
-   *             uses the encryption configuration that is specified for the workgroup, and also uses the
-   *             location for storing query results specified in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
+   * <p>If query results are encrypted in Amazon S3, indicates the encryption option
+   *             used (for example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.
+   *             This is a client-side setting. If workgroup settings override client-side settings, then
+   *             the query uses the encryption configuration that is specified for the workgroup, and
+   *             also uses the location for storing query results specified in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 }
@@ -322,11 +325,12 @@ export interface QueryExecutionStatistics {
 
   /**
    * <p>The location and file name of a data manifest file. The manifest file is saved to the
-   *             Athena query results location in Amazon S3. The manifest file tracks files that the
-   *             query wrote to Amazon S3. If the query fails, the manifest file also tracks files that
-   *             the query intended to write. The manifest is useful for identifying orphaned files
-   *             resulting from a failed query. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with Query Results, Output Files, and
-   *                 Query History</a> in the <i>Amazon Athena User Guide</i>.</p>
+   *                 Athena query results location in Amazon S3. The manifest file
+   *             tracks files that the query wrote to Amazon S3. If the query fails, the manifest
+   *             file also tracks files that the query intended to write. The manifest is useful for
+   *             identifying orphaned files resulting from a failed query. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with Query
+   *                 Results, Output Files, and Query History</a> in the <i>Amazon Athena User Guide</i>.</p>
    */
   DataManifestLocation?: string;
 
@@ -337,22 +341,22 @@ export interface QueryExecutionStatistics {
 
   /**
    * <p>The number of milliseconds that the query was in your query queue waiting for
-   *             resources. Note that if transient errors occur, Athena might automatically add the query
-   *             back to the queue.</p>
+   *             resources. Note that if transient errors occur, Athena might automatically
+   *             add the query back to the queue.</p>
    */
   QueryQueueTimeInMillis?: number;
 
   /**
-   * <p>The number of milliseconds that Athena took to plan the query processing flow. This
-   *             includes the time spent retrieving table partitions from the data source. Note that
-   *             because the query engine performs the query planning, query planning time is a subset of
-   *             engine processing time.</p>
+   * <p>The number of milliseconds that Athena took to plan the query processing
+   *             flow. This includes the time spent retrieving table partitions from the data source.
+   *             Note that because the query engine performs the query planning, query planning time is a
+   *             subset of engine processing time.</p>
    */
   QueryPlanningTimeInMillis?: number;
 
   /**
-   * <p>The number of milliseconds that Athena took to finalize and publish the query results
-   *             after the query engine finished running the query.</p>
+   * <p>The number of milliseconds that Athena took to finalize and publish the
+   *             query results after the query engine finished running the query.</p>
    */
   ServiceProcessingTimeInMillis?: number;
 }
@@ -381,16 +385,16 @@ export enum QueryExecutionState {
 export interface QueryExecutionStatus {
   /**
    * <p>The state of query execution. <code>QUEUED</code> indicates that the query has been
-   *             submitted to the service, and Athena will execute the query as soon as resources are
-   *             available. <code>RUNNING</code> indicates that the query is in execution phase.
-   *                 <code>SUCCEEDED</code> indicates that the query completed without errors.
+   *             submitted to the service, and Athena will execute the query as soon as
+   *             resources are available. <code>RUNNING</code> indicates that the query is in execution
+   *             phase. <code>SUCCEEDED</code> indicates that the query completed without errors.
    *                 <code>FAILED</code> indicates that the query experienced an error and did not
    *             complete processing. <code>CANCELLED</code> indicates that a user input interrupted
    *             query execution.</p>
    *         <note>
-   *             <p>Athena automatically retries your queries in cases of certain transient errors. As
-   *                 a result, you may see the query state transition from <code>RUNNING</code> or
-   *                     <code>FAILED</code> to <code>QUEUED</code>. </p>
+   *             <p>Athena automatically retries your queries in cases of certain
+   *                 transient errors. As a result, you may see the query state transition from
+   *                     <code>RUNNING</code> or <code>FAILED</code> to <code>QUEUED</code>. </p>
    *         </note>
    */
   State?: QueryExecutionState | string;
@@ -439,15 +443,16 @@ export interface QueryExecution {
    *             statements. <code>DML</code> indicates DML (Data Manipulation Language) query
    *             statements, such as <code>CREATE TABLE AS SELECT</code>. <code>UTILITY</code> indicates
    *             query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>, or
-   *                 <code>DESCRIBE <table></code>.</p>
+   *                 <code>DESCRIBE TABLE</code>.</p>
    */
   StatementType?: StatementType | string;
 
   /**
-   * <p>The location in Amazon S3 where query results were stored and the encryption option,
-   *             if any, used for query results. These are known as "client-side settings". If workgroup
-   *             settings override client-side settings, then the query uses the location for the query
-   *             results and the encryption configuration that are specified for the workgroup.</p>
+   * <p>The location in Amazon S3 where query results were stored and the encryption
+   *             option, if any, used for query results. These are known as "client-side settings". If
+   *             workgroup settings override client-side settings, then the query uses the location for
+   *             the query results and the encryption configuration that are specified for the
+   *             workgroup.</p>
    */
   ResultConfiguration?: ResultConfiguration;
 
@@ -541,12 +546,12 @@ export namespace BatchGetQueryExecutionOutput {
 }
 
 /**
- * <p>A label that you assign to a resource. In Athena, a resource can be a workgroup or
- *             data catalog. Each tag consists of a key and an optional value, both of which you
- *             define. For example, you can use tags to categorize Athena workgroups or data catalogs
- *             by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to
- *             search and filter workgroups or data catalogs in your account. For best practices, see
- *                 <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
+ * <p>A label that you assign to a resource. In Athena, a resource can be a
+ *             workgroup or data catalog. Each tag consists of a key and an optional value, both of
+ *             which you define. For example, you can use tags to categorize Athena
+ *             workgroups or data catalogs by purpose, owner, or environment. Use a consistent set of
+ *             tag keys to make it easier to search and filter workgroups or data catalogs in your
+ *             account. For best practices, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
  *             characters, and tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use
  *             letters and numbers representable in UTF-8, and the following characters: + - = . _ : /
  *             @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you
@@ -585,21 +590,16 @@ export enum DataCatalogType {
 
 export interface CreateDataCatalogInput {
   /**
-   * <p>The name of the data catalog to create. The catalog name must be unique for the AWS
-   *             account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen
-   *             characters.</p>
+   * <p>The name of the data catalog to create. The catalog name must be unique for the
+   *                 Amazon Web Services account and can use a maximum of 128 alphanumeric, underscore, at
+   *             sign, or hyphen characters.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog or
-   *                 <code>HIVE</code> for an external hive metastore.</p>
-   *         <note>
-   *             <p>Do not use the <code>GLUE</code> type. This refers to the
-   *                     <code>AwsDataCatalog</code> that already exists in your account, of which you
-   *                 can have only one. Specifying the <code>GLUE</code> type will result in an
-   *                     <code>INVALID_INPUT</code> error.</p>
-   *         </note>
+   * <p>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog,
+   *                 <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an
+   *                 Glue Data Catalog.</p>
    */
   Type: DataCatalogType | string | undefined;
 
@@ -609,8 +609,8 @@ export interface CreateDataCatalogInput {
   Description?: string;
 
   /**
-   * <p>Specifies the Lambda function or functions to use for creating the data catalog. This
-   *             is a mapping whose values depend on the catalog type. </p>
+   * <p>Specifies the Lambda function or functions to use for creating the data
+   *             catalog. This is a mapping whose values depend on the catalog type. </p>
    *         <ul>
    *             <li>
    *                 <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
@@ -628,9 +628,9 @@ export interface CreateDataCatalogInput {
    *                     of required parameters, but not both.</p>
    *                 <ul>
    *                   <li>
-   *                         <p>If you have one Lambda function that processes metadata and another
-   *                             for reading the actual data, use the following syntax. Both parameters
-   *                             are required.</p>
+   *                         <p>If you have one Lambda function that processes metadata
+   *                             and another for reading the actual data, use the following syntax. Both
+   *                             parameters are required.</p>
    *                         <p>
    *                         <code>metadata-function=<i>lambda_arn</i>,
    *                                     record-function=<i>lambda_arn</i>
@@ -638,13 +638,41 @@ export interface CreateDataCatalogInput {
    *                      </p>
    *                     </li>
    *                   <li>
-   *                         <p> If you have a composite Lambda function that processes both metadata
-   *                             and data, use the following syntax to specify your Lambda
-   *                             function.</p>
+   *                         <p> If you have a composite Lambda function that processes
+   *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
    *                         <p>
    *                         <code>function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
+   *                             <code>
+   *                      <i>catalog_id</i>
+   *                   </code> is the account ID of the
+   *                         Amazon Web Services account to which the Glue Data Catalog
+   *                     belongs.</p>
+   *                 <p>
+   *                   <code>catalog-id=<i>catalog_id</i>
+   *                   </code>
+   *                </p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>The <code>GLUE</code> data catalog type also applies to the default
+   *                                 <code>AwsDataCatalog</code> that already exists in your account, of
+   *                             which you can have only one and cannot modify.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Queries that specify a Glue Data Catalog other than the default
+   *                                 <code>AwsDataCatalog</code> must be run on Athena engine
+   *                             version 2.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>In Regions where Athena engine version 2 is not available,
+   *                             creating new Glue data catalogs results in an
+   *                                 <code>INVALID_INPUT</code> error.</p>
    *                     </li>
    *                </ul>
    *             </li>
@@ -705,9 +733,10 @@ export interface CreateNamedQueryInput {
    *             received, the same response is returned and another query is not created. If a parameter
    *             has changed, for example, the <code>QueryString</code>, an error is returned.</p>
    *         <important>
-   *             <p>This token is listed as not required because AWS SDKs (for example the AWS SDK for
-   *                 Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS
-   *                 CLI, you must provide this token or the action will fail.</p>
+   *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
+   *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
+   *                 not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
+   *                 this token or the action will fail.</p>
    *         </important>
    */
   ClientRequestToken?: string;
@@ -786,22 +815,23 @@ export namespace CreatePreparedStatementOutput {
 }
 
 /**
- * <p>The configuration of the workgroup, which includes the location in Amazon S3 where
- *             query results are stored, the encryption option, if any, used for query results, whether
- *             the Amazon CloudWatch Metrics are enabled for the workgroup and whether workgroup
- *             settings override query settings, and the data usage limits for the amount of data
- *             scanned per query or per workgroup. The workgroup settings override is specified in
- *             EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>. </p>
+ * <p>The configuration of the workgroup, which includes the location in Amazon S3
+ *             where query results are stored, the encryption option, if any, used for query results,
+ *             whether the Amazon CloudWatch Metrics are enabled for the workgroup and whether
+ *             workgroup settings override query settings, and the data usage limits for the amount of
+ *             data scanned per query or per workgroup. The workgroup settings override is specified in
+ *                 <code>EnforceWorkGroupConfiguration</code> (true/false) in the
+ *                 <code>WorkGroupConfiguration</code>. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>. </p>
  */
 export interface WorkGroupConfiguration {
   /**
-   * <p>The configuration for the workgroup, which includes the location in Amazon S3 where
-   *             query results are stored and the encryption option, if any, used for query results. To
-   *             run the query, you must specify the query results location using one of the ways: either
-   *             in the workgroup using this setting, or for individual queries (client-side), using
-   *                 <a>ResultConfiguration$OutputLocation</a>. If none of them is set, Athena
-   *             issues an error that no output location is provided. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query
-   *             Results</a>.</p>
+   * <p>The configuration for the workgroup, which includes the location in Amazon S3
+   *             where query results are stored and the encryption option, if any, used for query
+   *             results. To run the query, you must specify the query results location using one of the
+   *             ways: either in the workgroup using this setting, or for individual queries
+   *             (client-side), using <a>ResultConfiguration$OutputLocation</a>. If none of
+   *             them is set, Athena issues an error that no output location is provided. For
+   *             more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a>.</p>
    */
   ResultConfiguration?: ResultConfiguration;
 
@@ -824,17 +854,19 @@ export interface WorkGroupConfiguration {
 
   /**
    * <p>If set to <code>true</code>, allows members assigned to a workgroup to reference
-   *             Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup
-   *             members cannot query data from Requester Pays buckets, and queries that retrieve data
-   *             from Requester Pays buckets cause an error. The default is <code>false</code>. For more
-   *             information about Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays Buckets</a>
-   *             in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *                 Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>,
+   *             workgroup members cannot query data from Requester Pays buckets, and queries that
+   *             retrieve data from Requester Pays buckets cause an error. The default is
+   *                 <code>false</code>. For more information about Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester
+   *                     Pays Buckets</a> in the <i>Amazon Simple Storage Service Developer
+   *                 Guide</i>.</p>
    */
   RequesterPaysEnabled?: boolean;
 
   /**
-   * <p>The engine version that all queries running on
-   *             the workgroup use. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>
+   * <p>The engine version that all queries running on the workgroup use. Queries on the
+   *                 <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine
+   *             regardless of this setting.</p>
    */
   EngineVersion?: EngineVersion;
 }
@@ -855,12 +887,13 @@ export interface CreateWorkGroupInput {
   Name: string | undefined;
 
   /**
-   * <p>The configuration for the workgroup, which includes the location in Amazon S3 where
-   *             query results are stored, the encryption configuration, if any, used for encrypting
-   *             query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, the
-   *             limit for the amount of bytes scanned (cutoff) per query, if it is specified, and
-   *             whether workgroup's settings (specified with EnforceWorkGroupConfiguration) in the
-   *             WorkGroupConfiguration override client-side settings. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
+   * <p>The configuration for the workgroup, which includes the location in Amazon S3
+   *             where query results are stored, the encryption configuration, if any, used for
+   *             encrypting query results, whether the Amazon CloudWatch Metrics are enabled for the
+   *             workgroup, the limit for the amount of bytes scanned (cutoff) per query, if it is
+   *             specified, and whether workgroup's settings (specified with
+   *                 <code>EnforceWorkGroupConfiguration</code>) in the
+   *                 <code>WorkGroupConfiguration</code> override client-side settings. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
    */
   Configuration?: WorkGroupConfiguration;
 
@@ -1100,11 +1133,12 @@ export namespace GetDatabaseOutput {
 }
 
 /**
- * <p>An exception that Athena received when it called a custom metastore. Occurs if the
- *             error is not caused by user input (<code>InvalidRequestException</code>) or from the
- *             Athena platform (<code>InternalServerException</code>). For example, if a user-created
- *             Lambda function is missing permissions, the Lambda <code>4XX</code> exception is
- *             returned in a <code>MetadataException</code>.</p>
+ * <p>An exception that Athena received when it called a custom metastore.
+ *             Occurs if the error is not caused by user input (<code>InvalidRequestException</code>)
+ *             or from the Athena platform (<code>InternalServerException</code>). For
+ *             example, if a user-created Lambda function is missing permissions, the
+ *                 Lambda
+ *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
  */
 export interface MetadataException extends __SmithyException, $MetadataBearer {
   name: "MetadataException";
@@ -1138,12 +1172,12 @@ export namespace GetDataCatalogInput {
 }
 
 /**
- * <p>Contains information about a data catalog in an AWS account.</p>
+ * <p>Contains information about a data catalog in an Amazon Web Services account.</p>
  */
 export interface DataCatalog {
   /**
-   * <p>The name of the data catalog. The catalog name must be unique for the AWS account and
-   *             can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.</p>
+   * <p>The name of the data catalog. The catalog name must be unique for the Amazon Web Services account and can use a maximum of 128 alphanumeric, underscore, at sign,
+   *             or hyphen characters.</p>
    */
   Name: string | undefined;
 
@@ -1153,16 +1187,15 @@ export interface DataCatalog {
   Description?: string;
 
   /**
-   * <p>The type of data catalog: <code>LAMBDA</code> for a federated catalog or
-   *                 <code>HIVE</code> for an external hive metastore. <code>GLUE</code> refers to the
-   *                 <code>AwsDataCatalog</code> that already exists in your account, of which you can
-   *             have only one.</p>
+   * <p>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog,
+   *                 <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an
+   *                 Glue Data Catalog.</p>
    */
   Type: DataCatalogType | string | undefined;
 
   /**
-   * <p>Specifies the Lambda function or functions to use for the data catalog. This is a
-   *             mapping whose values depend on the catalog type. </p>
+   * <p>Specifies the Lambda function or functions to use for the data catalog.
+   *             This is a mapping whose values depend on the catalog type. </p>
    *         <ul>
    *             <li>
    *                 <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
@@ -1180,9 +1213,9 @@ export interface DataCatalog {
    *                     of required parameters, but not both.</p>
    *                 <ul>
    *                   <li>
-   *                         <p>If you have one Lambda function that processes metadata and another
-   *                             for reading the actual data, use the following syntax. Both parameters
-   *                             are required.</p>
+   *                         <p>If you have one Lambda function that processes metadata
+   *                             and another for reading the actual data, use the following syntax. Both
+   *                             parameters are required.</p>
    *                         <p>
    *                         <code>metadata-function=<i>lambda_arn</i>,
    *                                     record-function=<i>lambda_arn</i>
@@ -1190,13 +1223,36 @@ export interface DataCatalog {
    *                      </p>
    *                     </li>
    *                   <li>
-   *                         <p> If you have a composite Lambda function that processes both metadata
-   *                             and data, use the following syntax to specify your Lambda
-   *                             function.</p>
+   *                         <p> If you have a composite Lambda function that processes
+   *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
    *                         <p>
    *                         <code>function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
+   *                             <code>
+   *                      <i>catalog_id</i>
+   *                   </code> is the account ID of the
+   *                         Amazon Web Services account to which the Glue catalog
+   *                     belongs.</p>
+   *                 <p>
+   *                   <code>catalog-id=<i>catalog_id</i>
+   *                   </code>
+   *                </p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>The <code>GLUE</code> data catalog type also applies to the default
+   *                                 <code>AwsDataCatalog</code> that already exists in your account, of
+   *                             which you can have only one and cannot modify.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Queries that specify a Glue Data Catalog other than the default
+   *                                 <code>AwsDataCatalog</code> must be run on Athena engine
+   *                             version 2.</p>
    *                     </li>
    *                </ul>
    *             </li>
@@ -1378,9 +1434,9 @@ export interface GetQueryResultsInput {
   QueryExecutionId: string | undefined;
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 
@@ -1557,7 +1613,8 @@ export namespace ResultSet {
 
 export interface GetQueryResultsOutput {
   /**
-   * <p>The number of rows inserted with a CREATE TABLE AS SELECT statement. </p>
+   * <p>The number of rows inserted with a <code>CREATE TABLE AS SELECT</code> statement.
+   *         </p>
    */
   UpdateCount?: number;
 
@@ -1567,9 +1624,9 @@ export interface GetQueryResultsOutput {
   ResultSet?: ResultSet;
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 }
@@ -1659,7 +1716,8 @@ export interface TableMetadata {
   LastAccessTime?: Date;
 
   /**
-   * <p>The type of table. In Athena, only <code>EXTERNAL_TABLE</code> is supported.</p>
+   * <p>The type of table. In Athena, only <code>EXTERNAL_TABLE</code> is
+   *             supported.</p>
    */
   TableType?: string;
 
@@ -1730,10 +1788,10 @@ export enum WorkGroupState {
  *             configuration, listed under <a>WorkGroup$Configuration</a>. Each workgroup
  *             enables you to isolate queries for you or your group of users from other queries in the
  *             same account, to configure the query results location and the encryption configuration
- *             (known as workgroup settings), to enable sending query metrics to Amazon CloudWatch, and
- *             to establish per-query data usage control limits for all queries in a workgroup. The
- *             workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false)
- *             in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
+ *             (known as workgroup settings), to enable sending query metrics to Amazon CloudWatch,
+ *             and to establish per-query data usage control limits for all queries in a workgroup. The
+ *             workgroup settings override is specified in <code>EnforceWorkGroupConfiguration</code>
+ *             (true/false) in the <code>WorkGroupConfiguration</code>. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
  */
 export interface WorkGroup {
   /**
@@ -1747,12 +1805,13 @@ export interface WorkGroup {
   State?: WorkGroupState | string;
 
   /**
-   * <p>The configuration of the workgroup, which includes the location in Amazon S3 where
-   *             query results are stored, the encryption configuration, if any, used for query results;
-   *             whether the Amazon CloudWatch Metrics are enabled for the workgroup; whether workgroup
-   *             settings override client-side settings; and the data usage limits for the amount of data
-   *             scanned per query or per workgroup. The workgroup settings override is specified in
-   *             EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
+   * <p>The configuration of the workgroup, which includes the location in Amazon S3
+   *             where query results are stored, the encryption configuration, if any, used for query
+   *             results; whether the Amazon CloudWatch Metrics are enabled for the workgroup;
+   *             whether workgroup settings override client-side settings; and the data usage limits for
+   *             the amount of data scanned per query or per workgroup. The workgroup settings override
+   *             is specified in <code>EnforceWorkGroupConfiguration</code> (true/false) in the
+   *                 <code>WorkGroupConfiguration</code>. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
    */
   Configuration?: WorkGroupConfiguration;
 
@@ -1799,9 +1858,9 @@ export interface ListDatabasesInput {
   CatalogName: string | undefined;
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 
@@ -1827,9 +1886,9 @@ export interface ListDatabasesOutput {
   DatabaseList?: Database[];
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the NextToken
-   *             from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the NextToken from the response object of the previous page call.</p>
    */
   NextToken?: string;
 }
@@ -1845,9 +1904,9 @@ export namespace ListDatabasesOutput {
 
 export interface ListDataCatalogsInput {
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the NextToken
-   *             from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the NextToken from the response object of the previous page call.</p>
    */
   NextToken?: string;
 
@@ -1897,9 +1956,9 @@ export interface ListDataCatalogsOutput {
   DataCatalogsSummary?: DataCatalogSummary[];
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the NextToken
-   *             from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the NextToken from the response object of the previous page call.</p>
    */
   NextToken?: string;
 }
@@ -1915,9 +1974,9 @@ export namespace ListDataCatalogsOutput {
 
 export interface ListEngineVersionsInput {
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 
@@ -1943,9 +2002,9 @@ export interface ListEngineVersionsOutput {
   EngineVersions?: EngineVersion[];
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 }
@@ -1961,9 +2020,9 @@ export namespace ListEngineVersionsOutput {
 
 export interface ListNamedQueriesInput {
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 
@@ -1996,9 +2055,9 @@ export interface ListNamedQueriesOutput {
   NamedQueryIds?: string[];
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 }
@@ -2019,9 +2078,9 @@ export interface ListPreparedStatementsInput {
   WorkGroup: string | undefined;
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 
@@ -2071,9 +2130,9 @@ export interface ListPreparedStatementsOutput {
   PreparedStatements?: PreparedStatementSummary[];
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 }
@@ -2089,9 +2148,9 @@ export namespace ListPreparedStatementsOutput {
 
 export interface ListQueryExecutionsInput {
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 
@@ -2156,9 +2215,9 @@ export interface ListTableMetadataInput {
   Expression?: string;
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the NextToken
-   *             from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the NextToken from the response object of the previous page call.</p>
    */
   NextToken?: string;
 
@@ -2184,9 +2243,9 @@ export interface ListTableMetadataOutput {
   TableMetadataList?: TableMetadata[];
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the NextToken
-   *             from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the NextToken from the response object of the previous page call.</p>
    */
   NextToken?: string;
 }
@@ -2252,9 +2311,9 @@ export namespace ListTagsForResourceOutput {
 
 export interface ListWorkGroupsInput {
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 
@@ -2299,7 +2358,9 @@ export interface WorkGroupSummary {
   CreationTime?: Date;
 
   /**
-   * <p>The engine version setting for all queries on the workgroup. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>
+   * <p>The engine version setting for all queries on the workgroup. Queries on the
+   *                 <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine
+   *             regardless of this setting.</p>
    */
   EngineVersion?: EngineVersion;
 }
@@ -2321,9 +2382,9 @@ export interface ListWorkGroupsOutput {
   WorkGroups?: WorkGroupSummary[];
 
   /**
-   * <p>A token generated by the Athena service that specifies where to continue pagination if
-   *             a previous request was truncated. To obtain the next set of pages, pass in the
-   *                 <code>NextToken</code> from the response object of the previous page call.</p>
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
 }
@@ -2349,9 +2410,10 @@ export interface StartQueryExecutionInput {
    *             received, the same response is returned and another query is not created. If a parameter
    *             has changed, for example, the <code>QueryString</code>, an error is returned.</p>
    *         <important>
-   *             <p>This token is listed as not required because AWS SDKs (for example the AWS SDK for
-   *                 Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS
-   *                 CLI, you must provide this token or the action will fail.</p>
+   *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
+   *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
+   *                 not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
+   *                 this token or the action will fail.</p>
    *         </important>
    */
   ClientRequestToken?: string;
@@ -2456,14 +2518,13 @@ export namespace StopQueryExecutionOutput {
 
 export interface TagResourceInput {
   /**
-   * <p>Specifies the ARN of the Athena resource (workgroup or data catalog) to which tags are
-   *             to be added.</p>
+   * <p>Specifies the ARN of the Athena resource (workgroup or data catalog) to
+   *             which tags are to be added.</p>
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A collection of one or more tags, separated by commas, to be added to an Athena
-   *             workgroup or data catalog resource.</p>
+   * <p>A collection of one or more tags, separated by commas, to be added to an Athena workgroup or data catalog resource.</p>
    */
   Tags: Tag[] | undefined;
 }
@@ -2523,21 +2584,16 @@ export namespace UntagResourceOutput {
 
 export interface UpdateDataCatalogInput {
   /**
-   * <p>The name of the data catalog to update. The catalog name must be unique for the AWS
-   *             account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen
-   *             characters.</p>
+   * <p>The name of the data catalog to update. The catalog name must be unique for the
+   *                 Amazon Web Services account and can use a maximum of 128 alphanumeric, underscore, at
+   *             sign, or hyphen characters.</p>
    */
   Name: string | undefined;
 
   /**
    * <p>Specifies the type of data catalog to update. Specify <code>LAMBDA</code> for a
-   *             federated catalog or <code>HIVE</code> for an external hive metastore.</p>
-   *         <note>
-   *             <p>Do not use the <code>GLUE</code> type. This refers to the
-   *                     <code>AwsDataCatalog</code> that already exists in your account, of which you
-   *                 can have only one. Specifying the <code>GLUE</code> type will result in an
-   *                     <code>INVALID_INPUT</code> error.</p>
-   *         </note>
+   *             federated catalog, <code>HIVE</code> for an external hive metastore, or
+   *                 <code>GLUE</code> for an Glue Data Catalog.</p>
    */
   Type: DataCatalogType | string | undefined;
 
@@ -2547,8 +2603,8 @@ export interface UpdateDataCatalogInput {
   Description?: string;
 
   /**
-   * <p>Specifies the Lambda function or functions to use for updating the data catalog. This
-   *             is a mapping whose values depend on the catalog type. </p>
+   * <p>Specifies the Lambda function or functions to use for updating the data
+   *             catalog. This is a mapping whose values depend on the catalog type. </p>
    *         <ul>
    *             <li>
    *                 <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
@@ -2566,9 +2622,9 @@ export interface UpdateDataCatalogInput {
    *                     of required parameters, but not both.</p>
    *                 <ul>
    *                   <li>
-   *                         <p>If you have one Lambda function that processes metadata and another
-   *                             for reading the actual data, use the following syntax. Both parameters
-   *                             are required.</p>
+   *                         <p>If you have one Lambda function that processes metadata
+   *                             and another for reading the actual data, use the following syntax. Both
+   *                             parameters are required.</p>
    *                         <p>
    *                         <code>metadata-function=<i>lambda_arn</i>,
    *                                     record-function=<i>lambda_arn</i>
@@ -2576,9 +2632,8 @@ export interface UpdateDataCatalogInput {
    *                      </p>
    *                     </li>
    *                   <li>
-   *                         <p> If you have a composite Lambda function that processes both metadata
-   *                             and data, use the following syntax to specify your Lambda
-   *                             function.</p>
+   *                         <p> If you have a composite Lambda function that processes
+   *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
    *                         <p>
    *                         <code>function=<i>lambda_arn</i>
    *                         </code>
@@ -2663,17 +2718,19 @@ export interface ResultConfigurationUpdates {
    *                 <code>s3://path/to/query/bucket/</code>. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> If
    *             workgroup settings override client-side settings, then the query uses the location for
    *             the query results and the encryption configuration that are specified for the workgroup.
-   *             The "workgroup settings override" is specified in EnforceWorkGroupConfiguration
-   *             (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
+   *             The "workgroup settings override" is specified in
+   *                 <code>EnforceWorkGroupConfiguration</code> (true/false) in the
+   *                 <code>WorkGroupConfiguration</code>. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
    */
   OutputLocation?: string;
 
   /**
    * <p>If set to "true", indicates that the previously-specified query results location (also
    *             known as a client-side setting) for queries in this workgroup should be ignored and set
-   *             to null. If set to "false" or not set, and a value is present in the OutputLocation in
-   *             ResultConfigurationUpdates (the client-side setting), the OutputLocation in the
-   *             workgroup's ResultConfiguration will be updated with the new value. For more
+   *             to null. If set to "false" or not set, and a value is present in the
+   *                 <code>OutputLocation</code> in <code>ResultConfigurationUpdates</code> (the
+   *             client-side setting), the <code>OutputLocation</code> in the workgroup's
+   *                 <code>ResultConfiguration</code> will be updated with the new value. For more
    *             information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override
    *                 Client-Side Settings</a>.</p>
    */
@@ -2688,9 +2745,10 @@ export interface ResultConfigurationUpdates {
    * <p>If set to "true", indicates that the previously-specified encryption configuration
    *             (also known as the client-side setting) for queries in this workgroup should be ignored
    *             and set to null. If set to "false" or not set, and a value is present in the
-   *             EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the
-   *             EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the
-   *             new value. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override
+   *                 <code>EncryptionConfiguration</code> in <code>ResultConfigurationUpdates</code> (the
+   *             client-side setting), the <code>EncryptionConfiguration</code> in the workgroup's
+   *                 <code>ResultConfiguration</code> will be updated with the new value. For more
+   *             information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override
    *                 Client-Side Settings</a>.</p>
    */
   RemoveEncryptionConfiguration?: boolean;
@@ -2707,10 +2765,11 @@ export namespace ResultConfigurationUpdates {
 
 /**
  * <p>The configuration information that will be updated for this workgroup, which includes
- *             the location in Amazon S3 where query results are stored, the encryption option, if any,
- *             used for query results, whether the Amazon CloudWatch Metrics are enabled for the
- *             workgroup, whether the workgroup settings override the client-side settings, and the
- *             data usage limit for the amount of bytes scanned per query, if it is specified.</p>
+ *             the location in Amazon S3 where query results are stored, the encryption option,
+ *             if any, used for query results, whether the Amazon CloudWatch Metrics are enabled
+ *             for the workgroup, whether the workgroup settings override the client-side settings, and
+ *             the data usage limit for the amount of bytes scanned per query, if it is
+ *             specified.</p>
  */
 export interface WorkGroupConfigurationUpdates {
   /**
@@ -2727,8 +2786,7 @@ export interface WorkGroupConfigurationUpdates {
   ResultConfigurationUpdates?: ResultConfigurationUpdates;
 
   /**
-   * <p>Indicates whether this workgroup enables publishing metrics to Amazon
-   *             CloudWatch.</p>
+   * <p>Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.</p>
    */
   PublishCloudWatchMetricsEnabled?: boolean;
 
@@ -2745,17 +2803,19 @@ export interface WorkGroupConfigurationUpdates {
   RemoveBytesScannedCutoffPerQuery?: boolean;
 
   /**
-   * <p>If set to <code>true</code>, allows members assigned to a workgroup to specify Amazon
-   *             S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup members
-   *             cannot query data from Requester Pays buckets, and queries that retrieve data from
-   *             Requester Pays buckets cause an error. The default is <code>false</code>. For more
+   * <p>If set to <code>true</code>, allows members assigned to a workgroup to specify Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup
+   *             members cannot query data from Requester Pays buckets, and queries that retrieve data
+   *             from Requester Pays buckets cause an error. The default is <code>false</code>. For more
    *             information about Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays Buckets</a>
    *             in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   RequesterPaysEnabled?: boolean;
 
   /**
-   * <p>The engine version requested when a workgroup is updated. After the update, all queries on the workgroup run on the requested engine version. If no value was previously set, the default is Auto. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>
+   * <p>The engine version requested when a workgroup is updated. After the update, all
+   *             queries on the workgroup run on the requested engine version. If no value was previously
+   *             set, the default is Auto. Queries on the <code>AmazonAthenaPreviewFunctionality</code>
+   *             workgroup run on the preview engine regardless of this setting.</p>
    */
   EngineVersion?: EngineVersion;
 }

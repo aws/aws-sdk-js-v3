@@ -36,7 +36,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *             <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html">Creating a Subnet Group</a>. For versions below 5.0.6,
  *             the limit is 250 per cluster.</p>
  *         <p>To request a limit increase, see
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a>
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon Service Limits</a>
  *             and choose the limit type <b>Nodes per cluster per instance type</b>. </p>
  *         <p>When a Redis (cluster mode disabled) replication group has been successfully created,
  *             you can add one or more read replicas to it, up to a total of 5 read replicas.

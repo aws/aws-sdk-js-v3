@@ -30,7 +30,7 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  *         <code>TextDetection</code> element provides information about a single word or line of text
  *       that was detected in the image. </p>
  *          <p>A word is one or more ISO basic latin script characters that are not separated by spaces.
- *         <code>DetectText</code> can detect up to 50 words in an image.</p>
+ *         <code>DetectText</code> can detect up to 100 words in an image.</p>
  *          <p>A line is a string of equally spaced words. A line isn't necessarily a complete
  *       sentence. For example, a driver's license number is detected as a line. A line ends when there
  *       is no aligned text after it. Also, a line ends when there is a large gap between words,

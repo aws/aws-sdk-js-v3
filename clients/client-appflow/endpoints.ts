@@ -40,6 +40,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "appflow.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-northeast-1":
       regionInfo = {
         hostname: "appflow.ap-northeast-1.amazonaws.com",

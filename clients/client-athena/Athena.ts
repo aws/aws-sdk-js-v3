@@ -164,19 +164,20 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>Amazon Athena is an interactive query service that lets you use standard SQL to
- *             analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and
- *             run ad-hoc queries and get results in seconds. Athena is serverless, so there is no
- *             infrastructure to set up or manage. You pay only for the queries you run. Athena scales
- *             automatically—executing queries in parallel—so results are fast, even with large
- *             datasets and complex queries. For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon
- *                 Athena</a> in the <i>Amazon Athena User Guide</i>.</p>
- *         <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or
- *             later with the Amazon Athena API. Earlier version drivers do not support the API. For
- *             more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing
- *                 Amazon Athena with JDBC</a>.</p>
- *         <p>For code samples using the AWS SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
- *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ * <p>Amazon Athena is an interactive query service that lets you use standard SQL
+ *             to analyze data directly in Amazon S3. You can point Athena at your
+ *             data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay
+ *             only for the queries you run. Athena scales automatically—executing queries
+ *             in parallel—so results are fast, even with large datasets and complex queries. For more
+ *             information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon Athena</a> in the <i>Amazon Athena User
+ *                 Guide</i>.</p>
+ *         <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the
+ *             driver or later with the Amazon Athena API. Earlier version drivers do not
+ *             support the API. For more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing
+ *                     Amazon Athena with JDBC</a>.</p>
+ *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *                 Code Samples</a> in the <i>Amazon Athena User
+ *             Guide</i>.</p>
  */
 export class Athena extends AthenaClient {
   /**
@@ -258,7 +259,7 @@ export class Athena extends AthenaClient {
 
   /**
    * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
-   *             created are visible to all users of the same AWS account.</p>
+   *             created are visible to all users of the same Amazon Web Services account.</p>
    */
   public createDataCatalog(
     args: CreateDataCatalogCommandInput,
@@ -292,8 +293,9 @@ export class Athena extends AthenaClient {
   /**
    * <p>Creates a named query in the specified workgroup. Requires that you have access to the
    *             workgroup.</p>
-   *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User
+   *             Guide</i>.</p>
    */
   public createNamedQuery(
     args: CreateNamedQueryCommandInput,
@@ -423,8 +425,9 @@ export class Athena extends AthenaClient {
   /**
    * <p>Deletes the named query if you have access to the workgroup in which the query was
    *             saved.</p>
-   *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User
+   *             Guide</i>.</p>
    */
   public deleteNamedQuery(
     args: DeleteNamedQueryCommandInput,
@@ -681,19 +684,19 @@ export class Athena extends AthenaClient {
 
   /**
    * <p>Streams the results of a single query execution specified by
-   *                 <code>QueryExecutionId</code> from the Athena query results location in Amazon S3.
-   *             For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> in the <i>Amazon
-   *                 Athena User Guide</i>. This request does not execute the query but returns
-   *             results. Use <a>StartQueryExecution</a> to run a query.</p>
+   *                 <code>QueryExecutionId</code> from the Athena query results location in
+   *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> in the <i>Amazon Athena User Guide</i>. This request does not execute the query
+   *             but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
    *         <p>To stream query results successfully, the IAM principal with permission to call
    *                 <code>GetQueryResults</code> also must have permissions to the Amazon S3
-   *                 <code>GetObject</code> action for the Athena query results location.</p>
+   *             <code>GetObject</code> action for the Athena query results location.</p>
    *         <important>
-   *             <p>IAM principals with permission to the Amazon S3 <code>GetObject</code> action for
-   *                 the query results location are able to retrieve query results from Amazon S3 even if
-   *                 permission to the <code>GetQueryResults</code> action is denied. To restrict user or
-   *                 role access, ensure that Amazon S3 permissions to the Athena query location are
-   *                 denied.</p>
+   *             <p>IAM principals with permission to the Amazon S3
+   *                 <code>GetObject</code> action for the query results location are able to retrieve
+   *                 query results from Amazon S3 even if permission to the
+   *                     <code>GetQueryResults</code> action is denied. To restrict user or role access,
+   *                 ensure that Amazon S3 permissions to the Athena query location
+   *                 are denied.</p>
    *         </important>
    */
   public getQueryResults(
@@ -819,7 +822,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Lists the data catalogs in the current AWS account.</p>
+   * <p>Lists the data catalogs in the current Amazon Web Services account.</p>
    */
   public listDataCatalogs(
     args: ListDataCatalogsCommandInput,
@@ -887,8 +890,9 @@ export class Athena extends AthenaClient {
    * <p>Provides a list of available query IDs only for queries saved in the specified
    *             workgroup. Requires that you have access to the specified workgroup. If a workgroup is
    *             not specified, lists the saved queries for the primary workgroup.</p>
-   *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User
+   *             Guide</i>.</p>
    */
   public listNamedQueries(
     args: ListNamedQueriesCommandInput,
@@ -956,8 +960,9 @@ export class Athena extends AthenaClient {
    *             workgroup. If a workgroup is not specified, returns a list of query execution IDs for
    *             the primary workgroup. Requires you to have access to the workgroup in which the queries
    *             ran.</p>
-   *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User
+   *             Guide</i>.</p>
    */
   public listQueryExecutions(
     args: ListQueryExecutionsCommandInput,
@@ -1021,7 +1026,8 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Lists the tags associated with an Athena workgroup or data catalog resource.</p>
+   * <p>Lists the tags associated with an Athena workgroup or data catalog
+   *             resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1088,8 +1094,9 @@ export class Athena extends AthenaClient {
    * <p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to
    *             have access to the workgroup in which the query ran. Running queries against an external
    *             catalog requires <a>GetDataCatalog</a> permission to the catalog. For code
-   *             samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   *             samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User
+   *             Guide</i>.</p>
    */
   public startQueryExecution(
     args: StartQueryExecutionCommandInput,
@@ -1123,8 +1130,9 @@ export class Athena extends AthenaClient {
   /**
    * <p>Stops a query execution. Requires you to have access to the workgroup in which the
    *             query ran.</p>
-   *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
-   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User
+   *             Guide</i>.</p>
    */
   public stopQueryExecution(
     args: StopQueryExecutionCommandInput,
@@ -1156,12 +1164,13 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Adds one or more tags to an Athena resource. A tag is a label that you assign to a
-   *             resource. In Athena, a resource can be a workgroup or data catalog. Each tag consists of
-   *             a key and an optional value, both of which you define. For example, you can use tags to
-   *             categorize Athena workgroups or data catalogs by purpose, owner, or environment. Use a
-   *             consistent set of tag keys to make it easier to search and filter workgroups or data
-   *             catalogs in your account. For best practices, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
+   * <p>Adds one or more tags to an Athena resource. A tag is a label that you
+   *             assign to a resource. In Athena, a resource can be a workgroup or data
+   *             catalog. Each tag consists of a key and an optional value, both of which you define. For
+   *             example, you can use tags to categorize Athena workgroups or data catalogs
+   *             by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to
+   *             search and filter workgroups or data catalogs in your account. For best practices, see
+   *                 <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
    *             characters, and tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use
    *             letters and numbers representable in UTF-8, and the following characters: + - = . _ : /
    *             @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you

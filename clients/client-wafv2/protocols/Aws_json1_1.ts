@@ -36,6 +36,7 @@ import {
   GetLoggingConfigurationCommandInput,
   GetLoggingConfigurationCommandOutput,
 } from "../commands/GetLoggingConfigurationCommand";
+import { GetManagedRuleSetCommandInput, GetManagedRuleSetCommandOutput } from "../commands/GetManagedRuleSetCommand";
 import {
   GetPermissionPolicyCommandInput,
   GetPermissionPolicyCommandOutput,
@@ -53,6 +54,10 @@ import {
   GetWebACLForResourceCommandOutput,
 } from "../commands/GetWebACLForResourceCommand";
 import {
+  ListAvailableManagedRuleGroupVersionsCommandInput,
+  ListAvailableManagedRuleGroupVersionsCommandOutput,
+} from "../commands/ListAvailableManagedRuleGroupVersionsCommand";
+import {
   ListAvailableManagedRuleGroupsCommandInput,
   ListAvailableManagedRuleGroupsCommandOutput,
 } from "../commands/ListAvailableManagedRuleGroupsCommand";
@@ -61,6 +66,10 @@ import {
   ListLoggingConfigurationsCommandInput,
   ListLoggingConfigurationsCommandOutput,
 } from "../commands/ListLoggingConfigurationsCommand";
+import {
+  ListManagedRuleSetsCommandInput,
+  ListManagedRuleSetsCommandOutput,
+} from "../commands/ListManagedRuleSetsCommand";
 import {
   ListRegexPatternSetsCommandInput,
   ListRegexPatternSetsCommandOutput,
@@ -80,12 +89,20 @@ import {
   PutLoggingConfigurationCommandOutput,
 } from "../commands/PutLoggingConfigurationCommand";
 import {
+  PutManagedRuleSetVersionsCommandInput,
+  PutManagedRuleSetVersionsCommandOutput,
+} from "../commands/PutManagedRuleSetVersionsCommand";
+import {
   PutPermissionPolicyCommandInput,
   PutPermissionPolicyCommandOutput,
 } from "../commands/PutPermissionPolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "../commands/UpdateIPSetCommand";
+import {
+  UpdateManagedRuleSetVersionExpiryDateCommandInput,
+  UpdateManagedRuleSetVersionExpiryDateCommandOutput,
+} from "../commands/UpdateManagedRuleSetVersionExpiryDateCommand";
 import {
   UpdateRegexPatternSetCommandInput,
   UpdateRegexPatternSetCommandOutput,
@@ -150,6 +167,8 @@ import {
   GetIPSetResponse,
   GetLoggingConfigurationRequest,
   GetLoggingConfigurationResponse,
+  GetManagedRuleSetRequest,
+  GetManagedRuleSetResponse,
   GetPermissionPolicyRequest,
   GetPermissionPolicyResponse,
   GetRateBasedStatementManagedKeysRequest,
@@ -176,12 +195,16 @@ import {
   LabelMatchStatement,
   LabelNameCondition,
   LabelSummary,
+  ListAvailableManagedRuleGroupVersionsRequest,
+  ListAvailableManagedRuleGroupVersionsResponse,
   ListAvailableManagedRuleGroupsRequest,
   ListAvailableManagedRuleGroupsResponse,
   ListIPSetsRequest,
   ListIPSetsResponse,
   ListLoggingConfigurationsRequest,
   ListLoggingConfigurationsResponse,
+  ListManagedRuleSetsRequest,
+  ListManagedRuleSetsResponse,
   ListRegexPatternSetsRequest,
   ListRegexPatternSetsResponse,
   ListResourcesForWebACLRequest,
@@ -196,6 +219,10 @@ import {
   LoggingFilter,
   ManagedRuleGroupStatement,
   ManagedRuleGroupSummary,
+  ManagedRuleGroupVersion,
+  ManagedRuleSet,
+  ManagedRuleSetSummary,
+  ManagedRuleSetVersion,
   Method,
   NoneAction,
   NotStatement,
@@ -203,6 +230,8 @@ import {
   OverrideAction,
   PutLoggingConfigurationRequest,
   PutLoggingConfigurationResponse,
+  PutManagedRuleSetVersionsRequest,
+  PutManagedRuleSetVersionsResponse,
   PutPermissionPolicyRequest,
   PutPermissionPolicyResponse,
   QueryString,
@@ -234,6 +263,8 @@ import {
   UntagResourceResponse,
   UpdateIPSetRequest,
   UpdateIPSetResponse,
+  UpdateManagedRuleSetVersionExpiryDateRequest,
+  UpdateManagedRuleSetVersionExpiryDateResponse,
   UpdateRegexPatternSetRequest,
   UpdateRegexPatternSetResponse,
   UpdateRuleGroupRequest,
@@ -241,9 +272,11 @@ import {
   UpdateWebACLRequest,
   UpdateWebACLResponse,
   UriPath,
+  VersionToPublish,
   VisibilityConfig,
   WAFAssociatedItemException,
   WAFDuplicateItemException,
+  WAFExpiredManagedRuleGroupVersionException,
   WAFInternalErrorException,
   WAFInvalidOperationException,
   WAFInvalidParameterException,
@@ -497,6 +530,19 @@ export const serializeAws_json1_1GetLoggingConfigurationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetManagedRuleSetCommand = async (
+  input: GetManagedRuleSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSWAF_20190729.GetManagedRuleSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetManagedRuleSetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetPermissionPolicyCommand = async (
   input: GetPermissionPolicyCommandInput,
   context: __SerdeContext
@@ -601,6 +647,19 @@ export const serializeAws_json1_1ListAvailableManagedRuleGroupsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommand = async (
+  input: ListAvailableManagedRuleGroupVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSWAF_20190729.ListAvailableManagedRuleGroupVersions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListAvailableManagedRuleGroupVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListIPSetsCommand = async (
   input: ListIPSetsCommandInput,
   context: __SerdeContext
@@ -624,6 +683,19 @@ export const serializeAws_json1_1ListLoggingConfigurationsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListLoggingConfigurationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListManagedRuleSetsCommand = async (
+  input: ListManagedRuleSetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSWAF_20190729.ListManagedRuleSets",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListManagedRuleSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -705,6 +777,19 @@ export const serializeAws_json1_1PutLoggingConfigurationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1PutManagedRuleSetVersionsCommand = async (
+  input: PutManagedRuleSetVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSWAF_20190729.PutManagedRuleSetVersions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutManagedRuleSetVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1PutPermissionPolicyCommand = async (
   input: PutPermissionPolicyCommandInput,
   context: __SerdeContext
@@ -754,6 +839,19 @@ export const serializeAws_json1_1UpdateIPSetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateIPSetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand = async (
+  input: UpdateManagedRuleSetVersionExpiryDateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSWAF_20190729.UpdateManagedRuleSetVersionExpiryDate",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -911,6 +1009,14 @@ const deserializeAws_json1_1CheckCapacityCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "WAFExpiredManagedRuleGroupVersionException":
+    case "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException":
+      response = {
+        ...(await deserializeAws_json1_1WAFExpiredManagedRuleGroupVersionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "WAFInternalErrorException":
     case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
@@ -2191,6 +2297,14 @@ const deserializeAws_json1_1DescribeManagedRuleGroupCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "WAFExpiredManagedRuleGroupVersionException":
+    case "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException":
+      response = {
+        ...(await deserializeAws_json1_1WAFExpiredManagedRuleGroupVersionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "WAFInternalErrorException":
     case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
@@ -2425,6 +2539,84 @@ const deserializeAws_json1_1GetLoggingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetManagedRuleSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedRuleSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetManagedRuleSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetManagedRuleSetResponse(data, context);
+  const response: GetManagedRuleSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetManagedRuleSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedRuleSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3090,6 +3282,76 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAvailableManagedRuleGroupVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsResponse(data, context);
+  const response: ListAvailableManagedRuleGroupVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAvailableManagedRuleGroupVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListIPSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3181,6 +3443,76 @@ const deserializeAws_json1_1ListLoggingConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLoggingConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListManagedRuleSetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedRuleSetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListManagedRuleSetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListManagedRuleSetsResponse(data, context);
+  const response: ListManagedRuleSetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListManagedRuleSetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedRuleSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3714,6 +4046,92 @@ const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutManagedRuleSetVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutManagedRuleSetVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutManagedRuleSetVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutManagedRuleSetVersionsResponse(data, context);
+  const response: PutManagedRuleSetVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutManagedRuleSetVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutManagedRuleSetVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutPermissionPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4090,6 +4508,92 @@ const deserializeAws_json1_1UpdateIPSetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateResponse(data, context);
+  const response: UpdateManagedRuleSetVersionExpiryDateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
+      response = {
+        ...(await deserializeAws_json1_1WAFOptimisticLockExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateRegexPatternSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4347,6 +4851,14 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "WAFExpiredManagedRuleGroupVersionException":
+    case "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException":
+      response = {
+        ...(await deserializeAws_json1_1WAFExpiredManagedRuleGroupVersionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "WAFInternalErrorException":
     case "com.amazonaws.wafv2#WAFInternalErrorException":
       response = {
@@ -4459,6 +4971,21 @@ const deserializeAws_json1_1WAFDuplicateItemExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1WAFDuplicateItemException(body, context);
   const contents: WAFDuplicateItemException = {
     name: "WAFDuplicateItemException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1WAFExpiredManagedRuleGroupVersionExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WAFExpiredManagedRuleGroupVersionException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1WAFExpiredManagedRuleGroupVersionException(body, context);
+  const contents: WAFExpiredManagedRuleGroupVersionException = {
+    name: "WAFExpiredManagedRuleGroupVersionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4996,6 +5523,7 @@ const serializeAws_json1_1DescribeManagedRuleGroupRequest = (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
     ...(input.VendorName !== undefined && input.VendorName !== null && { VendorName: input.VendorName }),
+    ...(input.VersionName !== undefined && input.VersionName !== null && { VersionName: input.VersionName }),
   };
 };
 
@@ -5102,6 +5630,17 @@ const serializeAws_json1_1GetLoggingConfigurationRequest = (
 ): any => {
   return {
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
+const serializeAws_json1_1GetManagedRuleSetRequest = (
+  input: GetManagedRuleSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
   };
 };
 
@@ -5282,6 +5821,19 @@ const serializeAws_json1_1ListAvailableManagedRuleGroupsRequest = (
   };
 };
 
+const serializeAws_json1_1ListAvailableManagedRuleGroupVersionsRequest = (
+  input: ListAvailableManagedRuleGroupVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NextMarker !== undefined && input.NextMarker !== null && { NextMarker: input.NextMarker }),
+    ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
+    ...(input.VendorName !== undefined && input.VendorName !== null && { VendorName: input.VendorName }),
+  };
+};
+
 const serializeAws_json1_1ListIPSetsRequest = (input: ListIPSetsRequest, context: __SerdeContext): any => {
   return {
     ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
@@ -5292,6 +5844,17 @@ const serializeAws_json1_1ListIPSetsRequest = (input: ListIPSetsRequest, context
 
 const serializeAws_json1_1ListLoggingConfigurationsRequest = (
   input: ListLoggingConfigurationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextMarker !== undefined && input.NextMarker !== null && { NextMarker: input.NextMarker }),
+    ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
+  };
+};
+
+const serializeAws_json1_1ListManagedRuleSetsRequest = (
+  input: ListManagedRuleSetsRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -5404,6 +5967,7 @@ const serializeAws_json1_1ManagedRuleGroupStatement = (
         ScopeDownStatement: serializeAws_json1_1Statement(input.ScopeDownStatement, context),
       }),
     ...(input.VendorName !== undefined && input.VendorName !== null && { VendorName: input.VendorName }),
+    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   };
 };
 
@@ -5446,6 +6010,24 @@ const serializeAws_json1_1PutLoggingConfigurationRequest = (
     ...(input.LoggingConfiguration !== undefined &&
       input.LoggingConfiguration !== null && {
         LoggingConfiguration: serializeAws_json1_1LoggingConfiguration(input.LoggingConfiguration, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1PutManagedRuleSetVersionsRequest = (
+  input: PutManagedRuleSetVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.LockToken !== undefined && input.LockToken !== null && { LockToken: input.LockToken }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RecommendedVersion !== undefined &&
+      input.RecommendedVersion !== null && { RecommendedVersion: input.RecommendedVersion }),
+    ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
+    ...(input.VersionsToPublish !== undefined &&
+      input.VersionsToPublish !== null && {
+        VersionsToPublish: serializeAws_json1_1VersionsToPublish(input.VersionsToPublish, context),
       }),
   };
 };
@@ -5774,6 +6356,22 @@ const serializeAws_json1_1UpdateIPSetRequest = (input: UpdateIPSetRequest, conte
   };
 };
 
+const serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateRequest = (
+  input: UpdateManagedRuleSetVersionExpiryDateRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ExpiryTimestamp !== undefined &&
+      input.ExpiryTimestamp !== null && { ExpiryTimestamp: Math.round(input.ExpiryTimestamp.getTime() / 1000) }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.LockToken !== undefined && input.LockToken !== null && { LockToken: input.LockToken }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
+    ...(input.VersionToExpire !== undefined &&
+      input.VersionToExpire !== null && { VersionToExpire: input.VersionToExpire }),
+  };
+};
+
 const serializeAws_json1_1UpdateRegexPatternSetRequest = (
   input: UpdateRegexPatternSetRequest,
   context: __SerdeContext
@@ -5837,6 +6435,30 @@ const serializeAws_json1_1UpdateWebACLRequest = (input: UpdateWebACLRequest, con
 
 const serializeAws_json1_1UriPath = (input: UriPath, context: __SerdeContext): any => {
   return {};
+};
+
+const serializeAws_json1_1VersionsToPublish = (
+  input: { [key: string]: VersionToPublish },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1VersionToPublish(value, context),
+    };
+  }, {});
+};
+
+const serializeAws_json1_1VersionToPublish = (input: VersionToPublish, context: __SerdeContext): any => {
+  return {
+    ...(input.AssociatedRuleGroupArn !== undefined &&
+      input.AssociatedRuleGroupArn !== null && { AssociatedRuleGroupArn: input.AssociatedRuleGroupArn }),
+    ...(input.ForecastedLifetime !== undefined &&
+      input.ForecastedLifetime !== null && { ForecastedLifetime: input.ForecastedLifetime }),
+  };
 };
 
 const serializeAws_json1_1VisibilityConfig = (input: VisibilityConfig, context: __SerdeContext): any => {
@@ -6159,6 +6781,8 @@ const deserializeAws_json1_1DescribeManagedRuleGroupResponse = (
       output.Rules !== undefined && output.Rules !== null
         ? deserializeAws_json1_1RuleSummaries(output.Rules, context)
         : undefined,
+    SnsTopicArn: __expectString(output.SnsTopicArn),
+    VersionName: __expectString(output.VersionName),
   } as any;
 };
 
@@ -6333,6 +6957,19 @@ const deserializeAws_json1_1GetLoggingConfigurationResponse = (
     LoggingConfiguration:
       output.LoggingConfiguration !== undefined && output.LoggingConfiguration !== null
         ? deserializeAws_json1_1LoggingConfiguration(output.LoggingConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetManagedRuleSetResponse = (
+  output: any,
+  context: __SerdeContext
+): GetManagedRuleSetResponse => {
+  return {
+    LockToken: __expectString(output.LockToken),
+    ManagedRuleSet:
+      output.ManagedRuleSet !== undefined && output.ManagedRuleSet !== null
+        ? deserializeAws_json1_1ManagedRuleSet(output.ManagedRuleSet, context)
         : undefined,
   } as any;
 };
@@ -6615,6 +7252,19 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListAvailableManagedRuleGroupVersionsResponse => {
+  return {
+    NextMarker: __expectString(output.NextMarker),
+    Versions:
+      output.Versions !== undefined && output.Versions !== null
+        ? deserializeAws_json1_1ManagedRuleGroupVersions(output.Versions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListIPSetsResponse = (output: any, context: __SerdeContext): ListIPSetsResponse => {
   return {
     IPSets:
@@ -6633,6 +7283,19 @@ const deserializeAws_json1_1ListLoggingConfigurationsResponse = (
     LoggingConfigurations:
       output.LoggingConfigurations !== undefined && output.LoggingConfigurations !== null
         ? deserializeAws_json1_1LoggingConfigurations(output.LoggingConfigurations, context)
+        : undefined,
+    NextMarker: __expectString(output.NextMarker),
+  } as any;
+};
+
+const deserializeAws_json1_1ListManagedRuleSetsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListManagedRuleSetsResponse => {
+  return {
+    ManagedRuleSets:
+      output.ManagedRuleSets !== undefined && output.ManagedRuleSets !== null
+        ? deserializeAws_json1_1ManagedRuleSetSummaries(output.ManagedRuleSets, context)
         : undefined,
     NextMarker: __expectString(output.NextMarker),
   } as any;
@@ -6762,6 +7425,7 @@ const deserializeAws_json1_1ManagedRuleGroupStatement = (
         ? deserializeAws_json1_1Statement(output.ScopeDownStatement, context)
         : undefined,
     VendorName: __expectString(output.VendorName),
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -6787,6 +7451,93 @@ const deserializeAws_json1_1ManagedRuleGroupSummary = (
     Description: __expectString(output.Description),
     Name: __expectString(output.Name),
     VendorName: __expectString(output.VendorName),
+  } as any;
+};
+
+const deserializeAws_json1_1ManagedRuleGroupVersion = (
+  output: any,
+  context: __SerdeContext
+): ManagedRuleGroupVersion => {
+  return {
+    LastUpdateTimestamp:
+      output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
+        ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1ManagedRuleGroupVersions = (
+  output: any,
+  context: __SerdeContext
+): ManagedRuleGroupVersion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ManagedRuleGroupVersion(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ManagedRuleSet = (output: any, context: __SerdeContext): ManagedRuleSet => {
+  return {
+    ARN: __expectString(output.ARN),
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    LabelNamespace: __expectString(output.LabelNamespace),
+    Name: __expectString(output.Name),
+    PublishedVersions:
+      output.PublishedVersions !== undefined && output.PublishedVersions !== null
+        ? deserializeAws_json1_1PublishedVersions(output.PublishedVersions, context)
+        : undefined,
+    RecommendedVersion: __expectString(output.RecommendedVersion),
+  } as any;
+};
+
+const deserializeAws_json1_1ManagedRuleSetSummaries = (
+  output: any,
+  context: __SerdeContext
+): ManagedRuleSetSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ManagedRuleSetSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ManagedRuleSetSummary = (output: any, context: __SerdeContext): ManagedRuleSetSummary => {
+  return {
+    ARN: __expectString(output.ARN),
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    LabelNamespace: __expectString(output.LabelNamespace),
+    LockToken: __expectString(output.LockToken),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1ManagedRuleSetVersion = (output: any, context: __SerdeContext): ManagedRuleSetVersion => {
+  return {
+    AssociatedRuleGroupArn: __expectString(output.AssociatedRuleGroupArn),
+    Capacity: __expectNumber(output.Capacity),
+    ExpiryTimestamp:
+      output.ExpiryTimestamp !== undefined && output.ExpiryTimestamp !== null
+        ? new Date(Math.round(output.ExpiryTimestamp * 1000))
+        : undefined,
+    ForecastedLifetime: __expectNumber(output.ForecastedLifetime),
+    LastUpdateTimestamp:
+      output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
+        ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
+        : undefined,
+    PublishTimestamp:
+      output.PublishTimestamp !== undefined && output.PublishTimestamp !== null
+        ? new Date(Math.round(output.PublishTimestamp * 1000))
+        : undefined,
   } as any;
 };
 
@@ -6829,6 +7580,21 @@ const deserializeAws_json1_1OverrideAction = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1PublishedVersions = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: ManagedRuleSetVersion } => {
+  return Object.entries(output).reduce((acc: { [key: string]: ManagedRuleSetVersion }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_json1_1ManagedRuleSetVersion(value, context),
+    };
+  }, {});
+};
+
 const deserializeAws_json1_1PutLoggingConfigurationResponse = (
   output: any,
   context: __SerdeContext
@@ -6838,6 +7604,15 @@ const deserializeAws_json1_1PutLoggingConfigurationResponse = (
       output.LoggingConfiguration !== undefined && output.LoggingConfiguration !== null
         ? deserializeAws_json1_1LoggingConfiguration(output.LoggingConfiguration, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PutManagedRuleSetVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): PutManagedRuleSetVersionsResponse => {
+  return {
+    NextLockToken: __expectString(output.NextLockToken),
   } as any;
 };
 
@@ -7336,6 +8111,20 @@ const deserializeAws_json1_1UpdateIPSetResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateManagedRuleSetVersionExpiryDateResponse => {
+  return {
+    ExpiringVersion: __expectString(output.ExpiringVersion),
+    ExpiryTimestamp:
+      output.ExpiryTimestamp !== undefined && output.ExpiryTimestamp !== null
+        ? new Date(Math.round(output.ExpiryTimestamp * 1000))
+        : undefined,
+    NextLockToken: __expectString(output.NextLockToken),
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateRegexPatternSetResponse = (
   output: any,
   context: __SerdeContext
@@ -7385,6 +8174,15 @@ const deserializeAws_json1_1WAFDuplicateItemException = (
   output: any,
   context: __SerdeContext
 ): WAFDuplicateItemException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1WAFExpiredManagedRuleGroupVersionException = (
+  output: any,
+  context: __SerdeContext
+): WAFExpiredManagedRuleGroupVersionException => {
   return {
     Message: __expectString(output.Message),
   } as any;

@@ -842,6 +842,449 @@ export namespace UnionInputOutput {
   });
 }
 
+export interface MalformedAcceptWithGenericStringInput {
+  payload?: Uint8Array;
+}
+
+export namespace MalformedAcceptWithGenericStringInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedAcceptWithGenericStringInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedAcceptWithPayloadInput {
+  payload?: Uint8Array;
+}
+
+export namespace MalformedAcceptWithPayloadInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedAcceptWithPayloadInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedBlobInput {
+  blob?: Uint8Array;
+}
+
+export namespace MalformedBlobInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedBlobInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedBooleanInput {
+  booleanInBody?: boolean;
+  booleanInPath: boolean | undefined;
+  booleanInQuery?: boolean;
+  booleanInHeader?: boolean;
+}
+
+export namespace MalformedBooleanInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedBooleanInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedByteInput {
+  byteInBody?: number;
+  byteInPath: number | undefined;
+  byteInQuery?: number;
+  byteInHeader?: number;
+}
+
+export namespace MalformedByteInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedByteInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedContentTypeWithGenericStringInput {
+  payload?: string;
+}
+
+export namespace MalformedContentTypeWithGenericStringInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedContentTypeWithGenericStringInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedContentTypeWithPayloadInput {
+  payload?: Uint8Array;
+}
+
+export namespace MalformedContentTypeWithPayloadInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedContentTypeWithPayloadInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedDoubleInput {
+  doubleInBody?: number;
+  doubleInPath: number | undefined;
+  doubleInQuery?: number;
+  doubleInHeader?: number;
+}
+
+export namespace MalformedDoubleInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedDoubleInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedFloatInput {
+  floatInBody?: number;
+  floatInPath: number | undefined;
+  floatInQuery?: number;
+  floatInHeader?: number;
+}
+
+export namespace MalformedFloatInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedFloatInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedIntegerInput {
+  integerInBody?: number;
+  integerInPath: number | undefined;
+  integerInQuery?: number;
+  integerInHeader?: number;
+}
+
+export namespace MalformedIntegerInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedIntegerInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedListInput {
+  bodyList?: string[];
+}
+
+export namespace MalformedListInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedListInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedLongInput {
+  longInBody?: number;
+  longInPath: number | undefined;
+  longInQuery?: number;
+  longInHeader?: number;
+}
+
+export namespace MalformedLongInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedLongInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedMapInput {
+  bodyMap?: { [key: string]: string };
+}
+
+export namespace MalformedMapInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedMapInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedRequestBodyInput {
+  int?: number;
+  float?: number;
+}
+
+export namespace MalformedRequestBodyInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedRequestBodyInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedSetInput {
+  set?: string[];
+}
+
+export namespace MalformedSetInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedSetInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedShortInput {
+  shortInBody?: number;
+  shortInPath: number | undefined;
+  shortInQuery?: number;
+  shortInHeader?: number;
+}
+
+export namespace MalformedShortInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedShortInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampBodyDateTimeInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampBodyDateTimeInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampBodyDateTimeInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampBodyDefaultInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampBodyDefaultInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampBodyDefaultInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampBodyHttpDateInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampBodyHttpDateInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampBodyHttpDateInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampHeaderDateTimeInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampHeaderDateTimeInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampHeaderDateTimeInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampHeaderDefaultInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampHeaderDefaultInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampHeaderDefaultInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampHeaderEpochInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampHeaderEpochInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampHeaderEpochInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampPathDefaultInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampPathDefaultInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampPathDefaultInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampPathEpochInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampPathEpochInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampPathEpochInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampPathHttpDateInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampPathHttpDateInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampPathHttpDateInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampQueryDefaultInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampQueryDefaultInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampQueryDefaultInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampQueryEpochInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampQueryEpochInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampQueryEpochInput): any => ({
+    ...obj,
+  });
+}
+
+export interface MalformedTimestampQueryHttpDateInput {
+  timestamp: Date | undefined;
+}
+
+export namespace MalformedTimestampQueryHttpDateInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedTimestampQueryHttpDateInput): any => ({
+    ...obj,
+  });
+}
+
+export type SimpleUnion = SimpleUnion.IntMember | SimpleUnion.StringMember | SimpleUnion.$UnknownMember;
+
+export namespace SimpleUnion {
+  export interface IntMember {
+    int: number;
+    string?: never;
+    $unknown?: never;
+  }
+
+  export interface StringMember {
+    int?: never;
+    string: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    int?: never;
+    string?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    int: (value: number) => T;
+    string: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SimpleUnion, visitor: Visitor<T>): T => {
+    if (value.int !== undefined) return visitor.int(value.int);
+    if (value.string !== undefined) return visitor.string(value.string);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SimpleUnion): any => {
+    if (obj.int !== undefined) return { int: obj.int };
+    if (obj.string !== undefined) return { string: obj.string };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+export interface MalformedUnionInput {
+  union?: SimpleUnion;
+}
+
+export namespace MalformedUnionInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MalformedUnionInput): any => ({
+    ...obj,
+    ...(obj.union && { union: SimpleUnion.filterSensitiveLog(obj.union) }),
+  });
+}
+
 export interface MediaTypeHeaderInput {
   json?: __LazyJsonString | string;
 }

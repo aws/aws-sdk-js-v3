@@ -40,6 +40,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "aws-global":
+      regionInfo = {
+        hostname: "route53-recovery-control-config.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

@@ -23,7 +23,7 @@ export interface ListDocumentMetadataHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Information about approval reviews for a version of an SSM document.</p>
+ * <p>Information about approval reviews for a version of a change template in Change Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

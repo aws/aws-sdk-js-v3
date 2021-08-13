@@ -21,8 +21,7 @@ export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingCon
 export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the <a>LoggingConfiguration</a> from the specified web
- *          ACL.</p>
+ * <p>Deletes the <a>LoggingConfiguration</a> from the specified web ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
