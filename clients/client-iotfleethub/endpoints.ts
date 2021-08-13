@@ -100,6 +100,34 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "fips-ca-central-1":
+      regionInfo = {
+        hostname: "api.fleethub.iot-fips.ca-central-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ca-central-1",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "api.fleethub.iot-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "api.fleethub.iot-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "api.fleethub.iot-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
+      };
+      break;
     case "us-east-1":
       regionInfo = {
         hostname: "api.fleethub.iot.us-east-1.amazonaws.com",

@@ -379,6 +379,7 @@ import {
 import {
   AccessDeniedException,
   AccessKey,
+  AccessKeyLastUsed,
   AccessRules,
   AccountSetupInProgressException,
   AddOn,
@@ -620,7 +621,6 @@ import {
   InstancePlatform,
   InstancePortInfo,
   InstanceSnapshotInfo,
-  InstanceState,
   InvalidInputException,
   KeyPair,
   LightsailDistribution,
@@ -714,6 +714,7 @@ import {
   InstanceHealthSummary,
   InstancePortState,
   InstanceSnapshot,
+  InstanceState,
   IsVpcPeeredRequest,
   IsVpcPeeredResult,
   LoadBalancer,
@@ -20052,8 +20053,23 @@ const deserializeAws_json1_1AccessKey = (output: any, context: __SerdeContext): 
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
+    lastUsed:
+      output.lastUsed !== undefined && output.lastUsed !== null
+        ? deserializeAws_json1_1AccessKeyLastUsed(output.lastUsed, context)
+        : undefined,
     secretAccessKey: __expectString(output.secretAccessKey),
     status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_json1_1AccessKeyLastUsed = (output: any, context: __SerdeContext): AccessKeyLastUsed => {
+  return {
+    lastUsedDate:
+      output.lastUsedDate !== undefined && output.lastUsedDate !== null
+        ? new Date(Math.round(output.lastUsedDate * 1000))
+        : undefined,
+    region: __expectString(output.region),
+    serviceName: __expectString(output.serviceName),
   } as any;
 };
 

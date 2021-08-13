@@ -64,6 +64,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "cn-north-1":
+      regionInfo = {
+        hostname: "dax.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
     case "cn-northwest-1":
       regionInfo = {
         hostname: "dax.cn-northwest-1.amazonaws.com.cn",

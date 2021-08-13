@@ -1964,7 +1964,7 @@ export interface AnnotationConsolidationConfig {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>rn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass</code>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
@@ -3793,6 +3793,49 @@ export namespace CandidateArtifactLocations {
   });
 }
 
+export enum AutoMLMetricEnum {
+  ACCURACY = "Accuracy",
+  AUC = "AUC",
+  F1 = "F1",
+  F1_MACRO = "F1macro",
+  MSE = "MSE",
+}
+
+export enum MetricSetSource {
+  TEST = "Test",
+  TRAIN = "Train",
+  VALIDATION = "Validation",
+}
+
+/**
+ * <p>Information about the metric for a candidate produced by an AutoML job.</p>
+ */
+export interface MetricDatum {
+  /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName?: AutoMLMetricEnum | string;
+
+  /**
+   * <p>The value of the metric.</p>
+   */
+  Value?: number;
+
+  /**
+   * <p>The dataset split from which the AutoML job produced the metric.</p>
+   */
+  Set?: MetricSetSource | string;
+}
+
+export namespace MetricDatum {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricDatum): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The properties of an AutoML candidate job.</p>
  */
@@ -3801,6 +3844,11 @@ export interface CandidateProperties {
    * <p>The Amazon S3 prefix to the artifacts generated for an AutoML candidate.</p>
    */
   CandidateArtifactLocations?: CandidateArtifactLocations;
+
+  /**
+   * <p>Information about the candidate metrics for an AutoML job.</p>
+   */
+  CandidateMetrics?: MetricDatum[];
 }
 
 export namespace CandidateProperties {
@@ -3855,14 +3903,6 @@ export namespace AutoMLCandidateStep {
   });
 }
 
-export enum AutoMLMetricEnum {
-  ACCURACY = "Accuracy",
-  AUC = "AUC",
-  F1 = "F1",
-  F1_MACRO = "F1macro",
-  MSE = "MSE",
-}
-
 export enum AutoMLJobObjectiveType {
   MAXIMIZE = "Maximize",
   MINIMIZE = "Minimize",
@@ -3904,7 +3944,8 @@ export namespace FinalAutoMLJobObjectiveMetric {
  */
 export interface AutoMLContainerDefinition {
   /**
-   * <p>The ECR path of the container. For more information, see .</p>
+   * <p>The Amazon Elastic Container Registry (Amazon ECR) path of the container. For more
+   *          information, see .</p>
    */
   Image: string | undefined;
 
@@ -3935,8 +3976,8 @@ export enum ObjectiveStatus {
 }
 
 /**
- * <p>An Autopilot job returns recommendations, or candidates. Each candidate has futher details
- *          about the steps involved and the status.</p>
+ * <p>Information about a candidate produced by an AutoML training job, including its status,
+ *          steps, and other properties.</p>
  */
 export interface AutoMLCandidate {
   /**
@@ -3990,7 +4031,7 @@ export interface AutoMLCandidate {
   FailureReason?: string;
 
   /**
-   * <p>The AutoML candidate's properties.</p>
+   * <p>The properties of an AutoML candidate job.</p>
    */
   CandidateProperties?: CandidateProperties;
 }
@@ -4122,7 +4163,8 @@ export interface AutoMLJobCompletionCriteria {
   MaxCandidates?: number;
 
   /**
-   * <p>The maximum time, in seconds, a training job is allowed to run as part of an AutoML job.</p>
+   * <p>The maximum time, in seconds, a training job is allowed to run as part of an AutoML
+   *          job.</p>
    */
   MaxRuntimePerTrainingJobInSeconds?: number;
 
@@ -4240,8 +4282,8 @@ export interface AutoMLJobObjective {
    *                   <code>MSE</code>: The mean squared error (MSE) is the average of the squared
    *                differences between the predicted and actual values. It is used for regression. MSE
    *                values are always positive: the better a model is at predicting the actual values,
-   *                the smaller the MSE value. When the data contains outliers, they tend to dominate the
-   *                MSE, which might cause subpar prediction performance.</p>
+   *                the smaller the MSE value is. When the data contains outliers, they tend to dominate
+   *                the MSE, which might cause subpar prediction performance.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4374,7 +4416,7 @@ export namespace AutoMLPartialFailureReason {
  */
 export interface AutoMLJobSummary {
   /**
-   * <p>The name of the AutoML you are requesting.</p>
+   * <p>The name of the AutoML job you are requesting.</p>
    */
   AutoMLJobName: string | undefined;
 
@@ -6442,8 +6484,8 @@ export interface ModelDeployConfig {
    *          endpoint name is not generated automatically.</p>
    *          <note>
    *             <p>Specify the <code>EndpointName</code> if and only if you set
-   *                <code>AutoGenerateEndpointName</code> to <code>False</code>; otherwise a 400 error
-   *             is thrown.</p>
+   *                <code>AutoGenerateEndpointName</code> to <code>False</code>; otherwise a 400 error is
+   *             thrown.</p>
    *          </note>
    */
   EndpointName?: string;
@@ -6479,8 +6521,8 @@ export interface CreateAutoMLJobRequest {
   InputDataConfig: AutoMLChannel[] | undefined;
 
   /**
-   * <p>Provides information about encryption and the Amazon S3 output path needed to store
-   *          artifacts from an AutoML job. Format(s) supported: CSV.</p>
+   * <p>Provides information about encryption and the Amazon S3 output path needed to store artifacts
+   *          from an AutoML job. Format(s) supported: CSV.</p>
    */
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
@@ -6493,8 +6535,8 @@ export interface CreateAutoMLJobRequest {
   ProblemType?: ProblemType | string;
 
   /**
-   * <p>Defines the objective metric used to measure the predictive quality of an AutoML job.
-   *          You provide an <a>AutoMLJobObjective$MetricName</a> and Autopilot infers whether to
+   * <p>Defines the objective metric used to measure the predictive quality of an AutoML job. You
+   *          provide an <a>AutoMLJobObjective$MetricName</a> and Autopilot infers whether to
    *          minimize or maximize it.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
@@ -6540,7 +6582,7 @@ export namespace CreateAutoMLJobRequest {
 
 export interface CreateAutoMLJobResponse {
   /**
-   * <p>The unique ARN that is assigned to the AutoML job when it is created.</p>
+   * <p>The unique ARN assigned to the AutoML job when it is created.</p>
    */
   AutoMLJobArn: string | undefined;
 }
@@ -11024,7 +11066,13 @@ export namespace CreateImageVersionResponse {
 }
 
 /**
- * <p>Provided configuration information for the worker UI for a labeling job. </p>
+ * <p>Provided configuration information for the worker UI for a labeling job. Provide
+ *             either <code>HumanTaskUiArn</code> or <code>UiTemplateS3Uri</code>.</p>
+ *         <p>For named entity recognition, 3D point cloud and video frame labeling jobs, use
+ *                 <code>HumanTaskUiArn</code>.</p>
+ *         <p>For all other Ground Truth built-in task types and custom task types, use
+ *                 <code>UiTemplateS3Uri</code> to specify the location of a worker task template in
+ *             Amazon S3.</p>
  */
 export interface UiConfig {
   /**
@@ -11038,11 +11086,20 @@ export interface UiConfig {
   /**
    * <p>The ARN of the worker task template used to render the worker UI and tools for
    *             labeling job tasks.</p>
-   *         <p>Use this parameter when you are creating a labeling job for 3D point cloud and video
-   *             fram labeling jobs. Use your labeling job task type to select one of the following ARNs
-   *             and use it with this parameter when you create a labeling job. Replace
-   *             <code>aws-region</code> with the Amazon Web Services region you are creating your labeling job
-   *             in.</p>
+   *         <p>Use this parameter when you are creating a labeling job for named entity recognition,
+   *             3D point cloud and video frame labeling jobs. Use your labeling job task type to select
+   *             one of the following ARNs and use it with this parameter when you create a labeling job.
+   *             Replace <code>aws-region</code> with the Amazon Web Services Region you are creating your labeling job
+   *             in. For example, replace <code>aws-region</code> with <code>us-west-1</code> if you
+   *             create a labeling job in US West (N. California).</p>
+   *         <p>
+   *             <b>Named Entity Recognition</b>
+   *          </p>
+   *         <p>Use the following <code>HumanTaskUiArn</code> for named entity recognition labeling
+   *             jobs:</p>
+   *         <p>
+   *             <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/NamedEntityRecognition</code>
+   *          </p>
    *
    *         <p>
    *             <b>3D Point Cloud HumanTaskUiArns</b>
@@ -13174,6 +13231,13 @@ export interface CreateLabelingJobRequest {
    *         <p>For 3D point cloud and video frame task types, you can add label category attributes
    *             and frame attributes to your label category configuration file. To learn how, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html">Create a
    *                 Labeling Category Configuration File for 3D Point Cloud Labeling Jobs</a>. </p>
+   *         <p>For named entity recognition jobs, in addition to <code>"labels"</code>, you must
+   *             provide worker instructions in the label category configuration file using the
+   *                 <code>"instructions"</code> parameter: <code>"instructions":
+   *                 {"shortInstruction":"<h1>Add header</h1><p>Add Instructions</p>",
+   *                 "fullInstruction":"<p>Add additional instructions.</p>"}</code>. For details
+   *             and an example, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api">Create a
+   *                 Named Entity Recognition Labeling Job (API) </a>.</p>
    *         <p>For all other <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates.html">custom
    *                 tasks</a>, your label category configuration file must be a JSON file in the
    *             following format. Identify the labels you want to use by replacing <code>label_1</code>,
@@ -13590,49 +13654,6 @@ export namespace ModelExplainabilityAppSpecification {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModelExplainabilityAppSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The configuration for a baseline model explainability job.</p>
- */
-export interface ModelExplainabilityBaselineConfig {
-  /**
-   * <p>The name of the baseline model explainability job.</p>
-   */
-  BaseliningJobName?: string;
-
-  /**
-   * <p>The constraints resource for a monitoring job.</p>
-   */
-  ConstraintsResource?: MonitoringConstraintsResource;
-}
-
-export namespace ModelExplainabilityBaselineConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelExplainabilityBaselineConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Inputs for the model explainability job.</p>
- */
-export interface ModelExplainabilityJobInput {
-  /**
-   * <p>Input object for the endpoint</p>
-   */
-  EndpointInput: EndpointInput | undefined;
-}
-
-export namespace ModelExplainabilityJobInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelExplainabilityJobInput): any => ({
     ...obj,
   });
 }

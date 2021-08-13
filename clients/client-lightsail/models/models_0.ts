@@ -28,6 +28,42 @@ export enum AccessDirection {
   outbound = "outbound",
 }
 
+/**
+ * <p>Describes the last time an access key was used.</p>
+ *
+ *          <note>
+ *             <p>This object does not include data in the response of a <a>CreateBucketAccessKey</a> action.</p>
+ *          </note>
+ */
+export interface AccessKeyLastUsed {
+  /**
+   * <p>The date and time when the access key was most recently used.</p>
+   *          <p>This value is null if the access key has not been used.</p>
+   */
+  lastUsedDate?: Date;
+
+  /**
+   * <p>The AWS Region where this access key was most recently used.</p>
+   *          <p>This value is <code>N/A</code> if the access key has not been used.</p>
+   */
+  region?: string;
+
+  /**
+   * <p>The name of the AWS service with which this access key was most recently used.</p>
+   *          <p>This value is <code>N/A</code> if the access key has not been used.</p>
+   */
+  serviceName?: string;
+}
+
+export namespace AccessKeyLastUsed {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccessKeyLastUsed): any => ({
+    ...obj,
+  });
+}
+
 export enum StatusType {
   Active = "Active",
   Inactive = "Inactive",
@@ -74,6 +110,17 @@ export interface AccessKey {
    * <p>The timestamp when the access key was created.</p>
    */
   createdAt?: Date;
+
+  /**
+   * <p>An object that describes the last time the access key was used.</p>
+   *
+   *          <note>
+   *             <p>This object does not include data in the response of a <a>CreateBucketAccessKey</a> action. If the access key has not been used, the
+   *           <code>region</code> and <code>serviceName</code> values are <code>N/A</code>, and the
+   *           <code>lastUsedDate</code> value is null.</p>
+   *          </note>
+   */
+  lastUsed?: AccessKeyLastUsed;
 }
 
 export namespace AccessKey {
@@ -3825,7 +3872,7 @@ export interface CreateBucketRequest {
    * <p>A Boolean value that indicates whether to enable versioning of objects in the
    *       bucket.</p>
    *
-   *          <p>For more information about versioning, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-managing-bucket-object-versioning">Enabling and suspending bucket object versioning in Amazon Lightsail</a> in the
+   *          <p>For more information about versioning, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-managing-bucket-object-versioning">Enabling and suspending object versioning in a bucket in Amazon Lightsail</a> in the
    *         <i>Amazon Lightsail Developer Guide</i>.</p>
    */
   enableObjectVersioning?: boolean;
@@ -9620,30 +9667,6 @@ export namespace InstanceNetworking {
    * @internal
    */
   export const filterSensitiveLog = (obj: InstanceNetworking): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the virtual private server (or <i>instance</i>) status.</p>
- */
-export interface InstanceState {
-  /**
-   * <p>The status code for the instance.</p>
-   */
-  code?: number;
-
-  /**
-   * <p>The state of the instance (e.g., <code>running</code> or <code>pending</code>).</p>
-   */
-  name?: string;
-}
-
-export namespace InstanceState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceState): any => ({
     ...obj,
   });
 }

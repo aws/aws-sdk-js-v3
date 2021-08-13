@@ -58,6 +58,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "ap-northeast-3":
+      regionInfo = {
+        hostname: "appsync.ap-northeast-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-south-1":
       regionInfo = {
         hostname: "appsync.ap-south-1.amazonaws.com",

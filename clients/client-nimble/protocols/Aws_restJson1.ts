@@ -337,6 +337,7 @@ export const serializeAws_restJson1CreateStreamingSessionCommand = async (
       input.ec2InstanceType !== null && { ec2InstanceType: input.ec2InstanceType }),
     ...(input.launchProfileId !== undefined &&
       input.launchProfileId !== null && { launchProfileId: input.launchProfileId }),
+    ...(input.ownedBy !== undefined && input.ownedBy !== null && { ownedBy: input.ownedBy }),
     ...(input.streamingImageId !== undefined &&
       input.streamingImageId !== null && { streamingImageId: input.streamingImageId }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
@@ -1416,6 +1417,7 @@ export const serializeAws_restJson1ListStreamingSessionsCommand = async (
   const query: any = {
     ...(input.createdBy !== undefined && { createdBy: input.createdBy }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.ownedBy !== undefined && { ownedBy: input.ownedBy }),
     ...(input.sessionIds !== undefined && { sessionIds: input.sessionIds }),
   };
   let body: any;
@@ -7616,6 +7618,7 @@ const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeC
     createdBy: __expectString(output.createdBy),
     ec2InstanceType: __expectString(output.ec2InstanceType),
     launchProfileId: __expectString(output.launchProfileId),
+    ownedBy: __expectString(output.ownedBy),
     sessionId: __expectString(output.sessionId),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
@@ -7651,6 +7654,7 @@ const deserializeAws_restJson1StreamingSessionStream = (
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
     createdBy: __expectString(output.createdBy),
     expiresAt: output.expiresAt !== undefined && output.expiresAt !== null ? new Date(output.expiresAt) : undefined,
+    ownedBy: __expectString(output.ownedBy),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
     streamId: __expectString(output.streamId),

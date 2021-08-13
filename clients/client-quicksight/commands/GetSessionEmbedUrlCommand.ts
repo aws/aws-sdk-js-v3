@@ -37,7 +37,7 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  *         <ul>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-the-quicksight-console.html">Embedding the Amazon QuickSight Console</a>
+ *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users-get.html">Embedding the Amazon QuickSight Console Using GetSessionEmbedUrl</a>
  *                </p>
  *             </li>
  *             <li>

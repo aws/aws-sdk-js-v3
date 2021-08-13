@@ -21,11 +21,13 @@ export interface RedactChannelMessageCommandInput extends RedactChannelMessageRe
 export interface RedactChannelMessageCommandOutput extends RedactChannelMessageResponse, __MetadataBearer {}
 
 /**
- * <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p>
+ * <p>Redacts message content, but not metadata. The message exists in the back end, but the
+ *          action returns null content, and the state shows as redacted.</p>
  *
  *          <note>
- *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
- *         the API call as the value in the header.</p>
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             the header.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

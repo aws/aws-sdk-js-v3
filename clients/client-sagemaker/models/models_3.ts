@@ -25,6 +25,59 @@ import {
   Workteam,
 } from "./models_2";
 
+export interface UpdateExperimentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+}
+
+export namespace UpdateExperimentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateImageRequest {
+  /**
+   * <p>A list of properties to delete. Only the <code>Description</code> and
+   *         <code>DisplayName</code> properties can be deleted.</p>
+   */
+  DeleteProperties?: string[];
+
+  /**
+   * <p>The new description for the image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The new display name for the image.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The name of the image to update.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The new Amazon Resource Name (ARN) for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace UpdateImageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateImageRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateImageResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the image.</p>

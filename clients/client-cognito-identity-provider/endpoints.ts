@@ -141,6 +141,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingRegion: "us-west-2",
       };
       break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "cognito-idp.me-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "sa-east-1":
       regionInfo = {
         hostname: "cognito-idp.sa-east-1.amazonaws.com",

@@ -1351,6 +1351,7 @@ export enum Runtime {
   python36 = "python3.6",
   python37 = "python3.7",
   python38 = "python3.8",
+  python39 = "python3.9",
   ruby25 = "ruby2.5",
   ruby27 = "ruby2.7",
 }
@@ -4027,7 +4028,7 @@ export enum FunctionVersion {
 
 export interface ListFunctionsRequest {
   /**
-   * <p>For Lambda@Edge functions, the Region of the master function. For example, <code>us-east-1</code> filters
+   * <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters
    *       the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N.
    *       Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
    */

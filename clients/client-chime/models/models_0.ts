@@ -899,11 +899,12 @@ export namespace Tag {
 }
 
 /**
- * <p>The membership information, including member ARNs, the channel ARN, and membership types.</p>
+ * <p>The membership information, including member ARNs, the channel ARN, and membership
+ *          types.</p>
  */
 export interface BatchChannelMemberships {
   /**
-   * <p>The details of a user.</p>
+   * <p>The identifier of the member who invited another member.</p>
    */
   InvitedBy?: Identity;
 
@@ -1063,9 +1064,11 @@ export interface BatchCreateChannelMembershipRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of
-   *             <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> equals
-   *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported by moderators.</p>
+   * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
+   *          members are always returned as part of <code>ListChannelMemberships</code>. Hidden members
+   *          are only returned if the type filter in <code>ListChannelMemberships</code> equals
+   *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
+   *          by moderators.</p>
    */
   Type?: ChannelMembershipType | string;
 
@@ -1125,7 +1128,8 @@ export interface BatchCreateChannelMembershipResponse {
   BatchChannelMemberships?: BatchChannelMemberships;
 
   /**
-   * <p>If the action fails for one or more of the memberships in the request, a list of the memberships is returned, along with error codes and error messages.</p>
+   * <p>If the action fails for one or more of the memberships in the request, a list of the
+   *          memberships is returned, along with error codes and error messages.</p>
    */
   Errors?: BatchCreateChannelMembershipError[];
 }
@@ -1866,7 +1870,7 @@ export interface ChannelMembershipForAppInstanceUserSummary {
   ChannelSummary?: ChannelSummary;
 
   /**
-   * <p>Returns the channel membership data for an <code>AppInstance</code>.</p>
+   * <p>Summary of the membership details of an <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserMembershipSummary?: AppInstanceUserMembershipSummary;
 }
@@ -2123,7 +2127,7 @@ export namespace ChannelModeratorSummary {
 
 /**
  * <p>The request could not be processed because of conflict in the current state of the
- *             resource.</p>
+ *          resource.</p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
@@ -2449,14 +2453,16 @@ export interface CreateChannelRequest {
   Name: string | undefined;
 
   /**
-   * <p>The channel mode: <code>UNRESTRICTED</code> or <code>RESTRICTED</code>. Administrators, moderators, and channel members can add themselves
-   *     and other members to unrestricted channels. Only administrators and moderators can add members to restricted channels.</p>
+   * <p>The channel mode: <code>UNRESTRICTED</code> or <code>RESTRICTED</code>. Administrators,
+   *          moderators, and channel members can add themselves and other members to unrestricted
+   *          channels. Only administrators and moderators can add members to restricted channels.</p>
    */
   Mode?: ChannelMode | string;
 
   /**
-   * <p>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private channels aren't discoverable by users outside the channel.
-   *     Public channels are discoverable by anyone in the <code>AppInstance</code>.</p>
+   * <p>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private
+   *          channels aren't discoverable by users outside the channel. Public channels are discoverable
+   *          by anyone in the <code>AppInstance</code>.</p>
    */
   Privacy?: ChannelPrivacy | string;
 
@@ -2543,7 +2549,8 @@ export interface CreateChannelBanResponse {
   ChannelArn?: string;
 
   /**
-   * <p>The <code>ChannelArn</code> and <code>BannedIdentity</code> of the member in the ban response.</p>
+   * <p>The <code>ChannelArn</code> and <code>BannedIdentity</code> of the member in the ban
+   *          response.</p>
    */
   Member?: Identity;
 }
@@ -2570,9 +2577,11 @@ export interface CreateChannelMembershipRequest {
   MemberArn: string | undefined;
 
   /**
-   * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of
-   * <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> equals
-   * <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported by moderators.</p>
+   * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
+   *          members are always returned as part of <code>ListChannelMemberships</code>. Hidden members
+   *          are only returned if the type filter in <code>ListChannelMemberships</code> equals
+   *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
+   *          by moderators.</p>
    */
   Type: ChannelMembershipType | string | undefined;
 
@@ -5611,6 +5620,7 @@ export enum TranscribeMedicalLanguageCode {
 
 export enum TranscribeMedicalRegion {
   AP_SOUTHEAST_2 = "ap-southeast-2",
+  AUTO = "auto",
   CA_CENTRAL_1 = "ca-central-1",
   EU_WEST_1 = "eu-west-1",
   US_EAST_1 = "us-east-1",
@@ -5657,7 +5667,7 @@ export interface EngineTranscribeMedicalSettings {
   VocabularyName?: string;
 
   /**
-   * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the Region closest to the meeting's Region.</p>
+   * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
    */
   Region?: TranscribeMedicalRegion | string;
 }
@@ -5690,6 +5700,7 @@ export enum TranscribeRegion {
   AP_NORTHEAST_1 = "ap-northeast-1",
   AP_NORTHEAST_2 = "ap-northeast-2",
   AP_SOUTHEAST_2 = "ap-southeast-2",
+  AUTO = "auto",
   CA_CENTRAL_1 = "ca-central-1",
   EU_CENTRAL_1 = "eu-central-1",
   EU_WEST_1 = "eu-west-1",
@@ -5731,7 +5742,7 @@ export interface EngineTranscribeSettings {
   VocabularyName?: string;
 
   /**
-   * <p>The AWS Region passed to Amazon Transcribe. If you don't specify a Region, Amazon Chime uses the Region closest to the meeting's Region.</p>
+   * <p>The AWS Region passed to Amazon Transcribe. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
    */
   Region?: TranscribeRegion | string;
 }

@@ -21,7 +21,8 @@ export interface ListIPSetsCommandInput extends ListIPSetsRequest {}
 export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you manage.</p>
+ * <p>Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you
+ *          manage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

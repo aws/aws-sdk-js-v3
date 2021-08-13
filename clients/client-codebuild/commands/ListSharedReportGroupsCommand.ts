@@ -21,7 +21,7 @@ export interface ListSharedReportGroupsCommandInput extends ListSharedReportGrou
 export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGroupsOutput, __MetadataBearer {}
 
 /**
- * <p> Gets a list of report groups that are shared with other AWS accounts or users.
+ * <p> Gets a list of report groups that are shared with other Amazon Web Services accounts or users.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

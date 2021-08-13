@@ -21,9 +21,14 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the <a>TagInfoForResource</a> for the specified resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a resource.</p>
- *         <p>You can tag the Amazon Web Services resources that you manage through WAF: web ACLs, rule groups, IP
- *   sets, and regex pattern sets. You can't manage or view tags through the WAF console. </p>
+ * <p>Retrieves the <a>TagInfoForResource</a> for the specified resource. Tags are
+ *          key:value pairs that you can use to categorize and manage your resources, for purposes like
+ *          billing. For example, you might set the tag key to "customer" and the value to the customer
+ *          name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags
+ *          for a resource.</p>
+ *          <p>You can tag the Amazon Web Services resources that you manage through WAF: web ACLs, rule
+ *          groups, IP sets, and regex pattern sets. You can't manage or view tags through the WAF
+ *          console. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -735,6 +735,7 @@ import {
   LabelingJobSnsDataSource,
   LabelingJobStoppingConditions,
   MetadataProperties,
+  MetricDatum,
   MetricDefinition,
   MetricsSource,
   ModelBiasAppSpecification,
@@ -742,8 +743,6 @@ import {
   ModelBiasJobInput,
   ModelDeployConfig,
   ModelExplainabilityAppSpecification,
-  ModelExplainabilityBaselineConfig,
-  ModelExplainabilityJobInput,
   ModelPackageContainerDefinition,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
@@ -1007,6 +1006,8 @@ import {
   ModelDataQuality,
   ModelDeployResult,
   ModelDigests,
+  ModelExplainabilityBaselineConfig,
+  ModelExplainabilityJobInput,
   ModelMetrics,
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
@@ -1059,9 +1060,7 @@ import {
   TensorBoardOutputConfig,
   TrainingJobStatusCounters,
   TrialComponentArtifact,
-  TrialComponentMetricSummary,
   TrialComponentParameterValue,
-  TrialComponentSource,
   TrialComponentStatus,
   TrialSource,
   UiTemplateInfo,
@@ -1288,7 +1287,9 @@ import {
   TransformJobSummary,
   Trial,
   TrialComponent,
+  TrialComponentMetricSummary,
   TrialComponentSimpleSummary,
+  TrialComponentSource,
   TrialComponentSourceDetail,
   TrialComponentSummary,
   TrialSummary,
@@ -1312,8 +1313,6 @@ import {
   UpdateEndpointWeightsAndCapacitiesInput,
   UpdateEndpointWeightsAndCapacitiesOutput,
   UpdateExperimentRequest,
-  UpdateExperimentResponse,
-  UpdateImageRequest,
   UserProfileDetails,
   VariantProperty,
   Workforce,
@@ -1322,6 +1321,8 @@ import {
 import {
   SearchExpression,
   SearchRequest,
+  UpdateExperimentResponse,
+  UpdateImageRequest,
   UpdateImageResponse,
   UpdateModelPackageInput,
   UpdateModelPackageOutput,
@@ -24761,6 +24762,10 @@ const deserializeAws_json1_1CandidateProperties = (output: any, context: __Serde
       output.CandidateArtifactLocations !== undefined && output.CandidateArtifactLocations !== null
         ? deserializeAws_json1_1CandidateArtifactLocations(output.CandidateArtifactLocations, context)
         : undefined,
+    CandidateMetrics:
+      output.CandidateMetrics !== undefined && output.CandidateMetrics !== null
+        ? deserializeAws_json1_1MetricDataList(output.CandidateMetrics, context)
+        : undefined,
   } as any;
 };
 
@@ -29881,6 +29886,25 @@ const deserializeAws_json1_1MetricData = (output: any, context: __SerdeContext):
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
+    Value: __handleFloat(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_1MetricDataList = (output: any, context: __SerdeContext): MetricDatum[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MetricDatum(entry, context);
+    });
+};
+
+const deserializeAws_json1_1MetricDatum = (output: any, context: __SerdeContext): MetricDatum => {
+  return {
+    MetricName: __expectString(output.MetricName),
+    Set: __expectString(output.Set),
     Value: __handleFloat(output.Value),
   } as any;
 };

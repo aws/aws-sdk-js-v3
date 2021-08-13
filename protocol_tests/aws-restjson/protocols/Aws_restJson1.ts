@@ -80,6 +80,98 @@ import { JsonListsCommandInput, JsonListsCommandOutput } from "../commands/JsonL
 import { JsonMapsCommandInput, JsonMapsCommandOutput } from "../commands/JsonMapsCommand";
 import { JsonTimestampsCommandInput, JsonTimestampsCommandOutput } from "../commands/JsonTimestampsCommand";
 import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "../commands/JsonUnionsCommand";
+import {
+  MalformedAcceptWithBodyCommandInput,
+  MalformedAcceptWithBodyCommandOutput,
+} from "../commands/MalformedAcceptWithBodyCommand";
+import {
+  MalformedAcceptWithGenericStringCommandInput,
+  MalformedAcceptWithGenericStringCommandOutput,
+} from "../commands/MalformedAcceptWithGenericStringCommand";
+import {
+  MalformedAcceptWithPayloadCommandInput,
+  MalformedAcceptWithPayloadCommandOutput,
+} from "../commands/MalformedAcceptWithPayloadCommand";
+import { MalformedBlobCommandInput, MalformedBlobCommandOutput } from "../commands/MalformedBlobCommand";
+import { MalformedBooleanCommandInput, MalformedBooleanCommandOutput } from "../commands/MalformedBooleanCommand";
+import { MalformedByteCommandInput, MalformedByteCommandOutput } from "../commands/MalformedByteCommand";
+import {
+  MalformedContentTypeWithBodyCommandInput,
+  MalformedContentTypeWithBodyCommandOutput,
+} from "../commands/MalformedContentTypeWithBodyCommand";
+import {
+  MalformedContentTypeWithGenericStringCommandInput,
+  MalformedContentTypeWithGenericStringCommandOutput,
+} from "../commands/MalformedContentTypeWithGenericStringCommand";
+import {
+  MalformedContentTypeWithPayloadCommandInput,
+  MalformedContentTypeWithPayloadCommandOutput,
+} from "../commands/MalformedContentTypeWithPayloadCommand";
+import {
+  MalformedContentTypeWithoutBodyCommandInput,
+  MalformedContentTypeWithoutBodyCommandOutput,
+} from "../commands/MalformedContentTypeWithoutBodyCommand";
+import { MalformedDoubleCommandInput, MalformedDoubleCommandOutput } from "../commands/MalformedDoubleCommand";
+import { MalformedFloatCommandInput, MalformedFloatCommandOutput } from "../commands/MalformedFloatCommand";
+import { MalformedIntegerCommandInput, MalformedIntegerCommandOutput } from "../commands/MalformedIntegerCommand";
+import { MalformedListCommandInput, MalformedListCommandOutput } from "../commands/MalformedListCommand";
+import { MalformedLongCommandInput, MalformedLongCommandOutput } from "../commands/MalformedLongCommand";
+import { MalformedMapCommandInput, MalformedMapCommandOutput } from "../commands/MalformedMapCommand";
+import {
+  MalformedRequestBodyCommandInput,
+  MalformedRequestBodyCommandOutput,
+} from "../commands/MalformedRequestBodyCommand";
+import { MalformedSetCommandInput, MalformedSetCommandOutput } from "../commands/MalformedSetCommand";
+import { MalformedShortCommandInput, MalformedShortCommandOutput } from "../commands/MalformedShortCommand";
+import {
+  MalformedTimestampBodyDateTimeCommandInput,
+  MalformedTimestampBodyDateTimeCommandOutput,
+} from "../commands/MalformedTimestampBodyDateTimeCommand";
+import {
+  MalformedTimestampBodyDefaultCommandInput,
+  MalformedTimestampBodyDefaultCommandOutput,
+} from "../commands/MalformedTimestampBodyDefaultCommand";
+import {
+  MalformedTimestampBodyHttpDateCommandInput,
+  MalformedTimestampBodyHttpDateCommandOutput,
+} from "../commands/MalformedTimestampBodyHttpDateCommand";
+import {
+  MalformedTimestampHeaderDateTimeCommandInput,
+  MalformedTimestampHeaderDateTimeCommandOutput,
+} from "../commands/MalformedTimestampHeaderDateTimeCommand";
+import {
+  MalformedTimestampHeaderDefaultCommandInput,
+  MalformedTimestampHeaderDefaultCommandOutput,
+} from "../commands/MalformedTimestampHeaderDefaultCommand";
+import {
+  MalformedTimestampHeaderEpochCommandInput,
+  MalformedTimestampHeaderEpochCommandOutput,
+} from "../commands/MalformedTimestampHeaderEpochCommand";
+import {
+  MalformedTimestampPathDefaultCommandInput,
+  MalformedTimestampPathDefaultCommandOutput,
+} from "../commands/MalformedTimestampPathDefaultCommand";
+import {
+  MalformedTimestampPathEpochCommandInput,
+  MalformedTimestampPathEpochCommandOutput,
+} from "../commands/MalformedTimestampPathEpochCommand";
+import {
+  MalformedTimestampPathHttpDateCommandInput,
+  MalformedTimestampPathHttpDateCommandOutput,
+} from "../commands/MalformedTimestampPathHttpDateCommand";
+import {
+  MalformedTimestampQueryDefaultCommandInput,
+  MalformedTimestampQueryDefaultCommandOutput,
+} from "../commands/MalformedTimestampQueryDefaultCommand";
+import {
+  MalformedTimestampQueryEpochCommandInput,
+  MalformedTimestampQueryEpochCommandOutput,
+} from "../commands/MalformedTimestampQueryEpochCommand";
+import {
+  MalformedTimestampQueryHttpDateCommandInput,
+  MalformedTimestampQueryHttpDateCommandOutput,
+} from "../commands/MalformedTimestampQueryHttpDateCommand";
+import { MalformedUnionCommandInput, MalformedUnionCommandOutput } from "../commands/MalformedUnionCommand";
 import { MediaTypeHeaderCommandInput, MediaTypeHeaderCommandOutput } from "../commands/MediaTypeHeaderCommand";
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "../commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "../commands/NoInputAndOutputCommand";
@@ -134,6 +226,7 @@ import {
   RecursiveShapesInputOutputNested1,
   RecursiveShapesInputOutputNested2,
   RenamedGreeting,
+  SimpleUnion,
   StructureListMember,
 } from "../models/models_0";
 import {
@@ -1248,6 +1341,913 @@ export const serializeAws_restJson1JsonUnionsCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedAcceptWithBodyCommand = async (
+  input: MalformedAcceptWithBodyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedAcceptWithBody";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedAcceptWithGenericStringCommand = async (
+  input: MalformedAcceptWithGenericStringCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/octet-stream",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedAcceptWithGenericString";
+  let body: any;
+  if (input.payload !== undefined) {
+    body = input.payload;
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedAcceptWithPayloadCommand = async (
+  input: MalformedAcceptWithPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedAcceptWithPayload";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedBlobCommand = async (
+  input: MalformedBlobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedBlob";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.blob !== undefined && input.blob !== null && { blob: context.base64Encoder(input.blob) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedBooleanCommand = async (
+  input: MalformedBooleanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.booleanInHeader) && { booleaninheader: input.booleanInHeader!.toString() }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedBoolean/{booleanInPath}";
+  if (input.booleanInPath !== undefined) {
+    const labelValue: string = input.booleanInPath.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: booleanInPath.");
+    }
+    resolvedPath = resolvedPath.replace("{booleanInPath}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: booleanInPath.");
+  }
+  const query: any = {
+    ...(input.booleanInQuery !== undefined && { booleanInQuery: input.booleanInQuery.toString() }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.booleanInBody !== undefined && input.booleanInBody !== null && { booleanInBody: input.booleanInBody }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedByteCommand = async (
+  input: MalformedByteCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.byteInHeader) && { byteinheader: input.byteInHeader!.toString() }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedByte/{byteInPath}";
+  if (input.byteInPath !== undefined) {
+    const labelValue: string = input.byteInPath.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: byteInPath.");
+    }
+    resolvedPath = resolvedPath.replace("{byteInPath}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: byteInPath.");
+  }
+  const query: any = {
+    ...(input.byteInQuery !== undefined && { byteInQuery: input.byteInQuery.toString() }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.byteInBody !== undefined && input.byteInBody !== null && { byteInBody: input.byteInBody }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedContentTypeWithBodyCommand = async (
+  input: MalformedContentTypeWithBodyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedContentTypeWithBody";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.hi !== undefined && input.hi !== null && { hi: input.hi }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedContentTypeWithGenericStringCommand = async (
+  input: MalformedContentTypeWithGenericStringCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "text/plain",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedContentTypeWithGenericString";
+  let body: any;
+  if (input.payload !== undefined) {
+    body = input.payload;
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedContentTypeWithoutBodyCommand = async (
+  input: MalformedContentTypeWithoutBodyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedContentTypeWithoutBody";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedContentTypeWithPayloadCommand = async (
+  input: MalformedContentTypeWithPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "image/jpeg",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedContentTypeWithPayload";
+  let body: any;
+  if (input.payload !== undefined) {
+    body = input.payload;
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedDoubleCommand = async (
+  input: MalformedDoubleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.doubleInHeader) && {
+      doubleinheader: input.doubleInHeader! % 1 == 0 ? input.doubleInHeader! + ".0" : input.doubleInHeader!.toString(),
+    }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedDouble/{doubleInPath}";
+  if (input.doubleInPath !== undefined) {
+    const labelValue: string = input.doubleInPath % 1 == 0 ? input.doubleInPath + ".0" : input.doubleInPath.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: doubleInPath.");
+    }
+    resolvedPath = resolvedPath.replace("{doubleInPath}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: doubleInPath.");
+  }
+  const query: any = {
+    ...(input.doubleInQuery !== undefined && {
+      doubleInQuery: input.doubleInQuery % 1 == 0 ? input.doubleInQuery + ".0" : input.doubleInQuery.toString(),
+    }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.doubleInBody !== undefined &&
+      input.doubleInBody !== null && { doubleInBody: __serializeFloat(input.doubleInBody) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedFloatCommand = async (
+  input: MalformedFloatCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.floatInHeader) && {
+      floatinheader: input.floatInHeader! % 1 == 0 ? input.floatInHeader! + ".0" : input.floatInHeader!.toString(),
+    }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedFloat/{floatInPath}";
+  if (input.floatInPath !== undefined) {
+    const labelValue: string = input.floatInPath % 1 == 0 ? input.floatInPath + ".0" : input.floatInPath.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: floatInPath.");
+    }
+    resolvedPath = resolvedPath.replace("{floatInPath}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: floatInPath.");
+  }
+  const query: any = {
+    ...(input.floatInQuery !== undefined && {
+      floatInQuery: input.floatInQuery % 1 == 0 ? input.floatInQuery + ".0" : input.floatInQuery.toString(),
+    }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.floatInBody !== undefined &&
+      input.floatInBody !== null && { floatInBody: __serializeFloat(input.floatInBody) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedIntegerCommand = async (
+  input: MalformedIntegerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.integerInHeader) && { integerinheader: input.integerInHeader!.toString() }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedInteger/{integerInPath}";
+  if (input.integerInPath !== undefined) {
+    const labelValue: string = input.integerInPath.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: integerInPath.");
+    }
+    resolvedPath = resolvedPath.replace("{integerInPath}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: integerInPath.");
+  }
+  const query: any = {
+    ...(input.integerInQuery !== undefined && { integerInQuery: input.integerInQuery.toString() }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.integerInBody !== undefined && input.integerInBody !== null && { integerInBody: input.integerInBody }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedListCommand = async (
+  input: MalformedListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedList";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.bodyList !== undefined &&
+      input.bodyList !== null && { bodyList: serializeAws_restJson1SimpleList(input.bodyList, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedLongCommand = async (
+  input: MalformedLongCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.longInHeader) && { longinheader: input.longInHeader!.toString() }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedLong/{longInPath}";
+  if (input.longInPath !== undefined) {
+    const labelValue: string = input.longInPath.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: longInPath.");
+    }
+    resolvedPath = resolvedPath.replace("{longInPath}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: longInPath.");
+  }
+  const query: any = {
+    ...(input.longInQuery !== undefined && { longInQuery: input.longInQuery.toString() }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.longInBody !== undefined && input.longInBody !== null && { longInBody: input.longInBody }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedMapCommand = async (
+  input: MalformedMapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedMap";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.bodyMap !== undefined &&
+      input.bodyMap !== null && { bodyMap: serializeAws_restJson1SimpleMap(input.bodyMap, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedRequestBodyCommand = async (
+  input: MalformedRequestBodyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedRequestBody";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.float !== undefined && input.float !== null && { float: __serializeFloat(input.float) }),
+    ...(input.int !== undefined && input.int !== null && { int: input.int }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedSetCommand = async (
+  input: MalformedSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedSet";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.set !== undefined && input.set !== null && { set: serializeAws_restJson1SimpleSet(input.set, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedShortCommand = async (
+  input: MalformedShortCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.shortInHeader) && { shortinheader: input.shortInHeader!.toString() }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedShort/{shortInPath}";
+  if (input.shortInPath !== undefined) {
+    const labelValue: string = input.shortInPath.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: shortInPath.");
+    }
+    resolvedPath = resolvedPath.replace("{shortInPath}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: shortInPath.");
+  }
+  const query: any = {
+    ...(input.shortInQuery !== undefined && { shortInQuery: input.shortInQuery.toString() }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.shortInBody !== undefined && input.shortInBody !== null && { shortInBody: input.shortInBody }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampBodyDateTimeCommand = async (
+  input: MalformedTimestampBodyDateTimeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampBodyDateTime";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.timestamp !== undefined &&
+      input.timestamp !== null && { timestamp: input.timestamp.toISOString().split(".")[0] + "Z" }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampBodyDefaultCommand = async (
+  input: MalformedTimestampBodyDefaultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampBodyDefault";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.timestamp !== undefined &&
+      input.timestamp !== null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampBodyHttpDateCommand = async (
+  input: MalformedTimestampBodyHttpDateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampBodyHttpDate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.timestamp !== undefined && input.timestamp !== null && { timestamp: __dateToUtcString(input.timestamp) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampHeaderDateTimeCommand = async (
+  input: MalformedTimestampHeaderDateTimeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.timestamp) && {
+      timestamp: (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
+    }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampHeaderDateTime";
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampHeaderDefaultCommand = async (
+  input: MalformedTimestampHeaderDefaultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.timestamp) && { timestamp: __dateToUtcString(input.timestamp!).toString() }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampHeaderDefault";
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampHeaderEpochCommand = async (
+  input: MalformedTimestampHeaderEpochCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.timestamp) && {
+      timestamp: Math.round(input.timestamp!.getTime() / 1000).toString(),
+    }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampHeaderEpoch";
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampPathDefaultCommand = async (
+  input: MalformedTimestampPathDefaultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/MalformedTimestampPathDefault/{timestamp}";
+  if (input.timestamp !== undefined) {
+    const labelValue: string = (input.timestamp.toISOString().split(".")[0] + "Z").toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: timestamp.");
+    }
+    resolvedPath = resolvedPath.replace("{timestamp}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: timestamp.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampPathEpochCommand = async (
+  input: MalformedTimestampPathEpochCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampPathEpoch/{timestamp}";
+  if (input.timestamp !== undefined) {
+    const labelValue: string = Math.round(input.timestamp.getTime() / 1000).toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: timestamp.");
+    }
+    resolvedPath = resolvedPath.replace("{timestamp}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: timestamp.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampPathHttpDateCommand = async (
+  input: MalformedTimestampPathHttpDateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/MalformedTimestampPathHttpDate/{timestamp}";
+  if (input.timestamp !== undefined) {
+    const labelValue: string = __dateToUtcString(input.timestamp).toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: timestamp.");
+    }
+    resolvedPath = resolvedPath.replace("{timestamp}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: timestamp.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampQueryDefaultCommand = async (
+  input: MalformedTimestampQueryDefaultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampQueryDefault";
+  const query: any = {
+    ...(input.timestamp !== undefined && { timestamp: (input.timestamp.toISOString().split(".")[0] + "Z").toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampQueryEpochCommand = async (
+  input: MalformedTimestampQueryEpochCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampQueryEpoch";
+  const query: any = {
+    ...(input.timestamp !== undefined && { timestamp: Math.round(input.timestamp.getTime() / 1000).toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedTimestampQueryHttpDateCommand = async (
+  input: MalformedTimestampQueryHttpDateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampQueryHttpDate";
+  const query: any = {
+    ...(input.timestamp !== undefined && { timestamp: __dateToUtcString(input.timestamp).toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MalformedUnionCommand = async (
+  input: MalformedUnionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedUnion";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.union !== undefined &&
+      input.union !== null && { union: serializeAws_restJson1SimpleUnion(input.union, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -3266,6 +4266,1388 @@ const deserializeAws_restJson1JsonUnionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1MalformedAcceptWithBodyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedAcceptWithBodyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedAcceptWithBodyCommandError(output, context);
+  }
+  const contents: MalformedAcceptWithBodyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    hi: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.hi !== undefined && data.hi !== null) {
+    contents.hi = __expectString(data.hi);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedAcceptWithBodyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedAcceptWithBodyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedAcceptWithGenericStringCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedAcceptWithGenericStringCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedAcceptWithGenericStringCommandError(output, context);
+  }
+  const contents: MalformedAcceptWithGenericStringCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedAcceptWithGenericStringCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedAcceptWithGenericStringCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedAcceptWithPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedAcceptWithPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedAcceptWithPayloadCommandError(output, context);
+  }
+  const contents: MalformedAcceptWithPayloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    payload: undefined,
+  };
+  const data: any = await collectBody(output.body, context);
+  contents.payload = data;
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedAcceptWithPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedAcceptWithPayloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedBlobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedBlobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedBlobCommandError(output, context);
+  }
+  const contents: MalformedBlobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedBlobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedBlobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedBooleanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedBooleanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedBooleanCommandError(output, context);
+  }
+  const contents: MalformedBooleanCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedBooleanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedBooleanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedByteCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedByteCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedByteCommandError(output, context);
+  }
+  const contents: MalformedByteCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedByteCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedByteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedContentTypeWithBodyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithBodyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedContentTypeWithBodyCommandError(output, context);
+  }
+  const contents: MalformedContentTypeWithBodyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedContentTypeWithBodyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithBodyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedContentTypeWithGenericStringCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithGenericStringCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedContentTypeWithGenericStringCommandError(output, context);
+  }
+  const contents: MalformedContentTypeWithGenericStringCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedContentTypeWithGenericStringCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithGenericStringCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedContentTypeWithoutBodyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithoutBodyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedContentTypeWithoutBodyCommandError(output, context);
+  }
+  const contents: MalformedContentTypeWithoutBodyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedContentTypeWithoutBodyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithoutBodyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedContentTypeWithPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedContentTypeWithPayloadCommandError(output, context);
+  }
+  const contents: MalformedContentTypeWithPayloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedContentTypeWithPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithPayloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedDoubleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedDoubleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedDoubleCommandError(output, context);
+  }
+  const contents: MalformedDoubleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedDoubleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedDoubleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedFloatCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedFloatCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedFloatCommandError(output, context);
+  }
+  const contents: MalformedFloatCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedFloatCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedFloatCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedIntegerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedIntegerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedIntegerCommandError(output, context);
+  }
+  const contents: MalformedIntegerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedIntegerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedIntegerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedListCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedListCommandError(output, context);
+  }
+  const contents: MalformedListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedListCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedListCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedLongCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedLongCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedLongCommandError(output, context);
+  }
+  const contents: MalformedLongCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedLongCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedLongCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedMapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedMapCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedMapCommandError(output, context);
+  }
+  const contents: MalformedMapCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedMapCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedMapCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedRequestBodyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedRequestBodyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedRequestBodyCommandError(output, context);
+  }
+  const contents: MalformedRequestBodyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedRequestBodyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedRequestBodyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedSetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedSetCommandError(output, context);
+  }
+  const contents: MalformedSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedShortCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedShortCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedShortCommandError(output, context);
+  }
+  const contents: MalformedShortCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedShortCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedShortCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampBodyDateTimeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampBodyDateTimeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampBodyDateTimeCommandError(output, context);
+  }
+  const contents: MalformedTimestampBodyDateTimeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampBodyDateTimeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampBodyDateTimeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampBodyDefaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampBodyDefaultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampBodyDefaultCommandError(output, context);
+  }
+  const contents: MalformedTimestampBodyDefaultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampBodyDefaultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampBodyDefaultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampBodyHttpDateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampBodyHttpDateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampBodyHttpDateCommandError(output, context);
+  }
+  const contents: MalformedTimestampBodyHttpDateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampBodyHttpDateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampBodyHttpDateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampHeaderDateTimeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampHeaderDateTimeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampHeaderDateTimeCommandError(output, context);
+  }
+  const contents: MalformedTimestampHeaderDateTimeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampHeaderDateTimeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampHeaderDateTimeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampHeaderDefaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampHeaderDefaultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampHeaderDefaultCommandError(output, context);
+  }
+  const contents: MalformedTimestampHeaderDefaultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampHeaderDefaultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampHeaderDefaultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampHeaderEpochCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampHeaderEpochCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampHeaderEpochCommandError(output, context);
+  }
+  const contents: MalformedTimestampHeaderEpochCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampHeaderEpochCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampHeaderEpochCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampPathDefaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampPathDefaultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampPathDefaultCommandError(output, context);
+  }
+  const contents: MalformedTimestampPathDefaultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampPathDefaultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampPathDefaultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampPathEpochCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampPathEpochCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampPathEpochCommandError(output, context);
+  }
+  const contents: MalformedTimestampPathEpochCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampPathEpochCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampPathEpochCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampPathHttpDateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampPathHttpDateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampPathHttpDateCommandError(output, context);
+  }
+  const contents: MalformedTimestampPathHttpDateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampPathHttpDateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampPathHttpDateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampQueryDefaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampQueryDefaultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampQueryDefaultCommandError(output, context);
+  }
+  const contents: MalformedTimestampQueryDefaultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampQueryDefaultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampQueryDefaultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampQueryEpochCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampQueryEpochCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampQueryEpochCommandError(output, context);
+  }
+  const contents: MalformedTimestampQueryEpochCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampQueryEpochCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampQueryEpochCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedTimestampQueryHttpDateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampQueryHttpDateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedTimestampQueryHttpDateCommandError(output, context);
+  }
+  const contents: MalformedTimestampQueryHttpDateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedTimestampQueryHttpDateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedTimestampQueryHttpDateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1MalformedUnionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedUnionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MalformedUnionCommandError(output, context);
+  }
+  const contents: MalformedUnionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MalformedUnionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedUnionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1MediaTypeHeaderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4200,6 +6582,48 @@ const serializeAws_restJson1RecursiveShapesInputOutputNested2 = (
         recursiveMember: serializeAws_restJson1RecursiveShapesInputOutputNested1(input.recursiveMember, context),
       }),
   };
+};
+
+const serializeAws_restJson1SimpleList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SimpleMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
+const serializeAws_restJson1SimpleSet = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SimpleUnion = (input: SimpleUnion, context: __SerdeContext): any => {
+  return SimpleUnion.visit(input, {
+    int: (value) => ({ int: value }),
+    string: (value) => ({ string: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1SparseBooleanMap = (input: { [key: string]: boolean }, context: __SerdeContext): any => {

@@ -68,8 +68,6 @@ import {
   ModelBiasJobInput,
   ModelDeployConfig,
   ModelExplainabilityAppSpecification,
-  ModelExplainabilityBaselineConfig,
-  ModelExplainabilityJobInput,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
@@ -104,6 +102,49 @@ import {
   VpcConfig,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+/**
+ * <p>The configuration for a baseline model explainability job.</p>
+ */
+export interface ModelExplainabilityBaselineConfig {
+  /**
+   * <p>The name of the baseline model explainability job.</p>
+   */
+  BaseliningJobName?: string;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   */
+  ConstraintsResource?: MonitoringConstraintsResource;
+}
+
+export namespace ModelExplainabilityBaselineConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelExplainabilityBaselineConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Inputs for the model explainability job.</p>
+ */
+export interface ModelExplainabilityJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   */
+  EndpointInput: EndpointInput | undefined;
+}
+
+export namespace ModelExplainabilityJobInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelExplainabilityJobInput): any => ({
+    ...obj,
+  });
+}
 
 export interface CreateModelExplainabilityJobDefinitionRequest {
   /**
@@ -5132,8 +5173,9 @@ export interface DescribeAutoMLJobResponse {
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that has read permission to
-   *          the input data location and write permission to the output data location in Amazon S3.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that
+   *          has read permission to the input data location and write permission to the output data
+   *          location in Amazon S3.</p>
    */
   RoleArn: string | undefined;
 
@@ -5205,7 +5247,7 @@ export interface DescribeAutoMLJobResponse {
   AutoMLJobArtifacts?: AutoMLJobArtifacts;
 
   /**
-   * <p>This contains <code>ProblemType</code>, <code>AutoMLJobObjective</code> and
+   * <p>This contains <code>ProblemType</code>, <code>AutoMLJobObjective</code>, and
    *             <code>CompletionCriteria</code>. If you do not provide these values, they are
    *          auto-inferred. If you do provide them, the values used are the ones you provide.</p>
    */
@@ -10205,89 +10247,6 @@ export namespace DescribeTrialComponentRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeTrialComponentRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A summary of the metrics of a trial component.</p>
- */
-export interface TrialComponentMetricSummary {
-  /**
-   * <p>The name of the metric.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>When the metric was last updated.</p>
-   */
-  TimeStamp?: Date;
-
-  /**
-   * <p>The maximum value of the metric.</p>
-   */
-  Max?: number;
-
-  /**
-   * <p>The minimum value of the metric.</p>
-   */
-  Min?: number;
-
-  /**
-   * <p>The most recent value of the metric.</p>
-   */
-  Last?: number;
-
-  /**
-   * <p>The number of samples used to generate the metric.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>The average value of the metric.</p>
-   */
-  Avg?: number;
-
-  /**
-   * <p>The standard deviation of the metric.</p>
-   */
-  StdDev?: number;
-}
-
-export namespace TrialComponentMetricSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrialComponentMetricSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
- */
-export interface TrialComponentSource {
-  /**
-   * <p>The source ARN.</p>
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The source job type.</p>
-   */
-  SourceType?: string;
-}
-
-export namespace TrialComponentSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrialComponentSource): any => ({
     ...obj,
   });
 }

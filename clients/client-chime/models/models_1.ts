@@ -1120,9 +1120,10 @@ export interface ListChannelMembershipsRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of
-   *     <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> equals
-   *     <code>HIDDEN</code>. Otherwise hidden members are not returned.</p>
+   * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
+   *          members are always returned as part of <code>ListChannelMemberships</code>. Hidden members
+   *          are only returned if the type filter in <code>ListChannelMemberships</code> equals
+   *             <code>HIDDEN</code>. Otherwise hidden members are not returned.</p>
    */
   Type?: ChannelMembershipType | string;
 
@@ -1132,7 +1133,8 @@ export interface ListChannelMembershipsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token passed by previous API calls until all requested channel memberships are returned.</p>
+   * <p>The token passed by previous API calls until all requested channel memberships are
+   *          returned.</p>
    */
   NextToken?: string;
 
@@ -1164,7 +1166,8 @@ export interface ListChannelMembershipsResponse {
   ChannelMemberships?: ChannelMembershipSummary[];
 
   /**
-   * <p>The token passed by previous API calls until all requested channel memberships are returned.</p>
+   * <p>The token passed by previous API calls until all requested channel memberships are
+   *          returned.</p>
    */
   NextToken?: string;
 }
@@ -1253,7 +1256,8 @@ export interface ListChannelMessagesRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The order in which you want messages sorted. Default is Descending, based on time created.</p>
+   * <p>The order in which you want messages sorted. Default is Descending, based on time
+   *          created.</p>
    */
   SortOrder?: SortOrder | string;
 
@@ -1335,7 +1339,8 @@ export interface ListChannelModeratorsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token passed by previous API calls until all requested moderators are returned.</p>
+   * <p>The token passed by previous API calls until all requested moderators are
+   *          returned.</p>
    */
   NextToken?: string;
 
@@ -1362,7 +1367,8 @@ export interface ListChannelModeratorsResponse {
   ChannelArn?: string;
 
   /**
-   * <p>The token passed by previous API calls until all requested moderators are returned.</p>
+   * <p>The token passed by previous API calls until all requested moderators are
+   *          returned.</p>
    */
   NextToken?: string;
 
@@ -1392,9 +1398,9 @@ export interface ListChannelsRequest {
   AppInstanceArn: string | undefined;
 
   /**
-   * <p>The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code> retrieves private channels. Only an
-   *     <code>AppInstanceAdmin</code> can retrieve private channels.
-   * </p>
+   * <p>The privacy setting. <code>PUBLIC</code> retrieves all the public channels.
+   *             <code>PRIVATE</code> retrieves private channels. Only an <code>AppInstanceAdmin</code>
+   *          can retrieve private channels. </p>
    */
   Privacy?: ChannelPrivacy | string;
 
@@ -1431,7 +1437,8 @@ export interface ListChannelsResponse {
   Channels?: ChannelSummary[];
 
   /**
-   * <p>The token returned from previous API requests until the number of channels is reached.</p>
+   * <p>The token returned from previous API requests until the number of channels is
+   *          reached.</p>
    */
   NextToken?: string;
 }
@@ -1459,7 +1466,8 @@ export interface ListChannelsModeratedByAppInstanceUserRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token returned from previous API requests until the number of channels moderated by the user is reached.</p>
+   * <p>The token returned from previous API requests until the number of channels moderated by
+   *          the user is reached.</p>
    */
   NextToken?: string;
 
@@ -1486,7 +1494,8 @@ export interface ListChannelsModeratedByAppInstanceUserResponse {
   Channels?: ChannelModeratedByAppInstanceUserSummary[];
 
   /**
-   * <p>The token returned from previous API requests until the number of channels moderated by the user is reached.</p>
+   * <p>The token returned from previous API requests until the number of channels moderated by
+   *          the user is reached.</p>
    */
   NextToken?: string;
 }
@@ -3474,7 +3483,7 @@ export namespace UpdateAppInstanceRequest {
 
 export interface UpdateAppInstanceResponse {
   /**
-   * <p>The ARN of the <code>AppInstance</code>.</p>
+   * <p>The ARN of the <code>AppInstance</code>. </p>
    */
   AppInstanceArn?: string;
 }

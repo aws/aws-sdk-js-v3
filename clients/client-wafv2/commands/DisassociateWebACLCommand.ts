@@ -22,7 +22,9 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
 
 /**
  * <p>Disassociates a web ACL from a regional application resource. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API.  </p>
- *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To disassociate a web ACL, provide an empty web ACL ID in the CloudFront call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
+ *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
+ *          disassociate a web ACL, provide an empty web ACL ID in the CloudFront call
+ *             <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

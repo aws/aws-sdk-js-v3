@@ -21,7 +21,8 @@ export interface ListRegexPatternSetsCommandInput extends ListRegexPatternSetsRe
 export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an array of <a>RegexPatternSetSummary</a> objects for the regex pattern sets that you manage.</p>
+ * <p>Retrieves an array of <a>RegexPatternSetSummary</a> objects for the regex
+ *          pattern sets that you manage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

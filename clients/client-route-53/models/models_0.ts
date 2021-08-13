@@ -393,7 +393,7 @@ export interface AliasTarget {
    *                   </li>
    *                   <li>
    * 							              <p>
-   *                         <b>Management Console</b>: Go to the Amazon EC2 page, choose
+   *                         <b>Amazon Web Services Management Console</b>: Go to the Amazon EC2 page, choose
    * 								<b>Load Balancers</b> in the navigation pane, select the load balancer, and get the value of the
    * 								<b>Hosted zone</b> field on the <b>Description</b> tab.</p>
    * 						            </li>
@@ -514,7 +514,7 @@ export interface AliasTarget {
    * 					          <ul>
    *                   <li>
    * 							              <p>
-   *                         <i>Management Console</i>: For information about how to get the value by using the console,
+   *                         <i>Amazon Web Services Management Console</i>: For information about how to get the value by using the console,
    * 								see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html">Using Custom Domains with Elastic Beanstalk</a> in the
    * 								<i>Elastic Beanstalk Developer Guide</i>.</p>
    * 						            </li>
@@ -536,12 +536,12 @@ export interface AliasTarget {
    * 				        </dd>
    *             <dt>ELB load balancer</dt>
    *             <dd>
-   *                <p>Specify the DNS name that is associated with the load balancer. Get the DNS name by using the Management Console,
+   *                <p>Specify the DNS name that is associated with the load balancer. Get the DNS name by using the Amazon Web Services Management Console,
    * 					the ELB API, or the CLI. </p>
    * 					          <ul>
    *                   <li>
    * 							              <p>
-   *                         <b>Management Console</b>: Go to the EC2 page, choose <b>Load Balancers</b>
+   *                         <b>Amazon Web Services Management Console</b>: Go to the EC2 page, choose <b>Load Balancers</b>
    * 								in the navigation pane, choose the load balancer, choose the <b>Description</b> tab, and get the value
    * 								of the <b>DNS name</b> field. </p>
    * 							              <p>If you're routing traffic to a Classic Load Balancer, get the value that begins with <b>dualstack</b>.
@@ -2285,7 +2285,8 @@ export interface HealthCheckConfig {
   InsufficientDataHealthStatus?: InsufficientDataHealthStatus | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for Route53 Application Recovery Controller routing control.</p>
+   * <p>The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control.</p>
+   * 		       <p>For more information about Route 53 Application Recovery Controller, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery.html">Route 53 Application Recovery Controller Developer Guide.</a>.</p>
    */
   RoutingControlArn?: string;
 }
@@ -2572,7 +2573,7 @@ export namespace HealthCheckAlreadyExists {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. To request a
  * 			higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  *
- * 		       <p>You have reached the maximum number of active health checks for an account. To request a higher limit,
+ * 		       <p>You have reached the maximum number of active health checks for an Amazon Web Services account. To request a higher limit,
  * 			<a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
 export interface TooManyHealthChecks extends __SmithyException, $MetadataBearer {
@@ -4545,18 +4546,18 @@ export namespace NoSuchTrafficPolicyInstance {
 
 /**
  * <p>A complex type that contains information about the request to remove authorization to associate a VPC
- * 			that was created by one account with a hosted zone that was created with a different account. </p>
+ * 			that was created by one Amazon Web Services account with a hosted zone that was created with a different Amazon Web Services account. </p>
  */
 export interface DeleteVPCAssociationAuthorizationRequest {
   /**
-   * <p>When removing authorization to associate a VPC that was created by one account with a hosted zone
-   * 			that was created with a different account, the ID of the hosted zone.</p>
+   * <p>When removing authorization to associate a VPC that was created by one Amazon Web Services account with a hosted zone
+   * 			that was created with a different Amazon Web Services account, the ID of the hosted zone.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
-   * <p>When removing authorization to associate a VPC that was created by one account with a hosted zone
-   * 			that was created with a different account, a complex type that includes the ID and region of the VPC.</p>
+   * <p>When removing authorization to associate a VPC that was created by one Amazon Web Services account with a hosted zone
+   * 			that was created with a different Amazon Web Services account, a complex type that includes the ID and region of the VPC.</p>
    */
   VPC: VPC | undefined;
 }
@@ -5245,7 +5246,7 @@ export namespace GetHealthCheckRequest {
 export interface GetHealthCheckResponse {
   /**
    * <p>A complex type that contains information about one health check that is associated with
-   * 			the current account.</p>
+   * 			the current Amazon Web Services account.</p>
    */
   HealthCheck: HealthCheck | undefined;
 }
@@ -5278,7 +5279,7 @@ export namespace IncompatibleVersion {
 }
 
 /**
- * <p>A request for the number of health checks that are associated with the current account.</p>
+ * <p>A request for the number of health checks that are associated with the current Amazon Web Services account.</p>
  */
 export interface GetHealthCheckCountRequest {}
 
@@ -5296,7 +5297,7 @@ export namespace GetHealthCheckCountRequest {
  */
 export interface GetHealthCheckCountResponse {
   /**
-   * <p>The number of health checks associated with the current account.</p>
+   * <p>The number of health checks associated with the current Amazon Web Services account.</p>
    */
   HealthCheckCount: number | undefined;
 }
@@ -5502,7 +5503,7 @@ export namespace GetHostedZoneResponse {
 }
 
 /**
- * <p>A request to retrieve a count of all the hosted zones that are associated with the current account.</p>
+ * <p>A request to retrieve a count of all the hosted zones that are associated with the current Amazon Web Services account.</p>
  */
 export interface GetHostedZoneCountRequest {}
 
@@ -5520,7 +5521,7 @@ export namespace GetHostedZoneCountRequest {
  */
 export interface GetHostedZoneCountResponse {
   /**
-   * <p>The total number of public and private hosted zones that are associated with the current account.</p>
+   * <p>The total number of public and private hosted zones that are associated with the current Amazon Web Services account.</p>
    */
   HostedZoneCount: number | undefined;
 }
@@ -5886,7 +5887,7 @@ export namespace GetTrafficPolicyInstanceResponse {
 }
 
 /**
- * <p>Request to get the number of traffic policy instances that are associated with the current account.</p>
+ * <p>Request to get the number of traffic policy instances that are associated with the current Amazon Web Services account.</p>
  */
 export interface GetTrafficPolicyInstanceCountRequest {}
 
@@ -5904,7 +5905,7 @@ export namespace GetTrafficPolicyInstanceCountRequest {
  */
 export interface GetTrafficPolicyInstanceCountResponse {
   /**
-   * <p>The number of traffic policy instances that are associated with the current account.</p>
+   * <p>The number of traffic policy instances that are associated with the current Amazon Web Services account.</p>
    */
   TrafficPolicyInstanceCount: number | undefined;
 }
@@ -6014,7 +6015,7 @@ export namespace ListGeoLocationsResponse {
 }
 
 /**
- * <p>A request to retrieve a list of the health checks that are associated with the current account.</p>
+ * <p>A request to retrieve a list of the health checks that are associated with the current Amazon Web Services account.</p>
  */
 export interface ListHealthChecksRequest {
   /**
@@ -6048,7 +6049,7 @@ export namespace ListHealthChecksRequest {
 export interface ListHealthChecksResponse {
   /**
    * <p>A complex type that contains one <code>HealthCheck</code> element for each health check that is associated with the current
-   * 			account.</p>
+   * 			Amazon Web Services account.</p>
    */
   HealthChecks: HealthCheck[] | undefined;
 
@@ -6089,7 +6090,7 @@ export namespace ListHealthChecksResponse {
 }
 
 /**
- * <p>A request to retrieve a list of the public and private hosted zones that are associated with the current account.</p>
+ * <p>A request to retrieve a list of the public and private hosted zones that are associated with the current Amazon Web Services account.</p>
  */
 export interface ListHostedZonesRequest {
   /**
@@ -6168,14 +6169,14 @@ export namespace ListHostedZonesResponse {
 }
 
 /**
- * <p>Retrieves a list of the public and private hosted zones that are associated with the current account in ASCII order by domain
+ * <p>Retrieves a list of the public and private hosted zones that are associated with the current Amazon Web Services account in ASCII order by domain
  * 			name. </p>
  */
 export interface ListHostedZonesByNameRequest {
   /**
    * <p>(Optional) For your first request to <code>ListHostedZonesByName</code>, include the <code>dnsname</code> parameter only if you want to
    * 			specify the name of the first hosted zone in the response. If you don't include the <code>dnsname</code> parameter, Amazon Route 53 returns all of
-   * 			the hosted zones that were created by the current account, in ASCII order. For subsequent requests, include both <code>dnsname</code> and
+   * 			the hosted zones that were created by the current Amazon Web Services account, in ASCII order. For subsequent requests, include both <code>dnsname</code> and
    * 			<code>hostedzoneid</code> parameters. For <code>dnsname</code>, specify the value of <code>NextDNSName</code> from the previous response.</p>
    */
   DNSName?: string;
@@ -6284,7 +6285,7 @@ export namespace InvalidPaginationToken {
 }
 
 /**
- * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless of which account created the hosted zones.</p>
+ * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless of which Amazon Web Services account created the hosted zones.</p>
  */
 export interface ListHostedZonesByVPCRequest {
   /**
@@ -6328,9 +6329,9 @@ export namespace ListHostedZonesByVPCRequest {
  */
 export interface HostedZoneOwner {
   /**
-   * <p>If the hosted zone was created by an account, or was created by an Amazon Web Services service that creates hosted zones using the current account,
+   * <p>If the hosted zone was created by an Amazon Web Services account, or was created by an Amazon Web Services service that creates hosted zones using the current account,
    * 			<code>OwningAccount</code> contains the account ID of that account. For example, when you use Cloud Map to create a hosted zone, Cloud Map
-   * 			creates the hosted zone using the current account. </p>
+   * 			creates the hosted zone using the current Amazon Web Services account. </p>
    */
   OwningAccount?: string;
 
@@ -6368,7 +6369,7 @@ export interface HostedZoneSummary {
   Name: string | undefined;
 
   /**
-   * <p>The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an account or
+   * <p>The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an Amazon Web Services account or
    * 			an Amazon Web Services service.</p>
    */
   Owner: HostedZoneOwner | undefined;
@@ -6415,12 +6416,12 @@ export interface ListQueryLoggingConfigsRequest {
    * <p>(Optional) If you want to list the query logging configuration that is associated with a hosted zone, specify the ID in
    * 			<code>HostedZoneId</code>. </p>
    * 		       <p>If you don't specify a hosted zone ID, <code>ListQueryLoggingConfigs</code> returns all of the configurations
-   * 			that are associated with the current account.</p>
+   * 			that are associated with the current Amazon Web Services account.</p>
    */
   HostedZoneId?: string;
 
   /**
-   * <p>(Optional) If the current account has more than <code>MaxResults</code> query logging configurations, use <code>NextToken</code>
+   * <p>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code> query logging configurations, use <code>NextToken</code>
    * 			to get the second and subsequent pages of results.</p>
    * 		       <p>For the first <code>ListQueryLoggingConfigs</code> request, omit this value.</p>
    * 		       <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value
@@ -6430,7 +6431,7 @@ export interface ListQueryLoggingConfigsRequest {
 
   /**
    * <p>(Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request.
-   * 			If the current account has more than <code>MaxResults</code> configurations, use the value of
+   * 			If the current Amazon Web Services account has more than <code>MaxResults</code> configurations, use the value of
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax">NextToken</a>
    * 			in the response to get the next page of results.</p>
    * 		       <p>If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100 configurations.</p>
@@ -6451,12 +6452,12 @@ export interface ListQueryLoggingConfigsResponse {
   /**
    * <p>An array that contains one
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html">QueryLoggingConfig</a> element
-   * 			for each configuration for DNS query logging that is associated with the current account.</p>
+   * 			for each configuration for DNS query logging that is associated with the current Amazon Web Services account.</p>
    */
   QueryLoggingConfigs: QueryLoggingConfig[] | undefined;
 
   /**
-   * <p>If a response includes the last of the query logging configurations that are associated with the current account,
+   * <p>If a response includes the last of the query logging configurations that are associated with the current Amazon Web Services account,
    * 			<code>NextToken</code> doesn't appear in the response.</p>
    * 		       <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html">ListQueryLoggingConfigs</a>
@@ -6614,7 +6615,7 @@ export namespace ListResourceRecordSetsResponse {
 }
 
 /**
- * <p>A request to get a list of the reusable delegation sets that are associated with the current account.</p>
+ * <p>A request to get a list of the reusable delegation sets that are associated with the current Amazon Web Services account.</p>
  */
 export interface ListReusableDelegationSetsRequest {
   /**
@@ -6643,12 +6644,12 @@ export namespace ListReusableDelegationSetsRequest {
 }
 
 /**
- * <p>A complex type that contains information about the reusable delegation sets that are associated with the current account.</p>
+ * <p>A complex type that contains information about the reusable delegation sets that are associated with the current Amazon Web Services account.</p>
  */
 export interface ListReusableDelegationSetsResponse {
   /**
    * <p>A complex type that contains one <code>DelegationSet</code> element for each reusable delegation set that was created
-   * 			by the current account.</p>
+   * 			by the current Amazon Web Services account.</p>
    */
   DelegationSets: DelegationSet[] | undefined;
 
@@ -6827,7 +6828,7 @@ export namespace ListTagsForResourcesResponse {
 
 /**
  * <p>A complex type that contains the information about the request to list the traffic policies that are associated
- * 			with the current account.</p>
+ * 			with the current Amazon Web Services account.</p>
  */
 export interface ListTrafficPoliciesRequest {
   /**
@@ -6859,7 +6860,7 @@ export namespace ListTrafficPoliciesRequest {
 
 /**
  * <p>A complex type that contains information about the latest version of one traffic policy
- * 			that is associated with the current account.</p>
+ * 			that is associated with the current Amazon Web Services account.</p>
  */
 export interface TrafficPolicySummary {
   /**
@@ -6884,7 +6885,7 @@ export interface TrafficPolicySummary {
   LatestVersion: number | undefined;
 
   /**
-   * <p>The number of traffic policies that are associated with the current account.</p>
+   * <p>The number of traffic policies that are associated with the current Amazon Web Services account.</p>
    */
   TrafficPolicyCount: number | undefined;
 }
@@ -6903,7 +6904,7 @@ export namespace TrafficPolicySummary {
  */
 export interface ListTrafficPoliciesResponse {
   /**
-   * <p>A list that contains one <code>TrafficPolicySummary</code> element for each traffic policy that was created by the current account.</p>
+   * <p>A list that contains one <code>TrafficPolicySummary</code> element for each traffic policy that was created by the current Amazon Web Services account.</p>
    */
   TrafficPolicySummaries: TrafficPolicySummary[] | undefined;
 
@@ -6937,7 +6938,7 @@ export namespace ListTrafficPoliciesResponse {
 }
 
 /**
- * <p>A request to get information about the traffic policy instances that you created by using the current account.</p>
+ * <p>A request to get information about the traffic policy instances that you created by using the current Amazon Web Services account.</p>
  */
 export interface ListTrafficPolicyInstancesRequest {
   /**

@@ -189,6 +189,9 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *          domains, and each domain can have multiple third-party integrations.</p>
    *          <p>Each Amazon Connect instance can be associated with only one domain. Multiple Amazon Connect instances can
    *          be associated with one domain.</p>
+   *          <p>Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a> to
+   *          enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
+   *             resolution</a>: set <code>Matching</code> to true. </p>
    */
   public createDomain(
     args: CreateDomainCommandInput,
@@ -509,7 +512,7 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *          <p>GetMatches returns potentially matching profiles, based on the results of the latest run
    *          of a machine learning process. </p>
    *          <important>
-   *             <p>Amazon Connect runs a batch process every Saturday at 12AM UTC to identify matching profiles.
+   *             <p>Amazon Connect starts a batch process every Saturday at 12AM UTC to identify matching profiles.
    *             The results are returned up to seven days after the Saturday run.</p>
    *          </important>
    *
@@ -543,6 +546,10 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *                <p>BusinessName</p>
    *             </li>
    *          </ul>
+   *          <p>For example, two or more profiles—with spelling mistakes such as <b>John Doe</b> and <b>Jhn Doe</b>, or different casing
+   *          email addresses such as <b>JOHN_DOE@ANYCOMPANY.COM</b> and
+   *             <b>johndoe@anycompany.com</b>, or different phone number
+   *          formats such as <b>555-010-0000</b> and <b>+1-555-010-0000</b>—can be detected as belonging to the same customer <b>John Doe</b> and merged into a unified profile.</p>
    */
   public getMatches(args: GetMatchesCommandInput, options?: __HttpHandlerOptions): Promise<GetMatchesCommandOutput>;
   public getMatches(args: GetMatchesCommandInput, cb: (err: any, data?: GetMatchesCommandOutput) => void): void;
@@ -1144,6 +1151,9 @@ export class CustomerProfiles extends CustomerProfilesClient {
    * <p>Updates the properties of a domain, including creating or selecting a dead letter queue
    *          or an encryption key.</p>
    *          <p>After a domain is created, the name can’t be changed.</p>
+   *          <p>Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a> to
+   *          enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
+   *             resolution</a>: set <code>Matching</code> to true. </p>
    */
   public updateDomain(
     args: UpdateDomainCommandInput,

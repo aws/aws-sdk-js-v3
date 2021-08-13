@@ -1124,7 +1124,7 @@ export interface MutualTlsAuthenticationInput {
 
   /**
    * <p>The version of the S3 object that contains your truststore. To
-   *             specify a version, you must have versioning enabled for the S3 bucket.</p>
+   *            specify a version, you must have versioning enabled for the S3 bucket.</p>
    */
   truststoreVersion?: string;
 }
@@ -1203,6 +1203,11 @@ export interface CreateDomainNameRequest {
    * <p>If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your custom domain name.</p>
    */
   mutualTlsAuthentication?: MutualTlsAuthenticationInput;
+
+  /**
+   * <p>The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the regionalCertificateArn.</p>
+   */
+  ownershipVerificationCertificateArn?: string;
 }
 
 export namespace CreateDomainNameRequest {
@@ -1217,6 +1222,8 @@ export namespace CreateDomainNameRequest {
 export enum DomainNameStatus {
   AVAILABLE = "AVAILABLE",
   PENDING = "PENDING",
+  PENDING_CERTIFICATE_REIMPORT = "PENDING_CERTIFICATE_REIMPORT",
+  PENDING_OWNERSHIP_VERIFICATION = "PENDING_OWNERSHIP_VERIFICATION",
   UPDATING = "UPDATING",
 }
 
@@ -1325,7 +1332,7 @@ export interface DomainName {
   endpointConfiguration?: EndpointConfiguration;
 
   /**
-   * <p>The status of the <a>DomainName</a> migration. The valid values are <code>AVAILABLE</code> and <code>UPDATING</code>. If the status is <code>UPDATING</code>, the domain cannot be modified further until the existing operation is complete. If it is <code>AVAILABLE</code>, the domain can be updated.</p>
+   * <p>The status of the <a>DomainName</a> migration. The valid values are <code>AVAILABLE</code>, <code>UPDATING</code>, <code>PENDING_CERTIFICATE_REIMPORT</code>, and <code>PENDING_OWNERSHIP_VERIFICATION</code>. If the status is <code>UPDATING</code>, the domain cannot be modified further until the existing operation is complete. If it is <code>AVAILABLE</code>, the domain can be updated.</p>
    */
   domainNameStatus?: DomainNameStatus | string;
 
@@ -1348,6 +1355,11 @@ export interface DomainName {
    * <p>The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.</p>
    */
   mutualTlsAuthentication?: MutualTlsAuthentication;
+
+  /**
+   * <p>The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the regionalCertificateArn.</p>
+   */
+  ownershipVerificationCertificateArn?: string;
 }
 
 export namespace DomainName {

@@ -21,7 +21,7 @@ export interface ListTrafficPolicyInstancesCommandInput extends ListTrafficPolic
 export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPolicyInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about the traffic policy instances that you created by using the current account.</p>
+ * <p>Gets information about the traffic policy instances that you created by using the current Amazon Web Services account.</p>
  * 		       <note>
  * 			         <p>After you submit an <code>UpdateTrafficPolicyInstance</code> request, there's a brief delay while Amazon Route 53 creates the
  * 				resource record sets that are specified in the traffic policy definition. For more information, see the <code>State</code> response element.</p>

@@ -82,6 +82,10 @@ import { StartBuildCommandInput, StartBuildCommandOutput } from "../commands/Sta
 import { StopBuildBatchCommandInput, StopBuildBatchCommandOutput } from "../commands/StopBuildBatchCommand";
 import { StopBuildCommandInput, StopBuildCommandOutput } from "../commands/StopBuildCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
+import {
+  UpdateProjectVisibilityCommandInput,
+  UpdateProjectVisibilityCommandOutput,
+} from "../commands/UpdateProjectVisibilityCommand";
 import { UpdateReportGroupCommandInput, UpdateReportGroupCommandOutput } from "../commands/UpdateReportGroupCommand";
 import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "../commands/UpdateWebhookCommand";
 import {
@@ -225,6 +229,8 @@ import {
   TestReportSummary,
   UpdateProjectInput,
   UpdateProjectOutput,
+  UpdateProjectVisibilityInput,
+  UpdateProjectVisibilityOutput,
   UpdateReportGroupInput,
   UpdateReportGroupOutput,
   UpdateWebhookInput,
@@ -793,6 +799,19 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateProjectVisibilityCommand = async (
+  input: UpdateProjectVisibilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CodeBuild_20161006.UpdateProjectVisibility",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateProjectVisibilityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3314,6 +3333,68 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateProjectVisibilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProjectVisibilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateProjectVisibilityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateProjectVisibilityOutput(data, context);
+  const response: UpdateProjectVisibilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateProjectVisibilityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProjectVisibilityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codebuild#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateReportGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4606,6 +4687,19 @@ const serializeAws_json1_1UpdateProjectInput = (input: UpdateProjectInput, conte
   };
 };
 
+const serializeAws_json1_1UpdateProjectVisibilityInput = (
+  input: UpdateProjectVisibilityInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.projectVisibility !== undefined &&
+      input.projectVisibility !== null && { projectVisibility: input.projectVisibility }),
+    ...(input.resourceAccessRole !== undefined &&
+      input.resourceAccessRole !== null && { resourceAccessRole: input.resourceAccessRole }),
+  };
+};
+
 const serializeAws_json1_1UpdateReportGroupInput = (input: UpdateReportGroupInput, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
@@ -5755,7 +5849,10 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
         ? deserializeAws_json1_1LogsConfig(output.logsConfig, context)
         : undefined,
     name: __expectString(output.name),
+    projectVisibility: __expectString(output.projectVisibility),
+    publicProjectAlias: __expectString(output.publicProjectAlias),
     queuedTimeoutInMinutes: __expectNumber(output.queuedTimeoutInMinutes),
+    resourceAccessRole: __expectString(output.resourceAccessRole),
     secondaryArtifacts:
       output.secondaryArtifacts !== undefined && output.secondaryArtifacts !== null
         ? deserializeAws_json1_1ProjectArtifactsList(output.secondaryArtifacts, context)
@@ -6379,6 +6476,17 @@ const deserializeAws_json1_1UpdateProjectOutput = (output: any, context: __Serde
       output.project !== undefined && output.project !== null
         ? deserializeAws_json1_1Project(output.project, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateProjectVisibilityOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateProjectVisibilityOutput => {
+  return {
+    projectArn: __expectString(output.projectArn),
+    projectVisibility: __expectString(output.projectVisibility),
+    publicProjectAlias: __expectString(output.publicProjectAlias),
   } as any;
 };
 

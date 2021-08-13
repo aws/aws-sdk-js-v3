@@ -27,7 +27,7 @@ export interface CreateVPCAssociationAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Authorizes the account that created a specified VPC to submit an <code>AssociateVPCWithHostedZone</code>
+ * <p>Authorizes the Amazon Web Services account that created a specified VPC to submit an <code>AssociateVPCWithHostedZone</code>
  * 			request to associate the VPC with a specified hosted zone that was created by a different account.
  * 			To submit a <code>CreateVPCAssociationAuthorization</code> request, you must use the account that created the
  * 			hosted zone. After you authorize the association, use the account that created the VPC to submit an

@@ -178,6 +178,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws-us-gov",
       };
       break;
+    case "us-isob-east-1":
+      regionInfo = {
+        hostname: "tagging.us-isob-east-1.sc2s.sgov.gov",
+        partition: "aws-iso-b",
+      };
+      break;
     case "us-west-1":
       regionInfo = {
         hostname: "tagging.us-west-1.amazonaws.com",

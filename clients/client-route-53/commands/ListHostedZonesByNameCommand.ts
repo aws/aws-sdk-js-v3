@@ -23,7 +23,7 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
 
 /**
  * <p>Retrieves a list of your hosted zones in lexicographic order. The response includes a <code>HostedZones</code> child element
- * 			for each hosted zone created by the current account. </p>
+ * 			for each hosted zone created by the current Amazon Web Services account. </p>
  * 		       <p>
  *             <code>ListHostedZonesByName</code> sorts hosted zones by name with the labels reversed. For example:</p>
  *
@@ -56,13 +56,13 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  * 			         </li>
  *             <li>
  * 				           <p>If the value of <code>IsTruncated</code> in the response is true, there are more hosted zones associated with the
- * 					current account. </p>
+ * 					current Amazon Web Services account. </p>
  * 				           <p>If <code>IsTruncated</code> is false, this response includes the last hosted zone that is associated with the current account.
  * 					The <code>NextDNSName</code> element and <code>NextHostedZoneId</code> elements are omitted from the response.</p>
  * 			         </li>
  *             <li>
  * 				           <p>The <code>NextDNSName</code> and <code>NextHostedZoneId</code> elements in the response contain the domain name and the
- * 					hosted zone ID of the next hosted zone that is associated with the current account. If you want to list more hosted zones,
+ * 					hosted zone ID of the next hosted zone that is associated with the current Amazon Web Services account. If you want to list more hosted zones,
  * 					make another call to <code>ListHostedZonesByName</code>, and specify the value of <code>NextDNSName</code> and
  * 					<code>NextHostedZoneId</code> in the <code>dnsname</code> and <code>hostedzoneid</code> parameters, respectively.</p>
  * 			         </li>

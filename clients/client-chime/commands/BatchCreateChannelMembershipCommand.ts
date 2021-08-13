@@ -23,7 +23,7 @@ export interface BatchCreateChannelMembershipCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Adds a specified number of users to a channel. </p>
+ * <p>Adds a specified number of users to a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

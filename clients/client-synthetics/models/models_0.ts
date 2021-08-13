@@ -1,7 +1,19 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+/**
+ * <p>A structure representing a screenshot that is used as a baseline during visual monitoring comparisons made by the canary.</p>
+ */
 export interface BaseScreenshot {
+  /**
+   * <p>The name of the screenshot. This is generated the first time the canary is run after the <code>UpdateCanary</code> operation that
+   *       specified for this canary to perform visual monitoring.</p>
+   */
   ScreenshotName: string | undefined;
+
+  /**
+   * <p>Coordinates that define the part of a screen to ignore during screenshot comparisons. To obtain the coordinates to use here, use the
+   *          CloudWatch Logs console to draw the boundaries on the screen. For more information, see {LINK}</p>
+   */
   IgnoreCoordinates?: string[];
 }
 
@@ -188,8 +200,20 @@ export namespace CanaryTimeline {
   });
 }
 
+/**
+ * <p>If this canary performs visual monitoring by comparing screenshots, this structure contains the ID of the canary run that is used as the baseline for screenshots, and the coordinates
+ *          of any parts of those screenshots that are ignored during visual monitoring comparison.</p>
+ *          <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b> runtime or later.</p>
+ */
 export interface VisualReferenceOutput {
+  /**
+   * <p>An array of screenshots that are used as the baseline for comparisons during visual monitoring.</p>
+   */
   BaseScreenshots?: BaseScreenshot[];
+
+  /**
+   * <p>The ID of the canary run that produced the screenshots that are used as the baseline for visual monitoring comparisons during future runs of this canary.</p>
+   */
   BaseCanaryRunId?: string;
 }
 
@@ -319,7 +343,12 @@ export interface Canary {
    */
   VpcConfig?: VpcConfigOutput;
 
+  /**
+   * <p>If this canary performs visual monitoring by comparing screenshots, this structure contains the ID of the canary run to use as the baseline for screenshots, and the coordinates
+   *       of any parts of the screen to ignore during the visual monitoring comparison.</p>
+   */
   VisualReference?: VisualReferenceOutput;
+
   /**
    * <p>The list of key-value pairs that are associated with the canary.</p>
    */
@@ -492,8 +521,7 @@ export interface CanaryCodeInput {
   /**
    * <p>If you input your canary script directly into the canary instead of referring to an S3
    *          location, the value of this parameter is the base64-encoded contents of the .zip file that
-   *          contains the script. It can be
-   *          up to 5 MB.</p>
+   *          contains the script. It must be smaller than 256 Kb.</p>
    */
   ZipFile?: Uint8Array;
 
@@ -1305,8 +1333,28 @@ export namespace UntagResourceResponse {
   });
 }
 
+/**
+ * <p>An object that specifies what screenshots to use as a baseline for visual monitoring by this canary, and optionally the parts of the screenshots to ignore during the visual monitoring comparison.</p>
+ *
+ *          <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b>
+ *          runtime or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html">
+ *             Visual monitoring</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html">
+ *                Visual monitoring blueprint</a>
+ *          </p>
+ */
 export interface VisualReferenceInput {
+  /**
+   * <p>An array of screenshots that will be used as the baseline for visual monitoring in future runs of this canary. If there is a screenshot that you don't want to be used for
+   *       visual monitoring, remove it from this array.</p>
+   */
   BaseScreenshots?: BaseScreenshot[];
+
+  /**
+   * <p>Specifies which canary run to use the screenshots from as the baseline for future visual monitoring with this canary. Valid values are
+   *          <code>nextrun</code> to use the screenshots from the next run after this update is made, <code>lastrun</code> to use the screenshots from the most recent run
+   *          before this update was made, or the value of <code>Id</code> in the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html">
+   *             CanaryRun</a> from any past run of this canary.</p>
+   */
   BaseCanaryRunId: string | undefined;
 }
 
@@ -1417,6 +1465,15 @@ export interface UpdateCanaryRequest {
    */
   VpcConfig?: VpcConfigInput;
 
+  /**
+   * <p>Defines the screenshots to use as the baseline for comparisons during visual monitoring comparisons during future runs of this canary. If you omit this
+   *       parameter, no changes are made to any baseline screenshots that the canary might be using already.</p>
+   *          <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b>
+   *          runtime or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html">
+   *             Visual monitoring</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html">
+   *                Visual monitoring blueprint</a>
+   *          </p>
+   */
   VisualReference?: VisualReferenceInput;
 }
 

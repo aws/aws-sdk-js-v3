@@ -21,24 +21,27 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p>
+ * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
+ *          filters to narrow results.</p>
  *
  *          <p class="title">
  *             <b>Functionality & restrictions</b>
  *          </p>
  *          <ul>
  *             <li>
- *                <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p>
+ *                <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the
+ *                account.</p>
  *             </li>
  *             <li>
- *                <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the
- *                     private channels in an account.</p>
+ *                <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to
+ *                list the private channels in an account.</p>
  *             </li>
  *          </ul>
  *
  *          <note>
- *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
- *         the API call as the value in the header.</p>
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             the header.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

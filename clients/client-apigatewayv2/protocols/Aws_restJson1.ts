@@ -9794,6 +9794,10 @@ const serializeAws_restJson1DomainNameConfiguration = (
       input.DomainNameStatusMessage !== null && { domainNameStatusMessage: input.DomainNameStatusMessage }),
     ...(input.EndpointType !== undefined && input.EndpointType !== null && { endpointType: input.EndpointType }),
     ...(input.HostedZoneId !== undefined && input.HostedZoneId !== null && { hostedZoneId: input.HostedZoneId }),
+    ...(input.OwnershipVerificationCertificateArn !== undefined &&
+      input.OwnershipVerificationCertificateArn !== null && {
+        ownershipVerificationCertificateArn: input.OwnershipVerificationCertificateArn,
+      }),
     ...(input.SecurityPolicy !== undefined &&
       input.SecurityPolicy !== null && { securityPolicy: input.SecurityPolicy }),
   };
@@ -10332,6 +10336,7 @@ const deserializeAws_restJson1DomainNameConfiguration = (
     DomainNameStatusMessage: __expectString(output.domainNameStatusMessage),
     EndpointType: __expectString(output.endpointType),
     HostedZoneId: __expectString(output.hostedZoneId),
+    OwnershipVerificationCertificateArn: __expectString(output.ownershipVerificationCertificateArn),
     SecurityPolicy: __expectString(output.securityPolicy),
   } as any;
 };

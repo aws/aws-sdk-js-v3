@@ -13510,6 +13510,7 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     ARN: undefined,
     UserGroupIds: undefined,
     LogDeliveryConfigurations: undefined,
+    ReplicationGroupCreateTime: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
@@ -13624,6 +13625,9 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
       __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"]),
       context
     );
+  }
+  if (output["ReplicationGroupCreateTime"] !== undefined) {
+    contents.ReplicationGroupCreateTime = new Date(output["ReplicationGroupCreateTime"]);
   }
   return contents;
 };

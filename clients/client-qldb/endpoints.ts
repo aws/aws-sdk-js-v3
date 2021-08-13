@@ -76,6 +76,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "qldb.eu-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "fips-us-east-1":
       regionInfo = {
         hostname: "qldb-fips.us-east-1.amazonaws.com",

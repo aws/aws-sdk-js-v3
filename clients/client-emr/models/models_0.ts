@@ -1922,13 +1922,13 @@ export interface CreateStudioSessionMappingInput {
   /**
    * <p>The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity
    *          Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API Reference</i>.
-   *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
+   *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified, but not both.</p>
    */
   IdentityId?: string;
 
   /**
    * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API Reference</i>.
-   *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
+   *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified, but not both.</p>
    */
   IdentityName?: string;
 
@@ -2227,6 +2227,11 @@ export interface InstanceGroupDetail {
    * <p>The date/time the instance group was terminated.</p>
    */
   EndDateTime?: Date;
+
+  /**
+   * <p>The custom AMI ID to use for the provisioned instance group.</p>
+   */
+  CustomAmiId?: string;
 }
 
 export namespace InstanceGroupDetail {
@@ -2494,7 +2499,9 @@ export interface JobFlowDetail {
    * <p>Indicates whether the cluster is visible to IAM principals in the account associated
    *          with the cluster. When <code>true</code>, IAM principals in the
    *          account can perform EMR cluster actions that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions, regardless of IAM permissions policies attached to other IAM principals.</p>
-   *          <p>The default value is <code>false</code> if a value is not provided when creating a cluster using the EMR API <a>RunJobFlow</a> command or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command. The default value is <code>true</code> when a cluster is created using the Management Console. IAM principals that are authorized to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMR Management Guide</i>.</p>
+   *          <p>The default value is <code>true</code> if a value is not provided when creating a
+   *          cluster using the EMR API <a>RunJobFlow</a> command, the CLI
+   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Management Console. IAM principals that are authorized to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
    */
   VisibleToAllUsers?: boolean;
 
@@ -4450,7 +4457,7 @@ export interface ListReleaseLabelsInput {
   Filters?: ReleaseLabelFilter;
 
   /**
-   * <p>Specifies the next page of results. If <code>NextToken</code> is not specified, which is usually the case for the first request of ListReleaseLabels, the first page of results are determined by other filtering parameters or by the latest version. The <code>ListReleaseLabels</code> request fails if the identity (AWS AccountID) and all filtering parameters are different from the original request, or if the <code>NextToken</code> is expired or tampered with.</p>
+   * <p>Specifies the next page of results. If <code>NextToken</code> is not specified, which is usually the case for the first request of ListReleaseLabels, the first page of results are determined by other filtering parameters or by the latest version. The <code>ListReleaseLabels</code> request fails if the identity (account ID) and all filtering parameters are different from the original request, or if the <code>NextToken</code> is expired or tampered with.</p>
    */
   NextToken?: string;
 
@@ -5597,7 +5604,10 @@ export interface Cluster {
    * <p>Indicates whether the cluster is visible to IAM principals in the account associated
    *          with the cluster. When <code>true</code>, IAM principals in the
    *          account can perform EMR cluster actions on the cluster that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions, regardless of IAM permissions policies attached to other IAM principals.</p>
-   *          <p>The default value is <code>false</code> if a value is not provided when creating a cluster using the EMR API <a>RunJobFlow</a> command or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command. The default value is <code>true</code> when a cluster is created using the Management Console. IAM principals that are allowed to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMR Management Guide</i>.</p>
+   *          <p>The default value is <code>true</code> if a value is not provided when creating a
+   *          cluster using the EMR API <a>RunJobFlow</a> command, the CLI
+   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Management Console. IAM principals that are
+   *          allowed to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
    */
   VisibleToAllUsers?: boolean;
 
@@ -5778,6 +5788,11 @@ export interface InstanceGroupConfig {
    *             <a>PutAutoScalingPolicy</a>.</p>
    */
   AutoScalingPolicy?: AutoScalingPolicy;
+
+  /**
+   * <p>The custom AMI ID to use for the provisioned instance group.</p>
+   */
+  CustomAmiId?: string;
 }
 
 export namespace InstanceGroupConfig {
@@ -5879,6 +5894,11 @@ export interface InstanceTypeConfig {
    *          can include configurations for applications and software that run on the cluster.</p>
    */
   Configurations?: Configuration[];
+
+  /**
+   * <p>The custom AMI ID to use for the instance type.</p>
+   */
+  CustomAmiId?: string;
 }
 
 export namespace InstanceTypeConfig {
@@ -5940,6 +5960,11 @@ export interface InstanceTypeSpecification {
    *          EBS-optimized.</p>
    */
   EbsOptimized?: boolean;
+
+  /**
+   * <p>The custom AMI ID to use for the instance type.</p>
+   */
+  CustomAmiId?: string;
 }
 
 export namespace InstanceTypeSpecification {
@@ -6404,6 +6429,11 @@ export interface InstanceGroup {
    *          PutAutoScalingPolicy.</p>
    */
   AutoScalingPolicy?: AutoScalingPolicyDescription;
+
+  /**
+   * <p>The custom AMI ID to use for the provisioned instance group.</p>
+   */
+  CustomAmiId?: string;
 }
 
 export namespace InstanceGroup {
@@ -6719,8 +6749,8 @@ export interface RunJobFlowInput {
   Configurations?: Configuration[];
 
   /**
-   * <p>Set this value to <code>true</code> so that IAM principals in the account associated with the cluster can perform EMR actions on the cluster that their IAM policies allow. This value defaults to <code>false</code> for clusters created using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
-   *          <p>When set to <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions for the cluster, regardless of the IAM permissions policies attached to other IAM principals. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMR Management Guide</i>.</p>
+   * <p>Set this value to <code>true</code> so that IAM principals in the account associated with the cluster can perform EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
+   *          <p>When set to <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions for the cluster, regardless of the IAM permissions policies attached to other IAM principals. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
    */
   VisibleToAllUsers?: boolean;
 

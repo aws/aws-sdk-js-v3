@@ -82,6 +82,10 @@ import { StartBuildCommandInput, StartBuildCommandOutput } from "./commands/Star
 import { StopBuildBatchCommandInput, StopBuildBatchCommandOutput } from "./commands/StopBuildBatchCommand";
 import { StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import {
+  UpdateProjectVisibilityCommandInput,
+  UpdateProjectVisibilityCommandOutput,
+} from "./commands/UpdateProjectVisibilityCommand";
 import { UpdateReportGroupCommandInput, UpdateReportGroupCommandOutput } from "./commands/UpdateReportGroupCommand";
 import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "./commands/UpdateWebhookCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -179,6 +183,7 @@ export type ServiceInputTypes =
   | StopBuildBatchCommandInput
   | StopBuildCommandInput
   | UpdateProjectCommandInput
+  | UpdateProjectVisibilityCommandInput
   | UpdateReportGroupCommandInput
   | UpdateWebhookCommandInput;
 
@@ -225,6 +230,7 @@ export type ServiceOutputTypes =
   | StopBuildBatchCommandOutput
   | StopBuildCommandOutput
   | UpdateProjectCommandOutput
+  | UpdateProjectVisibilityCommandOutput
   | UpdateReportGroupCommandOutput
   | UpdateWebhookCommandOutput;
 
@@ -368,15 +374,15 @@ type CodeBuildClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
 export interface CodeBuildClientResolvedConfig extends CodeBuildClientResolvedConfigType {}
 
 /**
- * <fullname>AWS CodeBuild</fullname>
- *         <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
- *             runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the
+ * <fullname>CodeBuild</fullname>
+ *         <p>CodeBuild is a fully managed build service in the cloud. CodeBuild compiles your source code,
+ *             runs unit tests, and produces artifacts that are ready to deploy. CodeBuild eliminates the
  *             need to provision, manage, and scale your own build servers. It provides prepackaged
  *             build environments for the most popular programming languages and build tools, such as
- *             Apache Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild
- *             to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You
- *             pay only for the build time you consume. For more information about AWS CodeBuild, see the <i>
- *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">AWS CodeBuild User
+ *             Apache Maven, Gradle, and more. You can also fully customize build environments in CodeBuild
+ *             to use your own build tools. CodeBuild scales automatically to meet peak build requests. You
+ *             pay only for the build time you consume. For more information about CodeBuild, see the <i>
+ *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">CodeBuild User
  *                     Guide</a>.</i>
  *          </p>
  */

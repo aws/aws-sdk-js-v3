@@ -399,7 +399,10 @@ export interface CreateDomainRequest {
   DeadLetterQueueUrl?: string;
 
   /**
-   * <p>The process of matching duplicate profiles. This process runs every Saturday at 12AM.</p>
+   * <p>The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process every Saturday at 12AM UTC to detect duplicate profiles in your domains.
+   * After that batch process completes, use the
+   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
+   * API to return and review the results.  </p>
    */
   Matching?: MatchingRequest;
 
@@ -462,7 +465,10 @@ export interface CreateDomainResponse {
   DeadLetterQueueUrl?: string;
 
   /**
-   * <p>The process of matching duplicate profiles. This process runs every Saturday at 12AM.</p>
+   * <p>The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process every Saturday at 12AM UTC to detect duplicate profiles in your domains.
+   * After that batch process completes, use the
+   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
+   * API to return and review the results.  </p>
    */
   Matching?: MatchingResponse;
 
@@ -962,7 +968,10 @@ export interface GetDomainResponse {
   Stats?: DomainStats;
 
   /**
-   * <p>The process of matching duplicate profiles. This process runs every Saturday at 12AM.</p>
+   * <p>The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process every Saturday at 12AM UTC to detect duplicate profiles in your domains.
+   * After that batch process completes, use the
+   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
+   * API to return and review the results.  </p>
    */
   Matching?: MatchingResponse;
 
@@ -1196,6 +1205,8 @@ export namespace ObjectTypeField {
 }
 
 export enum StandardIdentifier {
+  ASSET = "ASSET",
+  CASE = "CASE",
   LOOKUP_ONLY = "LOOKUP_ONLY",
   NEW_ONLY = "NEW_ONLY",
   PROFILE = "PROFILE",
@@ -1210,9 +1221,9 @@ export enum StandardIdentifier {
 export interface ObjectTypeKey {
   /**
    * <p>The types of keys that a ProfileObject can have. Each ProfileObject can have only 1
-   *          UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an
-   *          object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a
-   *          key a is marked as SECONDARY, it will be used to search for profiles after all other
+   *          UNIQUE key but multiple PROFILE keys. PROFILE, ASSET or CASE means that this key can be used to tie an
+   *          object to a PROFILE, ASSET or CASE respectively. UNIQUE means that it can be used to uniquely identify an object.
+   *          If a key a is marked as SECONDARY, it will be used to search for profiles after all other
    *          PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is
    *          not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the
    *          profile does not already exist before the object is ingested, otherwise it is only used for
@@ -1581,6 +1592,32 @@ export namespace ListIntegrationsResponse {
   });
 }
 
+/**
+ * <p>The filter applied to ListProfileObjects response to include profile objects with the specified index values.
+ *          This filter is only supported for ObjectTypeName _asset and _case.</p>
+ */
+export interface ObjectFilter {
+  /**
+   * <p>A searchable identifier of a standard profile object. The predefined keys you can use to search for _asset include: _assetId, _assetName, _serialNumber.
+   *          The predefined keys you can use to search for _case include: _caseId.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>A list of key values.</p>
+   */
+  Values: string[] | undefined;
+}
+
+export namespace ObjectFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ObjectFilter): any => ({
+    ...obj,
+  });
+}
+
 export interface ListProfileObjectsRequest {
   /**
    * <p>The pagination token from the previous call to ListProfileObjects.</p>
@@ -1606,6 +1643,12 @@ export interface ListProfileObjectsRequest {
    * <p>The unique identifier of a customer profile.</p>
    */
   ProfileId: string | undefined;
+
+  /**
+   * <p>Applies a filter to the response to include profile objects with the specified index values.
+   *          This filter is only supported for ObjectTypeName _asset and _case.</p>
+   */
+  ObjectFilter?: ObjectFilter;
 }
 
 export namespace ListProfileObjectsRequest {
@@ -1993,9 +2036,9 @@ export interface MergeProfilesRequest {
   ProfileIdsToBeMerged: string[] | undefined;
 
   /**
-   * <p>The identifiers of the fields in the profile that has the information you want to apply to the
-   *          merge. For example, say you want to merge EmailAddress from Profile1 into MainProfile. This would be the
-   *          identifier of the EmailAddress field in Profile1. </p>
+   * <p>The identifiers of the fields in the profile that has the information you want to apply
+   *          to the merge. For example, say you want to merge EmailAddress from Profile1 into
+   *          MainProfile. This would be the identifier of the EmailAddress field in Profile1. </p>
    */
   FieldSourceProfileIds?: FieldSourceProfileIds;
 }
@@ -3010,7 +3053,10 @@ export interface UpdateDomainRequest {
   DeadLetterQueueUrl?: string;
 
   /**
-   * <p>The process of matching duplicate profiles. This process runs every Saturday at 12AM.</p>
+   * <p>The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process every Saturday at 12AM UTC to detect duplicate profiles in your domains.
+   * After that batch process completes, use the
+   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
+   * API to return and review the results.  </p>
    */
   Matching?: MatchingRequest;
 
@@ -3054,7 +3100,10 @@ export interface UpdateDomainResponse {
   DeadLetterQueueUrl?: string;
 
   /**
-   * <p>The process of matching duplicate profiles. This process runs every Saturday at 12AM.</p>
+   * <p>The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process every Saturday at 12AM UTC to detect duplicate profiles in your domains.
+   * After that batch process completes, use the
+   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
+   * API to return and review the results.  </p>
    */
   Matching?: MatchingResponse;
 

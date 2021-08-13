@@ -26,6 +26,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *          domains, and each domain can have multiple third-party integrations.</p>
  *          <p>Each Amazon Connect instance can be associated with only one domain. Multiple Amazon Connect instances can
  *          be associated with one domain.</p>
+ *          <p>Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a> to
+ *          enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
+ *             resolution</a>: set <code>Matching</code> to true. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

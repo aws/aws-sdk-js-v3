@@ -4392,6 +4392,7 @@ const serializeAws_json1_1InstanceGroupConfig = (input: InstanceGroupConfig, con
       input.Configurations !== null && {
         Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context),
       }),
+    ...(input.CustomAmiId !== undefined && input.CustomAmiId !== null && { CustomAmiId: input.CustomAmiId }),
     ...(input.EbsConfiguration !== undefined &&
       input.EbsConfiguration !== null && {
         EbsConfiguration: serializeAws_json1_1EbsConfiguration(input.EbsConfiguration, context),
@@ -4504,6 +4505,7 @@ const serializeAws_json1_1InstanceTypeConfig = (input: InstanceTypeConfig, conte
       input.Configurations !== null && {
         Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context),
       }),
+    ...(input.CustomAmiId !== undefined && input.CustomAmiId !== null && { CustomAmiId: input.CustomAmiId }),
     ...(input.EbsConfiguration !== undefined &&
       input.EbsConfiguration !== null && {
         EbsConfiguration: serializeAws_json1_1EbsConfiguration(input.EbsConfiguration, context),
@@ -6196,6 +6198,7 @@ const deserializeAws_json1_1InstanceGroup = (output: any, context: __SerdeContex
         ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
         : undefined,
     ConfigurationsVersion: __expectNumber(output.ConfigurationsVersion),
+    CustomAmiId: __expectString(output.CustomAmiId),
     EbsBlockDevices:
       output.EbsBlockDevices !== undefined && output.EbsBlockDevices !== null
         ? deserializeAws_json1_1EbsBlockDeviceList(output.EbsBlockDevices, context)
@@ -6232,6 +6235,7 @@ const deserializeAws_json1_1InstanceGroupDetail = (output: any, context: __Serde
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
         : undefined,
+    CustomAmiId: __expectString(output.CustomAmiId),
     EndDateTime:
       output.EndDateTime !== undefined && output.EndDateTime !== null
         ? new Date(Math.round(output.EndDateTime * 1000))
@@ -6407,6 +6411,7 @@ const deserializeAws_json1_1InstanceTypeSpecification = (
       output.Configurations !== undefined && output.Configurations !== null
         ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
         : undefined,
+    CustomAmiId: __expectString(output.CustomAmiId),
     EbsBlockDevices:
       output.EbsBlockDevices !== undefined && output.EbsBlockDevices !== null
         ? deserializeAws_json1_1EbsBlockDeviceList(output.EbsBlockDevices, context)

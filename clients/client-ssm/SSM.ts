@@ -1182,12 +1182,12 @@ export class SSM extends SSMClient {
    *    Amazon Web Services Systems Manager offers two types of resource data sync: <code>SyncToDestination</code> and
    *     <code>SyncFromSource</code>.</p>
    *          <p>You can configure Systems Manager Inventory to use the <code>SyncToDestination</code> type to
-   *    synchronize Inventory data from multiple Regions to a single Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring resource data
+   *    synchronize Inventory data from multiple Amazon Web Services Regions to a single Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring resource data
    *     sync for Inventory</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <p>You can configure Systems Manager Explorer to use the <code>SyncFromSource</code> type to synchronize
-   *    operational work items (OpsItems) and operational data (OpsData) from multiple Regions to a
+   *    operational work items (OpsItems) and operational data (OpsData) from multiple Amazon Web Services Regions to a
    *    single Amazon S3 bucket. This type can synchronize OpsItems and OpsData from multiple
-   *    accounts and Regions or <code>EntireOrganization</code> by using Organizations. For more
+   *    Amazon Web Services accounts and Amazon Web Services Regions or <code>EntireOrganization</code> by using Organizations. For more
    *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting up Systems Manager
    *     Explorer to display data from multiple accounts and Regions</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
@@ -1265,8 +1265,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Disassociates the specified Amazon Web Services Systems Manager document (SSM document) from the specified
-   *    instance.</p>
+   * <p>Disassociates the specified Amazon Web Services Systems Manager document (SSM document) from the specified instance.
+   *    If you created the association by using the <code>Targets</code> parameter, then you must delete
+   *    the association by using the association ID.</p>
    *          <p>When you disassociate a document from an instance, it doesn't change the configuration of
    *    the instance. To change the configuration state of an instance after you disassociate a document,
    *    you must create a new document with the desired configuration and associate it with the
@@ -1433,7 +1434,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Delete a parameter from the system.</p>
+   * <p>Delete a parameter from the system. After deleting a parameter, wait for at least 30 seconds
+   *    to create a parameter with the same name.</p>
    */
   public deleteParameter(
     args: DeleteParameterCommandInput,
@@ -1465,7 +1467,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Delete a list of parameters.</p>
+   * <p>Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to
+   *    create a parameter with the same name.</p>
    */
   public deleteParameters(
     args: DeleteParametersCommandInput,
@@ -1732,9 +1735,7 @@ export class SSM extends SSMClient {
   /**
    * <p>Describes the association for the specified target or instance. If you created the
    *    association by using the <code>Targets</code> parameter, then you must retrieve the association
-   *    by using the association ID. If you created the association by specifying an instance ID and an
-   *    Amazon Web Services Systems Manager document (SSM document), then you retrieve the association by specifying the document
-   *    name and the instance ID. </p>
+   *    by using the association ID.</p>
    */
   public describeAssociation(
     args: DescribeAssociationCommandInput,
@@ -1961,7 +1962,7 @@ export class SSM extends SSMClient {
   /**
    * <p>Describes the permissions for a Amazon Web Services Systems Manager document (SSM document). If you created the
    *    document, you are the owner. If a document is shared, it can either be shared privately (by
-   *    specifying a user's account ID) or publicly (<i>All</i>). </p>
+   *    specifying a user's Amazon Web Services account ID) or publicly (<i>All</i>). </p>
    */
   public describeDocumentPermission(
     args: DescribeDocumentPermissionCommandInput,
@@ -2369,7 +2370,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Retrieves the maintenance windows in an account.</p>
+   * <p>Retrieves the maintenance windows in an Amazon Web Services account.</p>
    */
   public describeMaintenanceWindows(
     args: DescribeMaintenanceWindowsCommandInput,
@@ -2611,7 +2612,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Lists the patch baselines in your account.</p>
+   * <p>Lists the patch baselines in your Amazon Web Services account.</p>
    */
   public describePatchBaselines(
     args: DescribePatchBaselinesCommandInput,
@@ -3048,7 +3049,7 @@ export class SSM extends SSMClient {
    * <p>Retrieves the current snapshot for the patch baseline the instance uses. This API is
    *    primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document (SSM document).</p>
    *          <note>
-   *             <p>If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local AWS credentials and the operation fails. To avoid
+   *             <p>If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local Amazon Web Services credentials and the operation fails. To avoid
    *     this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a capability of
    *     Amazon Web Services Systems Manager, with an SSM document that enables you to target an instance with a script or command.
    *     For example, run the command using the <code>AWS-RunShellScript</code> document or the
@@ -3113,7 +3114,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Query inventory information.</p>
+   * <p>Query inventory information. This includes instance status, such as <code>Stopped</code> or
+   *     <code>Terminated</code>.</p>
    */
   public getInventory(
     args: GetInventoryCommandInput,
@@ -3443,8 +3445,10 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Get information about a parameter by using the parameter name. Don't confuse this API
-   *    operation with the <a>GetParameters</a> API operation.</p>
+   * <p>Get information about a single parameter by specifying the parameter name.</p>
+   *          <note>
+   *             <p>To get information about more than one parameter at a time, use the <a>GetParameters</a> operation.</p>
+   *          </note>
    */
   public getParameter(
     args: GetParameterCommandInput,
@@ -3505,7 +3509,11 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Get details of a parameter. Don't confuse this API operation with the <a>GetParameter</a> API operation.</p>
+   * <p>Get information about one or more parameters by specifying multiple parameter names.</p>
+   *          <note>
+   *             <p>To get information about a single parameter, you can use the <a>GetParameter</a>
+   *     operation instead.</p>
+   *          </note>
    */
   public getParameters(
     args: GetParametersCommandInput,
@@ -3652,7 +3660,7 @@ export class SSM extends SSMClient {
    *    permission for the setting. Use the <a>UpdateServiceSetting</a> API operation to
    *    change the default setting. Or use the <a>ResetServiceSetting</a> to change the value
    *    back to the original value defined by the Amazon Web Services service team.</p>
-   *          <p>Query the current service setting for the account. </p>
+   *          <p>Query the current service setting for the Amazon Web Services account. </p>
    */
   public getServiceSetting(
     args: GetServiceSettingCommandInput,
@@ -3752,7 +3760,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Returns all State Manager associations in the current account and Region. You
+   * <p>Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You
    *    can limit the results to a specific State Manager association document or instance by specifying
    *    a filter. State Manager is a capability of Amazon Web Services Systems Manager.</p>
    */
@@ -3854,7 +3862,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Lists the commands requested by users of the account.</p>
+   * <p>Lists the commands requested by users of the Amazon Web Services account.</p>
    */
   public listCommands(
     args: ListCommandsCommandInput,
@@ -3951,7 +3959,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Information about approval reviews for a version of an SSM document.</p>
+   * <p>Information about approval reviews for a version of a change template in Change Manager.</p>
    */
   public listDocumentMetadataHistory(
     args: ListDocumentMetadataHistoryCommandInput,
@@ -3983,7 +3991,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Returns all Systems Manager (SSM) documents in the current account and Region. You can
+   * <p>Returns all Systems Manager (SSM) documents in the current Amazon Web Services account and Amazon Web Services Region. You can
    *    limit the results of this request by using a filter.</p>
    */
   public listDocuments(
@@ -4080,7 +4088,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Returns a list of all OpsItem events in the current Region and account. You can
+   * <p>Returns a list of all OpsItem events in the current Amazon Web Services Region and Amazon Web Services account. You can
    *    limit the results to events associated with specific OpsItems by specifying a filter.</p>
    */
   public listOpsItemEvents(
@@ -5052,6 +5060,10 @@ export class SSM extends SSMClient {
   /**
    * <p>Updates the status of the Amazon Web Services Systems Manager document (SSM document) associated with the specified
    *    instance.</p>
+   *          <p>
+   *             <code>UpdateAssociationStatus</code> is primarily used by the Amazon Web Services Systems Manager Agent (SSM Agent) to
+   *    report status updates about your associations and is only used for associations created with the
+   *     <code>InstanceId</code> legacy parameter.</p>
    */
   public updateAssociationStatus(
     args: UpdateAssociationStatusCommandInput,
@@ -5147,7 +5159,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Updates information related to approval reviews for a specific version of a document.</p>
+   * <p>Updates information related to approval reviews for a specific version of a change template
+   *    in Change Manager.</p>
    */
   public updateDocumentMetadata(
     args: UpdateDocumentMetadataCommandInput,

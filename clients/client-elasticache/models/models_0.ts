@@ -34,7 +34,7 @@ export interface AddTagsToResourceMessage {
    *             for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
    *             or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
    *             ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Service Namespaces</a>.</p>
    */
   ResourceName: string | undefined;
 
@@ -353,9 +353,9 @@ export interface AuthorizeCacheSecurityGroupIngressMessage {
   EC2SecurityGroupName: string | undefined;
 
   /**
-   * <p>The AWS account number of the Amazon EC2 security group owner.
-   *             Note that this is not the same thing as an AWS access key ID -
-   *             you must provide a valid AWS account number for this parameter.</p>
+   * <p>The Amazon account number of the Amazon EC2 security group owner.
+   *             Note that this is not the same thing as an Amazon access key ID -
+   *             you must provide a valid Amazon account number for this parameter.</p>
    */
   EC2SecurityGroupOwnerId: string | undefined;
 }
@@ -384,7 +384,7 @@ export interface EC2SecurityGroup {
   EC2SecurityGroupName?: string;
 
   /**
-   * <p>The AWS account ID of the Amazon EC2 security group owner.</p>
+   * <p>The Amazon account ID of the Amazon EC2 security group owner.</p>
    */
   EC2SecurityGroupOwnerId?: string;
 }
@@ -420,7 +420,7 @@ export namespace EC2SecurityGroup {
  */
 export interface CacheSecurityGroup {
   /**
-   * <p>The AWS account ID of the cache security group owner.</p>
+   * <p>The Amazon account ID of the cache security group owner.</p>
    */
   OwnerId?: string;
 
@@ -1349,6 +1349,11 @@ export interface ReplicationGroup {
    * <p>Returns the destination, format and type of the logs. </p>
    */
   LogDeliveryConfigurations?: LogDeliveryConfiguration[];
+
+  /**
+   * <p>The date and time when the cluster was created.</p>
+   */
+  ReplicationGroupCreateTime?: Date;
 }
 
 export namespace ReplicationGroup {
@@ -2807,7 +2812,7 @@ export namespace CreateCacheClusterMessage {
  */
 export interface CacheNode {
   /**
-   * <p>The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.</p>
+   * <p>The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's Amazon account.</p>
    */
   CacheNodeId?: string;
 
@@ -4114,8 +4119,8 @@ export namespace SubnetNotAllowedFault {
 export interface CreateGlobalReplicationGroupMessage {
   /**
    * <p>The suffix name of a Global datastore. Amazon ElastiCache automatically applies a prefix
-   *             to the Global datastore ID when it is created. Each AWS Region has its own prefix. For instance, a Global datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global datastore name across multiple regions.  </p>
-   *         <p>For a full list of AWS Regions and their respective Global datastore iD prefixes, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html">Using the AWS CLI with Global datastores </a>.</p>
+   *             to the Global datastore ID when it is created. Each Amazon Region has its own prefix. For instance, a Global datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global datastore name across multiple regions.  </p>
+   *         <p>For a full list of Amazon Regions and their respective Global datastore iD prefixes, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html">Using the Amazon CLI with Global datastores </a>.</p>
    */
   GlobalReplicationGroupIdSuffix: string | undefined;
 
@@ -4164,7 +4169,7 @@ export namespace GlobalNodeGroup {
 }
 
 /**
- * <p>A member of a Global datastore. It contains the Replication Group Id, the AWS region and the role of the replication group. </p>
+ * <p>A member of a Global datastore. It contains the Replication Group Id, the Amazon region and the role of the replication group. </p>
  */
 export interface GlobalReplicationGroupMember {
   /**
@@ -4173,7 +4178,7 @@ export interface GlobalReplicationGroupMember {
   ReplicationGroupId?: string;
 
   /**
-   * <p>The AWS region of the Global datastore member.</p>
+   * <p>The Amazon region of the Global datastore member.</p>
    */
   ReplicationGroupRegion?: string;
 
@@ -4203,7 +4208,7 @@ export namespace GlobalReplicationGroupMember {
 }
 
 /**
- * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
+ * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
  *         cluster automatically replicates updates to the secondary cluster.</p>
  *
  *
@@ -4307,7 +4312,7 @@ export namespace GlobalReplicationGroup {
 
 export interface CreateGlobalReplicationGroupResult {
   /**
-   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
+   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
    *
    *
@@ -5541,7 +5546,7 @@ export namespace DecreaseNodeGroupsInGlobalReplicationGroupMessage {
 
 export interface DecreaseNodeGroupsInGlobalReplicationGroupResult {
   /**
-   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
+   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
    *
    *
@@ -5864,7 +5869,7 @@ export namespace DeleteGlobalReplicationGroupMessage {
 
 export interface DeleteGlobalReplicationGroupResult {
   /**
-   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
+   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
    *
    *
@@ -8994,7 +8999,7 @@ export interface DisassociateGlobalReplicationGroupMessage {
   ReplicationGroupId: string | undefined;
 
   /**
-   * <p>The AWS region of secondary cluster you wish to remove from the Global datastore</p>
+   * <p>The Amazon region of secondary cluster you wish to remove from the Global datastore</p>
    */
   ReplicationGroupRegion: string | undefined;
 }
@@ -9010,7 +9015,7 @@ export namespace DisassociateGlobalReplicationGroupMessage {
 
 export interface DisassociateGlobalReplicationGroupResult {
   /**
-   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
+   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
    *
    *
@@ -9040,7 +9045,7 @@ export interface FailoverGlobalReplicationGroupMessage {
   GlobalReplicationGroupId: string | undefined;
 
   /**
-   * <p>The AWS region of the primary cluster of the Global datastore</p>
+   * <p>The Amazon region of the primary cluster of the Global datastore</p>
    */
   PrimaryRegion: string | undefined;
 
@@ -9061,7 +9066,7 @@ export namespace FailoverGlobalReplicationGroupMessage {
 
 export interface FailoverGlobalReplicationGroupResult {
   /**
-   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
+   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
    *
    *
@@ -9120,7 +9125,7 @@ export interface RegionalConfiguration {
   ReplicationGroupId: string | undefined;
 
   /**
-   * <p>The AWS region where the cluster is stored</p>
+   * <p>The Amazon region where the cluster is stored</p>
    */
   ReplicationGroupRegion: string | undefined;
 
@@ -9151,7 +9156,7 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupMessage {
   NodeGroupCount: number | undefined;
 
   /**
-   * <p>Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global datastore</p>
+   * <p>Describes the replication group IDs, the Amazon regions where they are stored and the shard configuration for each that comprise the Global datastore</p>
    */
   RegionalConfigurations?: RegionalConfiguration[];
 
@@ -9172,7 +9177,7 @@ export namespace IncreaseNodeGroupsInGlobalReplicationGroupMessage {
 
 export interface IncreaseNodeGroupsInGlobalReplicationGroupResult {
   /**
-   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
+   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
    *
    *
@@ -9312,7 +9317,7 @@ export interface ListTagsForResourceMessage {
    * <p>The Amazon Resource Name (ARN) of the resource for which you want the list of tags,
    *             for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
    *             or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
    */
   ResourceName: string | undefined;
 }
@@ -9917,7 +9922,7 @@ export namespace ModifyGlobalReplicationGroupMessage {
 
 export interface ModifyGlobalReplicationGroupResult {
   /**
-   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
+   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
    *
    *
@@ -9975,7 +9980,7 @@ export interface ModifyReplicationGroupMessage {
   AutomaticFailoverEnabled?: boolean;
 
   /**
-   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   * <p>A flag to indicate MultiAZ is enabled.</p>
    */
   MultiAZEnabled?: boolean;
 
@@ -10470,7 +10475,7 @@ export namespace RebalanceSlotsInGlobalReplicationGroupMessage {
 
 export interface RebalanceSlotsInGlobalReplicationGroupResult {
   /**
-   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
+   * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
    *
    *
@@ -10541,7 +10546,7 @@ export interface RemoveTagsFromResourceMessage {
    * <p>The Amazon Resource Name (ARN) of the resource from which you want the tags removed,
    *             for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
    *             or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Service Namespaces</a>.</p>
    */
   ResourceName: string | undefined;
 
@@ -10649,9 +10654,9 @@ export interface RevokeCacheSecurityGroupIngressMessage {
   EC2SecurityGroupName: string | undefined;
 
   /**
-   * <p>The AWS account number of the Amazon EC2 security group owner.
-   *             Note that this is not the same thing as an AWS access key ID - you must provide
-   *             a valid AWS account number for this parameter.</p>
+   * <p>The Amazon account number of the Amazon EC2 security group owner.
+   *             Note that this is not the same thing as an Amazon access key ID - you must provide
+   *             a valid Amazon account number for this parameter.</p>
    */
   EC2SecurityGroupOwnerId: string | undefined;
 }

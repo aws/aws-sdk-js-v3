@@ -21,7 +21,7 @@ export interface ListDataCatalogsCommandInput extends ListDataCatalogsInput {}
 export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the data catalogs in the current AWS account.</p>
+ * <p>Lists the data catalogs in the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

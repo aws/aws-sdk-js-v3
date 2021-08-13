@@ -2,12 +2,12 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>Information includes the account ID where the current document is shared and the
+ * <p>Information includes the Amazon Web Services account ID where the current document is shared and the
  *    version shared with that account.</p>
  */
 export interface AccountSharingInfo {
   /**
-   * <p>The account ID where the current document is shared.</p>
+   * <p>The Amazon Web Services account ID where the current document is shared.</p>
    */
   AccountId?: string;
 
@@ -628,9 +628,9 @@ export interface CreateActivationRequest {
   DefaultInstanceName?: string;
 
   /**
-   * <p>The Identity and Access Management (IAM) role that you want to assign to the managed
-   *    instance. This IAMrole must provide AssumeRole permissions for the Amazon Web Services Systems Manager
-   *    service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an
+   * <p>The name of the Identity and Access Management (IAM) role that you want to assign to
+   *    the managed instance. This IAM role must provide AssumeRole permissions for the
+   *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an
    *      IAM service role for a hybrid environment</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
@@ -811,22 +811,22 @@ export enum AssociationSyncCompliance {
 }
 
 /**
- * <p>The combination of Regions and accounts targeted by the current Automation
+ * <p>The combination of Amazon Web Services Regions and Amazon Web Services accounts targeted by the current Automation
  *    execution.</p>
  */
 export interface TargetLocation {
   /**
-   * <p>The accounts targeted by the current Automation execution.</p>
+   * <p>The Amazon Web Services accounts targeted by the current Automation execution.</p>
    */
   Accounts?: string[];
 
   /**
-   * <p>The Regions targeted by the current Automation execution.</p>
+   * <p>The Amazon Web Services Regions targeted by the current Automation execution.</p>
    */
   Regions?: string[];
 
   /**
-   * <p>The maximum number of Regions and accounts allowed to run the Automation
+   * <p>The maximum number of Amazon Web Services Regions and Amazon Web Services accounts allowed to run the Automation
    *    concurrently.</p>
    */
   TargetLocationMaxConcurrency?: string;
@@ -951,7 +951,7 @@ export namespace TargetLocation {
  *        <code>Key=InstanceIds,Values=<i>*</i>
  *                   </code>
  *                </p>
- *                <p>This example demonstrates how to target all managed instances in the Region where
+ *                <p>This example demonstrates how to target all managed instances in the Amazon Web Services Region where
  *      the association was created.</p>
  *             </li>
  *          </ul>
@@ -990,7 +990,7 @@ export interface CreateAssociationRequest {
    *    information for the instance.</p>
    *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
    *    shared with you from another account.</p>
-   *          <p>For Systems Manager documents (SSM documents) that are shared with you from other accounts, you
+   *          <p>For Systems Manager documents (SSM documents) that are shared with you from other Amazon Web Services accounts, you
    *    must specify the complete SSM document ARN, in the following format:</p>
    *          <p>
    *             <code>arn:<i>partition</i>:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
@@ -1035,7 +1035,7 @@ export interface CreateAssociationRequest {
 
   /**
    * <p>The targets for the association. You can target instances by using tags, Amazon Web Services resource
-   *    groups, all instances in an account, or individual instance IDs. For more information about
+   *    groups, all instances in an Amazon Web Services account, or individual instance IDs. For more information about
    *    choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">Using targets and rate controls with State Manager associations</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
@@ -1125,7 +1125,7 @@ export interface CreateAssociationRequest {
   CalendarNames?: string[];
 
   /**
-   * <p>A location is a combination of Regions and accounts where you want to run the
+   * <p>A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the
    *    association. Use this action to create an association in multiple Regions and multiple
    *    accounts.</p>
    */
@@ -1222,7 +1222,7 @@ export interface AssociationDescription {
   Name?: string;
 
   /**
-   * <p>The ID of the instance.</p>
+   * <p>The instance ID.</p>
    */
   InstanceId?: string;
 
@@ -1365,7 +1365,7 @@ export interface AssociationDescription {
   CalendarNames?: string[];
 
   /**
-   * <p>The combination of Regions and accounts where you want to run the
+   * <p>The combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the
    *    association.</p>
    */
   TargetLocations?: TargetLocation[];
@@ -1537,7 +1537,7 @@ export interface CreateAssociationBatchRequestEntry {
    *    You can specify Command or Automation runbooks.</p>
    *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
    *    shared with you from another account.</p>
-   *          <p>For SSM documents that are shared with you from other accounts, you must specify the
+   *          <p>For SSM documents that are shared with you from other Amazon Web Services accounts, you must specify the
    *    complete SSM document ARN, in the following format:</p>
    *          <p>
    *             <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
@@ -1554,7 +1554,18 @@ export interface CreateAssociationBatchRequestEntry {
   Name: string | undefined;
 
   /**
-   * <p>The ID of the instance. </p>
+   * <p>The instance ID.</p>
+   *          <note>
+   *             <p>
+   *                <code>InstanceId</code> has been deprecated. To specify an instance ID for an association,
+   *     use the <code>Targets</code> parameter. Requests that include the
+   *     parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version
+   *     2.0 or later will fail. In addition, if you use the parameter
+   *      <code>InstanceId</code>, you can't use the parameters <code>AssociationName</code>,
+   *      <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>,
+   *      <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters, you
+   *     must use the <code>Targets</code> parameter.</p>
+   *          </note>
    */
   InstanceId?: string;
 
@@ -2822,7 +2833,7 @@ export interface CreateOpsMetadataRequest {
    * <p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for
    *    an OpsMetadata object. Tags enable you to categorize a resource in different ways, such as by
    *    purpose, owner, or environment. For example, you might want to tag an OpsMetadata object to
-   *    identify an environment or target Region. In this case, you could specify the following
+   *    identify an environment or target Amazon Web Services Region. In this case, you could specify the following
    *    key-value pairs:</p>
    *          <ul>
    *             <li>
@@ -3309,9 +3320,9 @@ export namespace CreatePatchBaselineResult {
 }
 
 /**
- * <p>Synchronize Amazon Web Services Systems Manager Inventory data from multiple accounts defined in Organizations to a
+ * <p>Synchronize Amazon Web Services Systems Manager Inventory data from multiple Amazon Web Services accounts defined in Organizations to a
  *    centralized Amazon S3 bucket. Data is synchronized to individual key prefixes in the
- *    central bucket. Each key prefix represents a different account ID.</p>
+ *    central bucket. Each key prefix represents a different Amazon Web Services account ID.</p>
  */
 export interface ResourceDataSyncDestinationDataSharing {
   /**
@@ -3353,7 +3364,7 @@ export interface ResourceDataSyncS3Destination {
   SyncFormat: ResourceDataSyncS3Format | string | undefined;
 
   /**
-   * <p>The Region with the S3 bucket targeted by the resource data sync.</p>
+   * <p>The Amazon Web Services Region with the S3 bucket targeted by the resource data sync.</p>
    */
   Region: string | undefined;
 
@@ -3400,7 +3411,7 @@ export namespace ResourceDataSyncOrganizationalUnit {
 /**
  * <p>Information about the <code>AwsOrganizationsSource</code> resource data sync source. A sync
  *    source of this type can synchronize data from Organizations or, if an Amazon Web Services organization isn't
- *    present, from multiple Regions.</p>
+ *    present, from multiple Amazon Web Services Regions.</p>
  */
 export interface ResourceDataSyncAwsOrganizationsSource {
   /**
@@ -3444,19 +3455,19 @@ export interface ResourceDataSyncSource {
   AwsOrganizationsSource?: ResourceDataSyncAwsOrganizationsSource;
 
   /**
-   * <p>The <code>SyncSource</code> Regions included in the resource data sync.</p>
+   * <p>The <code>SyncSource</code> Amazon Web Services Regions included in the resource data sync.</p>
    */
   SourceRegions: string[] | undefined;
 
   /**
-   * <p>Whether to automatically synchronize and aggregate data from new Regions when those
+   * <p>Whether to automatically synchronize and aggregate data from new Amazon Web Services Regions when those
    *    Regions come online.</p>
    */
   IncludeFutureRegions?: boolean;
 
   /**
    * <p>When you create a resource data sync, if you choose one of the Organizations options, then Systems Manager
-   *    automatically enables all OpsData sources in the selected Regions for all accounts in
+   *    automatically enables all OpsData sources in the selected Amazon Web Services Regions for all Amazon Web Services accounts in
    *    your organization (or in the selected organization units). For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html">About multiple account and Region resource data syncs</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
@@ -3488,7 +3499,7 @@ export interface CreateResourceDataSyncRequest {
    * <p>Specify <code>SyncToDestination</code> to create a resource data sync that synchronizes data
    *    to an S3 bucket for Inventory. If you specify <code>SyncToDestination</code>, you must provide a
    *    value for <code>S3Destination</code>. Specify <code>SyncFromSource</code> to synchronize data
-   *    from a single account and multiple Regions, or multiple accounts and Regions, as
+   *    from a single account and multiple Regions, or multiple Amazon Web Services accounts and Amazon Web Services Regions, as
    *    listed in Organizations for Explorer. If you specify <code>SyncFromSource</code>, you must provide a
    *    value for <code>SyncSource</code>. The default value is <code>SyncToDestination</code>.</p>
    */
@@ -3665,7 +3676,18 @@ export interface DeleteAssociationRequest {
   Name?: string;
 
   /**
-   * <p>The ID of the instance.</p>
+   * <p>The instance ID.</p>
+   *          <note>
+   *             <p>
+   *                <code>InstanceId</code> has been deprecated. To specify an instance ID for an association,
+   *     use the <code>Targets</code> parameter. Requests that include the
+   *     parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version
+   *     2.0 or later will fail. In addition, if you use the parameter
+   *      <code>InstanceId</code>, you can't use the parameters <code>AssociationName</code>,
+   *      <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>,
+   *      <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters, you
+   *     must use the <code>Targets</code> parameter.</p>
+   *          </note>
    */
   InstanceId?: string;
 
@@ -4109,7 +4131,8 @@ export namespace ParameterNotFound {
 
 export interface DeleteParametersRequest {
   /**
-   * <p>The names of the parameters to delete.</p>
+   * <p>The names of the parameters to delete. After deleting a parameter, wait for at least 30
+   *    seconds to create a parameter with the same name.</p>
    */
   Names: string[] | undefined;
 }
@@ -4486,7 +4509,7 @@ export namespace DescribeActivationsRequest {
 
 export interface DescribeActivationsResult {
   /**
-   * <p>A list of activations for your account.</p>
+   * <p>A list of activations for your Amazon Web Services account.</p>
    */
   ActivationList?: Activation[];
 
@@ -5136,7 +5159,7 @@ export interface Runbook {
   MaxErrors?: string;
 
   /**
-   * <p>Information about the Regions and accounts targeted by the current Runbook
+   * <p>Information about the Amazon Web Services Regions and Amazon Web Services accounts targeted by the current Runbook
    *    operation.</p>
    */
   TargetLocations?: TargetLocation[];
@@ -5264,8 +5287,8 @@ export interface AutomationExecutionMetadata {
 
   /**
    * <p>Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or
-   *    CrossAccount. CrossAccount is an Automation that runs in multiple Regions and
-   *    accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple Regions and accounts</a> in the
+   *    CrossAccount. CrossAccount is an Automation that runs in multiple Amazon Web Services Regions and
+   *    Amazon Web Services accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple Amazon Web Services Regions and accounts</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
    */
   AutomationType?: AutomationType | string;
@@ -5615,7 +5638,7 @@ export interface StepExecution {
   Targets?: Target[];
 
   /**
-   * <p>The combination of Regions and accounts targeted by the current Automation
+   * <p>The combination of Amazon Web Services Regions and Amazon Web Services accounts targeted by the current Automation
    *    execution.</p>
    */
   TargetLocation?: TargetLocation;
@@ -6169,12 +6192,12 @@ export namespace DescribeDocumentPermissionRequest {
 export interface DescribeDocumentPermissionResponse {
   /**
    * <p>The account IDs that have permission to use this document. The ID can be either an
-   *    account or <i>All</i>.</p>
+   *    Amazon Web Services account or <i>All</i>.</p>
    */
   AccountIds?: string[];
 
   /**
-   * <p>A list of accounts where the current document is shared and the version shared with
+   * <p>A list of Amazon Web Services accounts where the current document is shared and the version shared with
    *    each account.</p>
    */
   AccountSharingInfoList?: AccountSharingInfo[];
@@ -8582,7 +8605,7 @@ export interface LoggingInfo {
   S3KeyPrefix?: string;
 
   /**
-   * <p>The Region where the S3 bucket is located.</p>
+   * <p>The Amazon Web Services Region where the S3 bucket is located.</p>
    */
   S3Region: string | undefined;
 }

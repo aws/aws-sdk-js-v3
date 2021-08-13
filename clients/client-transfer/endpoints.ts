@@ -88,6 +88,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "cn-north-1":
+      regionInfo = {
+        hostname: "transfer.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
+    case "cn-northwest-1":
+      regionInfo = {
+        hostname: "transfer.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
     case "eu-central-1":
       regionInfo = {
         hostname: "transfer.eu-central-1.amazonaws.com",

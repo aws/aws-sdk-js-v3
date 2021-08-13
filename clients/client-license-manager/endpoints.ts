@@ -220,6 +220,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws-us-gov",
       };
       break;
+    case "us-iso-east-1":
+      regionInfo = {
+        hostname: "license-manager.us-iso-east-1.c2s.ic.gov",
+        partition: "aws-iso",
+      };
+      break;
     case "us-isob-east-1":
       regionInfo = {
         hostname: "license-manager.us-isob-east-1.sc2s.sgov.gov",

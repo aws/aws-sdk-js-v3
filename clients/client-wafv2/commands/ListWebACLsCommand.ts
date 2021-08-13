@@ -21,7 +21,8 @@ export interface ListWebACLsCommandInput extends ListWebACLsRequest {}
 export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an array of <a>WebACLSummary</a> objects for the web ACLs that you manage.</p>
+ * <p>Retrieves an array of <a>WebACLSummary</a> objects for the web ACLs that you
+ *          manage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -26,7 +26,7 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  *           For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
  *         <p>
  *             For example, you can use cost-allocation tags to your ElastiCache resources,
- *             AWS generates a cost allocation report as a comma-separated value (CSV) file
+ *             Amazon generates a cost allocation report as a comma-separated value (CSV) file
  *             with your usage and costs aggregated by your tags.
  *             You can apply tags that represent business categories (such as cost centers, application names, or owners)
  *             to organize your costs across multiple services.</p>

@@ -21,7 +21,8 @@ export interface UpdateDocumentMetadataCommandInput extends UpdateDocumentMetada
 export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Updates information related to approval reviews for a specific version of a document.</p>
+ * <p>Updates information related to approval reviews for a specific version of a change template
+ *    in Change Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -119,13 +119,94 @@ import {
   TrainingJobStatusCounters,
   TransformJobStatus,
   TrialComponentArtifact,
-  TrialComponentMetricSummary,
   TrialComponentParameterValue,
-  TrialComponentSource,
   TrialComponentStatus,
   TrialSource,
   _InstanceType,
 } from "./models_1";
+
+/**
+ * <p>A summary of the metrics of a trial component.</p>
+ */
+export interface TrialComponentMetricSummary {
+  /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>When the metric was last updated.</p>
+   */
+  TimeStamp?: Date;
+
+  /**
+   * <p>The maximum value of the metric.</p>
+   */
+  Max?: number;
+
+  /**
+   * <p>The minimum value of the metric.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The most recent value of the metric.</p>
+   */
+  Last?: number;
+
+  /**
+   * <p>The number of samples used to generate the metric.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>The average value of the metric.</p>
+   */
+  Avg?: number;
+
+  /**
+   * <p>The standard deviation of the metric.</p>
+   */
+  StdDev?: number;
+}
+
+export namespace TrialComponentMetricSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrialComponentMetricSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
+ */
+export interface TrialComponentSource {
+  /**
+   * <p>The source ARN.</p>
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The source job type.</p>
+   */
+  SourceType?: string;
+}
+
+export namespace TrialComponentSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrialComponentSource): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeTrialComponentResponse {
   /**
@@ -10496,59 +10577,6 @@ export namespace UpdateExperimentRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateExperimentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-}
-
-export namespace UpdateExperimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateImageRequest {
-  /**
-   * <p>A list of properties to delete. Only the <code>Description</code> and
-   *         <code>DisplayName</code> properties can be deleted.</p>
-   */
-  DeleteProperties?: string[];
-
-  /**
-   * <p>The new description for the image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The new display name for the image.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The name of the image to update.</p>
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The new Amazon Resource Name (ARN) for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
-   */
-  RoleArn?: string;
-}
-
-export namespace UpdateImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateImageRequest): any => ({
     ...obj,
   });
 }

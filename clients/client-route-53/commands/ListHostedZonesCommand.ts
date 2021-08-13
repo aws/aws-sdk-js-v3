@@ -22,7 +22,7 @@ export interface ListHostedZonesCommandInput extends ListHostedZonesRequest {}
 export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of the public and private hosted zones that are associated with the current account. The response
+ * <p>Retrieves a list of the public and private hosted zones that are associated with the current Amazon Web Services account. The response
  * 			includes a <code>HostedZones</code> child element for each hosted zone.</p>
  * 		       <p>Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of hosted zones, you can use the
  * 			<code>maxitems</code> parameter to list them in groups of up to 100.</p>

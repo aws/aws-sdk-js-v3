@@ -22,7 +22,7 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
 
 /**
  * <p>Creates an Autopilot job.</p>
- *          <p>Find the best performing model after you run an Autopilot job by calling .</p>
+ *          <p>Find the best-performing model after you run an Autopilot job by calling .</p>
  *          <p>For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Automate Model
  *             Development with Amazon SageMaker Autopilot</a>.</p>
  * @example

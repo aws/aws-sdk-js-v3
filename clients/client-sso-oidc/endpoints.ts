@@ -110,6 +110,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingRegion: "eu-west-2",
       };
       break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "oidc.eu-west-3.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-west-3",
+      };
+      break;
     case "us-east-1":
       regionInfo = {
         hostname: "oidc.us-east-1.amazonaws.com",

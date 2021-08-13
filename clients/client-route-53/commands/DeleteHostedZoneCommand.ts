@@ -58,7 +58,7 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  *             </li>
  *             <li>
  *                <p>Use the <code>ListHostedZones</code> action to get a list of the hosted zones associated with the current
- * 				account.</p>
+ * 				Amazon Web Services account.</p>
  *             </li>
  *          </ul>
  * @example

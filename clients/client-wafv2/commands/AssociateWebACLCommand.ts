@@ -21,8 +21,11 @@ export interface AssociateWebACLCommandInput extends AssociateWebACLRequest {}
 export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a web ACL with a regional application resource, to protect the resource. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API.  </p>
- *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To associate a web ACL, in the CloudFront call <code>UpdateDistribution</code>, set the web ACL ID to the Amazon Resource Name (ARN) of the web ACL. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
+ * <p>Associates a web ACL with a regional application resource, to protect the resource.
+ *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API.  </p>
+ *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
+ *          associate a web ACL, in the CloudFront call <code>UpdateDistribution</code>, set the web ACL ID
+ *          to the Amazon Resource Name (ARN) of the web ACL. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

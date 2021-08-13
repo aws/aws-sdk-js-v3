@@ -21,7 +21,7 @@ export interface ListDocumentsCommandInput extends ListDocumentsRequest {}
 export interface ListDocumentsCommandOutput extends ListDocumentsResult, __MetadataBearer {}
 
 /**
- * <p>Returns all Systems Manager (SSM) documents in the current account and Region. You can
+ * <p>Returns all Systems Manager (SSM) documents in the current Amazon Web Services account and Amazon Web Services Region. You can
  *    limit the results of this request by using a filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

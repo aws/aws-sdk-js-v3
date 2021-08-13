@@ -74,6 +74,7 @@ import {
   MatchItem,
   MatchingRequest,
   MatchingResponse,
+  ObjectFilter,
   ObjectTypeField,
   ObjectTypeKey,
   OperatorPropertiesKeys,
@@ -744,6 +745,8 @@ export const serializeAws_restJson1ListProfileObjectsCommand = async (
   };
   let body: any;
   body = JSON.stringify({
+    ...(input.ObjectFilter !== undefined &&
+      input.ObjectFilter !== null && { ObjectFilter: serializeAws_restJson1ObjectFilter(input.ObjectFilter, context) }),
     ...(input.ObjectTypeName !== undefined &&
       input.ObjectTypeName !== null && { ObjectTypeName: input.ObjectTypeName }),
     ...(input.ProfileId !== undefined && input.ProfileId !== null && { ProfileId: input.ProfileId }),
@@ -4301,6 +4304,14 @@ const serializeAws_restJson1MarketoSourceProperties = (
 const serializeAws_restJson1MatchingRequest = (input: MatchingRequest, context: __SerdeContext): any => {
   return {
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+  };
+};
+
+const serializeAws_restJson1ObjectFilter = (input: ObjectFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.KeyName !== undefined && input.KeyName !== null && { KeyName: input.KeyName }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_restJson1requestValueList(input.Values, context) }),
   };
 };
 

@@ -40,6 +40,120 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "amplify.ap-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-1":
+      regionInfo = {
+        hostname: "amplify.ap-northeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-2":
+      regionInfo = {
+        hostname: "amplify.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-south-1":
+      regionInfo = {
+        hostname: "amplify.ap-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-southeast-1":
+      regionInfo = {
+        hostname: "amplify.ap-southeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-southeast-2":
+      regionInfo = {
+        hostname: "amplify.ap-southeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ca-central-1":
+      regionInfo = {
+        hostname: "amplify.ca-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "amplify.eu-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-north-1":
+      regionInfo = {
+        hostname: "amplify.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "amplify.eu-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "amplify.eu-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "amplify.eu-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "amplify.eu-west-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "amplify.me-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "amplify.sa-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "amplify.us-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "amplify.us-east-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-west-1":
+      regionInfo = {
+        hostname: "amplify.us-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "amplify.us-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

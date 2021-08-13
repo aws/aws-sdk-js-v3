@@ -21,7 +21,8 @@ export interface ListRuleGroupsCommandInput extends ListRuleGroupsRequest {}
 export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups that you manage. </p>
+ * <p>Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups
+ *          that you manage. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

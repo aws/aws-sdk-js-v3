@@ -57,7 +57,7 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  *                            <p>You must create the log group in the us-east-1 region.</p>
  *                         </li>
  *                         <li>
- *                            <p>You must use the same account to create the log group and the hosted zone that you want to
+ *                            <p>You must use the same Amazon Web Services account to create the log group and the hosted zone that you want to
  * 									configure query logging for.</p>
  *                         </li>
  *                         <li>

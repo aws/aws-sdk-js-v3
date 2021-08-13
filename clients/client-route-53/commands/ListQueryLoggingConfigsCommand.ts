@@ -22,7 +22,7 @@ export interface ListQueryLoggingConfigsCommandInput extends ListQueryLoggingCon
 export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the configurations for DNS query logging that are associated with the current account or the configuration
+ * <p>Lists the configurations for DNS query logging that are associated with the current Amazon Web Services account or the configuration
  * 			that is associated with a specified hosted zone.</p>
  *
  * 		       <p>For more information about DNS query logs, see

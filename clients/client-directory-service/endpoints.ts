@@ -64,6 +64,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "ap-northeast-3":
+      regionInfo = {
+        hostname: "ds.ap-northeast-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-south-1":
       regionInfo = {
         hostname: "ds.ap-south-1.amazonaws.com",
@@ -225,6 +231,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "ds.us-iso-east-1.c2s.ic.gov",
         partition: "aws-iso",
+      };
+      break;
+    case "us-isob-east-1":
+      regionInfo = {
+        hostname: "ds.us-isob-east-1.sc2s.sgov.gov",
+        partition: "aws-iso-b",
       };
       break;
     case "us-west-1":

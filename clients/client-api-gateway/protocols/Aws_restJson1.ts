@@ -571,6 +571,10 @@ export const serializeAws_restJson1CreateDomainNameCommand = async (
           context
         ),
       }),
+    ...(input.ownershipVerificationCertificateArn !== undefined &&
+      input.ownershipVerificationCertificateArn !== null && {
+        ownershipVerificationCertificateArn: input.ownershipVerificationCertificateArn,
+      }),
     ...(input.regionalCertificateArn !== undefined &&
       input.regionalCertificateArn !== null && { regionalCertificateArn: input.regionalCertificateArn }),
     ...(input.regionalCertificateName !== undefined &&
@@ -5825,6 +5829,7 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
     domainNameStatusMessage: undefined,
     endpointConfiguration: undefined,
     mutualTlsAuthentication: undefined,
+    ownershipVerificationCertificateArn: undefined,
     regionalCertificateArn: undefined,
     regionalCertificateName: undefined,
     regionalDomainName: undefined,
@@ -5865,6 +5870,9 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
       data.mutualTlsAuthentication,
       context
     );
+  }
+  if (data.ownershipVerificationCertificateArn !== undefined && data.ownershipVerificationCertificateArn !== null) {
+    contents.ownershipVerificationCertificateArn = __expectString(data.ownershipVerificationCertificateArn);
   }
   if (data.regionalCertificateArn !== undefined && data.regionalCertificateArn !== null) {
     contents.regionalCertificateArn = __expectString(data.regionalCertificateArn);
@@ -10072,6 +10080,7 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
     domainNameStatusMessage: undefined,
     endpointConfiguration: undefined,
     mutualTlsAuthentication: undefined,
+    ownershipVerificationCertificateArn: undefined,
     regionalCertificateArn: undefined,
     regionalCertificateName: undefined,
     regionalDomainName: undefined,
@@ -10112,6 +10121,9 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
       data.mutualTlsAuthentication,
       context
     );
+  }
+  if (data.ownershipVerificationCertificateArn !== undefined && data.ownershipVerificationCertificateArn !== null) {
+    contents.ownershipVerificationCertificateArn = __expectString(data.ownershipVerificationCertificateArn);
   }
   if (data.regionalCertificateArn !== undefined && data.regionalCertificateArn !== null) {
     contents.regionalCertificateArn = __expectString(data.regionalCertificateArn);
@@ -15172,6 +15184,7 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
     domainNameStatusMessage: undefined,
     endpointConfiguration: undefined,
     mutualTlsAuthentication: undefined,
+    ownershipVerificationCertificateArn: undefined,
     regionalCertificateArn: undefined,
     regionalCertificateName: undefined,
     regionalDomainName: undefined,
@@ -15212,6 +15225,9 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
       data.mutualTlsAuthentication,
       context
     );
+  }
+  if (data.ownershipVerificationCertificateArn !== undefined && data.ownershipVerificationCertificateArn !== null) {
+    contents.ownershipVerificationCertificateArn = __expectString(data.ownershipVerificationCertificateArn);
   }
   if (data.regionalCertificateArn !== undefined && data.regionalCertificateArn !== null) {
     contents.regionalCertificateArn = __expectString(data.regionalCertificateArn);
@@ -17318,6 +17334,7 @@ const deserializeAws_restJson1DomainName = (output: any, context: __SerdeContext
       output.mutualTlsAuthentication !== undefined && output.mutualTlsAuthentication !== null
         ? deserializeAws_restJson1MutualTlsAuthentication(output.mutualTlsAuthentication, context)
         : undefined,
+    ownershipVerificationCertificateArn: __expectString(output.ownershipVerificationCertificateArn),
     regionalCertificateArn: __expectString(output.regionalCertificateArn),
     regionalCertificateName: __expectString(output.regionalCertificateName),
     regionalDomainName: __expectString(output.regionalDomainName),

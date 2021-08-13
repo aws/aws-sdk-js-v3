@@ -150,6 +150,20 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingRegion: "us-east-2",
       };
       break;
+    case "fips-us-gov-east-1":
+      regionInfo = {
+        hostname: "mq-fips.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-east-1",
+      };
+      break;
+    case "fips-us-gov-west-1":
+      regionInfo = {
+        hostname: "mq-fips.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
     case "fips-us-west-1":
       regionInfo = {
         hostname: "mq-fips.us-west-1.amazonaws.com",
@@ -186,6 +200,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "mq.us-east-2.amazonaws.com",
         partition: "aws",
+      };
+      break;
+    case "us-gov-east-1":
+      regionInfo = {
+        hostname: "mq.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+      };
+      break;
+    case "us-gov-west-1":
+      regionInfo = {
+        hostname: "mq.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
       };
       break;
     case "us-west-1":
