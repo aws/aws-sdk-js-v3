@@ -7,7 +7,13 @@ import { IncomingMessage, request, RequestOptions } from "http";
  */
 export function httpRequest(options: RequestOptions): Promise<Buffer> {
   return new Promise((resolve, reject) => {
-    const req = request({ method: "GET", ...options });
+    const req = request({
+      method: "GET",
+      ...options,
+      // Node.js http module doesn't accept hostname with square brackets
+      // Refs: https://github.com/nodejs/node/issues/39738
+      hostname: options.hostname?.replace(/^\[(.+)\]$/, "$1"),
+    });
 
     req.on("error", (err) => {
       reject(Object.assign(new ProviderError("Unable to connect to instance metadata service"), err));

@@ -6,8 +6,8 @@ import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit, RemoteProviderInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
+import { getInstanceMetadataEndpoint } from "./utils/getInstanceMetadataEndpoint";
 
-const IMDS_IP = "169.254.169.254";
 const IMDS_PATH = "/latest/meta-data/iam/security-credentials/";
 const IMDS_TOKEN_PATH = "/latest/api/token";
 
@@ -51,12 +51,13 @@ export const fromInstanceMetadata = (init: RemoteProviderInit = {}): CredentialP
   };
 
   return async () => {
+    const endpoint = await getInstanceMetadataEndpoint();
     if (disableFetchToken) {
-      return getCredentials(maxRetries, { timeout });
+      return getCredentials(maxRetries, { ...endpoint, timeout });
     } else {
       let token: string;
       try {
-        token = (await getMetadataToken({ timeout })).toString();
+        token = (await getMetadataToken({ ...endpoint, timeout })).toString();
       } catch (error) {
         if (error?.statusCode === 400) {
           throw Object.assign(error, {
@@ -65,13 +66,14 @@ export const fromInstanceMetadata = (init: RemoteProviderInit = {}): CredentialP
         } else if (error.message === "TimeoutError" || [403, 404, 405].includes(error.statusCode)) {
           disableFetchToken = true;
         }
-        return getCredentials(maxRetries, { timeout });
+        return getCredentials(maxRetries, { ...endpoint, timeout });
       }
       return getCredentials(maxRetries, {
-        timeout,
+        ...endpoint,
         headers: {
           "x-aws-ec2-metadata-token": token,
         },
+        timeout,
       });
     }
   };
@@ -80,7 +82,6 @@ export const fromInstanceMetadata = (init: RemoteProviderInit = {}): CredentialP
 const getMetadataToken = async (options: RequestOptions) =>
   httpRequest({
     ...options,
-    host: IMDS_IP,
     path: IMDS_TOKEN_PATH,
     method: "PUT",
     headers: {
@@ -88,15 +89,13 @@ const getMetadataToken = async (options: RequestOptions) =>
     },
   });
 
-const getProfile = async (options: RequestOptions) =>
-  (await httpRequest({ ...options, host: IMDS_IP, path: IMDS_PATH })).toString();
+const getProfile = async (options: RequestOptions) => (await httpRequest({ ...options, path: IMDS_PATH })).toString();
 
 const getCredentialsFromProfile = async (profile: string, options: RequestOptions) => {
   const credsResponse = JSON.parse(
     (
       await httpRequest({
         ...options,
-        host: IMDS_IP,
         path: IMDS_PATH + profile,
       })
     ).toString()
