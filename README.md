@@ -241,7 +241,7 @@ guide and API reference for service specific details.
 
 #### Terminology:
 
-**Bare-bones clients/commands**: This refers to a modular way of consuming individual operations on JS SDK clients. It results in less code being imported and thus more performant. It is otherwise equivlent to the aggregated clients/commands.
+**Bare-bones clients/commands**: This refers to a modular way of consuming individual operations on JS SDK clients. It results in less code being imported and thus more performant. It is otherwise equivalent to the aggregated clients/commands.
 
 ```javascript
 // this imports a bare-bones version of S3 that exposes the .send operation
