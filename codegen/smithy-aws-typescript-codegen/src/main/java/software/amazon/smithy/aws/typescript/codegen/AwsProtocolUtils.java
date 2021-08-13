@@ -294,6 +294,9 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("QueryCustomizedError")) {
             return true;
         }
+        if (testCase.getId().equals("RestJsonNoInputAndOutput")) {
+            return true;
+        }
         return false;
     }
 }
