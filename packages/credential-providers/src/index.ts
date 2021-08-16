@@ -4,7 +4,7 @@ export * from "@aws-sdk/credential-provider-env";
 export * from "@aws-sdk/credential-provider-imds";
 export * from "./fromIni";
 export * from "@aws-sdk/credential-provider-process";
-export * from "@aws-sdk/client-sso";
+export * from "@aws-sdk/credential-provider-sso";
 export * from "./fromTokenFile";
 export * from "./fromWebToken";
 export * from "./fromTemporaryCredentials";
