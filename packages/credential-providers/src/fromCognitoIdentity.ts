@@ -6,16 +6,48 @@ import {
 } from "@aws-sdk/credential-provider-cognito-identity";
 
 export interface FromCognitoIdentityParameters extends Omit<_FromCognitoIdentityParameters, "client"> {
+  /**
+   * Custom client if you need overwrite default client configuration
+   */
   client?: CognitoIdentityClient;
 }
 
 export type CognitoIdentityCredentialProvider = _CognitoIdentityCredentialProvider;
 
 /**
- * Retrieves temporary AWS credentials using Amazon Cognito's
+ * Creates a credential provider function that reetrieves temporary AWS credentials using Amazon Cognito's
  * `GetCredentialsForIdentity` operation.
  *
  * Results from this function call are not cached internally.
+ *
+ * ```javascript
+ * import { fromCognitoIdentity } from "@aws-sdk/credential-providers"; // ES6 example
+ * // const { fromCognitoIdentity } = require("@aws-sdk/credential-providers"); // CommonJS example
+ *
+ * const client = new FooClient({
+ *   region,
+ *   credentials: fromCognitoIdentity({
+ *     // Required. The unique identifier for the identity against which credentials
+ *     // will be issued.
+ *     identityId: "us-east-1:128d0a74-c82f-4553-916d-90053e4a8b0f"
+ *     // optional. The ARN of the role to be assumed when multiple roles were
+ *     // received in the token from the identity provider.
+ *     customRoleArn: "arn:aws:iam::1234567890:role/MYAPP-CognitoIdentity"
+ *     // Optional. A set of name-value pairs that map provider names to provider
+ *     // tokens. Required when using identities associated with external identity
+ *     // providers such as Facebook.
+ *     logins: {
+ *       "graph.facebook.com": "FBTOKEN",
+ *       "www.amazon.com": "AMAZONTOKEN",
+ *       "accounts.google.com": "GOOGLETOKEN",
+ *       "api.twitter.com": "TWITTERTOKEN'",
+ *       "www.digits.com": "DIGITSTOKEN"
+ *     },
+ *     // Optional. Custom client if you need overwrite default client configuration
+ *     client: new CognitoIdentityClient({ region })
+ *   }),
+ * });
+ * ```
  */
 export const fromCognitoIdentity = (options: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider =>
   _fromCognitoIdentity({
