@@ -19,8 +19,7 @@ export const awsAuthMiddleware =
   (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output> =>
     async function (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> {
       if (!HttpRequest.isInstance(args.request)) return next(args);
-      // Signer is always be a provider.
-      const signer = typeof options.signer === "function" ? await options.signer() : options.signer;
+      const signer = await options.signer();
       const output = await next({
         ...args,
         request: await signer.sign(args.request, {

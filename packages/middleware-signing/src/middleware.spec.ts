@@ -1,7 +1,6 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { RequestSigner } from "@aws-sdk/types";
 
-import { AwsAuthResolvedConfig } from "./configurations";
 import { awsAuthMiddleware } from "./middleware";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";
 
