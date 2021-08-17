@@ -16,7 +16,7 @@ describe("SigningHandler", () => {
       })
     ) as any,
   };
-  const noOpNext = jest.fn().mockReturnValue({ response: "" });
+  const noOpNext = jest.fn().mockResolvedValue({ response: "" });
 
   beforeEach(() => {
     (noOpNext as any).mockClear();
@@ -99,7 +99,7 @@ describe("SigningHandler", () => {
           systemClockOffset,
         };
         const signingHandler = awsAuthMiddleware(options as any)(noOpNext, {} as any);
-        noOpNext.mockReturnValue({
+        noOpNext.mockResolvedValue({
           response: {
             headers: {
               date: new Date(Date.now() + newSystemClockOffset).toString(),
@@ -142,7 +142,7 @@ describe("SigningHandler", () => {
         };
 
         const signingHandler = awsAuthMiddleware(options as any)(noOpNext, {} as any);
-        noOpNext.mockReturnValue({
+        noOpNext.mockResolvedValue({
           response: {
             headers: {
               date: new Date(Date.now() + newSystemClockOffset).toString(),
