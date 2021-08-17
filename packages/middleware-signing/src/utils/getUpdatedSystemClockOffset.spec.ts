@@ -5,7 +5,7 @@ jest.mock("./isClockSkewed");
 
 describe(getUpdatedSystemClockOffset.name, () => {
   // Mock ServerTime is accurate to last second, to remove milliseconds information.
-  const mockServerTime = new Date(Math.floor(Date.now() / 1000) * 1000);
+  const mockClockTime = new Date(Math.floor(Date.now() / 1000) * 1000);
   const mockSystemClockOffset = 100;
 
   afterEach(() => {
@@ -14,9 +14,7 @@ describe(getUpdatedSystemClockOffset.name, () => {
 
   it("returns passed systemClockOffset when clock is not skewed", () => {
     (isClockSkewed as jest.Mock).mockReturnValue(false);
-    expect(getUpdatedSystemClockOffset(mockServerTime.toString(), mockSystemClockOffset)).toEqual(
-      mockSystemClockOffset
-    );
+    expect(getUpdatedSystemClockOffset(mockClockTime.toString(), mockSystemClockOffset)).toEqual(mockSystemClockOffset);
   });
 
   describe("returns difference between serverTime and current time when clock is skewed", () => {
@@ -24,7 +22,7 @@ describe(getUpdatedSystemClockOffset.name, () => {
 
     beforeEach(() => {
       (isClockSkewed as jest.Mock).mockReturnValue(true);
-      jest.spyOn(Date, "now").mockReturnValueOnce(mockServerTime.getTime());
+      jest.spyOn(Date, "now").mockReturnValueOnce(mockClockTime.getTime());
     });
 
     afterEach(() => {
@@ -32,8 +30,8 @@ describe(getUpdatedSystemClockOffset.name, () => {
     });
 
     it.each([1000, 100000])("difference: %d", (difference) => {
-      const updatedServerTime = new Date(mockServerTime.getTime() + difference);
-      expect(getUpdatedSystemClockOffset(updatedServerTime.toString(), mockSystemClockOffset)).toEqual(difference);
+      const updatedClockTime = new Date(mockClockTime.getTime() + difference);
+      expect(getUpdatedSystemClockOffset(updatedClockTime.toString(), mockSystemClockOffset)).toEqual(difference);
     });
   });
 });
