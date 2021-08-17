@@ -2,9 +2,11 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import { RequestSigner } from "@aws-sdk/types";
 
 import { awsAuthMiddleware } from "./middleware";
+import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";
 
 jest.mock("./utils/getUpdatedSystemClockOffset");
+jest.mock("./utils/getSkewCorrectedDate");
 
 describe(awsAuthMiddleware.name, () => {
   let mockSignFn: jest.Mock<any, any>;
@@ -21,12 +23,10 @@ describe(awsAuthMiddleware.name, () => {
     }),
   };
   const mockSignedRequest = new HttpRequest({ headers: { signed: "true" } });
-  const mockDateNow = Date.now();
-  const mockSigningDate = new Date(mockDateNow + mockSystemClockOffset);
+  const mockSkewCorrectedDate = new Date();
   const mockResponse = { response: "" };
 
   beforeEach(() => {
-    jest.spyOn(Date, "now").mockReturnValue(mockDateNow);
     mockSignFn = jest.fn().mockResolvedValue(mockSignedRequest);
     mockSigner = () => Promise.resolve({ sign: mockSignFn } as RequestSigner);
     mockNext = jest.fn().mockResolvedValue(mockResponse);
@@ -37,9 +37,12 @@ describe(awsAuthMiddleware.name, () => {
       systemClockOffset: mockSystemClockOffset,
     };
     (getUpdatedSystemClockOffset as jest.Mock).mockReturnValue(mockUpdatedSystemClockOffset);
+    (getSkewCorrectedDate as jest.Mock).mockReturnValue(mockSkewCorrectedDate);
   });
 
   afterEach(() => {
+    expect(getSkewCorrectedDate).toHaveBeenCalledTimes(1);
+    expect(getSkewCorrectedDate).toHaveBeenCalledWith(mockSystemClockOffset);
     expect(mockSignFn).toHaveBeenCalledTimes(1);
     expect(mockNext).toHaveBeenCalledTimes(1);
     expect(mockNext).toHaveBeenCalledWith({ ...mockSigningHandlerArgs, request: mockSignedRequest });
@@ -51,7 +54,7 @@ describe(awsAuthMiddleware.name, () => {
     const output = await signingHandler(mockSigningHandlerArgs);
 
     expect(output).toStrictEqual(mockResponse);
-    expect(mockSignFn).toHaveBeenCalledWith(mockSigningHandlerArgs.request, { signingDate: mockSigningDate });
+    expect(mockSignFn).toHaveBeenCalledWith(mockSigningHandlerArgs.request, { signingDate: mockSkewCorrectedDate });
     expect(getUpdatedSystemClockOffset).not.toHaveBeenCalled();
   });
 
@@ -62,7 +65,7 @@ describe(awsAuthMiddleware.name, () => {
 
     expect(output).toStrictEqual(mockResponse);
     expect(mockSignFn).toHaveBeenCalledWith(mockSigningHandlerArgs.request, {
-      signingDate: mockSigningDate,
+      signingDate: mockSkewCorrectedDate,
       signingRegion: handlerContext.signing_region,
       signingService: handlerContext.signing_service,
     });

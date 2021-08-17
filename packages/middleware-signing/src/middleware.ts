@@ -10,6 +10,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AwsAuthResolvedConfig } from "./configurations";
+import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";
 
 export const awsAuthMiddleware =
@@ -23,7 +24,7 @@ export const awsAuthMiddleware =
       const output = await next({
         ...args,
         request: await signer.sign(args.request, {
-          signingDate: new Date(Date.now() + options.systemClockOffset),
+          signingDate: getSkewCorrectedDate(options.systemClockOffset),
           signingRegion: context["signing_region"],
           signingService: context["signing_service"],
         }),
