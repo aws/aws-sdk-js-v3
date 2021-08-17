@@ -20,22 +20,28 @@ describe("memoize", () => {
       const memoized = memoize(provider);
       expect(provider).toHaveBeenCalledTimes(0);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      for (const index in [...Array(repeatTimes).keys()]) {
+      for (const _ in [...Array(repeatTimes).keys()]) {
         expect(await memoized()).toStrictEqual(mockReturn);
         expect(provider).toHaveBeenCalledTimes(1);
       }
     });
 
-    it("should always return the same promise", () => {
-      expect.assertions(repeatTimes * 2);
-
+    it("should retry provider if previous provider is failed", async () => {
+      provider
+        .mockReset()
+        .mockRejectedValueOnce("Error")
+        .mockResolvedValueOnce("Retry")
+        .mockRejectedValueOnce("Should not call 3rd time");
       const memoized = memoize(provider);
-      const result = memoized();
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      for (const index in [...Array(repeatTimes).keys()]) {
-        expect(memoized()).toStrictEqual(result);
-        expect(provider).toHaveBeenCalledTimes(1);
+      try {
+        await memoized();
+        fail();
+      } catch (e) {
+        expect(e).toBe("Error");
       }
+      expect(await memoized()).toBe("Retry");
+      expect(await memoized()).toBe("Retry");
+      expect(provider).toBeCalledTimes(2);
     });
   });
 
@@ -123,6 +129,25 @@ describe("memoize", () => {
         isExpired.mockReturnValue(false);
         return requiresRefreshFalseTest();
       });
+    });
+
+    it("should retry provider if previous provider is failed", async () => {
+      provider
+        .mockReset()
+        .mockRejectedValueOnce("Error")
+        .mockResolvedValueOnce("Retry")
+        .mockRejectedValueOnce("Should not call 3rd time");
+      isExpired.mockReset().mockReturnValue(false);
+      const memoized = memoize(provider, isExpired);
+      try {
+        await memoized();
+        fail();
+      } catch (e) {
+        expect(e).toBe("Error");
+      }
+      expect(await memoized()).toBe("Retry");
+      expect(await memoized()).toBe("Retry");
+      expect(provider).toBeCalledTimes(2);
     });
   });
 });
