@@ -28,11 +28,6 @@ export const awsAuthMiddleware =
           signingRegion: context["signing_region"],
           signingService: context["signing_service"],
         }),
-      }).catch((error) => {
-        if (error.ServerTime) {
-          options.systemClockOffset = getUpdatedSystemClockOffset(error.ServerTime, options.systemClockOffset);
-        }
-        throw error;
       });
 
       const { headers } = output.response as any;
