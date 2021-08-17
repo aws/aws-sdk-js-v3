@@ -82,86 +82,85 @@ describe("SigningHandler", () => {
 
   describe("update systemClockOffset if there is clockSkew", () => {
     // Set up clockSkew as abs(newSystemClockOffset - systemClockOffset) > 300000
-    const clockSkewPresent = [
-      { current: 100000, new: 500000 },
-      { current: -100000, new: 250000 },
-      { current: 200000, new: -150000 },
-      { current: -100000, new: -450000 },
-    ];
+    it.each([
+      // Difference of 400000 in various cases
+      [100000, 500000],
+      [-100000, 300000],
+      [200000, -100000],
+      [-100000, -400000],
 
-    clockSkewPresent.forEach((systemClockOffsetVal) => {
-      it(`current systemClockOffset: ${systemClockOffsetVal.current}, new systemClockOffset: ${systemClockOffsetVal.new}`, async () => {
-        expect.assertions(3);
-        const systemClockOffset = systemClockOffsetVal.current;
-        const newSystemClockOffset = systemClockOffsetVal.new;
-        const options = {
-          signer: noOpSigner,
-          systemClockOffset,
-        };
-        const signingHandler = awsAuthMiddleware(options as any)(noOpNext, {} as any);
-        noOpNext.mockResolvedValue({
-          response: {
-            headers: {
-              date: new Date(Date.now() + newSystemClockOffset).toString(),
-            },
+      // Difference of 300100 (close to 300000)
+      [0, 301000],
+    ])("current systemClockOffset: %d, new systemClockOffset: %d", async (systemClockOffset, newSystemClockOffset) => {
+      expect.assertions(3);
+      const options = {
+        signer: noOpSigner,
+        systemClockOffset,
+      };
+      const signingHandler = awsAuthMiddleware(options as any)(noOpNext, {} as any);
+      noOpNext.mockResolvedValue({
+        response: {
+          headers: {
+            date: new Date(Date.now() + newSystemClockOffset).toString(),
           },
-        });
-
-        await signingHandler({
-          input: {},
-          request: new HttpRequest({
-            headers: {},
-          }),
-        });
-
-        const { calls } = (noOpNext as any).mock;
-        expect(calls.length).toBe(1);
-        expect(calls[0][0].request.headers.signed).toBe("true");
-        expect(options.systemClockOffset).not.toBe(systemClockOffset);
+        },
       });
+
+      await signingHandler({
+        input: {},
+        request: new HttpRequest({
+          headers: {},
+        }),
+      });
+
+      const { calls } = (noOpNext as any).mock;
+      expect(calls.length).toBe(1);
+      expect(calls[0][0].request.headers.signed).toBe("true");
+      expect(options.systemClockOffset).not.toBe(systemClockOffset);
     });
   });
 
   describe("do not update systemClockOffset if there is no clockSkew", () => {
     // Do not set up clockSkew as abs(newSystemClockOffset - systemClockOffset) < 300000
-    const clockSkewNotPresent = [
-      { current: 100000, new: 250000 },
-      { current: -100000, new: 50000 },
-      { current: 50000, new: -150000 },
-      { current: -100000, new: -150000 },
-    ];
+    it.each([
+      // Difference of 150000 in various cases
+      [100000, 250000],
+      [-100000, 50000],
+      [50000, -150000],
+      [-100000, -150000],
 
-    clockSkewNotPresent.forEach((systemClockOffsetVal) => {
-      it(`current systemClockOffset: ${systemClockOffsetVal.current}, new systemClockOffset: ${systemClockOffsetVal.new}`, async () => {
-        expect.assertions(3);
-        const systemClockOffset = systemClockOffsetVal.current;
-        const newSystemClockOffset = systemClockOffsetVal.new;
-        const options = {
-          signer: noOpSigner,
-          systemClockOffset,
-        };
+      // No difference
+      [0, 0],
 
-        const signingHandler = awsAuthMiddleware(options as any)(noOpNext, {} as any);
-        noOpNext.mockResolvedValue({
-          response: {
-            headers: {
-              date: new Date(Date.now() + newSystemClockOffset).toString(),
-            },
+      // Difference of 299000 (close to 300000)
+      [0, 299000],
+    ])("current systemClockOffset: %d, new systemClockOffset: %d", async (systemClockOffset, newSystemClockOffset) => {
+      expect.assertions(3);
+      const options = {
+        signer: noOpSigner,
+        systemClockOffset,
+      };
+
+      const signingHandler = awsAuthMiddleware(options as any)(noOpNext, {} as any);
+      noOpNext.mockResolvedValue({
+        response: {
+          headers: {
+            date: new Date(Date.now() + newSystemClockOffset).toString(),
           },
-        });
-
-        await signingHandler({
-          input: {},
-          request: new HttpRequest({
-            headers: {},
-          }),
-        });
-
-        const { calls } = (noOpNext as any).mock;
-        expect(calls.length).toBe(1);
-        expect(calls[0][0].request.headers.signed).toBe("true");
-        expect(options.systemClockOffset).toBe(systemClockOffset);
+        },
       });
+
+      await signingHandler({
+        input: {},
+        request: new HttpRequest({
+          headers: {},
+        }),
+      });
+
+      const { calls } = (noOpNext as any).mock;
+      expect(calls.length).toBe(1);
+      expect(calls[0][0].request.headers.signed).toBe("true");
+      expect(options.systemClockOffset).toBe(systemClockOffset);
     });
   });
 });
