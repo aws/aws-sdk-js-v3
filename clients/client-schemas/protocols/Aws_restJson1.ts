@@ -68,7 +68,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1042,7 +1042,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -4607,7 +4607,7 @@ const deserializeAws_restJson1SchemaSummary = (output: any, context: __SerdeCont
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    VersionCount: __expectNumber(output.VersionCount),
+    VersionCount: __expectInt(output.VersionCount),
   } as any;
 };
 

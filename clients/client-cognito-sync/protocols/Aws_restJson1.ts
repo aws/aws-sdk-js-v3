@@ -61,7 +61,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1516,7 +1516,7 @@ export const deserializeAws_restJson1ListDatasetsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Count !== undefined && data.Count !== null) {
-    contents.Count = __expectNumber(data.Count);
+    contents.Count = __expectInt(data.Count);
   }
   if (data.Datasets !== undefined && data.Datasets !== null) {
     contents.Datasets = deserializeAws_restJson1DatasetList(data.Datasets, context);
@@ -1604,13 +1604,13 @@ export const deserializeAws_restJson1ListIdentityPoolUsageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Count !== undefined && data.Count !== null) {
-    contents.Count = __expectNumber(data.Count);
+    contents.Count = __expectInt(data.Count);
   }
   if (data.IdentityPoolUsages !== undefined && data.IdentityPoolUsages !== null) {
     contents.IdentityPoolUsages = deserializeAws_restJson1IdentityPoolUsageList(data.IdentityPoolUsages, context);
   }
   if (data.MaxResults !== undefined && data.MaxResults !== null) {
-    contents.MaxResults = __expectNumber(data.MaxResults);
+    contents.MaxResults = __expectInt(data.MaxResults);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -1700,7 +1700,7 @@ export const deserializeAws_restJson1ListRecordsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Count !== undefined && data.Count !== null) {
-    contents.Count = __expectNumber(data.Count);
+    contents.Count = __expectInt(data.Count);
   }
   if (data.DatasetDeletedAfterRequestedSyncCount !== undefined && data.DatasetDeletedAfterRequestedSyncCount !== null) {
     contents.DatasetDeletedAfterRequestedSyncCount = __expectBoolean(data.DatasetDeletedAfterRequestedSyncCount);
@@ -1709,7 +1709,7 @@ export const deserializeAws_restJson1ListRecordsCommand = async (
     contents.DatasetExists = __expectBoolean(data.DatasetExists);
   }
   if (data.DatasetSyncCount !== undefined && data.DatasetSyncCount !== null) {
-    contents.DatasetSyncCount = __expectNumber(data.DatasetSyncCount);
+    contents.DatasetSyncCount = __expectInt(data.DatasetSyncCount);
   }
   if (data.LastModifiedBy !== undefined && data.LastModifiedBy !== null) {
     contents.LastModifiedBy = __expectString(data.LastModifiedBy);
@@ -2684,7 +2684,7 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
         : undefined,
-    DataStorage: __expectNumber(output.DataStorage),
+    DataStorage: __expectInt(output.DataStorage),
     DatasetName: __expectString(output.DatasetName),
     IdentityId: __expectString(output.IdentityId),
     LastModifiedBy: __expectString(output.LastModifiedBy),
@@ -2692,7 +2692,7 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
-    NumRecords: __expectNumber(output.NumRecords),
+    NumRecords: __expectInt(output.NumRecords),
   } as any;
 };
 
@@ -2721,13 +2721,13 @@ const deserializeAws_restJson1Events = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1IdentityPoolUsage = (output: any, context: __SerdeContext): IdentityPoolUsage => {
   return {
-    DataStorage: __expectNumber(output.DataStorage),
+    DataStorage: __expectInt(output.DataStorage),
     IdentityPoolId: __expectString(output.IdentityPoolId),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
-    SyncSessionsCount: __expectNumber(output.SyncSessionsCount),
+    SyncSessionsCount: __expectInt(output.SyncSessionsCount),
   } as any;
 };
 
@@ -2744,8 +2744,8 @@ const deserializeAws_restJson1IdentityPoolUsageList = (output: any, context: __S
 
 const deserializeAws_restJson1IdentityUsage = (output: any, context: __SerdeContext): IdentityUsage => {
   return {
-    DataStorage: __expectNumber(output.DataStorage),
-    DatasetCount: __expectNumber(output.DatasetCount),
+    DataStorage: __expectInt(output.DataStorage),
+    DatasetCount: __expectInt(output.DatasetCount),
     IdentityId: __expectString(output.IdentityId),
     IdentityPoolId: __expectString(output.IdentityPoolId),
     LastModifiedDate:
@@ -2788,7 +2788,7 @@ const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): 
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
-    SyncCount: __expectNumber(output.SyncCount),
+    SyncCount: __expectInt(output.SyncCount),
     Value: __expectString(output.Value),
   } as any;
 };

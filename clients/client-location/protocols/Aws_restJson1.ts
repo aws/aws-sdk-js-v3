@@ -171,10 +171,10 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2033,7 +2033,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -7453,16 +7453,16 @@ const deserializeAws_restJson1BoundingBox = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return __handleFloat(entry) as any;
+      return __limitedParseFloat(entry) as any;
     });
 };
 
 const deserializeAws_restJson1CalculateRouteSummary = (output: any, context: __SerdeContext): CalculateRouteSummary => {
   return {
     DataSource: __expectString(output.DataSource),
-    Distance: __handleFloat(output.Distance),
+    Distance: __limitedParseFloat(output.Distance),
     DistanceUnit: __expectString(output.DistanceUnit),
-    DurationSeconds: __handleFloat(output.DurationSeconds),
+    DurationSeconds: __limitedParseFloat(output.DurationSeconds),
     RouteBBox:
       output.RouteBBox !== undefined && output.RouteBBox !== null
         ? deserializeAws_restJson1BoundingBox(output.RouteBBox, context)
@@ -7525,8 +7525,8 @@ const deserializeAws_restJson1GeofenceGeometry = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Leg = (output: any, context: __SerdeContext): Leg => {
   return {
-    Distance: __handleFloat(output.Distance),
-    DurationSeconds: __handleFloat(output.DurationSeconds),
+    Distance: __limitedParseFloat(output.Distance),
+    DurationSeconds: __limitedParseFloat(output.DurationSeconds),
     EndPosition:
       output.EndPosition !== undefined && output.EndPosition !== null
         ? deserializeAws_restJson1Position(output.EndPosition, context)
@@ -7834,7 +7834,7 @@ const deserializeAws_restJson1Position = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return __handleFloat(entry) as any;
+      return __limitedParseFloat(entry) as any;
     });
 };
 
@@ -7893,7 +7893,7 @@ const deserializeAws_restJson1SearchPlaceIndexForPositionSummary = (
 ): SearchPlaceIndexForPositionSummary => {
   return {
     DataSource: __expectString(output.DataSource),
-    MaxResults: __expectNumber(output.MaxResults),
+    MaxResults: __expectInt(output.MaxResults),
     Position:
       output.Position !== undefined && output.Position !== null
         ? deserializeAws_restJson1Position(output.Position, context)
@@ -7919,7 +7919,7 @@ const deserializeAws_restJson1SearchPlaceIndexForTextSummary = (
       output.FilterCountries !== undefined && output.FilterCountries !== null
         ? deserializeAws_restJson1CountryCodeList(output.FilterCountries, context)
         : undefined,
-    MaxResults: __expectNumber(output.MaxResults),
+    MaxResults: __expectInt(output.MaxResults),
     ResultBBox:
       output.ResultBBox !== undefined && output.ResultBBox !== null
         ? deserializeAws_restJson1BoundingBox(output.ResultBBox, context)
@@ -7930,13 +7930,13 @@ const deserializeAws_restJson1SearchPlaceIndexForTextSummary = (
 
 const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Step => {
   return {
-    Distance: __handleFloat(output.Distance),
-    DurationSeconds: __handleFloat(output.DurationSeconds),
+    Distance: __limitedParseFloat(output.Distance),
+    DurationSeconds: __limitedParseFloat(output.DurationSeconds),
     EndPosition:
       output.EndPosition !== undefined && output.EndPosition !== null
         ? deserializeAws_restJson1Position(output.EndPosition, context)
         : undefined,
-    GeometryOffset: __expectNumber(output.GeometryOffset),
+    GeometryOffset: __expectInt(output.GeometryOffset),
     StartPosition:
       output.StartPosition !== undefined && output.StartPosition !== null
         ? deserializeAws_restJson1Position(output.StartPosition, context)

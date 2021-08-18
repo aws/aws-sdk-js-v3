@@ -63,7 +63,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -2696,7 +2696,7 @@ const deserializeAws_restJson1AssertionRule = (output: any, context: __SerdeCont
         : undefined,
     SafetyRuleArn: __expectString(output.SafetyRuleArn),
     Status: __expectString(output.Status),
-    WaitPeriodMs: __expectNumber(output.WaitPeriodMs),
+    WaitPeriodMs: __expectInt(output.WaitPeriodMs),
   } as any;
 };
 
@@ -2725,7 +2725,7 @@ const deserializeAws_restJson1ControlPanel = (output: any, context: __SerdeConte
     ControlPanelArn: __expectString(output.ControlPanelArn),
     DefaultControlPanel: __expectBoolean(output.DefaultControlPanel),
     Name: __expectString(output.Name),
-    RoutingControlCount: __expectNumber(output.RoutingControlCount),
+    RoutingControlCount: __expectInt(output.RoutingControlCount),
     Status: __expectString(output.Status),
   } as any;
 };
@@ -2748,7 +2748,7 @@ const deserializeAws_restJson1GatingRule = (output: any, context: __SerdeContext
       output.TargetControls !== undefined && output.TargetControls !== null
         ? deserializeAws_restJson1__listOf__string(output.TargetControls, context)
         : undefined,
-    WaitPeriodMs: __expectNumber(output.WaitPeriodMs),
+    WaitPeriodMs: __expectInt(output.WaitPeriodMs),
   } as any;
 };
 
@@ -2777,7 +2777,7 @@ const deserializeAws_restJson1Rule = (output: any, context: __SerdeContext): Rul
 const deserializeAws_restJson1RuleConfig = (output: any, context: __SerdeContext): RuleConfig => {
   return {
     Inverted: __expectBoolean(output.Inverted),
-    Threshold: __expectNumber(output.Threshold),
+    Threshold: __expectInt(output.Threshold),
     Type: __expectString(output.Type),
   } as any;
 };

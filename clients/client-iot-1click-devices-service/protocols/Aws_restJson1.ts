@@ -40,10 +40,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -412,7 +412,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -478,7 +478,7 @@ export const deserializeAws_restJson1ClaimDevicesByClaimCodeCommand = async (
     contents.ClaimCode = __expectString(data.claimCode);
   }
   if (data.total !== undefined && data.total !== null) {
-    contents.Total = __expectNumber(data.total);
+    contents.Total = __expectInt(data.total);
   }
   return Promise.resolve(contents);
 };
@@ -1682,7 +1682,7 @@ const deserializeAws_restJson1DeviceDescription = (output: any, context: __Serde
         : undefined,
     DeviceId: __expectString(output.deviceId),
     Enabled: __expectBoolean(output.enabled),
-    RemainingLife: __handleFloat(output.remainingLife),
+    RemainingLife: __limitedParseFloat(output.remainingLife),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1__mapOf__string(output.tags, context)

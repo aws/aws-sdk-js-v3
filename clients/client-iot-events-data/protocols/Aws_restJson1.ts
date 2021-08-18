@@ -57,7 +57,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1654,7 +1654,7 @@ const deserializeAws_restJson1Alarm = (output: any, context: __SerdeContext): Al
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    severity: __expectNumber(output.severity),
+    severity: __expectInt(output.severity),
   } as any;
 };
 
@@ -1926,7 +1926,7 @@ const deserializeAws_restJson1SnoozeActionConfiguration = (
 ): SnoozeActionConfiguration => {
   return {
     note: __expectString(output.note),
-    snoozeDuration: __expectNumber(output.snoozeDuration),
+    snoozeDuration: __expectInt(output.snoozeDuration),
   } as any;
 };
 

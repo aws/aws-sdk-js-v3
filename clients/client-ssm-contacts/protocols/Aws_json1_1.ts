@@ -130,7 +130,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3450,7 +3450,7 @@ const deserializeAws_json1_1ActivateContactChannelResult = (
 const deserializeAws_json1_1ChannelTargetInfo = (output: any, context: __SerdeContext): ChannelTargetInfo => {
   return {
     ContactChannelId: __expectString(output.ContactChannelId),
-    RetryIntervalInMinutes: __expectNumber(output.RetryIntervalInMinutes),
+    RetryIntervalInMinutes: __expectInt(output.RetryIntervalInMinutes),
   } as any;
 };
 
@@ -3681,7 +3681,7 @@ const deserializeAws_json1_1InternalServerException = (
 ): InternalServerException => {
   return {
     Message: __expectString(output.Message),
-    RetryAfterSeconds: __expectNumber(output.RetryAfterSeconds),
+    RetryAfterSeconds: __expectInt(output.RetryAfterSeconds),
   } as any;
 };
 
@@ -3868,7 +3868,7 @@ const deserializeAws_json1_1ServiceQuotaExceededException = (
 
 const deserializeAws_json1_1Stage = (output: any, context: __SerdeContext): Stage => {
   return {
-    DurationInMinutes: __expectNumber(output.DurationInMinutes),
+    DurationInMinutes: __expectInt(output.DurationInMinutes),
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1TargetsList(output.Targets, context)
@@ -3947,7 +3947,7 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
   return {
     Message: __expectString(output.Message),
     QuotaCode: __expectString(output.QuotaCode),
-    RetryAfterSeconds: __expectNumber(output.RetryAfterSeconds),
+    RetryAfterSeconds: __expectInt(output.RetryAfterSeconds),
     ServiceCode: __expectString(output.ServiceCode),
   } as any;
 };

@@ -90,10 +90,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -874,7 +874,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -3024,7 +3024,7 @@ const deserializeAws_restJson1AgentConfiguration = (output: any, context: __Serd
       output.agentParameters !== undefined && output.agentParameters !== null
         ? deserializeAws_restJson1AgentParameters(output.agentParameters, context)
         : undefined,
-    periodInSeconds: __expectNumber(output.periodInSeconds),
+    periodInSeconds: __expectInt(output.periodInSeconds),
     shouldProfile: __expectBoolean(output.shouldProfile),
   } as any;
 };
@@ -3167,7 +3167,7 @@ const deserializeAws_restJson1FindingsReportSummary = (output: any, context: __S
         ? new Date(output.profileStartTime)
         : undefined,
     profilingGroupName: __expectString(output.profilingGroupName),
-    totalNumberOfFindings: __expectNumber(output.totalNumberOfFindings),
+    totalNumberOfFindings: __expectInt(output.totalNumberOfFindings),
   } as any;
 };
 
@@ -3213,7 +3213,7 @@ const deserializeAws_restJson1FrameMetricValues = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return __handleFloat(entry) as any;
+      return __limitedParseFloat(entry) as any;
     });
 };
 
@@ -3231,8 +3231,8 @@ const deserializeAws_restJson1ListOfTimestamps = (output: any, context: __SerdeC
 const deserializeAws_restJson1Match = (output: any, context: __SerdeContext): Match => {
   return {
     frameAddress: __expectString(output.frameAddress),
-    targetFramesIndex: __expectNumber(output.targetFramesIndex),
-    thresholdBreachValue: __handleFloat(output.thresholdBreachValue),
+    targetFramesIndex: __expectInt(output.targetFramesIndex),
+    thresholdBreachValue: __limitedParseFloat(output.thresholdBreachValue),
   } as any;
 };
 
@@ -3284,7 +3284,7 @@ const deserializeAws_restJson1Pattern = (output: any, context: __SerdeContext): 
       output.targetFrames !== undefined && output.targetFrames !== null
         ? deserializeAws_restJson1TargetFrames(output.targetFrames, context)
         : undefined,
-    thresholdPercent: __handleFloat(output.thresholdPercent),
+    thresholdPercent: __limitedParseFloat(output.thresholdPercent),
   } as any;
 };
 
@@ -3374,8 +3374,8 @@ const deserializeAws_restJson1ProfilingStatus = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeContext): Recommendation => {
   return {
-    allMatchesCount: __expectNumber(output.allMatchesCount),
-    allMatchesSum: __handleFloat(output.allMatchesSum),
+    allMatchesCount: __expectInt(output.allMatchesCount),
+    allMatchesSum: __limitedParseFloat(output.allMatchesSum),
     endTime: output.endTime !== undefined && output.endTime !== null ? new Date(output.endTime) : undefined,
     pattern:
       output.pattern !== undefined && output.pattern !== null

@@ -164,7 +164,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -922,7 +922,7 @@ export const serializeAws_restJson1GetLaunchProfileInitializationCommand = async
   }
   const query: any = {
     ...(input.launchProfileProtocolVersions !== undefined && {
-      launchProfileProtocolVersions: (input.launchProfileProtocolVersions || []).map((_entry) => _entry),
+      launchProfileProtocolVersions: (input.launchProfileProtocolVersions || []).map((_entry) => _entry as any),
     }),
     ...(input.launchPurpose !== undefined && { launchPurpose: input.launchPurpose }),
     ...(input.platform !== undefined && { platform: input.platform }),
@@ -1240,7 +1240,7 @@ export const serializeAws_restJson1ListEulaAcceptancesCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   const query: any = {
-    ...(input.eulaIds !== undefined && { eulaIds: (input.eulaIds || []).map((_entry) => _entry) }),
+    ...(input.eulaIds !== undefined && { eulaIds: (input.eulaIds || []).map((_entry) => _entry as any) }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1264,7 +1264,7 @@ export const serializeAws_restJson1ListEulasCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/eulas";
   const query: any = {
-    ...(input.eulaIds !== undefined && { eulaIds: (input.eulaIds || []).map((_entry) => _entry) }),
+    ...(input.eulaIds !== undefined && { eulaIds: (input.eulaIds || []).map((_entry) => _entry as any) }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1346,7 +1346,7 @@ export const serializeAws_restJson1ListLaunchProfilesCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.principalId !== undefined && { principalId: input.principalId }),
-    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry) }),
+    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1454,8 +1454,8 @@ export const serializeAws_restJson1ListStudioComponentsCommand = async (
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry) }),
-    ...(input.types !== undefined && { types: (input.types || []).map((_entry) => _entry) }),
+    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry as any) }),
+    ...(input.types !== undefined && { types: (input.types || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1726,7 +1726,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -7530,7 +7530,7 @@ const deserializeAws_restJson1StreamConfiguration = (output: any, context: __Ser
       output.ec2InstanceTypes !== undefined && output.ec2InstanceTypes !== null
         ? deserializeAws_restJson1StreamingInstanceTypeList(output.ec2InstanceTypes, context)
         : undefined,
-    maxSessionLengthInMinutes: __expectNumber(output.maxSessionLengthInMinutes),
+    maxSessionLengthInMinutes: __expectInt(output.maxSessionLengthInMinutes),
     streamingImageIds:
       output.streamingImageIds !== undefined && output.streamingImageIds !== null
         ? deserializeAws_restJson1StreamingImageIdList(output.streamingImageIds, context)

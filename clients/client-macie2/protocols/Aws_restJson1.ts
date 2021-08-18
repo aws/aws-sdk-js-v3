@@ -278,10 +278,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1678,7 +1678,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -3369,7 +3369,7 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
     contents.s3JobDefinition = deserializeAws_restJson1S3JobDefinition(data.s3JobDefinition, context);
   }
   if (data.samplingPercentage !== undefined && data.samplingPercentage !== null) {
-    contents.samplingPercentage = __expectNumber(data.samplingPercentage);
+    contents.samplingPercentage = __expectInt(data.samplingPercentage);
   }
   if (data.scheduleFrequency !== undefined && data.scheduleFrequency !== null) {
     contents.scheduleFrequency = deserializeAws_restJson1JobScheduleFrequency(data.scheduleFrequency, context);
@@ -4399,7 +4399,7 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.bucketCount !== undefined && data.bucketCount !== null) {
-    contents.bucketCount = __expectNumber(data.bucketCount);
+    contents.bucketCount = __expectInt(data.bucketCount);
   }
   if (data.bucketCountByEffectivePermission !== undefined && data.bucketCountByEffectivePermission !== null) {
     contents.bucketCountByEffectivePermission = deserializeAws_restJson1BucketCountByEffectivePermission(
@@ -4430,22 +4430,22 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
     );
   }
   if (data.classifiableObjectCount !== undefined && data.classifiableObjectCount !== null) {
-    contents.classifiableObjectCount = __expectNumber(data.classifiableObjectCount);
+    contents.classifiableObjectCount = __expectInt(data.classifiableObjectCount);
   }
   if (data.classifiableSizeInBytes !== undefined && data.classifiableSizeInBytes !== null) {
-    contents.classifiableSizeInBytes = __expectNumber(data.classifiableSizeInBytes);
+    contents.classifiableSizeInBytes = __expectInt(data.classifiableSizeInBytes);
   }
   if (data.lastUpdated !== undefined && data.lastUpdated !== null) {
     contents.lastUpdated = new Date(data.lastUpdated);
   }
   if (data.objectCount !== undefined && data.objectCount !== null) {
-    contents.objectCount = __expectNumber(data.objectCount);
+    contents.objectCount = __expectInt(data.objectCount);
   }
   if (data.sizeInBytes !== undefined && data.sizeInBytes !== null) {
-    contents.sizeInBytes = __expectNumber(data.sizeInBytes);
+    contents.sizeInBytes = __expectInt(data.sizeInBytes);
   }
   if (data.sizeInBytesCompressed !== undefined && data.sizeInBytesCompressed !== null) {
-    contents.sizeInBytesCompressed = __expectNumber(data.sizeInBytesCompressed);
+    contents.sizeInBytesCompressed = __expectInt(data.sizeInBytesCompressed);
   }
   if (data.unclassifiableObjectCount !== undefined && data.unclassifiableObjectCount !== null) {
     contents.unclassifiableObjectCount = deserializeAws_restJson1ObjectLevelStatistics(
@@ -4694,7 +4694,7 @@ export const deserializeAws_restJson1GetCustomDataIdentifierCommand = async (
     contents.keywords = deserializeAws_restJson1__listOf__string(data.keywords, context);
   }
   if (data.maximumMatchDistance !== undefined && data.maximumMatchDistance !== null) {
-    contents.maximumMatchDistance = __expectNumber(data.maximumMatchDistance);
+    contents.maximumMatchDistance = __expectInt(data.maximumMatchDistance);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -4934,7 +4934,7 @@ export const deserializeAws_restJson1GetFindingsFilterCommand = async (
     contents.name = __expectString(data.name);
   }
   if (data.position !== undefined && data.position !== null) {
-    contents.position = __expectNumber(data.position);
+    contents.position = __expectInt(data.position);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
@@ -5249,7 +5249,7 @@ export const deserializeAws_restJson1GetInvitationsCountCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.invitationsCount !== undefined && data.invitationsCount !== null) {
-    contents.invitationsCount = __expectNumber(data.invitationsCount);
+    contents.invitationsCount = __expectInt(data.invitationsCount);
   }
   return Promise.resolve(contents);
 };
@@ -7078,7 +7078,7 @@ export const deserializeAws_restJson1TestCustomDataIdentifierCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.matchCount !== undefined && data.matchCount !== null) {
-    contents.matchCount = __expectNumber(data.matchCount);
+    contents.matchCount = __expectInt(data.matchCount);
   }
   return Promise.resolve(contents);
 };
@@ -8771,10 +8771,10 @@ const deserializeAws_restJson1BucketCountByEffectivePermission = (
   context: __SerdeContext
 ): BucketCountByEffectivePermission => {
   return {
-    publiclyAccessible: __expectNumber(output.publiclyAccessible),
-    publiclyReadable: __expectNumber(output.publiclyReadable),
-    publiclyWritable: __expectNumber(output.publiclyWritable),
-    unknown: __expectNumber(output.unknown),
+    publiclyAccessible: __expectInt(output.publiclyAccessible),
+    publiclyReadable: __expectInt(output.publiclyReadable),
+    publiclyWritable: __expectInt(output.publiclyWritable),
+    unknown: __expectInt(output.unknown),
   } as any;
 };
 
@@ -8783,10 +8783,10 @@ const deserializeAws_restJson1BucketCountByEncryptionType = (
   context: __SerdeContext
 ): BucketCountByEncryptionType => {
   return {
-    kmsManaged: __expectNumber(output.kmsManaged),
-    s3Managed: __expectNumber(output.s3Managed),
-    unencrypted: __expectNumber(output.unencrypted),
-    unknown: __expectNumber(output.unknown),
+    kmsManaged: __expectInt(output.kmsManaged),
+    s3Managed: __expectInt(output.s3Managed),
+    unencrypted: __expectInt(output.unencrypted),
+    unknown: __expectInt(output.unknown),
   } as any;
 };
 
@@ -8795,10 +8795,10 @@ const deserializeAws_restJson1BucketCountBySharedAccessType = (
   context: __SerdeContext
 ): BucketCountBySharedAccessType => {
   return {
-    external: __expectNumber(output.external),
-    internal: __expectNumber(output.internal),
-    notShared: __expectNumber(output.notShared),
-    unknown: __expectNumber(output.unknown),
+    external: __expectInt(output.external),
+    internal: __expectInt(output.internal),
+    notShared: __expectInt(output.notShared),
+    unknown: __expectInt(output.unknown),
   } as any;
 };
 
@@ -8807,9 +8807,9 @@ const deserializeAws_restJson1BucketCountPolicyAllowsUnencryptedObjectUploads = 
   context: __SerdeContext
 ): BucketCountPolicyAllowsUnencryptedObjectUploads => {
   return {
-    allowsUnencryptedObjectUploads: __expectNumber(output.allowsUnencryptedObjectUploads),
-    deniesUnencryptedObjectUploads: __expectNumber(output.deniesUnencryptedObjectUploads),
-    unknown: __expectNumber(output.unknown),
+    allowsUnencryptedObjectUploads: __expectInt(output.allowsUnencryptedObjectUploads),
+    deniesUnencryptedObjectUploads: __expectInt(output.deniesUnencryptedObjectUploads),
+    unknown: __expectInt(output.unknown),
   } as any;
 };
 
@@ -8843,15 +8843,15 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
         ? new Date(output.bucketCreatedAt)
         : undefined,
     bucketName: __expectString(output.bucketName),
-    classifiableObjectCount: __expectNumber(output.classifiableObjectCount),
-    classifiableSizeInBytes: __expectNumber(output.classifiableSizeInBytes),
+    classifiableObjectCount: __expectInt(output.classifiableObjectCount),
+    classifiableSizeInBytes: __expectInt(output.classifiableSizeInBytes),
     jobDetails:
       output.jobDetails !== undefined && output.jobDetails !== null
         ? deserializeAws_restJson1JobDetails(output.jobDetails, context)
         : undefined,
     lastUpdated:
       output.lastUpdated !== undefined && output.lastUpdated !== null ? new Date(output.lastUpdated) : undefined,
-    objectCount: __expectNumber(output.objectCount),
+    objectCount: __expectInt(output.objectCount),
     objectCountByEncryptionType:
       output.objectCountByEncryptionType !== undefined && output.objectCountByEncryptionType !== null
         ? deserializeAws_restJson1ObjectCountByEncryptionType(output.objectCountByEncryptionType, context)
@@ -8870,8 +8870,8 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
         ? deserializeAws_restJson1BucketServerSideEncryption(output.serverSideEncryption, context)
         : undefined,
     sharedAccess: __expectString(output.sharedAccess),
-    sizeInBytes: __expectNumber(output.sizeInBytes),
-    sizeInBytesCompressed: __expectNumber(output.sizeInBytesCompressed),
+    sizeInBytes: __expectInt(output.sizeInBytes),
+    sizeInBytesCompressed: __expectInt(output.sizeInBytesCompressed),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1__listOfKeyValuePair(output.tags, context)
@@ -8934,9 +8934,9 @@ const deserializeAws_restJson1BucketServerSideEncryption = (
 const deserializeAws_restJson1Cell = (output: any, context: __SerdeContext): Cell => {
   return {
     cellReference: __expectString(output.cellReference),
-    column: __expectNumber(output.column),
+    column: __expectInt(output.column),
     columnName: __expectString(output.columnName),
-    row: __expectNumber(output.row),
+    row: __expectInt(output.row),
   } as any;
 };
 
@@ -8987,7 +8987,7 @@ const deserializeAws_restJson1ClassificationResult = (output: any, context: __Se
       output.sensitiveData !== undefined && output.sensitiveData !== null
         ? deserializeAws_restJson1SensitiveData(output.sensitiveData, context)
         : undefined,
-    sizeClassified: __expectNumber(output.sizeClassified),
+    sizeClassified: __expectInt(output.sizeClassified),
     status:
       output.status !== undefined && output.status !== null
         ? deserializeAws_restJson1ClassificationResultStatus(output.status, context)
@@ -9058,10 +9058,10 @@ const deserializeAws_restJson1CriterionAdditionalProperties = (
       output.eqExactMatch !== undefined && output.eqExactMatch !== null
         ? deserializeAws_restJson1__listOf__string(output.eqExactMatch, context)
         : undefined,
-    gt: __expectNumber(output.gt),
-    gte: __expectNumber(output.gte),
-    lt: __expectNumber(output.lt),
-    lte: __expectNumber(output.lte),
+    gt: __expectInt(output.gt),
+    gte: __expectInt(output.gte),
+    lt: __expectInt(output.lt),
+    lte: __expectInt(output.lte),
     neq:
       output.neq !== undefined && output.neq !== null
         ? deserializeAws_restJson1__listOf__string(output.neq, context)
@@ -9075,7 +9075,7 @@ const deserializeAws_restJson1CustomDataIdentifiers = (output: any, context: __S
       output.detections !== undefined && output.detections !== null
         ? deserializeAws_restJson1CustomDetections(output.detections, context)
         : undefined,
-    totalCount: __expectNumber(output.totalCount),
+    totalCount: __expectInt(output.totalCount),
   } as any;
 };
 
@@ -9095,7 +9095,7 @@ const deserializeAws_restJson1CustomDataIdentifierSummary = (
 const deserializeAws_restJson1CustomDetection = (output: any, context: __SerdeContext): CustomDetection => {
   return {
     arn: __expectString(output.arn),
-    count: __expectNumber(output.count),
+    count: __expectInt(output.count),
     name: __expectString(output.name),
     occurrences:
       output.occurrences !== undefined && output.occurrences !== null
@@ -9121,7 +9121,7 @@ const deserializeAws_restJson1DailySchedule = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1DefaultDetection = (output: any, context: __SerdeContext): DefaultDetection => {
   return {
-    count: __expectNumber(output.count),
+    count: __expectInt(output.count),
     occurrences:
       output.occurrences !== undefined && output.occurrences !== null
         ? deserializeAws_restJson1Occurrences(output.occurrences, context)
@@ -9169,7 +9169,7 @@ const deserializeAws_restJson1Finding = (output: any, context: __SerdeContext): 
       output.classificationDetails !== undefined && output.classificationDetails !== null
         ? deserializeAws_restJson1ClassificationDetails(output.classificationDetails, context)
         : undefined,
-    count: __expectNumber(output.count),
+    count: __expectInt(output.count),
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
@@ -9249,7 +9249,7 @@ const deserializeAws_restJson1FindingsFilterListItem = (
 
 const deserializeAws_restJson1GroupCount = (output: any, context: __SerdeContext): GroupCount => {
   return {
-    count: __expectNumber(output.count),
+    count: __expectInt(output.count),
     groupKey: __expectString(output.groupKey),
   } as any;
 };
@@ -9309,8 +9309,8 @@ const deserializeAws_restJson1IpCountry = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1IpGeoLocation = (output: any, context: __SerdeContext): IpGeoLocation => {
   return {
-    lat: __handleFloat(output.lat),
-    lon: __handleFloat(output.lon),
+    lat: __limitedParseFloat(output.lat),
+    lon: __limitedParseFloat(output.lon),
   } as any;
 };
 
@@ -9428,19 +9428,19 @@ const deserializeAws_restJson1MatchingBucket = (output: any, context: __SerdeCon
   return {
     accountId: __expectString(output.accountId),
     bucketName: __expectString(output.bucketName),
-    classifiableObjectCount: __expectNumber(output.classifiableObjectCount),
-    classifiableSizeInBytes: __expectNumber(output.classifiableSizeInBytes),
+    classifiableObjectCount: __expectInt(output.classifiableObjectCount),
+    classifiableSizeInBytes: __expectInt(output.classifiableSizeInBytes),
     jobDetails:
       output.jobDetails !== undefined && output.jobDetails !== null
         ? deserializeAws_restJson1JobDetails(output.jobDetails, context)
         : undefined,
-    objectCount: __expectNumber(output.objectCount),
+    objectCount: __expectInt(output.objectCount),
     objectCountByEncryptionType:
       output.objectCountByEncryptionType !== undefined && output.objectCountByEncryptionType !== null
         ? deserializeAws_restJson1ObjectCountByEncryptionType(output.objectCountByEncryptionType, context)
         : undefined,
-    sizeInBytes: __expectNumber(output.sizeInBytes),
-    sizeInBytesCompressed: __expectNumber(output.sizeInBytesCompressed),
+    sizeInBytes: __expectInt(output.sizeInBytes),
+    sizeInBytesCompressed: __expectInt(output.sizeInBytesCompressed),
     unclassifiableObjectCount:
       output.unclassifiableObjectCount !== undefined && output.unclassifiableObjectCount !== null
         ? deserializeAws_restJson1ObjectLevelStatistics(output.unclassifiableObjectCount, context)
@@ -9480,7 +9480,7 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
 
 const deserializeAws_restJson1MonthlySchedule = (output: any, context: __SerdeContext): MonthlySchedule => {
   return {
-    dayOfMonth: __expectNumber(output.dayOfMonth),
+    dayOfMonth: __expectInt(output.dayOfMonth),
   } as any;
 };
 
@@ -9489,19 +9489,19 @@ const deserializeAws_restJson1ObjectCountByEncryptionType = (
   context: __SerdeContext
 ): ObjectCountByEncryptionType => {
   return {
-    customerManaged: __expectNumber(output.customerManaged),
-    kmsManaged: __expectNumber(output.kmsManaged),
-    s3Managed: __expectNumber(output.s3Managed),
-    unencrypted: __expectNumber(output.unencrypted),
-    unknown: __expectNumber(output.unknown),
+    customerManaged: __expectInt(output.customerManaged),
+    kmsManaged: __expectInt(output.kmsManaged),
+    s3Managed: __expectInt(output.s3Managed),
+    unencrypted: __expectInt(output.unencrypted),
+    unknown: __expectInt(output.unknown),
   } as any;
 };
 
 const deserializeAws_restJson1ObjectLevelStatistics = (output: any, context: __SerdeContext): ObjectLevelStatistics => {
   return {
-    fileType: __expectNumber(output.fileType),
-    storageClass: __expectNumber(output.storageClass),
-    total: __expectNumber(output.total),
+    fileType: __expectInt(output.fileType),
+    storageClass: __expectInt(output.storageClass),
+    total: __expectInt(output.total),
   } as any;
 };
 
@@ -9540,7 +9540,7 @@ const deserializeAws_restJson1Page = (output: any, context: __SerdeContext): Pag
       output.offsetRange !== undefined && output.offsetRange !== null
         ? deserializeAws_restJson1Range(output.offsetRange, context)
         : undefined,
-    pageNumber: __expectNumber(output.pageNumber),
+    pageNumber: __expectInt(output.pageNumber),
   } as any;
 };
 
@@ -9570,9 +9570,9 @@ const deserializeAws_restJson1PolicyDetails = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Range = (output: any, context: __SerdeContext): Range => {
   return {
-    end: __expectNumber(output.end),
-    start: __expectNumber(output.start),
-    startColumn: __expectNumber(output.startColumn),
+    end: __expectInt(output.end),
+    start: __expectInt(output.start),
+    startColumn: __expectInt(output.startColumn),
   } as any;
 };
 
@@ -9590,7 +9590,7 @@ const deserializeAws_restJson1Ranges = (output: any, context: __SerdeContext): R
 const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): _Record => {
   return {
     jsonPath: __expectString(output.jsonPath),
-    recordIndex: __expectNumber(output.recordIndex),
+    recordIndex: __expectInt(output.recordIndex),
   } as any;
 };
 
@@ -9729,7 +9729,7 @@ const deserializeAws_restJson1S3Object = (output: any, context: __SerdeContext):
       output.serverSideEncryption !== undefined && output.serverSideEncryption !== null
         ? deserializeAws_restJson1ServerSideEncryption(output.serverSideEncryption, context)
         : undefined,
-    size: __expectNumber(output.size),
+    size: __expectInt(output.size),
     storageClass: __expectString(output.storageClass),
     tags:
       output.tags !== undefined && output.tags !== null
@@ -9780,7 +9780,7 @@ const deserializeAws_restJson1SensitiveDataItem = (output: any, context: __Serde
       output.detections !== undefined && output.detections !== null
         ? deserializeAws_restJson1DefaultDetections(output.detections, context)
         : undefined,
-    totalCount: __expectNumber(output.totalCount),
+    totalCount: __expectInt(output.totalCount),
   } as any;
 };
 
@@ -9795,7 +9795,7 @@ const deserializeAws_restJson1ServiceLimit = (output: any, context: __SerdeConte
   return {
     isServiceLimited: __expectBoolean(output.isServiceLimited),
     unit: __expectString(output.unit),
-    value: __expectNumber(output.value),
+    value: __expectInt(output.value),
   } as any;
 };
 
@@ -9836,7 +9836,7 @@ const deserializeAws_restJson1SessionIssuer = (output: any, context: __SerdeCont
 const deserializeAws_restJson1Severity = (output: any, context: __SerdeContext): Severity => {
   return {
     description: __expectString(output.description),
-    score: __expectNumber(output.score),
+    score: __expectInt(output.score),
   } as any;
 };
 
@@ -9864,8 +9864,8 @@ const deserializeAws_restJson1SimpleScopeTerm = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
-    approximateNumberOfObjectsToProcess: __handleFloat(output.approximateNumberOfObjectsToProcess),
-    numberOfRuns: __handleFloat(output.numberOfRuns),
+    approximateNumberOfObjectsToProcess: __limitedParseFloat(output.approximateNumberOfObjectsToProcess),
+    numberOfRuns: __limitedParseFloat(output.numberOfRuns),
   } as any;
 };
 

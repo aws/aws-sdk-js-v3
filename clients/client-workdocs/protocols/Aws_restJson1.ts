@@ -141,7 +141,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -597,7 +597,7 @@ export const serializeAws_restJson1DeleteCustomMetadataCommand = async (
   }
   const query: any = {
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
-    ...(input.Keys !== undefined && { keys: (input.Keys || []).map((_entry) => _entry) }),
+    ...(input.Keys !== undefined && { keys: (input.Keys || []).map((_entry) => _entry as any) }),
     ...(input.DeleteAll !== undefined && { deleteAll: input.DeleteAll.toString() }),
   };
   let body: any;
@@ -726,7 +726,7 @@ export const serializeAws_restJson1DeleteLabelsCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {
-    ...(input.Labels !== undefined && { labels: (input.Labels || []).map((_entry) => _entry) }),
+    ...(input.Labels !== undefined && { labels: (input.Labels || []).map((_entry) => _entry as any) }),
     ...(input.DeleteAll !== undefined && { deleteAll: input.DeleteAll.toString() }),
   };
   let body: any;
@@ -4060,7 +4060,7 @@ export const deserializeAws_restJson1DescribeUsersCommand = async (
     contents.Marker = __expectString(data.Marker);
   }
   if (data.TotalNumberOfUsers !== undefined && data.TotalNumberOfUsers !== null) {
-    contents.TotalNumberOfUsers = __expectNumber(data.TotalNumberOfUsers);
+    contents.TotalNumberOfUsers = __expectInt(data.TotalNumberOfUsers);
   }
   if (data.Users !== undefined && data.Users !== null) {
     contents.Users = deserializeAws_restJson1OrganizationUserList(data.Users, context);
@@ -6266,7 +6266,7 @@ const deserializeAws_restJson1DocumentVersionMetadata = (
         : undefined,
     Name: __expectString(output.Name),
     Signature: __expectString(output.Signature),
-    Size: __expectNumber(output.Size),
+    Size: __expectInt(output.Size),
     Source:
       output.Source !== undefined && output.Source !== null
         ? deserializeAws_restJson1DocumentSourceUrlMap(output.Source, context)
@@ -6316,7 +6316,7 @@ const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeCon
       output.Labels !== undefined && output.Labels !== null
         ? deserializeAws_restJson1SharedLabels(output.Labels, context)
         : undefined,
-    LatestVersionSize: __expectNumber(output.LatestVersionSize),
+    LatestVersionSize: __expectInt(output.LatestVersionSize),
     ModifiedTimestamp:
       output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
         ? new Date(Math.round(output.ModifiedTimestamp * 1000))
@@ -6325,7 +6325,7 @@ const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeCon
     ParentFolderId: __expectString(output.ParentFolderId),
     ResourceState: __expectString(output.ResourceState),
     Signature: __expectString(output.Signature),
-    Size: __expectNumber(output.Size),
+    Size: __expectInt(output.Size),
   } as any;
 };
 
@@ -6514,7 +6514,7 @@ const deserializeAws_restJson1SignedHeaderMap = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1StorageRuleType = (output: any, context: __SerdeContext): StorageRuleType => {
   return {
-    StorageAllocatedInBytes: __expectNumber(output.StorageAllocatedInBytes),
+    StorageAllocatedInBytes: __expectInt(output.StorageAllocatedInBytes),
     StorageType: __expectString(output.StorageType),
   } as any;
 };
@@ -6615,7 +6615,7 @@ const deserializeAws_restJson1UserStorageMetadata = (output: any, context: __Ser
       output.StorageRule !== undefined && output.StorageRule !== null
         ? deserializeAws_restJson1StorageRuleType(output.StorageRule, context)
         : undefined,
-    StorageUtilizedInBytes: __expectNumber(output.StorageUtilizedInBytes),
+    StorageUtilizedInBytes: __expectInt(output.StorageUtilizedInBytes),
   } as any;
 };
 

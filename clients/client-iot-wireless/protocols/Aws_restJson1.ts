@@ -234,10 +234,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1755,7 +1755,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.ResourceArn !== undefined && { resourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -7714,7 +7714,7 @@ const deserializeAws_restJson1FactoryPresetFreqsList = (output: any, context: __
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __expectInt(entry) as any;
     });
 };
 
@@ -7766,10 +7766,10 @@ const deserializeAws_restJson1LoRaWANDevice = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1LoRaWANDeviceMetadata = (output: any, context: __SerdeContext): LoRaWANDeviceMetadata => {
   return {
-    DataRate: __expectNumber(output.DataRate),
+    DataRate: __expectInt(output.DataRate),
     DevEui: __expectString(output.DevEui),
-    FPort: __expectNumber(output.FPort),
-    Frequency: __expectNumber(output.Frequency),
+    FPort: __expectInt(output.FPort),
+    Frequency: __expectInt(output.Frequency),
     Gateways:
       output.Gateways !== undefined && output.Gateways !== null
         ? deserializeAws_restJson1LoRaWANGatewayMetadataList(output.Gateways, context)
@@ -7780,24 +7780,24 @@ const deserializeAws_restJson1LoRaWANDeviceMetadata = (output: any, context: __S
 
 const deserializeAws_restJson1LoRaWANDeviceProfile = (output: any, context: __SerdeContext): LoRaWANDeviceProfile => {
   return {
-    ClassBTimeout: __expectNumber(output.ClassBTimeout),
-    ClassCTimeout: __expectNumber(output.ClassCTimeout),
+    ClassBTimeout: __expectInt(output.ClassBTimeout),
+    ClassCTimeout: __expectInt(output.ClassCTimeout),
     FactoryPresetFreqsList:
       output.FactoryPresetFreqsList !== undefined && output.FactoryPresetFreqsList !== null
         ? deserializeAws_restJson1FactoryPresetFreqsList(output.FactoryPresetFreqsList, context)
         : undefined,
     MacVersion: __expectString(output.MacVersion),
-    MaxDutyCycle: __expectNumber(output.MaxDutyCycle),
-    MaxEirp: __expectNumber(output.MaxEirp),
-    PingSlotDr: __expectNumber(output.PingSlotDr),
-    PingSlotFreq: __expectNumber(output.PingSlotFreq),
-    PingSlotPeriod: __expectNumber(output.PingSlotPeriod),
+    MaxDutyCycle: __expectInt(output.MaxDutyCycle),
+    MaxEirp: __expectInt(output.MaxEirp),
+    PingSlotDr: __expectInt(output.PingSlotDr),
+    PingSlotFreq: __expectInt(output.PingSlotFreq),
+    PingSlotPeriod: __expectInt(output.PingSlotPeriod),
     RegParamsRevision: __expectString(output.RegParamsRevision),
     RfRegion: __expectString(output.RfRegion),
-    RxDataRate2: __expectNumber(output.RxDataRate2),
-    RxDelay1: __expectNumber(output.RxDelay1),
-    RxDrOffset1: __expectNumber(output.RxDrOffset1),
-    RxFreq2: __expectNumber(output.RxFreq2),
+    RxDataRate2: __expectInt(output.RxDataRate2),
+    RxDelay1: __expectInt(output.RxDelay1),
+    RxDrOffset1: __expectInt(output.RxDrOffset1),
+    RxFreq2: __expectInt(output.RxFreq2),
     Supports32BitFCnt: __expectBoolean(output.Supports32BitFCnt),
     SupportsClassB: __expectBoolean(output.SupportsClassB),
     SupportsClassC: __expectBoolean(output.SupportsClassC),
@@ -7842,8 +7842,8 @@ const deserializeAws_restJson1LoRaWANGatewayMetadata = (
 ): LoRaWANGatewayMetadata => {
   return {
     GatewayEui: __expectString(output.GatewayEui),
-    Rssi: __handleFloat(output.Rssi),
-    Snr: __handleFloat(output.Snr),
+    Rssi: __limitedParseFloat(output.Rssi),
+    Snr: __limitedParseFloat(output.Snr),
   } as any;
 };
 
@@ -7876,22 +7876,22 @@ const deserializeAws_restJson1LoRaWANGetServiceProfileInfo = (
   return {
     AddGwMetadata: __expectBoolean(output.AddGwMetadata),
     ChannelMask: __expectString(output.ChannelMask),
-    DevStatusReqFreq: __expectNumber(output.DevStatusReqFreq),
-    DlBucketSize: __expectNumber(output.DlBucketSize),
-    DlRate: __expectNumber(output.DlRate),
+    DevStatusReqFreq: __expectInt(output.DevStatusReqFreq),
+    DlBucketSize: __expectInt(output.DlBucketSize),
+    DlRate: __expectInt(output.DlRate),
     DlRatePolicy: __expectString(output.DlRatePolicy),
-    DrMax: __expectNumber(output.DrMax),
-    DrMin: __expectNumber(output.DrMin),
+    DrMax: __expectInt(output.DrMax),
+    DrMin: __expectInt(output.DrMin),
     HrAllowed: __expectBoolean(output.HrAllowed),
-    MinGwDiversity: __expectNumber(output.MinGwDiversity),
+    MinGwDiversity: __expectInt(output.MinGwDiversity),
     NwkGeoLoc: __expectBoolean(output.NwkGeoLoc),
     PrAllowed: __expectBoolean(output.PrAllowed),
     RaAllowed: __expectBoolean(output.RaAllowed),
     ReportDevStatusBattery: __expectBoolean(output.ReportDevStatusBattery),
     ReportDevStatusMargin: __expectBoolean(output.ReportDevStatusMargin),
-    TargetPer: __expectNumber(output.TargetPer),
-    UlBucketSize: __expectNumber(output.UlBucketSize),
-    UlRate: __expectNumber(output.UlRate),
+    TargetPer: __expectInt(output.TargetPer),
+    UlBucketSize: __expectInt(output.UlBucketSize),
+    UlRate: __expectInt(output.UlRate),
     UlRatePolicy: __expectString(output.UlRatePolicy),
   } as any;
 };
@@ -7911,7 +7911,7 @@ const deserializeAws_restJson1LoRaWANUpdateGatewayTaskCreate = (
       output.CurrentVersion !== undefined && output.CurrentVersion !== null
         ? deserializeAws_restJson1LoRaWANGatewayVersion(output.CurrentVersion, context)
         : undefined,
-    SigKeyCrc: __expectNumber(output.SigKeyCrc),
+    SigKeyCrc: __expectInt(output.SigKeyCrc),
     UpdateSignature: __expectString(output.UpdateSignature),
     UpdateVersion:
       output.UpdateVersion !== undefined && output.UpdateVersion !== null
@@ -8049,7 +8049,7 @@ const deserializeAws_restJson1SidewalkDeviceMetadata = (
     BatteryLevel: __expectString(output.BatteryLevel),
     DeviceState: __expectString(output.DeviceState),
     Event: __expectString(output.Event),
-    Rssi: __expectNumber(output.Rssi),
+    Rssi: __expectInt(output.Rssi),
   } as any;
 };
 
@@ -8072,7 +8072,7 @@ const deserializeAws_restJson1SubBands = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __expectInt(entry) as any;
     });
 };
 

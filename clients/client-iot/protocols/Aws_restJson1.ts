@@ -845,10 +845,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -11249,7 +11249,7 @@ export const deserializeAws_restJson1CreateProvisioningTemplateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.defaultVersionId !== undefined && data.defaultVersionId !== null) {
-    contents.defaultVersionId = __expectNumber(data.defaultVersionId);
+    contents.defaultVersionId = __expectInt(data.defaultVersionId);
   }
   if (data.templateArn !== undefined && data.templateArn !== null) {
     contents.templateArn = __expectString(data.templateArn);
@@ -11362,7 +11362,7 @@ export const deserializeAws_restJson1CreateProvisioningTemplateVersionCommand = 
     contents.templateName = __expectString(data.templateName);
   }
   if (data.versionId !== undefined && data.versionId !== null) {
-    contents.versionId = __expectNumber(data.versionId);
+    contents.versionId = __expectInt(data.versionId);
   }
   return Promise.resolve(contents);
 };
@@ -11754,7 +11754,7 @@ export const deserializeAws_restJson1CreateStreamCommand = async (
     contents.streamId = __expectString(data.streamId);
   }
   if (data.streamVersion !== undefined && data.streamVersion !== null) {
-    contents.streamVersion = __expectNumber(data.streamVersion);
+    contents.streamVersion = __expectInt(data.streamVersion);
   }
   return Promise.resolve(contents);
 };
@@ -15574,7 +15574,7 @@ export const deserializeAws_restJson1DescribeBillingGroupCommand = async (
     );
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectNumber(data.version);
+    contents.version = __expectInt(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -17004,7 +17004,7 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateCommand = async
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.defaultVersionId !== undefined && data.defaultVersionId !== null) {
-    contents.defaultVersionId = __expectNumber(data.defaultVersionId);
+    contents.defaultVersionId = __expectInt(data.defaultVersionId);
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -17127,7 +17127,7 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateVersionCommand 
     contents.templateBody = __expectString(data.templateBody);
   }
   if (data.versionId !== undefined && data.versionId !== null) {
-    contents.versionId = __expectNumber(data.versionId);
+    contents.versionId = __expectInt(data.versionId);
   }
   return Promise.resolve(contents);
 };
@@ -17450,7 +17450,7 @@ export const deserializeAws_restJson1DescribeSecurityProfileCommand = async (
     contents.securityProfileName = __expectString(data.securityProfileName);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectNumber(data.version);
+    contents.version = __expectInt(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -17652,7 +17652,7 @@ export const deserializeAws_restJson1DescribeThingCommand = async (
     contents.thingTypeName = __expectString(data.thingTypeName);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectNumber(data.version);
+    contents.version = __expectInt(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -17783,7 +17783,7 @@ export const deserializeAws_restJson1DescribeThingGroupCommand = async (
     contents.thingGroupProperties = deserializeAws_restJson1ThingGroupProperties(data.thingGroupProperties, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectNumber(data.version);
+    contents.version = __expectInt(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -17876,7 +17876,7 @@ export const deserializeAws_restJson1DescribeThingRegistrationTaskCommand = asyn
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.failureCount !== undefined && data.failureCount !== null) {
-    contents.failureCount = __expectNumber(data.failureCount);
+    contents.failureCount = __expectInt(data.failureCount);
   }
   if (data.inputFileBucket !== undefined && data.inputFileBucket !== null) {
     contents.inputFileBucket = __expectString(data.inputFileBucket);
@@ -17891,7 +17891,7 @@ export const deserializeAws_restJson1DescribeThingRegistrationTaskCommand = asyn
     contents.message = __expectString(data.message);
   }
   if (data.percentageProgress !== undefined && data.percentageProgress !== null) {
-    contents.percentageProgress = __expectNumber(data.percentageProgress);
+    contents.percentageProgress = __expectInt(data.percentageProgress);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.roleArn = __expectString(data.roleArn);
@@ -17900,7 +17900,7 @@ export const deserializeAws_restJson1DescribeThingRegistrationTaskCommand = asyn
     contents.status = __expectString(data.status);
   }
   if (data.successCount !== undefined && data.successCount !== null) {
-    contents.successCount = __expectNumber(data.successCount);
+    contents.successCount = __expectInt(data.successCount);
   }
   if (data.taskId !== undefined && data.taskId !== null) {
     contents.taskId = __expectString(data.taskId);
@@ -18701,7 +18701,7 @@ export const deserializeAws_restJson1GetCardinalityCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.cardinality !== undefined && data.cardinality !== null) {
-    contents.cardinality = __expectNumber(data.cardinality);
+    contents.cardinality = __expectInt(data.cardinality);
   }
   return Promise.resolve(contents);
 };
@@ -26581,7 +26581,7 @@ export const deserializeAws_restJson1TestInvokeAuthorizerCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.disconnectAfterInSeconds !== undefined && data.disconnectAfterInSeconds !== null) {
-    contents.disconnectAfterInSeconds = __expectNumber(data.disconnectAfterInSeconds);
+    contents.disconnectAfterInSeconds = __expectInt(data.disconnectAfterInSeconds);
   }
   if (data.isAuthenticated !== undefined && data.isAuthenticated !== null) {
     contents.isAuthenticated = __expectBoolean(data.isAuthenticated);
@@ -26593,7 +26593,7 @@ export const deserializeAws_restJson1TestInvokeAuthorizerCommand = async (
     contents.principalId = __expectString(data.principalId);
   }
   if (data.refreshAfterInSeconds !== undefined && data.refreshAfterInSeconds !== null) {
-    contents.refreshAfterInSeconds = __expectNumber(data.refreshAfterInSeconds);
+    contents.refreshAfterInSeconds = __expectInt(data.refreshAfterInSeconds);
   }
   return Promise.resolve(contents);
 };
@@ -27131,7 +27131,7 @@ export const deserializeAws_restJson1UpdateBillingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectNumber(data.version);
+    contents.version = __expectInt(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -27713,7 +27713,7 @@ export const deserializeAws_restJson1UpdateDynamicThingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectNumber(data.version);
+    contents.version = __expectInt(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -28419,7 +28419,7 @@ export const deserializeAws_restJson1UpdateSecurityProfileCommand = async (
     contents.securityProfileName = __expectString(data.securityProfileName);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectNumber(data.version);
+    contents.version = __expectInt(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -28518,7 +28518,7 @@ export const deserializeAws_restJson1UpdateStreamCommand = async (
     contents.streamId = __expectString(data.streamId);
   }
   if (data.streamVersion !== undefined && data.streamVersion !== null) {
-    contents.streamVersion = __expectNumber(data.streamVersion);
+    contents.streamVersion = __expectInt(data.streamVersion);
   }
   return Promise.resolve(contents);
 };
@@ -28712,7 +28712,7 @@ export const deserializeAws_restJson1UpdateThingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectNumber(data.version);
+    contents.version = __expectInt(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -31330,8 +31330,8 @@ const deserializeAws_restJson1AbortCriteria = (output: any, context: __SerdeCont
   return {
     action: __expectString(output.action),
     failureType: __expectString(output.failureType),
-    minNumberOfExecutedThings: __expectNumber(output.minNumberOfExecutedThings),
-    thresholdPercentage: __handleFloat(output.thresholdPercentage),
+    minNumberOfExecutedThings: __expectInt(output.minNumberOfExecutedThings),
+    thresholdPercentage: __limitedParseFloat(output.thresholdPercentage),
   } as any;
 };
 
@@ -31685,9 +31685,9 @@ const deserializeAws_restJson1AuditCheckDetails = (output: any, context: __Serde
     checkRunStatus: __expectString(output.checkRunStatus),
     errorCode: __expectString(output.errorCode),
     message: __expectString(output.message),
-    nonCompliantResourcesCount: __expectNumber(output.nonCompliantResourcesCount),
-    suppressedNonCompliantResourcesCount: __expectNumber(output.suppressedNonCompliantResourcesCount),
-    totalResourcesCount: __expectNumber(output.totalResourcesCount),
+    nonCompliantResourcesCount: __expectInt(output.nonCompliantResourcesCount),
+    suppressedNonCompliantResourcesCount: __expectInt(output.suppressedNonCompliantResourcesCount),
+    totalResourcesCount: __expectInt(output.totalResourcesCount),
   } as any;
 };
 
@@ -32048,7 +32048,7 @@ const deserializeAws_restJson1AwsJobExecutionsRolloutConfig = (
       output.exponentialRate !== undefined && output.exponentialRate !== null
         ? deserializeAws_restJson1AwsJobExponentialRolloutRate(output.exponentialRate, context)
         : undefined,
-    maximumPerMinute: __expectNumber(output.maximumPerMinute),
+    maximumPerMinute: __expectInt(output.maximumPerMinute),
   } as any;
 };
 
@@ -32057,8 +32057,8 @@ const deserializeAws_restJson1AwsJobExponentialRolloutRate = (
   context: __SerdeContext
 ): AwsJobExponentialRolloutRate => {
   return {
-    baseRatePerMinute: __expectNumber(output.baseRatePerMinute),
-    incrementFactor: __handleFloat(output.incrementFactor),
+    baseRatePerMinute: __expectInt(output.baseRatePerMinute),
+    incrementFactor: __limitedParseFloat(output.incrementFactor),
     rateIncreaseCriteria:
       output.rateIncreaseCriteria !== undefined && output.rateIncreaseCriteria !== null
         ? deserializeAws_restJson1AwsJobRateIncreaseCriteria(output.rateIncreaseCriteria, context)
@@ -32071,7 +32071,7 @@ const deserializeAws_restJson1AwsJobPresignedUrlConfig = (
   context: __SerdeContext
 ): AwsJobPresignedUrlConfig => {
   return {
-    expiresInSec: __expectNumber(output.expiresInSec),
+    expiresInSec: __expectInt(output.expiresInSec),
   } as any;
 };
 
@@ -32080,8 +32080,8 @@ const deserializeAws_restJson1AwsJobRateIncreaseCriteria = (
   context: __SerdeContext
 ): AwsJobRateIncreaseCriteria => {
   return {
-    numberOfNotifiedThings: __expectNumber(output.numberOfNotifiedThings),
-    numberOfSucceededThings: __expectNumber(output.numberOfSucceededThings),
+    numberOfNotifiedThings: __expectInt(output.numberOfNotifiedThings),
+    numberOfSucceededThings: __expectInt(output.numberOfSucceededThings),
   } as any;
 };
 
@@ -32104,9 +32104,9 @@ const deserializeAws_restJson1Behavior = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1BehaviorCriteria = (output: any, context: __SerdeContext): BehaviorCriteria => {
   return {
     comparisonOperator: __expectString(output.comparisonOperator),
-    consecutiveDatapointsToAlarm: __expectNumber(output.consecutiveDatapointsToAlarm),
-    consecutiveDatapointsToClear: __expectNumber(output.consecutiveDatapointsToClear),
-    durationSeconds: __expectNumber(output.durationSeconds),
+    consecutiveDatapointsToAlarm: __expectInt(output.consecutiveDatapointsToAlarm),
+    consecutiveDatapointsToClear: __expectInt(output.consecutiveDatapointsToClear),
+    durationSeconds: __expectInt(output.durationSeconds),
     mlDetectionConfig:
       output.mlDetectionConfig !== undefined && output.mlDetectionConfig !== null
         ? deserializeAws_restJson1MachineLearningDetectionConfig(output.mlDetectionConfig, context)
@@ -32142,7 +32142,7 @@ const deserializeAws_restJson1BehaviorModelTrainingSummary = (
 ): BehaviorModelTrainingSummary => {
   return {
     behaviorName: __expectString(output.behaviorName),
-    datapointsCollectionPercentage: __handleFloat(output.datapointsCollectionPercentage),
+    datapointsCollectionPercentage: __limitedParseFloat(output.datapointsCollectionPercentage),
     lastModelRefreshDate:
       output.lastModelRefreshDate !== undefined && output.lastModelRefreshDate !== null
         ? new Date(Math.round(output.lastModelRefreshDate * 1000))
@@ -32224,7 +32224,7 @@ const deserializeAws_restJson1CACertificateDescription = (
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    customerVersion: __expectNumber(output.customerVersion),
+    customerVersion: __expectInt(output.customerVersion),
     generationId: __expectString(output.generationId),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
@@ -32277,7 +32277,7 @@ const deserializeAws_restJson1CertificateDescription = (
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    customerVersion: __expectNumber(output.customerVersion),
+    customerVersion: __expectInt(output.customerVersion),
     generationId: __expectString(output.generationId),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
@@ -32504,9 +32504,9 @@ const deserializeAws_restJson1DetectMitigationActionsTaskStatistics = (
   context: __SerdeContext
 ): DetectMitigationActionsTaskStatistics => {
   return {
-    actionsExecuted: __expectNumber(output.actionsExecuted),
-    actionsFailed: __expectNumber(output.actionsFailed),
-    actionsSkipped: __expectNumber(output.actionsSkipped),
+    actionsExecuted: __expectInt(output.actionsExecuted),
+    actionsFailed: __expectInt(output.actionsFailed),
+    actionsSkipped: __expectInt(output.actionsSkipped),
   } as any;
 };
 
@@ -32724,8 +32724,8 @@ const deserializeAws_restJson1ExponentialRolloutRate = (
   context: __SerdeContext
 ): ExponentialRolloutRate => {
   return {
-    baseRatePerMinute: __expectNumber(output.baseRatePerMinute),
-    incrementFactor: __handleFloat(output.incrementFactor),
+    baseRatePerMinute: __expectInt(output.baseRatePerMinute),
+    incrementFactor: __limitedParseFloat(output.incrementFactor),
     rateIncreaseCriteria:
       output.rateIncreaseCriteria !== undefined && output.rateIncreaseCriteria !== null
         ? deserializeAws_restJson1RateIncreaseCriteria(output.rateIncreaseCriteria, context)
@@ -32952,8 +32952,8 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
 
 const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
   return {
-    approximateSecondsBeforeTimedOut: __expectNumber(output.approximateSecondsBeforeTimedOut),
-    executionNumber: __expectNumber(output.executionNumber),
+    approximateSecondsBeforeTimedOut: __expectInt(output.approximateSecondsBeforeTimedOut),
+    executionNumber: __expectInt(output.executionNumber),
     forceCanceled: __expectBoolean(output.forceCanceled),
     jobId: __expectString(output.jobId),
     lastUpdatedAt:
@@ -32974,7 +32974,7 @@ const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeConte
         ? deserializeAws_restJson1JobExecutionStatusDetails(output.statusDetails, context)
         : undefined,
     thingArn: __expectString(output.thingArn),
-    versionNumber: __expectNumber(output.versionNumber),
+    versionNumber: __expectInt(output.versionNumber),
   } as any;
 };
 
@@ -32987,7 +32987,7 @@ const deserializeAws_restJson1JobExecutionsRolloutConfig = (
       output.exponentialRate !== undefined && output.exponentialRate !== null
         ? deserializeAws_restJson1ExponentialRolloutRate(output.exponentialRate, context)
         : undefined,
-    maximumPerMinute: __expectNumber(output.maximumPerMinute),
+    maximumPerMinute: __expectInt(output.maximumPerMinute),
   } as any;
 };
 
@@ -33005,7 +33005,7 @@ const deserializeAws_restJson1JobExecutionStatusDetails = (
 
 const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
   return {
-    executionNumber: __expectNumber(output.executionNumber),
+    executionNumber: __expectInt(output.executionNumber),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
@@ -33078,14 +33078,14 @@ const deserializeAws_restJson1JobExecutionSummaryForThingList = (
 
 const deserializeAws_restJson1JobProcessDetails = (output: any, context: __SerdeContext): JobProcessDetails => {
   return {
-    numberOfCanceledThings: __expectNumber(output.numberOfCanceledThings),
-    numberOfFailedThings: __expectNumber(output.numberOfFailedThings),
-    numberOfInProgressThings: __expectNumber(output.numberOfInProgressThings),
-    numberOfQueuedThings: __expectNumber(output.numberOfQueuedThings),
-    numberOfRejectedThings: __expectNumber(output.numberOfRejectedThings),
-    numberOfRemovedThings: __expectNumber(output.numberOfRemovedThings),
-    numberOfSucceededThings: __expectNumber(output.numberOfSucceededThings),
-    numberOfTimedOutThings: __expectNumber(output.numberOfTimedOutThings),
+    numberOfCanceledThings: __expectInt(output.numberOfCanceledThings),
+    numberOfFailedThings: __expectInt(output.numberOfFailedThings),
+    numberOfInProgressThings: __expectInt(output.numberOfInProgressThings),
+    numberOfQueuedThings: __expectInt(output.numberOfQueuedThings),
+    numberOfRejectedThings: __expectInt(output.numberOfRejectedThings),
+    numberOfRemovedThings: __expectInt(output.numberOfRemovedThings),
+    numberOfSucceededThings: __expectInt(output.numberOfSucceededThings),
+    numberOfTimedOutThings: __expectInt(output.numberOfTimedOutThings),
     processingTargets:
       output.processingTargets !== undefined && output.processingTargets !== null
         ? deserializeAws_restJson1ProcessingTargetNameList(output.processingTargets, context)
@@ -33271,8 +33271,8 @@ const deserializeAws_restJson1MetricValue = (output: any, context: __SerdeContex
       output.cidrs !== undefined && output.cidrs !== null
         ? deserializeAws_restJson1Cidrs(output.cidrs, context)
         : undefined,
-    count: __expectNumber(output.count),
-    number: __handleFloat(output.number),
+    count: __expectInt(output.count),
+    number: __limitedParseFloat(output.number),
     numbers:
       output.numbers !== undefined && output.numbers !== null
         ? deserializeAws_restJson1NumberList(output.numbers, context)
@@ -33414,7 +33414,7 @@ const deserializeAws_restJson1NumberList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return __handleFloat(entry) as any;
+      return __limitedParseFloat(entry) as any;
     });
 };
 
@@ -33433,7 +33433,7 @@ const deserializeAws_restJson1OTAUpdateFile = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1FileLocation(output.fileLocation, context)
         : undefined,
     fileName: __expectString(output.fileName),
-    fileType: __expectNumber(output.fileType),
+    fileType: __expectInt(output.fileType),
     fileVersion: __expectString(output.fileVersion),
   } as any;
 };
@@ -33560,8 +33560,8 @@ const deserializeAws_restJson1Percentiles = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1PercentPair = (output: any, context: __SerdeContext): PercentPair => {
   return {
-    percent: __handleFloat(output.percent),
-    value: __handleFloat(output.value),
+    percent: __limitedParseFloat(output.percent),
+    value: __limitedParseFloat(output.value),
   } as any;
 };
 
@@ -33644,13 +33644,13 @@ const deserializeAws_restJson1Ports = (output: any, context: __SerdeContext): nu
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __expectInt(entry) as any;
     });
 };
 
 const deserializeAws_restJson1PresignedUrlConfig = (output: any, context: __SerdeContext): PresignedUrlConfig => {
   return {
-    expiresInSec: __expectNumber(output.expiresInSec),
+    expiresInSec: __expectInt(output.expiresInSec),
     roleArn: __expectString(output.roleArn),
   } as any;
 };
@@ -33753,7 +33753,7 @@ const deserializeAws_restJson1ProvisioningTemplateVersionSummary = (
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
     isDefaultVersion: __expectBoolean(output.isDefaultVersion),
-    versionId: __expectNumber(output.versionId),
+    versionId: __expectInt(output.versionId),
   } as any;
 };
 
@@ -33816,8 +33816,8 @@ const deserializeAws_restJson1PutItemInput = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1RateIncreaseCriteria = (output: any, context: __SerdeContext): RateIncreaseCriteria => {
   return {
-    numberOfNotifiedThings: __expectNumber(output.numberOfNotifiedThings),
-    numberOfSucceededThings: __expectNumber(output.numberOfSucceededThings),
+    numberOfNotifiedThings: __expectInt(output.numberOfNotifiedThings),
+    numberOfSucceededThings: __expectInt(output.numberOfSucceededThings),
   } as any;
 };
 
@@ -33875,7 +33875,7 @@ const deserializeAws_restJson1ReplaceDefaultPolicyVersionParams = (
 
 const deserializeAws_restJson1RepublishAction = (output: any, context: __SerdeContext): RepublishAction => {
   return {
-    qos: __expectNumber(output.qos),
+    qos: __expectInt(output.qos),
     roleArn: __expectString(output.roleArn),
     topic: __expectString(output.topic),
   } as any;
@@ -33926,7 +33926,7 @@ const deserializeAws_restJson1RoleAliasDescription = (output: any, context: __Se
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    credentialDurationSeconds: __expectNumber(output.credentialDurationSeconds),
+    credentialDurationSeconds: __expectInt(output.credentialDurationSeconds),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
@@ -34199,14 +34199,14 @@ const deserializeAws_restJson1StatisticalThreshold = (output: any, context: __Se
 
 const deserializeAws_restJson1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
-    average: __handleFloat(output.average),
-    count: __expectNumber(output.count),
-    maximum: __handleFloat(output.maximum),
-    minimum: __handleFloat(output.minimum),
-    stdDeviation: __handleFloat(output.stdDeviation),
-    sum: __handleFloat(output.sum),
-    sumOfSquares: __handleFloat(output.sumOfSquares),
-    variance: __handleFloat(output.variance),
+    average: __limitedParseFloat(output.average),
+    count: __expectInt(output.count),
+    maximum: __limitedParseFloat(output.maximum),
+    minimum: __limitedParseFloat(output.minimum),
+    stdDeviation: __limitedParseFloat(output.stdDeviation),
+    sum: __limitedParseFloat(output.sum),
+    sumOfSquares: __limitedParseFloat(output.sumOfSquares),
+    variance: __limitedParseFloat(output.variance),
   } as any;
 };
 
@@ -34220,14 +34220,14 @@ const deserializeAws_restJson1StepFunctionsAction = (output: any, context: __Ser
 
 const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): _Stream => {
   return {
-    fileId: __expectNumber(output.fileId),
+    fileId: __expectInt(output.fileId),
     streamId: __expectString(output.streamId),
   } as any;
 };
 
 const deserializeAws_restJson1StreamFile = (output: any, context: __SerdeContext): StreamFile => {
   return {
-    fileId: __expectNumber(output.fileId),
+    fileId: __expectInt(output.fileId),
     s3Location:
       output.s3Location !== undefined && output.s3Location !== null
         ? deserializeAws_restJson1S3Location(output.s3Location, context)
@@ -34264,7 +34264,7 @@ const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext
     roleArn: __expectString(output.roleArn),
     streamArn: __expectString(output.streamArn),
     streamId: __expectString(output.streamId),
-    streamVersion: __expectNumber(output.streamVersion),
+    streamVersion: __expectInt(output.streamVersion),
   } as any;
 };
 
@@ -34284,7 +34284,7 @@ const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeCont
     description: __expectString(output.description),
     streamArn: __expectString(output.streamArn),
     streamId: __expectString(output.streamId),
-    streamVersion: __expectNumber(output.streamVersion),
+    streamVersion: __expectInt(output.streamVersion),
   } as any;
 };
 
@@ -34389,13 +34389,13 @@ const deserializeAws_restJson1TaskIdList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1TaskStatistics = (output: any, context: __SerdeContext): TaskStatistics => {
   return {
-    canceledChecks: __expectNumber(output.canceledChecks),
-    compliantChecks: __expectNumber(output.compliantChecks),
-    failedChecks: __expectNumber(output.failedChecks),
-    inProgressChecks: __expectNumber(output.inProgressChecks),
-    nonCompliantChecks: __expectNumber(output.nonCompliantChecks),
-    totalChecks: __expectNumber(output.totalChecks),
-    waitingForDataCollectionChecks: __expectNumber(output.waitingForDataCollectionChecks),
+    canceledChecks: __expectInt(output.canceledChecks),
+    compliantChecks: __expectInt(output.compliantChecks),
+    failedChecks: __expectInt(output.failedChecks),
+    inProgressChecks: __expectInt(output.inProgressChecks),
+    nonCompliantChecks: __expectInt(output.nonCompliantChecks),
+    totalChecks: __expectInt(output.totalChecks),
+    waitingForDataCollectionChecks: __expectInt(output.waitingForDataCollectionChecks),
   } as any;
 };
 
@@ -34404,11 +34404,11 @@ const deserializeAws_restJson1TaskStatisticsForAuditCheck = (
   context: __SerdeContext
 ): TaskStatisticsForAuditCheck => {
   return {
-    canceledFindingsCount: __expectNumber(output.canceledFindingsCount),
-    failedFindingsCount: __expectNumber(output.failedFindingsCount),
-    skippedFindingsCount: __expectNumber(output.skippedFindingsCount),
-    succeededFindingsCount: __expectNumber(output.succeededFindingsCount),
-    totalFindingsCount: __expectNumber(output.totalFindingsCount),
+    canceledFindingsCount: __expectInt(output.canceledFindingsCount),
+    failedFindingsCount: __expectInt(output.failedFindingsCount),
+    skippedFindingsCount: __expectInt(output.skippedFindingsCount),
+    succeededFindingsCount: __expectInt(output.succeededFindingsCount),
+    totalFindingsCount: __expectInt(output.totalFindingsCount),
   } as any;
 };
 
@@ -34421,7 +34421,7 @@ const deserializeAws_restJson1ThingAttribute = (output: any, context: __SerdeCon
     thingArn: __expectString(output.thingArn),
     thingName: __expectString(output.thingName),
     thingTypeName: __expectString(output.thingTypeName),
-    version: __expectNumber(output.version),
+    version: __expectInt(output.version),
   } as any;
 };
 
@@ -34439,7 +34439,7 @@ const deserializeAws_restJson1ThingAttributeList = (output: any, context: __Serd
 const deserializeAws_restJson1ThingConnectivity = (output: any, context: __SerdeContext): ThingConnectivity => {
   return {
     connected: __expectBoolean(output.connected),
-    timestamp: __expectNumber(output.timestamp),
+    timestamp: __expectInt(output.timestamp),
   } as any;
 };
 
@@ -34657,7 +34657,7 @@ const deserializeAws_restJson1ThingTypeProperties = (output: any, context: __Ser
 
 const deserializeAws_restJson1TimeoutConfig = (output: any, context: __SerdeContext): TimeoutConfig => {
   return {
-    inProgressTimeoutInMinutes: __expectNumber(output.inProgressTimeoutInMinutes),
+    inProgressTimeoutInMinutes: __expectInt(output.inProgressTimeoutInMinutes),
   } as any;
 };
 

@@ -236,10 +236,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2112,7 +2112,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: Resource.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -2850,7 +2850,7 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
-    contents.BatchSize = __expectNumber(data.BatchSize);
+    contents.BatchSize = __expectInt(data.BatchSize);
   }
   if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
     contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
@@ -2877,16 +2877,16 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     contents.LastProcessingResult = __expectString(data.LastProcessingResult);
   }
   if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
-    contents.MaximumBatchingWindowInSeconds = __expectNumber(data.MaximumBatchingWindowInSeconds);
+    contents.MaximumBatchingWindowInSeconds = __expectInt(data.MaximumBatchingWindowInSeconds);
   }
   if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
-    contents.MaximumRecordAgeInSeconds = __expectNumber(data.MaximumRecordAgeInSeconds);
+    contents.MaximumRecordAgeInSeconds = __expectInt(data.MaximumRecordAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
+    contents.MaximumRetryAttempts = __expectInt(data.MaximumRetryAttempts);
   }
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
-    contents.ParallelizationFactor = __expectNumber(data.ParallelizationFactor);
+    contents.ParallelizationFactor = __expectInt(data.ParallelizationFactor);
   }
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
@@ -2919,7 +2919,7 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
-    contents.TumblingWindowInSeconds = __expectNumber(data.TumblingWindowInSeconds);
+    contents.TumblingWindowInSeconds = __expectInt(data.TumblingWindowInSeconds);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = __expectString(data.UUID);
@@ -3042,7 +3042,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
   if (data.CodeSize !== undefined && data.CodeSize !== null) {
-    contents.CodeSize = __expectNumber(data.CodeSize);
+    contents.CodeSize = __expectInt(data.CodeSize);
   }
   if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
     contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
@@ -3090,7 +3090,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     contents.MasterArn = __expectString(data.MasterArn);
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
-    contents.MemorySize = __expectNumber(data.MemorySize);
+    contents.MemorySize = __expectInt(data.MemorySize);
   }
   if (data.PackageType !== undefined && data.PackageType !== null) {
     contents.PackageType = __expectString(data.PackageType);
@@ -3120,7 +3120,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     contents.StateReasonCode = __expectString(data.StateReasonCode);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = __expectNumber(data.Timeout);
+    contents.Timeout = __expectInt(data.Timeout);
   }
   if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
     contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
@@ -3419,7 +3419,7 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
-    contents.BatchSize = __expectNumber(data.BatchSize);
+    contents.BatchSize = __expectInt(data.BatchSize);
   }
   if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
     contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
@@ -3446,16 +3446,16 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     contents.LastProcessingResult = __expectString(data.LastProcessingResult);
   }
   if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
-    contents.MaximumBatchingWindowInSeconds = __expectNumber(data.MaximumBatchingWindowInSeconds);
+    contents.MaximumBatchingWindowInSeconds = __expectInt(data.MaximumBatchingWindowInSeconds);
   }
   if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
-    contents.MaximumRecordAgeInSeconds = __expectNumber(data.MaximumRecordAgeInSeconds);
+    contents.MaximumRecordAgeInSeconds = __expectInt(data.MaximumRecordAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
+    contents.MaximumRetryAttempts = __expectInt(data.MaximumRetryAttempts);
   }
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
-    contents.ParallelizationFactor = __expectNumber(data.ParallelizationFactor);
+    contents.ParallelizationFactor = __expectInt(data.ParallelizationFactor);
   }
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
@@ -3488,7 +3488,7 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
-    contents.TumblingWindowInSeconds = __expectNumber(data.TumblingWindowInSeconds);
+    contents.TumblingWindowInSeconds = __expectInt(data.TumblingWindowInSeconds);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = __expectString(data.UUID);
@@ -4318,7 +4318,7 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
-    contents.BatchSize = __expectNumber(data.BatchSize);
+    contents.BatchSize = __expectInt(data.BatchSize);
   }
   if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
     contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
@@ -4345,16 +4345,16 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     contents.LastProcessingResult = __expectString(data.LastProcessingResult);
   }
   if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
-    contents.MaximumBatchingWindowInSeconds = __expectNumber(data.MaximumBatchingWindowInSeconds);
+    contents.MaximumBatchingWindowInSeconds = __expectInt(data.MaximumBatchingWindowInSeconds);
   }
   if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
-    contents.MaximumRecordAgeInSeconds = __expectNumber(data.MaximumRecordAgeInSeconds);
+    contents.MaximumRecordAgeInSeconds = __expectInt(data.MaximumRecordAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
+    contents.MaximumRetryAttempts = __expectInt(data.MaximumRetryAttempts);
   }
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
-    contents.ParallelizationFactor = __expectNumber(data.ParallelizationFactor);
+    contents.ParallelizationFactor = __expectInt(data.ParallelizationFactor);
   }
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
@@ -4387,7 +4387,7 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
-    contents.TumblingWindowInSeconds = __expectNumber(data.TumblingWindowInSeconds);
+    contents.TumblingWindowInSeconds = __expectInt(data.TumblingWindowInSeconds);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = __expectString(data.UUID);
@@ -4643,7 +4643,7 @@ export const deserializeAws_restJson1GetFunctionConcurrencyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ReservedConcurrentExecutions !== undefined && data.ReservedConcurrentExecutions !== null) {
-    contents.ReservedConcurrentExecutions = __expectNumber(data.ReservedConcurrentExecutions);
+    contents.ReservedConcurrentExecutions = __expectInt(data.ReservedConcurrentExecutions);
   }
   return Promise.resolve(contents);
 };
@@ -4755,7 +4755,7 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
   if (data.CodeSize !== undefined && data.CodeSize !== null) {
-    contents.CodeSize = __expectNumber(data.CodeSize);
+    contents.CodeSize = __expectInt(data.CodeSize);
   }
   if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
     contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
@@ -4803,7 +4803,7 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     contents.MasterArn = __expectString(data.MasterArn);
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
-    contents.MemorySize = __expectNumber(data.MemorySize);
+    contents.MemorySize = __expectInt(data.MemorySize);
   }
   if (data.PackageType !== undefined && data.PackageType !== null) {
     contents.PackageType = __expectString(data.PackageType);
@@ -4833,7 +4833,7 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     contents.StateReasonCode = __expectString(data.StateReasonCode);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = __expectNumber(data.Timeout);
+    contents.Timeout = __expectInt(data.Timeout);
   }
   if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
     contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
@@ -4934,10 +4934,10 @@ export const deserializeAws_restJson1GetFunctionEventInvokeConfigCommand = async
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
-    contents.MaximumEventAgeInSeconds = __expectNumber(data.MaximumEventAgeInSeconds);
+    contents.MaximumEventAgeInSeconds = __expectInt(data.MaximumEventAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
+    contents.MaximumRetryAttempts = __expectInt(data.MaximumRetryAttempts);
   }
   return Promise.resolve(contents);
 };
@@ -5044,7 +5044,7 @@ export const deserializeAws_restJson1GetLayerVersionCommand = async (
     contents.LicenseInfo = __expectString(data.LicenseInfo);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = __expectNumber(data.Version);
+    contents.Version = __expectInt(data.Version);
   }
   return Promise.resolve(contents);
 };
@@ -5151,7 +5151,7 @@ export const deserializeAws_restJson1GetLayerVersionByArnCommand = async (
     contents.LicenseInfo = __expectString(data.LicenseInfo);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = __expectNumber(data.Version);
+    contents.Version = __expectInt(data.Version);
   }
   return Promise.resolve(contents);
 };
@@ -5404,13 +5404,13 @@ export const deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand = as
     data.AllocatedProvisionedConcurrentExecutions !== undefined &&
     data.AllocatedProvisionedConcurrentExecutions !== null
   ) {
-    contents.AllocatedProvisionedConcurrentExecutions = __expectNumber(data.AllocatedProvisionedConcurrentExecutions);
+    contents.AllocatedProvisionedConcurrentExecutions = __expectInt(data.AllocatedProvisionedConcurrentExecutions);
   }
   if (
     data.AvailableProvisionedConcurrentExecutions !== undefined &&
     data.AvailableProvisionedConcurrentExecutions !== null
   ) {
-    contents.AvailableProvisionedConcurrentExecutions = __expectNumber(data.AvailableProvisionedConcurrentExecutions);
+    contents.AvailableProvisionedConcurrentExecutions = __expectInt(data.AvailableProvisionedConcurrentExecutions);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = __expectString(data.LastModified);
@@ -5419,7 +5419,7 @@ export const deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand = as
     data.RequestedProvisionedConcurrentExecutions !== undefined &&
     data.RequestedProvisionedConcurrentExecutions !== null
   ) {
-    contents.RequestedProvisionedConcurrentExecutions = __expectNumber(data.RequestedProvisionedConcurrentExecutions);
+    contents.RequestedProvisionedConcurrentExecutions = __expectInt(data.RequestedProvisionedConcurrentExecutions);
   }
   if (data.Status !== undefined && data.Status !== null) {
     contents.Status = __expectString(data.Status);
@@ -6771,7 +6771,7 @@ export const deserializeAws_restJson1PublishLayerVersionCommand = async (
     contents.LicenseInfo = __expectString(data.LicenseInfo);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = __expectNumber(data.Version);
+    contents.Version = __expectInt(data.Version);
   }
   return Promise.resolve(contents);
 };
@@ -6891,7 +6891,7 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
   if (data.CodeSize !== undefined && data.CodeSize !== null) {
-    contents.CodeSize = __expectNumber(data.CodeSize);
+    contents.CodeSize = __expectInt(data.CodeSize);
   }
   if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
     contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
@@ -6939,7 +6939,7 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     contents.MasterArn = __expectString(data.MasterArn);
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
-    contents.MemorySize = __expectNumber(data.MemorySize);
+    contents.MemorySize = __expectInt(data.MemorySize);
   }
   if (data.PackageType !== undefined && data.PackageType !== null) {
     contents.PackageType = __expectString(data.PackageType);
@@ -6969,7 +6969,7 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     contents.StateReasonCode = __expectString(data.StateReasonCode);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = __expectNumber(data.Timeout);
+    contents.Timeout = __expectInt(data.Timeout);
   }
   if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
     contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
@@ -7180,7 +7180,7 @@ export const deserializeAws_restJson1PutFunctionConcurrencyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ReservedConcurrentExecutions !== undefined && data.ReservedConcurrentExecutions !== null) {
-    contents.ReservedConcurrentExecutions = __expectNumber(data.ReservedConcurrentExecutions);
+    contents.ReservedConcurrentExecutions = __expectInt(data.ReservedConcurrentExecutions);
   }
   return Promise.resolve(contents);
 };
@@ -7280,10 +7280,10 @@ export const deserializeAws_restJson1PutFunctionEventInvokeConfigCommand = async
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
-    contents.MaximumEventAgeInSeconds = __expectNumber(data.MaximumEventAgeInSeconds);
+    contents.MaximumEventAgeInSeconds = __expectInt(data.MaximumEventAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
+    contents.MaximumRetryAttempts = __expectInt(data.MaximumRetryAttempts);
   }
   return Promise.resolve(contents);
 };
@@ -7378,13 +7378,13 @@ export const deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand = as
     data.AllocatedProvisionedConcurrentExecutions !== undefined &&
     data.AllocatedProvisionedConcurrentExecutions !== null
   ) {
-    contents.AllocatedProvisionedConcurrentExecutions = __expectNumber(data.AllocatedProvisionedConcurrentExecutions);
+    contents.AllocatedProvisionedConcurrentExecutions = __expectInt(data.AllocatedProvisionedConcurrentExecutions);
   }
   if (
     data.AvailableProvisionedConcurrentExecutions !== undefined &&
     data.AvailableProvisionedConcurrentExecutions !== null
   ) {
-    contents.AvailableProvisionedConcurrentExecutions = __expectNumber(data.AvailableProvisionedConcurrentExecutions);
+    contents.AvailableProvisionedConcurrentExecutions = __expectInt(data.AvailableProvisionedConcurrentExecutions);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = __expectString(data.LastModified);
@@ -7393,7 +7393,7 @@ export const deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand = as
     data.RequestedProvisionedConcurrentExecutions !== undefined &&
     data.RequestedProvisionedConcurrentExecutions !== null
   ) {
-    contents.RequestedProvisionedConcurrentExecutions = __expectNumber(data.RequestedProvisionedConcurrentExecutions);
+    contents.RequestedProvisionedConcurrentExecutions = __expectInt(data.RequestedProvisionedConcurrentExecutions);
   }
   if (data.Status !== undefined && data.Status !== null) {
     contents.Status = __expectString(data.Status);
@@ -8025,7 +8025,7 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
-    contents.BatchSize = __expectNumber(data.BatchSize);
+    contents.BatchSize = __expectInt(data.BatchSize);
   }
   if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
     contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
@@ -8052,16 +8052,16 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     contents.LastProcessingResult = __expectString(data.LastProcessingResult);
   }
   if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
-    contents.MaximumBatchingWindowInSeconds = __expectNumber(data.MaximumBatchingWindowInSeconds);
+    contents.MaximumBatchingWindowInSeconds = __expectInt(data.MaximumBatchingWindowInSeconds);
   }
   if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
-    contents.MaximumRecordAgeInSeconds = __expectNumber(data.MaximumRecordAgeInSeconds);
+    contents.MaximumRecordAgeInSeconds = __expectInt(data.MaximumRecordAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
+    contents.MaximumRetryAttempts = __expectInt(data.MaximumRetryAttempts);
   }
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
-    contents.ParallelizationFactor = __expectNumber(data.ParallelizationFactor);
+    contents.ParallelizationFactor = __expectInt(data.ParallelizationFactor);
   }
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
@@ -8094,7 +8094,7 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
-    contents.TumblingWindowInSeconds = __expectNumber(data.TumblingWindowInSeconds);
+    contents.TumblingWindowInSeconds = __expectInt(data.TumblingWindowInSeconds);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = __expectString(data.UUID);
@@ -8225,7 +8225,7 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
   if (data.CodeSize !== undefined && data.CodeSize !== null) {
-    contents.CodeSize = __expectNumber(data.CodeSize);
+    contents.CodeSize = __expectInt(data.CodeSize);
   }
   if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
     contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
@@ -8273,7 +8273,7 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     contents.MasterArn = __expectString(data.MasterArn);
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
-    contents.MemorySize = __expectNumber(data.MemorySize);
+    contents.MemorySize = __expectInt(data.MemorySize);
   }
   if (data.PackageType !== undefined && data.PackageType !== null) {
     contents.PackageType = __expectString(data.PackageType);
@@ -8303,7 +8303,7 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     contents.StateReasonCode = __expectString(data.StateReasonCode);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = __expectNumber(data.Timeout);
+    contents.Timeout = __expectInt(data.Timeout);
   }
   if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
     contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
@@ -8472,7 +8472,7 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
   if (data.CodeSize !== undefined && data.CodeSize !== null) {
-    contents.CodeSize = __expectNumber(data.CodeSize);
+    contents.CodeSize = __expectInt(data.CodeSize);
   }
   if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
     contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
@@ -8520,7 +8520,7 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     contents.MasterArn = __expectString(data.MasterArn);
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
-    contents.MemorySize = __expectNumber(data.MemorySize);
+    contents.MemorySize = __expectInt(data.MemorySize);
   }
   if (data.PackageType !== undefined && data.PackageType !== null) {
     contents.PackageType = __expectString(data.PackageType);
@@ -8550,7 +8550,7 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     contents.StateReasonCode = __expectString(data.StateReasonCode);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = __expectNumber(data.Timeout);
+    contents.Timeout = __expectInt(data.Timeout);
   }
   if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
     contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
@@ -8691,10 +8691,10 @@ export const deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = as
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
-    contents.MaximumEventAgeInSeconds = __expectNumber(data.MaximumEventAgeInSeconds);
+    contents.MaximumEventAgeInSeconds = __expectInt(data.MaximumEventAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
+    contents.MaximumRetryAttempts = __expectInt(data.MaximumRetryAttempts);
   }
   return Promise.resolve(contents);
 };
@@ -9832,18 +9832,18 @@ const serializeAws_restJson1VpcConfig = (input: VpcConfig, context: __SerdeConte
 
 const deserializeAws_restJson1AccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
   return {
-    CodeSizeUnzipped: __expectNumber(output.CodeSizeUnzipped),
-    CodeSizeZipped: __expectNumber(output.CodeSizeZipped),
-    ConcurrentExecutions: __expectNumber(output.ConcurrentExecutions),
-    TotalCodeSize: __expectNumber(output.TotalCodeSize),
-    UnreservedConcurrentExecutions: __expectNumber(output.UnreservedConcurrentExecutions),
+    CodeSizeUnzipped: __expectInt(output.CodeSizeUnzipped),
+    CodeSizeZipped: __expectInt(output.CodeSizeZipped),
+    ConcurrentExecutions: __expectInt(output.ConcurrentExecutions),
+    TotalCodeSize: __expectInt(output.TotalCodeSize),
+    UnreservedConcurrentExecutions: __expectInt(output.UnreservedConcurrentExecutions),
   } as any;
 };
 
 const deserializeAws_restJson1AccountUsage = (output: any, context: __SerdeContext): AccountUsage => {
   return {
-    FunctionCount: __expectNumber(output.FunctionCount),
-    TotalCodeSize: __expectNumber(output.TotalCodeSize),
+    FunctionCount: __expectInt(output.FunctionCount),
+    TotalCodeSize: __expectInt(output.TotalCodeSize),
   } as any;
 };
 
@@ -9857,7 +9857,7 @@ const deserializeAws_restJson1AdditionalVersionWeights = (
     }
     return {
       ...acc,
-      [key]: __handleFloat(value) as any,
+      [key]: __limitedParseFloat(value) as any,
     };
   }, {});
 };
@@ -9955,7 +9955,7 @@ const deserializeAws_restJson1CompatibleRuntimes = (output: any, context: __Serd
 
 const deserializeAws_restJson1Concurrency = (output: any, context: __SerdeContext): Concurrency => {
   return {
-    ReservedConcurrentExecutions: __expectNumber(output.ReservedConcurrentExecutions),
+    ReservedConcurrentExecutions: __expectInt(output.ReservedConcurrentExecutions),
   } as any;
 };
 
@@ -10044,7 +10044,7 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
   context: __SerdeContext
 ): EventSourceMappingConfiguration => {
   return {
-    BatchSize: __expectNumber(output.BatchSize),
+    BatchSize: __expectInt(output.BatchSize),
     BisectBatchOnFunctionError: __expectBoolean(output.BisectBatchOnFunctionError),
     DestinationConfig:
       output.DestinationConfig !== undefined && output.DestinationConfig !== null
@@ -10061,10 +10061,10 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
     LastProcessingResult: __expectString(output.LastProcessingResult),
-    MaximumBatchingWindowInSeconds: __expectNumber(output.MaximumBatchingWindowInSeconds),
-    MaximumRecordAgeInSeconds: __expectNumber(output.MaximumRecordAgeInSeconds),
-    MaximumRetryAttempts: __expectNumber(output.MaximumRetryAttempts),
-    ParallelizationFactor: __expectNumber(output.ParallelizationFactor),
+    MaximumBatchingWindowInSeconds: __expectInt(output.MaximumBatchingWindowInSeconds),
+    MaximumRecordAgeInSeconds: __expectInt(output.MaximumRecordAgeInSeconds),
+    MaximumRetryAttempts: __expectInt(output.MaximumRetryAttempts),
+    ParallelizationFactor: __expectInt(output.ParallelizationFactor),
     Queues:
       output.Queues !== undefined && output.Queues !== null
         ? deserializeAws_restJson1Queues(output.Queues, context)
@@ -10088,7 +10088,7 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
       output.Topics !== undefined && output.Topics !== null
         ? deserializeAws_restJson1Topics(output.Topics, context)
         : undefined,
-    TumblingWindowInSeconds: __expectNumber(output.TumblingWindowInSeconds),
+    TumblingWindowInSeconds: __expectInt(output.TumblingWindowInSeconds),
     UUID: __expectString(output.UUID),
   } as any;
 };
@@ -10148,7 +10148,7 @@ const deserializeAws_restJson1FunctionCodeLocation = (output: any, context: __Se
 const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __SerdeContext): FunctionConfiguration => {
   return {
     CodeSha256: __expectString(output.CodeSha256),
-    CodeSize: __expectNumber(output.CodeSize),
+    CodeSize: __expectInt(output.CodeSize),
     DeadLetterConfig:
       output.DeadLetterConfig !== undefined && output.DeadLetterConfig !== null
         ? deserializeAws_restJson1DeadLetterConfig(output.DeadLetterConfig, context)
@@ -10179,7 +10179,7 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
         ? deserializeAws_restJson1LayersReferenceList(output.Layers, context)
         : undefined,
     MasterArn: __expectString(output.MasterArn),
-    MemorySize: __expectNumber(output.MemorySize),
+    MemorySize: __expectInt(output.MemorySize),
     PackageType: __expectString(output.PackageType),
     RevisionId: __expectString(output.RevisionId),
     Role: __expectString(output.Role),
@@ -10189,7 +10189,7 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
     State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
     StateReasonCode: __expectString(output.StateReasonCode),
-    Timeout: __expectNumber(output.Timeout),
+    Timeout: __expectInt(output.Timeout),
     TracingConfig:
       output.TracingConfig !== undefined && output.TracingConfig !== null
         ? deserializeAws_restJson1TracingConfigResponse(output.TracingConfig, context)
@@ -10216,8 +10216,8 @@ const deserializeAws_restJson1FunctionEventInvokeConfig = (
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
-    MaximumEventAgeInSeconds: __expectNumber(output.MaximumEventAgeInSeconds),
-    MaximumRetryAttempts: __expectNumber(output.MaximumRetryAttempts),
+    MaximumEventAgeInSeconds: __expectInt(output.MaximumEventAgeInSeconds),
+    MaximumRetryAttempts: __expectInt(output.MaximumRetryAttempts),
   } as any;
 };
 
@@ -10297,7 +10297,7 @@ const deserializeAws_restJson1ImageConfigResponse = (output: any, context: __Ser
 const deserializeAws_restJson1Layer = (output: any, context: __SerdeContext): Layer => {
   return {
     Arn: __expectString(output.Arn),
-    CodeSize: __expectNumber(output.CodeSize),
+    CodeSize: __expectInt(output.CodeSize),
     SigningJobArn: __expectString(output.SigningJobArn),
     SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
   } as any;
@@ -10342,7 +10342,7 @@ const deserializeAws_restJson1LayerVersionContentOutput = (
 ): LayerVersionContentOutput => {
   return {
     CodeSha256: __expectString(output.CodeSha256),
-    CodeSize: __expectNumber(output.CodeSize),
+    CodeSize: __expectInt(output.CodeSize),
     Location: __expectString(output.Location),
     SigningJobArn: __expectString(output.SigningJobArn),
     SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
@@ -10370,7 +10370,7 @@ const deserializeAws_restJson1LayerVersionsListItem = (output: any, context: __S
     Description: __expectString(output.Description),
     LayerVersionArn: __expectString(output.LayerVersionArn),
     LicenseInfo: __expectString(output.LicenseInfo),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -10405,11 +10405,11 @@ const deserializeAws_restJson1ProvisionedConcurrencyConfigListItem = (
   context: __SerdeContext
 ): ProvisionedConcurrencyConfigListItem => {
   return {
-    AllocatedProvisionedConcurrentExecutions: __expectNumber(output.AllocatedProvisionedConcurrentExecutions),
-    AvailableProvisionedConcurrentExecutions: __expectNumber(output.AvailableProvisionedConcurrentExecutions),
+    AllocatedProvisionedConcurrentExecutions: __expectInt(output.AllocatedProvisionedConcurrentExecutions),
+    AvailableProvisionedConcurrentExecutions: __expectInt(output.AvailableProvisionedConcurrentExecutions),
     FunctionArn: __expectString(output.FunctionArn),
     LastModified: __expectString(output.LastModified),
-    RequestedProvisionedConcurrentExecutions: __expectNumber(output.RequestedProvisionedConcurrentExecutions),
+    RequestedProvisionedConcurrentExecutions: __expectInt(output.RequestedProvisionedConcurrentExecutions),
     Status: __expectString(output.Status),
     StatusReason: __expectString(output.StatusReason),
   } as any;

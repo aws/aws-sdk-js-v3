@@ -32,8 +32,9 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   parseBoolean as __parseBoolean,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -179,7 +180,7 @@ export const deserializeAws_restJson1StartMedicalStreamTranscriptionCommand = as
     contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
   }
   if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
-    contents.MediaSampleRateHertz = parseInt(output.headers["x-amzn-transcribe-sample-rate"], 10);
+    contents.MediaSampleRateHertz = __strictParseInt(output.headers["x-amzn-transcribe-sample-rate"]);
   }
   if (output.headers["x-amzn-transcribe-media-encoding"] !== undefined) {
     contents.MediaEncoding = output.headers["x-amzn-transcribe-media-encoding"];
@@ -205,7 +206,7 @@ export const deserializeAws_restJson1StartMedicalStreamTranscriptionCommand = as
     );
   }
   if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
-    contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
+    contents.NumberOfChannels = __strictParseInt(output.headers["x-amzn-transcribe-number-of-channels"]);
   }
   if (output.headers["x-amzn-transcribe-content-identification-type"] !== undefined) {
     contents.ContentIdentificationType = output.headers["x-amzn-transcribe-content-identification-type"];
@@ -329,7 +330,7 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
     contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
   }
   if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
-    contents.MediaSampleRateHertz = parseInt(output.headers["x-amzn-transcribe-sample-rate"], 10);
+    contents.MediaSampleRateHertz = __strictParseInt(output.headers["x-amzn-transcribe-sample-rate"]);
   }
   if (output.headers["x-amzn-transcribe-media-encoding"] !== undefined) {
     contents.MediaEncoding = output.headers["x-amzn-transcribe-media-encoding"];
@@ -355,7 +356,7 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
     );
   }
   if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
-    contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
+    contents.NumberOfChannels = __strictParseInt(output.headers["x-amzn-transcribe-number-of-channels"]);
   }
   if (output.headers["x-amzn-transcribe-enable-partial-results-stabilization"] !== undefined) {
     contents.EnablePartialResultsStabilization = __parseBoolean(
@@ -783,12 +784,12 @@ const deserializeAws_restJson1InternalFailureException = (
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
-    Confidence: __handleFloat(output.Confidence),
+    Confidence: __limitedParseFloat(output.Confidence),
     Content: __expectString(output.Content),
-    EndTime: __handleFloat(output.EndTime),
+    EndTime: __limitedParseFloat(output.EndTime),
     Speaker: __expectString(output.Speaker),
     Stable: __expectBoolean(output.Stable),
-    StartTime: __handleFloat(output.StartTime),
+    StartTime: __limitedParseFloat(output.StartTime),
     Type: __expectString(output.Type),
     VocabularyFilterMatch: __expectBoolean(output.VocabularyFilterMatch),
   } as any;
@@ -842,10 +843,10 @@ const deserializeAws_restJson1MedicalAlternativeList = (output: any, context: __
 const deserializeAws_restJson1MedicalEntity = (output: any, context: __SerdeContext): MedicalEntity => {
   return {
     Category: __expectString(output.Category),
-    Confidence: __handleFloat(output.Confidence),
+    Confidence: __limitedParseFloat(output.Confidence),
     Content: __expectString(output.Content),
-    EndTime: __handleFloat(output.EndTime),
-    StartTime: __handleFloat(output.StartTime),
+    EndTime: __limitedParseFloat(output.EndTime),
+    StartTime: __limitedParseFloat(output.StartTime),
   } as any;
 };
 
@@ -862,11 +863,11 @@ const deserializeAws_restJson1MedicalEntityList = (output: any, context: __Serde
 
 const deserializeAws_restJson1MedicalItem = (output: any, context: __SerdeContext): MedicalItem => {
   return {
-    Confidence: __handleFloat(output.Confidence),
+    Confidence: __limitedParseFloat(output.Confidence),
     Content: __expectString(output.Content),
-    EndTime: __handleFloat(output.EndTime),
+    EndTime: __limitedParseFloat(output.EndTime),
     Speaker: __expectString(output.Speaker),
-    StartTime: __handleFloat(output.StartTime),
+    StartTime: __limitedParseFloat(output.StartTime),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -889,10 +890,10 @@ const deserializeAws_restJson1MedicalResult = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1MedicalAlternativeList(output.Alternatives, context)
         : undefined,
     ChannelId: __expectString(output.ChannelId),
-    EndTime: __handleFloat(output.EndTime),
+    EndTime: __limitedParseFloat(output.EndTime),
     IsPartial: __expectBoolean(output.IsPartial),
     ResultId: __expectString(output.ResultId),
-    StartTime: __handleFloat(output.StartTime),
+    StartTime: __limitedParseFloat(output.StartTime),
   } as any;
 };
 
@@ -978,10 +979,10 @@ const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): R
         ? deserializeAws_restJson1AlternativeList(output.Alternatives, context)
         : undefined,
     ChannelId: __expectString(output.ChannelId),
-    EndTime: __handleFloat(output.EndTime),
+    EndTime: __limitedParseFloat(output.EndTime),
     IsPartial: __expectBoolean(output.IsPartial),
     ResultId: __expectString(output.ResultId),
-    StartTime: __handleFloat(output.StartTime),
+    StartTime: __limitedParseFloat(output.StartTime),
   } as any;
 };
 

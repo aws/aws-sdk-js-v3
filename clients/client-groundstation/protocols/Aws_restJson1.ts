@@ -92,10 +92,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -778,7 +778,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1725,19 +1725,19 @@ export const deserializeAws_restJson1GetMinuteUsageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.estimatedMinutesRemaining !== undefined && data.estimatedMinutesRemaining !== null) {
-    contents.estimatedMinutesRemaining = __expectNumber(data.estimatedMinutesRemaining);
+    contents.estimatedMinutesRemaining = __expectInt(data.estimatedMinutesRemaining);
   }
   if (data.isReservedMinutesCustomer !== undefined && data.isReservedMinutesCustomer !== null) {
     contents.isReservedMinutesCustomer = __expectBoolean(data.isReservedMinutesCustomer);
   }
   if (data.totalReservedMinuteAllocation !== undefined && data.totalReservedMinuteAllocation !== null) {
-    contents.totalReservedMinuteAllocation = __expectNumber(data.totalReservedMinuteAllocation);
+    contents.totalReservedMinuteAllocation = __expectInt(data.totalReservedMinuteAllocation);
   }
   if (data.totalScheduledMinutes !== undefined && data.totalScheduledMinutes !== null) {
-    contents.totalScheduledMinutes = __expectNumber(data.totalScheduledMinutes);
+    contents.totalScheduledMinutes = __expectInt(data.totalScheduledMinutes);
   }
   if (data.upcomingMinutesScheduled !== undefined && data.upcomingMinutesScheduled !== null) {
-    contents.upcomingMinutesScheduled = __expectNumber(data.upcomingMinutesScheduled);
+    contents.upcomingMinutesScheduled = __expectInt(data.upcomingMinutesScheduled);
   }
   return Promise.resolve(contents);
 };
@@ -1817,16 +1817,16 @@ export const deserializeAws_restJson1GetMissionProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.contactPostPassDurationSeconds !== undefined && data.contactPostPassDurationSeconds !== null) {
-    contents.contactPostPassDurationSeconds = __expectNumber(data.contactPostPassDurationSeconds);
+    contents.contactPostPassDurationSeconds = __expectInt(data.contactPostPassDurationSeconds);
   }
   if (data.contactPrePassDurationSeconds !== undefined && data.contactPrePassDurationSeconds !== null) {
-    contents.contactPrePassDurationSeconds = __expectNumber(data.contactPrePassDurationSeconds);
+    contents.contactPrePassDurationSeconds = __expectInt(data.contactPrePassDurationSeconds);
   }
   if (data.dataflowEdges !== undefined && data.dataflowEdges !== null) {
     contents.dataflowEdges = deserializeAws_restJson1DataflowEdgeList(data.dataflowEdges, context);
   }
   if (data.minimumViableContactDurationSeconds !== undefined && data.minimumViableContactDurationSeconds !== null) {
-    contents.minimumViableContactDurationSeconds = __expectNumber(data.minimumViableContactDurationSeconds);
+    contents.minimumViableContactDurationSeconds = __expectInt(data.minimumViableContactDurationSeconds);
   }
   if (data.missionProfileArn !== undefined && data.missionProfileArn !== null) {
     contents.missionProfileArn = __expectString(data.missionProfileArn);
@@ -1921,7 +1921,7 @@ export const deserializeAws_restJson1GetSatelliteCommand = async (
     contents.groundStations = deserializeAws_restJson1GroundStationIdList(data.groundStations, context);
   }
   if (data.noradSatelliteID !== undefined && data.noradSatelliteID !== null) {
-    contents.noradSatelliteID = __expectNumber(data.noradSatelliteID);
+    contents.noradSatelliteID = __expectInt(data.noradSatelliteID);
   }
   if (data.satelliteArn !== undefined && data.satelliteArn !== null) {
     contents.satelliteArn = __expectString(data.satelliteArn);
@@ -3434,7 +3434,7 @@ const deserializeAws_restJson1DataflowEndpoint = (output: any, context: __SerdeC
       output.address !== undefined && output.address !== null
         ? deserializeAws_restJson1SocketAddress(output.address, context)
         : undefined,
-    mtu: __expectNumber(output.mtu),
+    mtu: __expectInt(output.mtu),
     name: __expectString(output.name),
     status: __expectString(output.status),
   } as any;
@@ -3512,14 +3512,14 @@ const deserializeAws_restJson1Destination = (output: any, context: __SerdeContex
 const deserializeAws_restJson1Eirp = (output: any, context: __SerdeContext): Eirp => {
   return {
     units: __expectString(output.units),
-    value: __handleFloat(output.value),
+    value: __limitedParseFloat(output.value),
   } as any;
 };
 
 const deserializeAws_restJson1Elevation = (output: any, context: __SerdeContext): Elevation => {
   return {
     unit: __expectString(output.unit),
-    value: __handleFloat(output.value),
+    value: __limitedParseFloat(output.value),
   } as any;
 };
 
@@ -3550,14 +3550,14 @@ const deserializeAws_restJson1EndpointDetailsList = (output: any, context: __Ser
 const deserializeAws_restJson1Frequency = (output: any, context: __SerdeContext): Frequency => {
   return {
     units: __expectString(output.units),
-    value: __handleFloat(output.value),
+    value: __limitedParseFloat(output.value),
   } as any;
 };
 
 const deserializeAws_restJson1FrequencyBandwidth = (output: any, context: __SerdeContext): FrequencyBandwidth => {
   return {
     units: __expectString(output.units),
-    value: __handleFloat(output.value),
+    value: __limitedParseFloat(output.value),
   } as any;
 };
 
@@ -3646,7 +3646,7 @@ const deserializeAws_restJson1SatelliteListItem = (output: any, context: __Serde
       output.groundStations !== undefined && output.groundStations !== null
         ? deserializeAws_restJson1GroundStationIdList(output.groundStations, context)
         : undefined,
-    noradSatelliteID: __expectNumber(output.noradSatelliteID),
+    noradSatelliteID: __expectInt(output.noradSatelliteID),
     satelliteArn: __expectString(output.satelliteArn),
     satelliteId: __expectString(output.satelliteId),
   } as any;
@@ -3680,7 +3680,7 @@ const deserializeAws_restJson1SecurityGroupIdList = (output: any, context: __Ser
 const deserializeAws_restJson1SocketAddress = (output: any, context: __SerdeContext): SocketAddress => {
   return {
     name: __expectString(output.name),
-    port: __expectNumber(output.port),
+    port: __expectInt(output.port),
   } as any;
 };
 

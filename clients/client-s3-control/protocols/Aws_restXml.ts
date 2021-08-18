@@ -226,6 +226,8 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1744,7 +1746,7 @@ export const serializeAws_restXmlListJobsCommand = async (
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs";
   const query: any = {
-    ...(input.JobStatuses !== undefined && { jobStatuses: (input.JobStatuses || []).map((_entry) => _entry) }),
+    ...(input.JobStatuses !== undefined && { jobStatuses: (input.JobStatuses || []).map((_entry) => _entry as any) }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
@@ -4927,7 +4929,7 @@ export const deserializeAws_restXmlUpdateJobPriorityCommand = async (
     contents.JobId = __expectString(data["JobId"]);
   }
   if (data["Priority"] !== undefined) {
-    contents.Priority = parseInt(data["Priority"]);
+    contents.Priority = __strictParseInt(data["Priority"]) as number;
   }
   return Promise.resolve(contents);
 };
@@ -6607,7 +6609,7 @@ const deserializeAws_restXmlAbortIncompleteMultipartUpload = (
     DaysAfterInitiation: undefined,
   };
   if (output["DaysAfterInitiation"] !== undefined) {
-    contents.DaysAfterInitiation = parseInt(output["DaysAfterInitiation"]);
+    contents.DaysAfterInitiation = __strictParseInt(output["DaysAfterInitiation"]) as number;
   }
   return contents;
 };
@@ -6813,7 +6815,7 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
     contents.Operation = deserializeAws_restXmlJobOperation(output["Operation"], context);
   }
   if (output["Priority"] !== undefined) {
-    contents.Priority = parseInt(output["Priority"]);
+    contents.Priority = __strictParseInt(output["Priority"]) as number;
   }
   if (output["ProgressSummary"] !== undefined) {
     contents.ProgressSummary = deserializeAws_restXmlJobProgressSummary(output["ProgressSummary"], context);
@@ -6897,7 +6899,7 @@ const deserializeAws_restXmlJobListDescriptor = (output: any, context: __SerdeCo
     contents.Operation = __expectString(output["Operation"]);
   }
   if (output["Priority"] !== undefined) {
-    contents.Priority = parseInt(output["Priority"]);
+    contents.Priority = __strictParseInt(output["Priority"]) as number;
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -7051,13 +7053,13 @@ const deserializeAws_restXmlJobProgressSummary = (output: any, context: __SerdeC
     NumberOfTasksFailed: undefined,
   };
   if (output["TotalNumberOfTasks"] !== undefined) {
-    contents.TotalNumberOfTasks = parseInt(output["TotalNumberOfTasks"]);
+    contents.TotalNumberOfTasks = __strictParseInt(output["TotalNumberOfTasks"]) as number;
   }
   if (output["NumberOfTasksSucceeded"] !== undefined) {
-    contents.NumberOfTasksSucceeded = parseInt(output["NumberOfTasksSucceeded"]);
+    contents.NumberOfTasksSucceeded = __strictParseInt(output["NumberOfTasksSucceeded"]) as number;
   }
   if (output["NumberOfTasksFailed"] !== undefined) {
-    contents.NumberOfTasksFailed = parseInt(output["NumberOfTasksFailed"]);
+    contents.NumberOfTasksFailed = __strictParseInt(output["NumberOfTasksFailed"]) as number;
   }
   return contents;
 };
@@ -7108,7 +7110,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
     contents.Date = new Date(output["Date"]);
   }
   if (output["Days"] !== undefined) {
-    contents.Days = parseInt(output["Days"]);
+    contents.Days = __strictParseInt(output["Days"]) as number;
   }
   if (output["ExpiredObjectDeleteMarker"] !== undefined) {
     contents.ExpiredObjectDeleteMarker = __parseBoolean(output["ExpiredObjectDeleteMarker"]);
@@ -7257,7 +7259,7 @@ const deserializeAws_restXmlNoncurrentVersionExpiration = (
     NoncurrentDays: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
-    contents.NoncurrentDays = parseInt(output["NoncurrentDays"]);
+    contents.NoncurrentDays = __strictParseInt(output["NoncurrentDays"]) as number;
   }
   return contents;
 };
@@ -7271,7 +7273,7 @@ const deserializeAws_restXmlNoncurrentVersionTransition = (
     StorageClass: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
-    contents.NoncurrentDays = parseInt(output["NoncurrentDays"]);
+    contents.NoncurrentDays = __strictParseInt(output["NoncurrentDays"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);
@@ -7761,7 +7763,7 @@ const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (
     GlacierJobTier: undefined,
   };
   if (output["ExpirationInDays"] !== undefined) {
-    contents.ExpirationInDays = parseInt(output["ExpirationInDays"]);
+    contents.ExpirationInDays = __strictParseInt(output["ExpirationInDays"]) as number;
   }
   if (output["GlacierJobTier"] !== undefined) {
     contents.GlacierJobTier = __expectString(output["GlacierJobTier"]);
@@ -7815,7 +7817,7 @@ const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeCon
     );
   }
   if (output["ContentLength"] !== undefined) {
-    contents.ContentLength = parseInt(output["ContentLength"]);
+    contents.ContentLength = __strictParseInt(output["ContentLength"]) as number;
   }
   if (output["ContentMD5"] !== undefined) {
     contents.ContentMD5 = __expectString(output["ContentMD5"]);
@@ -7969,10 +7971,10 @@ const deserializeAws_restXmlSelectionCriteria = (output: any, context: __SerdeCo
     contents.Delimiter = __expectString(output["Delimiter"]);
   }
   if (output["MaxDepth"] !== undefined) {
-    contents.MaxDepth = parseInt(output["MaxDepth"]);
+    contents.MaxDepth = __strictParseInt(output["MaxDepth"]) as number;
   }
   if (output["MinStorageBytesPercentage"] !== undefined) {
-    contents.MinStorageBytesPercentage = parseFloat(output["MinStorageBytesPercentage"]);
+    contents.MinStorageBytesPercentage = __strictParseFloat(output["MinStorageBytesPercentage"]) as number;
   }
   return contents;
 };
@@ -8119,7 +8121,7 @@ const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext):
     contents.Date = new Date(output["Date"]);
   }
   if (output["Days"] !== undefined) {
-    contents.Days = parseInt(output["Days"]);
+    contents.Days = __strictParseInt(output["Days"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);

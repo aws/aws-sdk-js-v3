@@ -50,7 +50,7 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectNumber as __expectNumber, expectString as __expectString } from "@aws-sdk/smithy-client";
+import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -1417,7 +1417,7 @@ const deserializeAws_restJson1ParentSavingsPlanOffering = (
 ): ParentSavingsPlanOffering => {
   return {
     currency: __expectString(output.currency),
-    durationSeconds: __expectNumber(output.durationSeconds),
+    durationSeconds: __expectInt(output.durationSeconds),
     offeringId: __expectString(output.offeringId),
     paymentOption: __expectString(output.paymentOption),
     planDescription: __expectString(output.planDescription),
@@ -1449,7 +1449,7 @@ const deserializeAws_restJson1SavingsPlan = (output: any, context: __SerdeContex
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
-    termDurationInSeconds: __expectNumber(output.termDurationInSeconds),
+    termDurationInSeconds: __expectInt(output.termDurationInSeconds),
     upfrontPaymentAmount: __expectString(output.upfrontPaymentAmount),
   } as any;
 };
@@ -1469,7 +1469,7 @@ const deserializeAws_restJson1SavingsPlanOffering = (output: any, context: __Ser
   return {
     currency: __expectString(output.currency),
     description: __expectString(output.description),
-    durationSeconds: __expectNumber(output.durationSeconds),
+    durationSeconds: __expectInt(output.durationSeconds),
     offeringId: __expectString(output.offeringId),
     operation: __expectString(output.operation),
     paymentOption: __expectString(output.paymentOption),

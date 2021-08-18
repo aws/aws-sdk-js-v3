@@ -264,7 +264,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -6033,7 +6033,7 @@ const deserializeAws_json1_1ApiDestination = (output: any, context: __SerdeConte
         : undefined,
     HttpMethod: __expectString(output.HttpMethod),
     InvocationEndpoint: __expectString(output.InvocationEndpoint),
-    InvocationRateLimitPerSecond: __expectNumber(output.InvocationRateLimitPerSecond),
+    InvocationRateLimitPerSecond: __expectInt(output.InvocationRateLimitPerSecond),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
@@ -6060,10 +6060,10 @@ const deserializeAws_json1_1Archive = (output: any, context: __SerdeContext): Ar
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    EventCount: __expectNumber(output.EventCount),
+    EventCount: __expectInt(output.EventCount),
     EventSourceArn: __expectString(output.EventSourceArn),
-    RetentionDays: __expectNumber(output.RetentionDays),
-    SizeBytes: __expectNumber(output.SizeBytes),
+    RetentionDays: __expectInt(output.RetentionDays),
+    SizeBytes: __expectInt(output.SizeBytes),
     State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
   } as any;
@@ -6096,7 +6096,7 @@ const deserializeAws_json1_1AwsVpcConfiguration = (output: any, context: __Serde
 
 const deserializeAws_json1_1BatchArrayProperties = (output: any, context: __SerdeContext): BatchArrayProperties => {
   return {
-    Size: __expectNumber(output.Size),
+    Size: __expectInt(output.Size),
   } as any;
 };
 
@@ -6117,7 +6117,7 @@ const deserializeAws_json1_1BatchParameters = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1BatchRetryStrategy = (output: any, context: __SerdeContext): BatchRetryStrategy => {
   return {
-    Attempts: __expectNumber(output.Attempts),
+    Attempts: __expectInt(output.Attempts),
   } as any;
 };
 
@@ -6148,9 +6148,9 @@ const deserializeAws_json1_1CapacityProviderStrategyItem = (
   context: __SerdeContext
 ): CapacityProviderStrategyItem => {
   return {
-    base: __expectNumber(output.base),
+    base: __expectInt(output.base),
     capacityProvider: __expectString(output.capacityProvider),
-    weight: __expectNumber(output.weight),
+    weight: __expectInt(output.weight),
   } as any;
 };
 
@@ -6499,7 +6499,7 @@ const deserializeAws_json1_1DescribeApiDestinationResponse = (
     Description: __expectString(output.Description),
     HttpMethod: __expectString(output.HttpMethod),
     InvocationEndpoint: __expectString(output.InvocationEndpoint),
-    InvocationRateLimitPerSecond: __expectNumber(output.InvocationRateLimitPerSecond),
+    InvocationRateLimitPerSecond: __expectInt(output.InvocationRateLimitPerSecond),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
@@ -6520,11 +6520,11 @@ const deserializeAws_json1_1DescribeArchiveResponse = (
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     Description: __expectString(output.Description),
-    EventCount: __expectNumber(output.EventCount),
+    EventCount: __expectInt(output.EventCount),
     EventPattern: __expectString(output.EventPattern),
     EventSourceArn: __expectString(output.EventSourceArn),
-    RetentionDays: __expectNumber(output.RetentionDays),
-    SizeBytes: __expectNumber(output.SizeBytes),
+    RetentionDays: __expectInt(output.RetentionDays),
+    SizeBytes: __expectInt(output.SizeBytes),
     State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
   } as any;
@@ -6681,7 +6681,7 @@ const deserializeAws_json1_1EcsParameters = (output: any, context: __SerdeContex
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined,
-    TaskCount: __expectNumber(output.TaskCount),
+    TaskCount: __expectInt(output.TaskCount),
     TaskDefinitionArn: __expectString(output.TaskDefinitionArn),
   } as any;
 };
@@ -7090,7 +7090,7 @@ const deserializeAws_json1_1PutEventsResponse = (output: any, context: __SerdeCo
       output.Entries !== undefined && output.Entries !== null
         ? deserializeAws_json1_1PutEventsResultEntryList(output.Entries, context)
         : undefined,
-    FailedEntryCount: __expectNumber(output.FailedEntryCount),
+    FailedEntryCount: __expectInt(output.FailedEntryCount),
   } as any;
 };
 
@@ -7125,7 +7125,7 @@ const deserializeAws_json1_1PutPartnerEventsResponse = (
       output.Entries !== undefined && output.Entries !== null
         ? deserializeAws_json1_1PutPartnerEventsResultEntryList(output.Entries, context)
         : undefined,
-    FailedEntryCount: __expectNumber(output.FailedEntryCount),
+    FailedEntryCount: __expectInt(output.FailedEntryCount),
   } as any;
 };
 
@@ -7166,7 +7166,7 @@ const deserializeAws_json1_1PutTargetsResponse = (output: any, context: __SerdeC
       output.FailedEntries !== undefined && output.FailedEntries !== null
         ? deserializeAws_json1_1PutTargetsResultEntryList(output.FailedEntries, context)
         : undefined,
-    FailedEntryCount: __expectNumber(output.FailedEntryCount),
+    FailedEntryCount: __expectInt(output.FailedEntryCount),
   } as any;
 };
 
@@ -7224,7 +7224,7 @@ const deserializeAws_json1_1RemoveTargetsResponse = (output: any, context: __Ser
       output.FailedEntries !== undefined && output.FailedEntries !== null
         ? deserializeAws_json1_1RemoveTargetsResultEntryList(output.FailedEntries, context)
         : undefined,
-    FailedEntryCount: __expectNumber(output.FailedEntryCount),
+    FailedEntryCount: __expectInt(output.FailedEntryCount),
   } as any;
 };
 
@@ -7334,8 +7334,8 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 
 const deserializeAws_json1_1RetryPolicy = (output: any, context: __SerdeContext): RetryPolicy => {
   return {
-    MaximumEventAgeInSeconds: __expectNumber(output.MaximumEventAgeInSeconds),
-    MaximumRetryAttempts: __expectNumber(output.MaximumRetryAttempts),
+    MaximumEventAgeInSeconds: __expectInt(output.MaximumEventAgeInSeconds),
+    MaximumRetryAttempts: __expectInt(output.MaximumRetryAttempts),
   } as any;
 };
 

@@ -199,9 +199,9 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3814,7 +3814,7 @@ const deserializeAws_json1_1AttackProperty = (output: any, context: __SerdeConte
       output.TopContributors !== undefined && output.TopContributors !== null
         ? deserializeAws_json1_1TopContributors(output.TopContributors, context)
         : undefined,
-    Total: __expectNumber(output.Total),
+    Total: __expectInt(output.Total),
     Unit: __expectString(output.Unit),
   } as any;
 };
@@ -3824,7 +3824,7 @@ const deserializeAws_json1_1AttackStatisticsDataItem = (
   context: __SerdeContext
 ): AttackStatisticsDataItem => {
   return {
-    AttackCount: __expectNumber(output.AttackCount),
+    AttackCount: __expectInt(output.AttackCount),
     AttackVolume:
       output.AttackVolume !== undefined && output.AttackVolume !== null
         ? deserializeAws_json1_1AttackVolume(output.AttackVolume, context)
@@ -3916,14 +3916,14 @@ const deserializeAws_json1_1AttackVolume = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1AttackVolumeStatistics = (output: any, context: __SerdeContext): AttackVolumeStatistics => {
   return {
-    Max: __handleFloat(output.Max),
+    Max: __limitedParseFloat(output.Max),
   } as any;
 };
 
 const deserializeAws_json1_1Contributor = (output: any, context: __SerdeContext): Contributor => {
   return {
     Name: __expectString(output.Name),
-    Value: __expectNumber(output.Value),
+    Value: __expectInt(output.Value),
   } as any;
 };
 
@@ -4180,7 +4180,7 @@ const deserializeAws_json1_1InvalidResourceException = (
 
 const deserializeAws_json1_1Limit = (output: any, context: __SerdeContext): Limit => {
   return {
-    Max: __expectNumber(output.Max),
+    Max: __expectInt(output.Max),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -4201,7 +4201,7 @@ const deserializeAws_json1_1LimitsExceededException = (
   context: __SerdeContext
 ): LimitsExceededException => {
   return {
-    Limit: __expectNumber(output.Limit),
+    Limit: __expectInt(output.Limit),
     Type: __expectString(output.Type),
     message: __expectString(output.message),
   } as any;
@@ -4355,13 +4355,13 @@ const deserializeAws_json1_1ProtectionGroupArbitraryPatternLimits = (
   context: __SerdeContext
 ): ProtectionGroupArbitraryPatternLimits => {
   return {
-    MaxMembers: __expectNumber(output.MaxMembers),
+    MaxMembers: __expectInt(output.MaxMembers),
   } as any;
 };
 
 const deserializeAws_json1_1ProtectionGroupLimits = (output: any, context: __SerdeContext): ProtectionGroupLimits => {
   return {
-    MaxProtectionGroups: __expectNumber(output.MaxProtectionGroups),
+    MaxProtectionGroups: __expectInt(output.MaxProtectionGroups),
     PatternTypeLimits:
       output.PatternTypeLimits !== undefined && output.PatternTypeLimits !== null
         ? deserializeAws_json1_1ProtectionGroupPatternTypeLimits(output.PatternTypeLimits, context)
@@ -4499,7 +4499,7 @@ const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext
       output.SubscriptionLimits !== undefined && output.SubscriptionLimits !== null
         ? deserializeAws_json1_1SubscriptionLimits(output.SubscriptionLimits, context)
         : undefined,
-    TimeCommitmentInSeconds: __expectNumber(output.TimeCommitmentInSeconds),
+    TimeCommitmentInSeconds: __expectInt(output.TimeCommitmentInSeconds),
   } as any;
 };
 
@@ -4542,11 +4542,11 @@ const deserializeAws_json1_1SummarizedAttackVectorList = (
 
 const deserializeAws_json1_1SummarizedCounter = (output: any, context: __SerdeContext): SummarizedCounter => {
   return {
-    Average: __handleFloat(output.Average),
-    Max: __handleFloat(output.Max),
-    N: __expectNumber(output.N),
+    Average: __limitedParseFloat(output.Average),
+    Max: __limitedParseFloat(output.Max),
+    N: __expectInt(output.N),
     Name: __expectString(output.Name),
-    Sum: __handleFloat(output.Sum),
+    Sum: __limitedParseFloat(output.Sum),
     Unit: __expectString(output.Unit),
   } as any;
 };

@@ -184,6 +184,8 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   serializeFloat as __serializeFloat,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4824,7 +4826,7 @@ const deserializeAws_queryDashboardEntry = (output: any, context: __SerdeContext
     contents.LastModified = new Date(output["LastModified"]);
   }
   if (output["Size"] !== undefined) {
-    contents.Size = parseInt(output["Size"]);
+    contents.Size = __strictParseInt(output["Size"]) as number;
   }
   return contents;
 };
@@ -4911,19 +4913,19 @@ const deserializeAws_queryDatapoint = (output: any, context: __SerdeContext): Da
     contents.Timestamp = new Date(output["Timestamp"]);
   }
   if (output["SampleCount"] !== undefined) {
-    contents.SampleCount = parseFloat(output["SampleCount"]);
+    contents.SampleCount = __strictParseFloat(output["SampleCount"]) as number;
   }
   if (output["Average"] !== undefined) {
-    contents.Average = parseFloat(output["Average"]);
+    contents.Average = __strictParseFloat(output["Average"]) as number;
   }
   if (output["Sum"] !== undefined) {
-    contents.Sum = parseFloat(output["Sum"]);
+    contents.Sum = __strictParseFloat(output["Sum"]) as number;
   }
   if (output["Minimum"] !== undefined) {
-    contents.Minimum = parseFloat(output["Minimum"]);
+    contents.Minimum = __strictParseFloat(output["Minimum"]) as number;
   }
   if (output["Maximum"] !== undefined) {
-    contents.Maximum = parseFloat(output["Maximum"]);
+    contents.Maximum = __strictParseFloat(output["Maximum"]) as number;
   }
   if (output["Unit"] !== undefined) {
     contents.Unit = __expectString(output["Unit"]);
@@ -4958,7 +4960,7 @@ const deserializeAws_queryDatapointValueMap = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [pair["key"]]: parseFloat(pair["value"]),
+      [pair["key"]]: __strictParseFloat(pair["value"]) as number,
     };
   }, {});
 };
@@ -4970,7 +4972,7 @@ const deserializeAws_queryDatapointValues = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return parseFloat(entry);
+      return __strictParseFloat(entry) as number;
     });
 };
 
@@ -5238,10 +5240,10 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
     contents.AggregationStatistic = __expectString(output["AggregationStatistic"]);
   }
   if (output["AggregateValue"] !== undefined) {
-    contents.AggregateValue = parseFloat(output["AggregateValue"]);
+    contents.AggregateValue = __strictParseFloat(output["AggregateValue"]) as number;
   }
   if (output["ApproximateUniqueCount"] !== undefined) {
-    contents.ApproximateUniqueCount = parseInt(output["ApproximateUniqueCount"]);
+    contents.ApproximateUniqueCount = __strictParseInt(output["ApproximateUniqueCount"]) as number;
   }
   if (output.Contributors === "") {
     contents.Contributors = [];
@@ -5426,7 +5428,7 @@ const deserializeAws_queryInsightRuleContributor = (output: any, context: __Serd
     );
   }
   if (output["ApproximateAggregateValue"] !== undefined) {
-    contents.ApproximateAggregateValue = parseFloat(output["ApproximateAggregateValue"]);
+    contents.ApproximateAggregateValue = __strictParseFloat(output["ApproximateAggregateValue"]) as number;
   }
   if (output.Datapoints === "") {
     contents.Datapoints = [];
@@ -5452,7 +5454,7 @@ const deserializeAws_queryInsightRuleContributorDatapoint = (
     contents.Timestamp = new Date(output["Timestamp"]);
   }
   if (output["ApproximateValue"] !== undefined) {
-    contents.ApproximateValue = parseFloat(output["ApproximateValue"]);
+    contents.ApproximateValue = __strictParseFloat(output["ApproximateValue"]) as number;
   }
   return contents;
 };
@@ -5525,25 +5527,25 @@ const deserializeAws_queryInsightRuleMetricDatapoint = (
     contents.Timestamp = new Date(output["Timestamp"]);
   }
   if (output["UniqueContributors"] !== undefined) {
-    contents.UniqueContributors = parseFloat(output["UniqueContributors"]);
+    contents.UniqueContributors = __strictParseFloat(output["UniqueContributors"]) as number;
   }
   if (output["MaxContributorValue"] !== undefined) {
-    contents.MaxContributorValue = parseFloat(output["MaxContributorValue"]);
+    contents.MaxContributorValue = __strictParseFloat(output["MaxContributorValue"]) as number;
   }
   if (output["SampleCount"] !== undefined) {
-    contents.SampleCount = parseFloat(output["SampleCount"]);
+    contents.SampleCount = __strictParseFloat(output["SampleCount"]) as number;
   }
   if (output["Average"] !== undefined) {
-    contents.Average = parseFloat(output["Average"]);
+    contents.Average = __strictParseFloat(output["Average"]) as number;
   }
   if (output["Sum"] !== undefined) {
-    contents.Sum = parseFloat(output["Sum"]);
+    contents.Sum = __strictParseFloat(output["Sum"]) as number;
   }
   if (output["Minimum"] !== undefined) {
-    contents.Minimum = parseFloat(output["Minimum"]);
+    contents.Minimum = __strictParseFloat(output["Minimum"]) as number;
   }
   if (output["Maximum"] !== undefined) {
-    contents.Maximum = parseFloat(output["Maximum"]);
+    contents.Maximum = __strictParseFloat(output["Maximum"]) as number;
   }
   return contents;
 };
@@ -5866,19 +5868,19 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
     );
   }
   if (output["Period"] !== undefined) {
-    contents.Period = parseInt(output["Period"]);
+    contents.Period = __strictParseInt(output["Period"]) as number;
   }
   if (output["Unit"] !== undefined) {
     contents.Unit = __expectString(output["Unit"]);
   }
   if (output["EvaluationPeriods"] !== undefined) {
-    contents.EvaluationPeriods = parseInt(output["EvaluationPeriods"]);
+    contents.EvaluationPeriods = __strictParseInt(output["EvaluationPeriods"]) as number;
   }
   if (output["DatapointsToAlarm"] !== undefined) {
-    contents.DatapointsToAlarm = parseInt(output["DatapointsToAlarm"]);
+    contents.DatapointsToAlarm = __strictParseInt(output["DatapointsToAlarm"]) as number;
   }
   if (output["Threshold"] !== undefined) {
-    contents.Threshold = parseFloat(output["Threshold"]);
+    contents.Threshold = __strictParseFloat(output["Threshold"]) as number;
   }
   if (output["ComparisonOperator"] !== undefined) {
     contents.ComparisonOperator = __expectString(output["ComparisonOperator"]);
@@ -5952,7 +5954,7 @@ const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContex
     contents.ReturnData = __parseBoolean(output["ReturnData"]);
   }
   if (output["Period"] !== undefined) {
-    contents.Period = parseInt(output["Period"]);
+    contents.Period = __strictParseInt(output["Period"]) as number;
   }
   if (output["AccountId"] !== undefined) {
     contents.AccountId = __expectString(output["AccountId"]);
@@ -6049,7 +6051,7 @@ const deserializeAws_queryMetricStat = (output: any, context: __SerdeContext): M
     contents.Metric = deserializeAws_queryMetric(output["Metric"], context);
   }
   if (output["Period"] !== undefined) {
-    contents.Period = parseInt(output["Period"]);
+    contents.Period = __strictParseInt(output["Period"]) as number;
   }
   if (output["Stat"] !== undefined) {
     contents.Stat = __expectString(output["Stat"]);

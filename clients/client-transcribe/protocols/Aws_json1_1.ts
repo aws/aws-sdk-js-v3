@@ -230,9 +230,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4250,10 +4250,10 @@ const serializeAws_json1_1Words = (input: string[], context: __SerdeContext): an
 
 const deserializeAws_json1_1AbsoluteTimeRange = (output: any, context: __SerdeContext): AbsoluteTimeRange => {
   return {
-    EndTime: __expectNumber(output.EndTime),
-    First: __expectNumber(output.First),
-    Last: __expectNumber(output.Last),
-    StartTime: __expectNumber(output.StartTime),
+    EndTime: __expectInt(output.EndTime),
+    First: __expectInt(output.First),
+    Last: __expectInt(output.Last),
+    StartTime: __expectInt(output.StartTime),
   } as any;
 };
 
@@ -4281,14 +4281,14 @@ const deserializeAws_json1_1CallAnalyticsJob = (output: any, context: __SerdeCon
         : undefined,
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __handleFloat(output.IdentifiedLanguageScore),
+    IdentifiedLanguageScore: __limitedParseFloat(output.IdentifiedLanguageScore),
     LanguageCode: __expectString(output.LanguageCode),
     Media:
       output.Media !== undefined && output.Media !== null
         ? deserializeAws_json1_1Media(output.Media, context)
         : undefined,
     MediaFormat: __expectString(output.MediaFormat),
-    MediaSampleRateHertz: __expectNumber(output.MediaSampleRateHertz),
+    MediaSampleRateHertz: __expectInt(output.MediaSampleRateHertz),
     Settings:
       output.Settings !== undefined && output.Settings !== null
         ? deserializeAws_json1_1CallAnalyticsJobSettings(output.Settings, context)
@@ -4393,7 +4393,7 @@ const deserializeAws_json1_1CategoryPropertiesList = (output: any, context: __Se
 
 const deserializeAws_json1_1ChannelDefinition = (output: any, context: __SerdeContext): ChannelDefinition => {
   return {
-    ChannelId: __expectNumber(output.ChannelId),
+    ChannelId: __expectInt(output.ChannelId),
     ParticipantRole: __expectString(output.ParticipantRole),
   } as any;
 };
@@ -4645,7 +4645,7 @@ const deserializeAws_json1_1InterruptionFilter = (output: any, context: __SerdeC
       output.RelativeTimeRange !== undefined && output.RelativeTimeRange !== null
         ? deserializeAws_json1_1RelativeTimeRange(output.RelativeTimeRange, context)
         : undefined,
-    Threshold: __expectNumber(output.Threshold),
+    Threshold: __expectInt(output.Threshold),
   } as any;
 };
 
@@ -4839,7 +4839,7 @@ const deserializeAws_json1_1MedicalTranscriptionJob = (
         ? deserializeAws_json1_1Media(output.Media, context)
         : undefined,
     MediaFormat: __expectString(output.MediaFormat),
-    MediaSampleRateHertz: __expectNumber(output.MediaSampleRateHertz),
+    MediaSampleRateHertz: __expectInt(output.MediaSampleRateHertz),
     MedicalTranscriptionJobName: __expectString(output.MedicalTranscriptionJobName),
     Settings:
       output.Settings !== undefined && output.Settings !== null
@@ -4907,8 +4907,8 @@ const deserializeAws_json1_1MedicalTranscriptionSetting = (
 ): MedicalTranscriptionSetting => {
   return {
     ChannelIdentification: __expectBoolean(output.ChannelIdentification),
-    MaxAlternatives: __expectNumber(output.MaxAlternatives),
-    MaxSpeakerLabels: __expectNumber(output.MaxSpeakerLabels),
+    MaxAlternatives: __expectInt(output.MaxAlternatives),
+    MaxSpeakerLabels: __expectInt(output.MaxSpeakerLabels),
     ShowAlternatives: __expectBoolean(output.ShowAlternatives),
     ShowSpeakerLabels: __expectBoolean(output.ShowSpeakerLabels),
     VocabularyName: __expectString(output.VocabularyName),
@@ -4943,7 +4943,7 @@ const deserializeAws_json1_1NonTalkTimeFilter = (output: any, context: __SerdeCo
       output.RelativeTimeRange !== undefined && output.RelativeTimeRange !== null
         ? deserializeAws_json1_1RelativeTimeRange(output.RelativeTimeRange, context)
         : undefined,
-    Threshold: __expectNumber(output.Threshold),
+    Threshold: __expectInt(output.Threshold),
   } as any;
 };
 
@@ -4955,10 +4955,10 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1RelativeTimeRange = (output: any, context: __SerdeContext): RelativeTimeRange => {
   return {
-    EndPercentage: __expectNumber(output.EndPercentage),
-    First: __expectNumber(output.First),
-    Last: __expectNumber(output.Last),
-    StartPercentage: __expectNumber(output.StartPercentage),
+    EndPercentage: __expectInt(output.EndPercentage),
+    First: __expectInt(output.First),
+    Last: __expectInt(output.Last),
+    StartPercentage: __expectInt(output.StartPercentage),
   } as any;
 };
 
@@ -5033,8 +5033,8 @@ const deserializeAws_json1_1SentimentValueList = (
 const deserializeAws_json1_1Settings = (output: any, context: __SerdeContext): Settings => {
   return {
     ChannelIdentification: __expectBoolean(output.ChannelIdentification),
-    MaxAlternatives: __expectNumber(output.MaxAlternatives),
-    MaxSpeakerLabels: __expectNumber(output.MaxSpeakerLabels),
+    MaxAlternatives: __expectInt(output.MaxAlternatives),
+    MaxSpeakerLabels: __expectInt(output.MaxSpeakerLabels),
     ShowAlternatives: __expectBoolean(output.ShowAlternatives),
     ShowSpeakerLabels: __expectBoolean(output.ShowSpeakerLabels),
     VocabularyFilterMethod: __expectString(output.VocabularyFilterMethod),
@@ -5132,7 +5132,7 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __handleFloat(output.IdentifiedLanguageScore),
+    IdentifiedLanguageScore: __limitedParseFloat(output.IdentifiedLanguageScore),
     IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
     JobExecutionSettings:
       output.JobExecutionSettings !== undefined && output.JobExecutionSettings !== null
@@ -5148,7 +5148,7 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
         ? deserializeAws_json1_1Media(output.Media, context)
         : undefined,
     MediaFormat: __expectString(output.MediaFormat),
-    MediaSampleRateHertz: __expectNumber(output.MediaSampleRateHertz),
+    MediaSampleRateHertz: __expectInt(output.MediaSampleRateHertz),
     ModelSettings:
       output.ModelSettings !== undefined && output.ModelSettings !== null
         ? deserializeAws_json1_1ModelSettings(output.ModelSettings, context)
@@ -5202,7 +5202,7 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __handleFloat(output.IdentifiedLanguageScore),
+    IdentifiedLanguageScore: __limitedParseFloat(output.IdentifiedLanguageScore),
     IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
     LanguageCode: __expectString(output.LanguageCode),
     ModelSettings:

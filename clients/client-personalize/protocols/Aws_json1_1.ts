@@ -241,9 +241,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4957,7 +4957,7 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    numResults: __expectNumber(output.numResults),
+    numResults: __expectInt(output.numResults),
     roleArn: __expectString(output.roleArn),
     solutionVersionArn: __expectString(output.solutionVersionArn),
     status: __expectString(output.status),
@@ -5049,7 +5049,7 @@ const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): C
       output.latestCampaignUpdate !== undefined && output.latestCampaignUpdate !== null
         ? deserializeAws_json1_1CampaignUpdateSummary(output.latestCampaignUpdate, context)
         : undefined,
-    minProvisionedTPS: __expectNumber(output.minProvisionedTPS),
+    minProvisionedTPS: __expectInt(output.minProvisionedTPS),
     name: __expectString(output.name),
     solutionVersionArn: __expectString(output.solutionVersionArn),
     status: __expectString(output.status),
@@ -5108,7 +5108,7 @@ const deserializeAws_json1_1CampaignUpdateSummary = (output: any, context: __Ser
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    minProvisionedTPS: __expectNumber(output.minProvisionedTPS),
+    minProvisionedTPS: __expectInt(output.minProvisionedTPS),
     solutionVersionArn: __expectString(output.solutionVersionArn),
     status: __expectString(output.status),
   } as any;
@@ -5157,8 +5157,8 @@ const deserializeAws_json1_1ContinuousHyperParameterRange = (
   context: __SerdeContext
 ): ContinuousHyperParameterRange => {
   return {
-    maxValue: __handleFloat(output.maxValue),
-    minValue: __handleFloat(output.minValue),
+    maxValue: __limitedParseFloat(output.maxValue),
+    minValue: __limitedParseFloat(output.minValue),
     name: __expectString(output.name),
   } as any;
 };
@@ -5545,8 +5545,8 @@ const deserializeAws_json1_1DefaultContinuousHyperParameterRange = (
 ): DefaultContinuousHyperParameterRange => {
   return {
     isTunable: __expectBoolean(output.isTunable),
-    maxValue: __handleFloat(output.maxValue),
-    minValue: __handleFloat(output.minValue),
+    maxValue: __limitedParseFloat(output.maxValue),
+    minValue: __limitedParseFloat(output.minValue),
     name: __expectString(output.name),
   } as any;
 };
@@ -5591,8 +5591,8 @@ const deserializeAws_json1_1DefaultIntegerHyperParameterRange = (
 ): DefaultIntegerHyperParameterRange => {
   return {
     isTunable: __expectBoolean(output.isTunable),
-    maxValue: __expectNumber(output.maxValue),
-    minValue: __expectNumber(output.minValue),
+    maxValue: __expectInt(output.maxValue),
+    minValue: __expectInt(output.minValue),
     name: __expectString(output.name),
   } as any;
 };
@@ -5993,8 +5993,8 @@ const deserializeAws_json1_1IntegerHyperParameterRange = (
   context: __SerdeContext
 ): IntegerHyperParameterRange => {
   return {
-    maxValue: __expectNumber(output.maxValue),
-    minValue: __expectNumber(output.minValue),
+    maxValue: __expectInt(output.maxValue),
+    minValue: __expectInt(output.minValue),
     name: __expectString(output.name),
   } as any;
 };
@@ -6179,7 +6179,7 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { 
     }
     return {
       ...acc,
-      [key]: __handleFloat(value) as any,
+      [key]: __limitedParseFloat(value) as any,
     };
   }, {});
 };
@@ -6401,7 +6401,7 @@ const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeCont
         : undefined,
     solutionVersionArn: __expectString(output.solutionVersionArn),
     status: __expectString(output.status),
-    trainingHours: __handleFloat(output.trainingHours),
+    trainingHours: __limitedParseFloat(output.trainingHours),
     trainingMode: __expectString(output.trainingMode),
     tunedHPOParams:
       output.tunedHPOParams !== undefined && output.tunedHPOParams !== null

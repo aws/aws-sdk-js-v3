@@ -272,9 +272,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5893,12 +5893,12 @@ const deserializeAws_json1_1CustomRoutingDestinationDescription = (
   context: __SerdeContext
 ): CustomRoutingDestinationDescription => {
   return {
-    FromPort: __expectNumber(output.FromPort),
+    FromPort: __expectInt(output.FromPort),
     Protocols:
       output.Protocols !== undefined && output.Protocols !== null
         ? deserializeAws_json1_1Protocols(output.Protocols, context)
         : undefined,
-    ToPort: __expectNumber(output.ToPort),
+    ToPort: __expectInt(output.ToPort),
   } as any;
 };
 
@@ -6165,7 +6165,7 @@ const deserializeAws_json1_1EndpointDescription = (output: any, context: __Serde
     EndpointId: __expectString(output.EndpointId),
     HealthReason: __expectString(output.HealthReason),
     HealthState: __expectString(output.HealthState),
-    Weight: __expectNumber(output.Weight),
+    Weight: __expectInt(output.Weight),
   } as any;
 };
 
@@ -6188,16 +6188,16 @@ const deserializeAws_json1_1EndpointGroup = (output: any, context: __SerdeContex
         : undefined,
     EndpointGroupArn: __expectString(output.EndpointGroupArn),
     EndpointGroupRegion: __expectString(output.EndpointGroupRegion),
-    HealthCheckIntervalSeconds: __expectNumber(output.HealthCheckIntervalSeconds),
+    HealthCheckIntervalSeconds: __expectInt(output.HealthCheckIntervalSeconds),
     HealthCheckPath: __expectString(output.HealthCheckPath),
-    HealthCheckPort: __expectNumber(output.HealthCheckPort),
+    HealthCheckPort: __expectInt(output.HealthCheckPort),
     HealthCheckProtocol: __expectString(output.HealthCheckProtocol),
     PortOverrides:
       output.PortOverrides !== undefined && output.PortOverrides !== null
         ? deserializeAws_json1_1PortOverrides(output.PortOverrides, context)
         : undefined,
-    ThresholdCount: __expectNumber(output.ThresholdCount),
-    TrafficDialPercentage: __handleFloat(output.TrafficDialPercentage),
+    ThresholdCount: __expectInt(output.ThresholdCount),
+    TrafficDialPercentage: __limitedParseFloat(output.TrafficDialPercentage),
   } as any;
 };
 
@@ -6477,7 +6477,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1PortMapping = (output: any, context: __SerdeContext): PortMapping => {
   return {
-    AcceleratorPort: __expectNumber(output.AcceleratorPort),
+    AcceleratorPort: __expectInt(output.AcceleratorPort),
     DestinationSocketAddress:
       output.DestinationSocketAddress !== undefined && output.DestinationSocketAddress !== null
         ? deserializeAws_json1_1SocketAddress(output.DestinationSocketAddress, context)
@@ -6505,8 +6505,8 @@ const deserializeAws_json1_1PortMappings = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1PortOverride = (output: any, context: __SerdeContext): PortOverride => {
   return {
-    EndpointPort: __expectNumber(output.EndpointPort),
-    ListenerPort: __expectNumber(output.ListenerPort),
+    EndpointPort: __expectInt(output.EndpointPort),
+    ListenerPort: __expectInt(output.ListenerPort),
   } as any;
 };
 
@@ -6523,8 +6523,8 @@ const deserializeAws_json1_1PortOverrides = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
-    FromPort: __expectNumber(output.FromPort),
-    ToPort: __expectNumber(output.ToPort),
+    FromPort: __expectInt(output.FromPort),
+    ToPort: __expectInt(output.ToPort),
   } as any;
 };
 
@@ -6565,7 +6565,7 @@ const deserializeAws_json1_1ProvisionByoipCidrResponse = (
 const deserializeAws_json1_1SocketAddress = (output: any, context: __SerdeContext): SocketAddress => {
   return {
     IpAddress: __expectString(output.IpAddress),
-    Port: __expectNumber(output.Port),
+    Port: __expectInt(output.Port),
   } as any;
 };
 

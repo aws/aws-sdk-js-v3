@@ -167,7 +167,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3009,7 +3009,7 @@ const deserializeAws_json1_1ActionTarget = (output: any, context: __SerdeContext
 const deserializeAws_json1_1App = (output: any, context: __SerdeContext): App => {
   return {
     AppName: __expectString(output.AppName),
-    Port: __expectNumber(output.Port),
+    Port: __expectInt(output.Port),
     Protocol: __expectString(output.Protocol),
   } as any;
 };
@@ -3194,7 +3194,7 @@ const deserializeAws_json1_1DnsRuleGroupLimitExceededViolation = (
   context: __SerdeContext
 ): DnsRuleGroupLimitExceededViolation => {
   return {
-    NumberOfRuleGroupsAlreadyAssociated: __expectNumber(output.NumberOfRuleGroupsAlreadyAssociated),
+    NumberOfRuleGroupsAlreadyAssociated: __expectInt(output.NumberOfRuleGroupsAlreadyAssociated),
     ViolationTarget: __expectString(output.ViolationTarget),
     ViolationTargetDescription: __expectString(output.ViolationTargetDescription),
   } as any;
@@ -3207,7 +3207,7 @@ const deserializeAws_json1_1DnsRuleGroupPriorities = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __expectInt(entry) as any;
     });
 };
 
@@ -3217,7 +3217,7 @@ const deserializeAws_json1_1DnsRuleGroupPriorityConflictViolation = (
 ): DnsRuleGroupPriorityConflictViolation => {
   return {
     ConflictingPolicyId: __expectString(output.ConflictingPolicyId),
-    ConflictingPriority: __expectNumber(output.ConflictingPriority),
+    ConflictingPriority: __expectInt(output.ConflictingPriority),
     UnavailablePriorities:
       output.UnavailablePriorities !== undefined && output.UnavailablePriorities !== null
         ? deserializeAws_json1_1DnsRuleGroupPriorities(output.UnavailablePriorities, context)
@@ -3350,7 +3350,7 @@ const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeCon
   return {
     ComplianceStatus: __expectString(output.ComplianceStatus),
     EvaluationLimitExceeded: __expectBoolean(output.EvaluationLimitExceeded),
-    ViolatorCount: __expectNumber(output.ViolatorCount),
+    ViolatorCount: __expectInt(output.ViolatorCount),
   } as any;
 };
 
@@ -4205,7 +4205,7 @@ const deserializeAws_json1_1RemediationActionWithOrder = (
   context: __SerdeContext
 ): RemediationActionWithOrder => {
   return {
-    Order: __expectNumber(output.Order),
+    Order: __expectInt(output.Order),
     RemediationAction:
       output.RemediationAction !== undefined && output.RemediationAction !== null
         ? deserializeAws_json1_1RemediationAction(output.RemediationAction, context)
@@ -4444,12 +4444,12 @@ const deserializeAws_json1_1SecurityGroupRuleDescription = (
   context: __SerdeContext
 ): SecurityGroupRuleDescription => {
   return {
-    FromPort: __expectNumber(output.FromPort),
+    FromPort: __expectInt(output.FromPort),
     IPV4Range: __expectString(output.IPV4Range),
     IPV6Range: __expectString(output.IPV6Range),
     PrefixListId: __expectString(output.PrefixListId),
     Protocol: __expectString(output.Protocol),
-    ToPort: __expectNumber(output.ToPort),
+    ToPort: __expectInt(output.ToPort),
   } as any;
 };
 
@@ -4483,7 +4483,7 @@ const deserializeAws_json1_1StatefulRuleGroupList = (output: any, context: __Ser
 
 const deserializeAws_json1_1StatelessRuleGroup = (output: any, context: __SerdeContext): StatelessRuleGroup => {
   return {
-    Priority: __expectNumber(output.Priority),
+    Priority: __expectInt(output.Priority),
     ResourceId: __expectString(output.ResourceId),
     RuleGroupName: __expectString(output.RuleGroupName),
   } as any;

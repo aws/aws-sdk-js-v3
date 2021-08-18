@@ -12,9 +12,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -223,11 +223,11 @@ const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeCon
   if (__expectBoolean(output.BooleanValue) !== undefined) {
     return { BooleanValue: __expectBoolean(output.BooleanValue) as any };
   }
-  if (__handleFloat(output.DoubleValue) !== undefined) {
-    return { DoubleValue: __handleFloat(output.DoubleValue) as any };
+  if (__limitedParseFloat(output.DoubleValue) !== undefined) {
+    return { DoubleValue: __limitedParseFloat(output.DoubleValue) as any };
   }
-  if (__expectNumber(output.IntegerValue) !== undefined) {
-    return { IntegerValue: __expectNumber(output.IntegerValue) as any };
+  if (__expectInt(output.IntegerValue) !== undefined) {
+    return { IntegerValue: __expectInt(output.IntegerValue) as any };
   }
   if (__expectString(output.StringValue) !== undefined) {
     return { StringValue: __expectString(output.StringValue) as any };

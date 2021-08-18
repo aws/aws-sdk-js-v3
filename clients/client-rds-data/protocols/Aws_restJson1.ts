@@ -33,9 +33,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -597,7 +597,7 @@ export const deserializeAws_restJson1ExecuteStatementCommand = async (
     contents.generatedFields = deserializeAws_restJson1FieldList(data.generatedFields, context);
   }
   if (data.numberOfRecordsUpdated !== undefined && data.numberOfRecordsUpdated !== null) {
-    contents.numberOfRecordsUpdated = __expectNumber(data.numberOfRecordsUpdated);
+    contents.numberOfRecordsUpdated = __expectInt(data.numberOfRecordsUpdated);
   }
   if (data.records !== undefined && data.records !== null) {
     contents.records = deserializeAws_restJson1SqlRecords(data.records, context);
@@ -859,7 +859,7 @@ const deserializeAws_restJson1StatementTimeoutExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.dbConnectionId !== undefined && data.dbConnectionId !== null) {
-    contents.dbConnectionId = __expectNumber(data.dbConnectionId);
+    contents.dbConnectionId = __expectInt(data.dbConnectionId);
   }
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
@@ -1048,19 +1048,19 @@ const deserializeAws_restJson1BooleanArray = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
   return {
-    arrayBaseColumnType: __expectNumber(output.arrayBaseColumnType),
+    arrayBaseColumnType: __expectInt(output.arrayBaseColumnType),
     isAutoIncrement: __expectBoolean(output.isAutoIncrement),
     isCaseSensitive: __expectBoolean(output.isCaseSensitive),
     isCurrency: __expectBoolean(output.isCurrency),
     isSigned: __expectBoolean(output.isSigned),
     label: __expectString(output.label),
     name: __expectString(output.name),
-    nullable: __expectNumber(output.nullable),
-    precision: __expectNumber(output.precision),
-    scale: __expectNumber(output.scale),
+    nullable: __expectInt(output.nullable),
+    precision: __expectInt(output.precision),
+    scale: __expectInt(output.scale),
     schemaName: __expectString(output.schemaName),
     tableName: __expectString(output.tableName),
-    type: __expectNumber(output.type),
+    type: __expectInt(output.type),
     typeName: __expectString(output.typeName),
   } as any;
 };
@@ -1072,7 +1072,7 @@ const deserializeAws_restJson1DoubleArray = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return __handleFloat(entry) as any;
+      return __limitedParseFloat(entry) as any;
     });
 };
 
@@ -1090,14 +1090,14 @@ const deserializeAws_restJson1Field = (output: any, context: __SerdeContext): Fi
   if (__expectBoolean(output.booleanValue) !== undefined) {
     return { booleanValue: __expectBoolean(output.booleanValue) as any };
   }
-  if (__handleFloat(output.doubleValue) !== undefined) {
-    return { doubleValue: __handleFloat(output.doubleValue) as any };
+  if (__limitedParseFloat(output.doubleValue) !== undefined) {
+    return { doubleValue: __limitedParseFloat(output.doubleValue) as any };
   }
   if (__expectBoolean(output.isNull) !== undefined) {
     return { isNull: __expectBoolean(output.isNull) as any };
   }
-  if (__expectNumber(output.longValue) !== undefined) {
-    return { longValue: __expectNumber(output.longValue) as any };
+  if (__expectInt(output.longValue) !== undefined) {
+    return { longValue: __expectInt(output.longValue) as any };
   }
   if (__expectString(output.stringValue) !== undefined) {
     return { stringValue: __expectString(output.stringValue) as any };
@@ -1123,7 +1123,7 @@ const deserializeAws_restJson1LongArray = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __expectInt(entry) as any;
     });
 };
 
@@ -1173,7 +1173,7 @@ const deserializeAws_restJson1ResultFrame = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1ResultSetMetadata = (output: any, context: __SerdeContext): ResultSetMetadata => {
   return {
-    columnCount: __expectNumber(output.columnCount),
+    columnCount: __expectInt(output.columnCount),
     columnMetadata:
       output.columnMetadata !== undefined && output.columnMetadata !== null
         ? deserializeAws_restJson1Metadata(output.columnMetadata, context)
@@ -1205,7 +1205,7 @@ const deserializeAws_restJson1SqlRecords = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SqlStatementResult = (output: any, context: __SerdeContext): SqlStatementResult => {
   return {
-    numberOfRecordsUpdated: __expectNumber(output.numberOfRecordsUpdated),
+    numberOfRecordsUpdated: __expectInt(output.numberOfRecordsUpdated),
     resultFrame:
       output.resultFrame !== undefined && output.resultFrame !== null
         ? deserializeAws_restJson1ResultFrame(output.resultFrame, context)
@@ -1270,8 +1270,8 @@ const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Va
       arrayValues: deserializeAws_restJson1ArrayValueList(output.arrayValues, context),
     };
   }
-  if (__expectNumber(output.bigIntValue) !== undefined) {
-    return { bigIntValue: __expectNumber(output.bigIntValue) as any };
+  if (__expectInt(output.bigIntValue) !== undefined) {
+    return { bigIntValue: __expectInt(output.bigIntValue) as any };
   }
   if (__expectBoolean(output.bitValue) !== undefined) {
     return { bitValue: __expectBoolean(output.bitValue) as any };
@@ -1281,17 +1281,17 @@ const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Va
       blobValue: context.base64Decoder(output.blobValue),
     };
   }
-  if (__handleFloat(output.doubleValue) !== undefined) {
-    return { doubleValue: __handleFloat(output.doubleValue) as any };
+  if (__limitedParseFloat(output.doubleValue) !== undefined) {
+    return { doubleValue: __limitedParseFloat(output.doubleValue) as any };
   }
-  if (__expectNumber(output.intValue) !== undefined) {
-    return { intValue: __expectNumber(output.intValue) as any };
+  if (__expectInt(output.intValue) !== undefined) {
+    return { intValue: __expectInt(output.intValue) as any };
   }
   if (__expectBoolean(output.isNull) !== undefined) {
     return { isNull: __expectBoolean(output.isNull) as any };
   }
-  if (__handleFloat(output.realValue) !== undefined) {
-    return { realValue: __handleFloat(output.realValue) as any };
+  if (__limitedParseFloat(output.realValue) !== undefined) {
+    return { realValue: __limitedParseFloat(output.realValue) as any };
   }
   if (__expectString(output.stringValue) !== undefined) {
     return { stringValue: __expectString(output.stringValue) as any };

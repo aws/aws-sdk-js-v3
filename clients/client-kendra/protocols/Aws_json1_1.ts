@@ -285,9 +285,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -7289,7 +7289,7 @@ const deserializeAws_json1_1BasicAuthenticationConfiguration = (
   return {
     Credentials: __expectString(output.Credentials),
     Host: __expectString(output.Host),
-    Port: __expectNumber(output.Port),
+    Port: __expectInt(output.Port),
   } as any;
 };
 
@@ -7427,8 +7427,8 @@ const deserializeAws_json1_1CapacityUnitsConfiguration = (
   context: __SerdeContext
 ): CapacityUnitsConfiguration => {
   return {
-    QueryCapacityUnits: __expectNumber(output.QueryCapacityUnits),
-    StorageCapacityUnits: __expectNumber(output.StorageCapacityUnits),
+    QueryCapacityUnits: __expectInt(output.QueryCapacityUnits),
+    StorageCapacityUnits: __expectInt(output.StorageCapacityUnits),
   } as any;
 };
 
@@ -7681,7 +7681,7 @@ const deserializeAws_json1_1ConnectionConfiguration = (
   return {
     DatabaseHost: __expectString(output.DatabaseHost),
     DatabaseName: __expectString(output.DatabaseName),
-    DatabasePort: __expectNumber(output.DatabasePort),
+    DatabasePort: __expectInt(output.DatabasePort),
     SecretArn: __expectString(output.SecretArn),
     TableName: __expectString(output.TableName),
   } as any;
@@ -8051,10 +8051,10 @@ const deserializeAws_json1_1DescribeQuerySuggestionsBlockListResponse = (
         : undefined,
     Description: __expectString(output.Description),
     ErrorMessage: __expectString(output.ErrorMessage),
-    FileSizeBytes: __expectNumber(output.FileSizeBytes),
+    FileSizeBytes: __expectInt(output.FileSizeBytes),
     Id: __expectString(output.Id),
     IndexId: __expectString(output.IndexId),
-    ItemCount: __expectNumber(output.ItemCount),
+    ItemCount: __expectInt(output.ItemCount),
     Name: __expectString(output.Name),
     RoleArn: __expectString(output.RoleArn),
     SourceS3Path:
@@ -8083,12 +8083,12 @@ const deserializeAws_json1_1DescribeQuerySuggestionsConfigResponse = (
       output.LastSuggestionsBuildTime !== undefined && output.LastSuggestionsBuildTime !== null
         ? new Date(Math.round(output.LastSuggestionsBuildTime * 1000))
         : undefined,
-    MinimumNumberOfQueryingUsers: __expectNumber(output.MinimumNumberOfQueryingUsers),
-    MinimumQueryCount: __expectNumber(output.MinimumQueryCount),
+    MinimumNumberOfQueryingUsers: __expectInt(output.MinimumNumberOfQueryingUsers),
+    MinimumQueryCount: __expectInt(output.MinimumQueryCount),
     Mode: __expectString(output.Mode),
-    QueryLogLookBackWindowInDays: __expectNumber(output.QueryLogLookBackWindowInDays),
+    QueryLogLookBackWindowInDays: __expectInt(output.QueryLogLookBackWindowInDays),
     Status: __expectString(output.Status),
-    TotalSuggestionsCount: __expectNumber(output.TotalSuggestionsCount),
+    TotalSuggestionsCount: __expectInt(output.TotalSuggestionsCount),
   } as any;
 };
 
@@ -8103,7 +8103,7 @@ const deserializeAws_json1_1DescribeThesaurusResponse = (
         : undefined,
     Description: __expectString(output.Description),
     ErrorMessage: __expectString(output.ErrorMessage),
-    FileSizeBytes: __expectNumber(output.FileSizeBytes),
+    FileSizeBytes: __expectInt(output.FileSizeBytes),
     Id: __expectString(output.Id),
     IndexId: __expectString(output.IndexId),
     Name: __expectString(output.Name),
@@ -8113,8 +8113,8 @@ const deserializeAws_json1_1DescribeThesaurusResponse = (
         ? deserializeAws_json1_1S3Path(output.SourceS3Path, context)
         : undefined,
     Status: __expectString(output.Status),
-    SynonymRuleCount: __expectNumber(output.SynonymRuleCount),
-    TermCount: __expectNumber(output.TermCount),
+    SynonymRuleCount: __expectInt(output.SynonymRuleCount),
+    TermCount: __expectInt(output.TermCount),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? new Date(Math.round(output.UpdatedAt * 1000))
@@ -8160,8 +8160,8 @@ const deserializeAws_json1_1DocumentAttributeValue = (output: any, context: __Se
       DateValue: new Date(Math.round(output.DateValue * 1000)),
     };
   }
-  if (__expectNumber(output.LongValue) !== undefined) {
-    return { LongValue: __expectNumber(output.LongValue) as any };
+  if (__expectInt(output.LongValue) !== undefined) {
+    return { LongValue: __expectInt(output.LongValue) as any };
   }
   if (output.StringListValue !== undefined && output.StringListValue !== null) {
     return {
@@ -8179,7 +8179,7 @@ const deserializeAws_json1_1DocumentAttributeValueCountPair = (
   context: __SerdeContext
 ): DocumentAttributeValueCountPair => {
   return {
-    Count: __expectNumber(output.Count),
+    Count: __expectInt(output.Count),
     DocumentAttributeValue:
       output.DocumentAttributeValue !== undefined && output.DocumentAttributeValue !== null
         ? deserializeAws_json1_1DocumentAttributeValue(output.DocumentAttributeValue, context)
@@ -8310,7 +8310,7 @@ const deserializeAws_json1_1FacetResultList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1FaqStatistics = (output: any, context: __SerdeContext): FaqStatistics => {
   return {
-    IndexedQuestionAnswersCount: __expectNumber(output.IndexedQuestionAnswersCount),
+    IndexedQuestionAnswersCount: __expectInt(output.IndexedQuestionAnswersCount),
   } as any;
 };
 
@@ -8409,7 +8409,7 @@ const deserializeAws_json1_1GroupOrderingIdSummary = (output: any, context: __Se
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    OrderingId: __expectNumber(output.OrderingId),
+    OrderingId: __expectInt(output.OrderingId),
     ReceivedAt:
       output.ReceivedAt !== undefined && output.ReceivedAt !== null
         ? new Date(Math.round(output.ReceivedAt * 1000))
@@ -8421,14 +8421,14 @@ const deserializeAws_json1_1GroupOrderingIdSummary = (output: any, context: __Se
 const deserializeAws_json1_1GroupSummary = (output: any, context: __SerdeContext): GroupSummary => {
   return {
     GroupId: __expectString(output.GroupId),
-    OrderingId: __expectNumber(output.OrderingId),
+    OrderingId: __expectInt(output.OrderingId),
   } as any;
 };
 
 const deserializeAws_json1_1Highlight = (output: any, context: __SerdeContext): Highlight => {
   return {
-    BeginOffset: __expectNumber(output.BeginOffset),
-    EndOffset: __expectNumber(output.EndOffset),
+    BeginOffset: __expectInt(output.BeginOffset),
+    EndOffset: __expectInt(output.EndOffset),
     TopAnswer: __expectBoolean(output.TopAnswer),
     Type: __expectString(output.Type),
   } as any;
@@ -8683,7 +8683,7 @@ const deserializeAws_json1_1ProxyConfiguration = (output: any, context: __SerdeC
   return {
     Credentials: __expectString(output.Credentials),
     Host: __expectString(output.Host),
-    Port: __expectNumber(output.Port),
+    Port: __expectInt(output.Port),
   } as any;
 };
 
@@ -8698,7 +8698,7 @@ const deserializeAws_json1_1QueryResult = (output: any, context: __SerdeContext)
       output.ResultItems !== undefined && output.ResultItems !== null
         ? deserializeAws_json1_1QueryResultItemList(output.ResultItems, context)
         : undefined,
-    TotalNumberOfResults: __expectNumber(output.TotalNumberOfResults),
+    TotalNumberOfResults: __expectInt(output.TotalNumberOfResults),
   } as any;
 };
 
@@ -8753,7 +8753,7 @@ const deserializeAws_json1_1QuerySuggestionsBlockListSummary = (
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     Id: __expectString(output.Id),
-    ItemCount: __expectNumber(output.ItemCount),
+    ItemCount: __expectInt(output.ItemCount),
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
     UpdatedAt:
@@ -8781,7 +8781,7 @@ const deserializeAws_json1_1Relevance = (output: any, context: __SerdeContext): 
   return {
     Duration: __expectString(output.Duration),
     Freshness: __expectBoolean(output.Freshness),
-    Importance: __expectNumber(output.Importance),
+    Importance: __expectInt(output.Importance),
     RankOrder: __expectString(output.RankOrder),
     ValueImportanceMap:
       output.ValueImportanceMap !== undefined && output.ValueImportanceMap !== null
@@ -9305,8 +9305,8 @@ const deserializeAws_json1_1Suggestion = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1SuggestionHighlight = (output: any, context: __SerdeContext): SuggestionHighlight => {
   return {
-    BeginOffset: __expectNumber(output.BeginOffset),
-    EndOffset: __expectNumber(output.EndOffset),
+    BeginOffset: __expectInt(output.BeginOffset),
+    EndOffset: __expectInt(output.EndOffset),
   } as any;
 };
 
@@ -9378,8 +9378,8 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1TextDocumentStatistics = (output: any, context: __SerdeContext): TextDocumentStatistics => {
   return {
-    IndexedTextBytes: __expectNumber(output.IndexedTextBytes),
-    IndexedTextDocumentsCount: __expectNumber(output.IndexedTextDocumentsCount),
+    IndexedTextBytes: __expectInt(output.IndexedTextBytes),
+    IndexedTextDocumentsCount: __expectInt(output.IndexedTextDocumentsCount),
   } as any;
 };
 
@@ -9483,7 +9483,7 @@ const deserializeAws_json1_1ValueImportanceMap = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __expectInt(value) as any,
     };
   }, {});
 };
@@ -9497,10 +9497,10 @@ const deserializeAws_json1_1WebCrawlerConfiguration = (
       output.AuthenticationConfiguration !== undefined && output.AuthenticationConfiguration !== null
         ? deserializeAws_json1_1AuthenticationConfiguration(output.AuthenticationConfiguration, context)
         : undefined,
-    CrawlDepth: __expectNumber(output.CrawlDepth),
-    MaxContentSizePerPageInMegaBytes: __handleFloat(output.MaxContentSizePerPageInMegaBytes),
-    MaxLinksPerPage: __expectNumber(output.MaxLinksPerPage),
-    MaxUrlsPerMinuteCrawlRate: __expectNumber(output.MaxUrlsPerMinuteCrawlRate),
+    CrawlDepth: __expectInt(output.CrawlDepth),
+    MaxContentSizePerPageInMegaBytes: __limitedParseFloat(output.MaxContentSizePerPageInMegaBytes),
+    MaxLinksPerPage: __expectInt(output.MaxLinksPerPage),
+    MaxUrlsPerMinuteCrawlRate: __expectInt(output.MaxUrlsPerMinuteCrawlRate),
     ProxyConfiguration:
       output.ProxyConfiguration !== undefined && output.ProxyConfiguration !== null
         ? deserializeAws_json1_1ProxyConfiguration(output.ProxyConfiguration, context)

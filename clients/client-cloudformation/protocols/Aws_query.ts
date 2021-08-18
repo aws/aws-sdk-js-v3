@@ -353,6 +353,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7468,7 +7469,7 @@ const deserializeAws_queryAccountLimit = (output: any, context: __SerdeContext):
     contents.Name = __expectString(output["Name"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = parseInt(output["Value"]);
+    contents.Value = __strictParseInt(output["Value"]) as number;
   }
   return contents;
 };
@@ -8055,7 +8056,7 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (
     contents.DetectionStatusReason = __expectString(output["DetectionStatusReason"]);
   }
   if (output["DriftedStackResourceCount"] !== undefined) {
-    contents.DriftedStackResourceCount = parseInt(output["DriftedStackResourceCount"]);
+    contents.DriftedStackResourceCount = __strictParseInt(output["DriftedStackResourceCount"]) as number;
   }
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = new Date(output["Timestamp"]);
@@ -9466,7 +9467,7 @@ const deserializeAws_queryRollbackConfiguration = (output: any, context: __Serde
     );
   }
   if (output["MonitoringTimeInMinutes"] !== undefined) {
-    contents.MonitoringTimeInMinutes = parseInt(output["MonitoringTimeInMinutes"]);
+    contents.MonitoringTimeInMinutes = __strictParseInt(output["MonitoringTimeInMinutes"]) as number;
   }
   return contents;
 };
@@ -9608,7 +9609,7 @@ const deserializeAws_queryStack = (output: any, context: __SerdeContext): Stack 
     );
   }
   if (output["TimeoutInMinutes"] !== undefined) {
-    contents.TimeoutInMinutes = parseInt(output["TimeoutInMinutes"]);
+    contents.TimeoutInMinutes = __strictParseInt(output["TimeoutInMinutes"]) as number;
   }
   if (output.Capabilities === "") {
     contents.Capabilities = [];
@@ -10298,19 +10299,19 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (
     contents.LastDriftCheckTimestamp = new Date(output["LastDriftCheckTimestamp"]);
   }
   if (output["TotalStackInstancesCount"] !== undefined) {
-    contents.TotalStackInstancesCount = parseInt(output["TotalStackInstancesCount"]);
+    contents.TotalStackInstancesCount = __strictParseInt(output["TotalStackInstancesCount"]) as number;
   }
   if (output["DriftedStackInstancesCount"] !== undefined) {
-    contents.DriftedStackInstancesCount = parseInt(output["DriftedStackInstancesCount"]);
+    contents.DriftedStackInstancesCount = __strictParseInt(output["DriftedStackInstancesCount"]) as number;
   }
   if (output["InSyncStackInstancesCount"] !== undefined) {
-    contents.InSyncStackInstancesCount = parseInt(output["InSyncStackInstancesCount"]);
+    contents.InSyncStackInstancesCount = __strictParseInt(output["InSyncStackInstancesCount"]) as number;
   }
   if (output["InProgressStackInstancesCount"] !== undefined) {
-    contents.InProgressStackInstancesCount = parseInt(output["InProgressStackInstancesCount"]);
+    contents.InProgressStackInstancesCount = __strictParseInt(output["InProgressStackInstancesCount"]) as number;
   }
   if (output["FailedStackInstancesCount"] !== undefined) {
-    contents.FailedStackInstancesCount = parseInt(output["FailedStackInstancesCount"]);
+    contents.FailedStackInstancesCount = __strictParseInt(output["FailedStackInstancesCount"]) as number;
   }
   return contents;
 };
@@ -10426,16 +10427,16 @@ const deserializeAws_queryStackSetOperationPreferences = (
     );
   }
   if (output["FailureToleranceCount"] !== undefined) {
-    contents.FailureToleranceCount = parseInt(output["FailureToleranceCount"]);
+    contents.FailureToleranceCount = __strictParseInt(output["FailureToleranceCount"]) as number;
   }
   if (output["FailureTolerancePercentage"] !== undefined) {
-    contents.FailureTolerancePercentage = parseInt(output["FailureTolerancePercentage"]);
+    contents.FailureTolerancePercentage = __strictParseInt(output["FailureTolerancePercentage"]) as number;
   }
   if (output["MaxConcurrentCount"] !== undefined) {
-    contents.MaxConcurrentCount = parseInt(output["MaxConcurrentCount"]);
+    contents.MaxConcurrentCount = __strictParseInt(output["MaxConcurrentCount"]) as number;
   }
   if (output["MaxConcurrentPercentage"] !== undefined) {
-    contents.MaxConcurrentPercentage = parseInt(output["MaxConcurrentPercentage"]);
+    contents.MaxConcurrentPercentage = __strictParseInt(output["MaxConcurrentPercentage"]) as number;
   }
   return contents;
 };
@@ -10676,7 +10677,7 @@ const deserializeAws_querySupportedMajorVersions = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return parseInt(entry);
+      return __strictParseInt(entry) as number;
     });
 };
 

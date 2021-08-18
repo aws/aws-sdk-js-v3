@@ -318,6 +318,8 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5570,10 +5572,10 @@ const deserializeAws_queryApplicationMetrics = (output: any, context: __SerdeCon
     Latency: undefined,
   };
   if (output["Duration"] !== undefined) {
-    contents.Duration = parseInt(output["Duration"]);
+    contents.Duration = __strictParseInt(output["Duration"]) as number;
   }
   if (output["RequestCount"] !== undefined) {
-    contents.RequestCount = parseInt(output["RequestCount"]);
+    contents.RequestCount = __strictParseInt(output["RequestCount"]) as number;
   }
   if (output["StatusCodes"] !== undefined) {
     contents.StatusCodes = deserializeAws_queryStatusCodes(output["StatusCodes"], context);
@@ -5913,13 +5915,13 @@ const deserializeAws_queryConfigurationOptionDescription = (
     );
   }
   if (output["MinValue"] !== undefined) {
-    contents.MinValue = parseInt(output["MinValue"]);
+    contents.MinValue = __strictParseInt(output["MinValue"]) as number;
   }
   if (output["MaxValue"] !== undefined) {
-    contents.MaxValue = parseInt(output["MaxValue"]);
+    contents.MaxValue = __strictParseInt(output["MaxValue"]) as number;
   }
   if (output["MaxLength"] !== undefined) {
-    contents.MaxLength = parseInt(output["MaxLength"]);
+    contents.MaxLength = __strictParseInt(output["MaxLength"]) as number;
   }
   if (output["Regex"] !== undefined) {
     contents.Regex = deserializeAws_queryOptionRestrictionRegex(output["Regex"], context);
@@ -6148,28 +6150,28 @@ const deserializeAws_queryCPUUtilization = (output: any, context: __SerdeContext
     Privileged: undefined,
   };
   if (output["User"] !== undefined) {
-    contents.User = parseFloat(output["User"]);
+    contents.User = __strictParseFloat(output["User"]) as number;
   }
   if (output["Nice"] !== undefined) {
-    contents.Nice = parseFloat(output["Nice"]);
+    contents.Nice = __strictParseFloat(output["Nice"]) as number;
   }
   if (output["System"] !== undefined) {
-    contents.System = parseFloat(output["System"]);
+    contents.System = __strictParseFloat(output["System"]) as number;
   }
   if (output["Idle"] !== undefined) {
-    contents.Idle = parseFloat(output["Idle"]);
+    contents.Idle = __strictParseFloat(output["Idle"]) as number;
   }
   if (output["IOWait"] !== undefined) {
-    contents.IOWait = parseFloat(output["IOWait"]);
+    contents.IOWait = __strictParseFloat(output["IOWait"]) as number;
   }
   if (output["IRQ"] !== undefined) {
-    contents.IRQ = parseFloat(output["IRQ"]);
+    contents.IRQ = __strictParseFloat(output["IRQ"]) as number;
   }
   if (output["SoftIRQ"] !== undefined) {
-    contents.SoftIRQ = parseFloat(output["SoftIRQ"]);
+    contents.SoftIRQ = __strictParseFloat(output["SoftIRQ"]) as number;
   }
   if (output["Privileged"] !== undefined) {
-    contents.Privileged = parseFloat(output["Privileged"]);
+    contents.Privileged = __strictParseFloat(output["Privileged"]) as number;
   }
   return contents;
 };
@@ -6253,7 +6255,7 @@ const deserializeAws_queryDeployment = (output: any, context: __SerdeContext): D
     contents.VersionLabel = __expectString(output["VersionLabel"]);
   }
   if (output["DeploymentId"] !== undefined) {
-    contents.DeploymentId = parseInt(output["DeploymentId"]);
+    contents.DeploymentId = __strictParseInt(output["DeploymentId"]) as number;
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -6849,28 +6851,28 @@ const deserializeAws_queryInstanceHealthSummary = (output: any, context: __Serde
     Severe: undefined,
   };
   if (output["NoData"] !== undefined) {
-    contents.NoData = parseInt(output["NoData"]);
+    contents.NoData = __strictParseInt(output["NoData"]) as number;
   }
   if (output["Unknown"] !== undefined) {
-    contents.Unknown = parseInt(output["Unknown"]);
+    contents.Unknown = __strictParseInt(output["Unknown"]) as number;
   }
   if (output["Pending"] !== undefined) {
-    contents.Pending = parseInt(output["Pending"]);
+    contents.Pending = __strictParseInt(output["Pending"]) as number;
   }
   if (output["Ok"] !== undefined) {
-    contents.Ok = parseInt(output["Ok"]);
+    contents.Ok = __strictParseInt(output["Ok"]) as number;
   }
   if (output["Info"] !== undefined) {
-    contents.Info = parseInt(output["Info"]);
+    contents.Info = __strictParseInt(output["Info"]) as number;
   }
   if (output["Warning"] !== undefined) {
-    contents.Warning = parseInt(output["Warning"]);
+    contents.Warning = __strictParseInt(output["Warning"]) as number;
   }
   if (output["Degraded"] !== undefined) {
-    contents.Degraded = parseInt(output["Degraded"]);
+    contents.Degraded = __strictParseInt(output["Degraded"]) as number;
   }
   if (output["Severe"] !== undefined) {
-    contents.Severe = parseInt(output["Severe"]);
+    contents.Severe = __strictParseInt(output["Severe"]) as number;
   }
   return contents;
 };
@@ -6921,28 +6923,28 @@ const deserializeAws_queryLatency = (output: any, context: __SerdeContext): Late
     P10: undefined,
   };
   if (output["P999"] !== undefined) {
-    contents.P999 = parseFloat(output["P999"]);
+    contents.P999 = __strictParseFloat(output["P999"]) as number;
   }
   if (output["P99"] !== undefined) {
-    contents.P99 = parseFloat(output["P99"]);
+    contents.P99 = __strictParseFloat(output["P99"]) as number;
   }
   if (output["P95"] !== undefined) {
-    contents.P95 = parseFloat(output["P95"]);
+    contents.P95 = __strictParseFloat(output["P95"]) as number;
   }
   if (output["P90"] !== undefined) {
-    contents.P90 = parseFloat(output["P90"]);
+    contents.P90 = __strictParseFloat(output["P90"]) as number;
   }
   if (output["P85"] !== undefined) {
-    contents.P85 = parseFloat(output["P85"]);
+    contents.P85 = __strictParseFloat(output["P85"]) as number;
   }
   if (output["P75"] !== undefined) {
-    contents.P75 = parseFloat(output["P75"]);
+    contents.P75 = __strictParseFloat(output["P75"]) as number;
   }
   if (output["P50"] !== undefined) {
-    contents.P50 = parseFloat(output["P50"]);
+    contents.P50 = __strictParseFloat(output["P50"]) as number;
   }
   if (output["P10"] !== undefined) {
-    contents.P10 = parseFloat(output["P10"]);
+    contents.P10 = __strictParseFloat(output["P10"]) as number;
   }
   return contents;
 };
@@ -7027,7 +7029,7 @@ const deserializeAws_queryListener = (output: any, context: __SerdeContext): Lis
     contents.Protocol = __expectString(output["Protocol"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
+    contents.Port = __strictParseInt(output["Port"]) as number;
   }
   return contents;
 };
@@ -7088,7 +7090,7 @@ const deserializeAws_queryLoadAverage = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return parseFloat(entry);
+      return __strictParseFloat(entry) as number;
     });
 };
 
@@ -7263,7 +7265,7 @@ const deserializeAws_queryMaxAgeRule = (output: any, context: __SerdeContext): M
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["MaxAgeInDays"] !== undefined) {
-    contents.MaxAgeInDays = parseInt(output["MaxAgeInDays"]);
+    contents.MaxAgeInDays = __strictParseInt(output["MaxAgeInDays"]) as number;
   }
   if (output["DeleteSourceFromS3"] !== undefined) {
     contents.DeleteSourceFromS3 = __parseBoolean(output["DeleteSourceFromS3"]);
@@ -7281,7 +7283,7 @@ const deserializeAws_queryMaxCountRule = (output: any, context: __SerdeContext):
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["MaxCount"] !== undefined) {
-    contents.MaxCount = parseInt(output["MaxCount"]);
+    contents.MaxCount = __strictParseInt(output["MaxCount"]) as number;
   }
   if (output["DeleteSourceFromS3"] !== undefined) {
     contents.DeleteSourceFromS3 = __parseBoolean(output["DeleteSourceFromS3"]);
@@ -7334,7 +7336,7 @@ const deserializeAws_queryPlatformBranchSummary = (output: any, context: __Serde
     contents.LifecycleState = __expectString(output["LifecycleState"]);
   }
   if (output["BranchOrder"] !== undefined) {
-    contents.BranchOrder = parseInt(output["BranchOrder"]);
+    contents.BranchOrder = __strictParseInt(output["BranchOrder"]) as number;
   }
   if (output.SupportedTierList === "") {
     contents.SupportedTierList = [];
@@ -7671,7 +7673,7 @@ const deserializeAws_queryResourceQuota = (output: any, context: __SerdeContext)
     Maximum: undefined,
   };
   if (output["Maximum"] !== undefined) {
-    contents.Maximum = parseInt(output["Maximum"]);
+    contents.Maximum = __strictParseInt(output["Maximum"]) as number;
   }
   return contents;
 };
@@ -7922,16 +7924,16 @@ const deserializeAws_queryStatusCodes = (output: any, context: __SerdeContext): 
     Status5xx: undefined,
   };
   if (output["Status2xx"] !== undefined) {
-    contents.Status2xx = parseInt(output["Status2xx"]);
+    contents.Status2xx = __strictParseInt(output["Status2xx"]) as number;
   }
   if (output["Status3xx"] !== undefined) {
-    contents.Status3xx = parseInt(output["Status3xx"]);
+    contents.Status3xx = __strictParseInt(output["Status3xx"]) as number;
   }
   if (output["Status4xx"] !== undefined) {
-    contents.Status4xx = parseInt(output["Status4xx"]);
+    contents.Status4xx = __strictParseInt(output["Status4xx"]) as number;
   }
   if (output["Status5xx"] !== undefined) {
-    contents.Status5xx = parseInt(output["Status5xx"]);
+    contents.Status5xx = __strictParseInt(output["Status5xx"]) as number;
   }
   return contents;
 };

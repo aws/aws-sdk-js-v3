@@ -48,7 +48,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -442,7 +442,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1797,11 +1797,11 @@ const serializeAws_restJson1Unlock = (input: Unlock, context: __SerdeContext): a
 
 const deserializeAws_restJson1Capacity = (output: any, context: __SerdeContext): Capacity => {
   return {
-    available: __expectNumber(output.available),
+    available: __expectInt(output.available),
     name: __expectString(output.name),
-    total: __expectNumber(output.total),
+    total: __expectInt(output.total),
     unit: __expectString(output.unit),
-    used: __expectNumber(output.used),
+    used: __expectInt(output.used),
   } as any;
 };
 
@@ -1818,8 +1818,8 @@ const deserializeAws_restJson1CapacityList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
   return {
-    coreCount: __expectNumber(output.coreCount),
-    threadsPerCore: __expectNumber(output.threadsPerCore),
+    coreCount: __expectInt(output.coreCount),
+    threadsPerCore: __expectInt(output.threadsPerCore),
   } as any;
 };
 
@@ -1883,7 +1883,7 @@ const deserializeAws_restJson1ExecutionSummaryList = (output: any, context: __Se
 
 const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext): Instance => {
   return {
-    amiLaunchIndex: __expectNumber(output.amiLaunchIndex),
+    amiLaunchIndex: __expectInt(output.amiLaunchIndex),
     blockDeviceMappings:
       output.blockDeviceMappings !== undefined && output.blockDeviceMappings !== null
         ? deserializeAws_restJson1InstanceBlockDeviceMappingList(output.blockDeviceMappings, context)
@@ -1946,7 +1946,7 @@ const deserializeAws_restJson1InstanceBlockDeviceMappingList = (
 
 const deserializeAws_restJson1InstanceState = (output: any, context: __SerdeContext): InstanceState => {
   return {
-    code: __expectNumber(output.code),
+    code: __expectInt(output.code),
     name: __expectString(output.name),
   } as any;
 };

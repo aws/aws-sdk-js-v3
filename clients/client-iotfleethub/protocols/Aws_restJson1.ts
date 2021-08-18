@@ -23,7 +23,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -229,7 +229,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -467,7 +467,7 @@ export const deserializeAws_restJson1DescribeApplicationCommand = async (
     contents.applicationArn = __expectString(data.applicationArn);
   }
   if (data.applicationCreationDate !== undefined && data.applicationCreationDate !== null) {
-    contents.applicationCreationDate = __expectNumber(data.applicationCreationDate);
+    contents.applicationCreationDate = __expectInt(data.applicationCreationDate);
   }
   if (data.applicationDescription !== undefined && data.applicationDescription !== null) {
     contents.applicationDescription = __expectString(data.applicationDescription);
@@ -476,7 +476,7 @@ export const deserializeAws_restJson1DescribeApplicationCommand = async (
     contents.applicationId = __expectString(data.applicationId);
   }
   if (data.applicationLastUpdateDate !== undefined && data.applicationLastUpdateDate !== null) {
-    contents.applicationLastUpdateDate = __expectNumber(data.applicationLastUpdateDate);
+    contents.applicationLastUpdateDate = __expectInt(data.applicationLastUpdateDate);
   }
   if (data.applicationName !== undefined && data.applicationName !== null) {
     contents.applicationName = __expectString(data.applicationName);
@@ -1053,10 +1053,10 @@ const deserializeAws_restJson1ApplicationSummaries = (output: any, context: __Se
 
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
   return {
-    applicationCreationDate: __expectNumber(output.applicationCreationDate),
+    applicationCreationDate: __expectInt(output.applicationCreationDate),
     applicationDescription: __expectString(output.applicationDescription),
     applicationId: __expectString(output.applicationId),
-    applicationLastUpdateDate: __expectNumber(output.applicationLastUpdateDate),
+    applicationLastUpdateDate: __expectInt(output.applicationLastUpdateDate),
     applicationName: __expectString(output.applicationName),
     applicationState: __expectString(output.applicationState),
     applicationUrl: __expectString(output.applicationUrl),

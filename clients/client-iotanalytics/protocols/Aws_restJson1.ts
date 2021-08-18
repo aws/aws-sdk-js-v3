@@ -147,10 +147,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1065,7 +1065,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -5811,7 +5811,7 @@ const deserializeAws_restJson1DatastoreSummary = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DeltaTime = (output: any, context: __SerdeContext): DeltaTime => {
   return {
-    offsetSeconds: __expectNumber(output.offsetSeconds),
+    offsetSeconds: __expectInt(output.offsetSeconds),
     timeExpression: __expectString(output.timeExpression),
   } as any;
 };
@@ -5821,7 +5821,7 @@ const deserializeAws_restJson1DeltaTimeSessionWindowConfiguration = (
   context: __SerdeContext
 ): DeltaTimeSessionWindowConfiguration => {
   return {
-    timeoutInMinutes: __expectNumber(output.timeoutInMinutes),
+    timeoutInMinutes: __expectInt(output.timeoutInMinutes),
   } as any;
 };
 
@@ -5857,7 +5857,7 @@ const deserializeAws_restJson1EstimatedResourceSize = (output: any, context: __S
       output.estimatedOn !== undefined && output.estimatedOn !== null
         ? new Date(Math.round(output.estimatedOn * 1000))
         : undefined,
-    estimatedSizeInBytes: __handleFloat(output.estimatedSizeInBytes),
+    estimatedSizeInBytes: __limitedParseFloat(output.estimatedSizeInBytes),
   } as any;
 };
 
@@ -5928,7 +5928,7 @@ const deserializeAws_restJson1JsonConfiguration = (output: any, context: __Serde
 
 const deserializeAws_restJson1LambdaActivity = (output: any, context: __SerdeContext): LambdaActivity => {
   return {
-    batchSize: __expectNumber(output.batchSize),
+    batchSize: __expectInt(output.batchSize),
     lambdaName: __expectString(output.lambdaName),
     name: __expectString(output.name),
     next: __expectString(output.next),
@@ -6198,13 +6198,13 @@ const deserializeAws_restJson1ReprocessingSummary = (output: any, context: __Ser
 const deserializeAws_restJson1ResourceConfiguration = (output: any, context: __SerdeContext): ResourceConfiguration => {
   return {
     computeType: __expectString(output.computeType),
-    volumeSizeInGB: __expectNumber(output.volumeSizeInGB),
+    volumeSizeInGB: __expectInt(output.volumeSizeInGB),
   } as any;
 };
 
 const deserializeAws_restJson1RetentionPeriod = (output: any, context: __SerdeContext): RetentionPeriod => {
   return {
-    numberOfDays: __expectNumber(output.numberOfDays),
+    numberOfDays: __expectInt(output.numberOfDays),
     unlimited: __expectBoolean(output.unlimited),
   } as any;
 };
@@ -6328,7 +6328,7 @@ const deserializeAws_restJson1Variable = (output: any, context: __SerdeContext):
       output.datasetContentVersionValue !== undefined && output.datasetContentVersionValue !== null
         ? deserializeAws_restJson1DatasetContentVersionValue(output.datasetContentVersionValue, context)
         : undefined,
-    doubleValue: __handleFloat(output.doubleValue),
+    doubleValue: __limitedParseFloat(output.doubleValue),
     name: __expectString(output.name),
     outputFileUriValue:
       output.outputFileUriValue !== undefined && output.outputFileUriValue !== null
@@ -6354,7 +6354,7 @@ const deserializeAws_restJson1VersioningConfiguration = (
   context: __SerdeContext
 ): VersioningConfiguration => {
   return {
-    maxVersions: __expectNumber(output.maxVersions),
+    maxVersions: __expectInt(output.maxVersions),
     unlimited: __expectBoolean(output.unlimited),
   } as any;
 };

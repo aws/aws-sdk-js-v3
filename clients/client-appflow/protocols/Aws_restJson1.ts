@@ -168,7 +168,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -627,7 +627,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -3989,7 +3989,7 @@ const deserializeAws_restJson1ErrorHandlingConfig = (output: any, context: __Ser
 const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
     executionMessage: __expectString(output.executionMessage),
-    putFailuresCount: __expectNumber(output.putFailuresCount),
+    putFailuresCount: __expectInt(output.putFailuresCount),
   } as any;
 };
 
@@ -4050,13 +4050,13 @@ const deserializeAws_restJson1ExecutionRecord = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ExecutionResult = (output: any, context: __SerdeContext): ExecutionResult => {
   return {
-    bytesProcessed: __expectNumber(output.bytesProcessed),
-    bytesWritten: __expectNumber(output.bytesWritten),
+    bytesProcessed: __expectInt(output.bytesProcessed),
+    bytesWritten: __expectInt(output.bytesWritten),
     errorInfo:
       output.errorInfo !== undefined && output.errorInfo !== null
         ? deserializeAws_restJson1ErrorInfo(output.errorInfo, context)
         : undefined,
-    recordsProcessed: __expectNumber(output.recordsProcessed),
+    recordsProcessed: __expectInt(output.recordsProcessed),
   } as any;
 };
 
@@ -4424,7 +4424,7 @@ const deserializeAws_restJson1ScheduledTriggerProperties = (
         ? new Date(Math.round(output.scheduleEndTime * 1000))
         : undefined,
     scheduleExpression: __expectString(output.scheduleExpression),
-    scheduleOffset: __expectNumber(output.scheduleOffset),
+    scheduleOffset: __expectInt(output.scheduleOffset),
     scheduleStartTime:
       output.scheduleStartTime !== undefined && output.scheduleStartTime !== null
         ? new Date(Math.round(output.scheduleStartTime * 1000))

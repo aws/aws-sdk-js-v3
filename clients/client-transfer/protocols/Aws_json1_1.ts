@@ -106,7 +106,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3205,7 +3205,7 @@ const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeCont
     State: __expectString(output.State),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
-    UserCount: __expectNumber(output.UserCount),
+    UserCount: __expectInt(output.UserCount),
   } as any;
 };
 
@@ -3388,7 +3388,7 @@ const deserializeAws_json1_1ListedServer = (output: any, context: __SerdeContext
     LoggingRole: __expectString(output.LoggingRole),
     ServerId: __expectString(output.ServerId),
     State: __expectString(output.State),
-    UserCount: __expectNumber(output.UserCount),
+    UserCount: __expectInt(output.UserCount),
   } as any;
 };
 
@@ -3409,7 +3409,7 @@ const deserializeAws_json1_1ListedUser = (output: any, context: __SerdeContext):
     HomeDirectory: __expectString(output.HomeDirectory),
     HomeDirectoryType: __expectString(output.HomeDirectoryType),
     Role: __expectString(output.Role),
-    SshPublicKeyCount: __expectNumber(output.SshPublicKeyCount),
+    SshPublicKeyCount: __expectInt(output.SshPublicKeyCount),
     UserName: __expectString(output.UserName),
   } as any;
 };
@@ -3473,12 +3473,12 @@ const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1PosixProfile = (output: any, context: __SerdeContext): PosixProfile => {
   return {
-    Gid: __expectNumber(output.Gid),
+    Gid: __expectInt(output.Gid),
     SecondaryGids:
       output.SecondaryGids !== undefined && output.SecondaryGids !== null
         ? deserializeAws_json1_1SecondaryGids(output.SecondaryGids, context)
         : undefined,
-    Uid: __expectNumber(output.Uid),
+    Uid: __expectInt(output.Uid),
   } as any;
 };
 
@@ -3528,7 +3528,7 @@ const deserializeAws_json1_1SecondaryGids = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __expectInt(entry) as any;
     });
 };
 
@@ -3632,7 +3632,7 @@ const deserializeAws_json1_1TestIdentityProviderResponse = (
   return {
     Message: __expectString(output.Message),
     Response: __expectString(output.Response),
-    StatusCode: __expectNumber(output.StatusCode),
+    StatusCode: __expectInt(output.StatusCode),
     Url: __expectString(output.Url),
   } as any;
 };

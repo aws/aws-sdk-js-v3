@@ -166,6 +166,8 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   splitEvery as __splitEvery,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -190,18 +192,20 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
   const query: any = {
     ...(input.queryParamsMapOfStrings !== undefined && input.queryParamsMapOfStrings),
     ...(input.queryString !== undefined && { String: input.queryString }),
-    ...(input.queryStringList !== undefined && { StringList: (input.queryStringList || []).map((_entry) => _entry) }),
+    ...(input.queryStringList !== undefined && {
+      StringList: (input.queryStringList || []).map((_entry) => _entry as any),
+    }),
     ...(input.queryStringSet !== undefined && {
-      StringSet: (Array.from(input.queryStringSet.values()) || []).map((_entry) => _entry),
+      StringSet: (Array.from(input.queryStringSet.values()) || []).map((_entry) => _entry as any),
     }),
     ...(input.queryByte !== undefined && { Byte: input.queryByte.toString() }),
     ...(input.queryShort !== undefined && { Short: input.queryShort.toString() }),
     ...(input.queryInteger !== undefined && { Integer: input.queryInteger.toString() }),
     ...(input.queryIntegerList !== undefined && {
-      IntegerList: (input.queryIntegerList || []).map((_entry) => _entry.toString()),
+      IntegerList: (input.queryIntegerList || []).map((_entry) => _entry.toString() as any),
     }),
     ...(input.queryIntegerSet !== undefined && {
-      IntegerSet: (Array.from(input.queryIntegerSet.values()) || []).map((_entry) => _entry.toString()),
+      IntegerSet: (Array.from(input.queryIntegerSet.values()) || []).map((_entry) => _entry.toString() as any),
     }),
     ...(input.queryLong !== undefined && { Long: input.queryLong.toString() }),
     ...(input.queryFloat !== undefined && {
@@ -211,22 +215,24 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
       Double: input.queryDouble % 1 == 0 ? input.queryDouble + ".0" : input.queryDouble.toString(),
     }),
     ...(input.queryDoubleList !== undefined && {
-      DoubleList: (input.queryDoubleList || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString())),
+      DoubleList: (input.queryDoubleList || []).map(
+        (_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString()) as any
+      ),
     }),
     ...(input.queryBoolean !== undefined && { Boolean: input.queryBoolean.toString() }),
     ...(input.queryBooleanList !== undefined && {
-      BooleanList: (input.queryBooleanList || []).map((_entry) => _entry.toString()),
+      BooleanList: (input.queryBooleanList || []).map((_entry) => _entry.toString() as any),
     }),
     ...(input.queryTimestamp !== undefined && {
       Timestamp: (input.queryTimestamp.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.queryTimestampList !== undefined && {
-      TimestampList: (input.queryTimestampList || []).map((_entry) =>
-        (_entry.toISOString().split(".")[0] + "Z").toString()
+      TimestampList: (input.queryTimestampList || []).map(
+        (_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any
       ),
     }),
     ...(input.queryEnum !== undefined && { Enum: input.queryEnum }),
-    ...(input.queryEnumList !== undefined && { EnumList: (input.queryEnumList || []).map((_entry) => _entry) }),
+    ...(input.queryEnumList !== undefined && { EnumList: (input.queryEnumList || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1133,25 +1139,25 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
     ...(isSerializableHeaderValue(input.headerTrueBool) && { "x-boolean1": input.headerTrueBool!.toString() }),
     ...(isSerializableHeaderValue(input.headerFalseBool) && { "x-boolean2": input.headerFalseBool!.toString() }),
     ...(isSerializableHeaderValue(input.headerStringList) && {
-      "x-stringlist": (input.headerStringList! || []).map((_entry) => _entry).join(", "),
+      "x-stringlist": (input.headerStringList! || []).map((_entry) => _entry as any).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerStringSet) && {
-      "x-stringset": (Array.from(input.headerStringSet!.values()) || []).map((_entry) => _entry).join(", "),
+      "x-stringset": (Array.from(input.headerStringSet!.values()) || []).map((_entry) => _entry as any).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerIntegerList) && {
-      "x-integerlist": (input.headerIntegerList! || []).map((_entry) => _entry.toString()).join(", "),
+      "x-integerlist": (input.headerIntegerList! || []).map((_entry) => _entry.toString() as any).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerBooleanList) && {
-      "x-booleanlist": (input.headerBooleanList! || []).map((_entry) => _entry.toString()).join(", "),
+      "x-booleanlist": (input.headerBooleanList! || []).map((_entry) => _entry.toString() as any).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerTimestampList) && {
       "x-timestamplist": (input.headerTimestampList! || [])
-        .map((_entry) => __dateToUtcString(_entry).toString())
+        .map((_entry) => __dateToUtcString(_entry).toString() as any)
         .join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerEnum) && { "x-enum": input.headerEnum! }),
     ...(isSerializableHeaderValue(input.headerEnumList) && {
-      "x-enumlist": (input.headerEnumList! || []).map((_entry) => _entry).join(", "),
+      "x-enumlist": (input.headerEnumList! || []).map((_entry) => _entry as any).join(", "),
     }),
   };
   let resolvedPath =
@@ -1259,7 +1265,7 @@ export const serializeAws_restXmlNullAndEmptyHeadersClientCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.a) && { "x-a": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "x-b": input.b! }),
-    ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry).join(", ") }),
+    ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry as any).join(", ") }),
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersClient";
@@ -1283,7 +1289,7 @@ export const serializeAws_restXmlNullAndEmptyHeadersServerCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.a) && { "x-a": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "x-b": input.b! }),
-    ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry).join(", ") }),
+    ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry as any).join(", ") }),
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersServer";
@@ -3444,22 +3450,22 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
     contents.headerString = output.headers["x-string"];
   }
   if (output.headers["x-byte"] !== undefined) {
-    contents.headerByte = parseInt(output.headers["x-byte"], 10);
+    contents.headerByte = __strictParseInt(output.headers["x-byte"]);
   }
   if (output.headers["x-short"] !== undefined) {
-    contents.headerShort = parseInt(output.headers["x-short"], 10);
+    contents.headerShort = __strictParseInt(output.headers["x-short"]);
   }
   if (output.headers["x-integer"] !== undefined) {
-    contents.headerInteger = parseInt(output.headers["x-integer"], 10);
+    contents.headerInteger = __strictParseInt(output.headers["x-integer"]);
   }
   if (output.headers["x-long"] !== undefined) {
-    contents.headerLong = parseInt(output.headers["x-long"], 10);
+    contents.headerLong = __strictParseInt(output.headers["x-long"]);
   }
   if (output.headers["x-float"] !== undefined) {
-    contents.headerFloat = parseFloat(output.headers["x-float"]);
+    contents.headerFloat = __strictParseFloat(output.headers["x-float"]);
   }
   if (output.headers["x-double"] !== undefined) {
-    contents.headerDouble = parseFloat(output.headers["x-double"]);
+    contents.headerDouble = __strictParseFloat(output.headers["x-double"]);
   }
   if (output.headers["x-boolean1"] !== undefined) {
     contents.headerTrueBool = __parseBoolean(output.headers["x-boolean1"]);
@@ -3468,31 +3474,31 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
     contents.headerFalseBool = __parseBoolean(output.headers["x-boolean2"]);
   }
   if (output.headers["x-stringlist"] !== undefined) {
-    contents.headerStringList = (output.headers["x-stringlist"] || "").split(",").map((_entry) => _entry.trim());
+    contents.headerStringList = (output.headers["x-stringlist"] || "").split(",").map((_entry) => _entry.trim() as any);
   }
   if (output.headers["x-stringset"] !== undefined) {
-    contents.headerStringSet = (output.headers["x-stringset"] || "").split(",").map((_entry) => _entry.trim());
+    contents.headerStringSet = (output.headers["x-stringset"] || "").split(",").map((_entry) => _entry.trim() as any);
   }
   if (output.headers["x-integerlist"] !== undefined) {
     contents.headerIntegerList = (output.headers["x-integerlist"] || "")
       .split(",")
-      .map((_entry) => parseInt(_entry.trim(), 10));
+      .map((_entry) => __strictParseInt(_entry.trim()) as any);
   }
   if (output.headers["x-booleanlist"] !== undefined) {
     contents.headerBooleanList = (output.headers["x-booleanlist"] || "")
       .split(",")
-      .map((_entry) => __parseBoolean(_entry.trim()));
+      .map((_entry) => __parseBoolean(_entry.trim()) as any);
   }
   if (output.headers["x-timestamplist"] !== undefined) {
     contents.headerTimestampList = __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
-      (_entry) => new Date(_entry.trim())
+      (_entry) => new Date(_entry.trim()) as any
     );
   }
   if (output.headers["x-enum"] !== undefined) {
     contents.headerEnum = output.headers["x-enum"];
   }
   if (output.headers["x-enumlist"] !== undefined) {
-    contents.headerEnumList = (output.headers["x-enumlist"] || "").split(",").map((_entry) => _entry.trim());
+    contents.headerEnumList = (output.headers["x-enumlist"] || "").split(",").map((_entry) => _entry.trim() as any);
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3690,7 +3696,7 @@ export const deserializeAws_restXmlNullAndEmptyHeadersClientCommand = async (
     contents.b = output.headers["x-b"];
   }
   if (output.headers["x-c"] !== undefined) {
-    contents.c = (output.headers["x-c"] || "").split(",").map((_entry) => _entry.trim());
+    contents.c = (output.headers["x-c"] || "").split(",").map((_entry) => _entry.trim() as any);
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3745,7 +3751,7 @@ export const deserializeAws_restXmlNullAndEmptyHeadersServerCommand = async (
     contents.b = output.headers["x-b"];
   }
   if (output.headers["x-c"] !== undefined) {
-    contents.c = (output.headers["x-c"] || "").split(",").map((_entry) => _entry.trim());
+    contents.c = (output.headers["x-c"] || "").split(",").map((_entry) => _entry.trim() as any);
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4024,25 +4030,25 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   if (data["byteValue"] !== undefined) {
-    contents.byteValue = parseInt(data["byteValue"]);
+    contents.byteValue = __strictParseInt(data["byteValue"]) as number;
   }
   if (data["DoubleDribble"] !== undefined) {
-    contents.doubleValue = parseFloat(data["DoubleDribble"]);
+    contents.doubleValue = __strictParseFloat(data["DoubleDribble"]) as number;
   }
   if (data["falseBooleanValue"] !== undefined) {
     contents.falseBooleanValue = __parseBoolean(data["falseBooleanValue"]);
   }
   if (data["floatValue"] !== undefined) {
-    contents.floatValue = parseFloat(data["floatValue"]);
+    contents.floatValue = __strictParseFloat(data["floatValue"]) as number;
   }
   if (data["integerValue"] !== undefined) {
-    contents.integerValue = parseInt(data["integerValue"]);
+    contents.integerValue = __strictParseInt(data["integerValue"]) as number;
   }
   if (data["longValue"] !== undefined) {
-    contents.longValue = parseInt(data["longValue"]);
+    contents.longValue = __strictParseInt(data["longValue"]) as number;
   }
   if (data["shortValue"] !== undefined) {
-    contents.shortValue = parseInt(data["shortValue"]);
+    contents.shortValue = __strictParseInt(data["shortValue"]) as number;
   }
   if (data["stringValue"] !== undefined) {
     contents.stringValue = __expectString(data["stringValue"]);
@@ -5952,22 +5958,22 @@ const deserializeAws_restXmlXmlNestedUnionStruct = (output: any, context: __Serd
     contents.booleanValue = __parseBoolean(output["booleanValue"]);
   }
   if (output["byteValue"] !== undefined) {
-    contents.byteValue = parseInt(output["byteValue"]);
+    contents.byteValue = __strictParseInt(output["byteValue"]) as number;
   }
   if (output["shortValue"] !== undefined) {
-    contents.shortValue = parseInt(output["shortValue"]);
+    contents.shortValue = __strictParseInt(output["shortValue"]) as number;
   }
   if (output["integerValue"] !== undefined) {
-    contents.integerValue = parseInt(output["integerValue"]);
+    contents.integerValue = __strictParseInt(output["integerValue"]) as number;
   }
   if (output["longValue"] !== undefined) {
-    contents.longValue = parseInt(output["longValue"]);
+    contents.longValue = __strictParseInt(output["longValue"]) as number;
   }
   if (output["floatValue"] !== undefined) {
-    contents.floatValue = parseFloat(output["floatValue"]);
+    contents.floatValue = __strictParseFloat(output["floatValue"]) as number;
   }
   if (output["doubleValue"] !== undefined) {
-    contents.doubleValue = parseFloat(output["doubleValue"]);
+    contents.doubleValue = __strictParseFloat(output["doubleValue"]) as number;
   }
   return contents;
 };
@@ -5985,32 +5991,32 @@ const deserializeAws_restXmlXmlUnionShape = (output: any, context: __SerdeContex
   }
   if (output["byteValue"] !== undefined) {
     return {
-      byteValue: parseInt(output["byteValue"]),
+      byteValue: __strictParseInt(output["byteValue"]) as number,
     };
   }
   if (output["shortValue"] !== undefined) {
     return {
-      shortValue: parseInt(output["shortValue"]),
+      shortValue: __strictParseInt(output["shortValue"]) as number,
     };
   }
   if (output["integerValue"] !== undefined) {
     return {
-      integerValue: parseInt(output["integerValue"]),
+      integerValue: __strictParseInt(output["integerValue"]) as number,
     };
   }
   if (output["longValue"] !== undefined) {
     return {
-      longValue: parseInt(output["longValue"]),
+      longValue: __strictParseInt(output["longValue"]) as number,
     };
   }
   if (output["floatValue"] !== undefined) {
     return {
-      floatValue: parseFloat(output["floatValue"]),
+      floatValue: __strictParseFloat(output["floatValue"]) as number,
     };
   }
   if (output["doubleValue"] !== undefined) {
     return {
-      doubleValue: parseFloat(output["doubleValue"]),
+      doubleValue: __strictParseFloat(output["doubleValue"]) as number,
     };
   }
   if (output["unionValue"] !== undefined) {
@@ -6091,7 +6097,7 @@ const deserializeAws_restXmlIntegerList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return parseInt(entry);
+      return __strictParseInt(entry) as number;
     });
 };
 

@@ -310,7 +310,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -7299,10 +7299,10 @@ const deserializeAws_json1_1WorkspaceList = (output: any, context: __SerdeContex
 const deserializeAws_json1_1WorkspaceProperties = (output: any, context: __SerdeContext): WorkspaceProperties => {
   return {
     ComputeTypeName: __expectString(output.ComputeTypeName),
-    RootVolumeSizeGib: __expectNumber(output.RootVolumeSizeGib),
+    RootVolumeSizeGib: __expectInt(output.RootVolumeSizeGib),
     RunningMode: __expectString(output.RunningMode),
-    RunningModeAutoStopTimeoutInMinutes: __expectNumber(output.RunningModeAutoStopTimeoutInMinutes),
-    UserVolumeSizeGib: __expectNumber(output.UserVolumeSizeGib),
+    RunningModeAutoStopTimeoutInMinutes: __expectInt(output.RunningModeAutoStopTimeoutInMinutes),
+    UserVolumeSizeGib: __expectInt(output.UserVolumeSizeGib),
   } as any;
 };
 

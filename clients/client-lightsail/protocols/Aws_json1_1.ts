@@ -800,9 +800,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -20146,8 +20146,8 @@ const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alar
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    datapointsToAlarm: __expectNumber(output.datapointsToAlarm),
-    evaluationPeriods: __expectNumber(output.evaluationPeriods),
+    datapointsToAlarm: __expectInt(output.datapointsToAlarm),
+    evaluationPeriods: __expectInt(output.evaluationPeriods),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
@@ -20163,12 +20163,12 @@ const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alar
       output.notificationTriggers !== undefined && output.notificationTriggers !== null
         ? deserializeAws_json1_1NotificationTriggerList(output.notificationTriggers, context)
         : undefined,
-    period: __expectNumber(output.period),
+    period: __expectInt(output.period),
     resourceType: __expectString(output.resourceType),
     state: __expectString(output.state),
     statistic: __expectString(output.statistic),
     supportCode: __expectString(output.supportCode),
-    threshold: __handleFloat(output.threshold),
+    threshold: __limitedParseFloat(output.threshold),
     treatMissingData: __expectString(output.treatMissingData),
     unit: __expectString(output.unit),
   } as any;
@@ -20218,7 +20218,7 @@ const deserializeAws_json1_1AttachDiskResult = (output: any, context: __SerdeCon
 const deserializeAws_json1_1AttachedDisk = (output: any, context: __SerdeContext): AttachedDisk => {
   return {
     path: __expectString(output.path),
-    sizeInGb: __expectNumber(output.sizeInGb),
+    sizeInGb: __expectInt(output.sizeInGb),
   } as any;
 };
 
@@ -20317,7 +20317,7 @@ const deserializeAws_json1_1Blueprint = (output: any, context: __SerdeContext): 
     group: __expectString(output.group),
     isActive: __expectBoolean(output.isActive),
     licenseUrl: __expectString(output.licenseUrl),
-    minPower: __expectNumber(output.minPower),
+    minPower: __expectInt(output.minPower),
     name: __expectString(output.name),
     platform: __expectString(output.platform),
     productUrl: __expectString(output.productUrl),
@@ -20384,9 +20384,9 @@ const deserializeAws_json1_1BucketBundle = (output: any, context: __SerdeContext
     bundleId: __expectString(output.bundleId),
     isActive: __expectBoolean(output.isActive),
     name: __expectString(output.name),
-    price: __handleFloat(output.price),
-    storagePerMonthInGb: __expectNumber(output.storagePerMonthInGb),
-    transferPerMonthInGb: __expectNumber(output.transferPerMonthInGb),
+    price: __limitedParseFloat(output.price),
+    storagePerMonthInGb: __expectInt(output.storagePerMonthInGb),
+    transferPerMonthInGb: __expectInt(output.transferPerMonthInGb),
   } as any;
 };
 
@@ -20422,19 +20422,19 @@ const deserializeAws_json1_1BucketState = (output: any, context: __SerdeContext)
 const deserializeAws_json1_1Bundle = (output: any, context: __SerdeContext): Bundle => {
   return {
     bundleId: __expectString(output.bundleId),
-    cpuCount: __expectNumber(output.cpuCount),
-    diskSizeInGb: __expectNumber(output.diskSizeInGb),
+    cpuCount: __expectInt(output.cpuCount),
+    diskSizeInGb: __expectInt(output.diskSizeInGb),
     instanceType: __expectString(output.instanceType),
     isActive: __expectBoolean(output.isActive),
     name: __expectString(output.name),
-    power: __expectNumber(output.power),
-    price: __handleFloat(output.price),
-    ramSizeInGb: __handleFloat(output.ramSizeInGb),
+    power: __expectInt(output.power),
+    price: __limitedParseFloat(output.price),
+    ramSizeInGb: __limitedParseFloat(output.ramSizeInGb),
     supportedPlatforms:
       output.supportedPlatforms !== undefined && output.supportedPlatforms !== null
         ? deserializeAws_json1_1InstancePlatformList(output.supportedPlatforms, context)
         : undefined,
-    transferPerMonthInGb: __expectNumber(output.transferPerMonthInGb),
+    transferPerMonthInGb: __expectInt(output.transferPerMonthInGb),
   } as any;
 };
 
@@ -20477,7 +20477,7 @@ const deserializeAws_json1_1CacheSettings = (output: any, context: __SerdeContex
   return {
     allowedHTTPMethods: __expectString(output.allowedHTTPMethods),
     cachedHTTPMethods: __expectString(output.cachedHTTPMethods),
-    defaultTTL: __expectNumber(output.defaultTTL),
+    defaultTTL: __expectInt(output.defaultTTL),
     forwardedCookies:
       output.forwardedCookies !== undefined && output.forwardedCookies !== null
         ? deserializeAws_json1_1CookieObject(output.forwardedCookies, context)
@@ -20490,8 +20490,8 @@ const deserializeAws_json1_1CacheSettings = (output: any, context: __SerdeContex
       output.forwardedQueryStrings !== undefined && output.forwardedQueryStrings !== null
         ? deserializeAws_json1_1QueryStringObject(output.forwardedQueryStrings, context)
         : undefined,
-    maximumTTL: __expectNumber(output.maximumTTL),
-    minimumTTL: __expectNumber(output.minimumTTL),
+    maximumTTL: __expectInt(output.maximumTTL),
+    minimumTTL: __expectInt(output.minimumTTL),
   } as any;
 };
 
@@ -20508,7 +20508,7 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1DomainValidationRecordList(output.domainValidationRecords, context)
         : undefined,
     eligibleToRenew: __expectString(output.eligibleToRenew),
-    inUseResourceCount: __expectNumber(output.inUseResourceCount),
+    inUseResourceCount: __expectInt(output.inUseResourceCount),
     issuedAt:
       output.issuedAt !== undefined && output.issuedAt !== null
         ? new Date(Math.round(output.issuedAt * 1000))
@@ -20781,7 +20781,7 @@ const deserializeAws_json1_1ContainerService = (output: any, context: __SerdeCon
         ? deserializeAws_json1_1ContainerServicePublicDomains(output.publicDomainNames, context)
         : undefined,
     resourceType: __expectString(output.resourceType),
-    scale: __expectNumber(output.scale),
+    scale: __expectInt(output.scale),
     state: __expectString(output.state),
     stateDetail:
       output.stateDetail !== undefined && output.stateDetail !== null
@@ -20813,7 +20813,7 @@ const deserializeAws_json1_1ContainerServiceDeployment = (
         ? deserializeAws_json1_1ContainerServiceEndpoint(output.publicEndpoint, context)
         : undefined,
     state: __expectString(output.state),
-    version: __expectNumber(output.version),
+    version: __expectInt(output.version),
   } as any;
 };
 
@@ -20837,7 +20837,7 @@ const deserializeAws_json1_1ContainerServiceEndpoint = (
 ): ContainerServiceEndpoint => {
   return {
     containerName: __expectString(output.containerName),
-    containerPort: __expectNumber(output.containerPort),
+    containerPort: __expectInt(output.containerPort),
     healthCheck:
       output.healthCheck !== undefined && output.healthCheck !== null
         ? deserializeAws_json1_1ContainerServiceHealthCheckConfig(output.healthCheck, context)
@@ -20850,12 +20850,12 @@ const deserializeAws_json1_1ContainerServiceHealthCheckConfig = (
   context: __SerdeContext
 ): ContainerServiceHealthCheckConfig => {
   return {
-    healthyThreshold: __expectNumber(output.healthyThreshold),
-    intervalSeconds: __expectNumber(output.intervalSeconds),
+    healthyThreshold: __expectInt(output.healthyThreshold),
+    intervalSeconds: __expectInt(output.intervalSeconds),
     path: __expectString(output.path),
     successCodes: __expectString(output.successCodes),
-    timeoutSeconds: __expectNumber(output.timeoutSeconds),
-    unhealthyThreshold: __expectNumber(output.unhealthyThreshold),
+    timeoutSeconds: __expectInt(output.timeoutSeconds),
+    unhealthyThreshold: __expectInt(output.unhealthyThreshold),
   } as any;
 };
 
@@ -20928,12 +20928,12 @@ const deserializeAws_json1_1ContainerServiceMetadataEntryList = (
 
 const deserializeAws_json1_1ContainerServicePower = (output: any, context: __SerdeContext): ContainerServicePower => {
   return {
-    cpuCount: __handleFloat(output.cpuCount),
+    cpuCount: __limitedParseFloat(output.cpuCount),
     isActive: __expectBoolean(output.isActive),
     name: __expectString(output.name),
     powerId: __expectString(output.powerId),
-    price: __handleFloat(output.price),
-    ramSizeInGb: __handleFloat(output.ramSizeInGb),
+    price: __limitedParseFloat(output.price),
+    ramSizeInGb: __limitedParseFloat(output.ramSizeInGb),
   } as any;
 };
 
@@ -21611,8 +21611,8 @@ const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk 
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    gbInUse: __expectNumber(output.gbInUse),
-    iops: __expectNumber(output.iops),
+    gbInUse: __expectInt(output.gbInUse),
+    iops: __expectInt(output.iops),
     isAttached: __expectBoolean(output.isAttached),
     isSystemDisk: __expectBoolean(output.isSystemDisk),
     location:
@@ -21622,7 +21622,7 @@ const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk 
     name: __expectString(output.name),
     path: __expectString(output.path),
     resourceType: __expectString(output.resourceType),
-    sizeInGb: __expectNumber(output.sizeInGb),
+    sizeInGb: __expectInt(output.sizeInGb),
     state: __expectString(output.state),
     supportCode: __expectString(output.supportCode),
     tags:
@@ -21637,7 +21637,7 @@ const deserializeAws_json1_1DiskInfo = (output: any, context: __SerdeContext): D
     isSystemDisk: __expectBoolean(output.isSystemDisk),
     name: __expectString(output.name),
     path: __expectString(output.path),
-    sizeInGb: __expectNumber(output.sizeInGb),
+    sizeInGb: __expectInt(output.sizeInGb),
   } as any;
 };
 
@@ -21682,7 +21682,7 @@ const deserializeAws_json1_1DiskSnapshot = (output: any, context: __SerdeContext
     name: __expectString(output.name),
     progress: __expectString(output.progress),
     resourceType: __expectString(output.resourceType),
-    sizeInGb: __expectNumber(output.sizeInGb),
+    sizeInGb: __expectInt(output.sizeInGb),
     state: __expectString(output.state),
     supportCode: __expectString(output.supportCode),
     tags:
@@ -21694,7 +21694,7 @@ const deserializeAws_json1_1DiskSnapshot = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DiskSnapshotInfo = (output: any, context: __SerdeContext): DiskSnapshotInfo => {
   return {
-    sizeInGb: __expectNumber(output.sizeInGb),
+    sizeInGb: __expectInt(output.sizeInGb),
   } as any;
 };
 
@@ -21714,8 +21714,8 @@ const deserializeAws_json1_1DistributionBundle = (output: any, context: __SerdeC
     bundleId: __expectString(output.bundleId),
     isActive: __expectBoolean(output.isActive),
     name: __expectString(output.name),
-    price: __handleFloat(output.price),
-    transferPerMonthInGb: __expectNumber(output.transferPerMonthInGb),
+    price: __limitedParseFloat(output.price),
+    transferPerMonthInGb: __expectInt(output.transferPerMonthInGb),
   } as any;
 };
 
@@ -22764,12 +22764,12 @@ const deserializeAws_json1_1InstanceAccessDetails = (output: any, context: __Ser
 
 const deserializeAws_json1_1InstanceHardware = (output: any, context: __SerdeContext): InstanceHardware => {
   return {
-    cpuCount: __expectNumber(output.cpuCount),
+    cpuCount: __expectInt(output.cpuCount),
     disks:
       output.disks !== undefined && output.disks !== null
         ? deserializeAws_json1_1DiskList(output.disks, context)
         : undefined,
-    ramSizeInGb: __handleFloat(output.ramSizeInGb),
+    ramSizeInGb: __limitedParseFloat(output.ramSizeInGb),
   } as any;
 };
 
@@ -22847,13 +22847,13 @@ const deserializeAws_json1_1InstancePortInfo = (output: any, context: __SerdeCon
         ? deserializeAws_json1_1StringList(output.cidrs, context)
         : undefined,
     commonName: __expectString(output.commonName),
-    fromPort: __expectNumber(output.fromPort),
+    fromPort: __expectInt(output.fromPort),
     ipv6Cidrs:
       output.ipv6Cidrs !== undefined && output.ipv6Cidrs !== null
         ? deserializeAws_json1_1StringList(output.ipv6Cidrs, context)
         : undefined,
     protocol: __expectString(output.protocol),
-    toPort: __expectNumber(output.toPort),
+    toPort: __expectInt(output.toPort),
   } as any;
 };
 
@@ -22878,14 +22878,14 @@ const deserializeAws_json1_1InstancePortState = (output: any, context: __SerdeCo
       output.cidrs !== undefined && output.cidrs !== null
         ? deserializeAws_json1_1StringList(output.cidrs, context)
         : undefined,
-    fromPort: __expectNumber(output.fromPort),
+    fromPort: __expectInt(output.fromPort),
     ipv6Cidrs:
       output.ipv6Cidrs !== undefined && output.ipv6Cidrs !== null
         ? deserializeAws_json1_1StringList(output.ipv6Cidrs, context)
         : undefined,
     protocol: __expectString(output.protocol),
     state: __expectString(output.state),
-    toPort: __expectNumber(output.toPort),
+    toPort: __expectInt(output.toPort),
   } as any;
 };
 
@@ -22923,7 +22923,7 @@ const deserializeAws_json1_1InstanceSnapshot = (output: any, context: __SerdeCon
     name: __expectString(output.name),
     progress: __expectString(output.progress),
     resourceType: __expectString(output.resourceType),
-    sizeInGb: __expectNumber(output.sizeInGb),
+    sizeInGb: __expectInt(output.sizeInGb),
     state: __expectString(output.state),
     supportCode: __expectString(output.supportCode),
     tags:
@@ -22957,7 +22957,7 @@ const deserializeAws_json1_1InstanceSnapshotList = (output: any, context: __Serd
 
 const deserializeAws_json1_1InstanceState = (output: any, context: __SerdeContext): InstanceState => {
   return {
-    code: __expectNumber(output.code),
+    code: __expectInt(output.code),
     name: __expectString(output.name),
   } as any;
 };
@@ -23087,7 +23087,7 @@ const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext
       output.instanceHealthSummary !== undefined && output.instanceHealthSummary !== null
         ? deserializeAws_json1_1InstanceHealthSummaryList(output.instanceHealthSummary, context)
         : undefined,
-    instancePort: __expectNumber(output.instancePort),
+    instancePort: __expectInt(output.instancePort),
     ipAddressType: __expectString(output.ipAddressType),
     location:
       output.location !== undefined && output.location !== null
@@ -23336,11 +23336,11 @@ const deserializeAws_json1_1LogEventList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1MetricDatapoint = (output: any, context: __SerdeContext): MetricDatapoint => {
   return {
-    average: __handleFloat(output.average),
-    maximum: __handleFloat(output.maximum),
-    minimum: __handleFloat(output.minimum),
-    sampleCount: __handleFloat(output.sampleCount),
-    sum: __handleFloat(output.sum),
+    average: __limitedParseFloat(output.average),
+    maximum: __limitedParseFloat(output.maximum),
+    minimum: __limitedParseFloat(output.minimum),
+    sampleCount: __limitedParseFloat(output.sampleCount),
+    sum: __limitedParseFloat(output.sum),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? new Date(Math.round(output.timestamp * 1000))
@@ -23370,7 +23370,7 @@ const deserializeAws_json1_1MonitoredResourceInfo = (output: any, context: __Ser
 
 const deserializeAws_json1_1MonthlyTransfer = (output: any, context: __SerdeContext): MonthlyTransfer => {
   return {
-    gbPerMonthAllocated: __expectNumber(output.gbPerMonthAllocated),
+    gbPerMonthAllocated: __expectInt(output.gbPerMonthAllocated),
   } as any;
 };
 
@@ -23540,7 +23540,7 @@ const deserializeAws_json1_1PortList = (output: any, context: __SerdeContext): n
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __expectInt(entry) as any;
     });
 };
 
@@ -23743,14 +23743,14 @@ const deserializeAws_json1_1RelationalDatabaseBundle = (
 ): RelationalDatabaseBundle => {
   return {
     bundleId: __expectString(output.bundleId),
-    cpuCount: __expectNumber(output.cpuCount),
-    diskSizeInGb: __expectNumber(output.diskSizeInGb),
+    cpuCount: __expectInt(output.cpuCount),
+    diskSizeInGb: __expectInt(output.diskSizeInGb),
     isActive: __expectBoolean(output.isActive),
     isEncrypted: __expectBoolean(output.isEncrypted),
     name: __expectString(output.name),
-    price: __handleFloat(output.price),
-    ramSizeInGb: __handleFloat(output.ramSizeInGb),
-    transferPerMonthInGb: __expectNumber(output.transferPerMonthInGb),
+    price: __limitedParseFloat(output.price),
+    ramSizeInGb: __limitedParseFloat(output.ramSizeInGb),
+    transferPerMonthInGb: __expectInt(output.transferPerMonthInGb),
   } as any;
 };
 
@@ -23774,7 +23774,7 @@ const deserializeAws_json1_1RelationalDatabaseEndpoint = (
 ): RelationalDatabaseEndpoint => {
   return {
     address: __expectString(output.address),
-    port: __expectNumber(output.port),
+    port: __expectInt(output.port),
   } as any;
 };
 
@@ -23815,9 +23815,9 @@ const deserializeAws_json1_1RelationalDatabaseHardware = (
   context: __SerdeContext
 ): RelationalDatabaseHardware => {
   return {
-    cpuCount: __expectNumber(output.cpuCount),
-    diskSizeInGb: __expectNumber(output.diskSizeInGb),
-    ramSizeInGb: __handleFloat(output.ramSizeInGb),
+    cpuCount: __expectInt(output.cpuCount),
+    diskSizeInGb: __expectInt(output.diskSizeInGb),
+    ramSizeInGb: __limitedParseFloat(output.ramSizeInGb),
   } as any;
 };
 
@@ -23884,7 +23884,7 @@ const deserializeAws_json1_1RelationalDatabaseSnapshot = (
         : undefined,
     name: __expectString(output.name),
     resourceType: __expectString(output.resourceType),
-    sizeInGb: __expectNumber(output.sizeInGb),
+    sizeInGb: __expectInt(output.sizeInGb),
     state: __expectString(output.state),
     supportCode: __expectString(output.supportCode),
     tags:

@@ -44,10 +44,10 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1964,8 +1964,8 @@ const deserializeAws_restJson1ActiveContextTimeToLive = (
   context: __SerdeContext
 ): ActiveContextTimeToLive => {
   return {
-    timeToLiveInSeconds: __expectNumber(output.timeToLiveInSeconds),
-    turnsToLive: __expectNumber(output.turnsToLive),
+    timeToLiveInSeconds: __expectInt(output.timeToLiveInSeconds),
+    turnsToLive: __expectInt(output.turnsToLive),
   } as any;
 };
 
@@ -2006,7 +2006,7 @@ const deserializeAws_restJson1ButtonsList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1ConfidenceScore = (output: any, context: __SerdeContext): ConfidenceScore => {
   return {
-    score: __handleFloat(output.score),
+    score: __limitedParseFloat(output.score),
   } as any;
 };
 
@@ -2173,10 +2173,10 @@ const deserializeAws_restJson1SentimentResponse = (output: any, context: __Serde
 
 const deserializeAws_restJson1SentimentScore = (output: any, context: __SerdeContext): SentimentScore => {
   return {
-    mixed: __handleFloat(output.mixed),
-    negative: __handleFloat(output.negative),
-    neutral: __handleFloat(output.neutral),
-    positive: __handleFloat(output.positive),
+    mixed: __limitedParseFloat(output.mixed),
+    negative: __limitedParseFloat(output.negative),
+    neutral: __limitedParseFloat(output.neutral),
+    positive: __limitedParseFloat(output.positive),
   } as any;
 };
 

@@ -43,7 +43,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -434,7 +434,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1738,8 +1738,8 @@ const deserializeAws_restJson1SuiteRunInformation = (output: any, context: __Ser
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
     endAt: output.endAt !== undefined && output.endAt !== null ? new Date(Math.round(output.endAt * 1000)) : undefined,
-    failed: __expectNumber(output.failed),
-    passed: __expectNumber(output.passed),
+    failed: __expectInt(output.failed),
+    passed: __expectInt(output.passed),
     startedAt:
       output.startedAt !== undefined && output.startedAt !== null
         ? new Date(Math.round(output.startedAt * 1000))

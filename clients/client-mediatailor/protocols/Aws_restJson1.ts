@@ -99,7 +99,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1092,7 +1092,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -2260,7 +2260,7 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
     contents.Name = __expectString(data.Name);
   }
   if (data.PersonalizationThresholdSeconds !== undefined && data.PersonalizationThresholdSeconds !== null) {
-    contents.PersonalizationThresholdSeconds = __expectNumber(data.PersonalizationThresholdSeconds);
+    contents.PersonalizationThresholdSeconds = __expectInt(data.PersonalizationThresholdSeconds);
   }
   if (data.PlaybackConfigurationArn !== undefined && data.PlaybackConfigurationArn !== null) {
     contents.PlaybackConfigurationArn = __expectString(data.PlaybackConfigurationArn);
@@ -2737,7 +2737,7 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
     contents.Name = __expectString(data.Name);
   }
   if (data.PersonalizationThresholdSeconds !== undefined && data.PersonalizationThresholdSeconds !== null) {
-    contents.PersonalizationThresholdSeconds = __expectNumber(data.PersonalizationThresholdSeconds);
+    contents.PersonalizationThresholdSeconds = __expectInt(data.PersonalizationThresholdSeconds);
   }
   if (data.PlaybackConfigurationArn !== undefined && data.PlaybackConfigurationArn !== null) {
     contents.PlaybackConfigurationArn = __expectString(data.PlaybackConfigurationArn);
@@ -3619,7 +3619,7 @@ const deserializeAws_restJson1AccessConfiguration = (output: any, context: __Ser
 const deserializeAws_restJson1AdBreak = (output: any, context: __SerdeContext): AdBreak => {
   return {
     MessageType: __expectString(output.MessageType),
-    OffsetMillis: __expectNumber(output.OffsetMillis),
+    OffsetMillis: __expectInt(output.OffsetMillis),
     Slate:
       output.Slate !== undefined && output.Slate !== null
         ? deserializeAws_restJson1SlateSource(output.Slate, context)
@@ -3727,10 +3727,10 @@ const deserializeAws_restJson1DashConfiguration = (output: any, context: __Serde
 
 const deserializeAws_restJson1DashPlaylistSettings = (output: any, context: __SerdeContext): DashPlaylistSettings => {
   return {
-    ManifestWindowSeconds: __expectNumber(output.ManifestWindowSeconds),
-    MinBufferTimeSeconds: __expectNumber(output.MinBufferTimeSeconds),
-    MinUpdatePeriodSeconds: __expectNumber(output.MinUpdatePeriodSeconds),
-    SuggestedPresentationDelaySeconds: __expectNumber(output.SuggestedPresentationDelaySeconds),
+    ManifestWindowSeconds: __expectInt(output.ManifestWindowSeconds),
+    MinBufferTimeSeconds: __expectInt(output.MinBufferTimeSeconds),
+    MinUpdatePeriodSeconds: __expectInt(output.MinUpdatePeriodSeconds),
+    SuggestedPresentationDelaySeconds: __expectInt(output.SuggestedPresentationDelaySeconds),
   } as any;
 };
 
@@ -3751,7 +3751,7 @@ const deserializeAws_restJson1HlsConfiguration = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1HlsPlaylistSettings = (output: any, context: __SerdeContext): HlsPlaylistSettings => {
   return {
-    ManifestWindowSeconds: __expectNumber(output.ManifestWindowSeconds),
+    ManifestWindowSeconds: __expectInt(output.ManifestWindowSeconds),
   } as any;
 };
 
@@ -3792,7 +3792,7 @@ const deserializeAws_restJson1LivePreRollConfiguration = (
 ): LivePreRollConfiguration => {
   return {
     AdDecisionServerUrl: __expectString(output.AdDecisionServerUrl),
-    MaxDurationSeconds: __expectNumber(output.MaxDurationSeconds),
+    MaxDurationSeconds: __expectInt(output.MaxDurationSeconds),
   } as any;
 };
 
@@ -3844,7 +3844,7 @@ const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __S
         ? deserializeAws_restJson1ManifestProcessingRules(output.ManifestProcessingRules, context)
         : undefined,
     Name: __expectString(output.Name),
-    PersonalizationThresholdSeconds: __expectNumber(output.PersonalizationThresholdSeconds),
+    PersonalizationThresholdSeconds: __expectInt(output.PersonalizationThresholdSeconds),
     PlaybackConfigurationArn: __expectString(output.PlaybackConfigurationArn),
     PlaybackEndpointPrefix: __expectString(output.PlaybackEndpointPrefix),
     SessionInitializationEndpointPrefix: __expectString(output.SessionInitializationEndpointPrefix),
@@ -3887,7 +3887,7 @@ const deserializeAws_restJson1ResponseOutputs = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak => {
   return {
-    ApproximateDurationSeconds: __expectNumber(output.ApproximateDurationSeconds),
+    ApproximateDurationSeconds: __expectInt(output.ApproximateDurationSeconds),
     ApproximateStartTime:
       output.ApproximateStartTime !== undefined && output.ApproximateStartTime !== null
         ? new Date(Math.round(output.ApproximateStartTime * 1000))
@@ -3899,7 +3899,7 @@ const deserializeAws_restJson1ScheduleAdBreak = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry => {
   return {
-    ApproximateDurationSeconds: __expectNumber(output.ApproximateDurationSeconds),
+    ApproximateDurationSeconds: __expectInt(output.ApproximateDurationSeconds),
     ApproximateStartTime:
       output.ApproximateStartTime !== undefined && output.ApproximateStartTime !== null
         ? new Date(Math.round(output.ApproximateStartTime * 1000))
@@ -3970,10 +3970,10 @@ const deserializeAws_restJson1SourceLocation = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1SpliceInsertMessage = (output: any, context: __SerdeContext): SpliceInsertMessage => {
   return {
-    AvailNum: __expectNumber(output.AvailNum),
-    AvailsExpected: __expectNumber(output.AvailsExpected),
-    SpliceEventId: __expectNumber(output.SpliceEventId),
-    UniqueProgramId: __expectNumber(output.UniqueProgramId),
+    AvailNum: __expectInt(output.AvailNum),
+    AvailsExpected: __expectInt(output.AvailsExpected),
+    SpliceEventId: __expectInt(output.SpliceEventId),
+    UniqueProgramId: __expectInt(output.UniqueProgramId),
   } as any;
 };
 

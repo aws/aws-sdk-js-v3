@@ -210,7 +210,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4666,8 +4666,8 @@ const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext):
     roleName: __expectString(output.roleName),
     status: __expectString(output.status),
     statusMessage: __expectString(output.statusMessage),
-    totalServerGroups: __expectNumber(output.totalServerGroups),
-    totalServers: __expectNumber(output.totalServers),
+    totalServerGroups: __expectInt(output.totalServerGroups),
+    totalServers: __expectInt(output.totalServers),
   } as any;
 };
 
@@ -5097,7 +5097,7 @@ const deserializeAws_json1_1ReplicationJob = (output: any, context: __SerdeConte
   return {
     description: __expectString(output.description),
     encrypted: __expectBoolean(output.encrypted),
-    frequency: __expectNumber(output.frequency),
+    frequency: __expectInt(output.frequency),
     kmsKeyId: __expectString(output.kmsKeyId),
     latestAmiId: __expectString(output.latestAmiId),
     licenseType: __expectString(output.licenseType),
@@ -5105,7 +5105,7 @@ const deserializeAws_json1_1ReplicationJob = (output: any, context: __SerdeConte
       output.nextReplicationRunStartTime !== undefined && output.nextReplicationRunStartTime !== null
         ? new Date(Math.round(output.nextReplicationRunStartTime * 1000))
         : undefined,
-    numberOfRecentAmisToKeep: __expectNumber(output.numberOfRecentAmisToKeep),
+    numberOfRecentAmisToKeep: __expectInt(output.numberOfRecentAmisToKeep),
     replicationJobId: __expectString(output.replicationJobId),
     replicationRunList:
       output.replicationRunList !== undefined && output.replicationRunList !== null
@@ -5257,7 +5257,7 @@ const deserializeAws_json1_1ServerGroupLaunchConfiguration = (
   context: __SerdeContext
 ): ServerGroupLaunchConfiguration => {
   return {
-    launchOrder: __expectNumber(output.launchOrder),
+    launchOrder: __expectInt(output.launchOrder),
     serverGroupId: __expectString(output.serverGroupId),
     serverLaunchConfigurations:
       output.serverLaunchConfigurations !== undefined && output.serverLaunchConfigurations !== null
@@ -5435,10 +5435,10 @@ const deserializeAws_json1_1ServerReplicationParameters = (
 ): ServerReplicationParameters => {
   return {
     encrypted: __expectBoolean(output.encrypted),
-    frequency: __expectNumber(output.frequency),
+    frequency: __expectInt(output.frequency),
     kmsKeyId: __expectString(output.kmsKeyId),
     licenseType: __expectString(output.licenseType),
-    numberOfRecentAmisToKeep: __expectNumber(output.numberOfRecentAmisToKeep),
+    numberOfRecentAmisToKeep: __expectInt(output.numberOfRecentAmisToKeep),
     runOnce: __expectBoolean(output.runOnce),
     seedTime:
       output.seedTime !== undefined && output.seedTime !== null
@@ -5513,7 +5513,7 @@ const deserializeAws_json1_1SSMValidationParameters = (
 ): SSMValidationParameters => {
   return {
     command: __expectString(output.command),
-    executionTimeoutSeconds: __expectNumber(output.executionTimeoutSeconds),
+    executionTimeoutSeconds: __expectInt(output.executionTimeoutSeconds),
     instanceId: __expectString(output.instanceId),
     outputS3BucketName: __expectString(output.outputS3BucketName),
     scriptType: __expectString(output.scriptType),

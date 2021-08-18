@@ -264,7 +264,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -6604,7 +6604,7 @@ const deserializeAws_json1_1AutomatedDiscoveryInformation = (
 const deserializeAws_json1_1BorrowConfiguration = (output: any, context: __SerdeContext): BorrowConfiguration => {
   return {
     AllowEarlyCheckIn: __expectBoolean(output.AllowEarlyCheckIn),
-    MaxTimeToLiveInMinutes: __expectNumber(output.MaxTimeToLiveInMinutes),
+    MaxTimeToLiveInMinutes: __expectInt(output.MaxTimeToLiveInMinutes),
   } as any;
 };
 
@@ -6660,7 +6660,7 @@ const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ConsumedLicenseSummary = (output: any, context: __SerdeContext): ConsumedLicenseSummary => {
   return {
-    ConsumedLicenses: __expectNumber(output.ConsumedLicenses),
+    ConsumedLicenses: __expectInt(output.ConsumedLicenses),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
@@ -6803,7 +6803,7 @@ const deserializeAws_json1_1DeleteTokenResponse = (output: any, context: __Serde
 const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return {
     AllowCheckIn: __expectBoolean(output.AllowCheckIn),
-    MaxCount: __expectNumber(output.MaxCount),
+    MaxCount: __expectInt(output.MaxCount),
     Name: __expectString(output.Name),
     Overage: __expectBoolean(output.Overage),
     Unit: __expectString(output.Unit),
@@ -6927,12 +6927,12 @@ const deserializeAws_json1_1GetLicenseConfigurationResponse = (
       output.ConsumedLicenseSummaryList !== undefined && output.ConsumedLicenseSummaryList !== null
         ? deserializeAws_json1_1ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
         : undefined,
-    ConsumedLicenses: __expectNumber(output.ConsumedLicenses),
+    ConsumedLicenses: __expectInt(output.ConsumedLicenses),
     Description: __expectString(output.Description),
     DisassociateWhenNotFound: __expectBoolean(output.DisassociateWhenNotFound),
     LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
     LicenseConfigurationId: __expectString(output.LicenseConfigurationId),
-    LicenseCount: __expectNumber(output.LicenseCount),
+    LicenseCount: __expectInt(output.LicenseCount),
     LicenseCountHardLimit: __expectBoolean(output.LicenseCountHardLimit),
     LicenseCountingType: __expectString(output.LicenseCountingType),
     LicenseRules:
@@ -7154,12 +7154,12 @@ const deserializeAws_json1_1LicenseConfiguration = (output: any, context: __Serd
       output.ConsumedLicenseSummaryList !== undefined && output.ConsumedLicenseSummaryList !== null
         ? deserializeAws_json1_1ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
         : undefined,
-    ConsumedLicenses: __expectNumber(output.ConsumedLicenses),
+    ConsumedLicenses: __expectInt(output.ConsumedLicenses),
     Description: __expectString(output.Description),
     DisassociateWhenNotFound: __expectBoolean(output.DisassociateWhenNotFound),
     LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
     LicenseConfigurationId: __expectString(output.LicenseConfigurationId),
-    LicenseCount: __expectNumber(output.LicenseCount),
+    LicenseCount: __expectInt(output.LicenseCount),
     LicenseCountHardLimit: __expectBoolean(output.LicenseCountHardLimit),
     LicenseCountingType: __expectString(output.LicenseCountingType),
     LicenseRules:
@@ -7230,7 +7230,7 @@ const deserializeAws_json1_1LicenseConfigurationUsage = (
       output.AssociationTime !== undefined && output.AssociationTime !== null
         ? new Date(Math.round(output.AssociationTime * 1000))
         : undefined,
-    ConsumedLicenses: __expectNumber(output.ConsumedLicenses),
+    ConsumedLicenses: __expectInt(output.ConsumedLicenses),
     ResourceArn: __expectString(output.ResourceArn),
     ResourceOwnerId: __expectString(output.ResourceOwnerId),
     ResourceStatus: __expectString(output.ResourceStatus),
@@ -7509,7 +7509,7 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationResponse = (
 
 const deserializeAws_json1_1ManagedResourceSummary = (output: any, context: __SerdeContext): ManagedResourceSummary => {
   return {
-    AssociationCount: __expectNumber(output.AssociationCount),
+    AssociationCount: __expectInt(output.AssociationCount),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
@@ -7629,7 +7629,7 @@ const deserializeAws_json1_1ProvisionalConfiguration = (
   context: __SerdeContext
 ): ProvisionalConfiguration => {
   return {
-    MaxTimeToLiveInMinutes: __expectNumber(output.MaxTimeToLiveInMinutes),
+    MaxTimeToLiveInMinutes: __expectInt(output.MaxTimeToLiveInMinutes),
   } as any;
 };
 
@@ -7680,7 +7680,7 @@ const deserializeAws_json1_1ReportContext = (output: any, context: __SerdeContex
 const deserializeAws_json1_1ReportFrequency = (output: any, context: __SerdeContext): ReportFrequency => {
   return {
     period: __expectString(output.period),
-    value: __expectNumber(output.value),
+    value: __expectInt(output.value),
   } as any;
 };
 

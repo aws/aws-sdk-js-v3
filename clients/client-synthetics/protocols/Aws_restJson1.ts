@@ -48,7 +48,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -406,7 +406,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1650,7 +1650,7 @@ const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): C
         : undefined,
     EngineArn: __expectString(output.EngineArn),
     ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
-    FailureRetentionPeriodInDays: __expectNumber(output.FailureRetentionPeriodInDays),
+    FailureRetentionPeriodInDays: __expectInt(output.FailureRetentionPeriodInDays),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     RunConfig:
@@ -1666,7 +1666,7 @@ const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): C
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_restJson1CanaryStatus(output.Status, context)
         : undefined,
-    SuccessRetentionPeriodInDays: __expectNumber(output.SuccessRetentionPeriodInDays),
+    SuccessRetentionPeriodInDays: __expectInt(output.SuccessRetentionPeriodInDays),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
@@ -1722,8 +1722,8 @@ const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1CanaryRunConfigOutput = (output: any, context: __SerdeContext): CanaryRunConfigOutput => {
   return {
     ActiveTracing: __expectBoolean(output.ActiveTracing),
-    MemoryInMB: __expectNumber(output.MemoryInMB),
-    TimeoutInSeconds: __expectNumber(output.TimeoutInSeconds),
+    MemoryInMB: __expectInt(output.MemoryInMB),
+    TimeoutInSeconds: __expectInt(output.TimeoutInSeconds),
   } as any;
 };
 
@@ -1759,7 +1759,7 @@ const deserializeAws_restJson1CanaryRunTimeline = (output: any, context: __Serde
 
 const deserializeAws_restJson1CanaryScheduleOutput = (output: any, context: __SerdeContext): CanaryScheduleOutput => {
   return {
-    DurationInSeconds: __expectNumber(output.DurationInSeconds),
+    DurationInSeconds: __expectInt(output.DurationInSeconds),
     Expression: __expectString(output.Expression),
   } as any;
 };

@@ -70,7 +70,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -664,7 +664,7 @@ export const deserializeAws_restJson1BatchCreateTableRowsCommand = async (
     contents.failedBatchItems = deserializeAws_restJson1FailedBatchItems(data.failedBatchItems, context);
   }
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectNumber(data.workbookCursor);
+    contents.workbookCursor = __expectInt(data.workbookCursor);
   }
   return Promise.resolve(contents);
 };
@@ -779,7 +779,7 @@ export const deserializeAws_restJson1BatchDeleteTableRowsCommand = async (
     contents.failedBatchItems = deserializeAws_restJson1FailedBatchItems(data.failedBatchItems, context);
   }
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectNumber(data.workbookCursor);
+    contents.workbookCursor = __expectInt(data.workbookCursor);
   }
   return Promise.resolve(contents);
 };
@@ -886,7 +886,7 @@ export const deserializeAws_restJson1BatchUpdateTableRowsCommand = async (
     contents.failedBatchItems = deserializeAws_restJson1FailedBatchItems(data.failedBatchItems, context);
   }
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectNumber(data.workbookCursor);
+    contents.workbookCursor = __expectInt(data.workbookCursor);
   }
   return Promise.resolve(contents);
 };
@@ -997,7 +997,7 @@ export const deserializeAws_restJson1BatchUpsertTableRowsCommand = async (
     contents.rows = deserializeAws_restJson1UpsertRowsResultMap(data.rows, context);
   }
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectNumber(data.workbookCursor);
+    contents.workbookCursor = __expectInt(data.workbookCursor);
   }
   return Promise.resolve(contents);
 };
@@ -1219,7 +1219,7 @@ export const deserializeAws_restJson1GetScreenDataCommand = async (
     contents.results = deserializeAws_restJson1ResultSetMap(data.results, context);
   }
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectNumber(data.workbookCursor);
+    contents.workbookCursor = __expectInt(data.workbookCursor);
   }
   return Promise.resolve(contents);
 };
@@ -1322,7 +1322,7 @@ export const deserializeAws_restJson1InvokeScreenAutomationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectNumber(data.workbookCursor);
+    contents.workbookCursor = __expectInt(data.workbookCursor);
   }
   return Promise.resolve(contents);
 };
@@ -1449,7 +1449,7 @@ export const deserializeAws_restJson1ListTableColumnsCommand = async (
     contents.tableColumns = deserializeAws_restJson1TableColumns(data.tableColumns, context);
   }
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectNumber(data.workbookCursor);
+    contents.workbookCursor = __expectInt(data.workbookCursor);
   }
   return Promise.resolve(contents);
 };
@@ -1568,7 +1568,7 @@ export const deserializeAws_restJson1ListTableRowsCommand = async (
     contents.rows = deserializeAws_restJson1TableRows(data.rows, context);
   }
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectNumber(data.workbookCursor);
+    contents.workbookCursor = __expectInt(data.workbookCursor);
   }
   return Promise.resolve(contents);
 };
@@ -1679,7 +1679,7 @@ export const deserializeAws_restJson1ListTablesCommand = async (
     contents.tables = deserializeAws_restJson1Tables(data.tables, context);
   }
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectNumber(data.workbookCursor);
+    contents.workbookCursor = __expectInt(data.workbookCursor);
   }
   return Promise.resolve(contents);
 };
@@ -1794,7 +1794,7 @@ export const deserializeAws_restJson1QueryTableRowsCommand = async (
     contents.rows = deserializeAws_restJson1TableRows(data.rows, context);
   }
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectNumber(data.workbookCursor);
+    contents.workbookCursor = __expectInt(data.workbookCursor);
   }
   return Promise.resolve(contents);
 };
@@ -2585,7 +2585,7 @@ const deserializeAws_restJson1SourceDataColumnProperties = (
   context: __SerdeContext
 ): SourceDataColumnProperties => {
   return {
-    columnIndex: __expectNumber(output.columnIndex),
+    columnIndex: __expectInt(output.columnIndex),
   } as any;
 };
 

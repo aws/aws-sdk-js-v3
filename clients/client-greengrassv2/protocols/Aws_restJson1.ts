@@ -103,11 +103,12 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -849,7 +850,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -3069,7 +3070,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     retryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
+    contents.retryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -3167,7 +3168,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     serviceCode: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
+    contents.retryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -4014,7 +4015,7 @@ const deserializeAws_restJson1DeploymentComponentUpdatePolicy = (
 ): DeploymentComponentUpdatePolicy => {
   return {
     action: __expectString(output.action),
-    timeoutInSeconds: __expectNumber(output.timeoutInSeconds),
+    timeoutInSeconds: __expectInt(output.timeoutInSeconds),
   } as any;
 };
 
@@ -4023,7 +4024,7 @@ const deserializeAws_restJson1DeploymentConfigurationValidationPolicy = (
   context: __SerdeContext
 ): DeploymentConfigurationValidationPolicy => {
   return {
-    timeoutInSeconds: __expectNumber(output.timeoutInSeconds),
+    timeoutInSeconds: __expectInt(output.timeoutInSeconds),
   } as any;
 };
 
@@ -4166,8 +4167,8 @@ const deserializeAws_restJson1IoTJobAbortCriteria = (output: any, context: __Ser
   return {
     action: __expectString(output.action),
     failureType: __expectString(output.failureType),
-    minNumberOfExecutedThings: __expectNumber(output.minNumberOfExecutedThings),
-    thresholdPercentage: __handleFloat(output.thresholdPercentage),
+    minNumberOfExecutedThings: __expectInt(output.minNumberOfExecutedThings),
+    thresholdPercentage: __limitedParseFloat(output.thresholdPercentage),
   } as any;
 };
 
@@ -4194,7 +4195,7 @@ const deserializeAws_restJson1IoTJobExecutionsRolloutConfig = (
       output.exponentialRate !== undefined && output.exponentialRate !== null
         ? deserializeAws_restJson1IoTJobExponentialRolloutRate(output.exponentialRate, context)
         : undefined,
-    maximumPerMinute: __expectNumber(output.maximumPerMinute),
+    maximumPerMinute: __expectInt(output.maximumPerMinute),
   } as any;
 };
 
@@ -4203,8 +4204,8 @@ const deserializeAws_restJson1IoTJobExponentialRolloutRate = (
   context: __SerdeContext
 ): IoTJobExponentialRolloutRate => {
   return {
-    baseRatePerMinute: __expectNumber(output.baseRatePerMinute),
-    incrementFactor: __handleFloat(output.incrementFactor),
+    baseRatePerMinute: __expectInt(output.baseRatePerMinute),
+    incrementFactor: __limitedParseFloat(output.incrementFactor),
     rateIncreaseCriteria:
       output.rateIncreaseCriteria !== undefined && output.rateIncreaseCriteria !== null
         ? deserializeAws_restJson1IoTJobRateIncreaseCriteria(output.rateIncreaseCriteria, context)
@@ -4217,14 +4218,14 @@ const deserializeAws_restJson1IoTJobRateIncreaseCriteria = (
   context: __SerdeContext
 ): IoTJobRateIncreaseCriteria => {
   return {
-    numberOfNotifiedThings: __expectNumber(output.numberOfNotifiedThings),
-    numberOfSucceededThings: __expectNumber(output.numberOfSucceededThings),
+    numberOfNotifiedThings: __expectInt(output.numberOfNotifiedThings),
+    numberOfSucceededThings: __expectInt(output.numberOfSucceededThings),
   } as any;
 };
 
 const deserializeAws_restJson1IoTJobTimeoutConfig = (output: any, context: __SerdeContext): IoTJobTimeoutConfig => {
   return {
-    inProgressTimeoutInMinutes: __expectNumber(output.inProgressTimeoutInMinutes),
+    inProgressTimeoutInMinutes: __expectInt(output.inProgressTimeoutInMinutes),
   } as any;
 };
 
@@ -4283,8 +4284,8 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1SystemResourceLimits = (output: any, context: __SerdeContext): SystemResourceLimits => {
   return {
-    cpus: __handleFloat(output.cpus),
-    memory: __expectNumber(output.memory),
+    cpus: __limitedParseFloat(output.cpus),
+    memory: __expectInt(output.memory),
   } as any;
 };
 

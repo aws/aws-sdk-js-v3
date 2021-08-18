@@ -35,10 +35,10 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -429,7 +429,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1711,7 +1711,7 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     InvitedTime:
       output.InvitedTime !== undefined && output.InvitedTime !== null ? new Date(output.InvitedTime) : undefined,
     MasterId: __expectString(output.MasterId),
-    PercentOfGraphUtilization: __handleFloat(output.PercentOfGraphUtilization),
+    PercentOfGraphUtilization: __limitedParseFloat(output.PercentOfGraphUtilization),
     PercentOfGraphUtilizationUpdatedTime:
       output.PercentOfGraphUtilizationUpdatedTime !== undefined && output.PercentOfGraphUtilizationUpdatedTime !== null
         ? new Date(output.PercentOfGraphUtilizationUpdatedTime)
@@ -1719,7 +1719,7 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     Status: __expectString(output.Status),
     UpdatedTime:
       output.UpdatedTime !== undefined && output.UpdatedTime !== null ? new Date(output.UpdatedTime) : undefined,
-    VolumeUsageInBytes: __expectNumber(output.VolumeUsageInBytes),
+    VolumeUsageInBytes: __expectInt(output.VolumeUsageInBytes),
     VolumeUsageUpdatedTime:
       output.VolumeUsageUpdatedTime !== undefined && output.VolumeUsageUpdatedTime !== null
         ? new Date(output.VolumeUsageUpdatedTime)

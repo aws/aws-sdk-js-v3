@@ -170,11 +170,12 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2255,7 +2256,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceARN.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -2919,7 +2920,7 @@ export const deserializeAws_restJson1CreateBotCommand = async (
     contents.description = __expectString(data.description);
   }
   if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = __expectNumber(data.idleSessionTTLInSeconds);
+    contents.idleSessionTTLInSeconds = __expectInt(data.idleSessionTTLInSeconds);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.roleArn = __expectString(data.roleArn);
@@ -3193,7 +3194,7 @@ export const deserializeAws_restJson1CreateBotLocaleCommand = async (
     contents.localeName = __expectString(data.localeName);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __handleFloat(data.nluIntentConfidenceThreshold);
+    contents.nluIntentConfidenceThreshold = __limitedParseFloat(data.nluIntentConfidenceThreshold);
   }
   if (data.voiceSettings !== undefined && data.voiceSettings !== null) {
     contents.voiceSettings = deserializeAws_restJson1VoiceSettings(data.voiceSettings, context);
@@ -5316,7 +5317,7 @@ export const deserializeAws_restJson1DescribeBotCommand = async (
     contents.description = __expectString(data.description);
   }
   if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = __expectNumber(data.idleSessionTTLInSeconds);
+    contents.idleSessionTTLInSeconds = __expectInt(data.idleSessionTTLInSeconds);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
     contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
@@ -5590,7 +5591,7 @@ export const deserializeAws_restJson1DescribeBotLocaleCommand = async (
     contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
   }
   if (data.intentsCount !== undefined && data.intentsCount !== null) {
-    contents.intentsCount = __expectNumber(data.intentsCount);
+    contents.intentsCount = __expectInt(data.intentsCount);
   }
   if (data.lastBuildSubmittedDateTime !== undefined && data.lastBuildSubmittedDateTime !== null) {
     contents.lastBuildSubmittedDateTime = new Date(Math.round(data.lastBuildSubmittedDateTime * 1000));
@@ -5605,10 +5606,10 @@ export const deserializeAws_restJson1DescribeBotLocaleCommand = async (
     contents.localeName = __expectString(data.localeName);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __handleFloat(data.nluIntentConfidenceThreshold);
+    contents.nluIntentConfidenceThreshold = __limitedParseFloat(data.nluIntentConfidenceThreshold);
   }
   if (data.slotTypesCount !== undefined && data.slotTypesCount !== null) {
-    contents.slotTypesCount = __expectNumber(data.slotTypesCount);
+    contents.slotTypesCount = __expectInt(data.slotTypesCount);
   }
   if (data.voiceSettings !== undefined && data.voiceSettings !== null) {
     contents.voiceSettings = deserializeAws_restJson1VoiceSettings(data.voiceSettings, context);
@@ -5731,7 +5732,7 @@ export const deserializeAws_restJson1DescribeBotVersionCommand = async (
     contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
   }
   if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = __expectNumber(data.idleSessionTTLInSeconds);
+    contents.idleSessionTTLInSeconds = __expectInt(data.idleSessionTTLInSeconds);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.roleArn = __expectString(data.roleArn);
@@ -7905,7 +7906,7 @@ export const deserializeAws_restJson1UpdateBotCommand = async (
     contents.description = __expectString(data.description);
   }
   if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = __expectNumber(data.idleSessionTTLInSeconds);
+    contents.idleSessionTTLInSeconds = __expectInt(data.idleSessionTTLInSeconds);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
     contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
@@ -8187,7 +8188,7 @@ export const deserializeAws_restJson1UpdateBotLocaleCommand = async (
     contents.localeName = __expectString(data.localeName);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __handleFloat(data.nluIntentConfidenceThreshold);
+    contents.nluIntentConfidenceThreshold = __limitedParseFloat(data.nluIntentConfidenceThreshold);
   }
   if (data.voiceSettings !== undefined && data.voiceSettings !== null) {
     contents.voiceSettings = deserializeAws_restJson1VoiceSettings(data.voiceSettings, context);
@@ -9039,7 +9040,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     retryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
+    contents.retryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -10187,7 +10188,7 @@ const deserializeAws_restJson1BotImportSpecification = (
       output.dataPrivacy !== undefined && output.dataPrivacy !== null
         ? deserializeAws_restJson1DataPrivacy(output.dataPrivacy, context)
         : undefined,
-    idleSessionTTLInSeconds: __expectNumber(output.idleSessionTTLInSeconds),
+    idleSessionTTLInSeconds: __expectInt(output.idleSessionTTLInSeconds),
     roleArn: __expectString(output.roleArn),
     testBotAliasTags:
       output.testBotAliasTags !== undefined && output.testBotAliasTags !== null
@@ -10239,7 +10240,7 @@ const deserializeAws_restJson1BotLocaleImportSpecification = (
     botId: __expectString(output.botId),
     botVersion: __expectString(output.botVersion),
     localeId: __expectString(output.localeId),
-    nluIntentConfidenceThreshold: __handleFloat(output.nluIntentConfidenceThreshold),
+    nluIntentConfidenceThreshold: __limitedParseFloat(output.nluIntentConfidenceThreshold),
     voiceSettings:
       output.voiceSettings !== undefined && output.voiceSettings !== null
         ? deserializeAws_restJson1VoiceSettings(output.voiceSettings, context)
@@ -10756,8 +10757,8 @@ const deserializeAws_restJson1ObfuscationSetting = (output: any, context: __Serd
 const deserializeAws_restJson1OutputContext = (output: any, context: __SerdeContext): OutputContext => {
   return {
     name: __expectString(output.name),
-    timeToLiveInSeconds: __expectNumber(output.timeToLiveInSeconds),
-    turnsToLive: __expectNumber(output.turnsToLive),
+    timeToLiveInSeconds: __expectInt(output.timeToLiveInSeconds),
+    turnsToLive: __expectInt(output.turnsToLive),
   } as any;
 };
 
@@ -10781,7 +10782,7 @@ const deserializeAws_restJson1PlainTextMessage = (output: any, context: __SerdeC
 const deserializeAws_restJson1PromptSpecification = (output: any, context: __SerdeContext): PromptSpecification => {
   return {
     allowInterrupt: __expectBoolean(output.allowInterrupt),
-    maxRetries: __expectNumber(output.maxRetries),
+    maxRetries: __expectInt(output.maxRetries),
     messageGroups:
       output.messageGroups !== undefined && output.messageGroups !== null
         ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
@@ -10884,7 +10885,7 @@ const deserializeAws_restJson1SlotPrioritiesList = (output: any, context: __Serd
 
 const deserializeAws_restJson1SlotPriority = (output: any, context: __SerdeContext): SlotPriority => {
   return {
-    priority: __expectNumber(output.priority),
+    priority: __expectInt(output.priority),
     slotId: __expectString(output.slotId),
   } as any;
 };
@@ -11022,12 +11023,12 @@ const deserializeAws_restJson1StillWaitingResponseSpecification = (
 ): StillWaitingResponseSpecification => {
   return {
     allowInterrupt: __expectBoolean(output.allowInterrupt),
-    frequencyInSeconds: __expectNumber(output.frequencyInSeconds),
+    frequencyInSeconds: __expectInt(output.frequencyInSeconds),
     messageGroups:
       output.messageGroups !== undefined && output.messageGroups !== null
         ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
         : undefined,
-    timeoutInSeconds: __expectNumber(output.timeoutInSeconds),
+    timeoutInSeconds: __expectInt(output.timeoutInSeconds),
   } as any;
 };
 

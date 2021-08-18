@@ -20,7 +20,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -447,7 +447,7 @@ export const deserializeAws_restJson1ListNamedShadowsForThingCommand = async (
     contents.results = deserializeAws_restJson1NamedShadowList(data.results, context);
   }
   if (data.timestamp !== undefined && data.timestamp !== null) {
-    contents.timestamp = __expectNumber(data.timestamp);
+    contents.timestamp = __expectInt(data.timestamp);
   }
   return Promise.resolve(contents);
 };

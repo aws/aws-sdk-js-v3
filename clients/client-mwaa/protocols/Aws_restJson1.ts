@@ -40,7 +40,7 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   serializeFloat as __serializeFloat,
@@ -439,7 +439,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1559,8 +1559,8 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
       output.LoggingConfiguration !== undefined && output.LoggingConfiguration !== null
         ? deserializeAws_restJson1LoggingConfiguration(output.LoggingConfiguration, context)
         : undefined,
-    MaxWorkers: __expectNumber(output.MaxWorkers),
-    MinWorkers: __expectNumber(output.MinWorkers),
+    MaxWorkers: __expectInt(output.MaxWorkers),
+    MinWorkers: __expectInt(output.MinWorkers),
     Name: __expectString(output.Name),
     NetworkConfiguration:
       output.NetworkConfiguration !== undefined && output.NetworkConfiguration !== null
@@ -1570,7 +1570,7 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
     PluginsS3Path: __expectString(output.PluginsS3Path),
     RequirementsS3ObjectVersion: __expectString(output.RequirementsS3ObjectVersion),
     RequirementsS3Path: __expectString(output.RequirementsS3Path),
-    Schedulers: __expectNumber(output.Schedulers),
+    Schedulers: __expectInt(output.Schedulers),
     ServiceRoleArn: __expectString(output.ServiceRoleArn),
     SourceBucketArn: __expectString(output.SourceBucketArn),
     Status: __expectString(output.Status),

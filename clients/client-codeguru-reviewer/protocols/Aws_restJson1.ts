@@ -77,7 +77,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -279,10 +279,12 @@ export const serializeAws_restJson1ListCodeReviewsCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/codereviews";
   const query: any = {
-    ...(input.ProviderTypes !== undefined && { ProviderTypes: (input.ProviderTypes || []).map((_entry) => _entry) }),
-    ...(input.States !== undefined && { States: (input.States || []).map((_entry) => _entry) }),
+    ...(input.ProviderTypes !== undefined && {
+      ProviderTypes: (input.ProviderTypes || []).map((_entry) => _entry as any),
+    }),
+    ...(input.States !== undefined && { States: (input.States || []).map((_entry) => _entry as any) }),
     ...(input.RepositoryNames !== undefined && {
-      RepositoryNames: (input.RepositoryNames || []).map((_entry) => _entry),
+      RepositoryNames: (input.RepositoryNames || []).map((_entry) => _entry as any),
     }),
     ...(input.Type !== undefined && { Type: input.Type }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
@@ -322,9 +324,9 @@ export const serializeAws_restJson1ListRecommendationFeedbackCommand = async (
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
-    ...(input.UserIds !== undefined && { UserIds: (input.UserIds || []).map((_entry) => _entry) }),
+    ...(input.UserIds !== undefined && { UserIds: (input.UserIds || []).map((_entry) => _entry as any) }),
     ...(input.RecommendationIds !== undefined && {
-      RecommendationIds: (input.RecommendationIds || []).map((_entry) => _entry),
+      RecommendationIds: (input.RecommendationIds || []).map((_entry) => _entry as any),
     }),
   };
   let body: any;
@@ -383,10 +385,12 @@ export const serializeAws_restJson1ListRepositoryAssociationsCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations";
   const query: any = {
-    ...(input.ProviderTypes !== undefined && { ProviderType: (input.ProviderTypes || []).map((_entry) => _entry) }),
-    ...(input.States !== undefined && { State: (input.States || []).map((_entry) => _entry) }),
-    ...(input.Names !== undefined && { Name: (input.Names || []).map((_entry) => _entry) }),
-    ...(input.Owners !== undefined && { Owner: (input.Owners || []).map((_entry) => _entry) }),
+    ...(input.ProviderTypes !== undefined && {
+      ProviderType: (input.ProviderTypes || []).map((_entry) => _entry as any),
+    }),
+    ...(input.States !== undefined && { State: (input.States || []).map((_entry) => _entry as any) }),
+    ...(input.Names !== undefined && { Name: (input.Names || []).map((_entry) => _entry as any) }),
+    ...(input.Owners !== undefined && { Owner: (input.Owners || []).map((_entry) => _entry as any) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -509,7 +513,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -2179,15 +2183,15 @@ const deserializeAws_restJson1KMSKeyDetails = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Metrics = (output: any, context: __SerdeContext): Metrics => {
   return {
-    FindingsCount: __expectNumber(output.FindingsCount),
-    MeteredLinesOfCodeCount: __expectNumber(output.MeteredLinesOfCodeCount),
+    FindingsCount: __expectInt(output.FindingsCount),
+    MeteredLinesOfCodeCount: __expectInt(output.MeteredLinesOfCodeCount),
   } as any;
 };
 
 const deserializeAws_restJson1MetricsSummary = (output: any, context: __SerdeContext): MetricsSummary => {
   return {
-    FindingsCount: __expectNumber(output.FindingsCount),
-    MeteredLinesOfCodeCount: __expectNumber(output.MeteredLinesOfCodeCount),
+    FindingsCount: __expectInt(output.FindingsCount),
+    MeteredLinesOfCodeCount: __expectInt(output.MeteredLinesOfCodeCount),
   } as any;
 };
 
@@ -2270,11 +2274,11 @@ const deserializeAws_restJson1RecommendationSummaries = (
 const deserializeAws_restJson1RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
   return {
     Description: __expectString(output.Description),
-    EndLine: __expectNumber(output.EndLine),
+    EndLine: __expectInt(output.EndLine),
     FilePath: __expectString(output.FilePath),
     RecommendationCategory: __expectString(output.RecommendationCategory),
     RecommendationId: __expectString(output.RecommendationId),
-    StartLine: __expectNumber(output.StartLine),
+    StartLine: __expectInt(output.StartLine),
   } as any;
 };
 

@@ -126,7 +126,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3081,7 +3081,7 @@ const deserializeAws_json1_0DescribeInferenceSchedulerResponse = (
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    DataDelayOffsetInMinutes: __expectNumber(output.DataDelayOffsetInMinutes),
+    DataDelayOffsetInMinutes: __expectInt(output.DataDelayOffsetInMinutes),
     DataInputConfiguration:
       output.DataInputConfiguration !== undefined && output.DataInputConfiguration !== null
         ? deserializeAws_json1_0InferenceInputConfiguration(output.DataInputConfiguration, context)
@@ -3294,7 +3294,7 @@ const deserializeAws_json1_0InferenceSchedulerSummary = (
   context: __SerdeContext
 ): InferenceSchedulerSummary => {
   return {
-    DataDelayOffsetInMinutes: __expectNumber(output.DataDelayOffsetInMinutes),
+    DataDelayOffsetInMinutes: __expectInt(output.DataDelayOffsetInMinutes),
     DataUploadFrequency: __expectString(output.DataUploadFrequency),
     InferenceSchedulerArn: __expectString(output.InferenceSchedulerArn),
     InferenceSchedulerName: __expectString(output.InferenceSchedulerName),

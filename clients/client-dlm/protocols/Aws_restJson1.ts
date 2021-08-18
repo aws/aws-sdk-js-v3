@@ -49,7 +49,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -129,11 +129,13 @@ export const serializeAws_restJson1GetLifecyclePoliciesCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policies";
   const query: any = {
-    ...(input.PolicyIds !== undefined && { policyIds: (input.PolicyIds || []).map((_entry) => _entry) }),
+    ...(input.PolicyIds !== undefined && { policyIds: (input.PolicyIds || []).map((_entry) => _entry as any) }),
     ...(input.State !== undefined && { state: input.State }),
-    ...(input.ResourceTypes !== undefined && { resourceTypes: (input.ResourceTypes || []).map((_entry) => _entry) }),
-    ...(input.TargetTags !== undefined && { targetTags: (input.TargetTags || []).map((_entry) => _entry) }),
-    ...(input.TagsToAdd !== undefined && { tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry) }),
+    ...(input.ResourceTypes !== undefined && {
+      resourceTypes: (input.ResourceTypes || []).map((_entry) => _entry as any),
+    }),
+    ...(input.TargetTags !== undefined && { targetTags: (input.TargetTags || []).map((_entry) => _entry as any) }),
+    ...(input.TagsToAdd !== undefined && { tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -254,7 +256,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1383,7 +1385,7 @@ const deserializeAws_restJson1AvailabilityZoneList = (output: any, context: __Se
 const deserializeAws_restJson1CreateRule = (output: any, context: __SerdeContext): CreateRule => {
   return {
     CronExpression: __expectString(output.CronExpression),
-    Interval: __expectNumber(output.Interval),
+    Interval: __expectInt(output.Interval),
     IntervalUnit: __expectString(output.IntervalUnit),
     Location: __expectString(output.Location),
     Times:
@@ -1426,7 +1428,7 @@ const deserializeAws_restJson1CrossRegionCopyRetainRule = (
   context: __SerdeContext
 ): CrossRegionCopyRetainRule => {
   return {
-    Interval: __expectNumber(output.Interval),
+    Interval: __expectInt(output.Interval),
     IntervalUnit: __expectString(output.IntervalUnit),
   } as any;
 };
@@ -1493,8 +1495,8 @@ const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeCo
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_restJson1AvailabilityZoneList(output.AvailabilityZones, context)
         : undefined,
-    Count: __expectNumber(output.Count),
-    Interval: __expectNumber(output.Interval),
+    Count: __expectInt(output.Count),
+    Interval: __expectInt(output.Interval),
     IntervalUnit: __expectString(output.IntervalUnit),
   } as any;
 };
@@ -1649,8 +1651,8 @@ const deserializeAws_restJson1ResourceTypeValuesList = (
 
 const deserializeAws_restJson1RetainRule = (output: any, context: __SerdeContext): RetainRule => {
   return {
-    Count: __expectNumber(output.Count),
-    Interval: __expectNumber(output.Interval),
+    Count: __expectInt(output.Count),
+    Interval: __expectInt(output.Interval),
     IntervalUnit: __expectString(output.IntervalUnit),
   } as any;
 };
@@ -1707,7 +1709,7 @@ const deserializeAws_restJson1ShareRule = (output: any, context: __SerdeContext)
       output.TargetAccounts !== undefined && output.TargetAccounts !== null
         ? deserializeAws_restJson1ShareTargetAccountList(output.TargetAccounts, context)
         : undefined,
-    UnshareInterval: __expectNumber(output.UnshareInterval),
+    UnshareInterval: __expectInt(output.UnshareInterval),
     UnshareIntervalUnit: __expectString(output.UnshareIntervalUnit),
   } as any;
 };

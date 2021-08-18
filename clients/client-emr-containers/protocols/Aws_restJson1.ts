@@ -387,7 +387,7 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
       createdAfter: (input.createdAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.name !== undefined && { name: input.name }),
-    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry) }),
+    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry as any) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -429,8 +429,8 @@ export const serializeAws_restJson1ListManagedEndpointsCommand = async (
     ...(input.createdAfter !== undefined && {
       createdAfter: (input.createdAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.types !== undefined && { types: (input.types || []).map((_entry) => _entry) }),
-    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry) }),
+    ...(input.types !== undefined && { types: (input.types || []).map((_entry) => _entry as any) }),
+    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry as any) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -491,7 +491,7 @@ export const serializeAws_restJson1ListVirtualClustersCommand = async (
     ...(input.createdBefore !== undefined && {
       createdBefore: (input.createdBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry) }),
+    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry as any) }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -604,7 +604,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({

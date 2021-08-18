@@ -198,13 +198,13 @@ export const serializeAws_restJson1ListOutpostsCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.LifeCycleStatusFilter !== undefined && {
-      LifeCycleStatusFilter: (input.LifeCycleStatusFilter || []).map((_entry) => _entry),
+      LifeCycleStatusFilter: (input.LifeCycleStatusFilter || []).map((_entry) => _entry as any),
     }),
     ...(input.AvailabilityZoneFilter !== undefined && {
-      AvailabilityZoneFilter: (input.AvailabilityZoneFilter || []).map((_entry) => _entry),
+      AvailabilityZoneFilter: (input.AvailabilityZoneFilter || []).map((_entry) => _entry as any),
     }),
     ...(input.AvailabilityZoneIdFilter !== undefined && {
-      AvailabilityZoneIdFilter: (input.AvailabilityZoneIdFilter || []).map((_entry) => _entry),
+      AvailabilityZoneIdFilter: (input.AvailabilityZoneIdFilter || []).map((_entry) => _entry as any),
     }),
   };
   let body: any;
@@ -322,7 +322,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({

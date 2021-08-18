@@ -63,7 +63,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -2910,11 +2910,11 @@ const deserializeAws_restJson1Composition = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DetectedProperties = (output: any, context: __SerdeContext): DetectedProperties => {
   return {
-    DurationMillis: __expectNumber(output.DurationMillis),
-    FileSize: __expectNumber(output.FileSize),
+    DurationMillis: __expectInt(output.DurationMillis),
+    FileSize: __expectInt(output.FileSize),
     FrameRate: __expectString(output.FrameRate),
-    Height: __expectNumber(output.Height),
-    Width: __expectNumber(output.Width),
+    Height: __expectInt(output.Height),
+    Width: __expectInt(output.Width),
   } as any;
 };
 
@@ -3060,15 +3060,15 @@ const deserializeAws_restJson1JobOutput = (output: any, context: __SerdeContext)
       output.Composition !== undefined && output.Composition !== null
         ? deserializeAws_restJson1Composition(output.Composition, context)
         : undefined,
-    Duration: __expectNumber(output.Duration),
-    DurationMillis: __expectNumber(output.DurationMillis),
+    Duration: __expectInt(output.Duration),
+    DurationMillis: __expectInt(output.DurationMillis),
     Encryption:
       output.Encryption !== undefined && output.Encryption !== null
         ? deserializeAws_restJson1Encryption(output.Encryption, context)
         : undefined,
-    FileSize: __expectNumber(output.FileSize),
+    FileSize: __expectInt(output.FileSize),
     FrameRate: __expectString(output.FrameRate),
-    Height: __expectNumber(output.Height),
+    Height: __expectInt(output.Height),
     Id: __expectString(output.Id),
     Key: __expectString(output.Key),
     PresetId: __expectString(output.PresetId),
@@ -3085,7 +3085,7 @@ const deserializeAws_restJson1JobOutput = (output: any, context: __SerdeContext)
       output.Watermarks !== undefined && output.Watermarks !== null
         ? deserializeAws_restJson1JobWatermarks(output.Watermarks, context)
         : undefined,
-    Width: __expectNumber(output.Width),
+    Width: __expectInt(output.Width),
   } as any;
 };
 
@@ -3347,9 +3347,9 @@ const deserializeAws_restJson1TimeSpan = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Timing = (output: any, context: __SerdeContext): Timing => {
   return {
-    FinishTimeMillis: __expectNumber(output.FinishTimeMillis),
-    StartTimeMillis: __expectNumber(output.StartTimeMillis),
-    SubmitTimeMillis: __expectNumber(output.SubmitTimeMillis),
+    FinishTimeMillis: __expectInt(output.FinishTimeMillis),
+    StartTimeMillis: __expectInt(output.StartTimeMillis),
+    SubmitTimeMillis: __expectInt(output.SubmitTimeMillis),
   } as any;
 };
 

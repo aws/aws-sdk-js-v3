@@ -233,10 +233,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1720,7 +1720,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -3253,7 +3253,7 @@ export const deserializeAws_restJson1CreateSimulationJobCommand = async (
     contents.loggingConfig = deserializeAws_restJson1LoggingConfig(data.loggingConfig, context);
   }
   if (data.maxJobDurationInSeconds !== undefined && data.maxJobDurationInSeconds !== null) {
-    contents.maxJobDurationInSeconds = __expectNumber(data.maxJobDurationInSeconds);
+    contents.maxJobDurationInSeconds = __expectInt(data.maxJobDurationInSeconds);
   }
   if (data.outputLocation !== undefined && data.outputLocation !== null) {
     contents.outputLocation = deserializeAws_restJson1OutputLocation(data.outputLocation, context);
@@ -3268,7 +3268,7 @@ export const deserializeAws_restJson1CreateSimulationJobCommand = async (
     );
   }
   if (data.simulationTimeMillis !== undefined && data.simulationTimeMillis !== null) {
-    contents.simulationTimeMillis = __expectNumber(data.simulationTimeMillis);
+    contents.simulationTimeMillis = __expectInt(data.simulationTimeMillis);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -4796,7 +4796,7 @@ export const deserializeAws_restJson1DescribeSimulationJobCommand = async (
     contents.loggingConfig = deserializeAws_restJson1LoggingConfig(data.loggingConfig, context);
   }
   if (data.maxJobDurationInSeconds !== undefined && data.maxJobDurationInSeconds !== null) {
-    contents.maxJobDurationInSeconds = __expectNumber(data.maxJobDurationInSeconds);
+    contents.maxJobDurationInSeconds = __expectInt(data.maxJobDurationInSeconds);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -4817,7 +4817,7 @@ export const deserializeAws_restJson1DescribeSimulationJobCommand = async (
     );
   }
   if (data.simulationTimeMillis !== undefined && data.simulationTimeMillis !== null) {
-    contents.simulationTimeMillis = __expectNumber(data.simulationTimeMillis);
+    contents.simulationTimeMillis = __expectInt(data.simulationTimeMillis);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -8064,20 +8064,20 @@ const deserializeAws_restJson1Arns = (output: any, context: __SerdeContext): str
 
 const deserializeAws_restJson1BatchPolicy = (output: any, context: __SerdeContext): BatchPolicy => {
   return {
-    maxConcurrency: __expectNumber(output.maxConcurrency),
-    timeoutInSeconds: __expectNumber(output.timeoutInSeconds),
+    maxConcurrency: __expectInt(output.maxConcurrency),
+    timeoutInSeconds: __expectInt(output.timeoutInSeconds),
   } as any;
 };
 
 const deserializeAws_restJson1Compute = (output: any, context: __SerdeContext): Compute => {
   return {
-    simulationUnitLimit: __expectNumber(output.simulationUnitLimit),
+    simulationUnitLimit: __expectInt(output.simulationUnitLimit),
   } as any;
 };
 
 const deserializeAws_restJson1ComputeResponse = (output: any, context: __SerdeContext): ComputeResponse => {
   return {
-    simulationUnitLimit: __expectNumber(output.simulationUnitLimit),
+    simulationUnitLimit: __expectInt(output.simulationUnitLimit),
   } as any;
 };
 
@@ -8180,13 +8180,13 @@ const deserializeAws_restJson1DeploymentApplicationConfigs = (
 
 const deserializeAws_restJson1DeploymentConfig = (output: any, context: __SerdeContext): DeploymentConfig => {
   return {
-    concurrentDeploymentPercentage: __expectNumber(output.concurrentDeploymentPercentage),
+    concurrentDeploymentPercentage: __expectInt(output.concurrentDeploymentPercentage),
     downloadConditionFile:
       output.downloadConditionFile !== undefined && output.downloadConditionFile !== null
         ? deserializeAws_restJson1S3Object(output.downloadConditionFile, context)
         : undefined,
-    failureThresholdPercentage: __expectNumber(output.failureThresholdPercentage),
-    robotDeploymentTimeoutInSeconds: __expectNumber(output.robotDeploymentTimeoutInSeconds),
+    failureThresholdPercentage: __expectInt(output.failureThresholdPercentage),
+    robotDeploymentTimeoutInSeconds: __expectInt(output.robotDeploymentTimeoutInSeconds),
   } as any;
 };
 
@@ -8292,7 +8292,7 @@ const deserializeAws_restJson1FailureSummary = (output: any, context: __SerdeCon
       output.failures !== undefined && output.failures !== null
         ? deserializeAws_restJson1WorldFailures(output.failures, context)
         : undefined,
-    totalFailureCount: __expectNumber(output.totalFailureCount),
+    totalFailureCount: __expectInt(output.totalFailureCount),
   } as any;
 };
 
@@ -8302,7 +8302,7 @@ const deserializeAws_restJson1FinishedWorldsSummary = (output: any, context: __S
       output.failureSummary !== undefined && output.failureSummary !== null
         ? deserializeAws_restJson1FailureSummary(output.failureSummary, context)
         : undefined,
-    finishedCount: __expectNumber(output.finishedCount),
+    finishedCount: __expectInt(output.finishedCount),
     succeededWorlds:
       output.succeededWorlds !== undefined && output.succeededWorlds !== null
         ? deserializeAws_restJson1Arns(output.succeededWorlds, context)
@@ -8386,9 +8386,9 @@ const deserializeAws_restJson1PortForwardingConfig = (output: any, context: __Se
 
 const deserializeAws_restJson1PortMapping = (output: any, context: __SerdeContext): PortMapping => {
   return {
-    applicationPort: __expectNumber(output.applicationPort),
+    applicationPort: __expectInt(output.applicationPort),
     enableOnPublicIp: __expectBoolean(output.enableOnPublicIp),
-    jobPort: __expectNumber(output.jobPort),
+    jobPort: __expectInt(output.jobPort),
   } as any;
 };
 
@@ -8406,8 +8406,8 @@ const deserializeAws_restJson1PortMappingList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1ProgressDetail = (output: any, context: __SerdeContext): ProgressDetail => {
   return {
     currentProgress: __expectString(output.currentProgress),
-    estimatedTimeRemainingSeconds: __expectNumber(output.estimatedTimeRemainingSeconds),
-    percentDone: __handleFloat(output.percentDone),
+    estimatedTimeRemainingSeconds: __expectInt(output.estimatedTimeRemainingSeconds),
+    percentDone: __limitedParseFloat(output.percentDone),
     targetResource: __expectString(output.targetResource),
   } as any;
 };
@@ -8737,7 +8737,7 @@ const deserializeAws_restJson1SimulationJob = (output: any, context: __SerdeCont
       output.loggingConfig !== undefined && output.loggingConfig !== null
         ? deserializeAws_restJson1LoggingConfig(output.loggingConfig, context)
         : undefined,
-    maxJobDurationInSeconds: __expectNumber(output.maxJobDurationInSeconds),
+    maxJobDurationInSeconds: __expectInt(output.maxJobDurationInSeconds),
     name: __expectString(output.name),
     networkInterface:
       output.networkInterface !== undefined && output.networkInterface !== null
@@ -8755,7 +8755,7 @@ const deserializeAws_restJson1SimulationJob = (output: any, context: __SerdeCont
       output.simulationApplications !== undefined && output.simulationApplications !== null
         ? deserializeAws_restJson1SimulationApplicationConfigs(output.simulationApplications, context)
         : undefined,
-    simulationTimeMillis: __expectNumber(output.simulationTimeMillis),
+    simulationTimeMillis: __expectInt(output.simulationTimeMillis),
     status: __expectString(output.status),
     tags:
       output.tags !== undefined && output.tags !== null
@@ -8792,13 +8792,13 @@ const deserializeAws_restJson1SimulationJobBatchSummary = (
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    createdRequestCount: __expectNumber(output.createdRequestCount),
-    failedRequestCount: __expectNumber(output.failedRequestCount),
+    createdRequestCount: __expectInt(output.createdRequestCount),
+    failedRequestCount: __expectInt(output.failedRequestCount),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    pendingRequestCount: __expectNumber(output.pendingRequestCount),
+    pendingRequestCount: __expectInt(output.pendingRequestCount),
     status: __expectString(output.status),
   } as any;
 };
@@ -8819,7 +8819,7 @@ const deserializeAws_restJson1SimulationJobRequest = (output: any, context: __Se
       output.loggingConfig !== undefined && output.loggingConfig !== null
         ? deserializeAws_restJson1LoggingConfig(output.loggingConfig, context)
         : undefined,
-    maxJobDurationInSeconds: __expectNumber(output.maxJobDurationInSeconds),
+    maxJobDurationInSeconds: __expectInt(output.maxJobDurationInSeconds),
     outputLocation:
       output.outputLocation !== undefined && output.outputLocation !== null
         ? deserializeAws_restJson1OutputLocation(output.outputLocation, context)
@@ -9061,8 +9061,8 @@ const deserializeAws_restJson1WorldConfigs = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1WorldCount = (output: any, context: __SerdeContext): WorldCount => {
   return {
-    floorplanCount: __expectNumber(output.floorplanCount),
-    interiorCountPerFloorplan: __expectNumber(output.interiorCountPerFloorplan),
+    floorplanCount: __expectInt(output.floorplanCount),
+    interiorCountPerFloorplan: __expectInt(output.interiorCountPerFloorplan),
   } as any;
 };
 
@@ -9098,7 +9098,7 @@ const deserializeAws_restJson1WorldExportJobSummary = (output: any, context: __S
 const deserializeAws_restJson1WorldFailure = (output: any, context: __SerdeContext): WorldFailure => {
   return {
     failureCode: __expectString(output.failureCode),
-    failureCount: __expectNumber(output.failureCount),
+    failureCount: __expectInt(output.failureCount),
     sampleFailureReason: __expectString(output.sampleFailureReason),
   } as any;
 };
@@ -9138,9 +9138,9 @@ const deserializeAws_restJson1WorldGenerationJobSummary = (
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    failedWorldCount: __expectNumber(output.failedWorldCount),
+    failedWorldCount: __expectInt(output.failedWorldCount),
     status: __expectString(output.status),
-    succeededWorldCount: __expectNumber(output.succeededWorldCount),
+    succeededWorldCount: __expectInt(output.succeededWorldCount),
     template: __expectString(output.template),
     worldCount:
       output.worldCount !== undefined && output.worldCount !== null

@@ -185,7 +185,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1597,7 +1597,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -6294,13 +6294,13 @@ const deserializeAws_restJson1Assessment = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1AssessmentControl = (output: any, context: __SerdeContext): AssessmentControl => {
   return {
-    assessmentReportEvidenceCount: __expectNumber(output.assessmentReportEvidenceCount),
+    assessmentReportEvidenceCount: __expectInt(output.assessmentReportEvidenceCount),
     comments:
       output.comments !== undefined && output.comments !== null
         ? deserializeAws_restJson1ControlComments(output.comments, context)
         : undefined,
     description: __expectString(output.description),
-    evidenceCount: __expectNumber(output.evidenceCount),
+    evidenceCount: __expectInt(output.evidenceCount),
     evidenceSources:
       output.evidenceSources !== undefined && output.evidenceSources !== null
         ? deserializeAws_restJson1EvidenceSources(output.evidenceSources, context)
@@ -6335,13 +6335,13 @@ const deserializeAws_restJson1AssessmentControlSet = (output: any, context: __Se
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
-    manualEvidenceCount: __expectNumber(output.manualEvidenceCount),
+    manualEvidenceCount: __expectInt(output.manualEvidenceCount),
     roles:
       output.roles !== undefined && output.roles !== null
         ? deserializeAws_restJson1Roles(output.roles, context)
         : undefined,
     status: __expectString(output.status),
-    systemEvidenceCount: __expectNumber(output.systemEvidenceCount),
+    systemEvidenceCount: __expectInt(output.systemEvidenceCount),
   } as any;
 };
 
@@ -6365,23 +6365,23 @@ const deserializeAws_restJson1AssessmentEvidenceFolder = (
 ): AssessmentEvidenceFolder => {
   return {
     assessmentId: __expectString(output.assessmentId),
-    assessmentReportSelectionCount: __expectNumber(output.assessmentReportSelectionCount),
+    assessmentReportSelectionCount: __expectInt(output.assessmentReportSelectionCount),
     author: __expectString(output.author),
     controlId: __expectString(output.controlId),
     controlName: __expectString(output.controlName),
     controlSetId: __expectString(output.controlSetId),
     dataSource: __expectString(output.dataSource),
     date: output.date !== undefined && output.date !== null ? new Date(Math.round(output.date * 1000)) : undefined,
-    evidenceAwsServiceSourceCount: __expectNumber(output.evidenceAwsServiceSourceCount),
-    evidenceByTypeComplianceCheckCount: __expectNumber(output.evidenceByTypeComplianceCheckCount),
-    evidenceByTypeComplianceCheckIssuesCount: __expectNumber(output.evidenceByTypeComplianceCheckIssuesCount),
-    evidenceByTypeConfigurationDataCount: __expectNumber(output.evidenceByTypeConfigurationDataCount),
-    evidenceByTypeManualCount: __expectNumber(output.evidenceByTypeManualCount),
-    evidenceByTypeUserActivityCount: __expectNumber(output.evidenceByTypeUserActivityCount),
-    evidenceResourcesIncludedCount: __expectNumber(output.evidenceResourcesIncludedCount),
+    evidenceAwsServiceSourceCount: __expectInt(output.evidenceAwsServiceSourceCount),
+    evidenceByTypeComplianceCheckCount: __expectInt(output.evidenceByTypeComplianceCheckCount),
+    evidenceByTypeComplianceCheckIssuesCount: __expectInt(output.evidenceByTypeComplianceCheckIssuesCount),
+    evidenceByTypeConfigurationDataCount: __expectInt(output.evidenceByTypeConfigurationDataCount),
+    evidenceByTypeManualCount: __expectInt(output.evidenceByTypeManualCount),
+    evidenceByTypeUserActivityCount: __expectInt(output.evidenceByTypeUserActivityCount),
+    evidenceResourcesIncludedCount: __expectInt(output.evidenceResourcesIncludedCount),
     id: __expectString(output.id),
     name: __expectString(output.name),
-    totalEvidence: __expectNumber(output.totalEvidence),
+    totalEvidence: __expectInt(output.totalEvidence),
   } as any;
 };
 
@@ -6421,8 +6421,8 @@ const deserializeAws_restJson1AssessmentFrameworkMetadata = (
   return {
     arn: __expectString(output.arn),
     complianceType: __expectString(output.complianceType),
-    controlSetsCount: __expectNumber(output.controlSetsCount),
-    controlsCount: __expectNumber(output.controlsCount),
+    controlSetsCount: __expectInt(output.controlSetsCount),
+    controlsCount: __expectInt(output.controlsCount),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))

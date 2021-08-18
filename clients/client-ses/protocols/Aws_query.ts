@@ -435,6 +435,8 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8894,13 +8896,13 @@ const deserializeAws_queryGetSendQuotaResponse = (output: any, context: __SerdeC
     SentLast24Hours: undefined,
   };
   if (output["Max24HourSend"] !== undefined) {
-    contents.Max24HourSend = parseFloat(output["Max24HourSend"]);
+    contents.Max24HourSend = __strictParseFloat(output["Max24HourSend"]) as number;
   }
   if (output["MaxSendRate"] !== undefined) {
-    contents.MaxSendRate = parseFloat(output["MaxSendRate"]);
+    contents.MaxSendRate = __strictParseFloat(output["MaxSendRate"]) as number;
   }
   if (output["SentLast24Hours"] !== undefined) {
-    contents.SentLast24Hours = parseFloat(output["SentLast24Hours"]);
+    contents.SentLast24Hours = __strictParseFloat(output["SentLast24Hours"]) as number;
   }
   return contents;
 };
@@ -9886,16 +9888,16 @@ const deserializeAws_querySendDataPoint = (output: any, context: __SerdeContext)
     contents.Timestamp = new Date(output["Timestamp"]);
   }
   if (output["DeliveryAttempts"] !== undefined) {
-    contents.DeliveryAttempts = parseInt(output["DeliveryAttempts"]);
+    contents.DeliveryAttempts = __strictParseInt(output["DeliveryAttempts"]) as number;
   }
   if (output["Bounces"] !== undefined) {
-    contents.Bounces = parseInt(output["Bounces"]);
+    contents.Bounces = __strictParseInt(output["Bounces"]) as number;
   }
   if (output["Complaints"] !== undefined) {
-    contents.Complaints = parseInt(output["Complaints"]);
+    contents.Complaints = __strictParseInt(output["Complaints"]) as number;
   }
   if (output["Rejects"] !== undefined) {
-    contents.Rejects = parseInt(output["Rejects"]);
+    contents.Rejects = __strictParseInt(output["Rejects"]) as number;
   }
   return contents;
 };

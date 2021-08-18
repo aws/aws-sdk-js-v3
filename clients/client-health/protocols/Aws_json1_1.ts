@@ -92,7 +92,7 @@ import {
   UnsupportedLocale,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectNumber as __expectNumber, expectString as __expectString } from "@aws-sdk/smithy-client";
+import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1778,7 +1778,7 @@ const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse =
 
 const deserializeAws_json1_1EntityAggregate = (output: any, context: __SerdeContext): EntityAggregate => {
   return {
-    count: __expectNumber(output.count),
+    count: __expectInt(output.count),
     eventArn: __expectString(output.eventArn),
   } as any;
 };
@@ -1831,7 +1831,7 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
 const deserializeAws_json1_1EventAggregate = (output: any, context: __SerdeContext): EventAggregate => {
   return {
     aggregateValue: __expectString(output.aggregateValue),
-    count: __expectNumber(output.count),
+    count: __expectInt(output.count),
   } as any;
 };
 

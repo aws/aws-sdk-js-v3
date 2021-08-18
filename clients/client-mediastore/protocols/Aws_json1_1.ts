@@ -87,7 +87,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2369,7 +2369,7 @@ const deserializeAws_json1_1CorsRule = (output: any, context: __SerdeContext): C
       output.ExposeHeaders !== undefined && output.ExposeHeaders !== null
         ? deserializeAws_json1_1ExposeHeaders(output.ExposeHeaders, context)
         : undefined,
-    MaxAgeSeconds: __expectNumber(output.MaxAgeSeconds),
+    MaxAgeSeconds: __expectInt(output.MaxAgeSeconds),
   } as any;
 };
 

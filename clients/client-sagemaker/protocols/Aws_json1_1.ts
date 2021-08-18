@@ -1353,9 +1353,9 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   LazyJsonString as __LazyJsonString,
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -24117,7 +24117,7 @@ const deserializeAws_json1_1AddTagsOutput = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1AgentVersion = (output: any, context: __SerdeContext): AgentVersion => {
   return {
-    AgentCount: __expectNumber(output.AgentCount),
+    AgentCount: __expectInt(output.AgentCount),
     Version: __expectString(output.Version),
   } as any;
 };
@@ -24593,9 +24593,9 @@ const deserializeAws_json1_1AutoMLJobCompletionCriteria = (
   context: __SerdeContext
 ): AutoMLJobCompletionCriteria => {
   return {
-    MaxAutoMLJobRuntimeInSeconds: __expectNumber(output.MaxAutoMLJobRuntimeInSeconds),
-    MaxCandidates: __expectNumber(output.MaxCandidates),
-    MaxRuntimePerTrainingJobInSeconds: __expectNumber(output.MaxRuntimePerTrainingJobInSeconds),
+    MaxAutoMLJobRuntimeInSeconds: __expectInt(output.MaxAutoMLJobRuntimeInSeconds),
+    MaxCandidates: __expectInt(output.MaxCandidates),
+    MaxRuntimePerTrainingJobInSeconds: __expectInt(output.MaxRuntimePerTrainingJobInSeconds),
   } as any;
 };
 
@@ -24721,8 +24721,8 @@ const deserializeAws_json1_1Bias = (output: any, context: __SerdeContext): Bias 
 
 const deserializeAws_json1_1BlueGreenUpdatePolicy = (output: any, context: __SerdeContext): BlueGreenUpdatePolicy => {
   return {
-    MaximumExecutionTimeoutInSeconds: __expectNumber(output.MaximumExecutionTimeoutInSeconds),
-    TerminationWaitInSeconds: __expectNumber(output.TerminationWaitInSeconds),
+    MaximumExecutionTimeoutInSeconds: __expectInt(output.MaximumExecutionTimeoutInSeconds),
+    TerminationWaitInSeconds: __expectInt(output.TerminationWaitInSeconds),
     TrafficRoutingConfiguration:
       output.TrafficRoutingConfiguration !== undefined && output.TrafficRoutingConfiguration !== null
         ? deserializeAws_json1_1TrafficRoutingConfig(output.TrafficRoutingConfiguration, context)
@@ -24783,7 +24783,7 @@ const deserializeAws_json1_1CandidateSteps = (output: any, context: __SerdeConte
 const deserializeAws_json1_1CapacitySize = (output: any, context: __SerdeContext): CapacitySize => {
   return {
     Type: __expectString(output.Type),
-    Value: __expectNumber(output.Value),
+    Value: __expectInt(output.Value),
   } as any;
 };
 
@@ -25595,7 +25595,7 @@ const deserializeAws_json1_1CustomImage = (output: any, context: __SerdeContext)
   return {
     AppImageConfigName: __expectString(output.AppImageConfigName),
     ImageName: __expectString(output.ImageName),
-    ImageVersionNumber: __expectNumber(output.ImageVersionNumber),
+    ImageVersionNumber: __expectInt(output.ImageVersionNumber),
   } as any;
 };
 
@@ -25622,7 +25622,7 @@ const deserializeAws_json1_1DataCaptureConfig = (output: any, context: __SerdeCo
         : undefined,
     DestinationS3Uri: __expectString(output.DestinationS3Uri),
     EnableCapture: __expectBoolean(output.EnableCapture),
-    InitialSamplingPercentage: __expectNumber(output.InitialSamplingPercentage),
+    InitialSamplingPercentage: __expectInt(output.InitialSamplingPercentage),
     KmsKeyId: __expectString(output.KmsKeyId),
   } as any;
 };
@@ -25633,7 +25633,7 @@ const deserializeAws_json1_1DataCaptureConfigSummary = (
 ): DataCaptureConfigSummary => {
   return {
     CaptureStatus: __expectString(output.CaptureStatus),
-    CurrentSamplingPercentage: __expectNumber(output.CurrentSamplingPercentage),
+    CurrentSamplingPercentage: __expectInt(output.CurrentSamplingPercentage),
     DestinationS3Uri: __expectString(output.DestinationS3Uri),
     EnableCapture: __expectBoolean(output.EnableCapture),
     KmsKeyId: __expectString(output.KmsKeyId),
@@ -25760,7 +25760,7 @@ const deserializeAws_json1_1DebugRuleConfiguration = (output: any, context: __Se
         ? deserializeAws_json1_1RuleParameters(output.RuleParameters, context)
         : undefined,
     S3OutputPath: __expectString(output.S3OutputPath),
-    VolumeSizeInGB: __expectNumber(output.VolumeSizeInGB),
+    VolumeSizeInGB: __expectInt(output.VolumeSizeInGB),
   } as any;
 };
 
@@ -26361,7 +26361,7 @@ const deserializeAws_json1_1DescribeDeviceResponse = (output: any, context: __Se
       output.LatestHeartbeat !== undefined && output.LatestHeartbeat !== null
         ? new Date(Math.round(output.LatestHeartbeat * 1000))
         : undefined,
-    MaxModels: __expectNumber(output.MaxModels),
+    MaxModels: __expectInt(output.MaxModels),
     Models:
       output.Models !== undefined && output.Models !== null
         ? deserializeAws_json1_1EdgeModels(output.Models, context)
@@ -26712,7 +26712,7 @@ const deserializeAws_json1_1DescribeImageVersionResponse = (
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -26952,7 +26952,7 @@ const deserializeAws_json1_1DescribeModelPackageOutput = (
       output.ModelPackageStatusDetails !== undefined && output.ModelPackageStatusDetails !== null
         ? deserializeAws_json1_1ModelPackageStatusDetails(output.ModelPackageStatusDetails, context)
         : undefined,
-    ModelPackageVersion: __expectNumber(output.ModelPackageVersion),
+    ModelPackageVersion: __expectInt(output.ModelPackageVersion),
     SourceAlgorithmSpecification:
       output.SourceAlgorithmSpecification !== undefined && output.SourceAlgorithmSpecification !== null
         ? deserializeAws_json1_1SourceAlgorithmSpecification(output.SourceAlgorithmSpecification, context)
@@ -27102,7 +27102,7 @@ const deserializeAws_json1_1DescribeNotebookInstanceOutput = (
         : undefined,
     SubnetId: __expectString(output.SubnetId),
     Url: __expectString(output.Url),
-    VolumeSizeInGB: __expectNumber(output.VolumeSizeInGB),
+    VolumeSizeInGB: __expectInt(output.VolumeSizeInGB),
   } as any;
 };
 
@@ -27305,7 +27305,7 @@ const deserializeAws_json1_1DescribeTrainingJobResponse = (
         ? deserializeAws_json1_1AlgorithmSpecification(output.AlgorithmSpecification, context)
         : undefined,
     AutoMLJobArn: __expectString(output.AutoMLJobArn),
-    BillableTimeInSeconds: __expectNumber(output.BillableTimeInSeconds),
+    BillableTimeInSeconds: __expectInt(output.BillableTimeInSeconds),
     CheckpointConfig:
       output.CheckpointConfig !== undefined && output.CheckpointConfig !== null
         ? deserializeAws_json1_1CheckpointConfig(output.CheckpointConfig, context)
@@ -27409,7 +27409,7 @@ const deserializeAws_json1_1DescribeTrainingJobResponse = (
       output.TrainingStartTime !== undefined && output.TrainingStartTime !== null
         ? new Date(Math.round(output.TrainingStartTime * 1000))
         : undefined,
-    TrainingTimeInSeconds: __expectNumber(output.TrainingTimeInSeconds),
+    TrainingTimeInSeconds: __expectInt(output.TrainingTimeInSeconds),
     TuningJobArn: __expectString(output.TuningJobArn),
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
@@ -27443,8 +27443,8 @@ const deserializeAws_json1_1DescribeTransformJobResponse = (
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     LabelingJobArn: __expectString(output.LabelingJobArn),
-    MaxConcurrentTransforms: __expectNumber(output.MaxConcurrentTransforms),
-    MaxPayloadInMB: __expectNumber(output.MaxPayloadInMB),
+    MaxConcurrentTransforms: __expectInt(output.MaxConcurrentTransforms),
+    MaxPayloadInMB: __expectInt(output.MaxPayloadInMB),
     ModelClientConfig:
       output.ModelClientConfig !== undefined && output.ModelClientConfig !== null
         ? deserializeAws_json1_1ModelClientConfig(output.ModelClientConfig, context)
@@ -27650,8 +27650,8 @@ const deserializeAws_json1_1DeviceFleetSummary = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1DeviceStats = (output: any, context: __SerdeContext): DeviceStats => {
   return {
-    ConnectedDeviceCount: __expectNumber(output.ConnectedDeviceCount),
-    RegisteredDeviceCount: __expectNumber(output.RegisteredDeviceCount),
+    ConnectedDeviceCount: __expectInt(output.ConnectedDeviceCount),
+    RegisteredDeviceCount: __expectInt(output.RegisteredDeviceCount),
   } as any;
 };
 
@@ -27762,12 +27762,12 @@ const deserializeAws_json1_1EdgeModels = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1EdgeModelStat = (output: any, context: __SerdeContext): EdgeModelStat => {
   return {
-    ActiveDeviceCount: __expectNumber(output.ActiveDeviceCount),
-    ConnectedDeviceCount: __expectNumber(output.ConnectedDeviceCount),
+    ActiveDeviceCount: __expectInt(output.ActiveDeviceCount),
+    ConnectedDeviceCount: __expectInt(output.ConnectedDeviceCount),
     ModelName: __expectString(output.ModelName),
     ModelVersion: __expectString(output.ModelVersion),
-    OfflineDeviceCount: __expectNumber(output.OfflineDeviceCount),
-    SamplingDeviceCount: __expectNumber(output.SamplingDeviceCount),
+    OfflineDeviceCount: __expectInt(output.OfflineDeviceCount),
+    SamplingDeviceCount: __expectInt(output.SamplingDeviceCount),
   } as any;
 };
 
@@ -27931,7 +27931,7 @@ const deserializeAws_json1_1EndpointInput = (output: any, context: __SerdeContex
     InferenceAttribute: __expectString(output.InferenceAttribute),
     LocalPath: __expectString(output.LocalPath),
     ProbabilityAttribute: __expectString(output.ProbabilityAttribute),
-    ProbabilityThresholdAttribute: __handleFloat(output.ProbabilityThresholdAttribute),
+    ProbabilityThresholdAttribute: __limitedParseFloat(output.ProbabilityThresholdAttribute),
     S3DataDistributionType: __expectString(output.S3DataDistributionType),
     S3InputMode: __expectString(output.S3InputMode),
     StartTimeOffset: __expectString(output.StartTimeOffset),
@@ -28149,8 +28149,8 @@ const deserializeAws_json1_1FeatureGroupSummary = (output: any, context: __Serde
 
 const deserializeAws_json1_1FileSystemConfig = (output: any, context: __SerdeContext): FileSystemConfig => {
   return {
-    DefaultGid: __expectNumber(output.DefaultGid),
-    DefaultUid: __expectNumber(output.DefaultUid),
+    DefaultGid: __expectInt(output.DefaultGid),
+    DefaultUid: __expectInt(output.DefaultUid),
     MountPath: __expectString(output.MountPath),
   } as any;
 };
@@ -28171,7 +28171,7 @@ const deserializeAws_json1_1FinalAutoMLJobObjectiveMetric = (
   return {
     MetricName: __expectString(output.MetricName),
     Type: __expectString(output.Type),
-    Value: __handleFloat(output.Value),
+    Value: __limitedParseFloat(output.Value),
   } as any;
 };
 
@@ -28182,7 +28182,7 @@ const deserializeAws_json1_1FinalHyperParameterTuningJobObjectiveMetric = (
   return {
     MetricName: __expectString(output.MetricName),
     Type: __expectString(output.Type),
-    Value: __handleFloat(output.Value),
+    Value: __limitedParseFloat(output.Value),
   } as any;
 };
 
@@ -28368,14 +28368,14 @@ const deserializeAws_json1_1HumanLoopConfig = (output: any, context: __SerdeCont
       output.PublicWorkforceTaskPrice !== undefined && output.PublicWorkforceTaskPrice !== null
         ? deserializeAws_json1_1PublicWorkforceTaskPrice(output.PublicWorkforceTaskPrice, context)
         : undefined,
-    TaskAvailabilityLifetimeInSeconds: __expectNumber(output.TaskAvailabilityLifetimeInSeconds),
-    TaskCount: __expectNumber(output.TaskCount),
+    TaskAvailabilityLifetimeInSeconds: __expectInt(output.TaskAvailabilityLifetimeInSeconds),
+    TaskCount: __expectInt(output.TaskCount),
     TaskDescription: __expectString(output.TaskDescription),
     TaskKeywords:
       output.TaskKeywords !== undefined && output.TaskKeywords !== null
         ? deserializeAws_json1_1FlowDefinitionTaskKeywords(output.TaskKeywords, context)
         : undefined,
-    TaskTimeLimitInSeconds: __expectNumber(output.TaskTimeLimitInSeconds),
+    TaskTimeLimitInSeconds: __expectInt(output.TaskTimeLimitInSeconds),
     TaskTitle: __expectString(output.TaskTitle),
     WorkteamArn: __expectString(output.WorkteamArn),
   } as any;
@@ -28393,20 +28393,20 @@ const deserializeAws_json1_1HumanTaskConfig = (output: any, context: __SerdeCont
       output.AnnotationConsolidationConfig !== undefined && output.AnnotationConsolidationConfig !== null
         ? deserializeAws_json1_1AnnotationConsolidationConfig(output.AnnotationConsolidationConfig, context)
         : undefined,
-    MaxConcurrentTaskCount: __expectNumber(output.MaxConcurrentTaskCount),
-    NumberOfHumanWorkersPerDataObject: __expectNumber(output.NumberOfHumanWorkersPerDataObject),
+    MaxConcurrentTaskCount: __expectInt(output.MaxConcurrentTaskCount),
+    NumberOfHumanWorkersPerDataObject: __expectInt(output.NumberOfHumanWorkersPerDataObject),
     PreHumanTaskLambdaArn: __expectString(output.PreHumanTaskLambdaArn),
     PublicWorkforceTaskPrice:
       output.PublicWorkforceTaskPrice !== undefined && output.PublicWorkforceTaskPrice !== null
         ? deserializeAws_json1_1PublicWorkforceTaskPrice(output.PublicWorkforceTaskPrice, context)
         : undefined,
-    TaskAvailabilityLifetimeInSeconds: __expectNumber(output.TaskAvailabilityLifetimeInSeconds),
+    TaskAvailabilityLifetimeInSeconds: __expectInt(output.TaskAvailabilityLifetimeInSeconds),
     TaskDescription: __expectString(output.TaskDescription),
     TaskKeywords:
       output.TaskKeywords !== undefined && output.TaskKeywords !== null
         ? deserializeAws_json1_1TaskKeywords(output.TaskKeywords, context)
         : undefined,
-    TaskTimeLimitInSeconds: __expectNumber(output.TaskTimeLimitInSeconds),
+    TaskTimeLimitInSeconds: __expectInt(output.TaskTimeLimitInSeconds),
     TaskTitle: __expectString(output.TaskTitle),
     UiConfig:
       output.UiConfig !== undefined && output.UiConfig !== null
@@ -28788,7 +28788,7 @@ const deserializeAws_json1_1ImageVersion = (output: any, context: __SerdeContext
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -28977,11 +28977,11 @@ const deserializeAws_json1_1KernelSpecs = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1LabelCounters = (output: any, context: __SerdeContext): LabelCounters => {
   return {
-    FailedNonRetryableError: __expectNumber(output.FailedNonRetryableError),
-    HumanLabeled: __expectNumber(output.HumanLabeled),
-    MachineLabeled: __expectNumber(output.MachineLabeled),
-    TotalLabeled: __expectNumber(output.TotalLabeled),
-    Unlabeled: __expectNumber(output.Unlabeled),
+    FailedNonRetryableError: __expectInt(output.FailedNonRetryableError),
+    HumanLabeled: __expectInt(output.HumanLabeled),
+    MachineLabeled: __expectInt(output.MachineLabeled),
+    TotalLabeled: __expectInt(output.TotalLabeled),
+    Unlabeled: __expectInt(output.Unlabeled),
   } as any;
 };
 
@@ -28990,9 +28990,9 @@ const deserializeAws_json1_1LabelCountersForWorkteam = (
   context: __SerdeContext
 ): LabelCountersForWorkteam => {
   return {
-    HumanLabeled: __expectNumber(output.HumanLabeled),
-    PendingHuman: __expectNumber(output.PendingHuman),
-    Total: __expectNumber(output.Total),
+    HumanLabeled: __expectInt(output.HumanLabeled),
+    PendingHuman: __expectInt(output.PendingHuman),
+    Total: __expectInt(output.Total),
   } as any;
 };
 
@@ -29050,7 +29050,7 @@ const deserializeAws_json1_1LabelingJobForWorkteamSummary = (
         ? deserializeAws_json1_1LabelCountersForWorkteam(output.LabelCounters, context)
         : undefined,
     LabelingJobName: __expectString(output.LabelingJobName),
-    NumberOfHumanWorkersPerDataObject: __expectNumber(output.NumberOfHumanWorkersPerDataObject),
+    NumberOfHumanWorkersPerDataObject: __expectInt(output.NumberOfHumanWorkersPerDataObject),
     WorkRequesterAccountId: __expectString(output.WorkRequesterAccountId),
   } as any;
 };
@@ -29132,8 +29132,8 @@ const deserializeAws_json1_1LabelingJobStoppingConditions = (
   context: __SerdeContext
 ): LabelingJobStoppingConditions => {
   return {
-    MaxHumanLabeledObjectCount: __expectNumber(output.MaxHumanLabeledObjectCount),
-    MaxPercentageOfInputDatasetLabeled: __expectNumber(output.MaxPercentageOfInputDatasetLabeled),
+    MaxHumanLabeledObjectCount: __expectInt(output.MaxHumanLabeledObjectCount),
+    MaxPercentageOfInputDatasetLabeled: __expectInt(output.MaxPercentageOfInputDatasetLabeled),
   } as any;
 };
 
@@ -29886,7 +29886,7 @@ const deserializeAws_json1_1MetricData = (output: any, context: __SerdeContext):
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value: __handleFloat(output.Value),
+    Value: __limitedParseFloat(output.Value),
   } as any;
 };
 
@@ -29905,7 +29905,7 @@ const deserializeAws_json1_1MetricDatum = (output: any, context: __SerdeContext)
   return {
     MetricName: __expectString(output.MetricName),
     Set: __expectString(output.Set),
-    Value: __handleFloat(output.Value),
+    Value: __limitedParseFloat(output.Value),
   } as any;
 };
 
@@ -29983,8 +29983,8 @@ const deserializeAws_json1_1ModelBiasJobInput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ModelClientConfig = (output: any, context: __SerdeContext): ModelClientConfig => {
   return {
-    InvocationsMaxRetries: __expectNumber(output.InvocationsMaxRetries),
-    InvocationsTimeoutInSeconds: __expectNumber(output.InvocationsTimeoutInSeconds),
+    InvocationsMaxRetries: __expectInt(output.InvocationsMaxRetries),
+    InvocationsTimeoutInSeconds: __expectInt(output.InvocationsTimeoutInSeconds),
   } as any;
 };
 
@@ -30120,7 +30120,7 @@ const deserializeAws_json1_1ModelPackage = (output: any, context: __SerdeContext
       output.ModelPackageStatusDetails !== undefined && output.ModelPackageStatusDetails !== null
         ? deserializeAws_json1_1ModelPackageStatusDetails(output.ModelPackageStatusDetails, context)
         : undefined,
-    ModelPackageVersion: __expectNumber(output.ModelPackageVersion),
+    ModelPackageVersion: __expectInt(output.ModelPackageVersion),
     SourceAlgorithmSpecification:
       output.SourceAlgorithmSpecification !== undefined && output.SourceAlgorithmSpecification !== null
         ? deserializeAws_json1_1SourceAlgorithmSpecification(output.SourceAlgorithmSpecification, context)
@@ -30268,7 +30268,7 @@ const deserializeAws_json1_1ModelPackageSummary = (output: any, context: __Serde
     ModelPackageGroupName: __expectString(output.ModelPackageGroupName),
     ModelPackageName: __expectString(output.ModelPackageName),
     ModelPackageStatus: __expectString(output.ModelPackageStatus),
-    ModelPackageVersion: __expectNumber(output.ModelPackageVersion),
+    ModelPackageVersion: __expectInt(output.ModelPackageVersion),
   } as any;
 };
 
@@ -30455,10 +30455,10 @@ const deserializeAws_json1_1MonitoringClusterConfig = (
   context: __SerdeContext
 ): MonitoringClusterConfig => {
   return {
-    InstanceCount: __expectNumber(output.InstanceCount),
+    InstanceCount: __expectInt(output.InstanceCount),
     InstanceType: __expectString(output.InstanceType),
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VolumeSizeInGB: __expectNumber(output.VolumeSizeInGB),
+    VolumeSizeInGB: __expectInt(output.VolumeSizeInGB),
   } as any;
 };
 
@@ -30808,7 +30808,7 @@ const deserializeAws_json1_1MonitoringStoppingCondition = (
   context: __SerdeContext
 ): MonitoringStoppingCondition => {
   return {
-    MaxRuntimeInSeconds: __expectNumber(output.MaxRuntimeInSeconds),
+    MaxRuntimeInSeconds: __expectInt(output.MaxRuntimeInSeconds),
   } as any;
 };
 
@@ -30988,9 +30988,9 @@ const deserializeAws_json1_1ObjectiveStatusCounters = (
   context: __SerdeContext
 ): ObjectiveStatusCounters => {
   return {
-    Failed: __expectNumber(output.Failed),
-    Pending: __expectNumber(output.Pending),
-    Succeeded: __expectNumber(output.Succeeded),
+    Failed: __expectInt(output.Failed),
+    Pending: __expectInt(output.Pending),
+    Succeeded: __expectInt(output.Succeeded),
   } as any;
 };
 
@@ -31433,10 +31433,10 @@ const deserializeAws_json1_1ProcessingClusterConfig = (
   context: __SerdeContext
 ): ProcessingClusterConfig => {
   return {
-    InstanceCount: __expectNumber(output.InstanceCount),
+    InstanceCount: __expectInt(output.InstanceCount),
     InstanceType: __expectString(output.InstanceType),
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VolumeSizeInGB: __expectNumber(output.VolumeSizeInGB),
+    VolumeSizeInGB: __expectInt(output.VolumeSizeInGB),
   } as any;
 };
 
@@ -31667,7 +31667,7 @@ const deserializeAws_json1_1ProcessingStoppingCondition = (
   context: __SerdeContext
 ): ProcessingStoppingCondition => {
   return {
-    MaxRuntimeInSeconds: __expectNumber(output.MaxRuntimeInSeconds),
+    MaxRuntimeInSeconds: __expectInt(output.MaxRuntimeInSeconds),
   } as any;
 };
 
@@ -31678,8 +31678,8 @@ const deserializeAws_json1_1ProductionVariant = (output: any, context: __SerdeCo
       output.CoreDumpConfig !== undefined && output.CoreDumpConfig !== null
         ? deserializeAws_json1_1ProductionVariantCoreDumpConfig(output.CoreDumpConfig, context)
         : undefined,
-    InitialInstanceCount: __expectNumber(output.InitialInstanceCount),
-    InitialVariantWeight: __handleFloat(output.InitialVariantWeight),
+    InitialInstanceCount: __expectInt(output.InitialInstanceCount),
+    InitialVariantWeight: __limitedParseFloat(output.InitialVariantWeight),
     InstanceType: __expectString(output.InstanceType),
     ModelName: __expectString(output.ModelName),
     VariantName: __expectString(output.VariantName),
@@ -31712,14 +31712,14 @@ const deserializeAws_json1_1ProductionVariantSummary = (
   context: __SerdeContext
 ): ProductionVariantSummary => {
   return {
-    CurrentInstanceCount: __expectNumber(output.CurrentInstanceCount),
-    CurrentWeight: __handleFloat(output.CurrentWeight),
+    CurrentInstanceCount: __expectInt(output.CurrentInstanceCount),
+    CurrentWeight: __limitedParseFloat(output.CurrentWeight),
     DeployedImages:
       output.DeployedImages !== undefined && output.DeployedImages !== null
         ? deserializeAws_json1_1DeployedImages(output.DeployedImages, context)
         : undefined,
-    DesiredInstanceCount: __expectNumber(output.DesiredInstanceCount),
-    DesiredWeight: __handleFloat(output.DesiredWeight),
+    DesiredInstanceCount: __expectInt(output.DesiredInstanceCount),
+    DesiredWeight: __limitedParseFloat(output.DesiredWeight),
     VariantName: __expectString(output.VariantName),
   } as any;
 };
@@ -31751,7 +31751,7 @@ const deserializeAws_json1_1ProductListings = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ProfilerConfig = (output: any, context: __SerdeContext): ProfilerConfig => {
   return {
-    ProfilingIntervalInMilliseconds: __expectNumber(output.ProfilingIntervalInMilliseconds),
+    ProfilingIntervalInMilliseconds: __expectInt(output.ProfilingIntervalInMilliseconds),
     ProfilingParameters:
       output.ProfilingParameters !== undefined && output.ProfilingParameters !== null
         ? deserializeAws_json1_1ProfilingParameters(output.ProfilingParameters, context)
@@ -31774,7 +31774,7 @@ const deserializeAws_json1_1ProfilerRuleConfiguration = (
         ? deserializeAws_json1_1RuleParameters(output.RuleParameters, context)
         : undefined,
     S3OutputPath: __expectString(output.S3OutputPath),
-    VolumeSizeInGB: __expectNumber(output.VolumeSizeInGB),
+    VolumeSizeInGB: __expectInt(output.VolumeSizeInGB),
   } as any;
 };
 
@@ -32014,10 +32014,10 @@ const deserializeAws_json1_1ResolvedAttributes = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeContext): ResourceConfig => {
   return {
-    InstanceCount: __expectNumber(output.InstanceCount),
+    InstanceCount: __expectInt(output.InstanceCount),
     InstanceType: __expectString(output.InstanceType),
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
-    VolumeSizeInGB: __expectNumber(output.VolumeSizeInGB),
+    VolumeSizeInGB: __expectInt(output.VolumeSizeInGB),
   } as any;
 };
 
@@ -32035,8 +32035,8 @@ const deserializeAws_json1_1ResourceLimitExceeded = (output: any, context: __Ser
 
 const deserializeAws_json1_1ResourceLimits = (output: any, context: __SerdeContext): ResourceLimits => {
   return {
-    MaxNumberOfTrainingJobs: __expectNumber(output.MaxNumberOfTrainingJobs),
-    MaxParallelTrainingJobs: __expectNumber(output.MaxParallelTrainingJobs),
+    MaxNumberOfTrainingJobs: __expectInt(output.MaxNumberOfTrainingJobs),
+    MaxParallelTrainingJobs: __expectInt(output.MaxParallelTrainingJobs),
   } as any;
 };
 
@@ -32067,7 +32067,7 @@ const deserializeAws_json1_1ResponseMIMETypes = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1RetryStrategy = (output: any, context: __SerdeContext): RetryStrategy => {
   return {
-    MaximumRetryAttempts: __expectNumber(output.MaximumRetryAttempts),
+    MaximumRetryAttempts: __expectInt(output.MaximumRetryAttempts),
   } as any;
 };
 
@@ -32269,7 +32269,7 @@ const deserializeAws_json1_1SharingSettings = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ShuffleConfig = (output: any, context: __SerdeContext): ShuffleConfig => {
   return {
-    Seed: __expectNumber(output.Seed),
+    Seed: __expectInt(output.Seed),
   } as any;
 };
 
@@ -32323,8 +32323,8 @@ const deserializeAws_json1_1StartPipelineExecutionResponse = (
 
 const deserializeAws_json1_1StoppingCondition = (output: any, context: __SerdeContext): StoppingCondition => {
   return {
-    MaxRuntimeInSeconds: __expectNumber(output.MaxRuntimeInSeconds),
-    MaxWaitTimeInSeconds: __expectNumber(output.MaxWaitTimeInSeconds),
+    MaxRuntimeInSeconds: __expectInt(output.MaxRuntimeInSeconds),
+    MaxWaitTimeInSeconds: __expectInt(output.MaxWaitTimeInSeconds),
   } as any;
 };
 
@@ -32432,7 +32432,7 @@ const deserializeAws_json1_1TrafficRoutingConfig = (output: any, context: __Serd
         ? deserializeAws_json1_1CapacitySize(output.CanarySize, context)
         : undefined,
     Type: __expectString(output.Type),
-    WaitIntervalInSeconds: __expectNumber(output.WaitIntervalInSeconds),
+    WaitIntervalInSeconds: __expectInt(output.WaitIntervalInSeconds),
   } as any;
 };
 
@@ -32472,7 +32472,7 @@ const deserializeAws_json1_1TrainingJob = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1AlgorithmSpecification(output.AlgorithmSpecification, context)
         : undefined,
     AutoMLJobArn: __expectString(output.AutoMLJobArn),
-    BillableTimeInSeconds: __expectNumber(output.BillableTimeInSeconds),
+    BillableTimeInSeconds: __expectInt(output.BillableTimeInSeconds),
     CheckpointConfig:
       output.CheckpointConfig !== undefined && output.CheckpointConfig !== null
         ? deserializeAws_json1_1CheckpointConfig(output.CheckpointConfig, context)
@@ -32567,7 +32567,7 @@ const deserializeAws_json1_1TrainingJob = (output: any, context: __SerdeContext)
       output.TrainingStartTime !== undefined && output.TrainingStartTime !== null
         ? new Date(Math.round(output.TrainingStartTime * 1000))
         : undefined,
-    TrainingTimeInSeconds: __expectNumber(output.TrainingTimeInSeconds),
+    TrainingTimeInSeconds: __expectInt(output.TrainingTimeInSeconds),
     TuningJobArn: __expectString(output.TuningJobArn),
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
@@ -32607,11 +32607,11 @@ const deserializeAws_json1_1TrainingJobStatusCounters = (
   context: __SerdeContext
 ): TrainingJobStatusCounters => {
   return {
-    Completed: __expectNumber(output.Completed),
-    InProgress: __expectNumber(output.InProgress),
-    NonRetryableError: __expectNumber(output.NonRetryableError),
-    RetryableError: __expectNumber(output.RetryableError),
-    Stopped: __expectNumber(output.Stopped),
+    Completed: __expectInt(output.Completed),
+    InProgress: __expectInt(output.InProgress),
+    NonRetryableError: __expectInt(output.NonRetryableError),
+    RetryableError: __expectInt(output.RetryableError),
+    Stopped: __expectInt(output.Stopped),
   } as any;
 };
 
@@ -32755,8 +32755,8 @@ const deserializeAws_json1_1TransformJob = (output: any, context: __SerdeContext
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     LabelingJobArn: __expectString(output.LabelingJobArn),
-    MaxConcurrentTransforms: __expectNumber(output.MaxConcurrentTransforms),
-    MaxPayloadInMB: __expectNumber(output.MaxPayloadInMB),
+    MaxConcurrentTransforms: __expectInt(output.MaxConcurrentTransforms),
+    MaxPayloadInMB: __expectInt(output.MaxPayloadInMB),
     ModelClientConfig:
       output.ModelClientConfig !== undefined && output.ModelClientConfig !== null
         ? deserializeAws_json1_1ModelClientConfig(output.ModelClientConfig, context)
@@ -32799,8 +32799,8 @@ const deserializeAws_json1_1TransformJobDefinition = (output: any, context: __Se
       output.Environment !== undefined && output.Environment !== null
         ? deserializeAws_json1_1TransformEnvironmentMap(output.Environment, context)
         : undefined,
-    MaxConcurrentTransforms: __expectNumber(output.MaxConcurrentTransforms),
-    MaxPayloadInMB: __expectNumber(output.MaxPayloadInMB),
+    MaxConcurrentTransforms: __expectInt(output.MaxConcurrentTransforms),
+    MaxPayloadInMB: __expectInt(output.MaxPayloadInMB),
     TransformInput:
       output.TransformInput !== undefined && output.TransformInput !== null
         ? deserializeAws_json1_1TransformInput(output.TransformInput, context)
@@ -32868,7 +32868,7 @@ const deserializeAws_json1_1TransformOutput = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1TransformResources = (output: any, context: __SerdeContext): TransformResources => {
   return {
-    InstanceCount: __expectNumber(output.InstanceCount),
+    InstanceCount: __expectInt(output.InstanceCount),
     InstanceType: __expectString(output.InstanceType),
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
   } as any;
@@ -33036,14 +33036,14 @@ const deserializeAws_json1_1TrialComponentMetricSummary = (
   context: __SerdeContext
 ): TrialComponentMetricSummary => {
   return {
-    Avg: __handleFloat(output.Avg),
-    Count: __expectNumber(output.Count),
-    Last: __handleFloat(output.Last),
-    Max: __handleFloat(output.Max),
+    Avg: __limitedParseFloat(output.Avg),
+    Count: __expectInt(output.Count),
+    Last: __limitedParseFloat(output.Last),
+    Max: __limitedParseFloat(output.Max),
     MetricName: __expectString(output.MetricName),
-    Min: __handleFloat(output.Min),
+    Min: __limitedParseFloat(output.Min),
     SourceArn: __expectString(output.SourceArn),
-    StdDev: __handleFloat(output.StdDev),
+    StdDev: __limitedParseFloat(output.StdDev),
     TimeStamp:
       output.TimeStamp !== undefined && output.TimeStamp !== null
         ? new Date(Math.round(output.TimeStamp * 1000))
@@ -33073,8 +33073,8 @@ const deserializeAws_json1_1TrialComponentParameterValue = (
   output: any,
   context: __SerdeContext
 ): TrialComponentParameterValue => {
-  if (__handleFloat(output.NumberValue) !== undefined) {
-    return { NumberValue: __handleFloat(output.NumberValue) as any };
+  if (__limitedParseFloat(output.NumberValue) !== undefined) {
+    return { NumberValue: __limitedParseFloat(output.NumberValue) as any };
   }
   if (__expectString(output.StringValue) !== undefined) {
     return { StringValue: __expectString(output.StringValue) as any };
@@ -33248,7 +33248,7 @@ const deserializeAws_json1_1TuningJobCompletionCriteria = (
   context: __SerdeContext
 ): TuningJobCompletionCriteria => {
   return {
-    TargetObjectiveMetricValue: __handleFloat(output.TargetObjectiveMetricValue),
+    TargetObjectiveMetricValue: __limitedParseFloat(output.TargetObjectiveMetricValue),
   } as any;
 };
 
@@ -33447,9 +33447,9 @@ const deserializeAws_json1_1UpdateWorkteamResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1USD = (output: any, context: __SerdeContext): USD => {
   return {
-    Cents: __expectNumber(output.Cents),
-    Dollars: __expectNumber(output.Dollars),
-    TenthFractionsOfACent: __expectNumber(output.TenthFractionsOfACent),
+    Cents: __expectInt(output.Cents),
+    Dollars: __expectInt(output.Dollars),
+    TenthFractionsOfACent: __expectInt(output.TenthFractionsOfACent),
   } as any;
 };
 

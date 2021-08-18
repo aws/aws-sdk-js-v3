@@ -33,7 +33,7 @@ import {
   UnsupportedStreamMediaTypeException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectNumber as __expectNumber, expectString as __expectString } from "@aws-sdk/smithy-client";
+import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -962,9 +962,9 @@ const serializeAws_restJson1TimestampRange = (input: TimestampRange, context: __
 
 const deserializeAws_restJson1Fragment = (output: any, context: __SerdeContext): Fragment => {
   return {
-    FragmentLengthInMilliseconds: __expectNumber(output.FragmentLengthInMilliseconds),
+    FragmentLengthInMilliseconds: __expectInt(output.FragmentLengthInMilliseconds),
     FragmentNumber: __expectString(output.FragmentNumber),
-    FragmentSizeInBytes: __expectNumber(output.FragmentSizeInBytes),
+    FragmentSizeInBytes: __expectInt(output.FragmentSizeInBytes),
     ProducerTimestamp:
       output.ProducerTimestamp !== undefined && output.ProducerTimestamp !== null
         ? new Date(Math.round(output.ProducerTimestamp * 1000))

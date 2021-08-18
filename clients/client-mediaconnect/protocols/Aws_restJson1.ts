@@ -111,10 +111,10 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -929,7 +929,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -4794,7 +4794,7 @@ const deserializeAws_restJson1DestinationConfiguration = (
 ): DestinationConfiguration => {
   return {
     DestinationIp: __expectString(output.destinationIp),
-    DestinationPort: __expectNumber(output.destinationPort),
+    DestinationPort: __expectInt(output.destinationPort),
     Interface:
       output.interface !== undefined && output.interface !== null
         ? deserializeAws_restJson1Interface(output.interface, context)
@@ -4805,7 +4805,7 @@ const deserializeAws_restJson1DestinationConfiguration = (
 
 const deserializeAws_restJson1EncodingParameters = (output: any, context: __SerdeContext): EncodingParameters => {
   return {
-    CompressionFactor: __handleFloat(output.compressionFactor),
+    CompressionFactor: __limitedParseFloat(output.compressionFactor),
     EncoderProfile: __expectString(output.encoderProfile),
   } as any;
 };
@@ -4826,7 +4826,7 @@ const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return {
-    DataTransferSubscriberFeePercent: __expectNumber(output.dataTransferSubscriberFeePercent),
+    DataTransferSubscriberFeePercent: __expectInt(output.dataTransferSubscriberFeePercent),
     Description: __expectString(output.description),
     Encryption:
       output.encryption !== undefined && output.encryption !== null
@@ -4845,7 +4845,7 @@ const deserializeAws_restJson1Entitlement = (output: any, context: __SerdeContex
 const deserializeAws_restJson1FailoverConfig = (output: any, context: __SerdeContext): FailoverConfig => {
   return {
     FailoverMode: __expectString(output.failoverMode),
-    RecoveryWindow: __expectNumber(output.recoveryWindow),
+    RecoveryWindow: __expectInt(output.recoveryWindow),
     SourcePriority:
       output.sourcePriority !== undefined && output.sourcePriority !== null
         ? deserializeAws_restJson1SourcePriority(output.sourcePriority, context)
@@ -4908,7 +4908,7 @@ const deserializeAws_restJson1Fmtp = (output: any, context: __SerdeContext): Fmt
 const deserializeAws_restJson1InputConfiguration = (output: any, context: __SerdeContext): InputConfiguration => {
   return {
     InputIp: __expectString(output.inputIp),
-    InputPort: __expectNumber(output.inputPort),
+    InputPort: __expectInt(output.inputPort),
     Interface:
       output.interface !== undefined && output.interface !== null
         ? deserializeAws_restJson1Interface(output.interface, context)
@@ -4924,7 +4924,7 @@ const deserializeAws_restJson1Interface = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1ListedEntitlement = (output: any, context: __SerdeContext): ListedEntitlement => {
   return {
-    DataTransferSubscriberFeePercent: __expectNumber(output.dataTransferSubscriberFeePercent),
+    DataTransferSubscriberFeePercent: __expectInt(output.dataTransferSubscriberFeePercent),
     EntitlementArn: __expectString(output.entitlementArn),
     EntitlementName: __expectString(output.entitlementName),
   } as any;
@@ -4947,10 +4947,10 @@ const deserializeAws_restJson1MediaStream = (output: any, context: __SerdeContex
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1MediaStreamAttributes(output.attributes, context)
         : undefined,
-    ClockRate: __expectNumber(output.clockRate),
+    ClockRate: __expectInt(output.clockRate),
     Description: __expectString(output.description),
-    Fmt: __expectNumber(output.fmt),
-    MediaStreamId: __expectNumber(output.mediaStreamId),
+    Fmt: __expectInt(output.fmt),
+    MediaStreamId: __expectInt(output.mediaStreamId),
     MediaStreamName: __expectString(output.mediaStreamName),
     MediaStreamType: __expectString(output.mediaStreamType),
     VideoFormat: __expectString(output.videoFormat),
@@ -5011,7 +5011,7 @@ const deserializeAws_restJson1Messages = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1Offering = (output: any, context: __SerdeContext): Offering => {
   return {
     CurrencyCode: __expectString(output.currencyCode),
-    Duration: __expectNumber(output.duration),
+    Duration: __expectInt(output.duration),
     DurationUnits: __expectString(output.durationUnits),
     OfferingArn: __expectString(output.offeringArn),
     OfferingDescription: __expectString(output.offeringDescription),
@@ -5026,7 +5026,7 @@ const deserializeAws_restJson1Offering = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): Output => {
   return {
-    DataTransferSubscriberFeePercent: __expectNumber(output.dataTransferSubscriberFeePercent),
+    DataTransferSubscriberFeePercent: __expectInt(output.dataTransferSubscriberFeePercent),
     Description: __expectString(output.description),
     Destination: __expectString(output.destination),
     Encryption:
@@ -5045,7 +5045,7 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
         : undefined,
     Name: __expectString(output.name),
     OutputArn: __expectString(output.outputArn),
-    Port: __expectNumber(output.port),
+    Port: __expectInt(output.port),
     Transport:
       output.transport !== undefined && output.transport !== null
         ? deserializeAws_restJson1Transport(output.transport, context)
@@ -5060,7 +5060,7 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
 const deserializeAws_restJson1Reservation = (output: any, context: __SerdeContext): Reservation => {
   return {
     CurrencyCode: __expectString(output.currencyCode),
-    Duration: __expectNumber(output.duration),
+    Duration: __expectInt(output.duration),
     DurationUnits: __expectString(output.durationUnits),
     End: __expectString(output.end),
     OfferingArn: __expectString(output.offeringArn),
@@ -5080,14 +5080,14 @@ const deserializeAws_restJson1Reservation = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1ResourceSpecification = (output: any, context: __SerdeContext): ResourceSpecification => {
   return {
-    ReservedBitrate: __expectNumber(output.reservedBitrate),
+    ReservedBitrate: __expectInt(output.reservedBitrate),
     ResourceType: __expectString(output.resourceType),
   } as any;
 };
 
 const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): Source => {
   return {
-    DataTransferSubscriberFeePercent: __expectNumber(output.dataTransferSubscriberFeePercent),
+    DataTransferSubscriberFeePercent: __expectInt(output.dataTransferSubscriberFeePercent),
     Decryption:
       output.decryption !== undefined && output.decryption !== null
         ? deserializeAws_restJson1Encryption(output.decryption, context)
@@ -5095,7 +5095,7 @@ const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): S
     Description: __expectString(output.description),
     EntitlementArn: __expectString(output.entitlementArn),
     IngestIp: __expectString(output.ingestIp),
-    IngestPort: __expectNumber(output.ingestPort),
+    IngestPort: __expectInt(output.ingestPort),
     MediaStreamSourceConfigurations:
       output.mediaStreamSourceConfigurations !== undefined && output.mediaStreamSourceConfigurations !== null
         ? deserializeAws_restJson1__listOfMediaStreamSourceConfiguration(
@@ -5126,13 +5126,13 @@ const deserializeAws_restJson1Transport = (output: any, context: __SerdeContext)
       output.cidrAllowList !== undefined && output.cidrAllowList !== null
         ? deserializeAws_restJson1__listOf__string(output.cidrAllowList, context)
         : undefined,
-    MaxBitrate: __expectNumber(output.maxBitrate),
-    MaxLatency: __expectNumber(output.maxLatency),
-    MaxSyncBuffer: __expectNumber(output.maxSyncBuffer),
-    MinLatency: __expectNumber(output.minLatency),
+    MaxBitrate: __expectInt(output.maxBitrate),
+    MaxLatency: __expectInt(output.maxLatency),
+    MaxSyncBuffer: __expectInt(output.maxSyncBuffer),
+    MinLatency: __expectInt(output.minLatency),
     Protocol: __expectString(output.protocol),
     RemoteId: __expectString(output.remoteId),
-    SmoothingLatency: __expectNumber(output.smoothingLatency),
+    SmoothingLatency: __expectInt(output.smoothingLatency),
     StreamId: __expectString(output.streamId),
   } as any;
 };

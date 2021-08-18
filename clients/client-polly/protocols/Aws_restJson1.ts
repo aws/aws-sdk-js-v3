@@ -49,9 +49,10 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -993,7 +994,7 @@ export const deserializeAws_restJson1SynthesizeSpeechCommand = async (
     contents.ContentType = output.headers["content-type"];
   }
   if (output.headers["x-amzn-requestcharacters"] !== undefined) {
-    contents.RequestCharacters = parseInt(output.headers["x-amzn-requestcharacters"], 10);
+    contents.RequestCharacters = __strictParseInt(output.headers["x-amzn-requestcharacters"]);
   }
   const data: any = output.body;
   contents.AudioStream = data;
@@ -1517,9 +1518,9 @@ const deserializeAws_restJson1LexiconAttributes = (output: any, context: __Serde
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
-    LexemesCount: __expectNumber(output.LexemesCount),
+    LexemesCount: __expectInt(output.LexemesCount),
     LexiconArn: __expectString(output.LexiconArn),
-    Size: __expectNumber(output.Size),
+    Size: __expectInt(output.Size),
   } as any;
 };
 
@@ -1583,7 +1584,7 @@ const deserializeAws_restJson1SynthesisTask = (output: any, context: __SerdeCont
         : undefined,
     OutputFormat: __expectString(output.OutputFormat),
     OutputUri: __expectString(output.OutputUri),
-    RequestCharacters: __expectNumber(output.RequestCharacters),
+    RequestCharacters: __expectInt(output.RequestCharacters),
     SampleRate: __expectString(output.SampleRate),
     SnsTopicArn: __expectString(output.SnsTopicArn),
     SpeechMarkTypes:

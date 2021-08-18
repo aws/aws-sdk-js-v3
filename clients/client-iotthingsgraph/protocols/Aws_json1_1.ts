@@ -197,7 +197,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4107,7 +4107,7 @@ const deserializeAws_json1_1DeleteSystemTemplateResponse = (
 const deserializeAws_json1_1DependencyRevision = (output: any, context: __SerdeContext): DependencyRevision => {
   return {
     id: __expectString(output.id),
-    revisionNumber: __expectNumber(output.revisionNumber),
+    revisionNumber: __expectInt(output.revisionNumber),
   } as any;
 };
 
@@ -4156,9 +4156,9 @@ const deserializeAws_json1_1DescribeNamespaceResponse = (
   return {
     namespaceArn: __expectString(output.namespaceArn),
     namespaceName: __expectString(output.namespaceName),
-    namespaceVersion: __expectNumber(output.namespaceVersion),
+    namespaceVersion: __expectInt(output.namespaceVersion),
     trackingNamespaceName: __expectString(output.trackingNamespaceName),
-    trackingNamespaceVersion: __expectNumber(output.trackingNamespaceVersion),
+    trackingNamespaceVersion: __expectInt(output.trackingNamespaceVersion),
   } as any;
 };
 
@@ -4260,7 +4260,7 @@ const deserializeAws_json1_1FlowTemplateDescription = (
       output.summary !== undefined && output.summary !== null
         ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
         : undefined,
-    validatedNamespaceVersion: __expectNumber(output.validatedNamespaceVersion),
+    validatedNamespaceVersion: __expectInt(output.validatedNamespaceVersion),
   } as any;
 };
 
@@ -4283,7 +4283,7 @@ const deserializeAws_json1_1FlowTemplateSummary = (output: any, context: __Serde
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
     id: __expectString(output.id),
-    revisionNumber: __expectNumber(output.revisionNumber),
+    revisionNumber: __expectInt(output.revisionNumber),
   } as any;
 };
 
@@ -4386,7 +4386,7 @@ const deserializeAws_json1_1GetUploadStatusResponse = (
         : undefined,
     namespaceArn: __expectString(output.namespaceArn),
     namespaceName: __expectString(output.namespaceName),
-    namespaceVersion: __expectNumber(output.namespaceVersion),
+    namespaceVersion: __expectInt(output.namespaceVersion),
     uploadId: __expectString(output.uploadId),
     uploadStatus: __expectString(output.uploadStatus),
   } as any;
@@ -4579,7 +4579,7 @@ const deserializeAws_json1_1SystemInstanceDescription = (
       output.validatedDependencyRevisions !== undefined && output.validatedDependencyRevisions !== null
         ? deserializeAws_json1_1DependencyRevisions(output.validatedDependencyRevisions, context)
         : undefined,
-    validatedNamespaceVersion: __expectNumber(output.validatedNamespaceVersion),
+    validatedNamespaceVersion: __expectInt(output.validatedNamespaceVersion),
   } as any;
 };
 
@@ -4630,7 +4630,7 @@ const deserializeAws_json1_1SystemTemplateDescription = (
       output.summary !== undefined && output.summary !== null
         ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context)
         : undefined,
-    validatedNamespaceVersion: __expectNumber(output.validatedNamespaceVersion),
+    validatedNamespaceVersion: __expectInt(output.validatedNamespaceVersion),
   } as any;
 };
 
@@ -4656,7 +4656,7 @@ const deserializeAws_json1_1SystemTemplateSummary = (output: any, context: __Ser
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
     id: __expectString(output.id),
-    revisionNumber: __expectNumber(output.revisionNumber),
+    revisionNumber: __expectInt(output.revisionNumber),
   } as any;
 };
 

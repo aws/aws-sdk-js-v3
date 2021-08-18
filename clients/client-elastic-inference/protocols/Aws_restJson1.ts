@@ -30,7 +30,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -203,7 +203,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -834,13 +834,13 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorSet = (
 const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
   return {
     key: __expectString(output.key),
-    value: __expectNumber(output.value),
+    value: __expectInt(output.value),
   } as any;
 };
 
 const deserializeAws_restJson1MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
   return {
-    sizeInMiB: __expectNumber(output.sizeInMiB),
+    sizeInMiB: __expectInt(output.sizeInMiB),
   } as any;
 };
 

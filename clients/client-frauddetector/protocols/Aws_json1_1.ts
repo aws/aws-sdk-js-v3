@@ -263,9 +263,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6544,7 +6544,7 @@ const deserializeAws_json1_1BatchCreateVariableError = (
   context: __SerdeContext
 ): BatchCreateVariableError => {
   return {
-    code: __expectNumber(output.code),
+    code: __expectInt(output.code),
     message: __expectString(output.message),
     name: __expectString(output.name),
   } as any;
@@ -6578,7 +6578,7 @@ const deserializeAws_json1_1BatchCreateVariableResult = (
 
 const deserializeAws_json1_1BatchGetVariableError = (output: any, context: __SerdeContext): BatchGetVariableError => {
   return {
-    code: __expectNumber(output.code),
+    code: __expectInt(output.code),
     message: __expectString(output.message),
     name: __expectString(output.name),
   } as any;
@@ -6624,10 +6624,10 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
     jobId: __expectString(output.jobId),
     lastHeartbeatTime: __expectString(output.lastHeartbeatTime),
     outputPath: __expectString(output.outputPath),
-    processedRecordsCount: __expectNumber(output.processedRecordsCount),
+    processedRecordsCount: __expectInt(output.processedRecordsCount),
     startTime: __expectString(output.startTime),
     status: __expectString(output.status),
-    totalRecordsCount: __expectNumber(output.totalRecordsCount),
+    totalRecordsCount: __expectInt(output.totalRecordsCount),
   } as any;
 };
 
@@ -7323,7 +7323,7 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
 
 const deserializeAws_json1_1LogitMetric = (output: any, context: __SerdeContext): LogitMetric => {
   return {
-    variableImportance: __handleFloat(output.variableImportance),
+    variableImportance: __limitedParseFloat(output.variableImportance),
     variableName: __expectString(output.variableName),
     variableType: __expectString(output.variableType),
   } as any;
@@ -7331,10 +7331,10 @@ const deserializeAws_json1_1LogitMetric = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1MetricDataPoint = (output: any, context: __SerdeContext): MetricDataPoint => {
   return {
-    fpr: __handleFloat(output.fpr),
-    precision: __handleFloat(output.precision),
-    threshold: __handleFloat(output.threshold),
-    tpr: __handleFloat(output.tpr),
+    fpr: __limitedParseFloat(output.fpr),
+    precision: __limitedParseFloat(output.precision),
+    threshold: __limitedParseFloat(output.threshold),
+    tpr: __limitedParseFloat(output.tpr),
   } as any;
 };
 
@@ -7409,7 +7409,7 @@ const deserializeAws_json1_1ModelPredictionMap = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: __handleFloat(value) as any,
+      [key]: __limitedParseFloat(value) as any,
     };
   }, {});
 };
@@ -7645,7 +7645,7 @@ const deserializeAws_json1_1TrainingDataSchema = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1TrainingMetrics = (output: any, context: __SerdeContext): TrainingMetrics => {
   return {
-    auc: __handleFloat(output.auc),
+    auc: __limitedParseFloat(output.auc),
     metricDataPoints:
       output.metricDataPoints !== undefined && output.metricDataPoints !== null
         ? deserializeAws_json1_1metricDataPointsList(output.metricDataPoints, context)

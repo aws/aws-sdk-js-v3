@@ -72,7 +72,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -2607,7 +2607,7 @@ const deserializeAws_restJson1ChannelRetentionSettings = (
   context: __SerdeContext
 ): ChannelRetentionSettings => {
   return {
-    RetentionDays: __expectNumber(output.RetentionDays),
+    RetentionDays: __expectInt(output.RetentionDays),
   } as any;
 };
 
