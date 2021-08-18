@@ -3,7 +3,7 @@ import { fromIni as _fromIni, FromIniInit as _FromIniInit } from "@aws-sdk/crede
 import { CredentialProvider } from "@aws-sdk/types";
 
 export interface FromIniInit extends _FromIniInit {
-  stsOptions?: STSClientConfig;
+  stsConfig?: STSClientConfig;
 }
 
 /**
@@ -36,6 +36,8 @@ export interface FromIniInit extends _FromIniInit {
  *     mfaCodeProvider: async (mfaSerial) => {
  *       return "token";
  *     },
+ *     // Optional. Custom STS client configurations overriding the default ones.
+ *     stsConfig: { region },
  *   }),
  * });
  * ```
@@ -43,7 +45,6 @@ export interface FromIniInit extends _FromIniInit {
 export const fromIni = (init: FromIniInit = {}): CredentialProvider =>
   _fromIni({
     ...init,
-    roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.stsOptions),
-    roleAssumerWithWebIdentity:
-      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.stsOptions),
+    roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.stsConfig),
+    roleAssumerWithWebIdentity: init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.stsConfig),
   });

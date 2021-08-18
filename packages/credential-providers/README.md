@@ -277,6 +277,8 @@ const client = new DynamoDBClient({
     mfaCodeProvider: async (mfaSerial) => {
       return "token";
     },
+    // Optional. Custom STS client configurations overriding the default ones.
+    stsConfig: { region },
   }),
 });
 ```
