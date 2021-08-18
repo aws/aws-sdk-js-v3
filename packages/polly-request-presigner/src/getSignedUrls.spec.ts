@@ -99,7 +99,7 @@ describe("getSignedUrl", () => {
     mockPresign.mockReturnValue(mockPresigned);
     const client = new PollyClient(clientParams);
     const command = new SynthesizeSpeechCommand({
-      Text: "hello world, this is alex",
+      Text: "hello world",
       OutputFormat: "mp3",
       VoiceId: "Kimberly",
     });
