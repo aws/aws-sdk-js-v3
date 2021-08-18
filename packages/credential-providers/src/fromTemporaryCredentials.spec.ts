@@ -49,7 +49,7 @@ describe("fromTemporaryCredentials", () => {
         RoleSessionName,
       },
       masterCredentials,
-      stsConfig: { region },
+      clientConfig: { region },
     };
     const provider = fromTemporaryCredentials(options);
     const credential = await provider();

@@ -270,7 +270,7 @@ Load credentials from Cognito Identity service, normally used in browsers.
   const client = new FooClient({
     region: "us-east-1",
     credentials: fromCognitoIdentityPool({
-      client: cognitoIdentityClient // Optional
+      clientConfig: cognitoIdentityClientConfig // Optional
       identityPoolId: "us-east-1:1699ebc0-7900-4099-b910-2df94f52a030",
       customRoleArn: "arn:aws:iam::1234567890:role/MYAPP-CognitoIdentity", // Optional
       logins: {
@@ -291,7 +291,7 @@ Load credentials from Cognito Identity service, normally used in browsers.
   const client = new FooClient({
     region: "us-east-1",
     credentials: fromCognitoIdentity({
-      client: cognitoIdentityClient, // Optional
+      clientConfig: cognitoIdentityClientConfig, // Optional
       identityId: "us-east-1:128d0a74-c82f-4553-916d-90053e4a8b0f",
       customRoleArn: "arn:aws:iam::1234567890:role/MYAPP-CognitoIdentity", // Optional
       logins: {
@@ -383,7 +383,7 @@ for more information.
         return "some_code";
       }, // Optional
       profile: "default", // Optional
-      stsConfig: { region }, // Optional
+      clientConfig: { region }, // Optional
     }),
   });
   ```
@@ -396,14 +396,14 @@ Retrieves credentials using OIDC token from a file on disk. It's commonly used i
 - **v3**: [`fromTokenFile`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_web_identity.html#fromtokenfile-1)
 
   ```javascript
-  import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity"; // ES6 import
-  // const { fromIni } from("@aws-sdk/credential-provider-ini"); // CommonJS import
+  import { fromTokenFile } from "@aws-sdk/credential-providers"; // ES6 import
+  // const { fromIni } from("@aws-sdk/credential-providers"); // CommonJS import
 
   const client = new FooClient({
     credentials: fromTokenFile({
       roleArn: "arn:xxxx" // Optional. Otherwise read from `AWS_ROLE_ARN` environmental variable
       roleSessionName: "session:a", // Optional. Otherwise read from `AWS_ROLE_SESSION_NAME` environmental variable
-      stsConfig: { region } // // Optional. STS client config to make the assume role request.
+      clientConfig: { region } // // Optional. STS client config to make the assume role request.
     })
   });
   ```
@@ -416,14 +416,14 @@ Retrieves credentials from STS web identity federation support.
 - **v3**: [`fromWebToken`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_web_identity.html#fromwebtoken-1)
 
   ```javascript
-  import { fromWebToken } from "@aws-sdk/credential-provider-web-identity"; // ES6 import
-  // const { fromWebToken } from("@aws-sdk/credential-provider-web-identity"); // CommonJS import
+  import { fromWebToken } from "@aws-sdk/credential-providers"; // ES6 import
+  // const { fromWebToken } from("@aws-sdk/credential-providers"); // CommonJS import
 
   const client = new FooClient({
     credentials: fromWebToken({
       roleArn: "arn:xxxx" // Otherwise read from `AWS_ROLE_ARN` environmental variable
       roleSessionName: "session:a", // Otherwise read from `AWS_ROLE_SESSION_NAME` environmental variable
-      stsConfig: { region } // // Optional. STS client config to make the assume role request.
+      clientConfig: { region } // // Optional. STS client config to make the assume role request.
     })
   });
   ```

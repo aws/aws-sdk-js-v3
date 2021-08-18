@@ -1,4 +1,4 @@
-import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
+import { CognitoIdentityClient, CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
 import {
   CognitoIdentityCredentialProvider as _CognitoIdentityCredentialProvider,
   fromCognitoIdentity as _fromCognitoIdentity,
@@ -7,9 +7,9 @@ import {
 
 export interface FromCognitoIdentityParameters extends Omit<_FromCognitoIdentityParameters, "client"> {
   /**
-   * Custom client if you need overwrite default client configuration
+   * Custom client configuration if you need overwrite default Cognito Identity client configuration.
    */
-  client?: CognitoIdentityClient;
+  clientConfig?: CognitoIdentityClientConfig;
 }
 
 export type CognitoIdentityCredentialProvider = _CognitoIdentityCredentialProvider;
@@ -43,8 +43,8 @@ export type CognitoIdentityCredentialProvider = _CognitoIdentityCredentialProvid
  *       "api.twitter.com": "TWITTERTOKEN'",
  *       "www.digits.com": "DIGITSTOKEN"
  *     },
- *     // Optional. Custom client if you need overwrite default client configuration
- *     client: new CognitoIdentityClient({ region })
+ *     // Optional. Custom client configuration if you need overwrite default Cognito Identity client configuration.
+ *     clientConfig: { region }
  *   }),
  * });
  * ```
@@ -52,5 +52,5 @@ export type CognitoIdentityCredentialProvider = _CognitoIdentityCredentialProvid
 export const fromCognitoIdentity = (options: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider =>
   _fromCognitoIdentity({
     ...options,
-    client: options.client ?? new CognitoIdentityClient({}),
+    client: new CognitoIdentityClient(options.clientConfig ?? {}),
   });

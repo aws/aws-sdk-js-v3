@@ -48,11 +48,11 @@ describe("fromIni", () => {
 
   it("should use supplied sts options", () => {
     const profile = "profile";
-    const stsConfig = {
+    const clientConfig = {
       region: "US_BAR_1",
     };
-    fromIni({ profile, stsConfig });
-    expect(getDefaultRoleAssumer).toBeCalledWith(stsConfig);
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(stsConfig);
+    fromIni({ profile, clientConfig });
+    expect(getDefaultRoleAssumer).toBeCalledWith(clientConfig);
+    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig);
   });
 });

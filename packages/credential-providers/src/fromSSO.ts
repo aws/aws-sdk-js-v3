@@ -1,7 +1,10 @@
+import { SSOClient, SSOClientConfig } from "@aws-sdk/client-sso";
 import { fromSSO as _fromSSO, FromSSOInit as _FromSSOInit } from "@aws-sdk/credential-provider-sso";
 import { CredentialProvider } from "@aws-sdk/types";
 
-export interface FromSSOInit extends _FromSSOInit {}
+export interface FromSSOInit extends Omit<_FromSSOInit, "client"> {
+  clientConfig?: SSOClientConfig;
+}
 
 /**
  * Creates a credential provider function that reads from the _resolved_ access token from local disk then requests
@@ -38,11 +41,11 @@ export interface FromSSOInit extends _FromSSOInit {}
  *     // Optional. The name of the AWS role to assume. Required if any of the `sso*` options(except for `ssoClient`) is
  *     // provided.
  *     ssoRoleName: "SampleRole",
- *     // Optional. The SSO Client used to request AWS credentials with the SSO access token. If not specified, a default
- *     // SSO client will be created with the region specified in the profile `sso_region` entry.
- *     ssoClient,
+ *     // Optional. Overwrite the configuration used construct the SSO service client.
+ *     clientConfig: { region },
  *   }),
  * });
  * ```
  */
-export const fromSSO = (init?: FromSSOInit): CredentialProvider => _fromSSO(init);
+export const fromSSO = (init: FromSSOInit = {}): CredentialProvider =>
+  _fromSSO({ ...{ ssoClient: init.clientConfig ? new SSOClient(init.clientConfig) : undefined }, ...init });

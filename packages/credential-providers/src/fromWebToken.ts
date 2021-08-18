@@ -6,7 +6,7 @@ import {
 import { CredentialProvider } from "@aws-sdk/types";
 
 export interface FromWebTokenInit extends _FromWebTokenInit {
-  stsConfig?: STSClientConfig;
+  clientConfig?: STSClientConfig;
 }
 
 /**
@@ -25,7 +25,7 @@ export interface FromWebTokenInit extends _FromWebTokenInit {
  *     // Required. The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider.
  *     webIdentityToken: await openIdProvider()
  *     // Optional. Custom STS client configurations overriding the default ones.
- *     stsConfig: { region }
+ *     clientConfig: { region }
  *     // Optional. A function that assumes a role with web identity and returns a promise fulfilled with credentials for
  *     // the assumed role.
  *     roleAssumerWithWebIdentity,
@@ -46,5 +46,6 @@ export interface FromWebTokenInit extends _FromWebTokenInit {
 export const fromWebToken = (init: FromWebTokenInit): CredentialProvider =>
   _fromWebToken({
     ...init,
-    roleAssumerWithWebIdentity: init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.stsConfig),
+    roleAssumerWithWebIdentity:
+      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig),
   });

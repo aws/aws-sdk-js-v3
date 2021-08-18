@@ -54,8 +54,8 @@ const dynamodb = new DynamoDBClient({
       "api.twitter.com": "TWITTERTOKEN'",
       "www.digits.com": "DIGITSTOKEN"
     },
-    // Optional. Custom client if you need overwrite default client configuration
-    client: new CognitoIdentityClient({ region })
+    // Optional. Custom client config if you need overwrite default Cognito Identity client configuration.
+    clientConfig: { region }
   }),
 });
 ```
@@ -95,8 +95,8 @@ const dynamodb = new DynamoDBClient({
       'api.twitter.com': 'TWITTERTOKEN',
       'www.digits.com': 'DIGITSTOKEN'
     },
-    // Optional. Custom client if you need overwrite default client configuration
-    client: new CognitoIdentityClient({ region })
+    // Optional. Custom client config if you need overwrite default Cognito Identity client configuration.
+    clientConfig: { region }
   }),
 });
 ```
@@ -130,7 +130,7 @@ const dynamodb = new DynamoDBClient({
       //... For more options see https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
     },
     // Optional. Custom STS client configurations overriding the default ones.
-    stsConfig: { region },
+    clientConfig: { region },
     // Optional. A function that returns a promise fulfilled with an MFA token code for the provided MFA Serial code.
     // Required if `params` has `SerialNumber` config.
     mfaCodeProvider: async mfaSerial => {
@@ -157,7 +157,7 @@ const dynamodb = new DynamoDBClient({
     // Required. The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider.
     webIdentityToken: await openIdProvider()
     // Optional. Custom STS client configurations overriding the default ones.
-    stsConfig: { region }
+    clientConfig: { region }
     // Optional. A function that assumes a role with web identity and returns a promise fulfilled with credentials for
     // the assumed role.
     roleAssumerWithWebIdentity,
@@ -278,7 +278,7 @@ const client = new DynamoDBClient({
       return "token";
     },
     // Optional. Custom STS client configurations overriding the default ones.
-    stsConfig: { region },
+    clientConfig: { region },
   }),
 });
 ```
@@ -473,7 +473,7 @@ import { fromTokenFile } from "@aws-sdk/credential-providers"; // ES6 example
 const client = new DynamoDBClient({
   credentials: fromTokenFile({
     // Optional. STS client config to make the assume role request.
-    stsConfig: { region }
+    clientConfig: { region }
   });
 });
 ```
@@ -527,9 +527,9 @@ const client = new DynamoDBClient({
     // Optional. The name of the AWS role to assume. Required if any of the `sso*` options(except for `ssoClient`) is
     // provided.
     ssoRoleName: "SampleRole",
-    // Optional. The SSO Client used to request AWS credentials with the SSO access token. If not specified, a default
+    // Optional. Overwrite the configuration used construct the SSO service client. If not specified, a default
     // SSO client will be created with the region specified in the profile `sso_region` entry.
-    ssoClient,
+    clientConfig: { region },
   }),
 });
 ```

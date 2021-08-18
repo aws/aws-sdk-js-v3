@@ -29,14 +29,14 @@ describe("fromCognitoIdentity", () => {
     expect(CognitoIdentityClient).toBeCalled();
   });
 
-  it("should use client if supplied", () => {
-    const client = "CLIENT" as any;
+  it("should use client config if supplied", () => {
+    const clientConfig = "CLIENT" as any;
     fromCognitoIdentity({
       identityId,
-      client: client,
+      clientConfig,
     });
     expect((coreProvider as jest.Mock).mock.calls[0][0]?.identityId).toBe(identityId);
-    expect((coreProvider as jest.Mock).mock.calls[0][0]?.client).toBe(client);
-    expect(CognitoIdentityClient).not.toBeCalled();
+    expect((coreProvider as jest.Mock).mock.calls[0][0]?.client).toBeInstanceOf(CognitoIdentityClient);
+    expect(CognitoIdentityClient).toBeCalledWith(clientConfig);
   });
 });

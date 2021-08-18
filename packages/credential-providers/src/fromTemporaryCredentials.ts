@@ -5,7 +5,7 @@ import { CredentialProvider, Credentials } from "@aws-sdk/types";
 export interface FromTemporaryCredentialsOptions {
   params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string };
   masterCredentials?: Credentials | CredentialProvider;
-  stsConfig?: STSClientConfig;
+  clientConfig?: STSClientConfig;
   mfaCodeProvider?: (mfaSerial: string) => Promise<string>;
 }
 
@@ -36,7 +36,7 @@ export interface FromTemporaryCredentialsOptions {
  *       //... For more options see https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
  *     },
  *     // Optional. Custom STS client configurations overriding the default ones.
- *     stsConfig: { region },
+ *     clientConfig: { region },
  *     // Optional. A function that returns a promise fulfilled with an MFA token code for the provided MFA Serial code.
  *     // Required if `params` has `SerialNumber` config.
  *     mfaCodeProvider: async mfaSerial => {
@@ -59,7 +59,7 @@ export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOption
       }
       params.TokenCode = await options.mfaCodeProvider(params?.SerialNumber);
     }
-    if (!stsClient) stsClient = new STSClient({ ...options.stsConfig, credentials: options.masterCredentials });
+    if (!stsClient) stsClient = new STSClient({ ...options.clientConfig, credentials: options.masterCredentials });
     const { Credentials } = await stsClient.send(new AssumeRoleCommand(params));
     if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
       throw new CredentialsProviderError(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`);

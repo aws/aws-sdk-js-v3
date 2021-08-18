@@ -27,15 +27,15 @@ describe("fromTokenFile", () => {
   });
 
   it("should supply sts config to role assumer", () => {
-    const stsConfig = {
+    const clientConfig = {
       region: "US_FOO_0",
     };
     fromTokenFile({
-      stsConfig,
+      clientConfig,
     });
     expect((coreProvider as jest.Mock).mock.calls[0][0]).toMatchObject({
       roleAssumerWithWebIdentity: ROLE_ASSUMER_WITH_WEB_IDENTITY,
     });
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(stsConfig);
+    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig);
   });
 });

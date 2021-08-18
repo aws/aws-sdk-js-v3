@@ -6,7 +6,7 @@ import {
 import { CredentialProvider } from "@aws-sdk/types";
 
 export interface FromTokenFileInit extends _FromTokenFileInit {
-  stsConfig?: STSClientConfig;
+  clientConfig?: STSClientConfig;
 }
 
 /**
@@ -29,7 +29,7 @@ export interface FromTokenFileInit extends _FromTokenFileInit {
  * const client = new FooClient({
  *   credentials: fromTokenFile({
  *     // Optional. STS client config to make the assume role request.
- *     stsConfig: { region }
+ *     clientConfig: { region }
  *   });
  * });
  * ```
@@ -37,5 +37,6 @@ export interface FromTokenFileInit extends _FromTokenFileInit {
 export const fromTokenFile = (init: FromTokenFileInit = {}): CredentialProvider =>
   _fromTokenFile({
     ...init,
-    roleAssumerWithWebIdentity: init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.stsConfig),
+    roleAssumerWithWebIdentity:
+      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig),
   });

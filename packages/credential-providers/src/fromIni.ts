@@ -3,7 +3,7 @@ import { fromIni as _fromIni, FromIniInit as _FromIniInit } from "@aws-sdk/crede
 import { CredentialProvider } from "@aws-sdk/types";
 
 export interface FromIniInit extends _FromIniInit {
-  stsConfig?: STSClientConfig;
+  clientConfig?: STSClientConfig;
 }
 
 /**
@@ -37,7 +37,7 @@ export interface FromIniInit extends _FromIniInit {
  *       return "token";
  *     },
  *     // Optional. Custom STS client configurations overriding the default ones.
- *     stsConfig: { region },
+ *     clientConfig: { region },
  *   }),
  * });
  * ```
@@ -45,6 +45,7 @@ export interface FromIniInit extends _FromIniInit {
 export const fromIni = (init: FromIniInit = {}): CredentialProvider =>
   _fromIni({
     ...init,
-    roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.stsConfig),
-    roleAssumerWithWebIdentity: init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.stsConfig),
+    roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.clientConfig),
+    roleAssumerWithWebIdentity:
+      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig),
   });
