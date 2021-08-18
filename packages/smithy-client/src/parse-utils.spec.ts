@@ -10,85 +10,76 @@ describe("parseBoolean", () => {
     expect(parseBoolean("false")).toEqual(false);
   });
 
-  it("Throws an error on invalid input", () => {
-    // These are valid booleans in YAML
-    expect(() => parseBoolean("y" as any)).toThrowError();
-    expect(() => parseBoolean("Y" as any)).toThrowError();
-    expect(() => parseBoolean("yes" as any)).toThrowError();
-    expect(() => parseBoolean("Yes" as any)).toThrowError();
-    expect(() => parseBoolean("YES" as any)).toThrowError();
-    expect(() => parseBoolean("n" as any)).toThrowError();
-    expect(() => parseBoolean("N" as any)).toThrowError();
-    expect(() => parseBoolean("no" as any)).toThrowError();
-    expect(() => parseBoolean("No" as any)).toThrowError();
-    expect(() => parseBoolean("NO" as any)).toThrowError();
-    expect(() => parseBoolean("True" as any)).toThrowError();
-    expect(() => parseBoolean("TRUE" as any)).toThrowError();
-    expect(() => parseBoolean("False" as any)).toThrowError();
-    expect(() => parseBoolean("FALSE" as any)).toThrowError();
-    expect(() => parseBoolean("on" as any)).toThrowError();
-    expect(() => parseBoolean("On" as any)).toThrowError();
-    expect(() => parseBoolean("ON" as any)).toThrowError();
-    expect(() => parseBoolean("off" as any)).toThrowError();
-    expect(() => parseBoolean("Off" as any)).toThrowError();
-    expect(() => parseBoolean("OFF" as any)).toThrowError();
-
-    // These would be resolve to false using Boolean
-    expect(() => parseBoolean(0 as any)).toThrowError();
-    expect(() => parseBoolean(null as any)).toThrowError();
-    expect(() => parseBoolean("" as any)).toThrowError();
-    expect(() => parseBoolean(false as any)).toThrowError();
-
-    // These would resolve to true using Boolean
-    expect(() => parseBoolean(true as any)).toThrowError();
-    expect(() => parseBoolean("Su Lin" as any)).toThrowError();
-    expect(() => parseBoolean([] as any)).toThrowError();
-    expect(() => parseBoolean({} as any)).toThrowError();
+  describe("Throws an error on invalid input", () => {
+    it.each([
+      // These are valid booleans in YAML
+      "y",
+      "Y",
+      "yes",
+      "Yes",
+      "YES",
+      "n",
+      "N",
+      "no",
+      "No",
+      "NO",
+      "True",
+      "TRUE",
+      "False",
+      "FALSE",
+      "on",
+      "On",
+      "ON",
+      "off",
+      "Off",
+      "OFF",
+      // These would be resolve to false using Boolean
+      0,
+      null,
+      "",
+      false,
+      // These would resolve to true using Boolean
+      true,
+      "Su Lin",
+      [],
+      {},
+    ])("rejects %s", (value) => {
+      expect(() => parseBoolean(value as any)).toThrowError();
+    });
   });
 });
 
 describe("expectBoolean", () => {
-  it("accepts booleans", () => {
-    expect(expectBoolean(true)).toEqual(true);
-    expect(expectBoolean(false)).toEqual(false);
-    expect(expectBoolean(null)).toEqual(undefined);
-    expect(expectBoolean(undefined)).toEqual(undefined);
+  it.each([true, false])("accepts %s", (value) => {
+    expect(expectBoolean(value)).toEqual(value);
   });
 
-  it("rejects non-booleans", () => {
-    expect(() => expectBoolean("true")).toThrowError();
-    expect(() => expectBoolean("false")).toThrowError();
-    expect(() => expectBoolean(0)).toThrowError();
-    expect(() => expectBoolean(1)).toThrowError();
-    expect(() => expectBoolean(1.1)).toThrowError();
-    expect(() => expectBoolean(Infinity)).toThrowError();
-    expect(() => expectBoolean(-Infinity)).toThrowError();
-    expect(() => expectBoolean(NaN)).toThrowError();
-    expect(() => expectBoolean({})).toThrowError();
-    expect(() => expectBoolean([])).toThrowError();
+  it.each([null, undefined])("accepts %s", (value) => {
+    expect(expectBoolean(value)).toEqual(undefined);
+  });
+
+  describe("rejects non-booleans", () => {
+    it.each(["true", "false", 0, 1, 1.1, Infinity, -Infinity, NaN, {}, []])("rejects %s", (value) => {
+      expect(() => expectBoolean(value)).toThrowError();
+    });
   });
 });
 
 describe("expectNumber", () => {
-  it("accepts numbers", () => {
-    expect(expectNumber(1)).toEqual(1);
-    expect(expectNumber(1.1)).toEqual(1.1);
-    expect(expectNumber(Infinity)).toEqual(Infinity);
-    expect(expectNumber(-Infinity)).toEqual(-Infinity);
-    expect(expectNumber(null)).toEqual(undefined);
-    expect(expectNumber(undefined)).toEqual(undefined);
+  describe("accepts numbers", () => {
+    it.each([1, 1.1, Infinity, -Infinity])("accepts %s", (value) => {
+      expect(expectNumber(value)).toEqual(value);
+    });
   });
 
-  it("rejects non-numbers", () => {
-    expect(() => expectNumber("1")).toThrowError();
-    expect(() => expectNumber("1.1")).toThrowError();
-    expect(() => expectNumber("Infinity")).toThrowError();
-    expect(() => expectNumber("-Infinity")).toThrowError();
-    expect(() => expectNumber("NaN")).toThrowError();
-    expect(() => expectNumber(true)).toThrowError();
-    expect(() => expectNumber(false)).toThrowError();
-    expect(() => expectNumber([])).toThrowError();
-    expect(() => expectNumber({})).toThrowError();
+  it.each([null, undefined])("accepts %s", (value) => {
+    expect(expectNumber(value)).toEqual(undefined);
+  });
+
+  describe("rejects non-numbers", () => {
+    it.each(["1", "1.1", "Infinity", "-Infinity", "NaN", true, false, [], {}])("rejects %s", (value) => {
+      expect(() => expectNumber(value)).toThrowError();
+    });
   });
 });
 
@@ -97,44 +88,35 @@ describe("expectInt", () => {
     expect(expectInt(1)).toEqual(1);
   });
 
-  it("accepts null/undefined", () => {
-    expect(expectInt(null)).toEqual(undefined);
-    expect(expectInt(undefined)).toEqual(undefined);
+  it.each([null, undefined])("accepts %s", (value) => {
+    expect(expectInt(value)).toEqual(undefined);
   });
 
-  it("rejects non-integers", () => {
-    expect(() => expectInt(1.1)).toThrowError();
-    expect(() => expectInt("1")).toThrowError();
-    expect(() => expectInt("1.1")).toThrowError();
-    expect(() => expectInt(NaN)).toThrowError();
-    expect(() => expectInt(true)).toThrowError();
-    expect(() => expectInt(false)).toThrowError();
-    expect(() => expectInt([])).toThrowError();
-    expect(() => expectInt({})).toThrowError();
+  describe("rejects non-integers", () => {
+    it.each([1.1, "1", "1.1", NaN, true, [], {}])("rejects %s", (value) => {
+      expect(() => expectInt(value)).toThrowError();
+    });
   });
 });
 
 describe("expectString", () => {
   it("accepts strings", () => {
     expect(expectString("foo")).toEqual("foo");
-    expect(expectString(null)).toEqual(undefined);
-    expect(expectString(undefined)).toEqual(undefined);
   });
 
-  it("rejects non-strings", () => {
-    expect(() => expectString(1)).toThrowError();
-    expect(() => expectString(NaN)).toThrowError();
-    expect(() => expectString(Infinity)).toThrowError();
-    expect(() => expectString(-Infinity)).toThrowError();
-    expect(() => expectString(true)).toThrowError();
-    expect(() => expectString(false)).toThrowError();
-    expect(() => expectString([])).toThrowError();
-    expect(() => expectString({})).toThrowError();
+  it.each([null, undefined])("accepts %s", (value) => {
+    expect(expectString(value)).toEqual(undefined);
+  });
+
+  describe("rejects non-strings", () => {
+    it.each([1, NaN, Infinity, -Infinity, true, false, [], {}])("rejects %s", (value) => {
+      expect(() => expectString(value)).toThrowError();
+    });
   });
 });
 
 describe("strictParseFloat", () => {
-  it("accepts non-numeric floats as strings", () => {
+  describe("accepts non-numeric floats as strings", () => {
     expect(strictParseFloat("Infinity")).toEqual(Infinity);
     expect(strictParseFloat("-Infinity")).toEqual(-Infinity);
     expect(strictParseFloat("NaN")).toEqual(NaN);
@@ -149,14 +131,14 @@ describe("strictParseFloat", () => {
     expect(strictParseFloat("1.1")).toEqual(1.1);
   });
 
-  it("accepts numbers", () => {
-    expect(strictParseFloat(1)).toEqual(1);
-    expect(strictParseFloat(1.1)).toEqual(1.1);
-    expect(strictParseFloat(Infinity)).toEqual(Infinity);
-    expect(strictParseFloat(-Infinity)).toEqual(-Infinity);
-    expect(strictParseFloat(NaN)).toEqual(NaN);
-    expect(strictParseFloat(null)).toEqual(undefined);
-    expect(strictParseFloat(undefined)).toEqual(undefined);
+  describe("accepts numbers", () => {
+    it.each([1, 1.1, Infinity, -Infinity, NaN])("accepts %s", (value) => {
+      expect(strictParseFloat(value)).toEqual(value);
+    });
+  });
+
+  it.each([null, undefined])("accepts %s", (value) => {
+    expect(strictParseFloat(value)).toEqual(undefined);
   });
 });
 
@@ -171,19 +153,20 @@ describe("limitedParseFloat", () => {
     expect(() => limitedParseFloat("foo")).toThrowError();
   });
 
-  it("rejects numeric strings", () => {
-    expect(() => limitedParseFloat("1")).toThrowError();
-    expect(() => limitedParseFloat("1.1")).toThrowError();
+  describe("rejects numeric strings", () => {
+    it.each(["1", "1.1"])("rejects %s", (value) => {
+      expect(() => limitedParseFloat(value)).toThrowError();
+    });
   });
 
-  it("accepts numbers", () => {
-    expect(limitedParseFloat(1)).toEqual(1);
-    expect(limitedParseFloat(1.1)).toEqual(1.1);
-    expect(limitedParseFloat(Infinity)).toEqual(Infinity);
-    expect(limitedParseFloat(-Infinity)).toEqual(-Infinity);
-    expect(limitedParseFloat(NaN)).toEqual(NaN);
-    expect(limitedParseFloat(null)).toEqual(undefined);
-    expect(limitedParseFloat(undefined)).toEqual(undefined);
+  describe("accepts numbers", () => {
+    it.each([1, 1.1, Infinity, -Infinity, NaN])("accepts %s", (value) => {
+      expect(limitedParseFloat(value)).toEqual(value);
+    });
+  });
+
+  it.each([null, undefined])("accepts %s", (value) => {
+    expect(limitedParseFloat(value)).toEqual(undefined);
   });
 });
 
@@ -193,23 +176,16 @@ describe("strictParseInt", () => {
     expect(strictParseInt("1")).toEqual(1);
   });
 
-  it("accepts null/undefined", () => {
-    expect(strictParseInt(null)).toEqual(undefined);
-    expect(strictParseInt(undefined)).toEqual(undefined);
+  it.each([null, undefined])("accepts %s", (value) => {
+    expect(strictParseInt(value)).toEqual(undefined);
   });
 
-  it("rejects non-integers", () => {
-    expect(() => strictParseInt(1.1)).toThrowError();
-    expect(() => strictParseInt("1.1")).toThrowError();
-    expect(() => strictParseInt("NaN")).toThrowError();
-    expect(() => strictParseInt("Infinity")).toThrowError();
-    expect(() => strictParseInt("-Infinity")).toThrowError();
-    expect(() => strictParseInt(NaN)).toThrowError();
-    expect(() => strictParseInt(Infinity)).toThrowError();
-    expect(() => strictParseInt(-Infinity)).toThrowError();
-    expect(() => strictParseInt(true as any)).toThrowError();
-    expect(() => strictParseInt(false as any)).toThrowError();
-    expect(() => strictParseInt([] as any)).toThrowError();
-    expect(() => strictParseInt({} as any)).toThrowError();
+  describe("rejects non-integers", () => {
+    it.each([1.1, "1.1", "NaN", "Infinity", "-Infinity", NaN, Infinity, -Infinity, true, false, [], {}])(
+      "rejects %s",
+      (value) => {
+        expect(() => strictParseInt(value as any)).toThrowError();
+      }
+    );
   });
 });

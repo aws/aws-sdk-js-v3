@@ -87,8 +87,8 @@ export const expectString = (value: any): string | undefined => {
  * Parses a value into a float. If the value is null or undefined, undefined
  * will be returned. If the value is a string, it will be parsed by the standard
  * parseFloat with one exception: NaN may only be explicitly set as the string
- * "NaN", any implicit nans will result in an error being thrown. If any other
- * type is provided, an exception will be thrown.
+ * "NaN", any implicit Nan values will result in an error being thrown. If any
+ * other type is provided, an exception will be thrown.
  *
  * @param value A number or string representation of a float.
  * @returns The value as a number, or undefined if it's null/undefined.
