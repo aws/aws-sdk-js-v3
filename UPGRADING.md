@@ -237,7 +237,7 @@ Default credential provider is how SDK resolve the AWS credential if you DO NOT 
   };
   const client = new FooClient({
     credentials: fromTemporaryCredentials({
-      sourceCredentials,
+      masterCredentials: sourceCredentials,
       params: { RoleArn },
     }),
   });
