@@ -8,8 +8,8 @@ import { CredentialProvider } from "@aws-sdk/types";
  * Creates a credential provider function that reads from the EC2 instance metadata service.
  *
  * ```javascript
- * import { fromInstanceMetadata } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromInstanceMetadata } = require("@aws-sdk/credential-providers"); // CommonJS example
+ * import { fromInstanceMetadata } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromInstanceMetadata } = require("@aws-sdk/credential-providers"); // CommonJS import
  *
  * const client = new DynamoDBClient({
  *   credentials: fromInstanceMetadata({

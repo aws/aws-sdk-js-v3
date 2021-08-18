@@ -21,8 +21,8 @@ export type CognitoIdentityCredentialProvider = _CognitoIdentityCredentialProvid
  * Results from this function call are not cached internally.
  *
  * ```javascript
- * import { fromCognitoIdentity } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromCognitoIdentity } = require("@aws-sdk/credential-providers"); // CommonJS example
+ * import { fromCognitoIdentity } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromCognitoIdentity } = require("@aws-sdk/credential-providers"); // CommonJS import
  *
  * const client = new FooClient({
  *   region,

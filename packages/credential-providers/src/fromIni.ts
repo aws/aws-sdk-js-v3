@@ -16,8 +16,8 @@ export interface FromIniInit extends _FromIniInit {
  * given precedence over the profile found in the config file.
  *
  * ```javascript
- * import { fromIni } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromIni } = require("@aws-sdk/credential-providers"); // CommonJS example
+ * import { fromIni } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromIni } = require("@aws-sdk/credential-providers"); // CommonJS import
  *
  * const client = new FooClient({
  *   credentials: fromIni({

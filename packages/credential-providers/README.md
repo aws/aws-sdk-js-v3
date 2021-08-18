@@ -18,103 +18,106 @@ A collection of all credential providers, with default clients.
    1. [Sample Files](#sample-files)
 1. [From Environmental Variables](#fromenv)
 1. [From Credential Process](#fromprocess)
-   1. [Sample files](#sample-files)
-1. [From Single-Sign-On Service](#fromsso)
+   1. [Sample files](#sample-files-1)
+1. [From Single Sign-On Service](#fromsso)
    1. [Supported Configuration](#supported-configuration)
    1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
-   1. [Sample Files](#sample-files)
+   1. [Sample Files](#sample-files-2)
 
 ## `fromCognitoIdentity()`
 
-The function `fromCognitoIdentity()` returns `CredentialsProvider` that retrieves credentials for the provided identity
-ID. See [GetCredentialsForIdentity API](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html)
+The function `fromCognitoIdentity()` returns `CredentialsProvider` that retrieves credentials for
+the provided identity ID. See [GetCredentialsForIdentity API][getcredentialsforidentity_api]
 for more information.
 
 ```javascript
-import { fromCognitoIdentity } from "@aws-sdk/credential-providers"; // ES6 example
-// const { fromCognitoIdentity } = require("@aws-sdk/credential-providers"); // CommonJS example
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb"; // ES6 example
-// const { DynamoDBClient } = require("@aws-sdk/client-dynamodb"); // CommonJS example
+import { fromCognitoIdentity } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromCognitoIdentity } = require("@aws-sdk/credential-providers"); // CommonJS import
 
-const dynamodb = new DynamoDBClient({
+const client = new FooClient({
   region,
   credentials: fromCognitoIdentity({
     // Required. The unique identifier for the identity against which credentials
     // will be issued.
-    identityId: "us-east-1:128d0a74-c82f-4553-916d-90053e4a8b0f"
-    // optional. The ARN of the role to be assumed when multiple roles werereceived in the token from the identity
-    // provider.
-    customRoleArn: "arn:aws:iam::1234567890:role/MYAPP-CognitoIdentity"
-    // Optional. A set of name-value pairs that map provider names to provider tokens. Required when using identities
-    // associated with external identity providers such as Facebook.
+    identityId: "us-east-1:128d0a74-c82f-4553-916d-90053example",
+    // Optional. The ARN of the role to be assumed when multiple roles were received in the token
+    // from the identity provider.
+    customRoleArn: "arn:aws:iam::1234567890:role/MYAPP-CognitoIdentity",
+    // Optional. A set of name-value pairs that map provider names to provider tokens.
+    // Required when using identities associated with external identity providers such as Facebook.
     logins: {
       "graph.facebook.com": "FBTOKEN",
       "www.amazon.com": "AMAZONTOKEN",
       "accounts.google.com": "GOOGLETOKEN",
       "api.twitter.com": "TWITTERTOKEN'",
-      "www.digits.com": "DIGITSTOKEN"
+      "www.digits.com": "DIGITSTOKEN",
     },
-    // Optional. Custom client config if you need overwrite default Cognito Identity client configuration.
-    clientConfig: { region }
+    // Optional. Custom client config if you need overwrite default Cognito Identity client
+    // configuration.
+    clientConfig: { region },
   }),
 });
 ```
 
 ## `fromCognitoIdentityPool()`
 
-The function `fromCognitoIdentityPool()` returns `CredentialProvider` that calls [GetId API](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html)
-to obtain an `identityId`, then generates temporary AWS credentials with [GetCredentialsForIdentity API](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html),
-see [`fromCognitoIdentity()`](#fromcognitoidentity).
+The function `fromCognitoIdentityPool()` returns `CredentialProvider` that calls [GetId API][getid_api]
+to obtain an `identityId`, then generates temporary AWS credentials with
+[GetCredentialsForIdentity API][getcredentialsforidentity_api], see
+[`fromCognitoIdentity()`](#fromcognitoidentity).
 
 Results from `GetId` are cached internally, but results from `GetCredentialsForIdentity` are not.
 
 ```javascript
-import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers"; // ES6 example
-// const { fromCognitoIdentityPool } = require("@aws-sdk/credential-providers"); // CommonJS example
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromCognitoIdentityPool } = require("@aws-sdk/credential-providers"); // CommonJS import
 
-const dynamodb = new DynamoDBClient({
+const client = new FooClient({
   region,
   credentials: fromCognitoIdentityPool({
-    // Required. The unique identifier for the identity pool from which an identity should be retrieved or generated.
-    identityPoolId: "us-east-1:1699ebc0-7900-4099-b910-2df94f52a030";
+    // Required. The unique identifier for the identity pool from which an identity should be
+    // retrieved or generated.
+    identityPoolId: "us-east-1:1699ebc0-7900-4099-b910-2df94f52a030",
     // Optional. A standard AWS account ID (9+ digits)
     accountId: "123456789",
     // Optional. A cache in which to store resolved Cognito IdentityIds.
     cache: custom_storage,
-    // Optional. A unique identifier for the user used to cache Cognito IdentityIds on a per-user basis.
+    // Optional. A unique identifier for the user used to cache Cognito IdentityIds on a per-user
+    // basis.
     userIdentifier: "user_0",
-    // optional. The ARN of the role to be assumed when multiple roles were received in the token from the identity
-    // provider.
-    customRoleArn: "arn:aws:iam::1234567890:role/MYAPP-CognitoIdentity"
-    // Optional. A set of name-value pairs that map provider names to provider tokens. Required when using identities
-    // associated with external identity providers such as Facebook.
+    // Optional. The ARN of the role to be assumed when multiple roles were received in the token
+    // from the identity provider.
+    customRoleArn: "arn:aws:iam::1234567890:role/MYAPP-CognitoIdentity",
+    // Optional. A set of name-value pairs that map provider names to provider tokens.
+    // Required when using identities associated with external identity providers such as Facebook.
     logins: {
-      'graph.facebook.com': 'FBTOKEN',
-      'www.amazon.com': 'AMAZONTOKEN',
-      'accounts.google.com': 'GOOGLETOKEN',
-      'api.twitter.com': 'TWITTERTOKEN',
-      'www.digits.com': 'DIGITSTOKEN'
+      "graph.facebook.com": "FBTOKEN",
+      "www.amazon.com": "AMAZONTOKEN",
+      "accounts.google.com": "GOOGLETOKEN",
+      "api.twitter.com": "TWITTERTOKEN",
+      "www.digits.com": "DIGITSTOKEN",
     },
-    // Optional. Custom client config if you need overwrite default Cognito Identity client configuration.
-    clientConfig: { region }
+    // Optional. Custom client config if you need overwrite default Cognito Identity client
+    // configuration.
+    clientConfig: { region },
   }),
 });
 ```
 
 ## `fromTemporaryCredentials()`
 
-The function `fromTemporaryCredentials` returns `CredentialProvider` that retrieves temporary credentials from
-[STS AssumeRole API](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html).
+The function `fromTemporaryCredentials` returns `CredentialProvider` that retrieves temporary
+credentials from [STS AssumeRole API][assumerole_api].
 
 ```javascript
-import { fromTemporaryCredentials } from "@aws-sdk/credential-providers"; // ES6 example
-// const { fromTemporaryCredentials } = require("@aws-sdk/credential-providers"); // CommonJS example
+import { fromTemporaryCredentials } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromTemporaryCredentials } = require("@aws-sdk/credential-providers"); // CommonJS import
 
-const dynamodb = new DynamoDBClient({
+const client = new FooClient({
   region,
   credentials: fromTemporaryCredentials(
-    // Optional. The master credentials used to get and refresh temporary credentials from AWS STS. If skipped, it uses
-    // the default credential resolved by internal STS client.
+    // Optional. The master credentials used to get and refresh temporary credentials from AWS STS.
+    // If skipped, it uses the default credential resolved by internal STS client.
     masterCredentials: fromTemporaryCredentials({
       params: { RoleArn: "arn:aws:iam::1234567890:role/RoleA" }
     }),
@@ -122,17 +125,17 @@ const dynamodb = new DynamoDBClient({
     params: {
       // Required. ARN of role to assume.
       RoleArn: "arn:aws:iam::1234567890:role/RoleB",
-      // Optional. An identifier for the assumed role session. If skipped, it generates a random session name with
-      // prefix of 'aws-sdk-js-'.
+      // Optional. An identifier for the assumed role session. If skipped, it generates a random
+      // session name with prefix of 'aws-sdk-js-'.
       RoleSessionName: "aws-sdk-js-123",
       // Optional. The duration, in seconds, of the role session.
       DurationSeconds: 3600
-      //... For more options see https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
+      // ... For more options see https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
     },
     // Optional. Custom STS client configurations overriding the default ones.
     clientConfig: { region },
-    // Optional. A function that returns a promise fulfilled with an MFA token code for the provided MFA Serial code.
-    // Required if `params` has `SerialNumber` config.
+    // Optional. A function that returns a promise fulfilled with an MFA token code for the provided
+    // MFA Serial code. Required if `params` has `SerialNumber` config.
     mfaCodeProvider: async mfaSerial => {
       return "token"
     }
@@ -143,42 +146,44 @@ const dynamodb = new DynamoDBClient({
 ## `fromWebToken()`
 
 The function `fromWebToken` returns `CredentialProvider` that gets credentials calling
-[STS AssumeRoleWithWebIdentity API](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html)
+[STS AssumeRoleWithWebIdentity API][assumerolewithwebidentity_api]
 
 ```javascript
-import { fromWebToken } from "@aws-sdk/credential-providers"; // ES6 example
-// const { fromWebToken } = require("@aws-sdk/credential-providers"); // CommonJS example
+import { fromWebToken } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromWebToken } = require("@aws-sdk/credential-providers"); // CommonJS import
 
-const dynamodb = new DynamoDBClient({
+const client = new FooClient({
   region,
   credentials: fromWebToken({
     // Required. ARN of the role that the caller is assuming.
     roleArn: "arn:aws:iam::1234567890:role/RoleA",
-    // Required. The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider.
-    webIdentityToken: await openIdProvider()
+    // Required. The OAuth 2.0 access token or OpenID Connect ID token that is provided by the
+    // identity provider.
+    webIdentityToken: await openIdProvider(),
     // Optional. Custom STS client configurations overriding the default ones.
-    clientConfig: { region }
-    // Optional. A function that assumes a role with web identity and returns a promise fulfilled with credentials for
-    // the assumed role.
+    clientConfig: { region },
+    // Optional. A function that assumes a role with web identity and returns a promise fulfilled
+    // with credentials for the assumed role.
     roleAssumerWithWebIdentity,
     // Optional. An identifier for the assumed role session.
     roleSessionName: "session_123",
     // Optional. The fully qualified host component of the domain name of the identity provider.
     providerId: "graph.facebook.com",
     // Optional. ARNs of the IAM managed policies that you want to use as managed session.
-    policyArns: [{arn: "arn:aws:iam::1234567890:policy/SomePolicy"}],
+    policyArns: [{ arn: "arn:aws:iam::1234567890:policy/SomePolicy" }],
     // Optional. An IAM policy in JSON format that you want to use as an inline session policy.
     policy: "JSON_STRING",
     // Optional. The duration, in seconds, of the role session. Default to 3600.
-    durationSeconds: 7200
+    durationSeconds: 7200,
   }),
 });
 ```
 
 ### Examples
 
-You can directly configure individual identity providers to access AWS resources using web identity federation. AWS
-currently supports authenticating users using web identity federation through several identity providers:
+You can directly configure individual identity providers to access AWS resources using web identity
+federation. AWS currently supports authenticating users using web identity federation through
+several identity providers:
 
 - [Login with Amazon](https://login.amazon.com/)
 
@@ -186,94 +191,102 @@ currently supports authenticating users using web identity federation through se
 
 - [Google Sign-in](https://developers.google.com/identity/)
 
-You must first register your application with the providers that your application supports. Next, create an IAM role and
-set up permissions for it. The IAM role you create is then used to grant the permissions you configured for it through
-the respective identity provider. For example, you can set up a role that allows users who logged in through Facebook
-to have read access to a specific Amazon S3 bucket you control.
+You must first register your application with the providers that your application supports. Next,
+create an IAM role and set up permissions for it. The IAM role you create is then used to grant the
+permissions you configured for it through the respective identity provider. For example, you can set
+up a role that allows users who logged in through Facebook to have read access to a specific Amazon
+S3 bucket you control.
 
-After you have both an IAM role with configured privileges and an application registered with your chosen identity
-providers, you can set up the SDK to get credentials for the IAM role using helper code, as follows:
+After you have both an IAM role with configured privileges and an application registered with your
+chosen identity providers, you can set up the SDK to get credentials for the IAM role using helper
+code, as follows:
 
-The value in the ProviderId parameter depends on the specified identity provider. The value in the WebIdentityToken
-parameter is the access token retrieved from a successful login with the identity provider. For more information on how
-to configure and retrieve access tokens for each identity provider, see the documentation for the identity provider.
+The value in the ProviderId parameter depends on the specified identity provider. The value in the
+WebIdentityToken parameter is the access token retrieved from a successful login with the identity
+provider. For more information on how to configure and retrieve access tokens for each identity
+provider, see the documentation for the identity provider.
 
 ## `fromContainerMetadata()` and `fromInstanceMetadata()`
 
-`fromContainerMetadata` and `fromInstanceMetadata` will create `CredentialProvider` functions that read from the ECS
-container metadata service and the EC2 instance metadata service, respectively.
+`fromContainerMetadata` and `fromInstanceMetadata` will create `CredentialProvider` functions that
+read from the ECS container metadata service and the EC2 instance metadata service, respectively.
 
 ```javascript
-import { fromInstanceMetadata, fromContainerMetadata } from "@aws-sdk/credential-providers"; // ES6 example
-// const { fromInstanceMetadata, fromContainerMetadata } = require("@aws-sdk/credential-providers"); // CommonJS example
+import { fromInstanceMetadata } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromInstanceMetadata } = require("@aws-sdk/credential-providers"); // CommonJS import
 
-const client = new DynamoDBClient({
+const client = new FooClient({
   credentials: fromInstanceMetadata({
-    // Optional. The connection timeout (in milliseconds) to apply to any remote requests. If not specified, a default
-    // value of`1000` (one second) is used.
+    // Optional. The connection timeout (in milliseconds) to apply to any remote requests.
+    // If not specified, a default value of `1000` (one second) is used.
     timeout: 1000,
-    // Optional. The maximum number of times any HTTP connections should be retried. If not specified, a default value
-    // of `0` will be used.
+    // Optional. The maximum number of times any HTTP connections should be retried. If not
+    // specified, a default value of `0` will be used.
     maxRetries: 0,
   }),
 });
 ```
 
 ```javascript
-const client = new DynamoDBClient({
+import { fromContainerMetadata } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromContainerMetadata } = require("@aws-sdk/credential-providers"); // CommonJS import
+
+const client = new FooClient({
   credentials: fromContainerMetadata({
-    // Optional. The connection timeout (in milliseconds) to apply to any remote requests. If not specified, a default
-    // value of`1000` (one second) is used.
+    // Optional. The connection timeout (in milliseconds) to apply to any remote requests.
+    // If not specified, a default value of `1000` (one second) is used.
     timeout: 1000,
-    // Optional. The maximum number of times any HTTP connections should be retried. If not specified, a default value
-    // of `0` will be used.
+    // Optional. The maximum number of times any HTTP connections should be retried. If not
+    // specified, a default value of `0` will be used.
     maxRetries: 0,
   }),
 });
 ```
 
-A `CredentialProvider` function created with `fromContainerMetadata` will return
-a promise that will resolve with credentials for the IAM role associated with
-containers in an Amazon ECS task. Please see [IAM Roles for Tasks](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html)
-for more information on using IAM roles with Amazon ECS.
+A `CredentialProvider` function created with `fromContainerMetadata` will return a promise that will
+resolve with credentials for the IAM role associated with containers in an Amazon ECS task. Please
+see [IAM Roles for Tasks][iam_roles_for_tasks] for more information on using IAM roles with Amazon
+ECS.
 
-A `CredentialProvider` function created with `fromInstanceMetadata` will return a promise that will resolve with
-credentials for the IAM role associated with an EC2 instance.
-Please see [IAM Roles for Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
-for more information on using IAM roles with Amazon EC2.
-Both IMDSv1 (a request/response method) and IMDSv2 (a session-oriented method) are supported.
-Please see [Configure the instance metadata service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html)
-for more information.
+A `CredentialProvider` function created with `fromInstanceMetadata` will return a promise that will
+resolve with credentials for the IAM role associated with an EC2 instance.
+Please see [IAM Roles for Amazon EC2][iam_roles_for_ec2] for more information on using IAM roles
+with Amazon EC2. Both IMDSv1 (a request/response method) and IMDSv2 (a session-oriented method) are
+supported.
+
+Please see [Configure the instance metadata service][config_instance_metadata] for more information.
 
 ## `fromIni()`
 
-`fromIni` creates `CredentialProvider` functions that read from a shared credentials file at `~/.aws/credentials` and a
-shared configuration file at `~/.aws/config`. Both files are expected to be INI formatted with section names
-corresponding to profiles. Sections in the credentials file are treated as profile names, whereas profile sections in
-the config file must have the format of`[profile profile-name]`, except for the default profile. Please see the
+`fromIni` creates `CredentialProvider` functions that read from a shared credentials file at
+`~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both files are expected to
+be INI formatted with section names corresponding to profiles. Sections in the credentials file are
+treated as profile names, whereas profile sections in the config file must have the format of
+`[profile profile-name]`, except for the default profile. Please see the
 [sample files](#sample-files) below for examples of well-formed configuration and credentials files.
 
-Profiles that appear in both files will not be merged, and the version that appears in the credentials file will be
-given precedence over the profile found in the config file.
+Profiles that appear in both files will not be merged, and the version that appears in the
+credentials file will be given precedence over the profile found in the config file.
 
 ```javascript
-import { fromIni } from "@aws-sdk/credential-providers"; // ES6 example
-// const { fromIni } = require("@aws-sdk/credential-providers"); // CommonJS example
+import { fromIni } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromIni } = require("@aws-sdk/credential-providers"); // CommonJS import
 
-const client = new DynamoDBClient({
+const client = new FooClient({
   credentials: fromIni({
-    // Optional. The configuration profile to use. If not specified, the provider will use the value in the
-    // `AWS_PROFILE` environment variable or a default of `default`.
+    // Optional. The configuration profile to use. If not specified, the provider will use the value
+    // in the `AWS_PROFILE` environment variable or a default of `default`.
     profile: "profile",
-    // Optional. The path to the shared credentials file. If not specified, the provider will use the value in the
-    // `AWS_SHARED_CREDENTIALS_FILE` environment variable or a default of `~/.aws/credentials`.
+    // Optional. The path to the shared credentials file. If not specified, the provider will use
+    // the value in the `AWS_SHARED_CREDENTIALS_FILE` environment variable or a default of
+    // `~/.aws/credentials`.
     filepath: "~/.aws/credentials",
-    // Optional. The path to the shared config file. If not specified, the provider will use the value in the
-    // `AWS_CONFIG_FILE` environment variable or a default of `~/.aws/config`.
+    // Optional. The path to the shared config file. If not specified, the provider will use the
+    // value in the `AWS_CONFIG_FILE` environment variable or a default of `~/.aws/config`.
     configFilepath: "~/.aws/config",
-    // Optional. A function that returns a a promise fulfilled with an MFA token code for the provided MFA Serial
-    // code. If a profile requires an MFA code and `mfaCodeProvider` is not a valid function, the credential provider
-    // promise will be rejected.
+    // Optional. A function that returns a a promise fulfilled with an MFA token code for the
+    // provided MFA Serial code. If a profile requires an MFA code and `mfaCodeProvider` is not a
+    // valid function, the credential provider promise will be rejected.
     mfaCodeProvider: async (mfaSerial) => {
       return "token";
     },
@@ -323,8 +336,8 @@ role_arn=arn:aws:iam::123456789012:role/example-role-arn
 
 #### profile with source provider
 
-You can supply `credential_source` options to tell the SDK where to source credentials for the call to `AssumeRole`. The
-supported credential providers are listed bellow:
+You can supply `credential_source` options to tell the SDK where to source credentials for the call
+to `AssumeRole`. The supported credential providers are listed below:
 
 ```ini
 [default]
@@ -352,8 +365,8 @@ web_identity_token_file=/temp/token
 role_arn=arn:aws:iam::123456789012:role/example-role-arn
 ```
 
-You can specify another profile(`second`) whose credentials are used to assume the role by the `role_arn` setting in
-this profile(`first`).
+You can specify another profile(`second`) whose credentials are used to assume the role by the
+`role_arn` setting in this profile(`first`).
 
 ```ini
 [second]
@@ -372,58 +385,61 @@ See [`fromSSO()`](#fromsso) fro more information
 ## `fromEnv()`
 
 ```javascript
-import { fromEnv } from "@aws-sdk/credential-providers"; // ES6 example
-// const { fromEnv } = require("@aws-sdk/credential-providers"); // CommonJS example
+import { fromEnv } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromEnv } = require("@aws-sdk/credential-providers"); // CommonJS import
 
-const client = new DynamoDBClient({
+const client = new FooClient({
   credentials: fromEnv(),
 });
 ```
 
-`fromEnv` returns a `CredentialProvider` function, that reads credentials from the following environment variables:
+`fromEnv` returns a `CredentialProvider` function, that reads credentials from the following
+environment variables:
 
 - `AWS_ACCESS_KEY_ID` - The access key for your AWS account.
 - `AWS_SECRET_ACCESS_KEY` - The secret key for your AWS account.
-- `AWS_SESSION_TOKEN` - The session key for your AWS account. This is only needed when you are using temporary
-  credentials.
-- `AWS_CREDENTIAL_EXPIRATION` - The expiration time of the credentials contained in the environment variables described
-  above. This value must be in a format compatible with the [ISO-8601 standard](https://en.wikipedia.org/wiki/ISO_8601)
-  and is only needed when you are using temporary credentials.
+- `AWS_SESSION_TOKEN` - The session key for your AWS account. This is only needed when you are using
+  temporarycredentials.
+- `AWS_CREDENTIAL_EXPIRATION` - The expiration time of the credentials contained in the environment
+  variables described above. This value must be in a format compatible with the
+  [ISO-8601 standard][iso8601_standard] and is only needed when you are using temporary credentials.
 
-If either the `AWS_ACCESS_KEY_ID` or `AWS_SECRET_ACCESS_KEY` environment variable is not set or contains a falsy value,
-the promise returned by the `fromEnv` function will be rejected.
+If either the `AWS_ACCESS_KEY_ID` or `AWS_SECRET_ACCESS_KEY` environment variable is not set or
+contains a falsy value, the promise returned by the `fromEnv` function will be rejected.
 
 ## `fromProcess()`
 
 ```javascript
-import { fromProcess } from "@aws-sdk/credential-providers"; // ES6 example
-// const { fromProcess } = require("@aws-sdk/credential-providers"); // CommonJS example
+import { fromProcess } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromProcess } = require("@aws-sdk/credential-providers"); // CommonJS import
 
-const client = new DynamoDBClient({
+const client = new FooClient({
   credentials: fromProcess({
-    // Optional. The configuration profile to use. If not specified, the provider will use the value in the
-    // `AWS_PROFILE` environment variable or a default of `default`.
+    // Optional. The configuration profile to use. If not specified, the provider will use the value
+    // in the `AWS_PROFILE` environment variable or a default of `default`.
     profile: "profile",
-    // Optional. The path to the shared credentials file. If not specified, the provider will use the value in the
-    // `AWS_SHARED_CREDENTIALS_FILE` environment variable or a default of `~/.aws/credentials`.
+    // Optional. The path to the shared credentials file. If not specified, the provider will use
+    // the value in the `AWS_SHARED_CREDENTIALS_FILE` environment variable or a default of
+    // `~/.aws/credentials`.
     filepath: "~/.aws/credentials",
-    // Optional. The path to the shared config file. If not specified, the provider will use the value in the
-    // `AWS_CONFIG_FILE` environment variable or a default of `~/.aws/config`.
+    // Optional. The path to the shared config file. If not specified, the provider will use the
+    // value in the `AWS_CONFIG_FILE` environment variable or a default of `~/.aws/config`.
     configFilepath: "~/.aws/config",
   }),
 });
 ```
 
-`fromSharedConfigFiles` creates a `CredentialProvider` functions that executes a given process and attempt to read its
-standard output to receive a JSON payload containing the credentials. The process command is read from a shared
-credentials file at `~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both files are expected to
-be INI formatted with section names corresponding to profiles. Sections in the credentials file are treated as profile
-names, whereas profile sections in the config file must have the format of`[profile profile-name]`, except for the
-default profile.
-Please see the [sample files](#sample-files) below for examples of well-formed configuration and credentials files.
+`fromSharedConfigFiles` creates a `CredentialProvider` functions that executes a given process and
+attempt to read its standard output to receive a JSON payload containing the credentials. The
+process command is read from a shared credentials file at `~/.aws/credentials` and a shared
+configuration file at `~/.aws/config`. Both files are expected to be INI formatted with section
+names corresponding to profiles. Sections in the credentials file are treated as profile names,
+whereas profile sections in the config file must have the format of`[profile profile-name]`, except
+for the default profile. Please see the [sample files](#sample-files-1) below for examples of
+well-formed configuration and credentials files.
 
-Profiles that appear in both files will not be merged, and the version that appears in the credentials file will be
-given precedence over the profile found in the config file.
+Profiles that appear in both files will not be merged, and the version that appears in the
+credentials file will be given precedence over the profile found in the config file.
 
 ### Sample files
 
@@ -451,12 +467,13 @@ credential_process = /usr/local/bin/awscreds dev
 
 The function `fromTokenFile` returns `CredentialProvider` that reads credentials as follows:
 
-- Reads file location of where the OIDC token is stored from either provided option `webIdentityTokenFile` or
-  environment variable `AWS_WEB_IDENTITY_TOKEN_FILE`.
-- Reads IAM role wanting to be assumed from either provided option `roleArn` or environment variable `AWS_ROLE_ARN`.
-- Reads optional role session name to be used to distinguish sessions from provided option `roleSessionName` or
-  environment variable `AWS_ROLE_SESSION_NAME`.
-  If session name is not defined, it comes up with a role session name.
+- Reads file location of where the OIDC token is stored from either provided option  
+  `webIdentityTokenFile` or environment variable `AWS_WEB_IDENTITY_TOKEN_FILE`.
+- Reads IAM role wanting to be assumed from either provided option `roleArn` or environment
+  variable `AWS_ROLE_ARN`.
+- Reads optional role session name to be used to distinguish sessions from provided option
+  `roleSessionName` or environment variable `AWS_ROLE_SESSION_NAME`. If session name is not defined,
+  it comes up with a role session name.
 - Reads OIDC token from file on disk.
 - Calls sts:AssumeRoleWithWebIdentity via `roleAssumerWithWebIdentity` option to get credentials.
 
@@ -467,10 +484,10 @@ The function `fromTokenFile` returns `CredentialProvider` that reads credentials
 | roleSessionName       | AWS_IAM_ROLE_SESSION_NAME   | false        | The IAM session name used to distinguish sessions |
 
 ```javascript
-import { fromTokenFile } from "@aws-sdk/credential-providers"; // ES6 example
-// const { fromTokenFile } = require("@aws-sdk/credential-providers"); // CommonJS example
+import { fromTokenFile } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromTokenFile } = require("@aws-sdk/credential-providers"); // CommonJS import
 
-const client = new DynamoDBClient({
+const client = new FooClient({
   credentials: fromTokenFile({
     // Optional. STS client config to make the assume role request.
     clientConfig: { region }
@@ -480,55 +497,58 @@ const client = new DynamoDBClient({
 
 ## `fromSSO()`
 
-> This credential provider **ONLY** supports profiles using the SSO credential. If you have a profile that assumes a
-> role which derived from the SSO credential, you should use the [`fromIni()`](#fromini), or
-> `@aws-sdk/credential-provider-node` package.
+> This credential provider **ONLY** supports profiles using the SSO credential. If you have a
+> profile that assumes a role which derived from the SSO credential, you should use the
+> [`fromIni()`](#fromini), or `@aws-sdk/credential-provider-node` package.
 
-`fromSSO`, that creates `CredentialProvider` functions that read from the _resolved_ access token from local disk then
-requests temporary AWS credentials. For guidance on the AWS Single Sign-On service, please refer to
-[AWS's Single Sign-On documentation](https://aws.amazon.com/single-sign-on/).
+`fromSSO`, that creates `CredentialProvider` functions that read from the _resolved_ access token
+from local disk then requests temporary AWS credentials. For guidance on the AWS Single Sign-On
+service, please refer to [AWS's Single Sign-On documentation][sso_api].
 
-You can create the `CredentialProvider` functions using the inline SSO parameters(`ssoStartUrl`, `ssoAccountId`,
-`ssoRegion`, `ssoRoleName`) or load them from [AWS SDKs and Tools shared configuration and credentials files](https://docs.aws.amazon.com/credref/latest/refdocs/creds-config-files.html).
+You can create the `CredentialProvider` functions using the inline SSO parameters(`ssoStartUrl`,
+`ssoAccountId`, `ssoRegion`, `ssoRoleName`) or load them from
+[AWS SDKs and Tools shared configuration and credentials files][shared_config_files].
 Profiles in the `credentials` file are given precedence over profiles in the `config` file.
 
 This credential provider is intended for use with the AWS SDK for Node.js.
 
 ### Supported configuration
 
-You may customize how credentials are resolved by providing an options hash to the `fromSSO` factory function. You can
-either load the SSO config from shared INI credential files, or specify the `ssoStartUrl`, `ssoAccountId`, `ssoRegion`,
-and `ssoRoleName` directly from the code.
+You may customize how credentials are resolved by providing an options hash to the `fromSSO` factory
+function. You can either load the SSO config from shared INI credential files, or specify the
+`ssoStartUrl`, `ssoAccountId`, `ssoRegion`, and `ssoRoleName` directly from the code.
 
 ```javascript
-import { fromSSO } from "@aws-sdk/credential-providers"; // ES6 example
-// const { fromSSO } = require(@aws-sdk/credential-providers") // CommonJS example
+import { fromSSO } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromSSO } = require(@aws-sdk/credential-providers") // CommonJS import
 
-const client = new DynamoDBClient({
+const client = new FooClient({
   credentials: fromSSO({
-    // Optional. The configuration profile to use. If not specified, the provider will use the value in the
-    // `AWS_PROFILE` environment variable or `default` by default.
+    // Optional. The configuration profile to use. If not specified, the provider will use the value
+    // in the `AWS_PROFILE` environment variable or `default` by default.
     profile: "my-sso-profile",
-    // Optional. The path to the shared credentials file. If not specified, the provider will use the value in the
-    // `AWS_SHARED_CREDENTIALS_FILE` environment variable or a default of `~/.aws/credentials`.
+    // Optional. The path to the shared credentials file. If not specified, the provider will use
+    // the value in the `AWS_SHARED_CREDENTIALS_FILE` environment variable or a default of
+    // `~/.aws/credentials`.
     filepath: "~/.aws/credentials",
-    // Optional. The path to the shared config file. If not specified, the provider will use the value in the
-    // `AWS_CONFIG_FILE` environment variable or a default of `~/.aws/config`.
+    // Optional. The path to the shared config file. If not specified, the provider will use the
+    // value in the `AWS_CONFIG_FILE` environment variable or a default of `~/.aws/config`.
     configFilepath: "~/.aws/config",
-    // Optional. The URL to the AWS SSO service. Required if any of the `sso*` options(except for `ssoClient`) is
-    // provided.
-    ssoStartUrl: "https://d-abc123.awsapps.com/start",
-    // Optional. The ID of the AWS account to use for temporary credentials. Required if any of the `sso*`
-    // options(except for `ssoClient`) is provided.
-    ssoAccountId: "1234567890",
-    // Optional. The AWS region to use for temporary credentials. Required if any of the `sso*` options(except for
+    // Optional. The URL to the AWS SSO service. Required if any of the `sso*` options(except for
     // `ssoClient`) is provided.
+    ssoStartUrl: "https://d-abc123.awsapps.com/start",
+    // Optional. The ID of the AWS account to use for temporary credentials. Required if any of the
+    // `sso*` options(except for `ssoClient`) is provided.
+    ssoAccountId: "1234567890",
+    // Optional. The AWS region to use for temporary credentials. Required if any of the `sso*`
+    // options(except for `ssoClient`) is provided.
     ssoRegion: "us-east-1",
-    // Optional. The name of the AWS role to assume. Required if any of the `sso*` options(except for `ssoClient`) is
-    // provided.
+    // Optional. The name of the AWS role to assume. Required if any of the `sso*` options(except
+    // for `ssoClient`) is provided.
     ssoRoleName: "SampleRole",
-    // Optional. Overwrite the configuration used construct the SSO service client. If not specified, a default
-    // SSO client will be created with the region specified in the profile `sso_region` entry.
+    // Optional. Overwrite the configuration used construct the SSO service client. If not
+    // specified, a default SSO client will be created with the region specified in the profile
+    // `sso_region` entry.
     clientConfig: { region },
   }),
 });
@@ -536,11 +556,11 @@ const client = new DynamoDBClient({
 
 ### SSO Login with the AWS CLI
 
-This credential provider relies on the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html#sso-configure-profile)
-to log into an AWS SSO session. Here's a brief walk-through:
+This credential provider relies on the [AWS CLI][cli_sso] to log into an AWS SSO session. Here's a
+brief walk-through:
 
-1. Create a new AWS SSO enabled profile using the AWS CLI. It will ask you to login to your AWS SSO account and prompt
-   for the name of the profile:
+1. Create a new AWS SSO enabled profile using the AWS CLI. It will ask you to login to your AWS SSO
+   account and prompt for the name of the profile:
 
 ```console
 $ aws configure sso
@@ -553,7 +573,7 @@ CLI profile name [123456789011_ReadOnly]: my-sso-profile<ENTER>
 
 ```javascript
 //...
-const client = new DynamoDBClient({ credentials: fromSSO({ profile: "my-sso-profile" });
+const client = new FooClient({ credentials: fromSSO({ profile: "my-sso-profile" });
 ```
 
 Alternatively, the SSO credential provider is supported in shared INI credentials provider
@@ -572,8 +592,8 @@ Successfully signed out of all SSO profiles.
 
 ### Sample files
 
-This credential provider is only applicable if the profile specified in shared configuration and credentials files
-contain ALL of the following entries:
+This credential provider is only applicable if the profile specified in shared configuration and
+credentials files contain ALL of the following entries:
 
 #### `~/.aws/credentials`
 
@@ -594,3 +614,15 @@ sso_region = us-east-1
 sso_role_name = SampleRole
 sso_start_url = https://d-abc123.awsapps.com/start
 ```
+
+[getcredentialsforidentity_api]: https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html
+[getid_api]: https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html
+[assumerole_api]: https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
+[assumerolewithwebidentity_api]: https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html
+[iam_roles_for_tasks]: http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html
+[iam_roles_for_ec2]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
+[config_instance_metadata]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html
+[iso8601_standard]: https://en.wikipedia.org/wiki/ISO_8601
+[sso_api]: https://aws.amazon.com/single-sign-on/
+[shared_config_files]: https://docs.aws.amazon.com/credref/latest/refdocs/creds-config-files.html
+[cli_sso]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html#sso-configure-profile

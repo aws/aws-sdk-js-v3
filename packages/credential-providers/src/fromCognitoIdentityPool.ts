@@ -16,8 +16,8 @@ export interface FromCognitoIdentityPoolParameters extends Omit<_FromCognitoIden
  * Results from `GetId` are cached internally, but results from `GetCredentialsForIdentity` are not.
  *
  * ```javascript
- * import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromCognitoIdentityPool } = require("@aws-sdk/credential-providers"); // CommonJS example
+ * import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromCognitoIdentityPool } = require("@aws-sdk/credential-providers"); // CommonJS import
  *
  * const client = new FooClient({
  *   region,

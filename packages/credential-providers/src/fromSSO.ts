@@ -15,8 +15,8 @@ export interface FromSSOInit extends Omit<_FromSSOInit, "client"> {
  * Profiles in the `credentials` file are given precedence over profiles in the `config` file.
  *
  * ```javascript
- * import { fromSSO } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromSSO } = require(@aws-sdk/credential-providers") // CommonJS example
+ * import { fromSSO } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromSSO } = require(@aws-sdk/credential-providers") // CommonJS import
  *
  * const client = new FooClient({
  *   credentials: fromSSO({

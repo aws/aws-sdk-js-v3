@@ -17,8 +17,8 @@ import { CredentialProvider } from "@aws-sdk/types";
  * value, the promise returned by the `fromEnv` function will be rejected.
  *
  * ```javascript
- * import { fromEnv } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromEnv } = require("@aws-sdk/credential-providers"); // CommonJS example
+ * import { fromEnv } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromEnv } = require("@aws-sdk/credential-providers"); // CommonJS import
  *
  * const client = new DynamoDBClient({
  *   credentials: fromEnv(),

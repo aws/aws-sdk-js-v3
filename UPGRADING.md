@@ -233,7 +233,7 @@ Default credential provider is how SDK resolve the AWS credential if you DO NOT 
   // const { fromTemporaryCredentials } = require("@aws-sdk/credential-providers"); // CommonJS import
 
   const sourceCredentials = {
-    /* A credential can be a credential object or an async function that returns a credential object */
+    // A credential can be a credential object or an async function that returns a credential object
   };
   const client = new FooClient({
     credentials: fromTemporaryCredentials({
@@ -270,7 +270,7 @@ Load credentials from Cognito Identity service, normally used in browsers.
   const client = new FooClient({
     region: "us-east-1",
     credentials: fromCognitoIdentityPool({
-      clientConfig: cognitoIdentityClientConfig // Optional
+      clientConfig: cognitoIdentityClientConfig, // Optional
       identityPoolId: "us-east-1:1699ebc0-7900-4099-b910-2df94f52a030",
       customRoleArn: "arn:aws:iam::1234567890:role/MYAPP-CognitoIdentity", // Optional
       logins: {
@@ -401,10 +401,13 @@ Retrieves credentials using OIDC token from a file on disk. It's commonly used i
 
   const client = new FooClient({
     credentials: fromTokenFile({
-      roleArn: "arn:xxxx" // Optional. Otherwise read from `AWS_ROLE_ARN` environmental variable
-      roleSessionName: "session:a", // Optional. Otherwise read from `AWS_ROLE_SESSION_NAME` environmental variable
-      clientConfig: { region } // // Optional. STS client config to make the assume role request.
-    })
+      // Optional. If skipped, read from `AWS_ROLE_ARN` environmental variable
+      roleArn: "arn:xxxx",
+      // Optional. If skipped, read from `AWS_ROLE_SESSION_NAME` environmental variable
+      roleSessionName: "session:a",
+      // Optional. STS client config to make the assume role request.
+      clientConfig: { region },
+    }),
   });
   ```
 
@@ -421,10 +424,13 @@ Retrieves credentials from STS web identity federation support.
 
   const client = new FooClient({
     credentials: fromWebToken({
-      roleArn: "arn:xxxx" // Otherwise read from `AWS_ROLE_ARN` environmental variable
-      roleSessionName: "session:a", // Otherwise read from `AWS_ROLE_SESSION_NAME` environmental variable
-      clientConfig: { region } // // Optional. STS client config to make the assume role request.
-    })
+      // Optional. If skipped, read from `AWS_ROLE_ARN` environmental variable
+      roleArn: "arn:xxxx",
+      // Optional. If skipped, read from `AWS_ROLE_SESSION_NAME` environmental variable
+      roleSessionName: "session:a",
+      // Optional. STS client config to make the assume role request.
+      clientConfig: { region },
+    }),
   });
   ```
 

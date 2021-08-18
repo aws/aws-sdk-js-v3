@@ -8,8 +8,8 @@ export interface FromProcessInit extends _FromProcessInit {}
  * receive a JSON payload containing the credentials.
  *
  * ```javascript
- * import { fromProcess } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromProcess } = require("@aws-sdk/credential-providers"); // CommonJS example
+ * import { fromProcess } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromProcess } = require("@aws-sdk/credential-providers"); // CommonJS import
  *
  * const client = new FooClient({
  *   credentials: fromProcess({

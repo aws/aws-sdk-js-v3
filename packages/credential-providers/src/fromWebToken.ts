@@ -14,8 +14,8 @@ export interface FromWebTokenInit extends _FromWebTokenInit {
  * AssumeRoleWithWebIdentity API.
  *
  * ```javascript
- * import { fromWebToken } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromWebToken } = require("@aws-sdk/credential-providers"); // CommonJS example
+ * import { fromWebToken } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromWebToken } = require("@aws-sdk/credential-providers"); // CommonJS import
  *
  * const dynamodb = new DynamoDBClient({
  *   region,

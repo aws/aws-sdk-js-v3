@@ -23,8 +23,8 @@ export interface FromTokenFileInit extends _FromTokenFileInit {
  * - Calls sts:AssumeRoleWithWebIdentity via `roleAssumerWithWebIdentity` option to get credentials.
  *
  * ```javascript
- * import { fromTokenFile } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromTokenFile } = require("@aws-sdk/credential-providers"); // CommonJS example
+ * import { fromTokenFile } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromTokenFile } = require("@aws-sdk/credential-providers"); // CommonJS import
  *
  * const client = new FooClient({
  *   credentials: fromTokenFile({

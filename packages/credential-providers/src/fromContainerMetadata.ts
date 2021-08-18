@@ -10,8 +10,8 @@ export interface RemoteProviderInit extends _RemoteProviderInit {}
  * Create a credential provider function that reads from ECS container metadata service.
  *
  * ```javascript
- * import { fromContainerMetadata } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromContainerMetadata } = require("@aws-sdk/credential-providers"); // CommonJS example
+ * import { fromContainerMetadata } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromContainerMetadata } = require("@aws-sdk/credential-providers"); // CommonJS import
  *
  * const foo = new FooClient({
  *   credentials: fromInstanceMetadata({

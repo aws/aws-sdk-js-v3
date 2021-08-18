@@ -13,8 +13,8 @@ export interface FromTemporaryCredentialsOptions {
  * Creates a credential provider function that retrieves temporary credentials from STS AssumeRole API.
  *
  * ```javascript
- * import { fromTemporaryCredentials } from "@aws-sdk/credential-providers"; // ES6 example
- * // const { fromTemporaryCredentials } = require("@aws-sdk/credential-providers"); // CommonJS example
+ * import { fromTemporaryCredentials } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromTemporaryCredentials } = require("@aws-sdk/credential-providers"); // CommonJS import
  *
  * const client = new FooClient({
  *   region,
