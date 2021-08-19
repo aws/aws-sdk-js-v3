@@ -138,6 +138,55 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingService: "execute-api",
       };
       break;
+    case "fips-ca-central-1":
+      regionInfo = {
+        hostname: "iot-fips.ca-central-1.amazonaws.com",
+        partition: "aws",
+        signingService: "execute-api",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "iot-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingService: "execute-api",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "iot-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingService: "execute-api",
+      };
+      break;
+    case "fips-us-gov-east-1":
+      regionInfo = {
+        hostname: "iot-fips.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingService: "execute-api",
+      };
+      break;
+    case "fips-us-gov-west-1":
+      regionInfo = {
+        hostname: "iot-fips.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingService: "execute-api",
+      };
+      break;
+    case "fips-us-west-1":
+      regionInfo = {
+        hostname: "iot-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingService: "execute-api",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "iot-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingService: "execute-api",
+      };
+      break;
     case "me-south-1":
       regionInfo = {
         hostname: "iot.me-south-1.amazonaws.com",
