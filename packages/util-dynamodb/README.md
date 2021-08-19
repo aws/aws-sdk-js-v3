@@ -5,6 +5,10 @@
 
 This package provides utilities to be used with `@aws-sdk/client-dynamodb`
 
+If you are looking for DynamoDB Document client, please check
+[@aws-sdk/lib-dynamodb](https://www.npmjs.com/package/@aws-sdk/lib-dynamodb)
+which automatically performs the necessary marshalling and unmarshalling.
+
 ## Convert JavaScript object into DynamoDB Record
 
 ```js
