@@ -37,7 +37,4 @@ export const resolveWebSocketConfig = <T>(
         },
       };
 
-const validateSigner = (signer: any): signer is BaseSignatureV4 =>
-  // We cannot use instanceof here. Because we might import the wrong SignatureV4
-  // constructor here as multiple version of packages maybe installed here.
-  (signer.constructor.toString() as string).indexOf("SignatureV4") >= 0;
+const validateSigner = (signer: any): signer is BaseSignatureV4 => !!signer;
