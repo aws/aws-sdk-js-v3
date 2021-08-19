@@ -89,4 +89,24 @@ describe(awsAuthMiddleware.name, () => {
       expect(getUpdatedSystemClockOffset).toHaveBeenCalledWith(dateHeader, mockSystemClockOffset);
     });
   });
+
+  it("should update systemClockOffset if error contains ServerTime", async () => {
+    const serverTime = new Date().toString();
+    const options = { ...mockOptions };
+    const signingHandler = awsAuthMiddleware(options)(mockNext, {});
+
+    const mockError = Object.assign(new Error("error"), { ServerTime: serverTime });
+    mockNext.mockRejectedValue(mockError);
+
+    try {
+      await signingHandler(mockSigningHandlerArgs);
+      fail(`should throw ${mockError}`);
+    } catch (error) {
+      expect(error).toStrictEqual(mockError);
+    }
+
+    expect(options.systemClockOffset).toBe(mockUpdatedSystemClockOffset);
+    expect(getUpdatedSystemClockOffset).toHaveBeenCalledTimes(1);
+    expect(getUpdatedSystemClockOffset).toHaveBeenCalledWith(serverTime, mockSystemClockOffset);
+  });
 });
