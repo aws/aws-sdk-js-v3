@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.27.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.26.0...v3.27.0) (2021-08-19)
+
+
+### Bug Fixes
+
+* **property-provider:** stop memoizing rejected provider ([#2680](https://github.com/aws/aws-sdk-js-v3/issues/2680)) ([fac5f27](https://github.com/aws/aws-sdk-js-v3/commit/fac5f27fc2727d91be49e403a1a81005efe685d6))
+
+
+
+
+
 # [3.25.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.24.0...v3.25.0) (2021-08-05)
 
 **Note:** Version bump only for package @aws-sdk/property-provider

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/s3-presigned-post",
-  "version": "3.26.0",
+  "version": "3.27.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -24,7 +24,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "3.26.0",
+    "@aws-sdk/client-s3": "3.27.0",
     "@aws-sdk/hash-node": "3.25.0",
     "@aws-sdk/protocol-http": "3.25.0",
     "@types/jest": "^26.0.4",

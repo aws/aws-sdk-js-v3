@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.27.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.26.0...v3.27.0) (2021-08-19)
+
+
+### Bug Fixes
+
+* **middleware-sdk-transcribe-streaming:** validate signer ([#2676](https://github.com/aws/aws-sdk-js-v3/issues/2676)) ([a937da9](https://github.com/aws/aws-sdk-js-v3/commit/a937da9552794594479ed9577f4405e030b50f16))
+* **middleware-signing:** update systemClockOffset on error ([#2686](https://github.com/aws/aws-sdk-js-v3/issues/2686)) ([d1c26ee](https://github.com/aws/aws-sdk-js-v3/commit/d1c26ee712a22aa2c7c86c2769f722fed452ebcd))
+* **property-provider:** stop memoizing rejected provider ([#2680](https://github.com/aws/aws-sdk-js-v3/issues/2680)) ([fac5f27](https://github.com/aws/aws-sdk-js-v3/commit/fac5f27fc2727d91be49e403a1a81005efe685d6))
+
+
+### Features
+
+* **clients:** update clients as of 08/19/2021 ([#2689](https://github.com/aws/aws-sdk-js-v3/issues/2689)) ([acbb59a](https://github.com/aws/aws-sdk-js-v3/commit/acbb59a589171a97f6a4276cb825c9c58d22d6f1))
+* **clients:** update endpoint resolution as of 08/16/2021 ([#2687](https://github.com/aws/aws-sdk-js-v3/issues/2687)) ([7e3b449](https://github.com/aws/aws-sdk-js-v3/commit/7e3b449c8b8361952a90c4d136f60f59e3601ea4))
+* **credential-providers:** collect credential providers in single package ([#2672](https://github.com/aws/aws-sdk-js-v3/issues/2672)) ([5375c91](https://github.com/aws/aws-sdk-js-v3/commit/5375c91f8a4d2cac6918885843718f47ce82e5d5))
+
+
+
+
+
 # [3.26.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.25.0...v3.26.0) (2021-08-13)
 
 
