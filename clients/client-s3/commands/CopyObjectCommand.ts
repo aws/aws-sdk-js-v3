@@ -139,7 +139,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             <b>Server-side encryption</b>
  *          </p>
  *          <p>When you perform a CopyObject operation, you can optionally use the appropriate encryption-related
- *          headers to encrypt the object using server-side encryption with AWS managed encryption keys
+ *          headers to encrypt the object using server-side encryption with Amazon Web Services managed encryption keys
  *          (SSE-S3 or SSE-KMS) or a customer-provided encryption key. With server-side encryption, Amazon S3
  *          encrypts your data as it writes it to disks in its data centers and decrypts the data when
  *          you access it. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
@@ -152,7 +152,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *          </p>
  *          <p>When copying an object, you can optionally use headers to grant ACL-based permissions.
  *          By default, all objects are private. Only the owner has full access control. When adding a
- *          new object, you can grant permissions to individual AWS accounts or to predefined groups
+ *          new object, you can grant permissions to individual Amazon Web Services accounts or to predefined groups
  *          defined by Amazon S3. These permissions are then added to the ACL on the object. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
  *             API</a>. </p>

@@ -532,6 +532,7 @@ export namespace UnsupportedDigitalSignatureMethodException {
 }
 
 export enum CheckoutType {
+  PERPETUAL = "PERPETUAL",
   PROVISIONAL = "PROVISIONAL",
 }
 

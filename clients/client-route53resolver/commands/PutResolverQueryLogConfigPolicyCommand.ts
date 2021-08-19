@@ -23,7 +23,7 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Specifies an AWS account that you want to share a query logging configuration with, the query logging configuration that you want to share,
+ * <p>Specifies an Amazon Web Services account that you want to share a query logging configuration with, the query logging configuration that you want to share,
  * 			and the operations that you want the account to be able to perform on the configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

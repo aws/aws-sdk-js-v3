@@ -21,7 +21,7 @@ export interface ListResolverEndpointsCommandInput extends ListResolverEndpoints
 export interface ListResolverEndpointsCommandOutput extends ListResolverEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the Resolver endpoints that were created using the current AWS account.</p>
+ * <p>Lists all the Resolver endpoints that were created using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,7 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
 
 /**
  * <p>Updates an existing cost anomaly monitor. The changes made are applied going forward, and
- *       does not change anomalies detected in the past. </p>
+ *       doesn'tt change anomalies detected in the past. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

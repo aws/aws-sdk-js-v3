@@ -1,6 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVpcAttributeRequest } from "../models/models_3";
-import { DescribeVpcAttributeResult } from "../models/models_4";
+import { DescribeVpcAttributeRequest, DescribeVpcAttributeResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeVpcAttributeCommand,
   serializeAws_ec2DescribeVpcAttributeCommand,

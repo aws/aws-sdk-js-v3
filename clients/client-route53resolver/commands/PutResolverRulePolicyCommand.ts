@@ -21,7 +21,7 @@ export interface PutResolverRulePolicyCommandInput extends PutResolverRulePolicy
 export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Specifies an AWS rule that you want to share with another account, the account that you want to share the rule with,
+ * <p>Specifies an Amazon Web Services rule that you want to share with another account, the account that you want to share the rule with,
  * 			and the operations that you want the account to be able to perform on the rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

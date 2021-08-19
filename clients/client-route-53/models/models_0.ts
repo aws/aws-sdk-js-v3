@@ -2112,8 +2112,8 @@ export interface HealthCheckConfig {
    * 			<code>Host</code> header in each of the preceding cases.</p>
    *
    * 		       <p>
-   *             <b>If you don't specify a value for <code>IPAddress</code>
-   *             </b>:</p>
+   *             <b>If you don't specify a value for</b>
+   *             <code>IPAddress</code>:</p>
    * 		       <p>Route 53 sends a DNS request to the domain that you specify for <code>FullyQualifiedDomainName</code> at the interval that you specify for
    * 			<code>RequestInterval</code>. Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.</p>
    * 		       <note>

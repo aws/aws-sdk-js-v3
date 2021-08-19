@@ -47,22 +47,33 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *          you can calculate the MD5 while putting an object to Amazon S3 and compare the returned ETag to
  *          the calculated MD5 value.</p>
  *          <note>
- *             <p> The <code>Content-MD5</code> header is required for any request to upload an object
- *             with a retention period configured using Amazon S3 Object Lock. For more information about
- *             Amazon S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html">Amazon S3 Object Lock Overview</a>
- *             in the <i>Amazon S3 User Guide</i>. </p>
+ *             <ul>
+ *                <li>
+ *                   <p>To successfully complete the <code>PutObject</code> request, you must have the
+ *                <code>s3:PutObject</code> in your IAM permissions.</p>
+ *                </li>
+ *                <li>
+ *                   <p>To successfully change the objects acl of your <code>PutObject</code> request,
+ *                you must have the <code>s3:PutObjectAcl</code> in your IAM permissions.</p>
+ *                </li>
+ *                <li>
+ *                   <p> The <code>Content-MD5</code> header is required for any request to upload an object
+ *                   with a retention period configured using Amazon S3 Object Lock. For more information about
+ *                   Amazon S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html">Amazon S3 Object Lock Overview</a>
+ *                   in the <i>Amazon S3 User Guide</i>. </p>
+ *                </li>
+ *             </ul>
  *          </note>
- *
  *
  *          <p>
  *             <b>Server-side Encryption</b>
  *          </p>
  *          <p>You can optionally request server-side encryption. With server-side encryption, Amazon S3 encrypts
  *          your data as it writes it to disks in its data centers and decrypts the data
- *          when you access it. You have the option to provide your own encryption key or use AWS
+ *          when you access it. You have the option to provide your own encryption key or use Amazon Web Services
  *          managed encryption keys (SSE-S3 or SSE-KMS). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side
  *             Encryption</a>.</p>
- *          <p>If you request server-side encryption using AWS Key Management Service (SSE-KMS), you can enable
+ *          <p>If you request server-side encryption using Amazon Web Services Key Management Service (SSE-KMS), you can enable
  *          an S3 Bucket Key at the object-level. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the
  *          <i>Amazon S3 User Guide</i>.</p>
  *          <p>
@@ -71,7 +82,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *          </p>
  *          <p>You can use headers to grant ACL- based permissions. By default, all objects are
  *          private. Only the owner has full access control. When adding a new object, you can grant
- *          permissions to individual AWS accounts or to predefined groups defined by Amazon S3. These
+ *          permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These
  *          permissions are then added to the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List
  *             (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
  *             API</a>. </p>

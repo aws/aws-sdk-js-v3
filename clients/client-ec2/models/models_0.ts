@@ -8513,8 +8513,7 @@ export interface ExportToS3TaskSpecification {
 
   /**
    * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and grant
-   *    WRITE and READ_ACP permissions to the AWS account
-   *    <code>vm-import-export@amazon.com</code>.</p>
+   *    WRITE and READ_ACP permissions to the Amazon Web Services account <code>vm-import-export@amazon.com</code>.</p>
    */
   S3Bucket?: string;
 
@@ -8589,8 +8588,7 @@ export interface ExportToS3Task {
 
   /**
    * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and grant
-   *    WRITE and READ_ACP permissions to the AWS account
-   *    <code>vm-import-export@amazon.com</code>.</p>
+   *    WRITE and READ_ACP permissions to the Amazon Web Services account <code>vm-import-export@amazon.com</code>.</p>
    */
   S3Bucket?: string;
 

@@ -106,6 +106,8 @@ import {
   CostCategoryProcessingStatus,
   CostCategoryReference,
   CostCategoryRule,
+  CostCategorySplitChargeRule,
+  CostCategorySplitChargeRuleParameter,
   CostCategoryValues,
   Coverage,
   CoverageByTime,
@@ -2918,6 +2920,90 @@ const serializeAws_json1_1CostCategoryRulesList = (input: CostCategoryRule[], co
     });
 };
 
+const serializeAws_json1_1CostCategorySplitChargeRule = (
+  input: CostCategorySplitChargeRule,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Method !== undefined && input.Method !== null && { Method: input.Method }),
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && {
+        Parameters: serializeAws_json1_1CostCategorySplitChargeRuleParametersList(input.Parameters, context),
+      }),
+    ...(input.Source !== undefined && input.Source !== null && { Source: input.Source }),
+    ...(input.Targets !== undefined &&
+      input.Targets !== null && {
+        Targets: serializeAws_json1_1CostCategorySplitChargeRuleTargetsList(input.Targets, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1CostCategorySplitChargeRuleParameter = (
+  input: CostCategorySplitChargeRuleParameter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && {
+        Values: serializeAws_json1_1CostCategorySplitChargeRuleParameterValuesList(input.Values, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1CostCategorySplitChargeRuleParametersList = (
+  input: CostCategorySplitChargeRuleParameter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CostCategorySplitChargeRuleParameter(entry, context);
+    });
+};
+
+const serializeAws_json1_1CostCategorySplitChargeRuleParameterValuesList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1CostCategorySplitChargeRulesList = (
+  input: CostCategorySplitChargeRule[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CostCategorySplitChargeRule(entry, context);
+    });
+};
+
+const serializeAws_json1_1CostCategorySplitChargeRuleTargetsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1CostCategoryValues = (input: CostCategoryValues, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
@@ -2962,6 +3048,10 @@ const serializeAws_json1_1CreateCostCategoryDefinitionRequest = (
     ...(input.RuleVersion !== undefined && input.RuleVersion !== null && { RuleVersion: input.RuleVersion }),
     ...(input.Rules !== undefined &&
       input.Rules !== null && { Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context) }),
+    ...(input.SplitChargeRules !== undefined &&
+      input.SplitChargeRules !== null && {
+        SplitChargeRules: serializeAws_json1_1CostCategorySplitChargeRulesList(input.SplitChargeRules, context),
+      }),
   };
 };
 
@@ -3567,6 +3657,10 @@ const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
     ...(input.RuleVersion !== undefined && input.RuleVersion !== null && { RuleVersion: input.RuleVersion }),
     ...(input.Rules !== undefined &&
       input.Rules !== null && { Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context) }),
+    ...(input.SplitChargeRules !== undefined &&
+      input.SplitChargeRules !== null && {
+        SplitChargeRules: serializeAws_json1_1CostCategorySplitChargeRulesList(input.SplitChargeRules, context),
+      }),
   };
 };
 
@@ -3716,6 +3810,10 @@ const deserializeAws_json1_1CostCategory = (output: any, context: __SerdeContext
       output.Rules !== undefined && output.Rules !== null
         ? deserializeAws_json1_1CostCategoryRulesList(output.Rules, context)
         : undefined,
+    SplitChargeRules:
+      output.SplitChargeRules !== undefined && output.SplitChargeRules !== null
+        ? deserializeAws_json1_1CostCategorySplitChargeRulesList(output.SplitChargeRules, context)
+        : undefined,
   } as any;
 };
 
@@ -3820,6 +3918,93 @@ const deserializeAws_json1_1CostCategoryRulesList = (output: any, context: __Ser
         return null as any;
       }
       return deserializeAws_json1_1CostCategoryRule(entry, context);
+    });
+};
+
+const deserializeAws_json1_1CostCategorySplitChargeRule = (
+  output: any,
+  context: __SerdeContext
+): CostCategorySplitChargeRule => {
+  return {
+    Method: __expectString(output.Method),
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_json1_1CostCategorySplitChargeRuleParametersList(output.Parameters, context)
+        : undefined,
+    Source: __expectString(output.Source),
+    Targets:
+      output.Targets !== undefined && output.Targets !== null
+        ? deserializeAws_json1_1CostCategorySplitChargeRuleTargetsList(output.Targets, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CostCategorySplitChargeRuleParameter = (
+  output: any,
+  context: __SerdeContext
+): CostCategorySplitChargeRuleParameter => {
+  return {
+    Type: __expectString(output.Type),
+    Values:
+      output.Values !== undefined && output.Values !== null
+        ? deserializeAws_json1_1CostCategorySplitChargeRuleParameterValuesList(output.Values, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CostCategorySplitChargeRuleParametersList = (
+  output: any,
+  context: __SerdeContext
+): CostCategorySplitChargeRuleParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CostCategorySplitChargeRuleParameter(entry, context);
+    });
+};
+
+const deserializeAws_json1_1CostCategorySplitChargeRuleParameterValuesList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1CostCategorySplitChargeRulesList = (
+  output: any,
+  context: __SerdeContext
+): CostCategorySplitChargeRule[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CostCategorySplitChargeRule(entry, context);
+    });
+};
+
+const deserializeAws_json1_1CostCategorySplitChargeRuleTargetsList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
 };
 

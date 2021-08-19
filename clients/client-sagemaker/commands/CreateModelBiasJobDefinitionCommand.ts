@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateModelBiasJobDefinitionRequest, CreateModelBiasJobDefinitionResponse } from "../models/models_0";
+import { CreateModelBiasJobDefinitionRequest, CreateModelBiasJobDefinitionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateModelBiasJobDefinitionCommand,
   serializeAws_json1_1CreateModelBiasJobDefinitionCommand,

@@ -24,7 +24,7 @@ export interface DeleteResolverQueryLogConfigCommandOutput
 
 /**
  * <p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are
- * 			associated with the configuration. This also applies if the query logging configuration is shared with other AWS accounts, and
+ * 			associated with the configuration. This also applies if the query logging configuration is shared with other Amazon Web Services accounts, and
  * 			the other accounts have associated VPCs with the shared configuration.</p>
  *
  * 		       <p>Before you can delete a query logging configuration, you must first disassociate all VPCs from the configuration. See

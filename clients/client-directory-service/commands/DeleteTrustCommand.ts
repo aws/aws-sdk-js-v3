@@ -21,7 +21,8 @@ export interface DeleteTrustCommandInput extends DeleteTrustRequest {}
 export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing trust relationship between your AWS Managed Microsoft AD directory and an external domain.</p>
+ * <p>Deletes an existing trust relationship between your Managed Microsoft AD directory and an external
+ *       domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

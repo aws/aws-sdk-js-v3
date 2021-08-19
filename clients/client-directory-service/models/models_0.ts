@@ -53,7 +53,7 @@ export interface SharedDirectory {
 
   /**
    * <p>The method used when sharing a directory to determine whether the directory should be
-   *       shared within your AWS organization (<code>ORGANIZATIONS</code>) or with any AWS account by
+   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
    *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
    */
   ShareMethod?: ShareMethod | string;
@@ -71,7 +71,7 @@ export interface SharedDirectory {
   SharedDirectoryId?: string;
 
   /**
-   * <p>Current directory status of the shared AWS Managed Microsoft AD directory.</p>
+   * <p>Current directory status of the shared Managed Microsoft AD directory.</p>
    */
   ShareStatus?: ShareStatus | string;
 
@@ -132,7 +132,7 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -147,7 +147,7 @@ export namespace ClientException {
 }
 
 /**
- * <p>The specified directory has already been shared with this AWS account.</p>
+ * <p>The specified directory has already been shared with this Amazon Web Services account.</p>
  */
 export interface DirectoryAlreadySharedException extends __SmithyException, $MetadataBearer {
   name: "DirectoryAlreadySharedException";
@@ -158,7 +158,7 @@ export interface DirectoryAlreadySharedException extends __SmithyException, $Met
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -184,7 +184,7 @@ export interface EntityDoesNotExistException extends __SmithyException, $Metadat
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -210,7 +210,7 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -225,7 +225,7 @@ export namespace InvalidParameterException {
 }
 
 /**
- * <p>An exception has occurred in AWS Directory Service.</p>
+ * <p>An exception has occurred in Directory Service.</p>
  */
 export interface ServiceException extends __SmithyException, $MetadataBearer {
   name: "ServiceException";
@@ -236,7 +236,7 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -262,7 +262,7 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -277,11 +277,14 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>IP address block. This is often the address block of the DNS server used for your on-premises domain. </p>
+ * <p>IP address block. This is often the address block of the DNS server used for your
+ *          self-managed domain. </p>
  */
 export interface IpRoute {
   /**
-   * <p>IP address block using CIDR format, for example 10.0.0.0/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.</p>
+   * <p>IP address block using CIDR format, for example 10.0.0.0/24. This is often the
+   *          address block of the DNS server used for your self-managed domain. For a single IP address
+   *          use a CIDR address block with /32. For example 10.0.0.0/32.</p>
    */
   CidrIp?: string;
 
@@ -307,14 +310,15 @@ export interface AddIpRoutesRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>IP address blocks, using CIDR format, of the traffic to route. This is often the IP address block of the DNS server used for your on-premises domain.</p>
+   * <p>IP address blocks, using CIDR format, of the traffic to route. This is often the IP
+   *          address block of the DNS server used for your self-managed domain.</p>
    */
   IpRoutes: IpRoute[] | undefined;
 
   /**
-   * <p>If set to true, updates the inbound and outbound rules of the security group that has the description: "AWS created security group for <i>directory ID</i> directory controllers."
-   *          Following are the new rules:
-   *       </p>
+   * <p>If set to true, updates the inbound and outbound rules of the security group that has
+   *          the description: "Amazon Web Services created security group for <i>directory ID</i>
+   *          directory controllers." Following are the new rules: </p>
    *          <p>Inbound:</p>
    *          <ul>
    *             <li>
@@ -351,10 +355,12 @@ export interface AddIpRoutesRequest {
    *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source:
+   *                0.0.0.0/0</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source:
+   *                0.0.0.0/0</p>
    *             </li>
    *             <li>
    *                <p>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0</p>
@@ -377,7 +383,8 @@ export interface AddIpRoutesRequest {
    *                <p>Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0</p>
    *             </li>
    *          </ul>
-   *          <p>These security rules impact an internal network interface that is not exposed publicly.</p>
+   *          <p>These security rules impact an internal network interface that is not exposed
+   *          publicly.</p>
    */
   UpdateSecurityGroupForDirectoryControllers?: boolean;
 }
@@ -414,7 +421,7 @@ export interface DirectoryUnavailableException extends __SmithyException, $Metad
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -440,7 +447,7 @@ export interface EntityAlreadyExistsException extends __SmithyException, $Metada
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -455,7 +462,8 @@ export namespace EntityAlreadyExistsException {
 }
 
 /**
- * <p>The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP address blocks.</p>
+ * <p>The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP
+ *          address blocks.</p>
  */
 export interface IpRouteLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "IpRouteLimitExceededException";
@@ -466,7 +474,7 @@ export interface IpRouteLimitExceededException extends __SmithyException, $Metad
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -491,7 +499,7 @@ export interface DirectoryVpcSettings {
 
   /**
    * <p>The identifiers of the subnets for the directory servers. The two subnets must be in
-   *       different Availability Zones. AWS Directory Service creates a directory server and a DNS
+   *       different Availability Zones. Directory Service creates a directory server and a DNS
    *       server in each of these subnets.</p>
    */
   SubnetIds: string[] | undefined;
@@ -545,7 +553,7 @@ export namespace AddRegionResult {
 }
 
 /**
- * <p>The Region you specified is the same Region where the AWS Managed Microsoft AD directory
+ * <p>The Region you specified is the same Region where the Managed Microsoft AD directory
  *       was created. Specify a different Region and try again.</p>
  */
 export interface DirectoryAlreadyInRegionException extends __SmithyException, $MetadataBearer {
@@ -557,7 +565,7 @@ export interface DirectoryAlreadyInRegionException extends __SmithyException, $M
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -583,7 +591,7 @@ export interface DirectoryDoesNotExistException extends __SmithyException, $Meta
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -610,7 +618,7 @@ export interface RegionLimitExceededException extends __SmithyException, $Metada
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -636,7 +644,7 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -655,12 +663,17 @@ export namespace UnsupportedOperationException {
  */
 export interface Tag {
   /**
-   * <p>Required name of the tag. The string value can be Unicode characters and cannot be prefixed with "aws:". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   * <p>Required name of the tag. The string value can be Unicode characters and cannot be
+   *       prefixed with "aws:". The string can contain only the set of Unicode letters, digits,
+   *       white-space, '_', '.', '/', '=', '+', '-' (Java regex:
+   *       "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
    */
   Key: string | undefined;
 
   /**
-   * <p>The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   * <p>The optional value of the tag. The string value can be Unicode characters. The string
+   *       can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-'
+   *       (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
    */
   Value: string | undefined;
 }
@@ -718,7 +731,7 @@ export interface TagLimitExceededException extends __SmithyException, $MetadataB
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -913,7 +926,7 @@ export interface CertificateAlreadyExistsException extends __SmithyException, $M
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -939,7 +952,7 @@ export interface CertificateDoesNotExistException extends __SmithyException, $Me
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -1005,7 +1018,7 @@ export interface CertificateInUseException extends __SmithyException, $MetadataB
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -1031,7 +1044,7 @@ export interface CertificateLimitExceededException extends __SmithyException, $M
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -1045,8 +1058,42 @@ export namespace CertificateLimitExceededException {
   });
 }
 
+export enum ClientAuthenticationStatus {
+  DISABLED = "Disabled",
+  ENABLED = "Enabled",
+}
+
 export enum ClientAuthenticationType {
   SMART_CARD = "SmartCard",
+}
+
+/**
+ * <p>Contains information about a client authentication method for a directory.</p>
+ */
+export interface ClientAuthenticationSettingInfo {
+  /**
+   * <p>The type of client authentication for the specified directory. If no type is specified, a list of all client authentication types that are supported for the directory is retrieved. </p>
+   */
+  Type?: ClientAuthenticationType | string;
+
+  /**
+   * <p>Whether the client authentication type is enabled or disabled for the specified directory.</p>
+   */
+  Status?: ClientAuthenticationStatus | string;
+
+  /**
+   * <p>The date and time when the status of the client authentication type was last updated.</p>
+   */
+  LastUpdatedDateTime?: Date;
+}
+
+export namespace ClientAuthenticationSettingInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientAuthenticationSettingInfo): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -1084,23 +1131,27 @@ export enum ReplicationScope {
 }
 
 /**
- * <p>Points to a remote domain with which you are setting up a trust relationship. Conditional forwarders are required in order to set up a trust relationship with another domain.</p>
+ * <p>Points to a remote domain with which you are setting up a trust relationship.
+ *       Conditional forwarders are required in order to set up a trust relationship with another
+ *       domain.</p>
  */
 export interface ConditionalForwarder {
   /**
-   * <p>The fully qualified domain name (FQDN) of the remote domains pointed to by the conditional forwarder.</p>
+   * <p>The fully qualified domain name (FQDN) of the remote domains pointed to by the
+   *       conditional forwarder.</p>
    */
   RemoteDomainName?: string;
 
   /**
-   * <p>The IP addresses of the remote DNS server associated with RemoteDomainName. This is the IP address of the DNS server that your conditional forwarder points to.</p>
+   * <p>The IP addresses of the remote DNS server associated with RemoteDomainName. This is the
+   *       IP address of the DNS server that your conditional forwarder points to.</p>
    */
   DnsIpAddrs?: string[];
 
   /**
    * <p>The replication scope of the conditional forwarder. The only allowed value is
-   *                   <code>Domain</code>, which will replicate the conditional forwarder to all of the
-   *                   domain controllers for your AWS directory.</p>
+   *         <code>Domain</code>, which will replicate the conditional forwarder to all of the domain
+   *       controllers for your Amazon Web Services directory.</p>
    */
   ReplicationScope?: ReplicationScope | string;
 }
@@ -1130,13 +1181,13 @@ export interface DirectoryConnectSettings {
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>A list of one or more IP addresses of DNS servers or domain controllers in the on-premises
+   * <p>A list of one or more IP addresses of DNS servers or domain controllers in your self-managed
    *       directory.</p>
    */
   CustomerDnsIps: string[] | undefined;
 
   /**
-   * <p>The user name of an account in the on-premises directory that is used to connect to the
+   * <p>The user name of an account in your self-managed directory that is used to connect to the
    *       directory. This account must have the following permissions:</p>
    *          <ul>
    *             <li>
@@ -1172,18 +1223,18 @@ export enum DirectorySize {
  */
 export interface ConnectDirectoryRequest {
   /**
-   * <p>The fully qualified name of the on-premises directory, such as
+   * <p>The fully qualified name of your self-managed directory, such as
    *         <code>corp.example.com</code>.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The NetBIOS name of the on-premises directory, such as <code>CORP</code>.</p>
+   * <p>The NetBIOS name of your self-managed directory, such as <code>CORP</code>.</p>
    */
   ShortName?: string;
 
   /**
-   * <p>The password for the on-premises user account.</p>
+   * <p>The password for your self-managed user account.</p>
    */
   Password: string | undefined;
 
@@ -1240,8 +1291,8 @@ export namespace ConnectDirectoryResult {
 
 /**
  * <p>The maximum number of directories in the region has been reached. You can use the
- *             <a>GetDirectoryLimits</a> operation to determine your directory limits in the
- *             region.</p>
+ *                 <a>GetDirectoryLimits</a> operation to determine your directory limits in
+ *             the region.</p>
  */
 export interface DirectoryLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "DirectoryLimitExceededException";
@@ -1252,7 +1303,7 @@ export interface DirectoryLimitExceededException extends __SmithyException, $Met
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -1277,7 +1328,7 @@ export interface CreateAliasRequest {
 
   /**
    * <p>The requested alias.</p>
-   *          <p>The alias must be unique amongst all aliases in AWS. This operation throws an
+   *          <p>The alias must be unique amongst all aliases in Amazon Web Services. This operation throws an
    *             <code>EntityAlreadyExistsException</code> error if the alias already exists.</p>
    */
   Alias: string | undefined;
@@ -1377,16 +1428,20 @@ export namespace CreateComputerResult {
 }
 
 /**
- * <p>Initiates the creation of a conditional forwarder for your AWS Directory Service for Microsoft Active Directory. Conditional forwarders are required in order to set up a trust relationship with another domain.</p>
+ * <p>Initiates the creation of a conditional forwarder for your Directory Service for Microsoft Active
+ *       Directory. Conditional forwarders are required in order to set up a trust relationship with
+ *       another domain.</p>
  */
 export interface CreateConditionalForwarderRequest {
   /**
-   * <p>The directory ID of the AWS directory for which you are creating the conditional forwarder.</p>
+   * <p>The directory ID of the Amazon Web Services directory for which you are creating the conditional
+   *       forwarder.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.</p>
+   * <p>The fully qualified domain name (FQDN) of the remote domain with which you will set up
+   *       a trust relationship.</p>
    */
   RemoteDomainName: string | undefined;
 
@@ -1563,7 +1618,7 @@ export interface InsufficientPermissionsException extends __SmithyException, $Me
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -1583,18 +1638,20 @@ export enum DirectoryEdition {
 }
 
 /**
- * <p>Creates an AWS Managed Microsoft AD directory.</p>
+ * <p>Creates an Managed Microsoft AD directory.</p>
  */
 export interface CreateMicrosoftADRequest {
   /**
-   * <p>The fully qualified domain name for the AWS Managed Microsoft AD directory, such as
-   *        <code>corp.example.com</code>. This name will resolve inside your VPC only. It does not need
-   *        to be publicly resolvable.</p>
+   * <p>The fully qualified domain name for the Managed Microsoft AD directory, such as
+   *         <code>corp.example.com</code>. This name will resolve inside your VPC only. It does not need
+   *       to be publicly resolvable.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The NetBIOS name for your domain, such as <code>CORP</code>. If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, <code>CORP</code> for the directory DNS <code>corp.example.com</code>. </p>
+   * <p>The NetBIOS name for your domain, such as <code>CORP</code>. If you don't specify a
+   *       NetBIOS name, it will default to the first part of your directory DNS. For example,
+   *         <code>CORP</code> for the directory DNS <code>corp.example.com</code>. </p>
    */
   ShortName?: string;
 
@@ -1605,7 +1662,8 @@ export interface CreateMicrosoftADRequest {
   Password: string | undefined;
 
   /**
-   * <p>A description for the directory. This label will appear on the AWS console <code>Directory Details</code> page after the directory is created.</p>
+   * <p>A description for the directory. This label will appear on the Amazon Web Services console
+   *         <code>Directory Details</code> page after the directory is created.</p>
    */
   Description?: string;
 
@@ -1615,12 +1673,13 @@ export interface CreateMicrosoftADRequest {
   VpcSettings: DirectoryVpcSettings | undefined;
 
   /**
-   * <p>AWS Managed Microsoft AD is available in two editions: <code>Standard</code> and <code>Enterprise</code>. <code>Enterprise</code> is the default.</p>
+   * <p>Managed Microsoft AD is available in two editions: <code>Standard</code> and
+   *         <code>Enterprise</code>. <code>Enterprise</code> is the default.</p>
    */
   Edition?: DirectoryEdition | string;
 
   /**
-   * <p>The tags to be assigned to the AWS Managed Microsoft AD directory.</p>
+   * <p>The tags to be assigned to the Managed Microsoft AD directory.</p>
    */
   Tags?: Tag[];
 }
@@ -1699,8 +1758,8 @@ export namespace CreateSnapshotResult {
 
 /**
  * <p>The maximum number of manual snapshots for the directory has been reached. You can
- *       use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits for a
- *       directory.</p>
+ *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
+ *             for a directory.</p>
  */
 export interface SnapshotLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "SnapshotLimitExceededException";
@@ -1711,7 +1770,7 @@ export interface SnapshotLimitExceededException extends __SmithyException, $Meta
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -1742,22 +1801,29 @@ export enum TrustType {
 }
 
 /**
- * <p>AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your AWS Managed Microsoft AD directory, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.</p>
- *          <p>This action initiates the creation of the AWS side of a trust relationship between an AWS Managed Microsoft AD directory and an external domain.</p>
+ * <p>Directory Service for Microsoft Active Directory allows you to configure trust relationships. For
+ *       example, you can establish a trust between your Managed Microsoft AD directory, and your existing
+ *       self-managed Microsoft Active Directory. This would allow you to provide users and groups
+ *       access to resources in either domain, with a single set of credentials.</p>
+ *          <p>This action initiates the creation of the Amazon Web Services side of a trust relationship between an
+ *       Managed Microsoft AD directory and an external domain.</p>
  */
 export interface CreateTrustRequest {
   /**
-   * <p>The Directory ID of the AWS Managed Microsoft AD directory for which to establish the trust relationship.</p>
+   * <p>The Directory ID of the Managed Microsoft AD directory for which to establish the trust
+   *       relationship.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The Fully Qualified Domain Name (FQDN) of the external domain for which to create the trust relationship.</p>
+   * <p>The Fully Qualified Domain Name (FQDN) of the external domain for which to create the
+   *       trust relationship.</p>
    */
   RemoteDomainName: string | undefined;
 
   /**
-   * <p>The trust password. The must be the same password that was used when creating the trust relationship on the external domain.</p>
+   * <p>The trust password. The must be the same password that was used when creating the trust
+   *       relationship on the external domain.</p>
    */
   TrustPassword: string | undefined;
 
@@ -1821,7 +1887,8 @@ export interface DeleteConditionalForwarderRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.</p>
+   * <p>The fully qualified domain name (FQDN) of the remote domain with which you are deleting
+   *       the conditional forwarder.</p>
    */
   RemoteDomainName: string | undefined;
 }
@@ -1953,7 +2020,8 @@ export namespace DeleteSnapshotResult {
 }
 
 /**
- * <p>Deletes the local side of an existing trust relationship between the AWS Managed Microsoft AD directory and the external domain.</p>
+ * <p>Deletes the local side of an existing trust relationship between the Managed Microsoft AD
+ *       directory and the external domain.</p>
  */
 export interface DeleteTrustRequest {
   /**
@@ -2028,16 +2096,18 @@ export namespace DeregisterCertificateResult {
 }
 
 /**
- * <p>Removes the specified directory as a publisher to the specified SNS topic.</p>
+ * <p>Removes the specified directory as a publisher to the specified Amazon SNS topic.</p>
  */
 export interface DeregisterEventTopicRequest {
   /**
-   * <p>The Directory ID to remove as a publisher. This directory will no longer send messages to the specified SNS topic.</p>
+   * <p>The Directory ID to remove as a publisher. This directory will no longer send messages
+   *       to the specified Amazon SNS topic.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The name of the SNS topic from which to remove the directory as a publisher.</p>
+   * <p>The name of the Amazon SNS topic from which to remove the directory as a
+   *       publisher.</p>
    */
   TopicName: string | undefined;
 }
@@ -2103,17 +2173,73 @@ export namespace DescribeCertificateResult {
   });
 }
 
+export interface DescribeClientAuthenticationSettingsRequest {
+  /**
+   * <p>The identifier of the directory for which to retrieve information.</p>
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The type of client authentication for which to retrieve information. If no type is specified, a list of all client authentication types that are supported for the specified directory is retrieved.</p>
+   */
+  Type?: ClientAuthenticationType | string;
+
+  /**
+   * <p>The <i>DescribeClientAuthenticationSettingsResult.NextToken</i> value from a previous call to <a>DescribeClientAuthenticationSettings</a>. Pass null if this is the first call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation. </p>
+   */
+  Limit?: number;
+}
+
+export namespace DescribeClientAuthenticationSettingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeClientAuthenticationSettingsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeClientAuthenticationSettingsResult {
+  /**
+   * <p>Information about the type of client authentication for the specified directory. The following information is retrieved: The date and time when the status of the client authentication type was last updated, whether the client authentication type is enabled or disabled, and the type of client authentication.</p>
+   */
+  ClientAuthenticationSettingsInfo?: ClientAuthenticationSettingInfo[];
+
+  /**
+   * <p>The next token used to retrieve the client authentication settings if the number of setting types exceeds
+   *       page limit and there is another page.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeClientAuthenticationSettingsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeClientAuthenticationSettingsResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes a conditional forwarder.</p>
  */
 export interface DescribeConditionalForwardersRequest {
   /**
-   * <p>The directory ID for which to get the list of associated conditional forwarders.</p>
+   * <p>The directory ID for which to get the list of associated conditional
+   *       forwarders.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.</p>
+   * <p>The fully qualified domain names (FQDN) of the remote domains for which to get the list
+   *       of associated conditional forwarders. If this member is null, all conditional forwarders are
+   *       returned.</p>
    */
   RemoteDomainNames?: string[];
 }
@@ -2193,7 +2319,7 @@ export interface DirectoryConnectSettingsDescription {
   SubnetIds?: string[];
 
   /**
-   * <p>The user name of the service account in the on-premises directory.</p>
+   * <p>The user name of the service account in your self-managed directory.</p>
    */
   CustomerUserName?: string;
 
@@ -2230,16 +2356,20 @@ export enum RadiusAuthenticationProtocol {
 }
 
 /**
- * <p>Contains information about a Remote Authentication Dial In User Service (RADIUS) server.</p>
+ * <p>Contains information about a Remote Authentication Dial In User Service (RADIUS)
+ *          server.</p>
  */
 export interface RadiusSettings {
   /**
-   * <p>An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.</p>
+   * <p>An array of strings that contains the fully qualified domain name (FQDN) or IP
+   *          addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server
+   *          load balancer.</p>
    */
   RadiusServers?: string[];
 
   /**
-   * <p>The port that your RADIUS server is using for communications. Your on-premises network must allow inbound traffic over this port from the AWS Directory Service servers.</p>
+   * <p>The port that your RADIUS server is using for communications. Your self-managed
+   *          network must allow inbound traffic over this port from the Directory Service servers.</p>
    */
   RadiusPort?: number;
 
@@ -2249,7 +2379,8 @@ export interface RadiusSettings {
   RadiusTimeout?: number;
 
   /**
-   * <p>The maximum number of times that communication with the RADIUS server is attempted.</p>
+   * <p>The maximum number of times that communication with the RADIUS server is
+   *          attempted.</p>
    */
   RadiusRetries?: number;
 
@@ -2330,7 +2461,7 @@ export namespace DirectoryVpcSettingsDescription {
  */
 export interface OwnerDirectoryDescription {
   /**
-   * <p>Identifier of the AWS Managed Microsoft AD directory in the directory owner
+   * <p>Identifier of the Managed Microsoft AD directory in the directory owner
    *       account.</p>
    */
   DirectoryId?: string;
@@ -2378,7 +2509,7 @@ export namespace OwnerDirectoryDescription {
  */
 export interface RegionsInfo {
   /**
-   * <p>The Region where the AWS Managed Microsoft AD directory was originally created.</p>
+   * <p>The Region where the Managed Microsoft AD directory was originally created.</p>
    */
   PrimaryRegion?: string;
 
@@ -2420,7 +2551,7 @@ export enum DirectoryType {
 }
 
 /**
- * <p>Contains information about an AWS Directory Service directory.</p>
+ * <p>Contains information about an Directory Service directory.</p>
  */
 export interface DirectoryDescription {
   /**
@@ -2471,7 +2602,7 @@ export interface DirectoryDescription {
    * <p>The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD
    *       directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For
    *       an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers
-   *       in the on-premises directory to which the AD Connector is connected.</p>
+   *       in your self-managed directory to which the AD Connector is connected.</p>
    */
   DnsIpAddrs?: string[];
 
@@ -2481,13 +2612,13 @@ export interface DirectoryDescription {
   Stage?: DirectoryStage | string;
 
   /**
-   * <p>Current directory status of the shared AWS Managed Microsoft AD directory.</p>
+   * <p>Current directory status of the shared Managed Microsoft AD directory.</p>
    */
   ShareStatus?: ShareStatus | string;
 
   /**
    * <p>The method used when sharing a directory to determine whether the directory should be
-   *       shared within your AWS organization (<code>ORGANIZATIONS</code>) or with any AWS account by
+   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
    *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
    */
   ShareMethod?: ShareMethod | string;
@@ -2517,7 +2648,7 @@ export interface DirectoryDescription {
   /**
    * <p>A <a>DirectoryVpcSettingsDescription</a> object that contains additional
    *       information about a directory. This member is only present if the directory is a Simple AD or
-   *       Managed AD directory.</p>
+   *       Managed Microsoft AD directory.</p>
    */
   VpcSettings?: DirectoryVpcSettingsDescription;
 
@@ -2550,12 +2681,13 @@ export interface DirectoryDescription {
   SsoEnabled?: boolean;
 
   /**
-   * <p>The desired number of domain controllers in the directory if the directory is Microsoft AD.</p>
+   * <p>The desired number of domain controllers in the directory if the directory is Microsoft
+   *       AD.</p>
    */
   DesiredNumberOfDomainControllers?: number;
 
   /**
-   * <p>Describes the AWS Managed Microsoft AD directory in the directory owner account.</p>
+   * <p>Describes the Managed Microsoft AD directory in the directory owner account.</p>
    */
   OwnerDirectoryDescription?: OwnerDirectoryDescription;
 
@@ -2624,7 +2756,7 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -2640,17 +2772,21 @@ export namespace InvalidNextTokenException {
 
 export interface DescribeDomainControllersRequest {
   /**
-   * <p>Identifier of the directory for which to retrieve the domain controller information.</p>
+   * <p>Identifier of the directory for which to retrieve the domain controller
+   *       information.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>A list of identifiers for the domain controllers whose information will be provided.</p>
+   * <p>A list of identifiers for the domain controllers whose information will be
+   *       provided.</p>
    */
   DomainControllerIds?: string[];
 
   /**
-   * <p>The <i>DescribeDomainControllers.NextToken</i> value from a previous call to <a>DescribeDomainControllers</a>. Pass null if this is the first call. </p>
+   * <p>The <i>DescribeDomainControllers.NextToken</i> value from a previous call
+   *       to <a>DescribeDomainControllers</a>. Pass null if this is the first call.
+   *     </p>
    */
   NextToken?: string;
 
@@ -2750,7 +2886,9 @@ export interface DescribeDomainControllersResult {
   DomainControllers?: DomainController[];
 
   /**
-   * <p>If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <a>DescribeDomainControllers</a> retrieve the next set of items.</p>
+   * <p>If not null, more results are available. Pass this value for the <code>NextToken</code>
+   *       parameter in a subsequent call to <a>DescribeDomainControllers</a> retrieve the
+   *       next set of items.</p>
    */
   NextToken?: string;
 }
@@ -2769,13 +2907,16 @@ export namespace DescribeDomainControllersResult {
  */
 export interface DescribeEventTopicsRequest {
   /**
-   * <p>The Directory ID for which to get the list of associated SNS topics. If this member is null, associations for all Directory IDs are returned.</p>
+   * <p>The Directory ID for which to get the list of associated Amazon SNS topics. If this member
+   *       is null, associations for all Directory IDs are returned.</p>
    */
   DirectoryId?: string;
 
   /**
-   * <p>A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.</p>
-   *          <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>
+   * <p>A list of Amazon SNS topic names for which to obtain the information. If this member is
+   *       null, all associations for the specified Directory ID are returned.</p>
+   *          <p>An empty list results in an <code>InvalidParameterException</code> being
+   *       thrown.</p>
    */
   TopicNames?: string[];
 }
@@ -2797,26 +2938,27 @@ export enum TopicStatus {
 }
 
 /**
- * <p>Information about SNS topic and AWS Directory Service directory associations.</p>
+ * <p>Information about Amazon SNS topic and Directory Service directory associations.</p>
  */
 export interface EventTopic {
   /**
-   * <p>The Directory ID of an AWS Directory Service directory that will publish status messages to an SNS topic.</p>
+   * <p>The Directory ID of an Directory Service directory that will publish status messages to an Amazon SNS
+   *       topic.</p>
    */
   DirectoryId?: string;
 
   /**
-   * <p>The name of an AWS SNS topic the receives status messages from the directory.</p>
+   * <p>The name of an Amazon SNS topic the receives status messages from the directory.</p>
    */
   TopicName?: string;
 
   /**
-   * <p>The SNS topic ARN (Amazon Resource Name).</p>
+   * <p>The Amazon SNS topic ARN (Amazon Resource Name).</p>
    */
   TopicArn?: string;
 
   /**
-   * <p>The date and time of when you associated your directory with the SNS topic.</p>
+   * <p>The date and time of when you associated your directory with the Amazon SNS topic.</p>
    */
   CreatedDateTime?: Date;
 
@@ -2840,7 +2982,8 @@ export namespace EventTopic {
  */
 export interface DescribeEventTopicsResult {
   /**
-   * <p>A list of SNS topic names that receive status messages from the specified Directory ID.</p>
+   * <p>A list of Amazon SNS topic names that receive status messages from the specified Directory
+   *       ID.</p>
    */
   EventTopics?: EventTopic[];
 }
@@ -3242,23 +3385,28 @@ export namespace DescribeSnapshotsResult {
 }
 
 /**
- * <p>Describes the trust relationships for a particular AWS Managed Microsoft AD directory. If no input parameters are are provided, such as directory ID or trust ID, this request describes all the trust relationships.</p>
+ * <p>Describes the trust relationships for a particular Managed Microsoft AD directory. If no input
+ *       parameters are provided, such as directory ID or trust ID, this request describes all the
+ *       trust relationships.</p>
  */
 export interface DescribeTrustsRequest {
   /**
-   * <p>The Directory ID of the AWS directory that is a part of the requested trust relationship.</p>
+   * <p>The Directory ID of the Amazon Web Services directory that is a part of the requested trust
+   *       relationship.</p>
    */
   DirectoryId?: string;
 
   /**
-   * <p>A list of identifiers of the trust relationships for which to obtain the information. If this member is null, all trust relationships that belong to the current account are returned.</p>
+   * <p>A list of identifiers of the trust relationships for which to obtain the information. If
+   *       this member is null, all trust relationships that belong to the current account are
+   *       returned.</p>
    *          <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>
    */
   TrustIds?: string[];
 
   /**
    * <p>The <i>DescribeTrustsResult.NextToken</i> value from a previous call to
-   *       <a>DescribeTrusts</a>. Pass null if this is the first call.</p>
+   *         <a>DescribeTrusts</a>. Pass null if this is the first call.</p>
    */
   NextToken?: string;
 
@@ -3292,11 +3440,12 @@ export enum TrustState {
 }
 
 /**
- * <p>Describes a trust relationship between an AWS Managed Microsoft AD directory and an external domain.</p>
+ * <p>Describes a trust relationship between an Managed Microsoft AD directory and an external
+ *       domain.</p>
  */
 export interface Trust {
   /**
-   * <p>The Directory ID of the AWS directory involved in the trust relationship.</p>
+   * <p>The Directory ID of the Amazon Web Services directory involved in the trust relationship.</p>
    */
   DirectoryId?: string;
 
@@ -3306,7 +3455,8 @@ export interface Trust {
   TrustId?: string;
 
   /**
-   * <p>The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.</p>
+   * <p>The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust
+   *       relationship.</p>
    */
   RemoteDomainName?: string;
 
@@ -3367,15 +3517,15 @@ export interface DescribeTrustsResult {
   /**
    * <p>The list of Trust objects that were retrieved.</p>
    *          <p>It is possible that this list contains less than the number of items specified in the
-   *          <i>Limit</i> member of the request. This occurs if there are less than the requested
-   *          number of items left to retrieve, or if the limitations of the operation have been
-   *          exceeded.</p>
+   *         <i>Limit</i> member of the request. This occurs if there are less than the
+   *       requested number of items left to retrieve, or if the limitations of the operation have been
+   *       exceeded.</p>
    */
   Trusts?: Trust[];
 
   /**
-   * <p>If not null, more results are available. Pass this value for the <i>NextToken</i> parameter
-   *       in a subsequent call to <a>DescribeTrusts</a> to retrieve the next set of items.</p>
+   * <p>If not null, more results are available. Pass this value for the
+   *         <i>NextToken</i> parameter in a subsequent call to <a>DescribeTrusts</a> to retrieve the next set of items.</p>
    */
   NextToken?: string;
 }
@@ -3409,17 +3559,17 @@ export interface DirectoryLimits {
   CloudOnlyDirectoriesLimitReached?: boolean;
 
   /**
-   * <p>The maximum number of AWS Managed Microsoft AD directories allowed in the region.</p>
+   * <p>The maximum number of Managed Microsoft AD directories allowed in the region.</p>
    */
   CloudOnlyMicrosoftADLimit?: number;
 
   /**
-   * <p>The current number of AWS Managed Microsoft AD directories in the region.</p>
+   * <p>The current number of Managed Microsoft AD directories in the region.</p>
    */
   CloudOnlyMicrosoftADCurrentCount?: number;
 
   /**
-   * <p>Indicates if the AWS Managed Microsoft AD directory limit has been reached.</p>
+   * <p>Indicates if the Managed Microsoft AD directory limit has been reached.</p>
    */
   CloudOnlyMicrosoftADLimitReached?: boolean;
 
@@ -3449,7 +3599,7 @@ export namespace DirectoryLimits {
 }
 
 /**
- * <p>The specified directory has not been shared with this AWS account.</p>
+ * <p>The specified directory has not been shared with this Amazon Web Services account.</p>
  */
 export interface DirectoryNotSharedException extends __SmithyException, $MetadataBearer {
   name: "DirectoryNotSharedException";
@@ -3460,7 +3610,7 @@ export interface DirectoryNotSharedException extends __SmithyException, $Metadat
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -3518,7 +3668,7 @@ export interface InvalidClientAuthStatusException extends __SmithyException, $Me
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -3578,7 +3728,7 @@ export interface InvalidLDAPSStatusException extends __SmithyException, $Metadat
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -3635,17 +3785,21 @@ export interface DisableSsoRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name.</p>
-   *          <p>If the AD Connector service account does not have privileges to remove a service principal
-   *          name, you can specify an alternate account with the <i>UserName</i> and <i>Password</i>
-   *          parameters. These credentials are only used to disable single sign-on and are not stored by
-   *          the service. The AD Connector service account is not changed.</p>
+   * <p>The username of an alternate account to use to disable single-sign on. This is only used
+   *       for AD Connector directories. This account must have privileges to remove a service
+   *       principal name.</p>
+   *          <p>If the AD Connector service account does not have privileges to remove a service
+   *       principal name, you can specify an alternate account with the <i>UserName</i>
+   *       and <i>Password</i> parameters. These credentials are only used to disable
+   *       single sign-on and are not stored by the service. The AD Connector service account is not
+   *       changed.</p>
    */
   UserName?: string;
 
   /**
    * <p>The password of an alternate account to use to disable single-sign on. This is only used
-   *          for AD Connector directories. For more information, see the <i>UserName</i> parameter.</p>
+   *       for AD Connector directories. For more information, see the <i>UserName</i>
+   *       parameter.</p>
    */
   Password?: string;
 }
@@ -3683,7 +3837,7 @@ export interface EnableClientAuthenticationRequest {
   /**
    * <p>The type of client authentication to enable. Currently only the value <code>SmartCard</code> is
    *       supported. Smart card authentication in AD Connector requires that you enable Kerberos
-   *       Constrained Delegation for the Service User to the LDAP service in the on-premises AD.
+   *       Constrained Delegation for the Service User to the LDAP service in your self-managed AD.
    *     </p>
    */
   Type: ClientAuthenticationType | string | undefined;
@@ -3722,7 +3876,7 @@ export interface NoAvailableCertificateException extends __SmithyException, $Met
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -3779,7 +3933,8 @@ export interface EnableRadiusRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS server.</p>
+   * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS
+   *          server.</p>
    */
   RadiusSettings: RadiusSettings | undefined;
 }
@@ -3818,17 +3973,21 @@ export interface EnableSsoRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name.</p>
+   * <p>The username of an alternate account to use to enable single-sign on. This is only used
+   *       for AD Connector directories. This account must have privileges to add a service principal
+   *       name.</p>
    *          <p>If the AD Connector service account does not have privileges to add a service principal
-   *          name, you can specify an alternate account with the <i>UserName</i> and <i>Password</i>
-   *          parameters. These credentials are only used to enable single sign-on and are not stored by
-   *          the service. The AD Connector service account is not changed.</p>
+   *       name, you can specify an alternate account with the <i>UserName</i> and
+   *         <i>Password</i> parameters. These credentials are only used to enable single
+   *       sign-on and are not stored by the service. The AD Connector service account is not
+   *       changed.</p>
    */
   UserName?: string;
 
   /**
-   * <p>The password of an alternate account to use to enable single-sign on. This is only used for
-   *          AD Connector directories. For more information, see the <i>UserName</i> parameter.</p>
+   * <p>The password of an alternate account to use to enable single-sign on. This is only used
+   *       for AD Connector directories. For more information, see the <i>UserName</i>
+   *       parameter.</p>
    */
   Password?: string;
 }
@@ -3877,7 +4036,7 @@ export namespace GetDirectoryLimitsRequest {
 export interface GetDirectoryLimitsResult {
   /**
    * <p>A <a>DirectoryLimits</a> object that contains the directory limits for the
-   *       current rRegion.</p>
+   *       current Region.</p>
    */
   DirectoryLimits?: DirectoryLimits;
 }
@@ -4013,18 +4172,19 @@ export namespace ListCertificatesResult {
 
 export interface ListIpRoutesRequest {
   /**
-   * <p>Identifier (ID) of the directory for which you want to retrieve the IP addresses.</p>
+   * <p>Identifier (ID) of the directory for which you want to retrieve the IP
+   *          addresses.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The <i>ListIpRoutes.NextToken</i> value from a previous call to
-   *          <a>ListIpRoutes</a>. Pass null if this is the first call.</p>
+   * <p>The <i>ListIpRoutes.NextToken</i> value from a previous call to <a>ListIpRoutes</a>. Pass null if this is the first call.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.</p>
+   * <p>Maximum number of items to return. If this value is zero, the maximum number of items
+   *          is specified by the limitations of the operation.</p>
    */
   Limit?: number;
 }
@@ -4098,8 +4258,8 @@ export interface ListIpRoutesResult {
   IpRoutesInfo?: IpRouteInfo[];
 
   /**
-   * <p>If not null, more results are available. Pass this value for the <i>NextToken</i> parameter
-   *          in a subsequent call to <a>ListIpRoutes</a> to retrieve the next set of items.</p>
+   * <p>If not null, more results are available. Pass this value for the
+   *             <i>NextToken</i> parameter in a subsequent call to <a>ListIpRoutes</a> to retrieve the next set of items.</p>
    */
   NextToken?: string;
 }
@@ -4117,8 +4277,8 @@ export interface ListLogSubscriptionsRequest {
   /**
    * <p>If a <i>DirectoryID</i> is provided, lists only the log subscription
    *       associated with that directory. If no <i>DirectoryId</i> is provided, lists all
-   *       log subscriptions associated with your AWS account. If there are no log subscriptions for the
-   *       AWS account or the directory, an empty list will be returned.</p>
+   *       log subscriptions associated with your Amazon Web Services account. If there are no log subscriptions for the
+   *       Amazon Web Services account or the directory, an empty list will be returned.</p>
    */
   DirectoryId?: string;
 
@@ -4175,8 +4335,7 @@ export namespace LogSubscription {
 
 export interface ListLogSubscriptionsResult {
   /**
-   * <p>A list of active <a>LogSubscription</a> objects for calling the AWS
-   *       account.</p>
+   * <p>A list of active <a>LogSubscription</a> objects for calling the Amazon Web Services account.</p>
    */
   LogSubscriptions?: LogSubscription[];
 
@@ -4197,12 +4356,14 @@ export namespace ListLogSubscriptionsResult {
 
 export interface ListSchemaExtensionsRequest {
   /**
-   * <p>The identifier of the directory from which to retrieve the schema extension information.</p>
+   * <p>The identifier of the directory from which to retrieve the schema extension
+   *       information.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The <code>ListSchemaExtensions.NextToken</code> value from a previous call to <code>ListSchemaExtensions</code>. Pass null if this is the first call.</p>
+   * <p>The <code>ListSchemaExtensions.NextToken</code> value from a previous call to
+   *         <code>ListSchemaExtensions</code>. Pass null if this is the first call.</p>
    */
   NextToken?: string;
 
@@ -4263,7 +4424,8 @@ export interface SchemaExtensionInfo {
   SchemaExtensionStatusReason?: string;
 
   /**
-   * <p>The date and time that the schema extension started being applied to the directory.</p>
+   * <p>The date and time that the schema extension started being applied to the
+   *       directory.</p>
    */
   StartDateTime?: Date;
 
@@ -4289,7 +4451,9 @@ export interface ListSchemaExtensionsResult {
   SchemaExtensionsInfo?: SchemaExtensionInfo[];
 
   /**
-   * <p>If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <code>ListSchemaExtensions</code> to retrieve the next set of items.</p>
+   * <p>If not null, more results are available. Pass this value for the <code>NextToken</code>
+   *       parameter in a subsequent call to <code>ListSchemaExtensions</code> to retrieve the next set
+   *       of items.</p>
    */
   NextToken?: string;
 }
@@ -4362,7 +4526,7 @@ export interface InvalidCertificateException extends __SmithyException, $Metadat
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -4428,12 +4592,13 @@ export namespace RegisterCertificateResult {
  */
 export interface RegisterEventTopicRequest {
   /**
-   * <p>The Directory ID that will publish status messages to the SNS topic.</p>
+   * <p>The Directory ID that will publish status messages to the Amazon SNS topic.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The SNS topic name to which the directory will publish status messages. This SNS topic must be in the same region as the specified Directory ID.</p>
+   * <p>The Amazon SNS topic name to which the directory will publish status messages. This Amazon SNS
+   *       topic must be in the same region as the specified Directory ID.</p>
    */
   TopicName: string | undefined;
 }
@@ -4496,7 +4661,8 @@ export namespace RejectSharedDirectoryResult {
 
 export interface RemoveIpRoutesRequest {
   /**
-   * <p>Identifier (ID) of the directory from which you want to remove the IP addresses.</p>
+   * <p>Identifier (ID) of the directory from which you want to remove the IP
+   *          addresses.</p>
    */
   DirectoryId: string | undefined;
 
@@ -4586,7 +4752,8 @@ export namespace RemoveTagsFromResourceResult {
 }
 
 /**
- * <p>The new password provided by the user does not meet the password complexity requirements defined in your directory.</p>
+ * <p>The new password provided by the user does not meet the password complexity
+ *             requirements defined in your directory.</p>
  */
 export interface InvalidPasswordException extends __SmithyException, $MetadataBearer {
   name: "InvalidPasswordException";
@@ -4597,7 +4764,7 @@ export interface InvalidPasswordException extends __SmithyException, $MetadataBe
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -4613,7 +4780,7 @@ export namespace InvalidPasswordException {
 
 export interface ResetUserPasswordRequest {
   /**
-   * <p>Identifier of the AWS Managed Microsoft AD or Simple AD directory in which the user
+   * <p>Identifier of the Managed Microsoft AD or Simple AD directory in which the user
    *       resides.</p>
    */
   DirectoryId: string | undefined;
@@ -4662,7 +4829,7 @@ export interface UserDoesNotExistException extends __SmithyException, $MetadataB
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -4721,7 +4888,7 @@ export interface InvalidTargetException extends __SmithyException, $MetadataBear
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -4736,7 +4903,7 @@ export namespace InvalidTargetException {
 }
 
 /**
- * <p>Exception encountered while trying to access your AWS organization.</p>
+ * <p>Exception encountered while trying to access your Amazon Web Services organization.</p>
  */
 export interface OrganizationsException extends __SmithyException, $MetadataBearer {
   name: "OrganizationsException";
@@ -4747,7 +4914,7 @@ export interface OrganizationsException extends __SmithyException, $MetadataBear
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -4791,8 +4958,7 @@ export namespace ShareTarget {
 
 export interface ShareDirectoryRequest {
   /**
-   * <p>Identifier of the AWS Managed Microsoft AD directory that you want to share with other AWS
-   *       accounts.</p>
+   * <p>Identifier of the Managed Microsoft AD directory that you want to share with other Amazon Web Services accounts.</p>
    */
   DirectoryId: string | undefined;
 
@@ -4811,7 +4977,7 @@ export interface ShareDirectoryRequest {
 
   /**
    * <p>The method used when sharing a directory to determine whether the directory should be
-   *       shared within your AWS organization (<code>ORGANIZATIONS</code>) or with any AWS account by
+   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
    *       sending a directory sharing request (<code>HANDSHAKE</code>).</p>
    */
   ShareMethod: ShareMethod | string | undefined;
@@ -4845,7 +5011,8 @@ export namespace ShareDirectoryResult {
 }
 
 /**
- * <p>The maximum number of AWS accounts that you can share with this directory has been reached.</p>
+ * <p>The maximum number of Amazon Web Services accounts that you can share with this directory has been
+ *             reached.</p>
  */
 export interface ShareLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ShareLimitExceededException";
@@ -4856,7 +5023,7 @@ export interface ShareLimitExceededException extends __SmithyException, $Metadat
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -4872,17 +5039,21 @@ export namespace ShareLimitExceededException {
 
 export interface StartSchemaExtensionRequest {
   /**
-   * <p>The identifier of the directory for which the schema extension will be applied to.</p>
+   * <p>The identifier of the directory for which the schema extension will be applied
+   *       to.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>If true, creates a snapshot of the directory before applying the schema extension.</p>
+   * <p>If true, creates a snapshot of the directory before applying the schema
+   *       extension.</p>
    */
   CreateSnapshotBeforeSchemaExtension: boolean | undefined;
 
   /**
-   * <p>The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.</p>
+   * <p>The LDIF file represented as a string. To construct the LdifContent string, precede
+   *       each line as it would be formatted in an ldif file with \n. See the example request below for
+   *       more details. The file size can be no larger than 1MB.</p>
    */
   LdifContent: string | undefined;
 
@@ -4944,7 +5115,7 @@ export namespace UnshareTarget {
 
 export interface UnshareDirectoryRequest {
   /**
-   * <p>The identifier of the AWS Managed Microsoft AD directory that you want to stop
+   * <p>The identifier of the Managed Microsoft AD directory that you want to stop
    *       sharing.</p>
    */
   DirectoryId: string | undefined;
@@ -4987,17 +5158,20 @@ export namespace UnshareDirectoryResult {
  */
 export interface UpdateConditionalForwarderRequest {
   /**
-   * <p>The directory ID of the AWS directory for which to update the conditional forwarder.</p>
+   * <p>The directory ID of the Amazon Web Services directory for which to update the conditional
+   *       forwarder.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.</p>
+   * <p>The fully qualified domain name (FQDN) of the remote domain with which you will set up
+   *       a trust relationship.</p>
    */
   RemoteDomainName: string | undefined;
 
   /**
-   * <p>The updated IP addresses of the remote DNS server associated with the conditional forwarder.</p>
+   * <p>The updated IP addresses of the remote DNS server associated with the conditional
+   *       forwarder.</p>
    */
   DnsIpAddrs: string[] | undefined;
 }
@@ -5026,7 +5200,8 @@ export namespace UpdateConditionalForwarderResult {
 }
 
 /**
- * <p>The maximum allowed number of domain controllers per directory was exceeded. The default limit per directory is 20 domain controllers.</p>
+ * <p>The maximum allowed number of domain controllers per directory was exceeded. The
+ *       default limit per directory is 20 domain controllers.</p>
  */
 export interface DomainControllerLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "DomainControllerLimitExceededException";
@@ -5037,7 +5212,7 @@ export interface DomainControllerLimitExceededException extends __SmithyExceptio
   Message?: string;
 
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 }
@@ -5053,7 +5228,8 @@ export namespace DomainControllerLimitExceededException {
 
 export interface UpdateNumberOfDomainControllersRequest {
   /**
-   * <p>Identifier of the directory to which the domain controllers will be added or removed.</p>
+   * <p>Identifier of the directory to which the domain controllers will be added or
+   *       removed.</p>
    */
   DirectoryId: string | undefined;
 
@@ -5088,12 +5264,14 @@ export namespace UpdateNumberOfDomainControllersResult {
  */
 export interface UpdateRadiusRequest {
   /**
-   * <p>The identifier of the directory for which to update the RADIUS server information.</p>
+   * <p>The identifier of the directory for which to update the RADIUS server
+   *          information.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS server.</p>
+   * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS
+   *          server.</p>
    */
   RadiusSettings: RadiusSettings | undefined;
 }
@@ -5145,7 +5323,7 @@ export namespace UpdateTrustRequest {
 
 export interface UpdateTrustResult {
   /**
-   * <p>The AWS request identifier.</p>
+   * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
 
@@ -5165,7 +5343,8 @@ export namespace UpdateTrustResult {
 }
 
 /**
- * <p>Initiates the verification of an existing trust relationship between an AWS Managed Microsoft AD directory and an external domain.</p>
+ * <p>Initiates the verification of an existing trust relationship between an Managed Microsoft AD
+ *       directory and an external domain.</p>
  */
 export interface VerifyTrustRequest {
   /**

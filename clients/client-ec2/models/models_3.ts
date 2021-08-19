@@ -42,6 +42,7 @@ import {
   InternetGateway,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  KeyType,
   LaunchTemplate,
   LaunchTemplateVersion,
   LocalGatewayRouteTableVpcAssociation,
@@ -83,11 +84,28 @@ import {
   HypervisorType,
   IdFormat,
   InstanceBlockDeviceMapping,
+  InstanceTagNotificationAttribute,
   PermissionGroup,
   ProductCode,
   StateReason,
   VirtualizationType,
 } from "./models_2";
+
+export interface DescribeInstanceEventNotificationAttributesResult {
+  /**
+   * <p>Information about the registered tag keys.</p>
+   */
+  InstanceTagAttribute?: InstanceTagNotificationAttribute;
+}
+
+export namespace DescribeInstanceEventNotificationAttributesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstanceEventNotificationAttributesResult): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <para>Describe instance event windows by InstanceEventWindow.</para>
@@ -3351,8 +3369,27 @@ export interface KeyPairInfo {
   KeyPairId?: string;
 
   /**
-   * <p>If you used <a>CreateKeyPair</a> to create the key pair, this is the SHA-1 digest of the DER encoded private key.
-   *         If you used <a>ImportKeyPair</a> to provide Amazon Web Services the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
+   * <p>If you used <a>CreateKeyPair</a> to create the key pair:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.
+   *                </p>
+   *            </li>
+   *             <li>
+   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which
+   *                    is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
+   *            </li>
+   *          </ul>
+   *          <p>If you used <a>ImportKeyPair</a> to provide Amazon Web Services the public key:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
+   *            </li>
+   *             <li>
+   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256
+   *                     digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
+   *            </li>
+   *          </ul>
    */
   KeyFingerprint?: string;
 
@@ -3360,6 +3397,11 @@ export interface KeyPairInfo {
    * <p>The name of the key pair.</p>
    */
   KeyName?: string;
+
+  /**
+   * <p>The type of key pair.</p>
+   */
+  KeyType?: KeyType | string;
 
   /**
    * <p>Any tags applied to the key pair.</p>
@@ -13013,31 +13055,3 @@ export namespace DescribeVolumeStatusResult {
 }
 
 export type VpcAttributeName = "enableDnsHostnames" | "enableDnsSupport";
-
-export interface DescribeVpcAttributeRequest {
-  /**
-   * <p>The VPC attribute.</p>
-   */
-  Attribute: VpcAttributeName | string | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeVpcAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcAttributeRequest): any => ({
-    ...obj,
-  });
-}

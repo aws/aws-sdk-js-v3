@@ -1554,6 +1554,9 @@ export const serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand = a
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.type !== undefined && { type: input.type }),
+    ...(input.intervalWindowInSeconds !== undefined && {
+      intervalWindowInSeconds: input.intervalWindowInSeconds.toString(),
+    }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();

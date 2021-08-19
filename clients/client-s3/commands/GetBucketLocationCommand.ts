@@ -26,7 +26,9 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  *             <code>LocationConstraint</code> request parameter in a <code>CreateBucket</code>
  *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>.</p>
  *
- *          <p> To use this implementation of the operation, you must be the bucket owner.</p>
+ *          <p>To use this implementation of the operation, you must be the bucket owner.</p>
+ *
+ *          <p>To use this API against an access point, provide the alias of the access point in place of the bucket name.</p>
  *
  *          <p>The following operations are related to <code>GetBucketLocation</code>:</p>
  *          <ul>

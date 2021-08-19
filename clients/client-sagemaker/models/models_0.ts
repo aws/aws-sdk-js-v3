@@ -3699,6 +3699,109 @@ export namespace AssociationSummary {
   });
 }
 
+/**
+ * <p>Configures the behavior of the client used by Amazon SageMaker to interact with the
+ *             model container during asynchronous inference.</p>
+ */
+export interface AsyncInferenceClientConfig {
+  /**
+   * <p>The maximum number of concurrent requests sent by the SageMaker client to the
+   *             model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.</p>
+   */
+  MaxConcurrentInvocationsPerInstance?: number;
+}
+
+export namespace AsyncInferenceClientConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncInferenceClientConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration for notifications of inference results for asynchronous inference.</p>
+ */
+export interface AsyncInferenceNotificationConfig {
+  /**
+   * <p>Amazon SNS topic to post a notification to when inference completes successfully.
+   *             If no topic is provided, no notification is sent on success.</p>
+   */
+  SuccessTopic?: string;
+
+  /**
+   * <p>Amazon SNS topic to post a notification to when inference fails.
+   *             If no topic is provided, no notification is sent on failure.</p>
+   */
+  ErrorTopic?: string;
+}
+
+export namespace AsyncInferenceNotificationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncInferenceNotificationConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration for asynchronous inference invocation outputs.</p>
+ */
+export interface AsyncInferenceOutputConfig {
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+   *             Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.</p>
+   *         <p></p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The Amazon S3 location to upload inference responses to.</p>
+   */
+  S3OutputPath: string | undefined;
+
+  /**
+   * <p>Specifies the configuration for notifications of inference results for asynchronous inference.</p>
+   */
+  NotificationConfig?: AsyncInferenceNotificationConfig;
+}
+
+export namespace AsyncInferenceOutputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncInferenceOutputConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies configuration for how an endpoint performs asynchronous inference.</p>
+ */
+export interface AsyncInferenceConfig {
+  /**
+   * <p>Configures the behavior of the client used by Amazon SageMaker to interact
+   *             with the model container during asynchronous inference.</p>
+   */
+  ClientConfig?: AsyncInferenceClientConfig;
+
+  /**
+   * <p>Specifies the configuration for asynchronous inference invocation outputs.</p>
+   */
+  OutputConfig: AsyncInferenceOutputConfig | undefined;
+}
+
+export namespace AsyncInferenceConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncInferenceConfig): any => ({
+    ...obj,
+  });
+}
+
 export enum AthenaResultCompressionType {
   GZIP = "GZIP",
   SNAPPY = "SNAPPY",
@@ -8884,6 +8987,15 @@ export interface CreateEndpointConfigInput {
    *         </note>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>Specifies configuration for how an endpoint performs asynchronous inference.
+   *             This is a required field in order for your Endpoint to be invoked using
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html">
+   *                <code>InvokeEndpointAsync</code>
+   *             </a>.</p>
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig;
 }
 
 export namespace CreateEndpointConfigInput {
@@ -13519,141 +13631,6 @@ export namespace MonitoringGroundTruthS3Input {
    * @internal
    */
   export const filterSensitiveLog = (obj: MonitoringGroundTruthS3Input): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Inputs for the model bias job.</p>
- */
-export interface ModelBiasJobInput {
-  /**
-   * <p>Input object for the endpoint</p>
-   */
-  EndpointInput: EndpointInput | undefined;
-
-  /**
-   * <p>Location of ground truth labels to use in model bias job.</p>
-   */
-  GroundTruthS3Input: MonitoringGroundTruthS3Input | undefined;
-}
-
-export namespace ModelBiasJobInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelBiasJobInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelBiasJobDefinitionRequest {
-  /**
-   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the
-   *          Amazon Web Services account.</p>
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The baseline configuration for a model bias job.</p>
-   */
-  ModelBiasBaselineConfig?: ModelBiasBaselineConfig;
-
-  /**
-   * <p>Configures the model bias job to run a specified Docker container image.</p>
-   */
-  ModelBiasAppSpecification: ModelBiasAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model bias job.</p>
-   */
-  ModelBiasJobInput: ModelBiasJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   */
-  ModelBiasJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model bias job.</p>
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *             User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateModelBiasJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelBiasJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelBiasJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model bias job.</p>
-   */
-  JobDefinitionArn: string | undefined;
-}
-
-export namespace CreateModelBiasJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelBiasJobDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Docker container image configuration object for the model explainability job.</p>
- */
-export interface ModelExplainabilityAppSpecification {
-  /**
-   * <p>The container image to be run by the model explainability job.</p>
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>JSON formatted S3 file that defines explainability parameters. For more information on
-   *          this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/json-model-explainability-parameter-config.html">Configure model
-   *             explainability parameters</a>.</p>
-   */
-  ConfigUri: string | undefined;
-
-  /**
-   * <p>Sets the environment variables in the Docker container.</p>
-   */
-  Environment?: { [key: string]: string };
-}
-
-export namespace ModelExplainabilityAppSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelExplainabilityAppSpecification): any => ({
     ...obj,
   });
 }

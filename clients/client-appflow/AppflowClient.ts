@@ -277,7 +277,7 @@ export interface AppflowClientResolvedConfig extends AppflowClientResolvedConfig
  *
  *          <p>Amazon AppFlow is a fully managed integration service that enables you to securely
  *       transfer data between software as a service (SaaS) applications like Salesforce, Marketo,
- *       Slack, and ServiceNow, and AWS services like Amazon S3 and Amazon Redshift. </p>
+ *       Slack, and ServiceNow, and Amazon Web Services like Amazon S3 and Amazon Redshift. </p>
  *
  *
  *

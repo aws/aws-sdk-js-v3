@@ -21,9 +21,8 @@ export interface GetFirewallRuleGroupPolicyCommandInput extends GetFirewallRuleG
 export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRuleGroupPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the AWS Identity and Access Management (AWS IAM) policy for sharing the
- * 			specified rule group. You can use the policy to share the rule group using AWS Resource
- * 			Access Manager (AWS RAM). </p>
+ * <p>Returns the Identity and Access Management (Amazon Web Services IAM) policy for sharing the
+ *        	specified rule group. You can use the policy to share the rule group using Resource Access Manager (RAM). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

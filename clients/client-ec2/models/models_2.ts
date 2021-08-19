@@ -67,6 +67,27 @@ import {
   TransitGatewayRouteTable,
 } from "./models_1";
 
+export interface DeleteClientVpnEndpointRequest {
+  /**
+   * <p>The ID of the Client VPN to be deleted.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteClientVpnEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteClientVpnEndpointRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteClientVpnEndpointResult {
   /**
    * <p>The current state of the Client VPN endpoint.</p>
@@ -8894,8 +8915,7 @@ export interface ImportImageTask {
   ImportTaskId?: string;
 
   /**
-   * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create
-   *    the encrypted image.</p>
+   * <p>The identifier for the KMS key that was used to create the encrypted image.</p>
    */
   KmsKeyId?: string;
 
@@ -8938,6 +8958,11 @@ export interface ImportImageTask {
    * <p>The ARNs of the license configurations that are associated with the import image task.</p>
    */
   LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
+
+  /**
+   * <p>The usage operation value.</p>
+   */
+  UsageOperation?: string;
 }
 
 export namespace ImportImageTask {
@@ -9036,8 +9061,7 @@ export interface SnapshotTaskDetail {
   Format?: string;
 
   /**
-   * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create
-   *    the encrypted snapshot.</p>
+   * <p>The identifier for the KMS key that was used to create the encrypted snapshot.</p>
    */
   KmsKeyId?: string;
 
@@ -9496,22 +9520,6 @@ export namespace DescribeInstanceEventNotificationAttributesRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeInstanceEventNotificationAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceEventNotificationAttributesResult {
-  /**
-   * <p>Information about the registered tag keys.</p>
-   */
-  InstanceTagAttribute?: InstanceTagNotificationAttribute;
-}
-
-export namespace DescribeInstanceEventNotificationAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceEventNotificationAttributesResult): any => ({
     ...obj,
   });
 }

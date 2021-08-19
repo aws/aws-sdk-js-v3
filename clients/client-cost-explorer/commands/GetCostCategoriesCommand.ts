@@ -22,7 +22,7 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
 
 /**
  * <p>Retrieves an array of Cost Category names and values incurred cost.</p>
- * 	        <note>
+ *          <note>
  *             <p>If some Cost Category names and values are not associated with any cost, they will not be returned by this API.</p>
  *          </note>
  * @example

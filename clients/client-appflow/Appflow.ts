@@ -69,7 +69,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *
  *          <p>Amazon AppFlow is a fully managed integration service that enables you to securely
  *       transfer data between software as a service (SaaS) applications like Salesforce, Marketo,
- *       Slack, and ServiceNow, and AWS services like Amazon S3 and Amazon Redshift. </p>
+ *       Slack, and ServiceNow, and Amazon Web Services like Amazon S3 and Amazon Redshift. </p>
  *
  *
  *
@@ -108,8 +108,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class Appflow extends AppflowClient {
   /**
-   * <p> Creates a new connector profile associated with your AWS account. There is a soft quota
-   *       of 100 connector profiles per AWS account. If you need more connector profiles than this quota
+   * <p> Creates a new connector profile associated with your Amazon Web Services account. There is a soft quota
+   *       of 100 connector profiles per Amazon Web Services account. If you need more connector profiles than this quota
    *       allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support
    *       channel. </p>
    */

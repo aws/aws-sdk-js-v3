@@ -1,6 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateExperimentRequest } from "../models/models_2";
-import { UpdateExperimentResponse } from "../models/models_3";
+import { UpdateExperimentRequest, UpdateExperimentResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateExperimentCommand,
   serializeAws_json1_1UpdateExperimentCommand,

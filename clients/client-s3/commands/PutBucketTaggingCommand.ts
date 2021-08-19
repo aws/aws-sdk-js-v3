@@ -24,8 +24,8 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the tags for a bucket.</p>
- *          <p>Use tags to organize your AWS bill to reflect your own cost structure. To do this, sign
- *          up to get your AWS account bill with tag key values included. Then, to see the cost of
+ *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this, sign
+ *          up to get your Amazon Web Services account bill with tag key values included. Then, to see the cost of
  *          combined resources, organize your billing information according to resources with the same
  *          tag key values. For example, you can tag several resources with a specific application
  *          name, and then organize your billing information to see the total cost of that application
@@ -53,7 +53,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *                   <li>
  *                      <p>Description: The tag provided was not a valid tag. This error can occur if
  *                      the tag did not pass input validation. For information about tag restrictions,
- *                      see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">AWS-Generated Cost Allocation Tag Restrictions</a>.</p>
+ *                      see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">Amazon Web Services-Generated Cost Allocation Tag Restrictions</a>.</p>
  *                   </li>
  *                </ul>
  *             </li>

@@ -102,8 +102,37 @@ import {
   ReservedInstancesConfiguration,
   SnapshotAttributeName,
   VolumeModification,
+  VpcAttributeName,
 } from "./models_3";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface DescribeVpcAttributeRequest {
+  /**
+   * <p>The VPC attribute.</p>
+   */
+  Attribute: VpcAttributeName | string | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeVpcAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcAttributeRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeVpcAttributeResult {
   /**
@@ -3229,7 +3258,7 @@ export interface ExportImageRequest {
 
   /**
    * <p>Information about the destination Amazon S3 bucket. The bucket must exist and grant WRITE
-   *    and READ_ACP permissions to the AWS account vm-import-export@amazon.com.</p>
+   *    and READ_ACP permissions to the Amazon Web Services account vm-import-export@amazon.com.</p>
    */
   S3ExportLocation: ExportTaskS3LocationRequest | undefined;
 
@@ -5647,8 +5676,8 @@ export interface ImportImageRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Specifies whether the destination AMI of the imported image should be encrypted. The default CMK for EBS is used
-   *    unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+   * <p>Specifies whether the destination AMI of the imported image should be encrypted. The default KMS key for EBS is used
+   *    unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
    *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   Encrypted?: boolean;
@@ -5661,39 +5690,39 @@ export interface ImportImageRequest {
   Hypervisor?: string;
 
   /**
-   * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the
-   *    encrypted AMI. This parameter is only required if you want to use a non-default CMK; if this
-   *    parameter is not specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
+   * <p>An identifier for the symmetric KMS key to use when creating the
+   *    encrypted AMI. This parameter is only required if you want to use a non-default KMS key; if this
+   *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
    *    specified, the <code>Encrypted</code> flag must also be set. </p>
-   *          <p>The CMK identifier may be provided in any of the following formats: </p>
+   *          <p>The KMS key identifier may be provided in any of the following formats: </p>
    *          <ul>
    *             <li>
    *                <p>Key ID</p>
    *             </li>
    *             <li>
-   *                <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+   *                <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
    *             </li>
    *             <li>
-   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
+   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
    *             </li>
    *             <li>
-   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
+   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
    *             </li>
    *          </ul>
-   *          <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
+   *          <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
    *    though you provided an invalid identifier. This action will eventually report failure. </p>
-   *          <p>The specified CMK must exist in the Region that the AMI is being copied to.</p>
-   *          <p>Amazon EBS does not support asymmetric CMKs.</p>
+   *          <p>The specified KMS key must exist in the Region that the AMI is being copied to.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p>
    *          <p>By default, we detect the source-system operating system (OS) and apply the appropriate license. Specify
-   *     <code>AWS</code> to replace the source-system license with an AWS license, if appropriate. Specify <code>BYOL</code>
+   *    <code>AWS</code> to replace the source-system license with an Amazon Web Services license, if appropriate. Specify <code>BYOL</code>
    *    to retain the source-system license, if appropriate.</p>
    *          <p>To use <code>BYOL</code>, you must have existing licenses with rights to use these licenses in a third party
-   *    cloud, such as AWS. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a> in the
+   *    cloud, such as Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a> in the
    *    VM Import/Export User Guide.</p>
    */
   LicenseType?: string;
@@ -5719,6 +5748,11 @@ export interface ImportImageRequest {
    * <p>The tags to apply to the import image task during creation.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The usage operation value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI billing information fields</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  UsageOperation?: string;
 }
 
 export namespace ImportImageRequest {
@@ -5762,8 +5796,7 @@ export interface ImportImageResult {
   ImportTaskId?: string;
 
   /**
-   * <p>The identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key
-   *    (CMK) that was used to create the encrypted AMI.</p>
+   * <p>The identifier for the symmetric KMS key that was used to create the encrypted AMI.</p>
    */
   KmsKeyId?: string;
 
@@ -5806,6 +5839,11 @@ export interface ImportImageResult {
    * <p>Any tags assigned to the import image task.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The usage operation value.</p>
+   */
+  UsageOperation?: string;
 }
 
 export namespace ImportImageResult {
@@ -5903,7 +5941,7 @@ export namespace DiskImage {
  */
 export interface UserData {
   /**
-   * <p>The user data. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you
+   * <p>The user data. If you are using an Amazon Web Services SDK or command line tool, Base64-encoding is performed for you, and you
    *    can load the text from a file. Otherwise, you must provide Base64-encoded text.</p>
    */
   Data?: string;
@@ -6177,36 +6215,36 @@ export interface ImportSnapshotRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Specifies whether the destination snapshot of the imported image should be encrypted. The default CMK for EBS is
-   *    used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+   * <p>Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is
+   *    used unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
    *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   Encrypted?: boolean;
 
   /**
-   * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the
-   *    encrypted snapshot. This parameter is only required if you want to use a non-default CMK; if this
-   *    parameter is not specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
+   * <p>An identifier for the symmetric KMS key to use when creating the
+   *    encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this
+   *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
    *    specified, the <code>Encrypted</code> flag must also be set. </p>
-   *          <p>The CMK identifier may be provided in any of the following formats: </p>
+   *          <p>The KMS key identifier may be provided in any of the following formats: </p>
    *          <ul>
    *             <li>
    *                <p>Key ID</p>
    *             </li>
    *             <li>
-   *                <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+   *                <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
    *             </li>
    *             <li>
-   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
+   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
    *             </li>
    *             <li>
-   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
+   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
    *             </li>
    *          </ul>
-   *          <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
+   *          <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
    *    though you provided an invalid identifier. This action will eventually report failure. </p>
-   *          <p>The specified CMK must exist in the Region that the snapshot is being copied to.</p>
-   *          <p>Amazon EBS does not support asymmetric CMKs.</p>
+   *          <p>The specified KMS key must exist in the Region that the snapshot is being copied to.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
    */
   KmsKeyId?: string;
 
@@ -9464,27 +9502,6 @@ export namespace PeeringConnectionOptions {
    * @internal
    */
   export const filterSensitiveLog = (obj: PeeringConnectionOptions): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpcPeeringConnectionOptionsResult {
-  /**
-   * <p>Information about the VPC peering connection options for the accepter VPC.</p>
-   */
-  AccepterPeeringConnectionOptions?: PeeringConnectionOptions;
-
-  /**
-   * <p>Information about the VPC peering connection options for the requester VPC.</p>
-   */
-  RequesterPeeringConnectionOptions?: PeeringConnectionOptions;
-}
-
-export namespace ModifyVpcPeeringConnectionOptionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpcPeeringConnectionOptionsResult): any => ({
     ...obj,
   });
 }

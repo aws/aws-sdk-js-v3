@@ -158,7 +158,7 @@ export interface FirewallRuleGroupAssociation {
   MutationProtection?: MutationProtectionStatus | string;
 
   /**
-   * <p>The owner of the association, used only for associations that are not managed by you. If you use AWS Firewall Manager to
+   * <p>The owner of the association, used only for associations that are not managed by you. If you use Firewall Manager to
    *    manage your DNS Firewalls, then this reports Firewall Manager as the managed owner.</p>
    */
   ManagedOwnerName?: string;
@@ -1313,7 +1313,7 @@ export interface FirewallRuleGroup {
   StatusMessage?: string;
 
   /**
-   * <p>The AWS account ID for the account that created the rule group. When a rule group is shared with your account,
+   * <p>The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account,
    *        this is the account that has shared the rule group with you.  </p>
    */
   OwnerId?: string;
@@ -1326,8 +1326,8 @@ export interface FirewallRuleGroup {
   CreatorRequestId?: string;
 
   /**
-   * <p>Whether the rule group is shared with other AWS accounts, or was shared with the current account by another
-   *               AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM).</p>
+   * <p>Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another
+   *               Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
   ShareStatus?: ShareStatus | string;
 
@@ -1552,7 +1552,7 @@ export interface ResolverQueryLogConfig {
   Id?: string;
 
   /**
-   * <p>The AWS account ID for the account that created the query logging configuration. </p>
+   * <p>The Amazon Web Services account ID for the account that created the query logging configuration. </p>
    */
   OwnerId?: string;
 
@@ -1590,8 +1590,8 @@ export interface ResolverQueryLogConfig {
   Status?: ResolverQueryLogConfigStatus | string;
 
   /**
-   * <p>An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another
-   * 			AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM).</p>
+   * <p>An indication of whether the query logging configuration is shared with other Amazon Web Services accounts, or was shared with the current account by another
+   * 			Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
   ShareStatus?: ShareStatus | string;
 
@@ -1825,7 +1825,7 @@ export interface ResolverRule {
   ResolverEndpointId?: string;
 
   /**
-   * <p>When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.</p>
+   * <p>When a rule is shared with another Amazon Web Services account, the account ID of the account that the rule is shared with.</p>
    */
   OwnerId?: string;
 
@@ -2278,7 +2278,7 @@ export interface Filter {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>HostVpcId</code>: The ID of the VPC that inbound DNS queries pass through on the way from your network to your VPCs in a region, or
+   *                   <code>HostVPCId</code>: The ID of the VPC that inbound DNS queries pass through on the way from your network to your VPCs in a region, or
    * 				the VPC that outbound queries pass through on the way from your VPCs to your network. In a
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html">CreateResolverEndpoint</a>
    * 				request, <code>SubnetId</code> indirectly identifies the VPC. In a
@@ -2400,7 +2400,7 @@ export interface Filter {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Destination</code>: The AWS service that you want to forward query logs to. Valid values include the following:</p>
+   *                   <code>Destination</code>: The Amazon Web Services service that you want to forward query logs to. Valid values include the following:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>
@@ -2434,12 +2434,12 @@ export interface Filter {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OwnerId</code>: The AWS account ID for the account that created the query logging configuration.</p>
+   *                   <code>OwnerId</code>: The Amazon Web Services account ID for the account that created the query logging configuration.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ShareStatus</code>: An indication of whether the query logging configuration is shared with other AWS accounts,
-   * 				or was shared with the current account by another AWS account. Valid values include: <code>NOT_SHARED</code>, <code>SHARED_WITH_ME</code>,
+   *                   <code>ShareStatus</code>: An indication of whether the query logging configuration is shared with other Amazon Web Services accounts,
+   * 				or was shared with the current account by another Amazon Web Services account. Valid values include: <code>NOT_SHARED</code>, <code>SHARED_WITH_ME</code>,
    * 				or <code>SHARED_BY_ME</code>.</p>
    *             </li>
    *             <li>
@@ -2529,7 +2529,7 @@ export interface FirewallConfig {
   ResourceId?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the VPC that this firewall configuration applies to.</p>
+   * <p>The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.</p>
    */
   OwnerId?: string;
 
@@ -2632,7 +2632,7 @@ export interface FirewallRuleGroupMetadata {
   Name?: string;
 
   /**
-   * <p>The AWS account ID for the account that created the rule group. When a rule group is shared with your account,
+   * <p>The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account,
    *        this is the account that has shared the rule group with you.  </p>
    */
   OwnerId?: string;
@@ -2645,8 +2645,8 @@ export interface FirewallRuleGroupMetadata {
   CreatorRequestId?: string;
 
   /**
-   * <p>Whether the rule group is shared with other AWS accounts, or was shared with the current account by another
-   *               AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM).</p>
+   * <p>Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another
+   *               Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
   ShareStatus?: ShareStatus | string;
 }
@@ -2807,9 +2807,9 @@ export namespace GetFirewallRuleGroupPolicyRequest {
 
 export interface GetFirewallRuleGroupPolicyResponse {
   /**
-   * <p>The AWS Identity and Access Management (AWS IAM) policy for sharing the specified rule
-   * 			group. You can use the policy to share the rule group using AWS Resource Access Manager
-   * 			(AWS RAM). </p>
+   * <p>The Identity and Access Management (Amazon Web Services IAM) policy for sharing the specified rule
+   * 			group. You can use the policy to share the rule group using Resource Access Manager
+   * 			(RAM). </p>
    */
   FirewallRuleGroupPolicy?: string;
 }
@@ -3714,7 +3714,7 @@ export interface ListResolverDnssecConfigsRequest {
   MaxResults?: number;
 
   /**
-   * <p>(Optional) If the current AWS account has more than <code>MaxResults</code> DNSSEC configurations, use <code>NextToken</code>
+   * <p>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code> DNSSEC configurations, use <code>NextToken</code>
    * 			to get the second and subsequent pages of results.</p>
    * 		       <p>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</p>
    * 		       <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value
@@ -3739,7 +3739,7 @@ export namespace ListResolverDnssecConfigsRequest {
 
 export interface ListResolverDnssecConfigsResponse {
   /**
-   * <p>If a response includes the last of the DNSSEC configurations that are associated with the current AWS account,
+   * <p>If a response includes the last of the DNSSEC configurations that are associated with the current Amazon Web Services account,
    * 			<code>NextToken</code> doesn't appear in the response.</p>
    * 		       <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResolverDnssecConfigs.html">ListResolverDnssecConfigs</a>
@@ -3751,7 +3751,7 @@ export interface ListResolverDnssecConfigsResponse {
   /**
    * <p>An array that contains one
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResolverDnssecConfig.html">ResolverDnssecConfig</a> element
-   * 			for each configuration for DNSSEC validation that is associated with the current AWS account.</p>
+   * 			for each configuration for DNSSEC validation that is associated with the current Amazon Web Services account.</p>
    */
   ResolverDnssecConfigs?: ResolverDnssecConfig[];
 }
@@ -3870,7 +3870,7 @@ export interface ListResolverEndpointsResponse {
   MaxResults?: number;
 
   /**
-   * <p>The Resolver endpoints that were created by using the current AWS account, and that match the specified filters, if any.</p>
+   * <p>The Resolver endpoints that were created by using the current Amazon Web Services account, and that match the specified filters, if any.</p>
    */
   ResolverEndpoints?: ResolverEndpoint[];
 }
@@ -4111,12 +4111,12 @@ export interface ListResolverQueryLogConfigsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OwnerId</code>: The AWS account number of the account that created the configuration</p>
+   *                   <code>OwnerId</code>: The Amazon Web Services account number of the account that created the configuration</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ShareStatus</code>: Whether the configuration is shared with other AWS accounts or shared with the current account by
-   * 				another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM).</p>
+   *                   <code>ShareStatus</code>: Whether the configuration is shared with other Amazon Web Services accounts or shared with the current account by
+   * 				another Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4259,7 +4259,7 @@ export interface ListResolverRuleAssociationsResponse {
   MaxResults?: number;
 
   /**
-   * <p>The associations that were created between Resolver rules and VPCs using the current AWS account, and that match the
+   * <p>The associations that were created between Resolver rules and VPCs using the current Amazon Web Services account, and that match the
    * 			specified filters, if any.</p>
    */
   ResolverRuleAssociations?: ResolverRuleAssociation[];
@@ -4321,7 +4321,7 @@ export interface ListResolverRulesResponse {
   MaxResults?: number;
 
   /**
-   * <p>The Resolver rules that were created using the current AWS account and that match the specified filters, if any.</p>
+   * <p>The Resolver rules that were created using the current Amazon Web Services account and that match the specified filters, if any.</p>
    */
   ResolverRules?: ResolverRule[];
 }
@@ -4394,7 +4394,7 @@ export interface PutFirewallRuleGroupPolicyRequest {
   Arn: string | undefined;
 
   /**
-   * <p>The AWS Identity and Access Management (AWS IAM) policy to attach to the rule group.</p>
+   * <p>The Identity and Access Management (Amazon Web Services IAM) policy to attach to the rule group.</p>
    */
   FirewallRuleGroupPolicy: string | undefined;
 }
@@ -4431,7 +4431,7 @@ export interface PutResolverQueryLogConfigPolicyRequest {
   Arn: string | undefined;
 
   /**
-   * <p>An AWS Identity and Access Management policy statement that lists the query logging configurations that you want to share with another AWS account
+   * <p>An Identity and Access Management policy statement that lists the query logging configurations that you want to share with another Amazon Web Services account
    * 			and the operations that you want the account to be able to perform. You can specify the following operations in the <code>Actions</code> section
    * 			of the statement:</p>
    * 		       <ul>
@@ -4498,7 +4498,7 @@ export interface PutResolverRulePolicyRequest {
   Arn: string | undefined;
 
   /**
-   * <p>An AWS Identity and Access Management policy statement that lists the rules that you want to share with another AWS account and the operations that you want the account
+   * <p>An Identity and Access Management policy statement that lists the rules that you want to share with another Amazon Web Services account and the operations that you want the account
    * 			to be able to perform. You can specify the following operations in the <code>Action</code> section of the statement:</p>
    * 			      <ul>
    *             <li>

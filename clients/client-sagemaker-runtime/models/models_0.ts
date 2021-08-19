@@ -222,3 +222,90 @@ export namespace ValidationError {
     ...obj,
   });
 }
+
+export interface InvokeEndpointAsyncInput {
+  /**
+   * <p>The name of the endpoint that you specified when you created the endpoint using
+   *             the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">
+   *                <code>CreateEndpoint</code>
+   *             </a> API.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The MIME type of the input data in the request body.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The desired MIME type of the inference in the response.</p>
+   */
+  Accept?: string;
+
+  /**
+   * <p>Provides additional information about a request for an inference submitted to
+   *             a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
+   *             forwarded verbatim. You could use this value, for example, to provide an ID that you
+   *             can use to track a request or to provide other metadata that a service endpoint was
+   *             programmed to process. The value must consist of no more than 1024
+   *             visible US-ASCII characters as specified in
+   *             <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6">Section 3.3.6.
+   *                 Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p>
+   *
+   *         <p>The code in your model is responsible for setting or updating any custom attributes
+   *             in the response. If your code does not set this value in the response, an empty
+   *             value is returned. For example, if a custom attribute represents the trace ID,
+   *             your model can prepend the custom attribute with <code>Trace ID</code>: in your post-processing function. </p>
+   *
+   *         <p>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK. </p>
+   */
+  CustomAttributes?: string;
+
+  /**
+   * <p>The identifier for the inference request. Amazon SageMaker will generate an identifier for you
+   *             if none is specified. </p>
+   */
+  InferenceId?: string;
+
+  /**
+   * <p>The Amazon S3 URI where the inference request payload is stored.</p>
+   */
+  InputLocation: string | undefined;
+
+  /**
+   * <p>Maximum age in seconds a request can be in the queue before it is marked as expired.</p>
+   */
+  RequestTTLSeconds?: number;
+}
+
+export namespace InvokeEndpointAsyncInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvokeEndpointAsyncInput): any => ({
+    ...obj,
+    ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
+  });
+}
+
+export interface InvokeEndpointAsyncOutput {
+  /**
+   * <p>Identifier for an inference request. This will be the same as the <code>InferenceId</code> specified
+   *             in the input. Amazon SageMaker will generate an identifier for you if you do not specify one.</p>
+   */
+  InferenceId?: string;
+
+  /**
+   * <p>The Amazon S3 URI where the inference response payload is stored.</p>
+   */
+  OutputLocation?: string;
+}
+
+export namespace InvokeEndpointAsyncOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvokeEndpointAsyncOutput): any => ({
+    ...obj,
+  });
+}

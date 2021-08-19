@@ -25,7 +25,7 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  *          <p>You must use the following guidelines when naming a log group:</p>
  *          <ul>
  *             <li>
- *                <p>Log group names must be unique within a region for an AWS account.</p>
+ *                <p>Log group names must be unique within a region for an Amazon Web Services account.</p>
  *             </li>
  *             <li>
  *                <p>Log group names can be between 1 and 512 characters long.</p>
@@ -38,13 +38,13 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  *          <p>When you create a log group, by default the log events in the log group never expire. To set
  *     a retention policy so that events expire and are deleted after a specified time, use
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.</p>
- *          <p>If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK.
- *       This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs.
- *       This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p>
+ *          <p>If you associate a Key Management Service customer master key (CMK) with the log group, ingested data is encrypted using the CMK.
+ *       This association is stored as long as the data encrypted with the CMK is still within CloudWatch Logs.
+ *       This enables CloudWatch Logs to decrypt this data whenever it is requested.</p>
  *          <p>If you attempt to associate a CMK with the log group but the CMK does not exist or the
  *       CMK is disabled, you receive an <code>InvalidParameterException</code> error. </p>
  *          <important>
- *             <p> CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK with
+ *             <p>CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK with
  *         your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric
  *           Keys</a>.</p>
  *          </important>

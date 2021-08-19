@@ -21,7 +21,9 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceRequest 
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites one or more tags for the specified directory. Each directory can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.</p>
+ * <p>Adds or overwrites one or more tags for the specified directory. Each directory can
+ *       have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be
+ *       unique to each resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

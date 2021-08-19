@@ -252,40 +252,43 @@ export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationA
  *       resources:</p>
  *          <ul>
  *             <li>
- *                <p>Amazon ECS services</p>
- *             </li>
- *             <li>
- *                <p>Amazon EC2 Spot Fleet requests</p>
- *             </li>
- *             <li>
- *                <p>Amazon EMR clusters</p>
- *             </li>
- *             <li>
  *                <p>Amazon AppStream 2.0 fleets</p>
- *             </li>
- *             <li>
- *                <p>Amazon DynamoDB tables and global secondary indexes throughput capacity</p>
  *             </li>
  *             <li>
  *                <p>Amazon Aurora Replicas</p>
  *             </li>
  *             <li>
- *                <p>Amazon SageMaker endpoint variants</p>
- *             </li>
- *             <li>
- *                <p>Custom resources provided by your own applications or services</p>
- *             </li>
- *             <li>
  *                <p>Amazon Comprehend document classification and entity recognizer endpoints</p>
  *             </li>
  *             <li>
- *                <p>AWS Lambda function provisioned concurrency</p>
+ *                <p>Amazon DynamoDB tables and global secondary indexes throughput capacity</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon ECS services</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon ElastiCache for Redis clusters (replication groups)</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon EMR clusters</p>
  *             </li>
  *             <li>
  *                <p>Amazon Keyspaces (for Apache Cassandra) tables</p>
  *             </li>
  *             <li>
+ *                <p>Lambda function provisioned concurrency</p>
+ *             </li>
+ *             <li>
  *                <p>Amazon Managed Streaming for Apache Kafka broker storage</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon SageMaker endpoint variants</p>
+ *             </li>
+ *             <li>
+ *                <p>Spot Fleet (Amazon EC2) requests</p>
+ *             </li>
+ *             <li>
+ *                <p>Custom resources provided by your own applications or services</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -294,7 +297,7 @@ export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationA
  *          <p>The Application Auto Scaling service API includes three key sets of actions: </p>
  *          <ul>
  *             <li>
- *                <p>Register and manage scalable targets - Register AWS or custom resources as scalable
+ *                <p>Register and manage scalable targets - Register Amazon Web Services or custom resources as scalable
  *           targets (a resource that Application Auto Scaling can scale), set minimum and maximum capacity limits, and
  *           retrieve information on existing scalable targets.</p>
  *             </li>

@@ -22,7 +22,8 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
 
 /**
  * <p>Obtains information about the trust relationships for this account.</p>
- *          <p>If no input parameters are provided, such as DirectoryId or TrustIds, this request describes all the trust relationships belonging to the account.</p>
+ *          <p>If no input parameters are provided, such as DirectoryId or TrustIds, this request
+ *       describes all the trust relationships belonging to the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

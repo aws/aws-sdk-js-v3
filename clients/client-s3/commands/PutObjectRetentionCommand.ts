@@ -24,8 +24,18 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
 
 /**
  * <p>Places an Object Retention configuration on an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
+ *           Users or accounts require the <code>s3:PutObjectRetention</code> permission in order to place
+ *           an Object Retention configuration on objects. Bypassing a Governance Retention configuration
+ *           requires the <code>s3:BypassGovernanceRetention</code> permission.
  *          </p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ *
+ *          <p>
+ *             <b>Permissions</b>
+ *          </p>
+ *          <p>When the Object Lock retention mode is set to compliance, you need <code>s3:PutObjectRetention</code> and
+ *          <code>s3:BypassGovernanceRetention</code> permissions. For other requests to <code>PutObjectRetention</code>,
+ *          only <code>s3:PutObjectRetention</code> permissions are required.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

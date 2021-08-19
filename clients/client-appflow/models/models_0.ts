@@ -105,6 +105,31 @@ export namespace AmplitudeSourceProperties {
 }
 
 /**
+ * <p> The basic auth credentials required for basic authentication. </p>
+ */
+export interface BasicAuthCredentials {
+  /**
+   * <p> The username to use to connect to a resource. </p>
+   */
+  username: string | undefined;
+
+  /**
+   * <p> The password to use to connect to a resource.</p>
+   */
+  password: string | undefined;
+}
+
+export namespace BasicAuthCredentials {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BasicAuthCredentials): any => ({
+    ...obj,
+    ...(obj.password && { password: SENSITIVE_STRING }),
+  });
+}
+
+/**
  * <p> There was a conflict when processing the request (for example, a flow with the given name
  *       already exists within the account. Check for conflicting resource names and try again. </p>
  */
@@ -316,6 +341,20 @@ export namespace SalesforceMetadata {
 }
 
 /**
+ * <p> The connector metadata specific to SAPOData. </p>
+ */
+export interface SAPODataMetadata {}
+
+export namespace SAPODataMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SAPODataMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> The connector metadata specific to ServiceNow. </p>
  */
 export interface ServiceNowMetadata {}
@@ -367,7 +406,7 @@ export namespace SlackMetadata {
  */
 export interface SnowflakeMetadata {
   /**
-   * <p> Specifies the supported AWS Regions when using Snowflake. </p>
+   * <p> Specifies the supported Amazon Web Services Regions when using Snowflake. </p>
    */
   supportedRegions?: string[];
 }
@@ -546,6 +585,11 @@ export interface ConnectorMetadata {
    * <p> The connector metadata specific to Amazon Honeycode. </p>
    */
   Honeycode?: HoneycodeMetadata;
+
+  /**
+   * <p> The connector metadata specific to SAPOData. </p>
+   */
+  SAPOData?: SAPODataMetadata;
 }
 
 export namespace ConnectorMetadata {
@@ -571,6 +615,7 @@ export enum ConnectorType {
   REDSHIFT = "Redshift",
   S3 = "S3",
   SALESFORCE = "Salesforce",
+  SAPODATA = "SAPOData",
   SERVICENOW = "Servicenow",
   SINGULAR = "Singular",
   SLACK = "Slack",
@@ -1038,6 +1083,30 @@ export enum SalesforceConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+export enum SAPODataConnectorOperator {
+  ADDITION = "ADDITION",
+  BETWEEN = "BETWEEN",
+  CONTAINS = "CONTAINS",
+  DIVISION = "DIVISION",
+  EQUAL_TO = "EQUAL_TO",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL = "MASK_ALL",
+  MASK_FIRST_N = "MASK_FIRST_N",
+  MASK_LAST_N = "MASK_LAST_N",
+  MULTIPLICATION = "MULTIPLICATION",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NO_OP = "NO_OP",
+  PROJECTION = "PROJECTION",
+  SUBTRACTION = "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
+}
+
 export enum ServiceNowConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1232,6 +1301,11 @@ export interface ConnectorOperator {
    * <p> The operation to be performed on the provided Zendesk source fields. </p>
    */
   Zendesk?: ZendeskConnectorOperator | string;
+
+  /**
+   * <p> The operation to be performed on the provided SAPOData source fields. </p>
+   */
+  SAPOData?: SAPODataConnectorOperator | string;
 }
 
 export namespace ConnectorOperator {
@@ -1408,6 +1482,86 @@ export namespace SalesforceConnectorProfileProperties {
 }
 
 /**
+ * <p> The OAuth properties required for OAuth type authentication. </p>
+ */
+export interface OAuthProperties {
+  /**
+   * <p> The token url required to fetch access/refresh tokens using authorization code and also to refresh expired
+   *       access token using refresh token.</p>
+   */
+  tokenUrl: string | undefined;
+
+  /**
+   * <p> The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type
+   *       authentication. </p>
+   */
+  authCodeUrl: string | undefined;
+
+  /**
+   * <p> The OAuth scopes required for OAuth type authentication. </p>
+   */
+  oAuthScopes: string[] | undefined;
+}
+
+export namespace OAuthProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OAuthProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p> The connector-specific profile properties required when using SAPOData. </p>
+ */
+export interface SAPODataConnectorProfileProperties {
+  /**
+   * <p> The location of the SAPOData resource. </p>
+   */
+  applicationHostUrl: string | undefined;
+
+  /**
+   * <p> The application path to catalog service. </p>
+   */
+  applicationServicePath: string | undefined;
+
+  /**
+   * <p> The port number of the SAPOData instance. </p>
+   */
+  portNumber: number | undefined;
+
+  /**
+   * <p> The client number for the client creating the connection. </p>
+   */
+  clientNumber: string | undefined;
+
+  /**
+   * <p> The logon language of SAPOData instance. </p>
+   */
+  logonLanguage?: string;
+
+  /**
+   * <p> The SAPOData Private Link service name to be used for private data transfers. </p>
+   */
+  privateLinkServiceName?: string;
+
+  /**
+   * <p> The SAPOData OAuth properties required for OAuth type authentication. </p>
+   */
+  oAuthProperties?: OAuthProperties;
+}
+
+export namespace SAPODataConnectorProfileProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SAPODataConnectorProfileProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> The connector-specific profile properties required when using ServiceNow. </p>
  */
 export interface ServiceNowConnectorProfileProperties {
@@ -1496,7 +1650,7 @@ export interface SnowflakeConnectorProfileProperties {
   accountName?: string;
 
   /**
-   * <p> The AWS Region of the Snowflake account. </p>
+   * <p> The Amazon Web Services Region of the Snowflake account. </p>
    */
   region?: string;
 }
@@ -1645,6 +1799,11 @@ export interface ConnectorProfileProperties {
    * <p> The connector-specific properties required by Zendesk. </p>
    */
   Zendesk?: ZendeskConnectorProfileProperties;
+
+  /**
+   * <p> The connector-specific profile properties required when using SAPOData. </p>
+   */
+  SAPOData?: SAPODataConnectorProfileProperties;
 }
 
 export namespace ConnectorProfileProperties {
@@ -1652,6 +1811,49 @@ export namespace ConnectorProfileProperties {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConnectorProfileProperties): any => ({
+    ...obj,
+  });
+}
+
+export enum PrivateConnectionProvisioningFailureCause {
+  ACCESS_DENIED = "ACCESS_DENIED",
+  CONNECTOR_AUTHENTICATION = "CONNECTOR_AUTHENTICATION",
+  CONNECTOR_SERVER = "CONNECTOR_SERVER",
+  INTERNAL_SERVER = "INTERNAL_SERVER",
+  VALIDATION = "VALIDATION",
+}
+
+export enum PrivateConnectionProvisioningStatus {
+  CREATED = "CREATED",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+}
+
+/**
+ * <p> Specifies the private connection provisioning state. </p>
+ */
+export interface PrivateConnectionProvisioningState {
+  /**
+   * <p> Specifies the private connection provisioning status. </p>
+   */
+  status?: PrivateConnectionProvisioningStatus | string;
+
+  /**
+   * <p> Specifies the private connection provisioning failure reason. </p>
+   */
+  failureMessage?: string;
+
+  /**
+   * <p> Specifies the private connection provisioning failure cause. </p>
+   */
+  failureCause?: PrivateConnectionProvisioningFailureCause | string;
+}
+
+export namespace PrivateConnectionProvisioningState {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrivateConnectionProvisioningState): any => ({
     ...obj,
   });
 }
@@ -1671,7 +1873,7 @@ export interface ConnectorProfile {
 
   /**
    * <p> The name of the connector profile. The name is unique for each
-   *         <code>ConnectorProfile</code> in the AWS account. </p>
+   *         <code>ConnectorProfile</code> in the Amazon Web Services account. </p>
    */
   connectorProfileName?: string;
 
@@ -1704,6 +1906,11 @@ export interface ConnectorProfile {
    * <p> Specifies when the connector profile was last updated. </p>
    */
   lastUpdatedAt?: Date;
+
+  /**
+   * <p> Specifies the private connection provisioning state. </p>
+   */
+  privateConnectionProvisioningState?: PrivateConnectionProvisioningState;
 }
 
 export namespace ConnectorProfile {
@@ -1969,6 +2176,77 @@ export namespace SalesforceConnectorProfileCredentials {
     ...obj,
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
     ...(obj.clientCredentialsArn && { clientCredentialsArn: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p> The OAuth credentials required for OAuth type authentication. </p>
+ */
+export interface OAuthCredentials {
+  /**
+   * <p> The identifier for the desired client. </p>
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p> The client secret used by the OAuth client to authenticate to the authorization server.
+   *     </p>
+   */
+  clientSecret: string | undefined;
+
+  /**
+   * <p> The access token used to access protected SAPOData resources. </p>
+   */
+  accessToken?: string;
+
+  /**
+   * <p> The refresh token used to refresh expired access token. </p>
+   */
+  refreshToken?: string;
+
+  /**
+   * <p> The OAuth requirement needed to request security tokens from the connector endpoint.
+   *     </p>
+   */
+  oAuthRequest?: ConnectorOAuthRequest;
+}
+
+export namespace OAuthCredentials {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OAuthCredentials): any => ({
+    ...obj,
+    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p> The connector-specific profile credentials required when using SAPOData. </p>
+ */
+export interface SAPODataConnectorProfileCredentials {
+  /**
+   * <p> The SAPOData basic authentication credentials. </p>
+   */
+  basicAuthCredentials?: BasicAuthCredentials;
+
+  /**
+   * <p> The SAPOData OAuth type authentication credentials. </p>
+   */
+  oAuthCredentials?: OAuthCredentials;
+}
+
+export namespace SAPODataConnectorProfileCredentials {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SAPODataConnectorProfileCredentials): any => ({
+    ...obj,
+    ...(obj.basicAuthCredentials && {
+      basicAuthCredentials: BasicAuthCredentials.filterSensitiveLog(obj.basicAuthCredentials),
+    }),
+    ...(obj.oAuthCredentials && { oAuthCredentials: OAuthCredentials.filterSensitiveLog(obj.oAuthCredentials) }),
   });
 }
 
@@ -2246,6 +2524,11 @@ export interface ConnectorProfileCredentials {
    * <p> The connector-specific credentials required when using Zendesk. </p>
    */
   Zendesk?: ZendeskConnectorProfileCredentials;
+
+  /**
+   * <p> The connector-specific profile credentials required when using SAPOData. </p>
+   */
+  SAPOData?: SAPODataConnectorProfileCredentials;
 }
 
 export namespace ConnectorProfileCredentials {
@@ -2269,6 +2552,7 @@ export namespace ConnectorProfileCredentials {
     ...(obj.Trendmicro && { Trendmicro: TrendmicroConnectorProfileCredentials.filterSensitiveLog(obj.Trendmicro) }),
     ...(obj.Veeva && { Veeva: VeevaConnectorProfileCredentials.filterSensitiveLog(obj.Veeva) }),
     ...(obj.Zendesk && { Zendesk: ZendeskConnectorProfileCredentials.filterSensitiveLog(obj.Zendesk) }),
+    ...(obj.SAPOData && { SAPOData: SAPODataConnectorProfileCredentials.filterSensitiveLog(obj.SAPOData) }),
   });
 }
 
@@ -2321,7 +2605,7 @@ export namespace ConnectorServerException {
 export interface CreateConnectorProfileRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
-   *         <code>ConnectorProfile</code> in your AWS account. </p>
+   *         <code>ConnectorProfile</code> in your Amazon Web Services account. </p>
    */
   connectorProfileName: string | undefined;
 
@@ -2340,7 +2624,7 @@ export interface CreateConnectorProfileRequest {
 
   /**
    * <p> Indicates the connection mode and specifies whether it is public or private. Private
-   *       flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the
+   *       flows use Amazon Web Services PrivateLink to route data over Amazon Web Services infrastructure without exposing it to the
    *       public internet. </p>
    */
   connectionMode: ConnectionMode | string | undefined;
@@ -2973,7 +3257,7 @@ export interface DestinationFlowConfig {
 
   /**
    * <p> The name of the connector profile. This name must be unique for each connector profile in
-   *       the AWS account. </p>
+   *       the Amazon Web Services account. </p>
    */
   connectorProfileName?: string;
 
@@ -3163,6 +3447,25 @@ export namespace SalesforceSourceProperties {
 }
 
 /**
+ * <p> The properties that are applied when using SAPOData as a flow source. </p>
+ */
+export interface SAPODataSourceProperties {
+  /**
+   * <p> The object path specified in the SAPOData flow source. </p>
+   */
+  objectPath?: string;
+}
+
+export namespace SAPODataSourceProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SAPODataSourceProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> The properties that are applied when ServiceNow is being used as a source. </p>
  */
 export interface ServiceNowSourceProperties {
@@ -3246,6 +3549,26 @@ export interface VeevaSourceProperties {
    * <p> The object specified in the Veeva flow source. </p>
    */
   object: string | undefined;
+
+  /**
+   * <p>The document type specified in the Veeva document extract flow.</p>
+   */
+  documentType?: string;
+
+  /**
+   * <p>Boolean value to include source files in Veeva document extract flow.</p>
+   */
+  includeSourceFiles?: boolean;
+
+  /**
+   * <p>Boolean value to include file renditions in Veeva document extract flow.</p>
+   */
+  includeRenditions?: boolean;
+
+  /**
+   * <p>Boolean value to include All Versions of files in Veeva document extract flow.</p>
+   */
+  includeAllVersions?: boolean;
 }
 
 export namespace VeevaSourceProperties {
@@ -3349,6 +3672,11 @@ export interface SourceConnectorProperties {
    * <p> Specifies the information that is required for querying Zendesk. </p>
    */
   Zendesk?: ZendeskSourceProperties;
+
+  /**
+   * <p> The properties that are applied when using SAPOData as a flow source. </p>
+   */
+  SAPOData?: SAPODataSourceProperties;
 }
 
 export namespace SourceConnectorProperties {
@@ -3372,7 +3700,7 @@ export interface SourceFlowConfig {
 
   /**
    * <p> The name of the connector profile. This name must be unique for each connector profile in
-   *       the AWS account. </p>
+   *       the Amazon Web Services account. </p>
    */
   connectorProfileName?: string;
 
@@ -3766,7 +4094,7 @@ export interface DescribeConnectorEntityRequest {
 
   /**
    * <p> The name of the connector profile. The name is unique for each
-   *         <code>ConnectorProfile</code> in the AWS account. </p>
+   *         <code>ConnectorProfile</code> in the Amazon Web Services account. </p>
    */
   connectorProfileName?: string;
 }
@@ -3801,7 +4129,7 @@ export namespace DescribeConnectorEntityResponse {
 export interface DescribeConnectorProfilesRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
-   *         <code>ConnectorProfile</code> in the AWS account. </p>
+   *         <code>ConnectorProfile</code> in the Amazon Web Services account. </p>
    */
   connectorProfileNames?: string[];
 
@@ -4294,7 +4622,7 @@ export namespace FlowDefinition {
 export interface ListConnectorEntitiesRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
-   *         <code>ConnectorProfile</code> in the AWS account, and is used to query the downstream
+   *         <code>ConnectorProfile</code> in the Amazon Web Services account, and is used to query the downstream
    *       connector. </p>
    */
   connectorProfileName?: string;
@@ -4582,7 +4910,7 @@ export namespace UntagResourceResponse {
 export interface UpdateConnectorProfileRequest {
   /**
    * <p> The name of the connector profile and is unique for each <code>ConnectorProfile</code> in
-   *       the AWS Account. </p>
+   *       the Amazon Web Services account. </p>
    */
   connectorProfileName: string | undefined;
 
@@ -4643,7 +4971,7 @@ export interface UpdateFlowRequest {
    * <p> Contains information about the configuration of the source connector used in the flow.
    *     </p>
    */
-  sourceFlowConfig?: SourceFlowConfig;
+  sourceFlowConfig: SourceFlowConfig | undefined;
 
   /**
    * <p> The configuration that controls how Amazon AppFlow transfers data to the destination

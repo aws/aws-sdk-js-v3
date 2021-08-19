@@ -44,7 +44,7 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *             <li>
  *                <p>The log events in the batch must be in chronological order by their timestamp. The
  *           timestamp is the time the event occurred, expressed as the number of milliseconds after
- *           Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the
+ *           Jan 1, 1970 00:00:00 UTC. (In Amazon Web Services Tools for PowerShell and the Amazon Web Services SDK for .NET, the
  *           timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example,
  *           2017-09-15T13:45:30.) </p>
  *             </li>
@@ -58,7 +58,7 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *                <p>There is a quota of 5 requests per second per log stream. Additional requests are throttled. This quota can't be changed.</p>
  *             </li>
  *          </ul>
- *          <p>If a call to <code>PutLogEvents</code> returns "UnrecognizedClientException" the most likely cause is an invalid AWS access key ID or secret key. </p>
+ *          <p>If a call to <code>PutLogEvents</code> returns "UnrecognizedClientException" the most likely cause is an invalid Amazon Web Services access key ID or secret key. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

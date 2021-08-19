@@ -21,7 +21,9 @@ export interface CreateConditionalForwarderCommandInput extends CreateConditiona
 export interface CreateConditionalForwarderCommandOutput extends CreateConditionalForwarderResult, __MetadataBearer {}
 
 /**
- * <p>Creates a conditional forwarder associated with your AWS directory. Conditional forwarders are required in order to set up a trust relationship with another domain. The conditional forwarder points to the trusted domain.</p>
+ * <p>Creates a conditional forwarder associated with your Amazon Web Services directory. Conditional
+ *       forwarders are required in order to set up a trust relationship with another domain. The
+ *       conditional forwarder points to the trusted domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

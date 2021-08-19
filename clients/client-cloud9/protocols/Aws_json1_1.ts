@@ -1645,6 +1645,7 @@ const serializeAws_json1_1CreateEnvironmentEC2Request = (
     ...(input.connectionType !== undefined &&
       input.connectionType !== null && { connectionType: input.connectionType }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.dryRun !== undefined && input.dryRun !== null && { dryRun: input.dryRun }),
     ...(input.imageId !== undefined && input.imageId !== null && { imageId: input.imageId }),
     ...(input.instanceType !== undefined && input.instanceType !== null && { instanceType: input.instanceType }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
@@ -1808,6 +1809,8 @@ const serializeAws_json1_1UpdateEnvironmentRequest = (
   return {
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
+    ...(input.managedCredentialsAction !== undefined &&
+      input.managedCredentialsAction !== null && { managedCredentialsAction: input.managedCredentialsAction }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };

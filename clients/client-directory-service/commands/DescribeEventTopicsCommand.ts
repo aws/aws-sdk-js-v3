@@ -21,8 +21,10 @@ export interface DescribeEventTopicsCommandInput extends DescribeEventTopicsRequ
 export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsResult, __MetadataBearer {}
 
 /**
- * <p>Obtains information about which SNS topics receive status messages from the specified directory.</p>
- *          <p>If no input parameters are provided, such as DirectoryId or TopicName, this request describes all of the associations in the account.</p>
+ * <p>Obtains information about which Amazon SNS topics receive status messages from the specified
+ *       directory.</p>
+ *          <p>If no input parameters are provided, such as DirectoryId or TopicName, this request
+ *       describes all of the associations in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

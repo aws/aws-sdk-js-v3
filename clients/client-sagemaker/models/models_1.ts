@@ -10,6 +10,7 @@ import {
   AppStatus,
   AppType,
   ArtifactSource,
+  AsyncInferenceConfig,
   AthenaDatasetDefinition,
   AuthMode,
   AutoMLCandidate,
@@ -65,9 +66,7 @@ import {
   MetricsSource,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
-  ModelBiasJobInput,
   ModelDeployConfig,
-  ModelExplainabilityAppSpecification,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
@@ -102,6 +101,141 @@ import {
   VpcConfig,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+/**
+ * <p>Inputs for the model bias job.</p>
+ */
+export interface ModelBiasJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   */
+  EndpointInput: EndpointInput | undefined;
+
+  /**
+   * <p>Location of ground truth labels to use in model bias job.</p>
+   */
+  GroundTruthS3Input: MonitoringGroundTruthS3Input | undefined;
+}
+
+export namespace ModelBiasJobInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelBiasJobInput): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateModelBiasJobDefinitionRequest {
+  /**
+   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the
+   *          Amazon Web Services account.</p>
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The baseline configuration for a model bias job.</p>
+   */
+  ModelBiasBaselineConfig?: ModelBiasBaselineConfig;
+
+  /**
+   * <p>Configures the model bias job to run a specified Docker container image.</p>
+   */
+  ModelBiasAppSpecification: ModelBiasAppSpecification | undefined;
+
+  /**
+   * <p>Inputs for the model bias job.</p>
+   */
+  ModelBiasJobInput: ModelBiasJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   */
+  ModelBiasJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Networking options for a model bias job.</p>
+   */
+  NetworkConfig?: MonitoringNetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
+   *          perform tasks on your behalf.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   */
+  StoppingCondition?: MonitoringStoppingCondition;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+   *             User Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateModelBiasJobDefinitionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateModelBiasJobDefinitionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateModelBiasJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model bias job.</p>
+   */
+  JobDefinitionArn: string | undefined;
+}
+
+export namespace CreateModelBiasJobDefinitionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateModelBiasJobDefinitionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Docker container image configuration object for the model explainability job.</p>
+ */
+export interface ModelExplainabilityAppSpecification {
+  /**
+   * <p>The container image to be run by the model explainability job.</p>
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>JSON formatted S3 file that defines explainability parameters. For more information on
+   *          this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/json-model-explainability-parameter-config.html">Configure model
+   *             explainability parameters</a>.</p>
+   */
+  ConfigUri: string | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   */
+  Environment?: { [key: string]: string };
+}
+
+export namespace ModelExplainabilityAppSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelExplainabilityAppSpecification): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The configuration for a baseline model explainability job.</p>
@@ -1175,11 +1309,25 @@ export enum _InstanceType {
   ML_C5_4XLARGE = "ml.c5.4xlarge",
   ML_C5_9XLARGE = "ml.c5.9xlarge",
   ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
   ML_M4_10XLARGE = "ml.m4.10xlarge",
   ML_M4_16XLARGE = "ml.m4.16xlarge",
   ML_M4_2XLARGE = "ml.m4.2xlarge",
   ML_M4_4XLARGE = "ml.m4.4xlarge",
   ML_M4_XLARGE = "ml.m4.xlarge",
+  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
+  ML_M5D_16XLARGE = "ml.m5d.16xlarge",
+  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
+  ML_M5D_8XLARGE = "ml.m5d.8xlarge",
+  ML_M5D_LARGE = "ml.m5d.large",
+  ML_M5D_XLARGE = "ml.m5d.xlarge",
   ML_M5_12XLARGE = "ml.m5.12xlarge",
   ML_M5_24XLARGE = "ml.m5.24xlarge",
   ML_M5_2XLARGE = "ml.m5.2xlarge",
@@ -1188,9 +1336,18 @@ export enum _InstanceType {
   ML_P2_16XLARGE = "ml.p2.16xlarge",
   ML_P2_8XLARGE = "ml.p2.8xlarge",
   ML_P2_XLARGE = "ml.p2.xlarge",
+  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
   ML_P3_16XLARGE = "ml.p3.16xlarge",
   ML_P3_2XLARGE = "ml.p3.2xlarge",
   ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_R5_12XLARGE = "ml.r5.12xlarge",
+  ML_R5_16XLARGE = "ml.r5.16xlarge",
+  ML_R5_24XLARGE = "ml.r5.24xlarge",
+  ML_R5_2XLARGE = "ml.r5.2xlarge",
+  ML_R5_4XLARGE = "ml.r5.4xlarge",
+  ML_R5_8XLARGE = "ml.r5.8xlarge",
+  ML_R5_LARGE = "ml.r5.large",
+  ML_R5_XLARGE = "ml.r5.xlarge",
   ML_T2_2XLARGE = "ml.t2.2xlarge",
   ML_T2_LARGE = "ml.t2.large",
   ML_T2_MEDIUM = "ml.t2.medium",
@@ -1320,6 +1477,11 @@ export interface CreateNotebookInstanceInput {
    *         </note>
    */
   RootAccess?: RootAccess | string;
+
+  /**
+   * <p>The platform identifier of the notebook instance runtime environment.</p>
+   */
+  PlatformIdentifier?: string;
 }
 
 export namespace CreateNotebookInstanceInput {
@@ -3527,12 +3689,12 @@ export namespace MemberDefinition {
 }
 
 /**
- * <p>Configures SNS notifications of available or expiring work items for work
+ * <p>Configures Amazon SNS notifications of available or expiring work items for work
  *             teams.</p>
  */
 export interface NotificationConfiguration {
   /**
-   * <p>The ARN for the SNS topic to which notifications should be published.</p>
+   * <p>The ARN for the Amazon SNS topic to which notifications should be published.</p>
    */
   NotificationTopicArn?: string;
 }
@@ -6316,6 +6478,14 @@ export interface DescribeEndpointOutput {
    * <p>The most recent deployment configuration for the endpoint.</p>
    */
   LastDeploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>Returns the description of an endpoint configuration created
+   *             using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
+   *                <code>CreateEndpointConfig</code>
+   *             </a> API.</p>
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig;
 }
 
 export namespace DescribeEndpointOutput {
@@ -6375,6 +6545,14 @@ export interface DescribeEndpointConfigOutput {
    * <p>A timestamp that shows when the endpoint configuration was created.</p>
    */
   CreationTime: Date | undefined;
+
+  /**
+   * <p>Returns the description of an endpoint configuration created using the
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">
+   *                <code>CreateEndpointConfig</code>
+   *             </a> API.</p>
+   */
+  AsyncInferenceConfig?: AsyncInferenceConfig;
 }
 
 export namespace DescribeEndpointConfigOutput {
@@ -8552,6 +8730,11 @@ export interface DescribeNotebookInstanceOutput {
    *         </note>
    */
   RootAccess?: RootAccess | string;
+
+  /**
+   * <p>The platform identifier of the notebook instance runtime environment.</p>
+   */
+  PlatformIdentifier?: string;
 }
 
 export namespace DescribeNotebookInstanceOutput {
@@ -10129,124 +10312,6 @@ export namespace DescribeTransformJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeTransformJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeTrialRequest {
-  /**
-   * <p>The name of the trial to describe.</p>
-   */
-  TrialName: string | undefined;
-}
-
-export namespace DescribeTrialRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrialRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The source of the trial.</p>
- */
-export interface TrialSource {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The source job type.</p>
-   */
-  SourceType?: string;
-}
-
-export namespace TrialSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrialSource): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeTrialResponse {
-  /**
-   * <p>The name of the trial.</p>
-   */
-  TrialName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial.</p>
-   */
-  TrialArn?: string;
-
-  /**
-   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified,
-   *         <code>TrialName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The name of the experiment the trial is part of.</p>
-   */
-  ExperimentName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
-   */
-  Source?: TrialSource;
-
-  /**
-   * <p>When the trial was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Who created the trial.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>When the trial was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Who last modified the trial.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-}
-
-export namespace DescribeTrialResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrialResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeTrialComponentRequest {
-  /**
-   * <p>The name of the trial component to describe.</p>
-   */
-  TrialComponentName: string | undefined;
-}
-
-export namespace DescribeTrialComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrialComponentRequest): any => ({
     ...obj,
   });
 }

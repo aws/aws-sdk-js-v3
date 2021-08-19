@@ -40,7 +40,7 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  *                </li>
  *                <li>
  *                   <p>You can only enable Object Lock for new buckets. If you want to turn on
- *                Object Lock for an existing bucket, contact AWS Support.</p>
+ *                Object Lock for an existing bucket, contact Amazon Web Services Support.</p>
  *                </li>
  *             </ul>
  *          </note>

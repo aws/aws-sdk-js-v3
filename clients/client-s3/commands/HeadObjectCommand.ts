@@ -54,7 +54,7 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *                <li>
  *                   <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should
  *             not be sent for GET requests if your object uses server-side encryption with CMKs stored
- *             in AWS KMS (SSE-KMS) or server-side encryption with Amazon S3–managed encryption keys
+ *             in Amazon Web Services KMS (SSE-KMS) or server-side encryption with Amazon S3–managed encryption keys
  *             (SSE-S3). If your object does use these types of keys, you’ll get an HTTP 400 BadRequest
  *             error.</p>
  *                </li>

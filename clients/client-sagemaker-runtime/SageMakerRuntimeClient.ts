@@ -1,3 +1,7 @@
+import {
+  InvokeEndpointAsyncCommandInput,
+  InvokeEndpointAsyncCommandOutput,
+} from "./commands/InvokeEndpointAsyncCommand";
 import { InvokeEndpointCommandInput, InvokeEndpointCommandOutput } from "./commands/InvokeEndpointCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
@@ -51,9 +55,9 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = InvokeEndpointCommandInput;
+export type ServiceInputTypes = InvokeEndpointAsyncCommandInput | InvokeEndpointCommandInput;
 
-export type ServiceOutputTypes = InvokeEndpointCommandOutput;
+export type ServiceOutputTypes = InvokeEndpointAsyncCommandOutput | InvokeEndpointCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

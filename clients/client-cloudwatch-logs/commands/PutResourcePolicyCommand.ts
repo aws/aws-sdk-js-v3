@@ -21,8 +21,8 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a resource policy allowing other AWS services to put log events to
- *       this account, such as Amazon Route 53. An account can have up to 10 resource policies per AWS
+ * <p>Creates or updates a resource policy allowing other Amazon Web Services services to put log events to
+ *       this account, such as Amazon Route 53. An account can have up to 10 resource policies per Amazon Web Services
  *       Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

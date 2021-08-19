@@ -1,3 +1,7 @@
+import {
+  InvokeEndpointAsyncCommandInput,
+  InvokeEndpointAsyncCommandOutput,
+} from "../commands/InvokeEndpointAsyncCommand";
 import { InvokeEndpointCommandInput, InvokeEndpointCommandOutput } from "../commands/InvokeEndpointCommand";
 import { InternalFailure, ModelError, ServiceUnavailable, ValidationError } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -48,6 +52,47 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
   if (input.Body !== undefined) {
     body = input.Body;
   }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1InvokeEndpointAsyncCommand = async (
+  input: InvokeEndpointAsyncCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ContentType) && { "x-amzn-sagemaker-content-type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.Accept) && { "x-amzn-sagemaker-accept": input.Accept! }),
+    ...(isSerializableHeaderValue(input.CustomAttributes) && {
+      "x-amzn-sagemaker-custom-attributes": input.CustomAttributes!,
+    }),
+    ...(isSerializableHeaderValue(input.InferenceId) && { "x-amzn-sagemaker-inference-id": input.InferenceId! }),
+    ...(isSerializableHeaderValue(input.InputLocation) && { "x-amzn-sagemaker-inputlocation": input.InputLocation! }),
+    ...(isSerializableHeaderValue(input.RequestTTLSeconds) && {
+      "x-amzn-sagemaker-requestttlseconds": input.RequestTTLSeconds!.toString(),
+    }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/endpoints/{EndpointName}/async-invocations";
+  if (input.EndpointName !== undefined) {
+    const labelValue: string = input.EndpointName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EndpointName.");
+    }
+    resolvedPath = resolvedPath.replace("{EndpointName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EndpointName.");
+  }
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -111,6 +156,81 @@ const deserializeAws_restJson1InvokeEndpointCommandError = async (
     case "com.amazonaws.sagemakerruntime#ModelError":
       response = {
         ...(await deserializeAws_restJson1ModelErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailable":
+    case "com.amazonaws.sagemakerruntime#ServiceUnavailable":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationError":
+    case "com.amazonaws.sagemakerruntime#ValidationError":
+      response = {
+        ...(await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1InvokeEndpointAsyncCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<InvokeEndpointAsyncCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1InvokeEndpointAsyncCommandError(output, context);
+  }
+  const contents: InvokeEndpointAsyncCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    InferenceId: undefined,
+    OutputLocation: undefined,
+  };
+  if (output.headers["x-amzn-sagemaker-outputlocation"] !== undefined) {
+    contents.OutputLocation = output.headers["x-amzn-sagemaker-outputlocation"];
+  }
+  const data: any = await parseBody(output.body, context);
+  if (data.InferenceId !== undefined && data.InferenceId !== null) {
+    contents.InferenceId = __expectString(data.InferenceId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1InvokeEndpointAsyncCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<InvokeEndpointAsyncCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailure":
+    case "com.amazonaws.sagemakerruntime#InternalFailure":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

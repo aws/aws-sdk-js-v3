@@ -63,7 +63,28 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_3";
-import { CapacityReservationSpecification, Purchase } from "./models_4";
+import { CapacityReservationSpecification, PeeringConnectionOptions, Purchase } from "./models_4";
+
+export interface ModifyVpcPeeringConnectionOptionsResult {
+  /**
+   * <p>Information about the VPC peering connection options for the accepter VPC.</p>
+   */
+  AccepterPeeringConnectionOptions?: PeeringConnectionOptions;
+
+  /**
+   * <p>Information about the VPC peering connection options for the requester VPC.</p>
+   */
+  RequesterPeeringConnectionOptions?: PeeringConnectionOptions;
+}
+
+export namespace ModifyVpcPeeringConnectionOptionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcPeeringConnectionOptionsResult): any => ({
+    ...obj,
+  });
+}
 
 export type VpcTenancy = "default";
 

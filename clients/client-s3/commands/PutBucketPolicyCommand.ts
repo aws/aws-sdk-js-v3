@@ -24,7 +24,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than
- *          the root user of the AWS account that owns the bucket, the calling identity must have the
+ *          the root user of the Amazon Web Services account that owns the bucket, the calling identity must have the
  *             <code>PutBucketPolicy</code> permissions on the specified bucket and belong to the
  *          bucket owner's account in order to use this operation.</p>
  *
@@ -34,14 +34,11 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  *             Allowed</code> error.</p>
  *
  *          <important>
- *             <p> As a security precaution, the root user of the AWS account that owns a bucket can
+ *             <p> As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
  *             always use this operation, even if the policy explicitly denies the root user the
  *             ability to perform this action. </p>
  *          </important>
- *
- *
- *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
- *             Policies</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html">Bucket policy examples</a>.</p>
  *
  *          <p>The following operations are related to <code>PutBucketPolicy</code>:</p>
  *          <ul>

@@ -531,7 +531,7 @@ export interface Route53ResolverClientResolvedConfig extends Route53ResolverClie
  *          </p>
  *
  * 		       <p>DNS resolvers on your network can forward DNS queries to Resolver in a specified VPC. This allows your DNS resolvers
- * 			to easily resolve domain names for AWS resources such as EC2 instances or records in a Route 53 private hosted zone.
+ * 			to easily resolve domain names for Amazon Web Services resources such as EC2 instances or records in a Route 53 private hosted zone.
  * 			For more information, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-network-to-vpc">How DNS Resolvers
  * 			on Your Network Forward DNS Queries to Route 53 Resolver</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>

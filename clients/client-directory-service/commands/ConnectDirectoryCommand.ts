@@ -21,10 +21,10 @@ export interface ConnectDirectoryCommandInput extends ConnectDirectoryRequest {}
 export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, __MetadataBearer {}
 
 /**
- * <p>Creates an AD Connector to connect to an on-premises directory.</p>
+ * <p>Creates an AD Connector to connect to a self-managed directory.</p>
  *          <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions
  *       have been explicitly granted through a policy. For details about what permissions are required
- *       to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions
+ *       to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory Service API Permissions: Actions, Resources, and Conditions
  *       Reference</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -21,7 +21,7 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.</p>
+ * <p>Creates a snapshot of a Simple AD or Microsoft AD directory in the Amazon Web Services cloud.</p>
  *          <note>
  *             <p>You cannot take snapshots of AD Connector directories.</p>
  *          </note>
