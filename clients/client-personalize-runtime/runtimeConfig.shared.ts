@@ -6,11 +6,11 @@ import { PersonalizeRuntimeClientConfig } from "./PersonalizeRuntimeClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: PersonalizeRuntimeClientConfig = {}) => ({
+export const getRuntimeConfig = (config: PersonalizeRuntimeClientConfig) => ({
   apiVersion: "2018-05-22",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Personalize Runtime",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Personalize Runtime",
+  urlParser: config?.urlParser ?? parseUrl,
 });

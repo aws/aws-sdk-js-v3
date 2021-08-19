@@ -6,11 +6,11 @@ import { ECSClientConfig } from "./ECSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ECSClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ECSClientConfig) => ({
   apiVersion: "2014-11-13",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "ECS",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "ECS",
+  urlParser: config?.urlParser ?? parseUrl,
 });

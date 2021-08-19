@@ -6,11 +6,11 @@ import { ManagedBlockchainClientConfig } from "./ManagedBlockchainClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ManagedBlockchainClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ManagedBlockchainClientConfig) => ({
   apiVersion: "2018-09-24",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "ManagedBlockchain",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "ManagedBlockchain",
+  urlParser: config?.urlParser ?? parseUrl,
 });

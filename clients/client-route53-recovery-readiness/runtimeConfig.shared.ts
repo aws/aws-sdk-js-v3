@@ -6,11 +6,11 @@ import { Route53RecoveryReadinessClientConfig } from "./Route53RecoveryReadiness
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: Route53RecoveryReadinessClientConfig = {}) => ({
+export const getRuntimeConfig = (config: Route53RecoveryReadinessClientConfig) => ({
   apiVersion: "2019-12-02",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Route53 Recovery Readiness",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Route53 Recovery Readiness",
+  urlParser: config?.urlParser ?? parseUrl,
 });

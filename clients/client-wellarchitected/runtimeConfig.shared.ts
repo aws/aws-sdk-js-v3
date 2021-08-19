@@ -6,11 +6,11 @@ import { WellArchitectedClientConfig } from "./WellArchitectedClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: WellArchitectedClientConfig = {}) => ({
+export const getRuntimeConfig = (config: WellArchitectedClientConfig) => ({
   apiVersion: "2020-03-31",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "WellArchitected",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "WellArchitected",
+  urlParser: config?.urlParser ?? parseUrl,
 });

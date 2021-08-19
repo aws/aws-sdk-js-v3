@@ -6,11 +6,11 @@ import { PinpointSMSVoiceClientConfig } from "./PinpointSMSVoiceClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: PinpointSMSVoiceClientConfig = {}) => ({
+export const getRuntimeConfig = (config: PinpointSMSVoiceClientConfig) => ({
   apiVersion: "2018-09-05",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Pinpoint SMS Voice",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Pinpoint SMS Voice",
+  urlParser: config?.urlParser ?? parseUrl,
 });

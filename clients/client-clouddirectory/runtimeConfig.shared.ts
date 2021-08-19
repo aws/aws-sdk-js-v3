@@ -6,11 +6,11 @@ import { CloudDirectoryClientConfig } from "./CloudDirectoryClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CloudDirectoryClientConfig = {}) => ({
+export const getRuntimeConfig = (config: CloudDirectoryClientConfig) => ({
   apiVersion: "2017-01-11",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "CloudDirectory",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "CloudDirectory",
+  urlParser: config?.urlParser ?? parseUrl,
 });

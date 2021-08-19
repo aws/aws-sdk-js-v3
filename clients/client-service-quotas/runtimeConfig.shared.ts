@@ -6,11 +6,11 @@ import { ServiceQuotasClientConfig } from "./ServiceQuotasClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ServiceQuotasClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ServiceQuotasClientConfig) => ({
   apiVersion: "2019-06-24",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Service Quotas",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Service Quotas",
+  urlParser: config?.urlParser ?? parseUrl,
 });

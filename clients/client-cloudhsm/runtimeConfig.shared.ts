@@ -6,11 +6,11 @@ import { CloudHSMClientConfig } from "./CloudHSMClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CloudHSMClientConfig = {}) => ({
+export const getRuntimeConfig = (config: CloudHSMClientConfig) => ({
   apiVersion: "2014-05-30",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "CloudHSM",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "CloudHSM",
+  urlParser: config?.urlParser ?? parseUrl,
 });

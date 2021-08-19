@@ -6,11 +6,11 @@ import { SWFClientConfig } from "./SWFClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SWFClientConfig = {}) => ({
+export const getRuntimeConfig = (config: SWFClientConfig) => ({
   apiVersion: "2012-01-25",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "SWF",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "SWF",
+  urlParser: config?.urlParser ?? parseUrl,
 });
