@@ -1,7 +1,7 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>Access denied. Check your permissions.</p>
+ * <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
@@ -196,7 +196,7 @@ export interface ObjectReference {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier</p>
+   *                   <i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier. To identify an object with ObjectIdentifier, the ObjectIdentifier must be wrapped in double quotes. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -225,12 +225,13 @@ export namespace ObjectReference {
  */
 export interface SchemaFacet {
   /**
-   * <p>The ARN of the schema that contains the facet with no minor component. See <a>arns</a> and <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html">In-Place Schema Upgrade</a> for a description of when to provide minor versions.</p>
+   * <p>The ARN of the schema that contains the facet with no minor component. See <a>arns</a> and <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html">In-Place Schema Upgrade</a> for a description of when to provide minor versions.
+   *      If this value is set, FacetName must also be set.</p>
    */
   SchemaArn?: string;
 
   /**
-   * <p>The name of the facet.</p>
+   * <p>The name of the facet. If this value is set, SchemaArn must also be set.</p>
    */
   FacetName?: string;
 }
@@ -1255,13 +1256,25 @@ export namespace BatchListObjectParentPaths {
   });
 }
 
+/**
+ * <p>Lists parent objects that are associated with a given object in pagination
+ *       fashion.</p>
+ */
 export interface BatchListObjectParents {
   /**
    * <p>The reference that identifies an object.</p>
    */
   ObjectReference: ObjectReference | undefined;
 
+  /**
+   * <p>The pagination token.</p>
+   */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to be retrieved in a single call. This is an approximate
+   *       number.</p>
+   */
   MaxResults?: number;
 }
 
@@ -1442,7 +1455,12 @@ export interface BatchReadOperation {
    */
   GetObjectAttributes?: BatchGetObjectAttributes;
 
+  /**
+   * <p>Lists parent objects that are associated with a given object in pagination
+   *       fashion.</p>
+   */
   ListObjectParents?: BatchListObjectParents;
+
   /**
    * <p>Returns policies attached to an object in pagination fashion.</p>
    */
@@ -1865,8 +1883,18 @@ export namespace ObjectIdentifierAndLinkNameTuple {
   });
 }
 
+/**
+ * <p>Represents the output of a <a>ListObjectParents</a> response operation.</p>
+ */
 export interface BatchListObjectParentsResponse {
+  /**
+   * <p>Returns a list of parent reference and LinkName Tuples.</p>
+   */
   ParentLinks?: ObjectIdentifierAndLinkNameTuple[];
+
+  /**
+   * <p>The pagination token.</p>
+   */
   NextToken?: string;
 }
 
@@ -2116,6 +2144,9 @@ export interface BatchReadSuccessfulResponse {
    */
   GetLinkAttributes?: BatchGetLinkAttributesResponse;
 
+  /**
+   * <p>The list of parent objects to retrieve.</p>
+   */
   ListObjectParents?: BatchListObjectParentsResponse;
 }
 

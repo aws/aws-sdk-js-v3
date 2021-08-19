@@ -24,7 +24,8 @@ export interface DescribeConditionalForwardersCommandOutput
 
 /**
  * <p>Obtains information about the conditional forwarders for this account.</p>
- *          <p>If no input parameters are provided for RemoteDomainNames, this request describes all conditional forwarders for the specified directory ID.</p>
+ *          <p>If no input parameters are provided for RemoteDomainNames, this request describes all
+ *       conditional forwarders for the specified directory ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

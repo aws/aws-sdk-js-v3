@@ -21,7 +21,7 @@ export interface UpdateAnomalySubscriptionCommandInput extends UpdateAnomalySubs
 export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p> Updates an existing cost anomaly monitor subscription. </p>
+ * <p>Updates an existing cost anomaly monitor subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

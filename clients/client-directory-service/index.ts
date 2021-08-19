@@ -22,6 +22,7 @@ export * from "./commands/DeleteTrustCommand";
 export * from "./commands/DeregisterCertificateCommand";
 export * from "./commands/DeregisterEventTopicCommand";
 export * from "./commands/DescribeCertificateCommand";
+export * from "./commands/DescribeClientAuthenticationSettingsCommand";
 export * from "./commands/DescribeConditionalForwardersCommand";
 export * from "./commands/DescribeDirectoriesCommand";
 export * from "./commands/DescribeDomainControllersCommand";

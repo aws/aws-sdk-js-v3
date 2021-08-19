@@ -8,7 +8,7 @@ export interface AssociateKmsKeyRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. This must be a symmetric CMK.
-   *       For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - Key Management Service</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p>
    */
   kmsKeyId: string | undefined;
 }
@@ -160,7 +160,7 @@ export interface CreateExportTaskRequest {
   to: number | undefined;
 
   /**
-   * <p>The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.</p>
+   * <p>The name of S3 bucket for the exported log data. The bucket must be in the same Amazon Web Services region.</p>
    */
   destination: string | undefined;
 
@@ -240,12 +240,17 @@ export interface CreateLogGroupRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
-   *       For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - Key Management Service</a>.</p>
    */
   kmsKeyId?: string;
 
   /**
    * <p>The key-value pairs to use for the tags.</p>
+   *          <p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to
+   *       log groups using the <code>aws:Resource/<i>key-name</i>
+   *             </code> or <code>aws:TagKeys</code> condition keys.
+   *       For more information about using tags to control access, see
+   *       <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -507,7 +512,7 @@ export interface Destination {
   roleArn?: string;
 
   /**
-   * <p>An IAM policy document that governs which AWS accounts can create subscription filters
+   * <p>An IAM policy document that governs which Amazon Web Services accounts can create subscription filters
    *       against this destination.</p>
    */
   accessPolicy?: string;
@@ -770,8 +775,9 @@ export interface LogGroup {
   /**
    * <p>The number of days to retain the log events in the specified log group.
    *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p>
-   *          <p>If you omit <code>retentionInDays</code> in a <code>PutRetentionPolicy</code> operation,
-   *   the events in the log group are always retained and never expire.</p>
+   *          <p>To set a log group to never have log events expire, use
+   *     <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>.
+   *   </p>
    */
   retentionInDays?: number;
 
@@ -1093,7 +1099,7 @@ export interface MetricTransformation {
    *             <p>You can also set up a billing alarm to alert you if your charges are higher than
    *         expected. For more information,
    *         see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html">
-   *           Creating a Billing Alarm to Monitor Your Estimated AWS Charges</a>.
+   *           Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges</a>.
    *        </p>
    *          </important>
    */
@@ -1761,7 +1767,6 @@ export interface GetLogEventsRequest {
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
-   *          <p>Using this token works only when you specify <code>true</code> for <code>startFromHead</code>.</p>
    */
   nextToken?: string;
 
@@ -1775,7 +1780,8 @@ export interface GetLogEventsRequest {
    * <p>If the value is true, the earliest log events are returned first.
    *       If the value is false, the latest log events are returned first.
    *       The default value is false.</p>
-   *          <p>If you are using <code>nextToken</code> in this operation, you must specify <code>true</code> for <code>startFromHead</code>.</p>
+   *          <p>If you are using a previous <code>nextForwardToken</code> value as the <code>nextToken</code> in this operation,
+   *       you must specify <code>true</code> for <code>startFromHead</code>.</p>
    */
   startFromHead?: boolean;
 }
@@ -2290,7 +2296,7 @@ export namespace PutLogEventsResponse {
 }
 
 /**
- * <p>The most likely cause is an invalid AWS access key ID or secret key.</p>
+ * <p>The most likely cause is an invalid Amazon Web Services access key ID or secret key.</p>
  */
 export interface UnrecognizedClientException extends __SmithyException, $MetadataBearer {
   name: "UnrecognizedClientException";
@@ -2405,24 +2411,40 @@ export interface PutResourcePolicyRequest {
    * <p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.
    *     This parameter is required.</p>
    *          <p>The following example creates a resource policy enabling the Route 53 service to put
-   *       DNS query logs in to the specified log group. Replace <code>"logArn"</code> with the ARN of your CloudWatch Logs resource, such as a log group or log stream.</p>
+   *       DNS query logs in to the specified log group. Replace <code>"logArn"</code> with the ARN of
+   *       your CloudWatch Logs resource, such as a log group or log stream.</p>
+   *          <p>CloudWatch Logs also supports <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a>
+   *       and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount">aws:SourceAccount</a>
+   * condition context keys.</p>
+   *          <p>In the example resource policy, you would replace the value of <code>SourceArn</code> with the resource making the
+   *       call from Route 53 to CloudWatch Logs and replace the value of <code>SourceAccount</code> with
+   *       the Amazon Web Services account ID making that call.</p>
+   *          <p></p>
    *          <p>
    *             <code>{
-   *    "Version": "2012-10-17",
-   *    "Statement": [
-   *      {
-   *        "Sid": "Route53LogsToCloudWatchLogs",
-   *        "Effect": "Allow",
-   *        "Principal": {
-   *         "Service": [
-   *                 "route53.amazonaws.com"
-   *                ]
+   *     "Version": "2012-10-17",
+   *     "Statement": [
+   *         {
+   *            "Sid": "Route53LogsToCloudWatchLogs",
+   *            "Effect": "Allow",
+   *            "Principal": {
+   *                "Service": [
+   *                    "route53.amazonaws.com"
+   *                 ]
    *             },
-   *          "Action":"logs:PutLogEvents",
-   *          "Resource": "logArn"
-   *       }
-   *     ]
-   * } </code>
+   *            "Action": "logs:PutLogEvents",
+   *            "Resource": "logArn",
+   *            "Condition": {
+   *                "ArnLike": {
+   *                    "aws:SourceArn": "myRoute53ResourceArn"
+   *                 },
+   *                "StringEquals": {
+   *                    "aws:SourceAccount": "myAwsAccountId"
+   *                }
+   *             }
+   *         }
+   *       ]
+   * }</code>
    *
    *          </p>
    */
@@ -2463,8 +2485,9 @@ export interface PutRetentionPolicyRequest {
   /**
    * <p>The number of days to retain the log events in the specified log group.
    *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p>
-   *          <p>If you omit <code>retentionInDays</code> in a <code>PutRetentionPolicy</code> operation,
-   *   the events in the log group are always retained and never expire.</p>
+   *          <p>To set a log group to never have log events expire, use
+   *     <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>.
+   *   </p>
    */
   retentionInDays: number | undefined;
 }
@@ -2516,7 +2539,7 @@ export interface PutSubscriptionFilterRequest {
    *           subscription filter, for same-account delivery.</p>
    *             </li>
    *             <li>
-   *                <p>An AWS Lambda function belonging to the same account as the subscription filter,
+   *                <p>A Lambda function belonging to the same account as the subscription filter,
    *           for same-account delivery.</p>
    *             </li>
    *          </ul>

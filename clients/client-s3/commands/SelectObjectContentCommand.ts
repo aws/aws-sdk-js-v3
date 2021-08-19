@@ -77,7 +77,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *                   (Using Customer-Provided Encryption Keys)</a> in the
  *                   <i>Amazon S3 User Guide</i>.</p>
  *                <p>For objects that are encrypted with Amazon S3 managed encryption keys (SSE-S3) and
- *                customer master keys (CMKs) stored in AWS Key Management Service (SSE-KMS),
+ *                customer master keys (CMKs) stored in Amazon Web Services Key Management Service (SSE-KMS),
  *                server-side encryption is handled transparently, so you don't need to specify
  *                anything. For more information about server-side encryption, including SSE-S3 and
  *                SSE-KMS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using
@@ -91,8 +91,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *          <p>Given the response size is unknown, Amazon S3 Select streams the response as a series of
  *          messages and includes a <code>Transfer-Encoding</code> header with <code>chunked</code> as
  *          its value in the response. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html">Appendix: SelectObjectContent
- *             Response</a>
- *          .</p>
+ *             Response</a>.</p>
  *
  *          <p></p>
  *          <p>

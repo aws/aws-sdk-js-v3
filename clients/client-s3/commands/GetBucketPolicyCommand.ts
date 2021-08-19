@@ -23,7 +23,7 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __M
 
 /**
  * <p>Returns the policy of a specified bucket. If you are using an identity other than the
- *          root user of the AWS account that owns the bucket, the calling identity must have the
+ *          root user of the Amazon Web Services account that owns the bucket, the calling identity must have the
  *             <code>GetBucketPolicy</code> permissions on the specified bucket and belong to the
  *          bucket owner's account in order to use this operation.</p>
  *
@@ -33,7 +33,7 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __M
  *             Allowed</code> error.</p>
  *
  *          <important>
- *             <p>As a security precaution, the root user of the AWS account that owns a bucket can
+ *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
  *             always use this operation, even if the policy explicitly denies the root user the
  *             ability to perform this action.</p>
  *          </important>

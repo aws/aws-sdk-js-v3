@@ -51,7 +51,7 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                <p>Specify access permissions explicitly with the <code>x-amz-grant-read</code>,
  *                   <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and
  *                   <code>x-amz-grant-full-control</code> headers. When using these headers, you
- *                specify explicit access permissions and grantees (AWS accounts or Amazon S3 groups) who
+ *                specify explicit access permissions and grantees (Amazon Web Services accounts or Amazon S3 groups) who
  *                will receive the permission. If you use these ACL-specific headers, you cannot use
  *                   <code>x-amz-acl</code> header to set a canned ACL. These parameters map to the set
  *                of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL)
@@ -62,8 +62,7 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <code>id</code> – if the value specified is the canonical user ID of an AWS
- *                      account</p>
+ *                         <code>id</code> – if the value specified is the canonical user ID of an Amazon Web Services account</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -73,9 +72,9 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                   <li>
  *                      <p>
  *                         <code>emailAddress</code> – if the value specified is the email address of
- *                      an AWS account</p>
+ *                      an Amazon Web Services account</p>
  *                      <note>
- *                         <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+ *                         <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p>
  *                         <ul>
  *                            <li>
  *                               <p>US East (N. Virginia)</p>
@@ -102,12 +101,12 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                               <p>South America (São Paulo)</p>
  *                            </li>
  *                         </ul>
- *                         <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+ *                         <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
  *                      </note>
  *                   </li>
  *                </ul>
  *                <p>For example, the following <code>x-amz-grant-read</code> header grants list
- *                objects permission to the two AWS accounts identified by their email
+ *                objects permission to the two Amazon Web Services accounts identified by their email
  *                addresses.</p>
  *                <p>
  *                   <code>x-amz-grant-read: emailAddress="xyz@amazon.com",
@@ -149,7 +148,7 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object
  *                acl request, appears as the CanonicalUser.</p>
  *                <note>
- *                   <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+ *                   <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p>
  *                   <ul>
  *                      <li>
  *                         <p>US East (N. Virginia)</p>
@@ -176,7 +175,7 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                         <p>South America (São Paulo)</p>
  *                      </li>
  *                   </ul>
- *                   <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+ *                   <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
  *                </note>
  *             </li>
  *          </ul>

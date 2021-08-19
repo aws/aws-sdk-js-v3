@@ -21,11 +21,11 @@ export interface AssociateKmsKeyCommandInput extends AssociateKmsKeyRequest {}
 export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p>
- *          <p>Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK.
+ * <p>Associates the specified Key Management Service customer master key (CMK) with the specified log group.</p>
+ *          <p>Associating an KMS CMK with a log group overrides any existing associations between the log group and a CMK.
  *       After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK.
- *       This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs.
- *       This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p>
+ *       This association is stored as long as the data encrypted with the CMK is still within CloudWatch Logs.
+ *       This enables CloudWatch Logs to decrypt this data whenever it is requested.</p>
  *          <important>
  *             <p>CloudWatch Logs supports only symmetric CMKs. Do not use an associate an asymmetric CMK
  *         with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric

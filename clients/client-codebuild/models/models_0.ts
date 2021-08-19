@@ -1528,10 +1528,11 @@ export interface ProjectSource {
    *             <code>invalidInputException</code> is thrown. </p>
    *             <p>To be able to report the build status to the source provider, the user associated with the source provider must
    * have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>
-   *         <note>
-   *             <p> The status of a build triggered by a webhook is always reported to your source
+   *             <p>The status of a build triggered by a webhook is always reported to your source
    *                 provider. </p>
-   *         </note>
+   *             <p>If your project's builds are triggered by a webhook, you must push a
+   *               new commit to the repo for a change to this property to take
+   *               effect.</p>
    */
   reportBuildStatus?: boolean;
 

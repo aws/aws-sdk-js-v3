@@ -24,7 +24,7 @@ export interface GetResolverQueryLogConfigPolicyCommandOutput
 
 /**
  * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging
- * 			operations and resources that you want to allow another AWS account to be able to use.</p>
+ * 			operations and resources that you want to allow another Amazon Web Services account to be able to use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

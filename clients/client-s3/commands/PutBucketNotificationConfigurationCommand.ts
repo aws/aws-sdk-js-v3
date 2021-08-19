@@ -46,7 +46,7 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  *          <p>After Amazon S3 receives this request, it first verifies that any Amazon Simple Notification
  *          Service (Amazon SNS) or Amazon Simple Queue Service (Amazon SQS) destination exists, and
  *          that the bucket owner has permission to publish to it by sending a test notification. In
- *          the case of AWS Lambda destinations, Amazon S3 verifies that the Lambda function permissions
+ *          the case of Lambda destinations, Amazon S3 verifies that the Lambda function permissions
  *          grant Amazon S3 permission to invoke the function from the Amazon S3 bucket. For more information,
  *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Notifications for Amazon S3
  *             Events</a>.</p>

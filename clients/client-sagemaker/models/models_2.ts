@@ -121,9 +121,126 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  TrialSource,
   _InstanceType,
 } from "./models_1";
+
+export interface DescribeTrialRequest {
+  /**
+   * <p>The name of the trial to describe.</p>
+   */
+  TrialName: string | undefined;
+}
+
+export namespace DescribeTrialRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrialRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The source of the trial.</p>
+ */
+export interface TrialSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The source job type.</p>
+   */
+  SourceType?: string;
+}
+
+export namespace TrialSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrialSource): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrialResponse {
+  /**
+   * <p>The name of the trial.</p>
+   */
+  TrialName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial.</p>
+   */
+  TrialArn?: string;
+
+  /**
+   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified,
+   *         <code>TrialName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The name of the experiment the trial is part of.</p>
+   */
+  ExperimentName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
+   */
+  Source?: TrialSource;
+
+  /**
+   * <p>When the trial was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Who created the trial.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>When the trial was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Who last modified the trial.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+}
+
+export namespace DescribeTrialResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrialResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrialComponentRequest {
+  /**
+   * <p>The name of the trial component to describe.</p>
+   */
+  TrialComponentName: string | undefined;
+}
+
+export namespace DescribeTrialComponentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrialComponentRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>A summary of the metrics of a trial component.</p>
@@ -10497,86 +10614,6 @@ export namespace UpdateEndpointInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateEndpointInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateEndpointOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-}
-
-export namespace UpdateEndpointOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateEndpointWeightsAndCapacitiesInput {
-  /**
-   * <p>The name of an existing Amazon SageMaker endpoint.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>An object that provides new capacity and weight values for a variant.</p>
-   */
-  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
-}
-
-export namespace UpdateEndpointWeightsAndCapacitiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointWeightsAndCapacitiesInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateEndpointWeightsAndCapacitiesOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-}
-
-export namespace UpdateEndpointWeightsAndCapacitiesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointWeightsAndCapacitiesOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateExperimentRequest {
-  /**
-   * <p>The name of the experiment to update.</p>
-   */
-  ExperimentName: string | undefined;
-
-  /**
-   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If
-   *         <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-}
-
-export namespace UpdateExperimentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
     ...obj,
   });
 }

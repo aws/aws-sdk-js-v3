@@ -49,8 +49,8 @@ export type RequestPayer = "requester";
 export interface AbortMultipartUploadRequest {
   /**
    * <p>The bucket name to which the upload was taking place. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -141,7 +141,7 @@ export interface Grantee {
   /**
    * <p>Email address of the grantee.</p>
    *          <note>
-   *             <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *             <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p>
    *             <ul>
    *                <li>
    *                   <p>US East (N. Virginia)</p>
@@ -168,7 +168,7 @@ export interface Grantee {
    *                   <p>South America (São Paulo)</p>
    *                </li>
    *             </ul>
-   *             <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *             <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
    *          </note>
    */
   EmailAddress?: string;
@@ -303,9 +303,9 @@ export interface CompleteMultipartUploadOutput {
   Location?: string;
 
   /**
-   * <p>The name of the bucket that contains the newly created object.</p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>The name of the bucket that contains the newly created object. Does not return the access point ARN or access point alias if used.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket?: string;
 
@@ -331,7 +331,7 @@ export interface CompleteMultipartUploadOutput {
 
   /**
    * <p>If you specified server-side encryption either with an Amazon S3-managed encryption key or an
-   *          AWS KMS customer master key (CMK) in your initiate multipart upload request, the response
+   *          Amazon Web Services KMS customer master key (CMK) in your initiate multipart upload request, the response
    *          includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the
    *          object.</p>
    */
@@ -344,13 +344,13 @@ export interface CompleteMultipartUploadOutput {
   VersionId?: string;
 
   /**
-   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
+   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
    *          customer managed customer master key (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with Amazon Web Services KMS (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -418,6 +418,8 @@ export namespace CompletedMultipartUpload {
 export interface CompleteMultipartUploadRequest {
   /**
    * <p>Name of the bucket to which the multipart upload was initiated.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -464,9 +466,7 @@ export namespace CompleteMultipartUploadRequest {
  */
 export interface CopyObjectResult {
   /**
-   * <p>Returns the ETag of the new object. The ETag reflects only changes to the contents of an
-   *          object, not its metadata. The source and destination ETag is identical for a successfully
-   *          copied non-multipart object.</p>
+   * <p>Returns the ETag of the new object. The ETag reflects only changes to the contents of an object, not its metadata.</p>
    */
   ETag?: string;
 
@@ -526,20 +526,20 @@ export interface CopyObjectOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
+   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
    *          customer managed customer master key (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>If present, specifies the AWS KMS Encryption Context to use for object encryption. The
+   * <p>If present, specifies the Amazon Web Services KMS Encryption Context to use for object encryption. The
    *          value of this header is a base64-encoded UTF-8 string holding JSON with the encryption
    *          context key-value pairs.</p>
    */
   SSEKMSEncryptionContext?: string;
 
   /**
-   * <p>Indicates whether the copied object uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   * <p>Indicates whether the copied object uses an S3 Bucket Key for server-side encryption with Amazon Web Services KMS (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -597,8 +597,8 @@ export interface CopyObjectRequest {
 
   /**
    * <p>The name of the destination bucket.</p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -644,7 +644,7 @@ export interface CopyObjectRequest {
    *             <li>
    *                <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p>
    *                <note>
-   *                   <p>Amazon S3 supports copy operations using access points only when the source and destination buckets are in the same AWS Region.</p>
+   *                   <p>Amazon S3 supports copy operations using access points only when the source and destination buckets are in the same Amazon Web Services Region.</p>
    *                </note>
    *                <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL encoded.  </p>
    *             </li>
@@ -775,16 +775,16 @@ export interface CopyObjectRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for
-   *          an object protected by AWS KMS will fail if not made via SSL or using SigV4. For
-   *          information about configuring using any of the officially supported AWS SDKs and AWS CLI,
+   * <p>Specifies the Amazon Web Services KMS key ID to use for object encryption. All GET and PUT requests for
+   *          an object protected by Amazon Web Services KMS will fail if not made via SSL or using SigV4. For
+   *          information about configuring using any of the officially supported Amazon Web Services SDKs and Amazon Web Services CLI,
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying the
    *             Signature Version in Request Authentication</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this
+   * <p>Specifies the Amazon Web Services KMS Encryption Context to use for object encryption. The value of this
    *          header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value
    *          pairs.</p>
    */
@@ -908,7 +908,7 @@ export namespace BucketAlreadyExists {
 
 /**
  * <p>The bucket you tried to create already exists, and you own it. Amazon S3 returns this error
- *          in all AWS Regions except in the North Virginia Region. For legacy compatibility, if you
+ *          in all Amazon Web Services Regions except in the North Virginia Region. For legacy compatibility, if you
  *          re-create an existing bucket that you already own in the North Virginia Region, Amazon S3
  *          returns 200 OK and resets the bucket access control lists (ACLs).</p>
  */
@@ -1072,9 +1072,9 @@ export interface CreateMultipartUploadOutput {
   AbortRuleId?: string;
 
   /**
-   * <p>The name of the bucket to which the multipart upload was initiated. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket?: string;
 
@@ -1108,20 +1108,20 @@ export interface CreateMultipartUploadOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
+   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
    *          customer managed customer master key (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>If present, specifies the AWS KMS Encryption Context to use for object encryption. The
+   * <p>If present, specifies the Amazon Web Services KMS Encryption Context to use for object encryption. The
    *          value of this header is a base64-encoded UTF-8 string holding JSON with the encryption
    *          context key-value pairs.</p>
    */
   SSEKMSEncryptionContext?: string;
 
   /**
-   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with Amazon Web Services KMS (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -1152,8 +1152,8 @@ export interface CreateMultipartUploadRequest {
 
   /**
    * <p>The name of the bucket to which to initiate the upload</p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -1270,16 +1270,16 @@ export interface CreateMultipartUploadRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>Specifies the ID of the symmetric customer managed AWS KMS CMK to use for object
-   *          encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not
+   * <p>Specifies the ID of the symmetric customer managed Amazon Web Services KMS CMK to use for object
+   *          encryption. All GET and PUT requests for an object protected by Amazon Web Services KMS will fail if not
    *          made via SSL or using SigV4. For information about configuring using any of the officially
-   *          supported AWS SDKs and AWS CLI, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying the Signature Version in Request Authentication</a>
+   *          supported Amazon Web Services SDKs and Amazon Web Services CLI, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying the Signature Version in Request Authentication</a>
    *          in the <i>Amazon S3 User Guide</i>.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this
+   * <p>Specifies the Amazon Web Services KMS Encryption Context to use for object encryption. The value of this
    *          header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value
    *          pairs.</p>
    */
@@ -1658,8 +1658,8 @@ export namespace DeleteObjectOutput {
 export interface DeleteObjectRequest {
   /**
    * <p>The bucket name of the bucket containing the object. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -1796,8 +1796,8 @@ export interface _Error {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <i>Description:</i> There is a problem with your AWS account
-   *                      that prevents the action from completing successfully. Contact AWS Support
+   *                         <i>Description:</i> There is a problem with your Amazon Web Services account
+   *                      that prevents the action from completing successfully. Contact Amazon Web Services Support
    *                      for further assistance.</p>
    *                   </li>
    *                   <li>
@@ -1819,7 +1819,7 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>Description:</i> All access to this Amazon S3 resource has been
-   *                      disabled. Contact AWS Support for further assistance.</p>
+   *                      disabled. Contact Amazon Web Services Support for further assistance.</p>
    *                   </li>
    *                   <li>
    *                      <p>
@@ -1925,7 +1925,7 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>Description:</i> The bucket you tried to create already
-   *                      exists, and you own it. Amazon S3 returns this error in all AWS Regions except in
+   *                      exists, and you own it. Amazon S3 returns this error in all Amazon Web Services Regions except in
    *                      the North Virginia Region. For legacy compatibility, if you re-create an
    *                      existing bucket that you already own in the North Virginia Region, Amazon S3 returns
    *                      200 OK and resets the bucket access control lists (ACLs).</p>
@@ -2180,7 +2180,7 @@ export interface _Error {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <i>Description:</i> The AWS access key ID you provided does
+   *                         <i>Description:</i> The Amazon Web Services access key ID you provided does
    *                      not exist in our records.</p>
    *                   </li>
    *                   <li>
@@ -2412,7 +2412,7 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>Description:</i> All access to this object has been
-   *                      disabled. Please contact AWS Support for further assistance.</p>
+   *                      disabled. Please contact Amazon Web Services Support for further assistance.</p>
    *                   </li>
    *                   <li>
    *                      <p>
@@ -2475,7 +2475,7 @@ export interface _Error {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <i>Description:</i> Please use AWS4-HMAC-SHA256.</p>
+   *                         <i>Description:</i> Please use <code>AWS4-HMAC-SHA256</code>.</p>
    *                   </li>
    *                   <li>
    *                      <p>
@@ -2622,7 +2622,7 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>Description:</i> Amazon S3 Transfer Acceleration is not
-   *                      supported on this bucket. Contact AWS Support for more information.</p>
+   *                      supported on this bucket. Contact Amazon Web Services Support for more information.</p>
    *                   </li>
    *                   <li>
    *                      <p>
@@ -2643,7 +2643,7 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>Description:</i> Amazon S3 Transfer Acceleration cannot be
-   *                      enabled on this bucket. Contact AWS Support for more information.</p>
+   *                      enabled on this bucket. Contact Amazon Web Services Support for more information.</p>
    *                   </li>
    *                   <li>
    *                      <p>
@@ -3232,7 +3232,8 @@ export interface _Error {
    *                      <p>
    *                         <i>Description:</i> Your account is not signed up for the Amazon S3
    *                      service. You must sign up before you can use Amazon S3. You can sign up at the
-   *                      following URL: https://aws.amazon.com/s3</p>
+   *                      following URL: <a href="http://aws.amazon.com/s3">Amazon S3</a>
+   *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
@@ -3442,7 +3443,7 @@ export interface _Error {
    *                   <li>
    *                      <p>
    *                         <i>Description:</i> The request signature we calculated does
-   *                      not match the signature you provided. Check your AWS secret access key and
+   *                      not match the signature you provided. Check your Amazon Web Services secret access key and
    *                      signing method. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a> and
    *                         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/SOAPAuthentication.html">SOAP Authentication</a>
    *                      for details.</p>
@@ -3733,8 +3734,8 @@ export namespace Delete {
 export interface DeleteObjectsRequest {
   /**
    * <p>The bucket name containing the objects to delete. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -3798,8 +3799,8 @@ export namespace DeleteObjectTaggingOutput {
 export interface DeleteObjectTaggingRequest {
   /**
    * <p>The bucket name containing the objects from which to remove the tags. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -4343,7 +4344,7 @@ export interface ServerSideEncryptionByDefault {
   SSEAlgorithm: ServerSideEncryption | string | undefined;
 
   /**
-   * <p>AWS Key Management Service (KMS) customer AWS KMS key ID to use for the default
+   * <p>Amazon Web Services Key Management Service (KMS) customer Amazon Web Services KMS key ID to use for the default
    *         encryption. This parameter is allowed if and only if <code>SSEAlgorithm</code> is set to
    *         <code>aws:kms</code>.</p>
    *          <p>You can specify the key ID or the Amazon Resource Name (ARN) of the KMS key. However, if you
@@ -4366,7 +4367,7 @@ export interface ServerSideEncryptionByDefault {
    *          <important>
    *             <p>Amazon S3 only supports symmetric KMS keys and not asymmetric KMS keys. For more information, see
    *            <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and
-   *            asymmetric keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   *            asymmetric keys</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
    *          </important>
    */
   KMSMasterKeyID?: string;
@@ -4657,7 +4658,7 @@ export namespace GetBucketIntelligentTieringConfigurationRequest {
  */
 export interface SSEKMS {
   /**
-   * <p>Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed
+   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed
    *          customer master key (CMK) to use for encrypting inventory reports.</p>
    */
   KeyId: string | undefined;
@@ -5737,7 +5738,7 @@ export namespace NotificationConfigurationFilter {
 }
 
 /**
- * <p>A container for specifying the configuration for AWS Lambda notifications.</p>
+ * <p>A container for specifying the configuration for Lambda notifications.</p>
  */
 export interface LambdaFunctionConfiguration {
   /**
@@ -5747,13 +5748,13 @@ export interface LambdaFunctionConfiguration {
   Id?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the
+   * <p>The Amazon Resource Name (ARN) of the Lambda function that Amazon S3 invokes when the
    *          specified event type occurs.</p>
    */
   LambdaFunctionArn: string | undefined;
 
   /**
-   * <p>The Amazon S3 bucket event for which to invoke the AWS Lambda function. For more information,
+   * <p>The Amazon S3 bucket event for which to invoke the Lambda function. For more information,
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported
    *             Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
@@ -5874,7 +5875,7 @@ export interface NotificationConfiguration {
   QueueConfigurations?: QueueConfiguration[];
 
   /**
-   * <p>Describes the AWS Lambda functions to invoke and the events for which to invoke
+   * <p>Describes the Lambda functions to invoke and the events for which to invoke
    *          them.</p>
    */
   LambdaFunctionConfigurations?: LambdaFunctionConfiguration[];
@@ -6108,11 +6109,11 @@ export namespace DeleteMarkerReplication {
  */
 export interface EncryptionConfiguration {
   /**
-   * <p>Specifies the ID (Key ARN or Alias ARN) of the customer managed AWS KMS key
-   *          stored in AWS Key Management Service (KMS) for the destination bucket. Amazon S3 uses
+   * <p>Specifies the ID (Key ARN or Alias ARN) of the customer managed Amazon Web Services KMS key
+   *          stored in Amazon Web Services Key Management Service (KMS) for the destination bucket. Amazon S3 uses
    *          this key to encrypt replica objects. Amazon S3 only supports symmetric, customer managed KMS keys.
    *          For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and
-   *             asymmetric keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   *             asymmetric keys</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
    */
   ReplicaKmsKeyID?: string;
 }
@@ -6133,7 +6134,7 @@ export namespace EncryptionConfiguration {
 export interface ReplicationTimeValue {
   /**
    * <p> Contains an integer specifying time in minutes. </p>
-   *          <p> Valid values: 15 minutes. </p>
+   *          <p> Valid value: 15</p>
    */
   Minutes?: number;
 }
@@ -6216,7 +6217,7 @@ export interface Destination {
 
   /**
    * <p>Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to
-   *          change replica ownership to the AWS account that owns the destination bucket by specifying
+   *          change replica ownership to the Amazon Web Services account that owns the destination bucket by specifying
    *          the <code>AccessControlTranslation</code> property, this is the account ID of the
    *          destination bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html">Replication Additional
    *             Configuration: Changing the Replica Owner</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -6234,9 +6235,9 @@ export interface Destination {
 
   /**
    * <p>Specify this only in a cross-account scenario (where source and destination bucket
-   *          owners are not the same), and you want to change replica ownership to the AWS account that
+   *          owners are not the same), and you want to change replica ownership to the Amazon Web Services account that
    *          owns the destination bucket. If this is not specified in the replication configuration, the
-   *          replicas are owned by same AWS account that owns the source object.</p>
+   *          replicas are owned by same Amazon Web Services account that owns the source object.</p>
    */
   AccessControlTranslation?: AccessControlTranslation;
 
@@ -6454,13 +6455,13 @@ export namespace ReplicaModifications {
 export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
 
 /**
- * <p>A container for filter information for the selection of S3 objects encrypted with AWS
+ * <p>A container for filter information for the selection of S3 objects encrypted with Amazon Web Services
  *          KMS.</p>
  */
 export interface SseKmsEncryptedObjects {
   /**
    * <p>Specifies whether Amazon S3 replicates objects created with server-side encryption using an
-   *          AWS KMS key stored in AWS Key Management Service.</p>
+   *          Amazon Web Services KMS key stored in Amazon Web Services Key Management Service.</p>
    */
   Status: SseKmsEncryptedObjectsStatus | string | undefined;
 }
@@ -6478,12 +6479,12 @@ export namespace SseKmsEncryptedObjects {
  * <p>A container that describes additional filters for identifying the source objects that
  *          you want to replicate. You can choose to enable or disable the replication of these
  *          objects. Currently, Amazon S3 supports only the filter that you can specify for objects created
- *          with server-side encryption using a customer master key (CMK) stored in AWS Key Management
+ *          with server-side encryption using a customer master key (CMK) stored in Amazon Web Services Key Management
  *          Service (SSE-KMS).</p>
  */
 export interface SourceSelectionCriteria {
   /**
-   * <p> A container for filter information for the selection of Amazon S3 objects encrypted with AWS
+   * <p> A container for filter information for the selection of Amazon S3 objects encrypted with Amazon Web Services
    *          KMS. If you include <code>SourceSelectionCriteria</code> in the replication configuration,
    *          this element is required. </p>
    */
@@ -6564,7 +6565,7 @@ export interface ReplicationRule {
    * <p>A container that describes additional filters for identifying the source objects that
    *          you want to replicate. You can choose to enable or disable the replication of these
    *          objects. Currently, Amazon S3 supports only the filter that you can specify for objects created
-   *          with server-side encryption using a customer master key (CMK) stored in AWS Key Management
+   *          with server-side encryption using a customer master key (CMK) stored in Amazon Web Services Key Management
    *          Service (SSE-KMS).</p>
    */
   SourceSelectionCriteria?: SourceSelectionCriteria;
@@ -6613,7 +6614,7 @@ export namespace ReplicationRule {
  */
 export interface ReplicationConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that
    *          Amazon S3 assumes when replicating objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html">How to Set Up
    *             Replication</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
@@ -7197,13 +7198,13 @@ export interface GetObjectOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
+   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
    *          customer managed customer master key (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with Amazon Web Services KMS (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -7265,8 +7266,8 @@ export namespace GetObjectOutput {
 export interface GetObjectRequest {
   /**
    * <p>The bucket name containing the object. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -7462,7 +7463,7 @@ export namespace GetObjectAclOutput {
 export interface GetObjectAclRequest {
   /**
    * <p>The bucket name that contains the object for which to get the ACL information. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -7537,7 +7538,7 @@ export namespace GetObjectLegalHoldOutput {
 export interface GetObjectLegalHoldRequest {
   /**
    * <p>The bucket name containing the object whose Legal Hold status you want to retrieve. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -7694,7 +7695,7 @@ export namespace GetObjectLockConfigurationOutput {
 export interface GetObjectLockConfigurationRequest {
   /**
    * <p>The bucket whose Object Lock configuration you want to retrieve.</p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -7756,7 +7757,7 @@ export namespace GetObjectRetentionOutput {
 export interface GetObjectRetentionRequest {
   /**
    * <p>The bucket name containing the object whose retention settings you want to retrieve. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -7817,8 +7818,8 @@ export namespace GetObjectTaggingOutput {
 export interface GetObjectTaggingRequest {
   /**
    * <p>The bucket name containing the object for which to get the tagging information. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -7956,7 +7957,7 @@ export interface PublicAccessBlockConfiguration {
 
   /**
    * <p>Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting
-   *          this element to <code>TRUE</code> restricts access to this bucket to only AWS service
+   *          this element to <code>TRUE</code> restricts access to this bucket to only Amazon Web Service
    *          principals and authorized users within this account if the bucket has a public
    *          policy.</p>
    *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that
@@ -8017,8 +8018,8 @@ export namespace GetPublicAccessBlockRequest {
 export interface HeadBucketRequest {
   /**
    * <p>The bucket name.</p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -8168,7 +8169,7 @@ export interface HeadObjectOutput {
   WebsiteRedirectLocation?: string;
 
   /**
-   * <p>If the object is stored using server-side encryption either with an AWS KMS customer
+   * <p>If the object is stored using server-side encryption either with an Amazon Web Services KMS customer
    *          master key (CMK) or an Amazon S3-managed encryption key, the response includes this header with
    *          the value of the server-side encryption algorithm used when storing this object in Amazon
    *          S3 (for example, AES256, aws:kms).</p>
@@ -8194,13 +8195,13 @@ export interface HeadObjectOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
+   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
    *          customer managed customer master key (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with Amazon Web Services KMS (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -8302,8 +8303,8 @@ export namespace HeadObjectOutput {
 export interface HeadObjectRequest {
   /**
    * <p>The name of the bucket containing the object.</p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -8673,7 +8674,7 @@ export namespace ListBucketMetricsConfigurationsRequest {
 
 /**
  * <p> In terms of implementation, a Bucket is a resource. An Amazon S3 bucket name is globally
- *          unique, and the namespace is shared by all AWS accounts. </p>
+ *          unique, and the namespace is shared by all Amazon Web Services accounts. </p>
  */
 export interface Bucket {
   /**
@@ -8746,7 +8747,7 @@ export type EncodingType = "url";
  */
 export interface Initiator {
   /**
-   * <p>If the principal is an AWS account, it provides the Canonical User ID. If the principal
+   * <p>If the principal is an Amazon Web Services account, it provides the Canonical User ID. If the principal
    *          is an IAM User, it provides a user ARN value.</p>
    */
   ID?: string;
@@ -8812,7 +8813,7 @@ export namespace MultipartUpload {
 
 export interface ListMultipartUploadsOutput {
   /**
-   * <p>The name of the bucket to which the multipart upload was initiated.</p>
+   * <p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>
    */
   Bucket?: string;
 
@@ -8901,8 +8902,8 @@ export namespace ListMultipartUploadsOutput {
 export interface ListMultipartUploadsRequest {
   /**
    * <p>The name of the bucket to which the multipart upload was initiated. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -9009,12 +9010,12 @@ export interface _Object {
    *          <ul>
    *             <li>
    *                <p>Objects created by the PUT Object, POST Object, or Copy operation, or through the
-   *                AWS Management Console, and are encrypted by SSE-S3 or plaintext, have ETags that are
+   *                Amazon Web Services Management Console, and are encrypted by SSE-S3 or plaintext, have ETags that are
    *                an MD5 digest of their object data.</p>
    *             </li>
    *             <li>
    *                <p>Objects created by the PUT Object, POST Object, or Copy operation, or through the
-   *                AWS Management Console, and are encrypted by SSE-C or SSE-KMS, have ETags that are
+   *                Amazon Web Services Management Console, and are encrypted by SSE-C or SSE-KMS, have ETags that are
    *                not an MD5 digest of their object data.</p>
    *             </li>
    *             <li>
@@ -9138,8 +9139,8 @@ export namespace ListObjectsOutput {
 export interface ListObjectsRequest {
   /**
    * <p>The name of the bucket containing the objects.</p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -9158,7 +9159,8 @@ export interface ListObjectsRequest {
   EncodingType?: EncodingType | string;
 
   /**
-   * <p>Specifies the key to start with when listing objects in a bucket.</p>
+   * <p>Marker is where you want Amazon S3 to start listing from. Amazon S3 starts listing after
+   *           this specified key. Marker can be any key in the bucket.</p>
    */
   Marker?: string;
 
@@ -9227,8 +9229,8 @@ export interface ListObjectsV2Output {
 
   /**
    * <p>The bucket name.</p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Name?: string;
 
@@ -9325,8 +9327,8 @@ export namespace ListObjectsV2Output {
 export interface ListObjectsV2Request {
   /**
    * <p>Bucket name to list. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -9708,7 +9710,7 @@ export interface ListPartsOutput {
   AbortRuleId?: string;
 
   /**
-   * <p>The name of the bucket to which the multipart upload was initiated.</p>
+   * <p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>
    */
   Bucket?: string;
 
@@ -9756,7 +9758,7 @@ export interface ListPartsOutput {
 
   /**
    * <p>Container element that identifies who initiated the multipart upload. If the initiator
-   *          is an AWS account, this element provides the same information as the <code>Owner</code>
+   *          is an Amazon Web Services account, this element provides the same information as the <code>Owner</code>
    *          element. If the initiator is an IAM User, this element provides the user ARN and display
    *          name.</p>
    */
@@ -9794,8 +9796,8 @@ export namespace ListPartsOutput {
 export interface ListPartsRequest {
   /**
    * <p>The name of the bucket to which the parts are being uploaded. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -9886,7 +9888,7 @@ export interface PutBucketAclRequest {
    *          information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
    *          1864.</a>
    *          </p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10005,7 +10007,7 @@ export interface PutBucketCorsRequest {
    *          information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
    *          1864.</a>
    *          </p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10034,7 +10036,7 @@ export namespace PutBucketCorsRequest {
 export interface PutBucketEncryptionRequest {
   /**
    * <p>Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed
-   *          keys (SSE-S3) or customer master keys stored in AWS KMS (SSE-KMS). For information about
+   *          keys (SSE-S3) or customer master keys stored in Amazon Web Services KMS (SSE-KMS). For information about
    *          the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a>
    *          in the <i>Amazon S3 User Guide</i>.</p>
    */
@@ -10042,7 +10044,7 @@ export interface PutBucketEncryptionRequest {
 
   /**
    * <p>The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10211,7 +10213,7 @@ export interface PutBucketLoggingRequest {
 
   /**
    * <p>The MD5 hash of the <code>PutBucketLogging</code> request body.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10304,7 +10306,7 @@ export interface PutBucketOwnershipControlsRequest {
 
   /**
    * <p>The MD5 hash of the <code>OwnershipControls</code> request body. </p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10337,7 +10339,7 @@ export interface PutBucketPolicyRequest {
 
   /**
    * <p>The MD5 hash of the request body.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10377,7 +10379,7 @@ export interface PutBucketReplicationRequest {
    * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message
    *          integrity check to verify that the request body was not corrupted in transit. For more
    *          information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10440,7 +10442,7 @@ export interface PutBucketRequestPaymentRequest {
    *          message integrity check to verify that the request body was not corrupted in transit. For
    *          more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
    *          1864</a>.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10493,7 +10495,7 @@ export interface PutBucketTaggingRequest {
    * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message
    *          integrity check to verify that the request body was not corrupted in transit. For more
    *          information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10557,7 +10559,7 @@ export interface PutBucketVersioningRequest {
    *          message integrity check to verify that the request body was not corrupted in transit. For
    *          more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
    *          1864</a>.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10634,7 +10636,7 @@ export interface PutBucketWebsiteRequest {
    * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message
    *          integrity check to verify that the request body was not corrupted in transit. For more
    *          information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10672,7 +10674,7 @@ export interface PutObjectOutput {
   ETag?: string;
 
   /**
-   * <p>If you specified server-side encryption either with an AWS KMS customer master key (CMK)
+   * <p>If you specified server-side encryption either with an Amazon Web Services KMS customer master key (CMK)
    *          or Amazon S3-managed encryption key in your PUT request, the response includes this header. It
    *          confirms the encryption algorithm that Amazon S3 used to encrypt the object.</p>
    */
@@ -10698,21 +10700,21 @@ export interface PutObjectOutput {
 
   /**
    * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
-   *             <code>aws:kms</code>, this header specifies the ID of the AWS Key Management Service
-   *          (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the
+   *             <code>aws:kms</code>, this header specifies the ID of the Amazon Web Services Key Management Service
+   *          (Amazon Web Services KMS) symmetric customer managed customer master key (CMK) that was used for the
    *          object. </p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>If present, specifies the AWS KMS Encryption Context to use for object encryption. The
+   * <p>If present, specifies the Amazon Web Services KMS Encryption Context to use for object encryption. The
    *          value of this header is a base64-encoded UTF-8 string holding JSON with the encryption
    *          context key-value pairs.</p>
    */
   SSEKMSEncryptionContext?: string;
 
   /**
-   * <p>Indicates whether the uploaded object uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   * <p>Indicates whether the uploaded object uses an S3 Bucket Key for server-side encryption with Amazon Web Services KMS (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -10749,8 +10751,8 @@ export interface PutObjectRequest {
 
   /**
    * <p>The bucket name to which the PUT action was initiated. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -10904,18 +10906,18 @@ export interface PutObjectRequest {
 
   /**
    * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
-   *          <code>aws:kms</code>, this header specifies the ID of the AWS Key Management Service
-   *          (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the
+   *          <code>aws:kms</code>, this header specifies the ID of the Amazon Web Services Key Management Service
+   *          (Amazon Web Services KMS) symmetrical customer managed customer master key (CMK) that was used for the
    *          object. If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but do not
-   *          provide<code> x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the AWS
-   *          managed CMK in AWS to protect the data. If the KMS key does not exist in the same account
+   *          provide<code> x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the Amazon Web Services
+   *          managed CMK in Amazon Web Services to protect the data. If the KMS key does not exist in the same account
    *          issuing the command, you must use the full ARN and not just the ID.
    *       </p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this
+   * <p>Specifies the Amazon Web Services KMS Encryption Context to use for object encryption. The value of this
    *          header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value
    *          pairs.</p>
    */
@@ -11002,7 +11004,7 @@ export interface PutObjectAclRequest {
 
   /**
    * <p>The bucket name that contains the object to which you want to attach the ACL. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -11012,7 +11014,7 @@ export interface PutObjectAclRequest {
    *          information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
    *          1864.></a>
    *          </p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -11051,8 +11053,8 @@ export interface PutObjectAclRequest {
 
   /**
    * <p>Key for which the PUT action was initiated.</p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Key: string | undefined;
 
@@ -11109,7 +11111,7 @@ export namespace PutObjectLegalHoldOutput {
 export interface PutObjectLegalHoldRequest {
   /**
    * <p>The bucket name containing the object that you want to place a Legal Hold on. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -11133,7 +11135,7 @@ export interface PutObjectLegalHoldRequest {
 
   /**
    * <p>The MD5 hash for the request body.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -11196,7 +11198,7 @@ export interface PutObjectLockConfigurationRequest {
 
   /**
    * <p>The MD5 hash for the request body.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -11241,7 +11243,7 @@ export interface PutObjectRetentionRequest {
   /**
    * <p>The bucket name that contains the object you want to apply this Object Retention
    *          configuration to. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -11272,7 +11274,7 @@ export interface PutObjectRetentionRequest {
 
   /**
    * <p>The MD5 hash for the request body.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -11315,8 +11317,8 @@ export namespace PutObjectTaggingOutput {
 export interface PutObjectTaggingRequest {
   /**
    * <p>The bucket name containing the object. </p>
-   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -11332,7 +11334,7 @@ export interface PutObjectTaggingRequest {
 
   /**
    * <p>The MD5 hash for the request body.</p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -11373,7 +11375,7 @@ export interface PutPublicAccessBlockRequest {
 
   /**
    * <p>The MD5 hash of the <code>PutPublicAccessBlock</code> request body. </p>
-   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 

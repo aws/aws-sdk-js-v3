@@ -73,7 +73,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *
  *          <p>By default, all Amazon S3 resources are private, including buckets, objects, and related
  *          subresources (for example, lifecycle configuration and website configuration). Only the
- *          resource owner (that is, the AWS account that created it) can access the resource. The
+ *          resource owner (that is, the Amazon Web Services account that created it) can access the resource. The
  *          resource owner can optionally grant access permissions to others by writing an access
  *          policy. For this operation, a user must get the s3:PutLifecycleConfiguration
  *          permission.</p>

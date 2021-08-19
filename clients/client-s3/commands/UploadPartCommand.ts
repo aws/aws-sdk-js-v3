@@ -52,9 +52,9 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *             <code>Content-MD5</code> header in the upload part request. Amazon S3 checks the part data
  *          against the provided MD5 value. If they do not match, Amazon S3 returns an error. </p>
  *
- *          <p>If the upload request is signed with Signature Version 4, then AWS S3 uses the
+ *          <p>If the upload request is signed with Signature Version 4, then Amazon Web Services S3 uses the
  *             <code>x-amz-content-sha256</code> header as a checksum instead of
- *             <code>Content-MD5</code>. For more information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html">Authenticating Requests: Using the Authorization Header (AWS Signature Version
+ *             <code>Content-MD5</code>. For more information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html">Authenticating Requests: Using the Authorization Header (Amazon Web Services Signature Version
  *             4)</a>. </p>
  *
  *
@@ -74,7 +74,7 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *
  *          <p>You can optionally request server-side encryption where Amazon S3 encrypts your data as it
  *          writes it to disks in its data centers and decrypts it for you when you access it. You have
- *          the option of providing your own encryption key, or you can use the AWS managed encryption
+ *          the option of providing your own encryption key, or you can use the Amazon Web Services managed encryption
  *          keys. If you choose to provide your own encryption key, the request headers you provide in
  *          the request must match the headers you used in the request to initiate the upload by using
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>. For more information, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side Encryption</a> in

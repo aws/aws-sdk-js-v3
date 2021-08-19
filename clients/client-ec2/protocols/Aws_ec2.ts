@@ -1887,7 +1887,6 @@ import {
   CreditSpecificationRequest,
   DeleteCarrierGatewayRequest,
   DeleteCarrierGatewayResult,
-  DeleteClientVpnEndpointRequest,
   DnsEntry,
   ElasticGpuSpecification,
   ElasticGpuSpecificationResponse,
@@ -2046,6 +2045,7 @@ import {
   CoipPool,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteClientVpnEndpointRequest,
   DeleteClientVpnEndpointResult,
   DeleteClientVpnRouteRequest,
   DeleteClientVpnRouteResult,
@@ -2237,7 +2237,6 @@ import {
   DescribeInstanceCreditSpecificationsRequest,
   DescribeInstanceCreditSpecificationsResult,
   DescribeInstanceEventNotificationAttributesRequest,
-  DescribeInstanceEventNotificationAttributesResult,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -2313,6 +2312,7 @@ import {
   ClassicLoadBalancersConfig,
   CpuOptions,
   CreateVolumePermission,
+  DescribeInstanceEventNotificationAttributesResult,
   DescribeInstanceEventWindowsRequest,
   DescribeInstanceEventWindowsResult,
   DescribeInstanceStatusRequest,
@@ -2451,7 +2451,6 @@ import {
   DescribeVolumesModificationsResult,
   DescribeVolumesRequest,
   DescribeVolumesResult,
-  DescribeVpcAttributeRequest,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -2573,6 +2572,7 @@ import {
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DescribeVpcAttributeRequest,
   DescribeVpcAttributeResult,
   DescribeVpcClassicLinkDnsSupportRequest,
   DescribeVpcClassicLinkDnsSupportResult,
@@ -2823,7 +2823,6 @@ import {
   ModifyVpcEndpointServicePermissionsRequest,
   ModifyVpcEndpointServicePermissionsResult,
   ModifyVpcPeeringConnectionOptionsRequest,
-  ModifyVpcPeeringConnectionOptionsResult,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
@@ -2868,6 +2867,7 @@ import {
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcPeeringConnectionOptionsResult,
   ModifyVpcTenancyRequest,
   ModifyVpcTenancyResult,
   ModifyVpnConnectionOptionsRequest,
@@ -33795,6 +33795,9 @@ const serializeAws_ec2CreateKeyPairRequest = (input: CreateKeyPairRequest, conte
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.KeyType !== undefined && input.KeyType !== null) {
+    entries["KeyType"] = input.KeyType;
+  }
   if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -41959,6 +41962,9 @@ const serializeAws_ec2ImportImageRequest = (input: ImportImageRequest, context: 
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.UsageOperation !== undefined && input.UsageOperation !== null) {
+    entries["UsageOperation"] = input.UsageOperation;
   }
   return entries;
 };
@@ -61115,6 +61121,7 @@ const deserializeAws_ec2ImportImageResult = (output: any, context: __SerdeContex
     StatusMessage: undefined,
     LicenseSpecifications: undefined,
     Tags: undefined,
+    UsageOperation: undefined,
   };
   if (output["architecture"] !== undefined) {
     contents.Architecture = __expectString(output["architecture"]);
@@ -61175,6 +61182,9 @@ const deserializeAws_ec2ImportImageResult = (output: any, context: __SerdeContex
   }
   if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["usageOperation"] !== undefined) {
+    contents.UsageOperation = __expectString(output["usageOperation"]);
   }
   return contents;
 };
@@ -61196,6 +61206,7 @@ const deserializeAws_ec2ImportImageTask = (output: any, context: __SerdeContext)
     StatusMessage: undefined,
     Tags: undefined,
     LicenseSpecifications: undefined,
+    UsageOperation: undefined,
   };
   if (output["architecture"] !== undefined) {
     contents.Architecture = __expectString(output["architecture"]);
@@ -61256,6 +61267,9 @@ const deserializeAws_ec2ImportImageTask = (output: any, context: __SerdeContext)
       __getArrayIfSingleItem(output["licenseSpecifications"]["item"]),
       context
     );
+  }
+  if (output["usageOperation"] !== undefined) {
+    contents.UsageOperation = __expectString(output["usageOperation"]);
   }
   return contents;
 };
@@ -63604,6 +63618,7 @@ const deserializeAws_ec2KeyPairInfo = (output: any, context: __SerdeContext): Ke
     KeyPairId: undefined,
     KeyFingerprint: undefined,
     KeyName: undefined,
+    KeyType: undefined,
     Tags: undefined,
   };
   if (output["keyPairId"] !== undefined) {
@@ -63614,6 +63629,9 @@ const deserializeAws_ec2KeyPairInfo = (output: any, context: __SerdeContext): Ke
   }
   if (output["keyName"] !== undefined) {
     contents.KeyName = __expectString(output["keyName"]);
+  }
+  if (output["keyType"] !== undefined) {
+    contents.KeyType = __expectString(output["keyType"]);
   }
   if (output.tagSet === "") {
     contents.Tags = [];

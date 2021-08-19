@@ -24,7 +24,7 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Set the logging parameters for a bucket and to specify permissions for who can view and
- *          modify the logging parameters. All logs are saved to buckets in the same AWS Region as the
+ *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as the
  *          source bucket. To set the logging status of a bucket, you must be the bucket owner.</p>
  *
  *          <p>The bucket owner is automatically granted FULL_CONTROL to all logs. You use the

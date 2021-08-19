@@ -41,7 +41,7 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *           subscription filter, for same-account delivery.</p>
  *             </li>
  *             <li>
- *                <p>An AWS Lambda function that belongs to the same account as the subscription filter,
+ *                <p>An Lambda function that belongs to the same account as the subscription filter,
  *           for same-account delivery.</p>
  *             </li>
  *          </ul>

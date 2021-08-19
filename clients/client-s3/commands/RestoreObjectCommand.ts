@@ -52,8 +52,8 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *          <ul>
  *             <li>
  *                <p>Define an output location for the select query's output. This must be an Amazon S3
- *                bucket in the same AWS Region as the bucket that contains the archive object that is
- *                being queried. The AWS account that initiates the job must have permissions to write
+ *                bucket in the same Amazon Web Services Region as the bucket that contains the archive object that is
+ *                being queried. The Amazon Web Services account that initiates the job must have permissions to write
  *                to the S3 bucket. You can specify the storage class and encryption for the output
  *                objects stored in the bucket. For more information about output, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/querying-glacier-archives.html">Querying Archived Objects</a>
  *                in the <i>Amazon S3 User Guide</i>.</p>

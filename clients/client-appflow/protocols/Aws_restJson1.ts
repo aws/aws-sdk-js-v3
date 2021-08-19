@@ -46,6 +46,7 @@ import {
   AmplitudeConnectorProfileProperties,
   AmplitudeMetadata,
   AmplitudeSourceProperties,
+  BasicAuthCredentials,
   ConflictException,
   ConnectorAuthenticationException,
   ConnectorConfiguration,
@@ -101,9 +102,12 @@ import {
   MarketoConnectorProfileProperties,
   MarketoMetadata,
   MarketoSourceProperties,
+  OAuthCredentials,
+  OAuthProperties,
   Operator,
   OperatorPropertiesKeys,
   PrefixConfig,
+  PrivateConnectionProvisioningState,
   RedshiftConnectorProfileCredentials,
   RedshiftConnectorProfileProperties,
   RedshiftDestinationProperties,
@@ -113,6 +117,10 @@ import {
   S3Metadata,
   S3OutputFormatConfig,
   S3SourceProperties,
+  SAPODataConnectorProfileCredentials,
+  SAPODataConnectorProfileProperties,
+  SAPODataMetadata,
+  SAPODataSourceProperties,
   SalesforceConnectorProfileCredentials,
   SalesforceConnectorProfileProperties,
   SalesforceDestinationProperties,
@@ -2363,6 +2371,13 @@ const serializeAws_restJson1AmplitudeSourceProperties = (
   };
 };
 
+const serializeAws_restJson1BasicAuthCredentials = (input: BasicAuthCredentials, context: __SerdeContext): any => {
+  return {
+    ...(input.password !== undefined && input.password !== null && { password: input.password }),
+    ...(input.username !== undefined && input.username !== null && { username: input.username }),
+  };
+};
+
 const serializeAws_restJson1ConnectorOAuthRequest = (input: ConnectorOAuthRequest, context: __SerdeContext): any => {
   return {
     ...(input.authCode !== undefined && input.authCode !== null && { authCode: input.authCode }),
@@ -2380,6 +2395,7 @@ const serializeAws_restJson1ConnectorOperator = (input: ConnectorOperator, conte
     ...(input.InforNexus !== undefined && input.InforNexus !== null && { InforNexus: input.InforNexus }),
     ...(input.Marketo !== undefined && input.Marketo !== null && { Marketo: input.Marketo }),
     ...(input.S3 !== undefined && input.S3 !== null && { S3: input.S3 }),
+    ...(input.SAPOData !== undefined && input.SAPOData !== null && { SAPOData: input.SAPOData }),
     ...(input.Salesforce !== undefined && input.Salesforce !== null && { Salesforce: input.Salesforce }),
     ...(input.ServiceNow !== undefined && input.ServiceNow !== null && { ServiceNow: input.ServiceNow }),
     ...(input.Singular !== undefined && input.Singular !== null && { Singular: input.Singular }),
@@ -2448,6 +2464,10 @@ const serializeAws_restJson1ConnectorProfileCredentials = (
     ...(input.Redshift !== undefined &&
       input.Redshift !== null && {
         Redshift: serializeAws_restJson1RedshiftConnectorProfileCredentials(input.Redshift, context),
+      }),
+    ...(input.SAPOData !== undefined &&
+      input.SAPOData !== null && {
+        SAPOData: serializeAws_restJson1SAPODataConnectorProfileCredentials(input.SAPOData, context),
       }),
     ...(input.Salesforce !== undefined &&
       input.Salesforce !== null && {
@@ -2530,6 +2550,10 @@ const serializeAws_restJson1ConnectorProfileProperties = (
     ...(input.Redshift !== undefined &&
       input.Redshift !== null && {
         Redshift: serializeAws_restJson1RedshiftConnectorProfileProperties(input.Redshift, context),
+      }),
+    ...(input.SAPOData !== undefined &&
+      input.SAPOData !== null && {
+        SAPOData: serializeAws_restJson1SAPODataConnectorProfileProperties(input.SAPOData, context),
       }),
     ...(input.Salesforce !== undefined &&
       input.Salesforce !== null && {
@@ -2892,6 +2916,39 @@ const serializeAws_restJson1MarketoSourceProperties = (
   };
 };
 
+const serializeAws_restJson1OAuthCredentials = (input: OAuthCredentials, context: __SerdeContext): any => {
+  return {
+    ...(input.accessToken !== undefined && input.accessToken !== null && { accessToken: input.accessToken }),
+    ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
+    ...(input.clientSecret !== undefined && input.clientSecret !== null && { clientSecret: input.clientSecret }),
+    ...(input.oAuthRequest !== undefined &&
+      input.oAuthRequest !== null && {
+        oAuthRequest: serializeAws_restJson1ConnectorOAuthRequest(input.oAuthRequest, context),
+      }),
+    ...(input.refreshToken !== undefined && input.refreshToken !== null && { refreshToken: input.refreshToken }),
+  };
+};
+
+const serializeAws_restJson1OAuthProperties = (input: OAuthProperties, context: __SerdeContext): any => {
+  return {
+    ...(input.authCodeUrl !== undefined && input.authCodeUrl !== null && { authCodeUrl: input.authCodeUrl }),
+    ...(input.oAuthScopes !== undefined &&
+      input.oAuthScopes !== null && { oAuthScopes: serializeAws_restJson1OAuthScopeList(input.oAuthScopes, context) }),
+    ...(input.tokenUrl !== undefined && input.tokenUrl !== null && { tokenUrl: input.tokenUrl }),
+  };
+};
+
+const serializeAws_restJson1OAuthScopeList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1PrefixConfig = (input: PrefixConfig, context: __SerdeContext): any => {
   return {
     ...(input.prefixFormat !== undefined && input.prefixFormat !== null && { prefixFormat: input.prefixFormat }),
@@ -3026,6 +3083,52 @@ const serializeAws_restJson1SalesforceSourceProperties = (
     ...(input.includeDeletedRecords !== undefined &&
       input.includeDeletedRecords !== null && { includeDeletedRecords: input.includeDeletedRecords }),
     ...(input.object !== undefined && input.object !== null && { object: input.object }),
+  };
+};
+
+const serializeAws_restJson1SAPODataConnectorProfileCredentials = (
+  input: SAPODataConnectorProfileCredentials,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.basicAuthCredentials !== undefined &&
+      input.basicAuthCredentials !== null && {
+        basicAuthCredentials: serializeAws_restJson1BasicAuthCredentials(input.basicAuthCredentials, context),
+      }),
+    ...(input.oAuthCredentials !== undefined &&
+      input.oAuthCredentials !== null && {
+        oAuthCredentials: serializeAws_restJson1OAuthCredentials(input.oAuthCredentials, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1SAPODataConnectorProfileProperties = (
+  input: SAPODataConnectorProfileProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.applicationHostUrl !== undefined &&
+      input.applicationHostUrl !== null && { applicationHostUrl: input.applicationHostUrl }),
+    ...(input.applicationServicePath !== undefined &&
+      input.applicationServicePath !== null && { applicationServicePath: input.applicationServicePath }),
+    ...(input.clientNumber !== undefined && input.clientNumber !== null && { clientNumber: input.clientNumber }),
+    ...(input.logonLanguage !== undefined && input.logonLanguage !== null && { logonLanguage: input.logonLanguage }),
+    ...(input.oAuthProperties !== undefined &&
+      input.oAuthProperties !== null && {
+        oAuthProperties: serializeAws_restJson1OAuthProperties(input.oAuthProperties, context),
+      }),
+    ...(input.portNumber !== undefined && input.portNumber !== null && { portNumber: input.portNumber }),
+    ...(input.privateLinkServiceName !== undefined &&
+      input.privateLinkServiceName !== null && { privateLinkServiceName: input.privateLinkServiceName }),
+  };
+};
+
+const serializeAws_restJson1SAPODataSourceProperties = (
+  input: SAPODataSourceProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.objectPath !== undefined && input.objectPath !== null && { objectPath: input.objectPath }),
   };
 };
 
@@ -3203,6 +3306,8 @@ const serializeAws_restJson1SourceConnectorProperties = (
       input.Marketo !== null && { Marketo: serializeAws_restJson1MarketoSourceProperties(input.Marketo, context) }),
     ...(input.S3 !== undefined &&
       input.S3 !== null && { S3: serializeAws_restJson1S3SourceProperties(input.S3, context) }),
+    ...(input.SAPOData !== undefined &&
+      input.SAPOData !== null && { SAPOData: serializeAws_restJson1SAPODataSourceProperties(input.SAPOData, context) }),
     ...(input.Salesforce !== undefined &&
       input.Salesforce !== null && {
         Salesforce: serializeAws_restJson1SalesforceSourceProperties(input.Salesforce, context),
@@ -3406,6 +3511,13 @@ const serializeAws_restJson1VeevaConnectorProfileProperties = (
 
 const serializeAws_restJson1VeevaSourceProperties = (input: VeevaSourceProperties, context: __SerdeContext): any => {
   return {
+    ...(input.documentType !== undefined && input.documentType !== null && { documentType: input.documentType }),
+    ...(input.includeAllVersions !== undefined &&
+      input.includeAllVersions !== null && { includeAllVersions: input.includeAllVersions }),
+    ...(input.includeRenditions !== undefined &&
+      input.includeRenditions !== null && { includeRenditions: input.includeRenditions }),
+    ...(input.includeSourceFiles !== undefined &&
+      input.includeSourceFiles !== null && { includeSourceFiles: input.includeSourceFiles }),
     ...(input.object !== undefined && input.object !== null && { object: input.object }),
   };
 };
@@ -3648,6 +3760,10 @@ const deserializeAws_restJson1ConnectorMetadata = (output: any, context: __Serde
       output.S3 !== undefined && output.S3 !== null
         ? deserializeAws_restJson1S3Metadata(output.S3, context)
         : undefined,
+    SAPOData:
+      output.SAPOData !== undefined && output.SAPOData !== null
+        ? deserializeAws_restJson1SAPODataMetadata(output.SAPOData, context)
+        : undefined,
     Salesforce:
       output.Salesforce !== undefined && output.Salesforce !== null
         ? deserializeAws_restJson1SalesforceMetadata(output.Salesforce, context)
@@ -3696,6 +3812,7 @@ const deserializeAws_restJson1ConnectorOperator = (output: any, context: __Serde
     InforNexus: __expectString(output.InforNexus),
     Marketo: __expectString(output.Marketo),
     S3: __expectString(output.S3),
+    SAPOData: __expectString(output.SAPOData),
     Salesforce: __expectString(output.Salesforce),
     ServiceNow: __expectString(output.ServiceNow),
     Singular: __expectString(output.Singular),
@@ -3724,6 +3841,10 @@ const deserializeAws_restJson1ConnectorProfile = (output: any, context: __SerdeC
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
+    privateConnectionProvisioningState:
+      output.privateConnectionProvisioningState !== undefined && output.privateConnectionProvisioningState !== null
+        ? deserializeAws_restJson1PrivateConnectionProvisioningState(output.privateConnectionProvisioningState, context)
         : undefined,
   } as any;
 };
@@ -3778,6 +3899,10 @@ const deserializeAws_restJson1ConnectorProfileProperties = (
     Redshift:
       output.Redshift !== undefined && output.Redshift !== null
         ? deserializeAws_restJson1RedshiftConnectorProfileProperties(output.Redshift, context)
+        : undefined,
+    SAPOData:
+      output.SAPOData !== undefined && output.SAPOData !== null
+        ? deserializeAws_restJson1SAPODataConnectorProfileProperties(output.SAPOData, context)
         : undefined,
     Salesforce:
       output.Salesforce !== undefined && output.Salesforce !== null
@@ -4262,6 +4387,17 @@ const deserializeAws_restJson1MarketoSourceProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1OAuthProperties = (output: any, context: __SerdeContext): OAuthProperties => {
+  return {
+    authCodeUrl: __expectString(output.authCodeUrl),
+    oAuthScopes:
+      output.oAuthScopes !== undefined && output.oAuthScopes !== null
+        ? deserializeAws_restJson1OAuthScopeList(output.oAuthScopes, context)
+        : undefined,
+    tokenUrl: __expectString(output.tokenUrl),
+  } as any;
+};
+
 const deserializeAws_restJson1OAuthScopeList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -4277,6 +4413,17 @@ const deserializeAws_restJson1PrefixConfig = (output: any, context: __SerdeConte
   return {
     prefixFormat: __expectString(output.prefixFormat),
     prefixType: __expectString(output.prefixType),
+  } as any;
+};
+
+const deserializeAws_restJson1PrivateConnectionProvisioningState = (
+  output: any,
+  context: __SerdeContext
+): PrivateConnectionProvisioningState => {
+  return {
+    failureCause: __expectString(output.failureCause),
+    failureMessage: __expectString(output.failureMessage),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -4406,6 +4553,37 @@ const deserializeAws_restJson1SalesforceSourceProperties = (
     enableDynamicFieldUpdate: __expectBoolean(output.enableDynamicFieldUpdate),
     includeDeletedRecords: __expectBoolean(output.includeDeletedRecords),
     object: __expectString(output.object),
+  } as any;
+};
+
+const deserializeAws_restJson1SAPODataConnectorProfileProperties = (
+  output: any,
+  context: __SerdeContext
+): SAPODataConnectorProfileProperties => {
+  return {
+    applicationHostUrl: __expectString(output.applicationHostUrl),
+    applicationServicePath: __expectString(output.applicationServicePath),
+    clientNumber: __expectString(output.clientNumber),
+    logonLanguage: __expectString(output.logonLanguage),
+    oAuthProperties:
+      output.oAuthProperties !== undefined && output.oAuthProperties !== null
+        ? deserializeAws_restJson1OAuthProperties(output.oAuthProperties, context)
+        : undefined,
+    portNumber: __expectInt(output.portNumber),
+    privateLinkServiceName: __expectString(output.privateLinkServiceName),
+  } as any;
+};
+
+const deserializeAws_restJson1SAPODataMetadata = (output: any, context: __SerdeContext): SAPODataMetadata => {
+  return {} as any;
+};
+
+const deserializeAws_restJson1SAPODataSourceProperties = (
+  output: any,
+  context: __SerdeContext
+): SAPODataSourceProperties => {
+  return {
+    objectPath: __expectString(output.objectPath),
   } as any;
 };
 
@@ -4584,6 +4762,10 @@ const deserializeAws_restJson1SourceConnectorProperties = (
     S3:
       output.S3 !== undefined && output.S3 !== null
         ? deserializeAws_restJson1S3SourceProperties(output.S3, context)
+        : undefined,
+    SAPOData:
+      output.SAPOData !== undefined && output.SAPOData !== null
+        ? deserializeAws_restJson1SAPODataSourceProperties(output.SAPOData, context)
         : undefined,
     Salesforce:
       output.Salesforce !== undefined && output.Salesforce !== null
@@ -4843,6 +5025,10 @@ const deserializeAws_restJson1VeevaMetadata = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1VeevaSourceProperties = (output: any, context: __SerdeContext): VeevaSourceProperties => {
   return {
+    documentType: __expectString(output.documentType),
+    includeAllVersions: __expectBoolean(output.includeAllVersions),
+    includeRenditions: __expectBoolean(output.includeRenditions),
+    includeSourceFiles: __expectBoolean(output.includeSourceFiles),
     object: __expectString(output.object),
   } as any;
 };

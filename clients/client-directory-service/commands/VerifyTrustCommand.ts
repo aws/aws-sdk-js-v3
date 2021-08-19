@@ -21,8 +21,10 @@ export interface VerifyTrustCommandInput extends VerifyTrustRequest {}
 export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataBearer {}
 
 /**
- * <p>AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.</p>
- *          <p>This action verifies a trust relationship between your AWS Managed Microsoft AD directory and an external domain.</p>
+ * <p>Directory Service for Microsoft Active Directory allows you to configure and verify trust
+ *       relationships.</p>
+ *          <p>This action verifies a trust relationship between your Managed Microsoft AD directory and an
+ *       external domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

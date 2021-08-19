@@ -597,6 +597,10 @@ import {
   AssociateTrialComponentRequest,
   AssociateTrialComponentResponse,
   AssociationSummary,
+  AsyncInferenceClientConfig,
+  AsyncInferenceConfig,
+  AsyncInferenceNotificationConfig,
+  AsyncInferenceOutputConfig,
   AthenaDatasetDefinition,
   AutoMLCandidate,
   AutoMLCandidateStep,
@@ -685,8 +689,6 @@ import {
   CreateImageVersionResponse,
   CreateLabelingJobRequest,
   CreateLabelingJobResponse,
-  CreateModelBiasJobDefinitionRequest,
-  CreateModelBiasJobDefinitionResponse,
   CreateModelInput,
   CreateModelOutput,
   CustomImage,
@@ -740,9 +742,7 @@ import {
   MetricsSource,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
-  ModelBiasJobInput,
   ModelDeployConfig,
-  ModelExplainabilityAppSpecification,
   ModelPackageContainerDefinition,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
@@ -806,6 +806,8 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateModelBiasJobDefinitionRequest,
+  CreateModelBiasJobDefinitionResponse,
   CreateModelExplainabilityJobDefinitionRequest,
   CreateModelExplainabilityJobDefinitionResponse,
   CreateModelPackageGroupInput,
@@ -987,9 +989,6 @@ import {
   DescribeTrainingJobResponse,
   DescribeTransformJobRequest,
   DescribeTransformJobResponse,
-  DescribeTrialComponentRequest,
-  DescribeTrialRequest,
-  DescribeTrialResponse,
   EdgeModel,
   EdgePresetDeploymentOutput,
   ExperimentConfig,
@@ -1002,10 +1001,12 @@ import {
   MemberDefinition,
   MetricData,
   ModelArtifacts,
+  ModelBiasJobInput,
   ModelClientConfig,
   ModelDataQuality,
   ModelDeployResult,
   ModelDigests,
+  ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
   ModelMetrics,
@@ -1062,11 +1063,13 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  TrialSource,
   UiTemplateInfo,
 } from "../models/models_1";
 import {
+  DescribeTrialComponentRequest,
   DescribeTrialComponentResponse,
+  DescribeTrialRequest,
+  DescribeTrialResponse,
   DescribeUserProfileRequest,
   DescribeUserProfileResponse,
   DescribeWorkforceRequest,
@@ -1292,6 +1295,7 @@ import {
   TrialComponentSource,
   TrialComponentSourceDetail,
   TrialComponentSummary,
+  TrialSource,
   TrialSummary,
   TuningJobStepMetaData,
   UpdateActionRequest,
@@ -1309,10 +1313,6 @@ import {
   UpdateDomainRequest,
   UpdateDomainResponse,
   UpdateEndpointInput,
-  UpdateEndpointOutput,
-  UpdateEndpointWeightsAndCapacitiesInput,
-  UpdateEndpointWeightsAndCapacitiesOutput,
-  UpdateExperimentRequest,
   UserProfileDetails,
   VariantProperty,
   Workforce,
@@ -1321,6 +1321,10 @@ import {
 import {
   SearchExpression,
   SearchRequest,
+  UpdateEndpointOutput,
+  UpdateEndpointWeightsAndCapacitiesInput,
+  UpdateEndpointWeightsAndCapacitiesOutput,
+  UpdateExperimentRequest,
   UpdateExperimentResponse,
   UpdateImageRequest,
   UpdateImageResponse,
@@ -16985,6 +16989,55 @@ const serializeAws_json1_1AssociateTrialComponentRequest = (
   };
 };
 
+const serializeAws_json1_1AsyncInferenceClientConfig = (
+  input: AsyncInferenceClientConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxConcurrentInvocationsPerInstance !== undefined &&
+      input.MaxConcurrentInvocationsPerInstance !== null && {
+        MaxConcurrentInvocationsPerInstance: input.MaxConcurrentInvocationsPerInstance,
+      }),
+  };
+};
+
+const serializeAws_json1_1AsyncInferenceConfig = (input: AsyncInferenceConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ClientConfig !== undefined &&
+      input.ClientConfig !== null && {
+        ClientConfig: serializeAws_json1_1AsyncInferenceClientConfig(input.ClientConfig, context),
+      }),
+    ...(input.OutputConfig !== undefined &&
+      input.OutputConfig !== null && {
+        OutputConfig: serializeAws_json1_1AsyncInferenceOutputConfig(input.OutputConfig, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1AsyncInferenceNotificationConfig = (
+  input: AsyncInferenceNotificationConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ErrorTopic !== undefined && input.ErrorTopic !== null && { ErrorTopic: input.ErrorTopic }),
+    ...(input.SuccessTopic !== undefined && input.SuccessTopic !== null && { SuccessTopic: input.SuccessTopic }),
+  };
+};
+
+const serializeAws_json1_1AsyncInferenceOutputConfig = (
+  input: AsyncInferenceOutputConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.NotificationConfig !== undefined &&
+      input.NotificationConfig !== null && {
+        NotificationConfig: serializeAws_json1_1AsyncInferenceNotificationConfig(input.NotificationConfig, context),
+      }),
+    ...(input.S3OutputPath !== undefined && input.S3OutputPath !== null && { S3OutputPath: input.S3OutputPath }),
+  };
+};
+
 const serializeAws_json1_1AthenaDatasetDefinition = (input: AthenaDatasetDefinition, context: __SerdeContext): any => {
   return {
     ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
@@ -17752,6 +17805,10 @@ const serializeAws_json1_1CreateEndpointConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AsyncInferenceConfig !== undefined &&
+      input.AsyncInferenceConfig !== null && {
+        AsyncInferenceConfig: serializeAws_json1_1AsyncInferenceConfig(input.AsyncInferenceConfig, context),
+      }),
     ...(input.DataCaptureConfig !== undefined &&
       input.DataCaptureConfig !== null && {
         DataCaptureConfig: serializeAws_json1_1DataCaptureConfig(input.DataCaptureConfig, context),
@@ -18221,6 +18278,8 @@ const serializeAws_json1_1CreateNotebookInstanceInput = (
       input.LifecycleConfigName !== null && { LifecycleConfigName: input.LifecycleConfigName }),
     ...(input.NotebookInstanceName !== undefined &&
       input.NotebookInstanceName !== null && { NotebookInstanceName: input.NotebookInstanceName }),
+    ...(input.PlatformIdentifier !== undefined &&
+      input.PlatformIdentifier !== null && { PlatformIdentifier: input.PlatformIdentifier }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.RootAccess !== undefined && input.RootAccess !== null && { RootAccess: input.RootAccess }),
     ...(input.SecurityGroupIds !== undefined &&
@@ -24441,6 +24500,52 @@ const deserializeAws_json1_1AssociationSummary = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1AsyncInferenceClientConfig = (
+  output: any,
+  context: __SerdeContext
+): AsyncInferenceClientConfig => {
+  return {
+    MaxConcurrentInvocationsPerInstance: __expectInt(output.MaxConcurrentInvocationsPerInstance),
+  } as any;
+};
+
+const deserializeAws_json1_1AsyncInferenceConfig = (output: any, context: __SerdeContext): AsyncInferenceConfig => {
+  return {
+    ClientConfig:
+      output.ClientConfig !== undefined && output.ClientConfig !== null
+        ? deserializeAws_json1_1AsyncInferenceClientConfig(output.ClientConfig, context)
+        : undefined,
+    OutputConfig:
+      output.OutputConfig !== undefined && output.OutputConfig !== null
+        ? deserializeAws_json1_1AsyncInferenceOutputConfig(output.OutputConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AsyncInferenceNotificationConfig = (
+  output: any,
+  context: __SerdeContext
+): AsyncInferenceNotificationConfig => {
+  return {
+    ErrorTopic: __expectString(output.ErrorTopic),
+    SuccessTopic: __expectString(output.SuccessTopic),
+  } as any;
+};
+
+const deserializeAws_json1_1AsyncInferenceOutputConfig = (
+  output: any,
+  context: __SerdeContext
+): AsyncInferenceOutputConfig => {
+  return {
+    KmsKeyId: __expectString(output.KmsKeyId),
+    NotificationConfig:
+      output.NotificationConfig !== undefined && output.NotificationConfig !== null
+        ? deserializeAws_json1_1AsyncInferenceNotificationConfig(output.NotificationConfig, context)
+        : undefined,
+    S3OutputPath: __expectString(output.S3OutputPath),
+  } as any;
+};
+
 const deserializeAws_json1_1AthenaDatasetDefinition = (
   output: any,
   context: __SerdeContext
@@ -26448,6 +26553,10 @@ const deserializeAws_json1_1DescribeEndpointConfigOutput = (
   context: __SerdeContext
 ): DescribeEndpointConfigOutput => {
   return {
+    AsyncInferenceConfig:
+      output.AsyncInferenceConfig !== undefined && output.AsyncInferenceConfig !== null
+        ? deserializeAws_json1_1AsyncInferenceConfig(output.AsyncInferenceConfig, context)
+        : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -26468,6 +26577,10 @@ const deserializeAws_json1_1DescribeEndpointConfigOutput = (
 
 const deserializeAws_json1_1DescribeEndpointOutput = (output: any, context: __SerdeContext): DescribeEndpointOutput => {
   return {
+    AsyncInferenceConfig:
+      output.AsyncInferenceConfig !== undefined && output.AsyncInferenceConfig !== null
+        ? deserializeAws_json1_1AsyncInferenceConfig(output.AsyncInferenceConfig, context)
+        : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -27094,6 +27207,7 @@ const deserializeAws_json1_1DescribeNotebookInstanceOutput = (
     NotebookInstanceLifecycleConfigName: __expectString(output.NotebookInstanceLifecycleConfigName),
     NotebookInstanceName: __expectString(output.NotebookInstanceName),
     NotebookInstanceStatus: __expectString(output.NotebookInstanceStatus),
+    PlatformIdentifier: __expectString(output.PlatformIdentifier),
     RoleArn: __expectString(output.RoleArn),
     RootAccess: __expectString(output.RootAccess),
     SecurityGroups:

@@ -21,7 +21,11 @@ export interface CancelSchemaExtensionCommandInput extends CancelSchemaExtension
 export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensionResult, __MetadataBearer {}
 
 /**
- * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema extension has started replicating to all domain controllers, the task can no longer be canceled. A schema extension can be canceled during any of the following states; <code>Initializing</code>, <code>CreatingSnapshot</code>, and <code>UpdatingSchema</code>.</p>
+ * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema
+ *       extension has started replicating to all domain controllers, the task can no longer be
+ *       canceled. A schema extension can be canceled during any of the following states;
+ *         <code>Initializing</code>, <code>CreatingSnapshot</code>, and
+ *       <code>UpdatingSchema</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

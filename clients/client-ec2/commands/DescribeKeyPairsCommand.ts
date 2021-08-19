@@ -22,7 +22,7 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
 
 /**
  * <p>Describes the specified key pairs or all of your key pairs.</p>
- *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a>
+ *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs</a>
  * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

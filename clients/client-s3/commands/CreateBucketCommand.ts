@@ -23,7 +23,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
 
 /**
  * <p>Creates a new S3 bucket. To create a bucket, you must register with Amazon S3 and have a
- *          valid AWS Access Key ID to authenticate requests. Anonymous requests are never allowed to
+ *          valid Amazon Web Services Access Key ID to authenticate requests. Anonymous requests are never allowed to
  *          create buckets. By creating the bucket, you become the bucket owner.</p>
  *          <p>Not every string is an acceptable bucket name. For information about bucket naming
  *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket naming rules</a>.</p>
@@ -64,8 +64,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <code>id</code> – if the value specified is the canonical user ID of an AWS
- *                      account</p>
+ *                         <code>id</code> – if the value specified is the canonical user ID of an Amazon Web Services account</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -75,9 +74,9 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *                   <li>
  *                      <p>
  *                         <code>emailAddress</code> – if the value specified is the email address of
- *                      an AWS account</p>
+ *                      an Amazon Web Services account</p>
  *                      <note>
- *                         <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+ *                         <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p>
  *                         <ul>
  *                            <li>
  *                               <p>US East (N. Virginia)</p>
@@ -104,11 +103,11 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *                               <p>South America (São Paulo)</p>
  *                            </li>
  *                         </ul>
- *                         <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+ *                         <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
  *                      </note>
  *                   </li>
  *                </ul>
- *                <p>For example, the following <code>x-amz-grant-read</code> header grants the AWS accounts identified by account IDs permissions to read object data and its metadata:</p>
+ *                <p>For example, the following <code>x-amz-grant-read</code> header grants the Amazon Web Services accounts identified by account IDs permissions to read object data and its metadata:</p>
  *                <p>
  *                   <code>x-amz-grant-read: id="11112222333", id="444455556666" </code>
  *                </p>
@@ -119,6 +118,15 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *             do both.</p>
  *          </note>
  *
+ *          <p>
+ *             <b>Permissions</b>
+ *          </p>
+ *          <p>If your <code>CreateBucket</code> request specifies ACL permissions and the ACL is public-read, public-read-write,
+ *          authenticated-read, or if you specify access permissions explicitly through any other ACL, both
+ *          <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code> permissions are needed. If the ACL the
+ *          <code>CreateBucket</code> request is private, only <code>s3:CreateBucket</code> permission is needed. </p>
+ *          <p>If <code>ObjectLockEnabledForBucket</code> is set to true in your <code>CreateBucket</code> request,
+ *          <code>s3:PutBucketObjectLockConfiguration</code> and <code>s3:PutBucketVersioning</code> permissions are required.</p>
  *
  *          <p>The following operations are related to <code>CreateBucket</code>:</p>
  *          <ul>

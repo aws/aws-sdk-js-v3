@@ -21,7 +21,8 @@ export interface UpdateTrustCommandInput extends UpdateTrustRequest {}
 export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataBearer {}
 
 /**
- * <p>Updates the trust that has been set up between your AWS Managed Microsoft AD directory and an on-premises Active Directory.</p>
+ * <p>Updates the trust that has been set up between your Managed Microsoft AD directory and an
+ *       self-managed Active Directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

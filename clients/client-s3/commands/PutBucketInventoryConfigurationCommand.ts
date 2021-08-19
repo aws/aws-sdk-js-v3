@@ -29,7 +29,7 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *          basis, and the results are published to a flat file. The bucket that is inventoried is
  *          called the <i>source</i> bucket, and the bucket where the inventory flat file
  *          is stored is called the <i>destination</i> bucket. The
- *             <i>destination</i> bucket must be in the same AWS Region as the
+ *             <i>destination</i> bucket must be in the same Amazon Web Services Region as the
  *             <i>source</i> bucket. </p>
  *          <p>When you configure an inventory for a <i>source</i> bucket, you specify
  *          the <i>destination</i> bucket where you want the inventory to be stored, and

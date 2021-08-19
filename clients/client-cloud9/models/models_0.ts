@@ -187,6 +187,11 @@ export interface CreateEnvironmentEC2Request {
    *         Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p>
    */
   connectionType?: ConnectionType | string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  dryRun?: boolean;
 }
 
 export namespace CreateEnvironmentEC2Request {
@@ -1061,6 +1066,11 @@ export namespace UntagResourceResponse {
   });
 }
 
+export enum ManagedCredentialsAction {
+  DISABLE = "DISABLE",
+  ENABLE = "ENABLE",
+}
+
 export interface UpdateEnvironmentRequest {
   /**
    * <p>The ID of the environment to change settings.</p>
@@ -1076,6 +1086,28 @@ export interface UpdateEnvironmentRequest {
    * <p>Any new or replacement description for the environment.</p>
    */
   description?: string;
+
+  /**
+   * <p>Allows the environment owner to turn on or turn off the Amazon Web Services managed temporary
+   *       credentials for an Cloud9 environment by using one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Only the environment owner can change the status of managed temporary credentials. An <code>AccessDeniedException</code> is thrown if an attempt to turn on or turn off managed temporary credentials is made by an account that's not the environment
+   *       owner.</p>
+   *          </note>
+   */
+  managedCredentialsAction?: ManagedCredentialsAction | string;
 }
 
 export namespace UpdateEnvironmentRequest {

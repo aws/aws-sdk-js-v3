@@ -21,7 +21,8 @@ export interface DeleteConditionalForwarderCommandInput extends DeleteConditiona
 export interface DeleteConditionalForwarderCommandOutput extends DeleteConditionalForwarderResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a conditional forwarder that has been set up for your AWS directory.</p>
+ * <p>Deletes a conditional forwarder that has been set up for your Amazon Web Services
+ *       directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

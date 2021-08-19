@@ -21,9 +21,9 @@ export interface PutFirewallRuleGroupPolicyCommandInput extends PutFirewallRuleG
 export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRuleGroupPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches an AWS Identity and Access Management (AWS IAM) policy for sharing the rule
- * 			group. You can use the policy to share the rule group using AWS Resource Access Manager
- * 			(AWS RAM). </p>
+ * <p>Attaches an Identity and Access Management (Amazon Web Services IAM) policy for sharing the rule
+ * 			group. You can use the policy to share the rule group using Resource Access Manager
+ * 			(RAM). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

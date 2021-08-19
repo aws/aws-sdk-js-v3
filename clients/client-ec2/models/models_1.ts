@@ -79,6 +79,11 @@ export namespace CreateInternetGatewayResult {
   });
 }
 
+export enum KeyType {
+  ed25519 = "ed25519",
+  rsa = "rsa",
+}
+
 export interface CreateKeyPairRequest {
   /**
    * <p>A unique name for the key pair.</p>
@@ -92,6 +97,13 @@ export interface CreateKeyPairRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The type of key pair. Note that ED25519 keys are not supported for Windows instances, EC2 Instance Connect, and EC2 Serial Console.</p>
+   *         <p>Default: <code>rsa</code>
+   *          </p>
+   */
+  KeyType?: KeyType | string;
 
   /**
    * <p>The tags to apply to the new key pair.</p>
@@ -118,7 +130,7 @@ export interface KeyPair {
   KeyFingerprint?: string;
 
   /**
-   * <p>An unencrypted PEM encoded RSA private key.</p>
+   * <p>An unencrypted PEM encoded RSA or ED25519 private key.</p>
    */
   KeyMaterial?: string;
 
@@ -9660,27 +9672,6 @@ export namespace DeleteCarrierGatewayResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteCarrierGatewayResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteClientVpnEndpointRequest {
-  /**
-   * <p>The ID of the Client VPN to be deleted.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteClientVpnEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClientVpnEndpointRequest): any => ({
     ...obj,
   });
 }

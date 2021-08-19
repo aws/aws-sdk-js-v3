@@ -23,7 +23,7 @@ export interface ListResolverRuleAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the associations that were created between Resolver rules and VPCs using the current AWS account.</p>
+ * <p>Lists the associations that were created between Resolver rules and VPCs using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

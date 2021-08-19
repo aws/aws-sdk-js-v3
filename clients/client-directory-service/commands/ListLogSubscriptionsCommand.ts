@@ -21,7 +21,7 @@ export interface ListLogSubscriptionsCommandInput extends ListLogSubscriptionsRe
 export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsResult, __MetadataBearer {}
 
 /**
- * <p>Lists the active log subscriptions for the AWS account.</p>
+ * <p>Lists the active log subscriptions for the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

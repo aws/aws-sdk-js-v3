@@ -18,15 +18,15 @@ export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}
 export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
 
 /**
- * <p>Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public
+ * <p>Creates an ED25519 or 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public
  *             key and displays the private key for you to save to a file. The private key is returned
  *             as an unencrypted PEM encoded PKCS#1 private key. If a key with the specified name
  *             already exists, Amazon EC2 returns an error.</p>
- *          <p>You can have up to five thousand key pairs per Region.</p>
- * 		       <p>The key pair returned to you is available only in the Region in which you create it.
+ * 		       <p>The key pair returned to you is available only in the Amazon Web Services Region in which you create it.
  *             If you prefer, you can create your own key pair using a third-party tool and upload it
  *             to any Region using <a>ImportKeyPair</a>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a> in the
+ *          <p>You can have up to 5,000 key pairs per Amazon Web Services Region.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs</a> in the
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

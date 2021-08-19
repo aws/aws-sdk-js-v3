@@ -21,9 +21,9 @@ export interface DisassociateKmsKeyCommandInput extends DisassociateKmsKeyReques
 export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group.</p>
- *          <p>After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group.
- *       All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.</p>
+ * <p>Disassociates the associated Key Management Service customer master key (CMK) from the specified log group.</p>
+ *          <p>After the KMS CMK is disassociated from the log group, CloudWatch Logs stops encrypting newly ingested data for the log group.
+ *       All previously ingested data remains encrypted, and CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.</p>
  *          <p>Note that it can take up to 5 minutes for this operation to take effect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

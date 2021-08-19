@@ -24,7 +24,7 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
 /**
  * <p>This implementation of the DELETE action uses the policy subresource to delete the
  *          policy of a specified bucket. If you are using an identity other than the root user of the
- *          AWS account that owns the bucket, the calling identity must have the
+ *          Amazon Web Services account that owns the bucket, the calling identity must have the
  *             <code>DeleteBucketPolicy</code> permissions on the specified bucket and belong to the
  *          bucket owner's account to use this operation. </p>
  *
@@ -34,7 +34,7 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  *             Allowed</code> error. </p>
  *
  *          <important>
- *             <p>As a security precaution, the root user of the AWS account that owns a bucket can
+ *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
  *             always use this operation, even if the policy explicitly denies the root user the
  *             ability to perform this action.</p>
  *          </important>

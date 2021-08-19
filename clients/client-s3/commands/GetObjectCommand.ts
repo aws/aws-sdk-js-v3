@@ -51,7 +51,7 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *             Objects</a>.</p>
  *
  *          <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not
- *          be sent for GET requests if your object uses server-side encryption with CMKs stored in AWS
+ *          be sent for GET requests if your object uses server-side encryption with CMKs stored in Amazon Web Services
  *          KMS (SSE-KMS) or server-side encryption with Amazon S3–managed encryption keys (SSE-S3). If your
  *          object does use these types of keys, you’ll get an HTTP 400 BadRequest error.</p>
  *          <p>If you encrypt an object by using server-side encryption with customer-provided
@@ -103,9 +103,17 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *          different version, use the <code>versionId</code> subresource.</p>
  *
  *          <note>
- *             <p>If the current version of the object is a delete marker, Amazon S3 behaves as if the
+ *             <ul>
+ *                <li>
+ *                   <p>You need the <code>s3:GetObjectVersion</code> permission to access a specific version of an object.
+ *             </p>
+ *                </li>
+ *                <li>
+ *                   <p>If the current version of the object is a delete marker, Amazon S3 behaves as if the
  *             object was deleted and includes <code>x-amz-delete-marker: true</code> in the
  *             response.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  *
  *

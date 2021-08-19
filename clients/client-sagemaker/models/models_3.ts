@@ -16,6 +16,7 @@ import {
   _InstanceType,
 } from "./models_1";
 import {
+  DesiredWeightAndCapacity,
   Filter,
   NestedFilters,
   ProfilerConfigForUpdate,
@@ -24,6 +25,86 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface UpdateEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+}
+
+export namespace UpdateEndpointOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEndpointOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEndpointWeightsAndCapacitiesInput {
+  /**
+   * <p>The name of an existing Amazon SageMaker endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>An object that provides new capacity and weight values for a variant.</p>
+   */
+  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
+}
+
+export namespace UpdateEndpointWeightsAndCapacitiesInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEndpointWeightsAndCapacitiesInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEndpointWeightsAndCapacitiesOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+}
+
+export namespace UpdateEndpointWeightsAndCapacitiesOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEndpointWeightsAndCapacitiesOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateExperimentRequest {
+  /**
+   * <p>The name of the experiment to update.</p>
+   */
+  ExperimentName: string | undefined;
+
+  /**
+   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If
+   *         <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the experiment.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateExperimentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdateExperimentResponse {
   /**

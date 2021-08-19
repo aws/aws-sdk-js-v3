@@ -21,7 +21,7 @@ export interface DeregisterEventTopicCommandInput extends DeregisterEventTopicRe
 export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicResult, __MetadataBearer {}
 
 /**
- * <p>Removes the specified directory as a publisher to the specified SNS topic.</p>
+ * <p>Removes the specified directory as a publisher to the specified Amazon SNS topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

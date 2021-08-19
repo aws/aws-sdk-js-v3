@@ -45,7 +45,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *          a multipart upload, send one or more requests to upload parts, and then complete the
  *          multipart upload process. You sign each request individually. There is nothing special
  *          about signing multipart upload requests. For more information about signing, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
- *             Requests (AWS Signature Version 4)</a>.</p>
+ *             Requests (Amazon Web Services Signature Version 4)</a>.</p>
  *
  *          <note>
  *             <p> After you initiate a multipart upload and upload one or more parts, to stop being
@@ -56,19 +56,19 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *
  *          <p>You can optionally request server-side encryption. For server-side encryption, Amazon S3
  *          encrypts your data as it writes it to disks in its data centers and decrypts it when you
- *          access it. You can provide your own encryption key, or use AWS Key Management Service (AWS
+ *          access it. You can provide your own encryption key, or use Amazon Web Services Key Management Service (Amazon Web Services
  *          KMS) customer master keys (CMKs) or Amazon S3-managed encryption keys. If you choose to provide
  *          your own encryption key, the request headers you provide in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> requests must match the headers you used in the request to
  *          initiate the upload by using <code>CreateMultipartUpload</code>. </p>
- *          <p>To perform a multipart upload with encryption using an AWS KMS CMK, the requester must
+ *          <p>To perform a multipart upload with encryption using an Amazon Web Services KMS CMK, the requester must
  *          have permission to the <code>kms:Decrypt</code> and <code>kms:GenerateDataKey*</code>
  *          actions on the key. These permissions are required because Amazon S3 must decrypt and read data
  *          from the encrypted file parts before it completes the multipart upload. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions">Multipart upload API
  *             and permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *
- *          <p>If your AWS Identity and Access Management (IAM) user or role is in the same AWS account
- *          as the AWS KMS CMK, then you must have these permissions on the key policy. If your IAM
+ *          <p>If your Identity and Access Management (IAM) user or role is in the same Amazon Web Services account
+ *          as the Amazon Web Services KMS CMK, then you must have these permissions on the key policy. If your IAM
  *          user or role belongs to a different account than the key, then you must have the
  *          permissions on both the key policy and your IAM user or role.</p>
  *
@@ -105,12 +105,12 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                <p>You can optionally tell Amazon S3 to encrypt data at rest using server-side
  *                   encryption. Server-side encryption is for data encryption at rest. Amazon S3 encrypts
  *                   your data as it writes it to disks in its data centers and decrypts it when you
- *                   access it. The option you use depends on whether you want to use AWS managed
+ *                   access it. The option you use depends on whether you want to use Amazon Web Services managed
  *                   encryption keys or provide your own encryption key. </p>
  *                <ul>
  *                   <li>
  *                      <p>Use encryption keys managed by Amazon S3 or customer master keys (CMKs) stored
- *                         in AWS Key Management Service (AWS KMS) – If you want AWS to manage the keys
+ *                         in Amazon Web Services Key Management Service (Amazon Web Services KMS) – If you want Amazon Web Services to manage the keys
  *                         used to encrypt data, specify the following headers in the request.</p>
  *                      <ul>
  *                         <li>
@@ -126,14 +126,14 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                      <note>
  *                         <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but
  *                            don't provide <code>x-amz-server-side-encryption-aws-kms-key-id</code>,
- *                            Amazon S3 uses the AWS managed CMK in AWS KMS to protect the data.</p>
+ *                            Amazon S3 uses the Amazon Web Services managed CMK in Amazon Web Services KMS to protect the data.</p>
  *                      </note>
  *                      <important>
- *                         <p>All GET and PUT requests for an object protected by AWS KMS fail if
+ *                         <p>All GET and PUT requests for an object protected by Amazon Web Services KMS fail if
  *                            you don't make them with SSL or by using SigV4.</p>
  *                      </important>
- *                      <p>For more information about server-side encryption with CMKs stored in AWS
- *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in AWS
+ *                      <p>For more information about server-side encryption with CMKs stored in Amazon Web Services
+ *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in Amazon Web Services
  *                            KMS</a>.</p>
  *                   </li>
  *                   <li>
@@ -150,8 +150,8 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                            <p>x-amz-server-side-encryption-customer-key-MD5</p>
  *                         </li>
  *                      </ul>
- *                      <p>For more information about server-side encryption with CMKs stored in AWS
- *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in AWS
+ *                      <p>For more information about server-side encryption with CMKs stored in Amazon Web Services
+ *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in Amazon Web Services
  *                            KMS</a>.</p>
  *                   </li>
  *                </ul>
@@ -160,8 +160,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *             <dd>
  *                <p>You also can use the following access control–related headers with this
  *                   operation. By default, all objects are private. Only the owner has full access
- *                   control. When adding a new object, you can grant permissions to individual AWS
- *                   accounts or to predefined groups defined by Amazon S3. These permissions are then added
+ *                   control. When adding a new object, you can grant permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then added
  *                   to the access control list (ACL) on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. With this
  *                   operation, you can grant access permissions using one of the following two
  *                   methods:</p>
@@ -175,7 +174,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                   </li>
  *                   <li>
  *                      <p>Specify access permissions explicitly — To explicitly grant access
- *                         permissions to specific AWS accounts or groups, use the following headers.
+ *                         permissions to specific Amazon Web Services accounts or groups, use the following headers.
  *                         Each header maps to specific permissions that Amazon S3 supports in an ACL. For
  *                         more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
  *                            Control List (ACL) Overview</a>. In the header, you specify a list of
@@ -204,7 +203,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                         <li>
  *                            <p>
  *                               <code>id</code> – if the value specified is the canonical user ID
- *                               of an AWS account</p>
+ *                               of an Amazon Web Services account</p>
  *                         </li>
  *                         <li>
  *                            <p>
@@ -214,9 +213,9 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                         <li>
  *                            <p>
  *                               <code>emailAddress</code> – if the value specified is the email
- *                               address of an AWS account</p>
+ *                               address of an Amazon Web Services account</p>
  *                            <note>
- *                               <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+ *                               <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p>
  *                               <ul>
  *                                  <li>
  *                                     <p>US East (N. Virginia)</p>
@@ -243,11 +242,11 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                                     <p>South America (São Paulo)</p>
  *                                  </li>
  *                               </ul>
- *                               <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+ *                               <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
  *                            </note>
  *                         </li>
  *                      </ul>
- *                      <p>For example, the following <code>x-amz-grant-read</code> header grants the AWS accounts identified by account IDs permissions to read object data and its metadata:</p>
+ *                      <p>For example, the following <code>x-amz-grant-read</code> header grants the Amazon Web Services accounts identified by account IDs permissions to read object data and its metadata:</p>
  *                      <p>
  *                         <code>x-amz-grant-read: id="11112222333", id="444455556666" </code>
  *                      </p>

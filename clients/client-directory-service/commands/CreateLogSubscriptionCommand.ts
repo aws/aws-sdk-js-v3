@@ -22,7 +22,7 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
 
 /**
  * <p>Creates a subscription to forward real-time Directory Service domain controller security
- *       logs to the specified Amazon CloudWatch log group in your AWS account.</p>
+ *       logs to the specified Amazon CloudWatch log group in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

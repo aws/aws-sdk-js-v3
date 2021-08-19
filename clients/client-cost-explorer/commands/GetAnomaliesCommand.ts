@@ -21,7 +21,7 @@ export interface GetAnomaliesCommandInput extends GetAnomaliesRequest {}
 export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all of the cost anomalies detected on your account, during the time period
+ * <p>Retrieves all of the cost anomalies detected on your account during the time period that's
  *       specified by the <code>DateInterval</code> object. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
