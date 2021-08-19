@@ -36,9 +36,9 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * contents deserializing to strings instead of typed components:
  *
  * <ul>
- *   <li>Uses {@code parseFloat} on Float and Double shapes.</li>
+ *   <li>Uses {@code strictParseFloat} on Float and Double shapes.</li>
  *   <li>Fails on BigDecimal and BigInteger shapes.</li>
- *   <li>Uses {@code parseInt} on other number shapes.</li>
+ *   <li>Uses {@code strictParseInt} on other number shapes.</li>
  *   <li>Compares boolean shapes to the string {@code "true"} to generate a boolean.</li>
  * </ul>
  *
@@ -78,7 +78,8 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     private String deserializeInt() {
-        return "parseInt(" + getDataSource() + ")";
+        getContext().getWriter().addImport("strictParseInt", "__strictParseInt", "@aws-sdk/smithy-client");
+        return "__strictParseInt(" + getDataSource() + ") as number";
     }
 
     @Override
@@ -92,7 +93,8 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     private String deserializeFloat() {
-        return "parseFloat(" + getDataSource() + ")";
+        getContext().getWriter().addImport("strictParseFloat", "__strictParseFloat", "@aws-sdk/smithy-client");
+        return "__strictParseFloat(" + getDataSource() + ") as number";
     }
 
     @Override

@@ -413,10 +413,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3545,7 +3545,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -17660,10 +17660,10 @@ const deserializeAws_restJson1ActivityResponse = (output: any, context: __SerdeC
     ScheduledStart: __expectString(output.ScheduledStart),
     Start: __expectString(output.Start),
     State: __expectString(output.State),
-    SuccessfulEndpointCount: __expectNumber(output.SuccessfulEndpointCount),
-    TimezonesCompletedCount: __expectNumber(output.TimezonesCompletedCount),
-    TimezonesTotalCount: __expectNumber(output.TimezonesTotalCount),
-    TotalEndpointCount: __expectNumber(output.TotalEndpointCount),
+    SuccessfulEndpointCount: __expectInt(output.SuccessfulEndpointCount),
+    TimezonesCompletedCount: __expectInt(output.TimezonesCompletedCount),
+    TimezonesTotalCount: __expectInt(output.TimezonesTotalCount),
+    TotalEndpointCount: __expectInt(output.TotalEndpointCount),
     TreatmentId: __expectString(output.TreatmentId),
   } as any;
 };
@@ -17679,7 +17679,7 @@ const deserializeAws_restJson1ADMChannelResponse = (output: any, context: __Serd
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Platform: __expectString(output.Platform),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -17713,7 +17713,7 @@ const deserializeAws_restJson1APNSChannelResponse = (output: any, context: __Ser
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Platform: __expectString(output.Platform),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -17748,7 +17748,7 @@ const deserializeAws_restJson1APNSSandboxChannelResponse = (
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Platform: __expectString(output.Platform),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -17768,7 +17768,7 @@ const deserializeAws_restJson1APNSVoipChannelResponse = (
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Platform: __expectString(output.Platform),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -17788,7 +17788,7 @@ const deserializeAws_restJson1APNSVoipSandboxChannelResponse = (
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Platform: __expectString(output.Platform),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -17886,7 +17886,7 @@ const deserializeAws_restJson1BaiduChannelResponse = (output: any, context: __Se
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Platform: __expectString(output.Platform),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -17952,10 +17952,10 @@ const deserializeAws_restJson1CampaignHook = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1CampaignLimits = (output: any, context: __SerdeContext): CampaignLimits => {
   return {
-    Daily: __expectNumber(output.Daily),
-    MaximumDuration: __expectNumber(output.MaximumDuration),
-    MessagesPerSecond: __expectNumber(output.MessagesPerSecond),
-    Total: __expectNumber(output.Total),
+    Daily: __expectInt(output.Daily),
+    MaximumDuration: __expectInt(output.MaximumDuration),
+    MessagesPerSecond: __expectInt(output.MessagesPerSecond),
+    Total: __expectInt(output.Total),
   } as any;
 };
 
@@ -17977,7 +17977,7 @@ const deserializeAws_restJson1CampaignResponse = (output: any, context: __SerdeC
         ? deserializeAws_restJson1CampaignState(output.DefaultState, context)
         : undefined,
     Description: __expectString(output.Description),
-    HoldoutPercent: __expectNumber(output.HoldoutPercent),
+    HoldoutPercent: __expectInt(output.HoldoutPercent),
     Hook:
       output.Hook !== undefined && output.Hook !== null
         ? deserializeAws_restJson1CampaignHook(output.Hook, context)
@@ -17999,7 +17999,7 @@ const deserializeAws_restJson1CampaignResponse = (output: any, context: __SerdeC
         ? deserializeAws_restJson1Schedule(output.Schedule, context)
         : undefined,
     SegmentId: __expectString(output.SegmentId),
-    SegmentVersion: __expectNumber(output.SegmentVersion),
+    SegmentVersion: __expectInt(output.SegmentVersion),
     State:
       output.State !== undefined && output.State !== null
         ? deserializeAws_restJson1CampaignState(output.State, context)
@@ -18010,7 +18010,7 @@ const deserializeAws_restJson1CampaignResponse = (output: any, context: __SerdeC
         : undefined,
     TreatmentDescription: __expectString(output.TreatmentDescription),
     TreatmentName: __expectString(output.TreatmentName),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1MapOf__string(output.tags, context)
@@ -18055,7 +18055,7 @@ const deserializeAws_restJson1ChannelResponse = (output: any, context: __SerdeCo
     IsArchived: __expectBoolean(output.IsArchived),
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -18163,10 +18163,10 @@ const deserializeAws_restJson1EmailChannelResponse = (output: any, context: __Se
     IsArchived: __expectBoolean(output.IsArchived),
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
-    MessagesPerSecond: __expectNumber(output.MessagesPerSecond),
+    MessagesPerSecond: __expectInt(output.MessagesPerSecond),
     Platform: __expectString(output.Platform),
     RoleArn: __expectString(output.RoleArn),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -18219,7 +18219,7 @@ const deserializeAws_restJson1EndpointDemographic = (output: any, context: __Ser
 const deserializeAws_restJson1EndpointItemResponse = (output: any, context: __SerdeContext): EndpointItemResponse => {
   return {
     Message: __expectString(output.Message),
-    StatusCode: __expectNumber(output.StatusCode),
+    StatusCode: __expectInt(output.StatusCode),
   } as any;
 };
 
@@ -18227,8 +18227,8 @@ const deserializeAws_restJson1EndpointLocation = (output: any, context: __SerdeC
   return {
     City: __expectString(output.City),
     Country: __expectString(output.Country),
-    Latitude: __handleFloat(output.Latitude),
-    Longitude: __handleFloat(output.Longitude),
+    Latitude: __limitedParseFloat(output.Latitude),
+    Longitude: __limitedParseFloat(output.Longitude),
     PostalCode: __expectString(output.PostalCode),
     Region: __expectString(output.Region),
   } as any;
@@ -18239,7 +18239,7 @@ const deserializeAws_restJson1EndpointMessageResult = (output: any, context: __S
     Address: __expectString(output.Address),
     DeliveryStatus: __expectString(output.DeliveryStatus),
     MessageId: __expectString(output.MessageId),
-    StatusCode: __expectNumber(output.StatusCode),
+    StatusCode: __expectInt(output.StatusCode),
     StatusMessage: __expectString(output.StatusMessage),
     UpdatedToken: __expectString(output.UpdatedToken),
   } as any;
@@ -18339,7 +18339,7 @@ const deserializeAws_restJson1EventFilter = (output: any, context: __SerdeContex
 const deserializeAws_restJson1EventItemResponse = (output: any, context: __SerdeContext): EventItemResponse => {
   return {
     Message: __expectString(output.Message),
-    StatusCode: __expectNumber(output.StatusCode),
+    StatusCode: __expectInt(output.StatusCode),
   } as any;
 };
 
@@ -18378,30 +18378,30 @@ const deserializeAws_restJson1ExportJobResource = (output: any, context: __Serde
     RoleArn: __expectString(output.RoleArn),
     S3UrlPrefix: __expectString(output.S3UrlPrefix),
     SegmentId: __expectString(output.SegmentId),
-    SegmentVersion: __expectNumber(output.SegmentVersion),
+    SegmentVersion: __expectInt(output.SegmentVersion),
   } as any;
 };
 
 const deserializeAws_restJson1ExportJobResponse = (output: any, context: __SerdeContext): ExportJobResponse => {
   return {
     ApplicationId: __expectString(output.ApplicationId),
-    CompletedPieces: __expectNumber(output.CompletedPieces),
+    CompletedPieces: __expectInt(output.CompletedPieces),
     CompletionDate: __expectString(output.CompletionDate),
     CreationDate: __expectString(output.CreationDate),
     Definition:
       output.Definition !== undefined && output.Definition !== null
         ? deserializeAws_restJson1ExportJobResource(output.Definition, context)
         : undefined,
-    FailedPieces: __expectNumber(output.FailedPieces),
+    FailedPieces: __expectInt(output.FailedPieces),
     Failures:
       output.Failures !== undefined && output.Failures !== null
         ? deserializeAws_restJson1ListOf__string(output.Failures, context)
         : undefined,
     Id: __expectString(output.Id),
     JobStatus: __expectString(output.JobStatus),
-    TotalFailures: __expectNumber(output.TotalFailures),
-    TotalPieces: __expectNumber(output.TotalPieces),
-    TotalProcessed: __expectNumber(output.TotalProcessed),
+    TotalFailures: __expectInt(output.TotalFailures),
+    TotalPieces: __expectInt(output.TotalPieces),
+    TotalProcessed: __expectInt(output.TotalProcessed),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -18428,14 +18428,14 @@ const deserializeAws_restJson1GCMChannelResponse = (output: any, context: __Serd
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Platform: __expectString(output.Platform),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
 const deserializeAws_restJson1GPSCoordinates = (output: any, context: __SerdeContext): GPSCoordinates => {
   return {
-    Latitude: __handleFloat(output.Latitude),
-    Longitude: __handleFloat(output.Longitude),
+    Latitude: __limitedParseFloat(output.Latitude),
+    Longitude: __limitedParseFloat(output.Longitude),
   } as any;
 };
 
@@ -18445,14 +18445,14 @@ const deserializeAws_restJson1GPSPointDimension = (output: any, context: __Serde
       output.Coordinates !== undefined && output.Coordinates !== null
         ? deserializeAws_restJson1GPSCoordinates(output.Coordinates, context)
         : undefined,
-    RangeInKilometers: __handleFloat(output.RangeInKilometers),
+    RangeInKilometers: __limitedParseFloat(output.RangeInKilometers),
   } as any;
 };
 
 const deserializeAws_restJson1HoldoutActivity = (output: any, context: __SerdeContext): HoldoutActivity => {
   return {
     NextActivity: __expectString(output.NextActivity),
-    Percentage: __expectNumber(output.Percentage),
+    Percentage: __expectInt(output.Percentage),
   } as any;
 };
 
@@ -18472,23 +18472,23 @@ const deserializeAws_restJson1ImportJobResource = (output: any, context: __Serde
 const deserializeAws_restJson1ImportJobResponse = (output: any, context: __SerdeContext): ImportJobResponse => {
   return {
     ApplicationId: __expectString(output.ApplicationId),
-    CompletedPieces: __expectNumber(output.CompletedPieces),
+    CompletedPieces: __expectInt(output.CompletedPieces),
     CompletionDate: __expectString(output.CompletionDate),
     CreationDate: __expectString(output.CreationDate),
     Definition:
       output.Definition !== undefined && output.Definition !== null
         ? deserializeAws_restJson1ImportJobResource(output.Definition, context)
         : undefined,
-    FailedPieces: __expectNumber(output.FailedPieces),
+    FailedPieces: __expectInt(output.FailedPieces),
     Failures:
       output.Failures !== undefined && output.Failures !== null
         ? deserializeAws_restJson1ListOf__string(output.Failures, context)
         : undefined,
     Id: __expectString(output.Id),
     JobStatus: __expectString(output.JobStatus),
-    TotalFailures: __expectNumber(output.TotalFailures),
-    TotalPieces: __expectNumber(output.TotalPieces),
-    TotalProcessed: __expectNumber(output.TotalProcessed),
+    TotalFailures: __expectInt(output.TotalFailures),
+    TotalPieces: __expectInt(output.TotalPieces),
+    TotalProcessed: __expectInt(output.TotalProcessed),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -18580,10 +18580,10 @@ const deserializeAws_restJson1JourneyExecutionMetricsResponse = (
 
 const deserializeAws_restJson1JourneyLimits = (output: any, context: __SerdeContext): JourneyLimits => {
   return {
-    DailyCap: __expectNumber(output.DailyCap),
-    EndpointReentryCap: __expectNumber(output.EndpointReentryCap),
+    DailyCap: __expectInt(output.DailyCap),
+    EndpointReentryCap: __expectInt(output.EndpointReentryCap),
     EndpointReentryInterval: __expectString(output.EndpointReentryInterval),
-    MessagesPerSecond: __expectNumber(output.MessagesPerSecond),
+    MessagesPerSecond: __expectInt(output.MessagesPerSecond),
   } as any;
 };
 
@@ -18938,7 +18938,7 @@ const deserializeAws_restJson1MapOf__double = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [key]: __handleFloat(value) as any,
+      [key]: __limitedParseFloat(value) as any,
     };
   }, {});
 };
@@ -18950,7 +18950,7 @@ const deserializeAws_restJson1MapOf__integer = (output: any, context: __SerdeCon
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __expectInt(value) as any,
     };
   }, {});
 };
@@ -19128,7 +19128,7 @@ const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): 
     MediaUrl: __expectString(output.MediaUrl),
     RawContent: __expectString(output.RawContent),
     SilentPush: __expectBoolean(output.SilentPush),
-    TimeToLive: __expectNumber(output.TimeToLive),
+    TimeToLive: __expectInt(output.TimeToLive),
     Title: __expectString(output.Title),
     Url: __expectString(output.Url),
   } as any;
@@ -19197,7 +19197,7 @@ const deserializeAws_restJson1MessageResult = (output: any, context: __SerdeCont
   return {
     DeliveryStatus: __expectString(output.DeliveryStatus),
     MessageId: __expectString(output.MessageId),
-    StatusCode: __expectNumber(output.StatusCode),
+    StatusCode: __expectInt(output.StatusCode),
     StatusMessage: __expectString(output.StatusMessage),
     UpdatedToken: __expectString(output.UpdatedToken),
   } as any;
@@ -19206,7 +19206,7 @@ const deserializeAws_restJson1MessageResult = (output: any, context: __SerdeCont
 const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
     ComparisonOperator: __expectString(output.ComparisonOperator),
-    Value: __handleFloat(output.Value),
+    Value: __limitedParseFloat(output.Value),
   } as any;
 };
 
@@ -19256,7 +19256,7 @@ const deserializeAws_restJson1NumberValidateResponse = (
     OriginalCountryCodeIso2: __expectString(output.OriginalCountryCodeIso2),
     OriginalPhoneNumber: __expectString(output.OriginalPhoneNumber),
     PhoneType: __expectString(output.PhoneType),
-    PhoneTypeCode: __expectNumber(output.PhoneTypeCode),
+    PhoneTypeCode: __expectInt(output.PhoneTypeCode),
     Timezone: __expectString(output.Timezone),
     ZipCode: __expectString(output.ZipCode),
   } as any;
@@ -19334,7 +19334,7 @@ const deserializeAws_restJson1RandomSplitActivity = (output: any, context: __Ser
 const deserializeAws_restJson1RandomSplitEntry = (output: any, context: __SerdeContext): RandomSplitEntry => {
   return {
     NextActivity: __expectString(output.NextActivity),
-    Percentage: __expectNumber(output.Percentage),
+    Percentage: __expectInt(output.Percentage),
   } as any;
 };
 
@@ -19364,7 +19364,7 @@ const deserializeAws_restJson1RecommenderConfigurationResponse = (
     RecommendationProviderUri: __expectString(output.RecommendationProviderUri),
     RecommendationTransformerUri: __expectString(output.RecommendationTransformerUri),
     RecommendationsDisplayName: __expectString(output.RecommendationsDisplayName),
-    RecommendationsPerMessage: __expectNumber(output.RecommendationsPerMessage),
+    RecommendationsPerMessage: __expectInt(output.RecommendationsPerMessage),
   } as any;
 };
 
@@ -19515,7 +19515,7 @@ const deserializeAws_restJson1SegmentImportResource = (output: any, context: __S
     Format: __expectString(output.Format),
     RoleArn: __expectString(output.RoleArn),
     S3Url: __expectString(output.S3Url),
-    Size: __expectNumber(output.Size),
+    Size: __expectInt(output.Size),
   } as any;
 };
 
@@ -19535,7 +19535,7 @@ const deserializeAws_restJson1SegmentLocation = (output: any, context: __SerdeCo
 const deserializeAws_restJson1SegmentReference = (output: any, context: __SerdeContext): SegmentReference => {
   return {
     Id: __expectString(output.Id),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -19560,7 +19560,7 @@ const deserializeAws_restJson1SegmentResponse = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1SegmentGroupList(output.SegmentGroups, context)
         : undefined,
     SegmentType: __expectString(output.SegmentType),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1MapOf__string(output.tags, context)
@@ -19630,11 +19630,11 @@ const deserializeAws_restJson1SMSChannelResponse = (output: any, context: __Serd
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Platform: __expectString(output.Platform),
-    PromotionalMessagesPerSecond: __expectNumber(output.PromotionalMessagesPerSecond),
+    PromotionalMessagesPerSecond: __expectInt(output.PromotionalMessagesPerSecond),
     SenderId: __expectString(output.SenderId),
     ShortCode: __expectString(output.ShortCode),
-    TransactionalMessagesPerSecond: __expectNumber(output.TransactionalMessagesPerSecond),
-    Version: __expectNumber(output.Version),
+    TransactionalMessagesPerSecond: __expectInt(output.TransactionalMessagesPerSecond),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -19792,7 +19792,7 @@ const deserializeAws_restJson1TreatmentResource = (output: any, context: __Serde
       output.Schedule !== undefined && output.Schedule !== null
         ? deserializeAws_restJson1Schedule(output.Schedule, context)
         : undefined,
-    SizePercent: __expectNumber(output.SizePercent),
+    SizePercent: __expectInt(output.SizePercent),
     State:
       output.State !== undefined && output.State !== null
         ? deserializeAws_restJson1CampaignState(output.State, context)
@@ -19817,7 +19817,7 @@ const deserializeAws_restJson1VoiceChannelResponse = (output: any, context: __Se
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Platform: __expectString(output.Platform),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 

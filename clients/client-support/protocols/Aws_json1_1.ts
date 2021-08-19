@@ -97,9 +97,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1969,7 +1969,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus = (
 ): TrustedAdvisorCheckRefreshStatus => {
   return {
     checkId: __expectString(output.checkId),
-    millisUntilNextRefreshable: __expectNumber(output.millisUntilNextRefreshable),
+    millisUntilNextRefreshable: __expectInt(output.millisUntilNextRefreshable),
     status: __expectString(output.status),
   } as any;
 };
@@ -2050,8 +2050,8 @@ const deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary = (
   context: __SerdeContext
 ): TrustedAdvisorCostOptimizingSummary => {
   return {
-    estimatedMonthlySavings: __handleFloat(output.estimatedMonthlySavings),
-    estimatedPercentMonthlySavings: __handleFloat(output.estimatedPercentMonthlySavings),
+    estimatedMonthlySavings: __limitedParseFloat(output.estimatedMonthlySavings),
+    estimatedPercentMonthlySavings: __limitedParseFloat(output.estimatedPercentMonthlySavings),
   } as any;
 };
 
@@ -2090,10 +2090,10 @@ const deserializeAws_json1_1TrustedAdvisorResourcesSummary = (
   context: __SerdeContext
 ): TrustedAdvisorResourcesSummary => {
   return {
-    resourcesFlagged: __expectNumber(output.resourcesFlagged),
-    resourcesIgnored: __expectNumber(output.resourcesIgnored),
-    resourcesProcessed: __expectNumber(output.resourcesProcessed),
-    resourcesSuppressed: __expectNumber(output.resourcesSuppressed),
+    resourcesFlagged: __expectInt(output.resourcesFlagged),
+    resourcesIgnored: __expectInt(output.resourcesIgnored),
+    resourcesProcessed: __expectInt(output.resourcesProcessed),
+    resourcesSuppressed: __expectInt(output.resourcesSuppressed),
   } as any;
 };
 

@@ -81,7 +81,7 @@ import {
   UpdateParallelDataResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectNumber as __expectNumber, expectString as __expectString } from "@aws-sdk/smithy-client";
+import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2045,9 +2045,9 @@ const deserializeAws_json1_1InvalidRequestException = (
 
 const deserializeAws_json1_1JobDetails = (output: any, context: __SerdeContext): JobDetails => {
   return {
-    DocumentsWithErrorsCount: __expectNumber(output.DocumentsWithErrorsCount),
-    InputDocumentsCount: __expectNumber(output.InputDocumentsCount),
-    TranslatedDocumentsCount: __expectNumber(output.TranslatedDocumentsCount),
+    DocumentsWithErrorsCount: __expectInt(output.DocumentsWithErrorsCount),
+    InputDocumentsCount: __expectInt(output.InputDocumentsCount),
+    TranslatedDocumentsCount: __expectInt(output.TranslatedDocumentsCount),
   } as any;
 };
 
@@ -2142,9 +2142,9 @@ const deserializeAws_json1_1ParallelDataProperties = (output: any, context: __Se
       output.EncryptionKey !== undefined && output.EncryptionKey !== null
         ? deserializeAws_json1_1EncryptionKey(output.EncryptionKey, context)
         : undefined,
-    FailedRecordCount: __expectNumber(output.FailedRecordCount),
-    ImportedDataSize: __expectNumber(output.ImportedDataSize),
-    ImportedRecordCount: __expectNumber(output.ImportedRecordCount),
+    FailedRecordCount: __expectInt(output.FailedRecordCount),
+    ImportedDataSize: __expectInt(output.ImportedDataSize),
+    ImportedRecordCount: __expectInt(output.ImportedRecordCount),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
@@ -2160,7 +2160,7 @@ const deserializeAws_json1_1ParallelDataProperties = (output: any, context: __Se
       output.ParallelDataConfig !== undefined && output.ParallelDataConfig !== null
         ? deserializeAws_json1_1ParallelDataConfig(output.ParallelDataConfig, context)
         : undefined,
-    SkippedRecordCount: __expectNumber(output.SkippedRecordCount),
+    SkippedRecordCount: __expectInt(output.SkippedRecordCount),
     SourceLanguageCode: __expectString(output.SourceLanguageCode),
     Status: __expectString(output.Status),
     TargetLanguageCodes:
@@ -2278,13 +2278,13 @@ const deserializeAws_json1_1TerminologyProperties = (output: any, context: __Ser
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
     Name: __expectString(output.Name),
-    SizeBytes: __expectNumber(output.SizeBytes),
+    SizeBytes: __expectInt(output.SizeBytes),
     SourceLanguageCode: __expectString(output.SourceLanguageCode),
     TargetLanguageCodes:
       output.TargetLanguageCodes !== undefined && output.TargetLanguageCodes !== null
         ? deserializeAws_json1_1LanguageCodeStringList(output.TargetLanguageCodes, context)
         : undefined,
-    TermCount: __expectNumber(output.TermCount),
+    TermCount: __expectInt(output.TermCount),
   } as any;
 };
 

@@ -954,7 +954,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -18691,8 +18691,8 @@ const deserializeAws_json1_1Activation = (output: any, context: __SerdeContext):
         : undefined,
     Expired: __expectBoolean(output.Expired),
     IamRole: __expectString(output.IamRole),
-    RegistrationLimit: __expectNumber(output.RegistrationLimit),
-    RegistrationsCount: __expectNumber(output.RegistrationsCount),
+    RegistrationLimit: __expectInt(output.RegistrationLimit),
+    RegistrationsCount: __expectInt(output.RegistrationsCount),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -18977,7 +18977,7 @@ const deserializeAws_json1_1AssociationStatusAggregatedCount = (
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __expectInt(value) as any,
     };
   }, {});
 };
@@ -19050,7 +19050,7 @@ const deserializeAws_json1_1AttachmentContent = (output: any, context: __SerdeCo
     Hash: __expectString(output.Hash),
     HashType: __expectString(output.HashType),
     Name: __expectString(output.Name),
-    Size: __expectNumber(output.Size),
+    Size: __expectInt(output.Size),
     Url: __expectString(output.Url),
   } as any;
 };
@@ -19351,11 +19351,11 @@ const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Co
         : undefined,
     CommandId: __expectString(output.CommandId),
     Comment: __expectString(output.Comment),
-    CompletedCount: __expectNumber(output.CompletedCount),
-    DeliveryTimedOutCount: __expectNumber(output.DeliveryTimedOutCount),
+    CompletedCount: __expectInt(output.CompletedCount),
+    DeliveryTimedOutCount: __expectInt(output.DeliveryTimedOutCount),
     DocumentName: __expectString(output.DocumentName),
     DocumentVersion: __expectString(output.DocumentVersion),
-    ErrorCount: __expectNumber(output.ErrorCount),
+    ErrorCount: __expectInt(output.ErrorCount),
     ExpiresAfter:
       output.ExpiresAfter !== undefined && output.ExpiresAfter !== null
         ? new Date(Math.round(output.ExpiresAfter * 1000))
@@ -19384,12 +19384,12 @@ const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Co
     ServiceRole: __expectString(output.ServiceRole),
     Status: __expectString(output.Status),
     StatusDetails: __expectString(output.StatusDetails),
-    TargetCount: __expectNumber(output.TargetCount),
+    TargetCount: __expectInt(output.TargetCount),
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
         : undefined,
-    TimeoutSeconds: __expectNumber(output.TimeoutSeconds),
+    TimeoutSeconds: __expectInt(output.TimeoutSeconds),
   } as any;
 };
 
@@ -19455,7 +19455,7 @@ const deserializeAws_json1_1CommandPlugin = (output: any, context: __SerdeContex
     OutputS3BucketName: __expectString(output.OutputS3BucketName),
     OutputS3KeyPrefix: __expectString(output.OutputS3KeyPrefix),
     OutputS3Region: __expectString(output.OutputS3Region),
-    ResponseCode: __expectNumber(output.ResponseCode),
+    ResponseCode: __expectInt(output.ResponseCode),
     ResponseFinishDateTime:
       output.ResponseFinishDateTime !== undefined && output.ResponseFinishDateTime !== null
         ? new Date(Math.round(output.ResponseFinishDateTime * 1000))
@@ -19581,7 +19581,7 @@ const deserializeAws_json1_1ComplianceTypeCountLimitExceededException = (
 
 const deserializeAws_json1_1CompliantSummary = (output: any, context: __SerdeContext): CompliantSummary => {
   return {
-    CompliantCount: __expectNumber(output.CompliantCount),
+    CompliantCount: __expectInt(output.CompliantCount),
     SeveritySummary:
       output.SeveritySummary !== undefined && output.SeveritySummary !== null
         ? deserializeAws_json1_1SeveritySummary(output.SeveritySummary, context)
@@ -20221,18 +20221,18 @@ const deserializeAws_json1_1DescribePatchGroupStateResult = (
   context: __SerdeContext
 ): DescribePatchGroupStateResult => {
   return {
-    Instances: __expectNumber(output.Instances),
-    InstancesWithCriticalNonCompliantPatches: __expectNumber(output.InstancesWithCriticalNonCompliantPatches),
-    InstancesWithFailedPatches: __expectNumber(output.InstancesWithFailedPatches),
-    InstancesWithInstalledOtherPatches: __expectNumber(output.InstancesWithInstalledOtherPatches),
-    InstancesWithInstalledPatches: __expectNumber(output.InstancesWithInstalledPatches),
-    InstancesWithInstalledPendingRebootPatches: __expectNumber(output.InstancesWithInstalledPendingRebootPatches),
-    InstancesWithInstalledRejectedPatches: __expectNumber(output.InstancesWithInstalledRejectedPatches),
-    InstancesWithMissingPatches: __expectNumber(output.InstancesWithMissingPatches),
-    InstancesWithNotApplicablePatches: __expectNumber(output.InstancesWithNotApplicablePatches),
-    InstancesWithOtherNonCompliantPatches: __expectNumber(output.InstancesWithOtherNonCompliantPatches),
-    InstancesWithSecurityNonCompliantPatches: __expectNumber(output.InstancesWithSecurityNonCompliantPatches),
-    InstancesWithUnreportedNotApplicablePatches: __expectNumber(output.InstancesWithUnreportedNotApplicablePatches),
+    Instances: __expectInt(output.Instances),
+    InstancesWithCriticalNonCompliantPatches: __expectInt(output.InstancesWithCriticalNonCompliantPatches),
+    InstancesWithFailedPatches: __expectInt(output.InstancesWithFailedPatches),
+    InstancesWithInstalledOtherPatches: __expectInt(output.InstancesWithInstalledOtherPatches),
+    InstancesWithInstalledPatches: __expectInt(output.InstancesWithInstalledPatches),
+    InstancesWithInstalledPendingRebootPatches: __expectInt(output.InstancesWithInstalledPendingRebootPatches),
+    InstancesWithInstalledRejectedPatches: __expectInt(output.InstancesWithInstalledRejectedPatches),
+    InstancesWithMissingPatches: __expectInt(output.InstancesWithMissingPatches),
+    InstancesWithNotApplicablePatches: __expectInt(output.InstancesWithNotApplicablePatches),
+    InstancesWithOtherNonCompliantPatches: __expectInt(output.InstancesWithOtherNonCompliantPatches),
+    InstancesWithSecurityNonCompliantPatches: __expectInt(output.InstancesWithSecurityNonCompliantPatches),
+    InstancesWithUnreportedNotApplicablePatches: __expectInt(output.InstancesWithUnreportedNotApplicablePatches),
   } as any;
 };
 
@@ -20687,7 +20687,7 @@ const deserializeAws_json1_1GetCommandInvocationResult = (
     ExecutionStartDateTime: __expectString(output.ExecutionStartDateTime),
     InstanceId: __expectString(output.InstanceId),
     PluginName: __expectString(output.PluginName),
-    ResponseCode: __expectNumber(output.ResponseCode),
+    ResponseCode: __expectInt(output.ResponseCode),
     StandardErrorContent: __expectString(output.StandardErrorContent),
     StandardErrorUrl: __expectString(output.StandardErrorUrl),
     StandardOutputContent: __expectString(output.StandardOutputContent),
@@ -20833,7 +20833,7 @@ const deserializeAws_json1_1GetMaintenanceWindowExecutionTaskResult = (
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
     MaxConcurrency: __expectString(output.MaxConcurrency),
     MaxErrors: __expectString(output.MaxErrors),
-    Priority: __expectNumber(output.Priority),
+    Priority: __expectInt(output.Priority),
     ServiceRole: __expectString(output.ServiceRole),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
@@ -20862,9 +20862,9 @@ const deserializeAws_json1_1GetMaintenanceWindowResult = (
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
         : undefined,
-    Cutoff: __expectNumber(output.Cutoff),
+    Cutoff: __expectInt(output.Cutoff),
     Description: __expectString(output.Description),
-    Duration: __expectNumber(output.Duration),
+    Duration: __expectInt(output.Duration),
     Enabled: __expectBoolean(output.Enabled),
     EndDate: __expectString(output.EndDate),
     ModifiedDate:
@@ -20874,7 +20874,7 @@ const deserializeAws_json1_1GetMaintenanceWindowResult = (
     Name: __expectString(output.Name),
     NextExecutionTime: __expectString(output.NextExecutionTime),
     Schedule: __expectString(output.Schedule),
-    ScheduleOffset: __expectNumber(output.ScheduleOffset),
+    ScheduleOffset: __expectInt(output.ScheduleOffset),
     ScheduleTimezone: __expectString(output.ScheduleTimezone),
     StartDate: __expectString(output.StartDate),
     WindowId: __expectString(output.WindowId),
@@ -20894,7 +20894,7 @@ const deserializeAws_json1_1GetMaintenanceWindowTaskResult = (
     MaxConcurrency: __expectString(output.MaxConcurrency),
     MaxErrors: __expectString(output.MaxErrors),
     Name: __expectString(output.Name),
-    Priority: __expectNumber(output.Priority),
+    Priority: __expectInt(output.Priority),
     ServiceRoleArn: __expectString(output.ServiceRoleArn),
     Targets:
       output.Targets !== undefined && output.Targets !== null
@@ -21167,7 +21167,7 @@ const deserializeAws_json1_1InstanceAssociationStatusAggregatedCount = (
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __expectInt(value) as any,
     };
   }, {});
 };
@@ -21277,20 +21277,20 @@ const deserializeAws_json1_1InstanceInformationList = (output: any, context: __S
 const deserializeAws_json1_1InstancePatchState = (output: any, context: __SerdeContext): InstancePatchState => {
   return {
     BaselineId: __expectString(output.BaselineId),
-    CriticalNonCompliantCount: __expectNumber(output.CriticalNonCompliantCount),
-    FailedCount: __expectNumber(output.FailedCount),
+    CriticalNonCompliantCount: __expectInt(output.CriticalNonCompliantCount),
+    FailedCount: __expectInt(output.FailedCount),
     InstallOverrideList: __expectString(output.InstallOverrideList),
-    InstalledCount: __expectNumber(output.InstalledCount),
-    InstalledOtherCount: __expectNumber(output.InstalledOtherCount),
-    InstalledPendingRebootCount: __expectNumber(output.InstalledPendingRebootCount),
-    InstalledRejectedCount: __expectNumber(output.InstalledRejectedCount),
+    InstalledCount: __expectInt(output.InstalledCount),
+    InstalledOtherCount: __expectInt(output.InstalledOtherCount),
+    InstalledPendingRebootCount: __expectInt(output.InstalledPendingRebootCount),
+    InstalledRejectedCount: __expectInt(output.InstalledRejectedCount),
     InstanceId: __expectString(output.InstanceId),
     LastNoRebootInstallOperationTime:
       output.LastNoRebootInstallOperationTime !== undefined && output.LastNoRebootInstallOperationTime !== null
         ? new Date(Math.round(output.LastNoRebootInstallOperationTime * 1000))
         : undefined,
-    MissingCount: __expectNumber(output.MissingCount),
-    NotApplicableCount: __expectNumber(output.NotApplicableCount),
+    MissingCount: __expectInt(output.MissingCount),
+    NotApplicableCount: __expectInt(output.NotApplicableCount),
     Operation: __expectString(output.Operation),
     OperationEndTime:
       output.OperationEndTime !== undefined && output.OperationEndTime !== null
@@ -21300,13 +21300,13 @@ const deserializeAws_json1_1InstancePatchState = (output: any, context: __SerdeC
       output.OperationStartTime !== undefined && output.OperationStartTime !== null
         ? new Date(Math.round(output.OperationStartTime * 1000))
         : undefined,
-    OtherNonCompliantCount: __expectNumber(output.OtherNonCompliantCount),
+    OtherNonCompliantCount: __expectInt(output.OtherNonCompliantCount),
     OwnerInformation: __expectString(output.OwnerInformation),
     PatchGroup: __expectString(output.PatchGroup),
     RebootOption: __expectString(output.RebootOption),
-    SecurityNonCompliantCount: __expectNumber(output.SecurityNonCompliantCount),
+    SecurityNonCompliantCount: __expectInt(output.SecurityNonCompliantCount),
     SnapshotId: __expectString(output.SnapshotId),
-    UnreportedNotApplicableCount: __expectNumber(output.UnreportedNotApplicableCount),
+    UnreportedNotApplicableCount: __expectInt(output.UnreportedNotApplicableCount),
   } as any;
 };
 
@@ -21710,12 +21710,12 @@ const deserializeAws_json1_1InventoryDeletionSummary = (
   context: __SerdeContext
 ): InventoryDeletionSummary => {
   return {
-    RemainingCount: __expectNumber(output.RemainingCount),
+    RemainingCount: __expectInt(output.RemainingCount),
     SummaryItems:
       output.SummaryItems !== undefined && output.SummaryItems !== null
         ? deserializeAws_json1_1InventoryDeletionSummaryItems(output.SummaryItems, context)
         : undefined,
-    TotalCount: __expectNumber(output.TotalCount),
+    TotalCount: __expectInt(output.TotalCount),
   } as any;
 };
 
@@ -21724,8 +21724,8 @@ const deserializeAws_json1_1InventoryDeletionSummaryItem = (
   context: __SerdeContext
 ): InventoryDeletionSummaryItem => {
   return {
-    Count: __expectNumber(output.Count),
-    RemainingCount: __expectNumber(output.RemainingCount),
+    Count: __expectInt(output.Count),
+    RemainingCount: __expectInt(output.RemainingCount),
     Version: __expectString(output.Version),
   } as any;
 };
@@ -21902,7 +21902,7 @@ const deserializeAws_json1_1LabelParameterVersionResult = (
       output.InvalidLabels !== undefined && output.InvalidLabels !== null
         ? deserializeAws_json1_1ParameterLabelList(output.InvalidLabels, context)
         : undefined,
-    ParameterVersion: __expectNumber(output.ParameterVersion),
+    ParameterVersion: __expectInt(output.ParameterVersion),
   } as any;
 };
 
@@ -22249,15 +22249,15 @@ const deserializeAws_json1_1MaintenanceWindowIdentity = (
   context: __SerdeContext
 ): MaintenanceWindowIdentity => {
   return {
-    Cutoff: __expectNumber(output.Cutoff),
+    Cutoff: __expectInt(output.Cutoff),
     Description: __expectString(output.Description),
-    Duration: __expectNumber(output.Duration),
+    Duration: __expectInt(output.Duration),
     Enabled: __expectBoolean(output.Enabled),
     EndDate: __expectString(output.EndDate),
     Name: __expectString(output.Name),
     NextExecutionTime: __expectString(output.NextExecutionTime),
     Schedule: __expectString(output.Schedule),
-    ScheduleOffset: __expectNumber(output.ScheduleOffset),
+    ScheduleOffset: __expectInt(output.ScheduleOffset),
     ScheduleTimezone: __expectString(output.ScheduleTimezone),
     StartDate: __expectString(output.StartDate),
     WindowId: __expectString(output.WindowId),
@@ -22324,7 +22324,7 @@ const deserializeAws_json1_1MaintenanceWindowRunCommandParameters = (
         ? deserializeAws_json1_1Parameters(output.Parameters, context)
         : undefined,
     ServiceRoleArn: __expectString(output.ServiceRoleArn),
-    TimeoutSeconds: __expectNumber(output.TimeoutSeconds),
+    TimeoutSeconds: __expectInt(output.TimeoutSeconds),
   } as any;
 };
 
@@ -22394,7 +22394,7 @@ const deserializeAws_json1_1MaintenanceWindowTask = (output: any, context: __Ser
     MaxConcurrency: __expectString(output.MaxConcurrency),
     MaxErrors: __expectString(output.MaxErrors),
     Name: __expectString(output.Name),
-    Priority: __expectNumber(output.Priority),
+    Priority: __expectInt(output.Priority),
     ServiceRoleArn: __expectString(output.ServiceRoleArn),
     Targets:
       output.Targets !== undefined && output.Targets !== null
@@ -22543,7 +22543,7 @@ const deserializeAws_json1_1ModifyDocumentPermissionResponse = (
 
 const deserializeAws_json1_1NonCompliantSummary = (output: any, context: __SerdeContext): NonCompliantSummary => {
   return {
-    NonCompliantCount: __expectNumber(output.NonCompliantCount),
+    NonCompliantCount: __expectInt(output.NonCompliantCount),
     SeveritySummary:
       output.SeveritySummary !== undefined && output.SeveritySummary !== null
         ? deserializeAws_json1_1SeveritySummary(output.SeveritySummary, context)
@@ -22700,7 +22700,7 @@ const deserializeAws_json1_1OpsItem = (output: any, context: __SerdeContext): Op
       output.PlannedStartTime !== undefined && output.PlannedStartTime !== null
         ? new Date(Math.round(output.PlannedStartTime * 1000))
         : undefined,
-    Priority: __expectNumber(output.Priority),
+    Priority: __expectInt(output.Priority),
     RelatedOpsItems:
       output.RelatedOpsItems !== undefined && output.RelatedOpsItems !== null
         ? deserializeAws_json1_1RelatedOpsItems(output.RelatedOpsItems, context)
@@ -22783,7 +22783,7 @@ const deserializeAws_json1_1OpsItemLimitExceededException = (
   context: __SerdeContext
 ): OpsItemLimitExceededException => {
   return {
-    Limit: __expectNumber(output.Limit),
+    Limit: __expectInt(output.Limit),
     LimitType: __expectString(output.LimitType),
     Message: __expectString(output.Message),
     ResourceTypes:
@@ -22954,7 +22954,7 @@ const deserializeAws_json1_1OpsItemSummary = (output: any, context: __SerdeConte
       output.PlannedStartTime !== undefined && output.PlannedStartTime !== null
         ? new Date(Math.round(output.PlannedStartTime * 1000))
         : undefined,
-    Priority: __expectNumber(output.Priority),
+    Priority: __expectInt(output.Priority),
     Severity: __expectString(output.Severity),
     Source: __expectString(output.Source),
     Status: __expectString(output.Status),
@@ -23063,7 +23063,7 @@ const deserializeAws_json1_1Parameter = (output: any, context: __SerdeContext): 
     SourceResult: __expectString(output.SourceResult),
     Type: __expectString(output.Type),
     Value: __expectString(output.Value),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -23096,7 +23096,7 @@ const deserializeAws_json1_1ParameterHistory = (output: any, context: __SerdeCon
     Tier: __expectString(output.Tier),
     Type: __expectString(output.Type),
     Value: __expectString(output.Value),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -23174,7 +23174,7 @@ const deserializeAws_json1_1ParameterMetadata = (output: any, context: __SerdeCo
         : undefined,
     Tier: __expectString(output.Tier),
     Type: __expectString(output.Type),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -23285,7 +23285,7 @@ const deserializeAws_json1_1Patch = (output: any, context: __SerdeContext): Patc
     Classification: __expectString(output.Classification),
     ContentUrl: __expectString(output.ContentUrl),
     Description: __expectString(output.Description),
-    Epoch: __expectNumber(output.Epoch),
+    Epoch: __expectInt(output.Epoch),
     Id: __expectString(output.Id),
     KbNumber: __expectString(output.KbNumber),
     Language: __expectString(output.Language),
@@ -23519,7 +23519,7 @@ const deserializeAws_json1_1PatchPropertyEntry = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1PatchRule = (output: any, context: __SerdeContext): PatchRule => {
   return {
-    ApproveAfterDays: __expectNumber(output.ApproveAfterDays),
+    ApproveAfterDays: __expectInt(output.ApproveAfterDays),
     ApproveUntilDate: __expectString(output.ApproveUntilDate),
     ComplianceLevel: __expectString(output.ComplianceLevel),
     EnableNonSecurity: __expectBoolean(output.EnableNonSecurity),
@@ -23616,11 +23616,11 @@ const deserializeAws_json1_1PoliciesLimitExceededException = (
 
 const deserializeAws_json1_1ProgressCounters = (output: any, context: __SerdeContext): ProgressCounters => {
   return {
-    CancelledSteps: __expectNumber(output.CancelledSteps),
-    FailedSteps: __expectNumber(output.FailedSteps),
-    SuccessSteps: __expectNumber(output.SuccessSteps),
-    TimedOutSteps: __expectNumber(output.TimedOutSteps),
-    TotalSteps: __expectNumber(output.TotalSteps),
+    CancelledSteps: __expectInt(output.CancelledSteps),
+    FailedSteps: __expectInt(output.FailedSteps),
+    SuccessSteps: __expectInt(output.SuccessSteps),
+    TimedOutSteps: __expectInt(output.TimedOutSteps),
+    TotalSteps: __expectInt(output.TotalSteps),
   } as any;
 };
 
@@ -23640,7 +23640,7 @@ const deserializeAws_json1_1PutInventoryResult = (output: any, context: __SerdeC
 const deserializeAws_json1_1PutParameterResult = (output: any, context: __SerdeContext): PutParameterResult => {
   return {
     Tier: __expectString(output.Tier),
-    Version: __expectNumber(output.Version),
+    Version: __expectInt(output.Version),
   } as any;
 };
 
@@ -24161,12 +24161,12 @@ const deserializeAws_json1_1SessionManagerOutputUrl = (
 
 const deserializeAws_json1_1SeveritySummary = (output: any, context: __SerdeContext): SeveritySummary => {
   return {
-    CriticalCount: __expectNumber(output.CriticalCount),
-    HighCount: __expectNumber(output.HighCount),
-    InformationalCount: __expectNumber(output.InformationalCount),
-    LowCount: __expectNumber(output.LowCount),
-    MediumCount: __expectNumber(output.MediumCount),
-    UnspecifiedCount: __expectNumber(output.UnspecifiedCount),
+    CriticalCount: __expectInt(output.CriticalCount),
+    HighCount: __expectInt(output.HighCount),
+    InformationalCount: __expectInt(output.InformationalCount),
+    LowCount: __expectInt(output.LowCount),
+    MediumCount: __expectInt(output.MediumCount),
+    UnspecifiedCount: __expectInt(output.UnspecifiedCount),
   } as any;
 };
 
@@ -24229,7 +24229,7 @@ const deserializeAws_json1_1StepExecution = (output: any, context: __SerdeContex
         : undefined,
     IsCritical: __expectBoolean(output.IsCritical),
     IsEnd: __expectBoolean(output.IsEnd),
-    MaxAttempts: __expectNumber(output.MaxAttempts),
+    MaxAttempts: __expectInt(output.MaxAttempts),
     NextStep: __expectString(output.NextStep),
     OnFailure: __expectString(output.OnFailure),
     Outputs:
@@ -24253,7 +24253,7 @@ const deserializeAws_json1_1StepExecution = (output: any, context: __SerdeContex
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
         : undefined,
-    TimeoutSeconds: __expectNumber(output.TimeoutSeconds),
+    TimeoutSeconds: __expectInt(output.TimeoutSeconds),
     ValidNextSteps:
       output.ValidNextSteps !== undefined && output.ValidNextSteps !== null
         ? deserializeAws_json1_1ValidNextStepList(output.ValidNextSteps, context)
@@ -24588,14 +24588,14 @@ const deserializeAws_json1_1UpdateMaintenanceWindowResult = (
 ): UpdateMaintenanceWindowResult => {
   return {
     AllowUnassociatedTargets: __expectBoolean(output.AllowUnassociatedTargets),
-    Cutoff: __expectNumber(output.Cutoff),
+    Cutoff: __expectInt(output.Cutoff),
     Description: __expectString(output.Description),
-    Duration: __expectNumber(output.Duration),
+    Duration: __expectInt(output.Duration),
     Enabled: __expectBoolean(output.Enabled),
     EndDate: __expectString(output.EndDate),
     Name: __expectString(output.Name),
     Schedule: __expectString(output.Schedule),
-    ScheduleOffset: __expectNumber(output.ScheduleOffset),
+    ScheduleOffset: __expectInt(output.ScheduleOffset),
     ScheduleTimezone: __expectString(output.ScheduleTimezone),
     StartDate: __expectString(output.StartDate),
     WindowId: __expectString(output.WindowId),
@@ -24632,7 +24632,7 @@ const deserializeAws_json1_1UpdateMaintenanceWindowTaskResult = (
     MaxConcurrency: __expectString(output.MaxConcurrency),
     MaxErrors: __expectString(output.MaxErrors),
     Name: __expectString(output.Name),
-    Priority: __expectNumber(output.Priority),
+    Priority: __expectInt(output.Priority),
     ServiceRoleArn: __expectString(output.ServiceRoleArn),
     Targets:
       output.Targets !== undefined && output.Targets !== null

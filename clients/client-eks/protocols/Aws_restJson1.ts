@@ -131,7 +131,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1132,7 +1132,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -5208,7 +5208,7 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    diskSize: __expectNumber(output.diskSize),
+    diskSize: __expectInt(output.diskSize),
     health:
       output.health !== undefined && output.health !== null
         ? deserializeAws_restJson1NodegroupHealth(output.health, context)
@@ -5290,16 +5290,16 @@ const deserializeAws_restJson1NodegroupScalingConfig = (
   context: __SerdeContext
 ): NodegroupScalingConfig => {
   return {
-    desiredSize: __expectNumber(output.desiredSize),
-    maxSize: __expectNumber(output.maxSize),
-    minSize: __expectNumber(output.minSize),
+    desiredSize: __expectInt(output.desiredSize),
+    maxSize: __expectInt(output.maxSize),
+    minSize: __expectInt(output.minSize),
   } as any;
 };
 
 const deserializeAws_restJson1NodegroupUpdateConfig = (output: any, context: __SerdeContext): NodegroupUpdateConfig => {
   return {
-    maxUnavailable: __expectNumber(output.maxUnavailable),
-    maxUnavailablePercentage: __expectNumber(output.maxUnavailablePercentage),
+    maxUnavailable: __expectInt(output.maxUnavailable),
+    maxUnavailablePercentage: __expectInt(output.maxUnavailablePercentage),
   } as any;
 };
 

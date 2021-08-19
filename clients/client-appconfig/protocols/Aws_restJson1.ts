@@ -99,11 +99,12 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1159,7 +1160,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1576,16 +1577,16 @@ export const deserializeAws_restJson1CreateDeploymentStrategyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectNumber(data.DeploymentDurationInMinutes);
+    contents.DeploymentDurationInMinutes = __expectInt(data.DeploymentDurationInMinutes);
   }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
   if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
+    contents.FinalBakeTimeInMinutes = __expectInt(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
+    contents.GrowthFactor = __limitedParseFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
@@ -1761,7 +1762,7 @@ export const deserializeAws_restJson1CreateHostedConfigurationVersionCommand = a
     contents.ConfigurationProfileId = output.headers["configuration-profile-id"];
   }
   if (output.headers["version-number"] !== undefined) {
-    contents.VersionNumber = parseInt(output.headers["version-number"], 10);
+    contents.VersionNumber = __strictParseInt(output.headers["version-number"]);
   }
   if (output.headers["description"] !== undefined) {
     contents.Description = output.headers["description"];
@@ -2501,10 +2502,10 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     contents.ConfigurationVersion = __expectString(data.ConfigurationVersion);
   }
   if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectNumber(data.DeploymentDurationInMinutes);
+    contents.DeploymentDurationInMinutes = __expectInt(data.DeploymentDurationInMinutes);
   }
   if (data.DeploymentNumber !== undefined && data.DeploymentNumber !== null) {
-    contents.DeploymentNumber = __expectNumber(data.DeploymentNumber);
+    contents.DeploymentNumber = __expectInt(data.DeploymentNumber);
   }
   if (data.DeploymentStrategyId !== undefined && data.DeploymentStrategyId !== null) {
     contents.DeploymentStrategyId = __expectString(data.DeploymentStrategyId);
@@ -2519,16 +2520,16 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     contents.EventLog = deserializeAws_restJson1DeploymentEvents(data.EventLog, context);
   }
   if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
+    contents.FinalBakeTimeInMinutes = __expectInt(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
+    contents.GrowthFactor = __limitedParseFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
   if (data.PercentageComplete !== undefined && data.PercentageComplete !== null) {
-    contents.PercentageComplete = __handleFloat(data.PercentageComplete);
+    contents.PercentageComplete = __limitedParseFloat(data.PercentageComplete);
   }
   if (data.StartedAt !== undefined && data.StartedAt !== null) {
     contents.StartedAt = new Date(data.StartedAt);
@@ -2612,16 +2613,16 @@ export const deserializeAws_restJson1GetDeploymentStrategyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectNumber(data.DeploymentDurationInMinutes);
+    contents.DeploymentDurationInMinutes = __expectInt(data.DeploymentDurationInMinutes);
   }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
   if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
+    contents.FinalBakeTimeInMinutes = __expectInt(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
+    contents.GrowthFactor = __limitedParseFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
@@ -2805,7 +2806,7 @@ export const deserializeAws_restJson1GetHostedConfigurationVersionCommand = asyn
     contents.ConfigurationProfileId = output.headers["configuration-profile-id"];
   }
   if (output.headers["version-number"] !== undefined) {
-    contents.VersionNumber = parseInt(output.headers["version-number"], 10);
+    contents.VersionNumber = __strictParseInt(output.headers["version-number"]);
   }
   if (output.headers["description"] !== undefined) {
     contents.Description = output.headers["description"];
@@ -3424,10 +3425,10 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
     contents.ConfigurationVersion = __expectString(data.ConfigurationVersion);
   }
   if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectNumber(data.DeploymentDurationInMinutes);
+    contents.DeploymentDurationInMinutes = __expectInt(data.DeploymentDurationInMinutes);
   }
   if (data.DeploymentNumber !== undefined && data.DeploymentNumber !== null) {
-    contents.DeploymentNumber = __expectNumber(data.DeploymentNumber);
+    contents.DeploymentNumber = __expectInt(data.DeploymentNumber);
   }
   if (data.DeploymentStrategyId !== undefined && data.DeploymentStrategyId !== null) {
     contents.DeploymentStrategyId = __expectString(data.DeploymentStrategyId);
@@ -3442,16 +3443,16 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
     contents.EventLog = deserializeAws_restJson1DeploymentEvents(data.EventLog, context);
   }
   if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
+    contents.FinalBakeTimeInMinutes = __expectInt(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
+    contents.GrowthFactor = __limitedParseFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
   if (data.PercentageComplete !== undefined && data.PercentageComplete !== null) {
-    contents.PercentageComplete = __handleFloat(data.PercentageComplete);
+    contents.PercentageComplete = __limitedParseFloat(data.PercentageComplete);
   }
   if (data.StartedAt !== undefined && data.StartedAt !== null) {
     contents.StartedAt = new Date(data.StartedAt);
@@ -3571,10 +3572,10 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
     contents.ConfigurationVersion = __expectString(data.ConfigurationVersion);
   }
   if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectNumber(data.DeploymentDurationInMinutes);
+    contents.DeploymentDurationInMinutes = __expectInt(data.DeploymentDurationInMinutes);
   }
   if (data.DeploymentNumber !== undefined && data.DeploymentNumber !== null) {
-    contents.DeploymentNumber = __expectNumber(data.DeploymentNumber);
+    contents.DeploymentNumber = __expectInt(data.DeploymentNumber);
   }
   if (data.DeploymentStrategyId !== undefined && data.DeploymentStrategyId !== null) {
     contents.DeploymentStrategyId = __expectString(data.DeploymentStrategyId);
@@ -3589,16 +3590,16 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
     contents.EventLog = deserializeAws_restJson1DeploymentEvents(data.EventLog, context);
   }
   if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
+    contents.FinalBakeTimeInMinutes = __expectInt(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
+    contents.GrowthFactor = __limitedParseFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
   if (data.PercentageComplete !== undefined && data.PercentageComplete !== null) {
-    contents.PercentageComplete = __handleFloat(data.PercentageComplete);
+    contents.PercentageComplete = __limitedParseFloat(data.PercentageComplete);
   }
   if (data.StartedAt !== undefined && data.StartedAt !== null) {
     contents.StartedAt = new Date(data.StartedAt);
@@ -3990,16 +3991,16 @@ export const deserializeAws_restJson1UpdateDeploymentStrategyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
-    contents.DeploymentDurationInMinutes = __expectNumber(data.DeploymentDurationInMinutes);
+    contents.DeploymentDurationInMinutes = __expectInt(data.DeploymentDurationInMinutes);
   }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
   if (data.FinalBakeTimeInMinutes !== undefined && data.FinalBakeTimeInMinutes !== null) {
-    contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
+    contents.FinalBakeTimeInMinutes = __expectInt(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
+    contents.GrowthFactor = __limitedParseFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
@@ -4293,7 +4294,7 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Limit !== undefined && data.Limit !== null) {
-    contents.Limit = __handleFloat(data.Limit);
+    contents.Limit = __limitedParseFloat(data.Limit);
   }
   if (data.Measure !== undefined && data.Measure !== null) {
     contents.Measure = __expectString(data.Measure);
@@ -4302,7 +4303,7 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
     contents.Message = __expectString(data.Message);
   }
   if (data.Size !== undefined && data.Size !== null) {
-    contents.Size = __handleFloat(data.Size);
+    contents.Size = __limitedParseFloat(data.Size);
   }
   return contents;
 };
@@ -4475,10 +4476,10 @@ const deserializeAws_restJson1DeploymentList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1DeploymentStrategy = (output: any, context: __SerdeContext): DeploymentStrategy => {
   return {
-    DeploymentDurationInMinutes: __expectNumber(output.DeploymentDurationInMinutes),
+    DeploymentDurationInMinutes: __expectInt(output.DeploymentDurationInMinutes),
     Description: __expectString(output.Description),
-    FinalBakeTimeInMinutes: __expectNumber(output.FinalBakeTimeInMinutes),
-    GrowthFactor: __handleFloat(output.GrowthFactor),
+    FinalBakeTimeInMinutes: __expectInt(output.FinalBakeTimeInMinutes),
+    GrowthFactor: __limitedParseFloat(output.GrowthFactor),
     GrowthType: __expectString(output.GrowthType),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
@@ -4503,12 +4504,12 @@ const deserializeAws_restJson1DeploymentSummary = (output: any, context: __Serde
       output.CompletedAt !== undefined && output.CompletedAt !== null ? new Date(output.CompletedAt) : undefined,
     ConfigurationName: __expectString(output.ConfigurationName),
     ConfigurationVersion: __expectString(output.ConfigurationVersion),
-    DeploymentDurationInMinutes: __expectNumber(output.DeploymentDurationInMinutes),
-    DeploymentNumber: __expectNumber(output.DeploymentNumber),
-    FinalBakeTimeInMinutes: __expectNumber(output.FinalBakeTimeInMinutes),
-    GrowthFactor: __handleFloat(output.GrowthFactor),
+    DeploymentDurationInMinutes: __expectInt(output.DeploymentDurationInMinutes),
+    DeploymentNumber: __expectInt(output.DeploymentNumber),
+    FinalBakeTimeInMinutes: __expectInt(output.FinalBakeTimeInMinutes),
+    GrowthFactor: __limitedParseFloat(output.GrowthFactor),
     GrowthType: __expectString(output.GrowthType),
-    PercentageComplete: __handleFloat(output.PercentageComplete),
+    PercentageComplete: __limitedParseFloat(output.PercentageComplete),
     StartedAt: output.StartedAt !== undefined && output.StartedAt !== null ? new Date(output.StartedAt) : undefined,
     State: __expectString(output.State),
   } as any;
@@ -4548,7 +4549,7 @@ const deserializeAws_restJson1HostedConfigurationVersionSummary = (
     ConfigurationProfileId: __expectString(output.ConfigurationProfileId),
     ContentType: __expectString(output.ContentType),
     Description: __expectString(output.Description),
-    VersionNumber: __expectNumber(output.VersionNumber),
+    VersionNumber: __expectInt(output.VersionNumber),
   } as any;
 };
 

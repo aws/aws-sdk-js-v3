@@ -133,7 +133,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -808,7 +808,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1602,7 +1602,7 @@ export const deserializeAws_restJson1DescribeAlarmModelCommand = async (
     contents.roleArn = __expectString(data.roleArn);
   }
   if (data.severity !== undefined && data.severity !== null) {
-    contents.severity = __expectNumber(data.severity);
+    contents.severity = __expectInt(data.severity);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -5023,7 +5023,7 @@ const deserializeAws_restJson1RoutedResources = (output: any, context: __SerdeCo
 const deserializeAws_restJson1SetTimerAction = (output: any, context: __SerdeContext): SetTimerAction => {
   return {
     durationExpression: __expectString(output.durationExpression),
-    seconds: __expectNumber(output.seconds),
+    seconds: __expectInt(output.seconds),
     timerName: __expectString(output.timerName),
   } as any;
 };

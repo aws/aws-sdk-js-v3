@@ -206,7 +206,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4108,8 +4108,8 @@ const deserializeAws_json1_1GetQualificationTypeResponse = (
 
 const deserializeAws_json1_1HIT = (output: any, context: __SerdeContext): HIT => {
   return {
-    AssignmentDurationInSeconds: __expectNumber(output.AssignmentDurationInSeconds),
-    AutoApprovalDelayInSeconds: __expectNumber(output.AutoApprovalDelayInSeconds),
+    AssignmentDurationInSeconds: __expectInt(output.AssignmentDurationInSeconds),
+    AutoApprovalDelayInSeconds: __expectInt(output.AutoApprovalDelayInSeconds),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -4126,10 +4126,10 @@ const deserializeAws_json1_1HIT = (output: any, context: __SerdeContext): HIT =>
     HITStatus: __expectString(output.HITStatus),
     HITTypeId: __expectString(output.HITTypeId),
     Keywords: __expectString(output.Keywords),
-    MaxAssignments: __expectNumber(output.MaxAssignments),
-    NumberOfAssignmentsAvailable: __expectNumber(output.NumberOfAssignmentsAvailable),
-    NumberOfAssignmentsCompleted: __expectNumber(output.NumberOfAssignmentsCompleted),
-    NumberOfAssignmentsPending: __expectNumber(output.NumberOfAssignmentsPending),
+    MaxAssignments: __expectInt(output.MaxAssignments),
+    NumberOfAssignmentsAvailable: __expectInt(output.NumberOfAssignmentsAvailable),
+    NumberOfAssignmentsCompleted: __expectInt(output.NumberOfAssignmentsCompleted),
+    NumberOfAssignmentsPending: __expectInt(output.NumberOfAssignmentsPending),
     QualificationRequirements:
       output.QualificationRequirements !== undefined && output.QualificationRequirements !== null
         ? deserializeAws_json1_1QualificationRequirementList(output.QualificationRequirements, context)
@@ -4159,7 +4159,7 @@ const deserializeAws_json1_1IntegerList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __expectInt(entry) as any;
     });
 };
 
@@ -4173,7 +4173,7 @@ const deserializeAws_json1_1ListAssignmentsForHITResponse = (
         ? deserializeAws_json1_1AssignmentList(output.Assignments, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    NumResults: __expectNumber(output.NumResults),
+    NumResults: __expectInt(output.NumResults),
   } as any;
 };
 
@@ -4187,7 +4187,7 @@ const deserializeAws_json1_1ListBonusPaymentsResponse = (
         ? deserializeAws_json1_1BonusPaymentList(output.BonusPayments, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    NumResults: __expectNumber(output.NumResults),
+    NumResults: __expectInt(output.NumResults),
   } as any;
 };
 
@@ -4201,7 +4201,7 @@ const deserializeAws_json1_1ListHITsForQualificationTypeResponse = (
         ? deserializeAws_json1_1HITList(output.HITs, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    NumResults: __expectNumber(output.NumResults),
+    NumResults: __expectInt(output.NumResults),
   } as any;
 };
 
@@ -4212,7 +4212,7 @@ const deserializeAws_json1_1ListHITsResponse = (output: any, context: __SerdeCon
         ? deserializeAws_json1_1HITList(output.HITs, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    NumResults: __expectNumber(output.NumResults),
+    NumResults: __expectInt(output.NumResults),
   } as any;
 };
 
@@ -4222,7 +4222,7 @@ const deserializeAws_json1_1ListQualificationRequestsResponse = (
 ): ListQualificationRequestsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    NumResults: __expectNumber(output.NumResults),
+    NumResults: __expectInt(output.NumResults),
     QualificationRequests:
       output.QualificationRequests !== undefined && output.QualificationRequests !== null
         ? deserializeAws_json1_1QualificationRequestList(output.QualificationRequests, context)
@@ -4236,7 +4236,7 @@ const deserializeAws_json1_1ListQualificationTypesResponse = (
 ): ListQualificationTypesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    NumResults: __expectNumber(output.NumResults),
+    NumResults: __expectInt(output.NumResults),
     QualificationTypes:
       output.QualificationTypes !== undefined && output.QualificationTypes !== null
         ? deserializeAws_json1_1QualificationTypeList(output.QualificationTypes, context)
@@ -4254,7 +4254,7 @@ const deserializeAws_json1_1ListReviewableHITsResponse = (
         ? deserializeAws_json1_1HITList(output.HITs, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    NumResults: __expectNumber(output.NumResults),
+    NumResults: __expectInt(output.NumResults),
   } as any;
 };
 
@@ -4290,7 +4290,7 @@ const deserializeAws_json1_1ListWorkerBlocksResponse = (
 ): ListWorkerBlocksResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    NumResults: __expectNumber(output.NumResults),
+    NumResults: __expectInt(output.NumResults),
     WorkerBlocks:
       output.WorkerBlocks !== undefined && output.WorkerBlocks !== null
         ? deserializeAws_json1_1WorkerBlockList(output.WorkerBlocks, context)
@@ -4304,7 +4304,7 @@ const deserializeAws_json1_1ListWorkersWithQualificationTypeResponse = (
 ): ListWorkersWithQualificationTypeResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    NumResults: __expectNumber(output.NumResults),
+    NumResults: __expectInt(output.NumResults),
     Qualifications:
       output.Qualifications !== undefined && output.Qualifications !== null
         ? deserializeAws_json1_1QualificationList(output.Qualifications, context)
@@ -4416,7 +4416,7 @@ const deserializeAws_json1_1Qualification = (output: any, context: __SerdeContex
       output.GrantTime !== undefined && output.GrantTime !== null
         ? new Date(Math.round(output.GrantTime * 1000))
         : undefined,
-    IntegerValue: __expectNumber(output.IntegerValue),
+    IntegerValue: __expectInt(output.IntegerValue),
     LocaleValue:
       output.LocaleValue !== undefined && output.LocaleValue !== null
         ? deserializeAws_json1_1Locale(output.LocaleValue, context)
@@ -4504,7 +4504,7 @@ const deserializeAws_json1_1QualificationType = (output: any, context: __SerdeCo
   return {
     AnswerKey: __expectString(output.AnswerKey),
     AutoGranted: __expectBoolean(output.AutoGranted),
-    AutoGrantedValue: __expectNumber(output.AutoGrantedValue),
+    AutoGrantedValue: __expectInt(output.AutoGrantedValue),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -4515,9 +4515,9 @@ const deserializeAws_json1_1QualificationType = (output: any, context: __SerdeCo
     Name: __expectString(output.Name),
     QualificationTypeId: __expectString(output.QualificationTypeId),
     QualificationTypeStatus: __expectString(output.QualificationTypeStatus),
-    RetryDelayInSeconds: __expectNumber(output.RetryDelayInSeconds),
+    RetryDelayInSeconds: __expectInt(output.RetryDelayInSeconds),
     Test: __expectString(output.Test),
-    TestDurationInSeconds: __expectNumber(output.TestDurationInSeconds),
+    TestDurationInSeconds: __expectInt(output.TestDurationInSeconds),
   } as any;
 };
 

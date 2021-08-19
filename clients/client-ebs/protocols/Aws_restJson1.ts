@@ -19,9 +19,10 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -376,7 +377,7 @@ export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
     DataLength: undefined,
   };
   if (output.headers["x-amz-data-length"] !== undefined) {
-    contents.DataLength = parseInt(output.headers["x-amz-data-length"], 10);
+    contents.DataLength = __strictParseInt(output.headers["x-amz-data-length"]);
   }
   if (output.headers["x-amz-checksum"] !== undefined) {
     contents.Checksum = output.headers["x-amz-checksum"];
@@ -483,7 +484,7 @@ export const deserializeAws_restJson1ListChangedBlocksCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BlockSize !== undefined && data.BlockSize !== null) {
-    contents.BlockSize = __expectNumber(data.BlockSize);
+    contents.BlockSize = __expectInt(data.BlockSize);
   }
   if (data.ChangedBlocks !== undefined && data.ChangedBlocks !== null) {
     contents.ChangedBlocks = deserializeAws_restJson1ChangedBlocks(data.ChangedBlocks, context);
@@ -495,7 +496,7 @@ export const deserializeAws_restJson1ListChangedBlocksCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.VolumeSize !== undefined && data.VolumeSize !== null) {
-    contents.VolumeSize = __expectNumber(data.VolumeSize);
+    contents.VolumeSize = __expectInt(data.VolumeSize);
   }
   return Promise.resolve(contents);
 };
@@ -594,7 +595,7 @@ export const deserializeAws_restJson1ListSnapshotBlocksCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BlockSize !== undefined && data.BlockSize !== null) {
-    contents.BlockSize = __expectNumber(data.BlockSize);
+    contents.BlockSize = __expectInt(data.BlockSize);
   }
   if (data.Blocks !== undefined && data.Blocks !== null) {
     contents.Blocks = deserializeAws_restJson1Blocks(data.Blocks, context);
@@ -606,7 +607,7 @@ export const deserializeAws_restJson1ListSnapshotBlocksCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.VolumeSize !== undefined && data.VolumeSize !== null) {
-    contents.VolumeSize = __expectNumber(data.VolumeSize);
+    contents.VolumeSize = __expectInt(data.VolumeSize);
   }
   return Promise.resolve(contents);
 };
@@ -809,7 +810,7 @@ export const deserializeAws_restJson1StartSnapshotCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BlockSize !== undefined && data.BlockSize !== null) {
-    contents.BlockSize = __expectNumber(data.BlockSize);
+    contents.BlockSize = __expectInt(data.BlockSize);
   }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
@@ -836,7 +837,7 @@ export const deserializeAws_restJson1StartSnapshotCommand = async (
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
   }
   if (data.VolumeSize !== undefined && data.VolumeSize !== null) {
-    contents.VolumeSize = __expectNumber(data.VolumeSize);
+    contents.VolumeSize = __expectInt(data.VolumeSize);
   }
   return Promise.resolve(contents);
 };
@@ -1110,7 +1111,7 @@ const serializeAws_restJson1Tags = (input: Tag[], context: __SerdeContext): any 
 
 const deserializeAws_restJson1Block = (output: any, context: __SerdeContext): Block => {
   return {
-    BlockIndex: __expectNumber(output.BlockIndex),
+    BlockIndex: __expectInt(output.BlockIndex),
     BlockToken: __expectString(output.BlockToken),
   } as any;
 };
@@ -1128,7 +1129,7 @@ const deserializeAws_restJson1Blocks = (output: any, context: __SerdeContext): B
 
 const deserializeAws_restJson1ChangedBlock = (output: any, context: __SerdeContext): ChangedBlock => {
   return {
-    BlockIndex: __expectNumber(output.BlockIndex),
+    BlockIndex: __expectInt(output.BlockIndex),
     FirstBlockToken: __expectString(output.FirstBlockToken),
     SecondBlockToken: __expectString(output.SecondBlockToken),
   } as any;

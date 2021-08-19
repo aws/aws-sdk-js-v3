@@ -26,9 +26,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -546,7 +546,7 @@ const deserializeAws_json1_0DescribeEndpointsResponse = (
 const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
     Address: __expectString(output.Address),
-    CachePeriodInMinutes: __expectNumber(output.CachePeriodInMinutes),
+    CachePeriodInMinutes: __expectInt(output.CachePeriodInMinutes),
   } as any;
 };
 
@@ -609,9 +609,9 @@ const deserializeAws_json1_0QueryResponse = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_0QueryStatus = (output: any, context: __SerdeContext): QueryStatus => {
   return {
-    CumulativeBytesMetered: __expectNumber(output.CumulativeBytesMetered),
-    CumulativeBytesScanned: __expectNumber(output.CumulativeBytesScanned),
-    ProgressPercentage: __handleFloat(output.ProgressPercentage),
+    CumulativeBytesMetered: __expectInt(output.CumulativeBytesMetered),
+    CumulativeBytesScanned: __expectInt(output.CumulativeBytesScanned),
+    ProgressPercentage: __limitedParseFloat(output.ProgressPercentage),
   } as any;
 };
 

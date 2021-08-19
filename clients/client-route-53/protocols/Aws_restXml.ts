@@ -304,6 +304,8 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4918,7 +4920,7 @@ export const deserializeAws_restXmlGetAccountLimitCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["Count"] !== undefined) {
-    contents.Count = parseInt(data["Count"]);
+    contents.Count = __strictParseInt(data["Count"]) as number;
   }
   if (data["Limit"] !== undefined) {
     contents.Limit = deserializeAws_restXmlAccountLimit(data["Limit"], context);
@@ -5307,7 +5309,7 @@ export const deserializeAws_restXmlGetHealthCheckCountCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["HealthCheckCount"] !== undefined) {
-    contents.HealthCheckCount = parseInt(data["HealthCheckCount"]);
+    contents.HealthCheckCount = __strictParseInt(data["HealthCheckCount"]) as number;
   }
   return Promise.resolve(contents);
 };
@@ -5572,7 +5574,7 @@ export const deserializeAws_restXmlGetHostedZoneCountCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["HostedZoneCount"] !== undefined) {
-    contents.HostedZoneCount = parseInt(data["HostedZoneCount"]);
+    contents.HostedZoneCount = __strictParseInt(data["HostedZoneCount"]) as number;
   }
   return Promise.resolve(contents);
 };
@@ -5628,7 +5630,7 @@ export const deserializeAws_restXmlGetHostedZoneLimitCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["Count"] !== undefined) {
-    contents.Count = parseInt(data["Count"]);
+    contents.Count = __strictParseInt(data["Count"]) as number;
   }
   if (data["Limit"] !== undefined) {
     contents.Limit = deserializeAws_restXmlHostedZoneLimit(data["Limit"], context);
@@ -5837,7 +5839,7 @@ export const deserializeAws_restXmlGetReusableDelegationSetLimitCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data["Count"] !== undefined) {
-    contents.Count = parseInt(data["Count"]);
+    contents.Count = __strictParseInt(data["Count"]) as number;
   }
   if (data["Limit"] !== undefined) {
     contents.Limit = deserializeAws_restXmlReusableDelegationSetLimit(data["Limit"], context);
@@ -6032,7 +6034,7 @@ export const deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicyInstanceCount"] !== undefined) {
-    contents.TrafficPolicyInstanceCount = parseInt(data["TrafficPolicyInstanceCount"]);
+    contents.TrafficPolicyInstanceCount = __strictParseInt(data["TrafficPolicyInstanceCount"]) as number;
   }
   return Promise.resolve(contents);
 };
@@ -6099,7 +6101,7 @@ export const deserializeAws_restXmlListGeoLocationsCommand = async (
     contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["NextContinentCode"] !== undefined) {
     contents.NextContinentCode = __expectString(data["NextContinentCode"]);
@@ -6182,7 +6184,7 @@ export const deserializeAws_restXmlListHealthChecksCommand = async (
     contents.Marker = __expectString(data["Marker"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["NextMarker"] !== undefined) {
     contents.NextMarker = __expectString(data["NextMarker"]);
@@ -6267,7 +6269,7 @@ export const deserializeAws_restXmlListHostedZonesCommand = async (
     contents.Marker = __expectString(data["Marker"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["NextMarker"] !== undefined) {
     contents.NextMarker = __expectString(data["NextMarker"]);
@@ -6365,7 +6367,7 @@ export const deserializeAws_restXmlListHostedZonesByNameCommand = async (
     contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["NextDNSName"] !== undefined) {
     contents.NextDNSName = __expectString(data["NextDNSName"]);
@@ -6445,7 +6447,7 @@ export const deserializeAws_restXmlListHostedZonesByVPCCommand = async (
     );
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["NextToken"] !== undefined) {
     contents.NextToken = __expectString(data["NextToken"]);
@@ -6600,7 +6602,7 @@ export const deserializeAws_restXmlListResourceRecordSetsCommand = async (
     contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["NextRecordIdentifier"] !== undefined) {
     contents.NextRecordIdentifier = __expectString(data["NextRecordIdentifier"]);
@@ -6700,7 +6702,7 @@ export const deserializeAws_restXmlListReusableDelegationSetsCommand = async (
     contents.Marker = __expectString(data["Marker"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["NextMarker"] !== undefined) {
     contents.NextMarker = __expectString(data["NextMarker"]);
@@ -6944,7 +6946,7 @@ export const deserializeAws_restXmlListTrafficPoliciesCommand = async (
     contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["TrafficPolicyIdMarker"] !== undefined) {
     contents.TrafficPolicyIdMarker = __expectString(data["TrafficPolicyIdMarker"]);
@@ -7025,7 +7027,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesCommand = async (
     contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["TrafficPolicyInstanceNameMarker"] !== undefined) {
     contents.TrafficPolicyInstanceNameMarker = __expectString(data["TrafficPolicyInstanceNameMarker"]);
@@ -7113,7 +7115,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand
     contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["TrafficPolicyInstanceNameMarker"] !== undefined) {
     contents.TrafficPolicyInstanceNameMarker = __expectString(data["TrafficPolicyInstanceNameMarker"]);
@@ -7213,7 +7215,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = a
     contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data["TrafficPolicyInstanceNameMarker"] !== undefined) {
     contents.TrafficPolicyInstanceNameMarker = __expectString(data["TrafficPolicyInstanceNameMarker"]);
@@ -7308,7 +7310,7 @@ export const deserializeAws_restXmlListTrafficPolicyVersionsCommand = async (
     contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(data["MaxItems"]);
+    contents.MaxItems = __strictParseInt(data["MaxItems"]) as number;
   }
   if (data.TrafficPolicies === "") {
     contents.TrafficPolicies = [];
@@ -9335,7 +9337,7 @@ const deserializeAws_restXmlAccountLimit = (output: any, context: __SerdeContext
     contents.Type = __expectString(output["Type"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = parseInt(output["Value"]);
+    contents.Value = __strictParseInt(output["Value"]) as number;
   }
   return contents;
 };
@@ -9431,16 +9433,16 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
     Dimensions: undefined,
   };
   if (output["EvaluationPeriods"] !== undefined) {
-    contents.EvaluationPeriods = parseInt(output["EvaluationPeriods"]);
+    contents.EvaluationPeriods = __strictParseInt(output["EvaluationPeriods"]) as number;
   }
   if (output["Threshold"] !== undefined) {
-    contents.Threshold = parseFloat(output["Threshold"]);
+    contents.Threshold = __strictParseFloat(output["Threshold"]) as number;
   }
   if (output["ComparisonOperator"] !== undefined) {
     contents.ComparisonOperator = __expectString(output["ComparisonOperator"]);
   }
   if (output["Period"] !== undefined) {
-    contents.Period = parseInt(output["Period"]);
+    contents.Period = __strictParseInt(output["Period"]) as number;
   }
   if (output["MetricName"] !== undefined) {
     contents.MetricName = __expectString(output["MetricName"]);
@@ -9640,7 +9642,7 @@ const deserializeAws_restXmlHealthCheck = (output: any, context: __SerdeContext)
     contents.HealthCheckConfig = deserializeAws_restXmlHealthCheckConfig(output["HealthCheckConfig"], context);
   }
   if (output["HealthCheckVersion"] !== undefined) {
-    contents.HealthCheckVersion = parseInt(output["HealthCheckVersion"]);
+    contents.HealthCheckVersion = __strictParseInt(output["HealthCheckVersion"]) as number;
   }
   if (output["CloudWatchAlarmConfiguration"] !== undefined) {
     contents.CloudWatchAlarmConfiguration = deserializeAws_restXmlCloudWatchAlarmConfiguration(
@@ -9676,7 +9678,7 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
     contents.IPAddress = __expectString(output["IPAddress"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
+    contents.Port = __strictParseInt(output["Port"]) as number;
   }
   if (output["Type"] !== undefined) {
     contents.Type = __expectString(output["Type"]);
@@ -9691,10 +9693,10 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
     contents.SearchString = __expectString(output["SearchString"]);
   }
   if (output["RequestInterval"] !== undefined) {
-    contents.RequestInterval = parseInt(output["RequestInterval"]);
+    contents.RequestInterval = __strictParseInt(output["RequestInterval"]) as number;
   }
   if (output["FailureThreshold"] !== undefined) {
-    contents.FailureThreshold = parseInt(output["FailureThreshold"]);
+    contents.FailureThreshold = __strictParseInt(output["FailureThreshold"]) as number;
   }
   if (output["MeasureLatency"] !== undefined) {
     contents.MeasureLatency = __parseBoolean(output["MeasureLatency"]);
@@ -9706,7 +9708,7 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
     contents.Disabled = __parseBoolean(output["Disabled"]);
   }
   if (output["HealthThreshold"] !== undefined) {
-    contents.HealthThreshold = parseInt(output["HealthThreshold"]);
+    contents.HealthThreshold = __strictParseInt(output["HealthThreshold"]) as number;
   }
   if (output.ChildHealthChecks === "") {
     contents.ChildHealthChecks = [];
@@ -9820,7 +9822,7 @@ const deserializeAws_restXmlHostedZone = (output: any, context: __SerdeContext):
     contents.Config = deserializeAws_restXmlHostedZoneConfig(output["Config"], context);
   }
   if (output["ResourceRecordSetCount"] !== undefined) {
-    contents.ResourceRecordSetCount = parseInt(output["ResourceRecordSetCount"]);
+    contents.ResourceRecordSetCount = __strictParseInt(output["ResourceRecordSetCount"]) as number;
   }
   if (output["LinkedService"] !== undefined) {
     contents.LinkedService = deserializeAws_restXmlLinkedService(output["LinkedService"], context);
@@ -9851,7 +9853,7 @@ const deserializeAws_restXmlHostedZoneLimit = (output: any, context: __SerdeCont
     contents.Type = __expectString(output["Type"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = parseInt(output["Value"]);
+    contents.Value = __strictParseInt(output["Value"]) as number;
   }
   return contents;
 };
@@ -9936,22 +9938,22 @@ const deserializeAws_restXmlKeySigningKey = (output: any, context: __SerdeContex
     contents.KmsArn = __expectString(output["KmsArn"]);
   }
   if (output["Flag"] !== undefined) {
-    contents.Flag = parseInt(output["Flag"]);
+    contents.Flag = __strictParseInt(output["Flag"]) as number;
   }
   if (output["SigningAlgorithmMnemonic"] !== undefined) {
     contents.SigningAlgorithmMnemonic = __expectString(output["SigningAlgorithmMnemonic"]);
   }
   if (output["SigningAlgorithmType"] !== undefined) {
-    contents.SigningAlgorithmType = parseInt(output["SigningAlgorithmType"]);
+    contents.SigningAlgorithmType = __strictParseInt(output["SigningAlgorithmType"]) as number;
   }
   if (output["DigestAlgorithmMnemonic"] !== undefined) {
     contents.DigestAlgorithmMnemonic = __expectString(output["DigestAlgorithmMnemonic"]);
   }
   if (output["DigestAlgorithmType"] !== undefined) {
-    contents.DigestAlgorithmType = parseInt(output["DigestAlgorithmType"]);
+    contents.DigestAlgorithmType = __strictParseInt(output["DigestAlgorithmType"]) as number;
   }
   if (output["KeyTag"] !== undefined) {
-    contents.KeyTag = parseInt(output["KeyTag"]);
+    contents.KeyTag = __strictParseInt(output["KeyTag"]) as number;
   }
   if (output["DigestValue"] !== undefined) {
     contents.DigestValue = __expectString(output["DigestValue"]);
@@ -10092,7 +10094,7 @@ const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeCo
     contents.SetIdentifier = __expectString(output["SetIdentifier"]);
   }
   if (output["Weight"] !== undefined) {
-    contents.Weight = parseInt(output["Weight"]);
+    contents.Weight = __strictParseInt(output["Weight"]) as number;
   }
   if (output["Region"] !== undefined) {
     contents.Region = __expectString(output["Region"]);
@@ -10107,7 +10109,7 @@ const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeCo
     contents.MultiValueAnswer = __parseBoolean(output["MultiValueAnswer"]);
   }
   if (output["TTL"] !== undefined) {
-    contents.TTL = parseInt(output["TTL"]);
+    contents.TTL = __strictParseInt(output["TTL"]) as number;
   }
   if (output.ResourceRecords === "") {
     contents.ResourceRecords = [];
@@ -10185,7 +10187,7 @@ const deserializeAws_restXmlReusableDelegationSetLimit = (
     contents.Type = __expectString(output["Type"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = parseInt(output["Value"]);
+    contents.Value = __strictParseInt(output["Value"]) as number;
   }
   return contents;
 };
@@ -10253,7 +10255,7 @@ const deserializeAws_restXmlTrafficPolicy = (output: any, context: __SerdeContex
     contents.Id = __expectString(output["Id"]);
   }
   if (output["Version"] !== undefined) {
-    contents.Version = parseInt(output["Version"]);
+    contents.Version = __strictParseInt(output["Version"]) as number;
   }
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -10292,7 +10294,7 @@ const deserializeAws_restXmlTrafficPolicyInstance = (output: any, context: __Ser
     contents.Name = __expectString(output["Name"]);
   }
   if (output["TTL"] !== undefined) {
-    contents.TTL = parseInt(output["TTL"]);
+    contents.TTL = __strictParseInt(output["TTL"]) as number;
   }
   if (output["State"] !== undefined) {
     contents.State = __expectString(output["State"]);
@@ -10304,7 +10306,7 @@ const deserializeAws_restXmlTrafficPolicyInstance = (output: any, context: __Ser
     contents.TrafficPolicyId = __expectString(output["TrafficPolicyId"]);
   }
   if (output["TrafficPolicyVersion"] !== undefined) {
-    contents.TrafficPolicyVersion = parseInt(output["TrafficPolicyVersion"]);
+    contents.TrafficPolicyVersion = __strictParseInt(output["TrafficPolicyVersion"]) as number;
   }
   if (output["TrafficPolicyType"] !== undefined) {
     contents.TrafficPolicyType = __expectString(output["TrafficPolicyType"]);
@@ -10355,10 +10357,10 @@ const deserializeAws_restXmlTrafficPolicySummary = (output: any, context: __Serd
     contents.Type = __expectString(output["Type"]);
   }
   if (output["LatestVersion"] !== undefined) {
-    contents.LatestVersion = parseInt(output["LatestVersion"]);
+    contents.LatestVersion = __strictParseInt(output["LatestVersion"]) as number;
   }
   if (output["TrafficPolicyCount"] !== undefined) {
-    contents.TrafficPolicyCount = parseInt(output["TrafficPolicyCount"]);
+    contents.TrafficPolicyCount = __strictParseInt(output["TrafficPolicyCount"]) as number;
   }
   return contents;
 };

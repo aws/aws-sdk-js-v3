@@ -153,7 +153,7 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2807,14 +2807,14 @@ const deserializeAws_json1_0ActivityScheduledEventDetails = (
   context: __SerdeContext
 ): ActivityScheduledEventDetails => {
   return {
-    heartbeatInSeconds: __expectNumber(output.heartbeatInSeconds),
+    heartbeatInSeconds: __expectInt(output.heartbeatInSeconds),
     input: __expectString(output.input),
     inputDetails:
       output.inputDetails !== undefined && output.inputDetails !== null
         ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
         : undefined,
     resource: __expectString(output.resource),
-    timeoutInSeconds: __expectNumber(output.timeoutInSeconds),
+    timeoutInSeconds: __expectInt(output.timeoutInSeconds),
   } as any;
 };
 
@@ -2871,8 +2871,8 @@ const deserializeAws_json1_0ActivityWorkerLimitExceeded = (
 
 const deserializeAws_json1_0BillingDetails = (output: any, context: __SerdeContext): BillingDetails => {
   return {
-    billedDurationInMilliseconds: __expectNumber(output.billedDurationInMilliseconds),
-    billedMemoryUsedInMB: __expectNumber(output.billedMemoryUsedInMB),
+    billedDurationInMilliseconds: __expectInt(output.billedDurationInMilliseconds),
+    billedMemoryUsedInMB: __expectInt(output.billedMemoryUsedInMB),
   } as any;
 };
 
@@ -3186,7 +3186,7 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
       output.executionTimedOutEventDetails !== undefined && output.executionTimedOutEventDetails !== null
         ? deserializeAws_json1_0ExecutionTimedOutEventDetails(output.executionTimedOutEventDetails, context)
         : undefined,
-    id: __expectNumber(output.id),
+    id: __expectInt(output.id),
     lambdaFunctionFailedEventDetails:
       output.lambdaFunctionFailedEventDetails !== undefined && output.lambdaFunctionFailedEventDetails !== null
         ? deserializeAws_json1_0LambdaFunctionFailedEventDetails(output.lambdaFunctionFailedEventDetails, context)
@@ -3239,7 +3239,7 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
       output.mapStateStartedEventDetails !== undefined && output.mapStateStartedEventDetails !== null
         ? deserializeAws_json1_0MapStateStartedEventDetails(output.mapStateStartedEventDetails, context)
         : undefined,
-    previousEventId: __expectNumber(output.previousEventId),
+    previousEventId: __expectInt(output.previousEventId),
     stateEnteredEventDetails:
       output.stateEnteredEventDetails !== undefined && output.stateEnteredEventDetails !== null
         ? deserializeAws_json1_0StateEnteredEventDetails(output.stateEnteredEventDetails, context)
@@ -3383,7 +3383,7 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventDetails = (
         ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
         : undefined,
     resource: __expectString(output.resource),
-    timeoutInSeconds: __expectNumber(output.timeoutInSeconds),
+    timeoutInSeconds: __expectInt(output.timeoutInSeconds),
   } as any;
 };
 
@@ -3511,7 +3511,7 @@ const deserializeAws_json1_0MapIterationEventDetails = (
   context: __SerdeContext
 ): MapIterationEventDetails => {
   return {
-    index: __expectNumber(output.index),
+    index: __expectInt(output.index),
     name: __expectString(output.name),
   } as any;
 };
@@ -3521,7 +3521,7 @@ const deserializeAws_json1_0MapStateStartedEventDetails = (
   context: __SerdeContext
 ): MapStateStartedEventDetails => {
   return {
-    length: __expectNumber(output.length),
+    length: __expectInt(output.length),
   } as any;
 };
 
@@ -3747,12 +3747,12 @@ const deserializeAws_json1_0TaskScheduledEventDetails = (
   context: __SerdeContext
 ): TaskScheduledEventDetails => {
   return {
-    heartbeatInSeconds: __expectNumber(output.heartbeatInSeconds),
+    heartbeatInSeconds: __expectInt(output.heartbeatInSeconds),
     parameters: __expectString(output.parameters),
     region: __expectString(output.region),
     resource: __expectString(output.resource),
     resourceType: __expectString(output.resourceType),
-    timeoutInSeconds: __expectNumber(output.timeoutInSeconds),
+    timeoutInSeconds: __expectInt(output.timeoutInSeconds),
   } as any;
 };
 

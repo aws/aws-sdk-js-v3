@@ -112,9 +112,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -887,7 +888,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -3504,7 +3505,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     retryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
+    contents.retryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -3578,7 +3579,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     retryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
+    contents.retryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -4646,8 +4647,8 @@ const deserializeAws_restJson1NetworkOriginConfiguration = (
 };
 
 const deserializeAws_restJson1PathElement = (output: any, context: __SerdeContext): PathElement => {
-  if (__expectNumber(output.index) !== undefined) {
-    return { index: __expectNumber(output.index) as any };
+  if (__expectInt(output.index) !== undefined) {
+    return { index: __expectInt(output.index) as any };
   }
   if (__expectString(output.key) !== undefined) {
     return { key: __expectString(output.key) as any };
@@ -4698,9 +4699,9 @@ const deserializeAws_restJson1PolicyGenerationList = (output: any, context: __Se
 
 const deserializeAws_restJson1Position = (output: any, context: __SerdeContext): Position => {
   return {
-    column: __expectNumber(output.column),
-    line: __expectNumber(output.line),
-    offset: __expectNumber(output.offset),
+    column: __expectInt(output.column),
+    line: __expectInt(output.line),
+    offset: __expectInt(output.offset),
   } as any;
 };
 
@@ -4865,8 +4866,8 @@ const deserializeAws_restJson1StatusReason = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Substring = (output: any, context: __SerdeContext): Substring => {
   return {
-    length: __expectNumber(output.length),
-    start: __expectNumber(output.start),
+    length: __expectInt(output.length),
+    start: __expectInt(output.start),
   } as any;
 };
 

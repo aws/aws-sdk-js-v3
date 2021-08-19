@@ -96,7 +96,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1364,7 +1364,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -5712,16 +5712,16 @@ const deserializeAws_restJson1ApiCache = (output: any, context: __SerdeContext):
     atRestEncryptionEnabled: __expectBoolean(output.atRestEncryptionEnabled),
     status: __expectString(output.status),
     transitEncryptionEnabled: __expectBoolean(output.transitEncryptionEnabled),
-    ttl: __expectNumber(output.ttl),
+    ttl: __expectInt(output.ttl),
     type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_restJson1ApiKey = (output: any, context: __SerdeContext): ApiKey => {
   return {
-    deletes: __expectNumber(output.deletes),
+    deletes: __expectInt(output.deletes),
     description: __expectString(output.description),
-    expires: __expectNumber(output.expires),
+    expires: __expectInt(output.expires),
     id: __expectString(output.id),
   } as any;
 };
@@ -5760,7 +5760,7 @@ const deserializeAws_restJson1CachingConfig = (output: any, context: __SerdeCont
       output.cachingKeys !== undefined && output.cachingKeys !== null
         ? deserializeAws_restJson1CachingKeys(output.cachingKeys, context)
         : undefined,
-    ttl: __expectNumber(output.ttl),
+    ttl: __expectInt(output.ttl),
   } as any;
 };
 
@@ -5826,9 +5826,9 @@ const deserializeAws_restJson1DataSources = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DeltaSyncConfig = (output: any, context: __SerdeContext): DeltaSyncConfig => {
   return {
-    baseTableTTL: __expectNumber(output.baseTableTTL),
+    baseTableTTL: __expectInt(output.baseTableTTL),
     deltaSyncTableName: __expectString(output.deltaSyncTableName),
-    deltaSyncTableTTL: __expectNumber(output.deltaSyncTableTTL),
+    deltaSyncTableTTL: __expectInt(output.deltaSyncTableTTL),
   } as any;
 };
 
@@ -5962,7 +5962,7 @@ const deserializeAws_restJson1LambdaAuthorizerConfig = (
   context: __SerdeContext
 ): LambdaAuthorizerConfig => {
   return {
-    authorizerResultTtlInSeconds: __expectNumber(output.authorizerResultTtlInSeconds),
+    authorizerResultTtlInSeconds: __expectInt(output.authorizerResultTtlInSeconds),
     authorizerUri: __expectString(output.authorizerUri),
     identityValidationExpression: __expectString(output.identityValidationExpression),
   } as any;
@@ -6011,9 +6011,9 @@ const deserializeAws_restJson1MapOfStringToString = (
 
 const deserializeAws_restJson1OpenIDConnectConfig = (output: any, context: __SerdeContext): OpenIDConnectConfig => {
   return {
-    authTTL: __expectNumber(output.authTTL),
+    authTTL: __expectInt(output.authTTL),
     clientId: __expectString(output.clientId),
-    iatTTL: __expectNumber(output.iatTTL),
+    iatTTL: __expectInt(output.iatTTL),
     issuer: __expectString(output.issuer),
   } as any;
 };

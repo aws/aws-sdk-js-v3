@@ -486,6 +486,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -15591,7 +15592,7 @@ const deserializeAws_restXmlActiveTrustedKeyGroups = (output: any, context: __Se
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -15615,7 +15616,7 @@ const deserializeAws_restXmlActiveTrustedSigners = (output: any, context: __Serd
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -15632,7 +15633,7 @@ const deserializeAws_restXmlAliases = (output: any, context: __SerdeContext): Al
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -15686,7 +15687,7 @@ const deserializeAws_restXmlAllowedMethods = (output: any, context: __SerdeConte
     CachedMethods: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -15781,13 +15782,13 @@ const deserializeAws_restXmlCacheBehavior = (output: any, context: __SerdeContex
     contents.ForwardedValues = deserializeAws_restXmlForwardedValues(output["ForwardedValues"], context);
   }
   if (output["MinTTL"] !== undefined) {
-    contents.MinTTL = parseInt(output["MinTTL"]);
+    contents.MinTTL = __strictParseInt(output["MinTTL"]) as number;
   }
   if (output["DefaultTTL"] !== undefined) {
-    contents.DefaultTTL = parseInt(output["DefaultTTL"]);
+    contents.DefaultTTL = __strictParseInt(output["DefaultTTL"]) as number;
   }
   if (output["MaxTTL"] !== undefined) {
-    contents.MaxTTL = parseInt(output["MaxTTL"]);
+    contents.MaxTTL = __strictParseInt(output["MaxTTL"]) as number;
   }
   return contents;
 };
@@ -15809,7 +15810,7 @@ const deserializeAws_restXmlCacheBehaviors = (output: any, context: __SerdeConte
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -15829,7 +15830,7 @@ const deserializeAws_restXmlCachedMethods = (output: any, context: __SerdeContex
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -15874,13 +15875,13 @@ const deserializeAws_restXmlCachePolicyConfig = (output: any, context: __SerdeCo
     contents.Name = __expectString(output["Name"]);
   }
   if (output["DefaultTTL"] !== undefined) {
-    contents.DefaultTTL = parseInt(output["DefaultTTL"]);
+    contents.DefaultTTL = __strictParseInt(output["DefaultTTL"]) as number;
   }
   if (output["MaxTTL"] !== undefined) {
-    contents.MaxTTL = parseInt(output["MaxTTL"]);
+    contents.MaxTTL = __strictParseInt(output["MaxTTL"]) as number;
   }
   if (output["MinTTL"] !== undefined) {
-    contents.MinTTL = parseInt(output["MinTTL"]);
+    contents.MinTTL = __strictParseInt(output["MinTTL"]) as number;
   }
   if (output["ParametersInCacheKeyAndForwardedToOrigin"] !== undefined) {
     contents.ParametersInCacheKeyAndForwardedToOrigin = deserializeAws_restXmlParametersInCacheKeyAndForwardedToOrigin(
@@ -15936,10 +15937,10 @@ const deserializeAws_restXmlCachePolicyList = (output: any, context: __SerdeCont
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16055,13 +16056,13 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16150,10 +16151,10 @@ const deserializeAws_restXmlConflictingAliasesList = (output: any, context: __Se
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16219,7 +16220,7 @@ const deserializeAws_restXmlContentTypeProfiles = (output: any, context: __Serde
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16250,7 +16251,7 @@ const deserializeAws_restXmlCookieNames = (output: any, context: __SerdeContext)
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16283,7 +16284,7 @@ const deserializeAws_restXmlCustomErrorResponse = (output: any, context: __Serde
     ErrorCachingMinTTL: undefined,
   };
   if (output["ErrorCode"] !== undefined) {
-    contents.ErrorCode = parseInt(output["ErrorCode"]);
+    contents.ErrorCode = __strictParseInt(output["ErrorCode"]) as number;
   }
   if (output["ResponsePagePath"] !== undefined) {
     contents.ResponsePagePath = __expectString(output["ResponsePagePath"]);
@@ -16292,7 +16293,7 @@ const deserializeAws_restXmlCustomErrorResponse = (output: any, context: __Serde
     contents.ResponseCode = __expectString(output["ResponseCode"]);
   }
   if (output["ErrorCachingMinTTL"] !== undefined) {
-    contents.ErrorCachingMinTTL = parseInt(output["ErrorCachingMinTTL"]);
+    contents.ErrorCachingMinTTL = __strictParseInt(output["ErrorCachingMinTTL"]) as number;
   }
   return contents;
 };
@@ -16314,7 +16315,7 @@ const deserializeAws_restXmlCustomErrorResponses = (output: any, context: __Serd
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16334,7 +16335,7 @@ const deserializeAws_restXmlCustomHeaders = (output: any, context: __SerdeContex
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16358,10 +16359,10 @@ const deserializeAws_restXmlCustomOriginConfig = (output: any, context: __SerdeC
     OriginKeepaliveTimeout: undefined,
   };
   if (output["HTTPPort"] !== undefined) {
-    contents.HTTPPort = parseInt(output["HTTPPort"]);
+    contents.HTTPPort = __strictParseInt(output["HTTPPort"]) as number;
   }
   if (output["HTTPSPort"] !== undefined) {
-    contents.HTTPSPort = parseInt(output["HTTPSPort"]);
+    contents.HTTPSPort = __strictParseInt(output["HTTPSPort"]) as number;
   }
   if (output["OriginProtocolPolicy"] !== undefined) {
     contents.OriginProtocolPolicy = __expectString(output["OriginProtocolPolicy"]);
@@ -16370,10 +16371,10 @@ const deserializeAws_restXmlCustomOriginConfig = (output: any, context: __SerdeC
     contents.OriginSslProtocols = deserializeAws_restXmlOriginSslProtocols(output["OriginSslProtocols"], context);
   }
   if (output["OriginReadTimeout"] !== undefined) {
-    contents.OriginReadTimeout = parseInt(output["OriginReadTimeout"]);
+    contents.OriginReadTimeout = __strictParseInt(output["OriginReadTimeout"]) as number;
   }
   if (output["OriginKeepaliveTimeout"] !== undefined) {
-    contents.OriginKeepaliveTimeout = parseInt(output["OriginKeepaliveTimeout"]);
+    contents.OriginKeepaliveTimeout = __strictParseInt(output["OriginKeepaliveTimeout"]) as number;
   }
   return contents;
 };
@@ -16444,13 +16445,13 @@ const deserializeAws_restXmlDefaultCacheBehavior = (output: any, context: __Serd
     contents.ForwardedValues = deserializeAws_restXmlForwardedValues(output["ForwardedValues"], context);
   }
   if (output["MinTTL"] !== undefined) {
-    contents.MinTTL = parseInt(output["MinTTL"]);
+    contents.MinTTL = __strictParseInt(output["MinTTL"]) as number;
   }
   if (output["DefaultTTL"] !== undefined) {
-    contents.DefaultTTL = parseInt(output["DefaultTTL"]);
+    contents.DefaultTTL = __strictParseInt(output["DefaultTTL"]) as number;
   }
   if (output["MaxTTL"] !== undefined) {
-    contents.MaxTTL = parseInt(output["MaxTTL"]);
+    contents.MaxTTL = __strictParseInt(output["MaxTTL"]) as number;
   }
   return contents;
 };
@@ -16481,7 +16482,7 @@ const deserializeAws_restXmlDistribution = (output: any, context: __SerdeContext
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
   }
   if (output["InProgressInvalidationBatches"] !== undefined) {
-    contents.InProgressInvalidationBatches = parseInt(output["InProgressInvalidationBatches"]);
+    contents.InProgressInvalidationBatches = __strictParseInt(output["InProgressInvalidationBatches"]) as number;
   }
   if (output["DomainName"] !== undefined) {
     contents.DomainName = __expectString(output["DomainName"]);
@@ -16600,13 +16601,13 @@ const deserializeAws_restXmlDistributionIdList = (output: any, context: __SerdeC
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16647,13 +16648,13 @@ const deserializeAws_restXmlDistributionList = (output: any, context: __SerdeCon
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16776,7 +16777,7 @@ const deserializeAws_restXmlEncryptionEntities = (output: any, context: __SerdeC
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16910,10 +16911,10 @@ const deserializeAws_restXmlFieldLevelEncryptionList = (
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -16990,10 +16991,10 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileList = (
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17127,7 +17128,7 @@ const deserializeAws_restXmlFieldPatterns = (output: any, context: __SerdeContex
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17194,7 +17195,7 @@ const deserializeAws_restXmlFunctionAssociations = (output: any, context: __Serd
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17244,10 +17245,10 @@ const deserializeAws_restXmlFunctionList = (output: any, context: __SerdeContext
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17326,7 +17327,7 @@ const deserializeAws_restXmlGeoRestriction = (output: any, context: __SerdeConte
     contents.RestrictionType = __expectString(output["RestrictionType"]);
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17354,7 +17355,7 @@ const deserializeAws_restXmlHeaders = (output: any, context: __SerdeContext): He
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17417,13 +17418,13 @@ const deserializeAws_restXmlInvalidationList = (output: any, context: __SerdeCon
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17519,10 +17520,10 @@ const deserializeAws_restXmlKeyGroupList = (output: any, context: __SerdeContext
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17574,7 +17575,7 @@ const deserializeAws_restXmlKeyPairIds = (output: any, context: __SerdeContext):
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17668,7 +17669,7 @@ const deserializeAws_restXmlLambdaFunctionAssociations = (
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17770,10 +17771,10 @@ const deserializeAws_restXmlOrigin = (output: any, context: __SerdeContext): Ori
     contents.CustomOriginConfig = deserializeAws_restXmlCustomOriginConfig(output["CustomOriginConfig"], context);
   }
   if (output["ConnectionAttempts"] !== undefined) {
-    contents.ConnectionAttempts = parseInt(output["ConnectionAttempts"]);
+    contents.ConnectionAttempts = __strictParseInt(output["ConnectionAttempts"]) as number;
   }
   if (output["ConnectionTimeout"] !== undefined) {
-    contents.ConnectionTimeout = parseInt(output["ConnectionTimeout"]);
+    contents.ConnectionTimeout = __strictParseInt(output["ConnectionTimeout"]) as number;
   }
   if (output["OriginShield"] !== undefined) {
     contents.OriginShield = deserializeAws_restXmlOriginShield(output["OriginShield"], context);
@@ -17875,7 +17876,7 @@ const deserializeAws_restXmlOriginGroupMembers = (output: any, context: __SerdeC
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -17895,7 +17896,7 @@ const deserializeAws_restXmlOriginGroups = (output: any, context: __SerdeContext
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18021,10 +18022,10 @@ const deserializeAws_restXmlOriginRequestPolicyList = (
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18092,7 +18093,7 @@ const deserializeAws_restXmlOrigins = (output: any, context: __SerdeContext): Or
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18123,7 +18124,7 @@ const deserializeAws_restXmlOriginSslProtocols = (output: any, context: __SerdeC
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18186,7 +18187,7 @@ const deserializeAws_restXmlPaths = (output: any, context: __SerdeContext): Path
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18259,10 +18260,10 @@ const deserializeAws_restXmlPublicKeyList = (output: any, context: __SerdeContex
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18358,7 +18359,7 @@ const deserializeAws_restXmlQueryArgProfiles = (output: any, context: __SerdeCon
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18378,7 +18379,7 @@ const deserializeAws_restXmlQueryStringCacheKeys = (output: any, context: __Serd
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18409,7 +18410,7 @@ const deserializeAws_restXmlQueryStringNames = (output: any, context: __SerdeCon
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18449,7 +18450,7 @@ const deserializeAws_restXmlRealtimeLogConfig = (output: any, context: __SerdeCo
     contents.Name = __expectString(output["Name"]);
   }
   if (output["SamplingRate"] !== undefined) {
-    contents.SamplingRate = parseInt(output["SamplingRate"]);
+    contents.SamplingRate = __strictParseInt(output["SamplingRate"]) as number;
   }
   if (output.EndPoints === "") {
     contents.EndPoints = [];
@@ -18489,7 +18490,7 @@ const deserializeAws_restXmlRealtimeLogConfigs = (output: any, context: __SerdeC
     NextMarker: undefined,
   };
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18602,7 +18603,7 @@ const deserializeAws_restXmlStatusCodeList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return parseInt(entry);
+      return __strictParseInt(entry) as number;
     });
 };
 
@@ -18612,7 +18613,7 @@ const deserializeAws_restXmlStatusCodes = (output: any, context: __SerdeContext)
     Items: undefined,
   };
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18723,13 +18724,13 @@ const deserializeAws_restXmlStreamingDistributionList = (
     contents.NextMarker = __expectString(output["NextMarker"]);
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(output["MaxItems"]);
+    contents.MaxItems = __strictParseInt(output["MaxItems"]) as number;
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18919,7 +18920,7 @@ const deserializeAws_restXmlTrustedKeyGroups = (output: any, context: __SerdeCon
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -18943,7 +18944,7 @@ const deserializeAws_restXmlTrustedSigners = (output: any, context: __SerdeConte
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(output["Quantity"]);
+    contents.Quantity = __strictParseInt(output["Quantity"]) as number;
   }
   if (output.Items === "") {
     contents.Items = [];

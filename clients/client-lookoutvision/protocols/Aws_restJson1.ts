@@ -52,10 +52,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -716,7 +717,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -2675,7 +2676,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     RetryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
+    contents.RetryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -2756,7 +2757,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     ServiceCode: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
+    contents.RetryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -2881,10 +2882,10 @@ const deserializeAws_restJson1DatasetEntryList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DatasetImageStats = (output: any, context: __SerdeContext): DatasetImageStats => {
   return {
-    Anomaly: __expectNumber(output.Anomaly),
-    Labeled: __expectNumber(output.Labeled),
-    Normal: __expectNumber(output.Normal),
-    Total: __expectNumber(output.Total),
+    Anomaly: __expectInt(output.Anomaly),
+    Labeled: __expectInt(output.Labeled),
+    Normal: __expectInt(output.Normal),
+    Total: __expectInt(output.Total),
   } as any;
 };
 
@@ -2913,7 +2914,7 @@ const deserializeAws_restJson1DatasetMetadataList = (output: any, context: __Ser
 
 const deserializeAws_restJson1DetectAnomalyResult = (output: any, context: __SerdeContext): DetectAnomalyResult => {
   return {
-    Confidence: __handleFloat(output.Confidence),
+    Confidence: __limitedParseFloat(output.Confidence),
     IsAnomalous: __expectBoolean(output.IsAnomalous),
     Source:
       output.Source !== undefined && output.Source !== null
@@ -2994,9 +2995,9 @@ const deserializeAws_restJson1ModelMetadataList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ModelPerformance = (output: any, context: __SerdeContext): ModelPerformance => {
   return {
-    F1Score: __handleFloat(output.F1Score),
-    Precision: __handleFloat(output.Precision),
-    Recall: __handleFloat(output.Recall),
+    F1Score: __limitedParseFloat(output.F1Score),
+    Precision: __limitedParseFloat(output.Precision),
+    Recall: __limitedParseFloat(output.Recall),
   } as any;
 };
 

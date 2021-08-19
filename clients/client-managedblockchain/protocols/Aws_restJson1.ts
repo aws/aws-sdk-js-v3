@@ -74,7 +74,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -788,7 +788,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -3427,9 +3427,9 @@ const deserializeAws_restJson1ApprovalThresholdPolicy = (
   context: __SerdeContext
 ): ApprovalThresholdPolicy => {
   return {
-    ProposalDurationInHours: __expectNumber(output.ProposalDurationInHours),
+    ProposalDurationInHours: __expectInt(output.ProposalDurationInHours),
     ThresholdComparator: __expectString(output.ThresholdComparator),
-    ThresholdPercentage: __expectNumber(output.ThresholdPercentage),
+    ThresholdPercentage: __expectInt(output.ThresholdPercentage),
   } as any;
 };
 
@@ -3816,8 +3816,8 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
         ? new Date(output.ExpirationDate)
         : undefined,
     NetworkId: __expectString(output.NetworkId),
-    NoVoteCount: __expectNumber(output.NoVoteCount),
-    OutstandingVoteCount: __expectNumber(output.OutstandingVoteCount),
+    NoVoteCount: __expectInt(output.NoVoteCount),
+    OutstandingVoteCount: __expectInt(output.OutstandingVoteCount),
     ProposalId: __expectString(output.ProposalId),
     ProposedByMemberId: __expectString(output.ProposedByMemberId),
     ProposedByMemberName: __expectString(output.ProposedByMemberName),
@@ -3826,7 +3826,7 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1OutputTagMap(output.Tags, context)
         : undefined,
-    YesVoteCount: __expectNumber(output.YesVoteCount),
+    YesVoteCount: __expectInt(output.YesVoteCount),
   } as any;
 };
 

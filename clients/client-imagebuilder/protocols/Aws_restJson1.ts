@@ -186,7 +186,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1525,7 +1525,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -8254,7 +8254,7 @@ const deserializeAws_restJson1DistributionConfiguration = (
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
-    timeoutMinutes: __expectNumber(output.timeoutMinutes),
+    timeoutMinutes: __expectInt(output.timeoutMinutes),
   } as any;
 };
 
@@ -8311,10 +8311,10 @@ const deserializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
   return {
     deleteOnTermination: __expectBoolean(output.deleteOnTermination),
     encrypted: __expectBoolean(output.encrypted),
-    iops: __expectNumber(output.iops),
+    iops: __expectInt(output.iops),
     kmsKeyId: __expectString(output.kmsKeyId),
     snapshotId: __expectString(output.snapshotId),
-    volumeSize: __expectNumber(output.volumeSize),
+    volumeSize: __expectInt(output.volumeSize),
     volumeType: __expectString(output.volumeType),
   } as any;
 };
@@ -8532,7 +8532,7 @@ const deserializeAws_restJson1ImageTestsConfiguration = (
 ): ImageTestsConfiguration => {
   return {
     imageTestsEnabled: __expectBoolean(output.imageTestsEnabled),
-    timeoutMinutes: __expectNumber(output.timeoutMinutes),
+    timeoutMinutes: __expectInt(output.timeoutMinutes),
   } as any;
 };
 

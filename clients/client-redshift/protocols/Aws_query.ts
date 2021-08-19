@@ -781,6 +781,8 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -16747,10 +16749,10 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
     contents.ClusterCreateTime = new Date(output["ClusterCreateTime"]);
   }
   if (output["AutomatedSnapshotRetentionPeriod"] !== undefined) {
-    contents.AutomatedSnapshotRetentionPeriod = parseInt(output["AutomatedSnapshotRetentionPeriod"]);
+    contents.AutomatedSnapshotRetentionPeriod = __strictParseInt(output["AutomatedSnapshotRetentionPeriod"]) as number;
   }
   if (output["ManualSnapshotRetentionPeriod"] !== undefined) {
-    contents.ManualSnapshotRetentionPeriod = parseInt(output["ManualSnapshotRetentionPeriod"]);
+    contents.ManualSnapshotRetentionPeriod = __strictParseInt(output["ManualSnapshotRetentionPeriod"]) as number;
   }
   if (output.ClusterSecurityGroups === "") {
     contents.ClusterSecurityGroups = [];
@@ -16810,7 +16812,7 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
     contents.AllowVersionUpgrade = __parseBoolean(output["AllowVersionUpgrade"]);
   }
   if (output["NumberOfNodes"] !== undefined) {
-    contents.NumberOfNodes = parseInt(output["NumberOfNodes"]);
+    contents.NumberOfNodes = __strictParseInt(output["NumberOfNodes"]) as number;
   }
   if (output["PubliclyAccessible"] !== undefined) {
     contents.PubliclyAccessible = __parseBoolean(output["PubliclyAccessible"]);
@@ -16924,7 +16926,7 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
     contents.ClusterNamespaceArn = __expectString(output["ClusterNamespaceArn"]);
   }
   if (output["TotalStorageCapacityInMegaBytes"] !== undefined) {
-    contents.TotalStorageCapacityInMegaBytes = parseInt(output["TotalStorageCapacityInMegaBytes"]);
+    contents.TotalStorageCapacityInMegaBytes = __strictParseInt(output["TotalStorageCapacityInMegaBytes"]) as number;
   }
   if (output["AquaConfiguration"] !== undefined) {
     contents.AquaConfiguration = deserializeAws_queryAquaConfiguration(output["AquaConfiguration"], context);
@@ -17535,10 +17537,10 @@ const deserializeAws_queryClusterSnapshotCopyStatus = (
     contents.DestinationRegion = __expectString(output["DestinationRegion"]);
   }
   if (output["RetentionPeriod"] !== undefined) {
-    contents.RetentionPeriod = parseInt(output["RetentionPeriod"]);
+    contents.RetentionPeriod = __strictParseInt(output["RetentionPeriod"]) as number;
   }
   if (output["ManualSnapshotRetentionPeriod"] !== undefined) {
-    contents.ManualSnapshotRetentionPeriod = parseInt(output["ManualSnapshotRetentionPeriod"]);
+    contents.ManualSnapshotRetentionPeriod = __strictParseInt(output["ManualSnapshotRetentionPeriod"]) as number;
   }
   if (output["SnapshotCopyGrantName"] !== undefined) {
     contents.SnapshotCopyGrantName = __expectString(output["SnapshotCopyGrantName"]);
@@ -17912,10 +17914,12 @@ const deserializeAws_queryCustomerStorageMessage = (output: any, context: __Serd
     TotalProvisionedStorageInMegaBytes: undefined,
   };
   if (output["TotalBackupSizeInMegaBytes"] !== undefined) {
-    contents.TotalBackupSizeInMegaBytes = parseFloat(output["TotalBackupSizeInMegaBytes"]);
+    contents.TotalBackupSizeInMegaBytes = __strictParseFloat(output["TotalBackupSizeInMegaBytes"]) as number;
   }
   if (output["TotalProvisionedStorageInMegaBytes"] !== undefined) {
-    contents.TotalProvisionedStorageInMegaBytes = parseFloat(output["TotalProvisionedStorageInMegaBytes"]);
+    contents.TotalProvisionedStorageInMegaBytes = __strictParseFloat(
+      output["TotalProvisionedStorageInMegaBytes"]
+    ) as number;
   }
   return contents;
 };
@@ -18005,19 +18009,21 @@ const deserializeAws_queryDataTransferProgress = (output: any, context: __SerdeC
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CurrentRateInMegaBytesPerSecond"] !== undefined) {
-    contents.CurrentRateInMegaBytesPerSecond = parseFloat(output["CurrentRateInMegaBytesPerSecond"]);
+    contents.CurrentRateInMegaBytesPerSecond = __strictParseFloat(output["CurrentRateInMegaBytesPerSecond"]) as number;
   }
   if (output["TotalDataInMegaBytes"] !== undefined) {
-    contents.TotalDataInMegaBytes = parseInt(output["TotalDataInMegaBytes"]);
+    contents.TotalDataInMegaBytes = __strictParseInt(output["TotalDataInMegaBytes"]) as number;
   }
   if (output["DataTransferredInMegaBytes"] !== undefined) {
-    contents.DataTransferredInMegaBytes = parseInt(output["DataTransferredInMegaBytes"]);
+    contents.DataTransferredInMegaBytes = __strictParseInt(output["DataTransferredInMegaBytes"]) as number;
   }
   if (output["EstimatedTimeToCompletionInSeconds"] !== undefined) {
-    contents.EstimatedTimeToCompletionInSeconds = parseInt(output["EstimatedTimeToCompletionInSeconds"]);
+    contents.EstimatedTimeToCompletionInSeconds = __strictParseInt(
+      output["EstimatedTimeToCompletionInSeconds"]
+    ) as number;
   }
   if (output["ElapsedTimeInSeconds"] !== undefined) {
-    contents.ElapsedTimeInSeconds = parseInt(output["ElapsedTimeInSeconds"]);
+    contents.ElapsedTimeInSeconds = __strictParseInt(output["ElapsedTimeInSeconds"]) as number;
   }
   return contents;
 };
@@ -18392,7 +18398,7 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
     contents.Address = __expectString(output["Address"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
+    contents.Port = __strictParseInt(output["Port"]) as number;
   }
   if (output.VpcEndpoints === "") {
     contents.VpcEndpoints = [];
@@ -18438,7 +18444,7 @@ const deserializeAws_queryEndpointAccess = (output: any, context: __SerdeContext
     contents.EndpointCreateTime = new Date(output["EndpointCreateTime"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
+    contents.Port = __strictParseInt(output["Port"]) as number;
   }
   if (output["Address"] !== undefined) {
     contents.Address = __expectString(output["Address"]);
@@ -18545,7 +18551,7 @@ const deserializeAws_queryEndpointAuthorization = (output: any, context: __Serde
     );
   }
   if (output["EndpointCount"] !== undefined) {
-    contents.EndpointCount = parseInt(output["EndpointCount"]);
+    contents.EndpointCount = __strictParseInt(output["EndpointCount"]) as number;
   }
   return contents;
 };
@@ -19901,10 +19907,10 @@ const deserializeAws_queryNodeConfigurationOption = (output: any, context: __Ser
     contents.NodeType = __expectString(output["NodeType"]);
   }
   if (output["NumberOfNodes"] !== undefined) {
-    contents.NumberOfNodes = parseInt(output["NumberOfNodes"]);
+    contents.NumberOfNodes = __strictParseInt(output["NumberOfNodes"]) as number;
   }
   if (output["EstimatedDiskUtilizationPercent"] !== undefined) {
-    contents.EstimatedDiskUtilizationPercent = parseFloat(output["EstimatedDiskUtilizationPercent"]);
+    contents.EstimatedDiskUtilizationPercent = __strictParseFloat(output["EstimatedDiskUtilizationPercent"]) as number;
   }
   if (output["Mode"] !== undefined) {
     contents.Mode = __expectString(output["Mode"]);
@@ -20233,7 +20239,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     contents.NodeType = __expectString(output["NodeType"]);
   }
   if (output["NumberOfNodes"] !== undefined) {
-    contents.NumberOfNodes = parseInt(output["NumberOfNodes"]);
+    contents.NumberOfNodes = __strictParseInt(output["NumberOfNodes"]) as number;
   }
   if (output["ClusterType"] !== undefined) {
     contents.ClusterType = __expectString(output["ClusterType"]);
@@ -20242,7 +20248,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     contents.ClusterVersion = __expectString(output["ClusterVersion"]);
   }
   if (output["AutomatedSnapshotRetentionPeriod"] !== undefined) {
-    contents.AutomatedSnapshotRetentionPeriod = parseInt(output["AutomatedSnapshotRetentionPeriod"]);
+    contents.AutomatedSnapshotRetentionPeriod = __strictParseInt(output["AutomatedSnapshotRetentionPeriod"]) as number;
   }
   if (output["ClusterIdentifier"] !== undefined) {
     contents.ClusterIdentifier = __expectString(output["ClusterIdentifier"]);
@@ -20291,7 +20297,7 @@ const deserializeAws_queryRecurringCharge = (output: any, context: __SerdeContex
     RecurringChargeFrequency: undefined,
   };
   if (output["RecurringChargeAmount"] !== undefined) {
-    contents.RecurringChargeAmount = parseFloat(output["RecurringChargeAmount"]);
+    contents.RecurringChargeAmount = __strictParseFloat(output["RecurringChargeAmount"]) as number;
   }
   if (output["RecurringChargeFrequency"] !== undefined) {
     contents.RecurringChargeFrequency = __expectString(output["RecurringChargeFrequency"]);
@@ -20339,19 +20345,19 @@ const deserializeAws_queryReservedNode = (output: any, context: __SerdeContext):
     contents.StartTime = new Date(output["StartTime"]);
   }
   if (output["Duration"] !== undefined) {
-    contents.Duration = parseInt(output["Duration"]);
+    contents.Duration = __strictParseInt(output["Duration"]) as number;
   }
   if (output["FixedPrice"] !== undefined) {
-    contents.FixedPrice = parseFloat(output["FixedPrice"]);
+    contents.FixedPrice = __strictParseFloat(output["FixedPrice"]) as number;
   }
   if (output["UsagePrice"] !== undefined) {
-    contents.UsagePrice = parseFloat(output["UsagePrice"]);
+    contents.UsagePrice = __strictParseFloat(output["UsagePrice"]) as number;
   }
   if (output["CurrencyCode"] !== undefined) {
     contents.CurrencyCode = __expectString(output["CurrencyCode"]);
   }
   if (output["NodeCount"] !== undefined) {
-    contents.NodeCount = parseInt(output["NodeCount"]);
+    contents.NodeCount = __strictParseInt(output["NodeCount"]) as number;
   }
   if (output["State"] !== undefined) {
     contents.State = __expectString(output["State"]);
@@ -20443,13 +20449,13 @@ const deserializeAws_queryReservedNodeOffering = (output: any, context: __SerdeC
     contents.NodeType = __expectString(output["NodeType"]);
   }
   if (output["Duration"] !== undefined) {
-    contents.Duration = parseInt(output["Duration"]);
+    contents.Duration = __strictParseInt(output["Duration"]) as number;
   }
   if (output["FixedPrice"] !== undefined) {
-    contents.FixedPrice = parseFloat(output["FixedPrice"]);
+    contents.FixedPrice = __strictParseFloat(output["FixedPrice"]) as number;
   }
   if (output["UsagePrice"] !== undefined) {
-    contents.UsagePrice = parseFloat(output["UsagePrice"]);
+    contents.UsagePrice = __strictParseFloat(output["UsagePrice"]) as number;
   }
   if (output["CurrencyCode"] !== undefined) {
     contents.CurrencyCode = __expectString(output["CurrencyCode"]);
@@ -20573,7 +20579,7 @@ const deserializeAws_queryResizeClusterMessage = (output: any, context: __SerdeC
     contents.NodeType = __expectString(output["NodeType"]);
   }
   if (output["NumberOfNodes"] !== undefined) {
-    contents.NumberOfNodes = parseInt(output["NumberOfNodes"]);
+    contents.NumberOfNodes = __strictParseInt(output["NumberOfNodes"]) as number;
   }
   if (output["Classic"] !== undefined) {
     contents.Classic = __parseBoolean(output["Classic"]);
@@ -20638,7 +20644,7 @@ const deserializeAws_queryResizeProgressMessage = (output: any, context: __Serde
     contents.TargetNodeType = __expectString(output["TargetNodeType"]);
   }
   if (output["TargetNumberOfNodes"] !== undefined) {
-    contents.TargetNumberOfNodes = parseInt(output["TargetNumberOfNodes"]);
+    contents.TargetNumberOfNodes = __strictParseInt(output["TargetNumberOfNodes"]) as number;
   }
   if (output["TargetClusterType"] !== undefined) {
     contents.TargetClusterType = __expectString(output["TargetClusterType"]);
@@ -20674,19 +20680,23 @@ const deserializeAws_queryResizeProgressMessage = (output: any, context: __Serde
     );
   }
   if (output["AvgResizeRateInMegaBytesPerSecond"] !== undefined) {
-    contents.AvgResizeRateInMegaBytesPerSecond = parseFloat(output["AvgResizeRateInMegaBytesPerSecond"]);
+    contents.AvgResizeRateInMegaBytesPerSecond = __strictParseFloat(
+      output["AvgResizeRateInMegaBytesPerSecond"]
+    ) as number;
   }
   if (output["TotalResizeDataInMegaBytes"] !== undefined) {
-    contents.TotalResizeDataInMegaBytes = parseInt(output["TotalResizeDataInMegaBytes"]);
+    contents.TotalResizeDataInMegaBytes = __strictParseInt(output["TotalResizeDataInMegaBytes"]) as number;
   }
   if (output["ProgressInMegaBytes"] !== undefined) {
-    contents.ProgressInMegaBytes = parseInt(output["ProgressInMegaBytes"]);
+    contents.ProgressInMegaBytes = __strictParseInt(output["ProgressInMegaBytes"]) as number;
   }
   if (output["ElapsedTimeInSeconds"] !== undefined) {
-    contents.ElapsedTimeInSeconds = parseInt(output["ElapsedTimeInSeconds"]);
+    contents.ElapsedTimeInSeconds = __strictParseInt(output["ElapsedTimeInSeconds"]) as number;
   }
   if (output["EstimatedTimeToCompletionInSeconds"] !== undefined) {
-    contents.EstimatedTimeToCompletionInSeconds = parseInt(output["EstimatedTimeToCompletionInSeconds"]);
+    contents.EstimatedTimeToCompletionInSeconds = __strictParseInt(
+      output["EstimatedTimeToCompletionInSeconds"]
+    ) as number;
   }
   if (output["ResizeType"] !== undefined) {
     contents.ResizeType = __expectString(output["ResizeType"]);
@@ -20698,7 +20708,7 @@ const deserializeAws_queryResizeProgressMessage = (output: any, context: __Serde
     contents.TargetEncryptionType = __expectString(output["TargetEncryptionType"]);
   }
   if (output["DataTransferProgressPercent"] !== undefined) {
-    contents.DataTransferProgressPercent = parseFloat(output["DataTransferProgressPercent"]);
+    contents.DataTransferProgressPercent = __strictParseFloat(output["DataTransferProgressPercent"]) as number;
   }
   return contents;
 };
@@ -20750,19 +20760,23 @@ const deserializeAws_queryRestoreStatus = (output: any, context: __SerdeContext)
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CurrentRestoreRateInMegaBytesPerSecond"] !== undefined) {
-    contents.CurrentRestoreRateInMegaBytesPerSecond = parseFloat(output["CurrentRestoreRateInMegaBytesPerSecond"]);
+    contents.CurrentRestoreRateInMegaBytesPerSecond = __strictParseFloat(
+      output["CurrentRestoreRateInMegaBytesPerSecond"]
+    ) as number;
   }
   if (output["SnapshotSizeInMegaBytes"] !== undefined) {
-    contents.SnapshotSizeInMegaBytes = parseInt(output["SnapshotSizeInMegaBytes"]);
+    contents.SnapshotSizeInMegaBytes = __strictParseInt(output["SnapshotSizeInMegaBytes"]) as number;
   }
   if (output["ProgressInMegaBytes"] !== undefined) {
-    contents.ProgressInMegaBytes = parseInt(output["ProgressInMegaBytes"]);
+    contents.ProgressInMegaBytes = __strictParseInt(output["ProgressInMegaBytes"]) as number;
   }
   if (output["ElapsedTimeInSeconds"] !== undefined) {
-    contents.ElapsedTimeInSeconds = parseInt(output["ElapsedTimeInSeconds"]);
+    contents.ElapsedTimeInSeconds = __strictParseInt(output["ElapsedTimeInSeconds"]) as number;
   }
   if (output["EstimatedTimeToCompletionInSeconds"] !== undefined) {
-    contents.EstimatedTimeToCompletionInSeconds = parseInt(output["EstimatedTimeToCompletionInSeconds"]);
+    contents.EstimatedTimeToCompletionInSeconds = __strictParseInt(
+      output["EstimatedTimeToCompletionInSeconds"]
+    ) as number;
   }
   return contents;
 };
@@ -21113,7 +21127,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.Status = __expectString(output["Status"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
+    contents.Port = __strictParseInt(output["Port"]) as number;
   }
   if (output["AvailabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
@@ -21137,7 +21151,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.NodeType = __expectString(output["NodeType"]);
   }
   if (output["NumberOfNodes"] !== undefined) {
-    contents.NumberOfNodes = parseInt(output["NumberOfNodes"]);
+    contents.NumberOfNodes = __strictParseInt(output["NumberOfNodes"]) as number;
   }
   if (output["DBName"] !== undefined) {
     contents.DBName = __expectString(output["DBName"]);
@@ -21170,22 +21184,26 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.OwnerAccount = __expectString(output["OwnerAccount"]);
   }
   if (output["TotalBackupSizeInMegaBytes"] !== undefined) {
-    contents.TotalBackupSizeInMegaBytes = parseFloat(output["TotalBackupSizeInMegaBytes"]);
+    contents.TotalBackupSizeInMegaBytes = __strictParseFloat(output["TotalBackupSizeInMegaBytes"]) as number;
   }
   if (output["ActualIncrementalBackupSizeInMegaBytes"] !== undefined) {
-    contents.ActualIncrementalBackupSizeInMegaBytes = parseFloat(output["ActualIncrementalBackupSizeInMegaBytes"]);
+    contents.ActualIncrementalBackupSizeInMegaBytes = __strictParseFloat(
+      output["ActualIncrementalBackupSizeInMegaBytes"]
+    ) as number;
   }
   if (output["BackupProgressInMegaBytes"] !== undefined) {
-    contents.BackupProgressInMegaBytes = parseFloat(output["BackupProgressInMegaBytes"]);
+    contents.BackupProgressInMegaBytes = __strictParseFloat(output["BackupProgressInMegaBytes"]) as number;
   }
   if (output["CurrentBackupRateInMegaBytesPerSecond"] !== undefined) {
-    contents.CurrentBackupRateInMegaBytesPerSecond = parseFloat(output["CurrentBackupRateInMegaBytesPerSecond"]);
+    contents.CurrentBackupRateInMegaBytesPerSecond = __strictParseFloat(
+      output["CurrentBackupRateInMegaBytesPerSecond"]
+    ) as number;
   }
   if (output["EstimatedSecondsToCompletion"] !== undefined) {
-    contents.EstimatedSecondsToCompletion = parseInt(output["EstimatedSecondsToCompletion"]);
+    contents.EstimatedSecondsToCompletion = __strictParseInt(output["EstimatedSecondsToCompletion"]) as number;
   }
   if (output["ElapsedTimeInSeconds"] !== undefined) {
-    contents.ElapsedTimeInSeconds = parseInt(output["ElapsedTimeInSeconds"]);
+    contents.ElapsedTimeInSeconds = __strictParseInt(output["ElapsedTimeInSeconds"]) as number;
   }
   if (output["SourceRegion"] !== undefined) {
     contents.SourceRegion = __expectString(output["SourceRegion"]);
@@ -21212,10 +21230,10 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.MaintenanceTrackName = __expectString(output["MaintenanceTrackName"]);
   }
   if (output["ManualSnapshotRetentionPeriod"] !== undefined) {
-    contents.ManualSnapshotRetentionPeriod = parseInt(output["ManualSnapshotRetentionPeriod"]);
+    contents.ManualSnapshotRetentionPeriod = __strictParseInt(output["ManualSnapshotRetentionPeriod"]) as number;
   }
   if (output["ManualSnapshotRemainingDays"] !== undefined) {
-    contents.ManualSnapshotRemainingDays = parseInt(output["ManualSnapshotRemainingDays"]);
+    contents.ManualSnapshotRemainingDays = __strictParseInt(output["ManualSnapshotRemainingDays"]) as number;
   }
   if (output["SnapshotRetentionStartTime"] !== undefined) {
     contents.SnapshotRetentionStartTime = new Date(output["SnapshotRetentionStartTime"]);
@@ -21464,7 +21482,7 @@ const deserializeAws_querySnapshotSchedule = (output: any, context: __SerdeConte
     );
   }
   if (output["AssociatedClusterCount"] !== undefined) {
-    contents.AssociatedClusterCount = parseInt(output["AssociatedClusterCount"]);
+    contents.AssociatedClusterCount = __strictParseInt(output["AssociatedClusterCount"]) as number;
   }
   if (output.AssociatedClusters === "") {
     contents.AssociatedClusters = [];
@@ -21797,10 +21815,10 @@ const deserializeAws_queryTableRestoreStatus = (output: any, context: __SerdeCon
     contents.RequestTime = new Date(output["RequestTime"]);
   }
   if (output["ProgressInMegaBytes"] !== undefined) {
-    contents.ProgressInMegaBytes = parseInt(output["ProgressInMegaBytes"]);
+    contents.ProgressInMegaBytes = __strictParseInt(output["ProgressInMegaBytes"]) as number;
   }
   if (output["TotalDataInMegaBytes"] !== undefined) {
-    contents.TotalDataInMegaBytes = parseInt(output["TotalDataInMegaBytes"]);
+    contents.TotalDataInMegaBytes = __strictParseInt(output["TotalDataInMegaBytes"]) as number;
   }
   if (output["ClusterIdentifier"] !== undefined) {
     contents.ClusterIdentifier = __expectString(output["ClusterIdentifier"]);
@@ -22094,7 +22112,7 @@ const deserializeAws_queryUsageLimit = (output: any, context: __SerdeContext): U
     contents.LimitType = __expectString(output["LimitType"]);
   }
   if (output["Amount"] !== undefined) {
-    contents.Amount = parseInt(output["Amount"]);
+    contents.Amount = __strictParseInt(output["Amount"]) as number;
   }
   if (output["Period"] !== undefined) {
     contents.Period = __expectString(output["Period"]);

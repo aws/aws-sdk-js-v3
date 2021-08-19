@@ -129,9 +129,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2409,8 +2409,8 @@ const serializeAws_json1_1VpcConfiguration = (input: VpcConfiguration, context: 
 
 const deserializeAws_json1_1BufferingHints = (output: any, context: __SerdeContext): BufferingHints => {
   return {
-    IntervalInSeconds: __expectNumber(output.IntervalInSeconds),
-    SizeInMBs: __expectNumber(output.SizeInMBs),
+    IntervalInSeconds: __expectInt(output.IntervalInSeconds),
+    SizeInMBs: __expectInt(output.SizeInMBs),
   } as any;
 };
 
@@ -2636,8 +2636,8 @@ const deserializeAws_json1_1ElasticsearchBufferingHints = (
   context: __SerdeContext
 ): ElasticsearchBufferingHints => {
   return {
-    IntervalInSeconds: __expectNumber(output.IntervalInSeconds),
-    SizeInMBs: __expectNumber(output.SizeInMBs),
+    IntervalInSeconds: __expectInt(output.IntervalInSeconds),
+    SizeInMBs: __expectInt(output.SizeInMBs),
   } as any;
 };
 
@@ -2685,7 +2685,7 @@ const deserializeAws_json1_1ElasticsearchRetryOptions = (
   context: __SerdeContext
 ): ElasticsearchRetryOptions => {
   return {
-    DurationInSeconds: __expectNumber(output.DurationInSeconds),
+    DurationInSeconds: __expectInt(output.DurationInSeconds),
   } as any;
 };
 
@@ -2761,8 +2761,8 @@ const deserializeAws_json1_1HttpEndpointBufferingHints = (
   context: __SerdeContext
 ): HttpEndpointBufferingHints => {
   return {
-    IntervalInSeconds: __expectNumber(output.IntervalInSeconds),
-    SizeInMBs: __expectNumber(output.SizeInMBs),
+    IntervalInSeconds: __expectInt(output.IntervalInSeconds),
+    SizeInMBs: __expectInt(output.SizeInMBs),
   } as any;
 };
 
@@ -2856,7 +2856,7 @@ const deserializeAws_json1_1HttpEndpointRetryOptions = (
   context: __SerdeContext
 ): HttpEndpointRetryOptions => {
   return {
-    DurationInSeconds: __expectNumber(output.DurationInSeconds),
+    DurationInSeconds: __expectInt(output.DurationInSeconds),
   } as any;
 };
 
@@ -2992,19 +2992,19 @@ const deserializeAws_json1_1OpenXJsonSerDe = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1OrcSerDe = (output: any, context: __SerdeContext): OrcSerDe => {
   return {
-    BlockSizeBytes: __expectNumber(output.BlockSizeBytes),
+    BlockSizeBytes: __expectInt(output.BlockSizeBytes),
     BloomFilterColumns:
       output.BloomFilterColumns !== undefined && output.BloomFilterColumns !== null
         ? deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace(output.BloomFilterColumns, context)
         : undefined,
-    BloomFilterFalsePositiveProbability: __handleFloat(output.BloomFilterFalsePositiveProbability),
+    BloomFilterFalsePositiveProbability: __limitedParseFloat(output.BloomFilterFalsePositiveProbability),
     Compression: __expectString(output.Compression),
-    DictionaryKeyThreshold: __handleFloat(output.DictionaryKeyThreshold),
+    DictionaryKeyThreshold: __limitedParseFloat(output.DictionaryKeyThreshold),
     EnablePadding: __expectBoolean(output.EnablePadding),
     FormatVersion: __expectString(output.FormatVersion),
-    PaddingTolerance: __handleFloat(output.PaddingTolerance),
-    RowIndexStride: __expectNumber(output.RowIndexStride),
-    StripeSizeBytes: __expectNumber(output.StripeSizeBytes),
+    PaddingTolerance: __limitedParseFloat(output.PaddingTolerance),
+    RowIndexStride: __expectInt(output.RowIndexStride),
+    StripeSizeBytes: __expectInt(output.StripeSizeBytes),
   } as any;
 };
 
@@ -3022,11 +3022,11 @@ const deserializeAws_json1_1OutputFormatConfiguration = (
 
 const deserializeAws_json1_1ParquetSerDe = (output: any, context: __SerdeContext): ParquetSerDe => {
   return {
-    BlockSizeBytes: __expectNumber(output.BlockSizeBytes),
+    BlockSizeBytes: __expectInt(output.BlockSizeBytes),
     Compression: __expectString(output.Compression),
     EnableDictionaryCompression: __expectBoolean(output.EnableDictionaryCompression),
-    MaxPaddingBytes: __expectNumber(output.MaxPaddingBytes),
-    PageSizeBytes: __expectNumber(output.PageSizeBytes),
+    MaxPaddingBytes: __expectInt(output.MaxPaddingBytes),
+    PageSizeBytes: __expectInt(output.PageSizeBytes),
     WriterVersion: __expectString(output.WriterVersion),
   } as any;
 };
@@ -3086,7 +3086,7 @@ const deserializeAws_json1_1ProcessorParameterList = (output: any, context: __Se
 const deserializeAws_json1_1PutRecordBatchOutput = (output: any, context: __SerdeContext): PutRecordBatchOutput => {
   return {
     Encrypted: __expectBoolean(output.Encrypted),
-    FailedPutCount: __expectNumber(output.FailedPutCount),
+    FailedPutCount: __expectInt(output.FailedPutCount),
     RequestResponses:
       output.RequestResponses !== undefined && output.RequestResponses !== null
         ? deserializeAws_json1_1PutRecordBatchResponseEntryList(output.RequestResponses, context)
@@ -3164,7 +3164,7 @@ const deserializeAws_json1_1RedshiftDestinationDescription = (
 
 const deserializeAws_json1_1RedshiftRetryOptions = (output: any, context: __SerdeContext): RedshiftRetryOptions => {
   return {
-    DurationInSeconds: __expectNumber(output.DurationInSeconds),
+    DurationInSeconds: __expectInt(output.DurationInSeconds),
   } as any;
 };
 
@@ -3270,7 +3270,7 @@ const deserializeAws_json1_1SplunkDestinationDescription = (
       output.CloudWatchLoggingOptions !== undefined && output.CloudWatchLoggingOptions !== null
         ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
         : undefined,
-    HECAcknowledgmentTimeoutInSeconds: __expectNumber(output.HECAcknowledgmentTimeoutInSeconds),
+    HECAcknowledgmentTimeoutInSeconds: __expectInt(output.HECAcknowledgmentTimeoutInSeconds),
     HECEndpoint: __expectString(output.HECEndpoint),
     HECEndpointType: __expectString(output.HECEndpointType),
     HECToken: __expectString(output.HECToken),
@@ -3292,7 +3292,7 @@ const deserializeAws_json1_1SplunkDestinationDescription = (
 
 const deserializeAws_json1_1SplunkRetryOptions = (output: any, context: __SerdeContext): SplunkRetryOptions => {
   return {
-    DurationInSeconds: __expectNumber(output.DurationInSeconds),
+    DurationInSeconds: __expectInt(output.DurationInSeconds),
   } as any;
 };
 

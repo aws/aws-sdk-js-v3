@@ -224,7 +224,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -7253,7 +7253,7 @@ const deserializeAws_json1_1KeyMetadata = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1MultiRegionConfiguration(output.MultiRegionConfiguration, context)
         : undefined,
     Origin: __expectString(output.Origin),
-    PendingDeletionWindowInDays: __expectNumber(output.PendingDeletionWindowInDays),
+    PendingDeletionWindowInDays: __expectInt(output.PendingDeletionWindowInDays),
     SigningAlgorithms:
       output.SigningAlgorithms !== undefined && output.SigningAlgorithms !== null
         ? deserializeAws_json1_1SigningAlgorithmSpecList(output.SigningAlgorithms, context)
@@ -7462,7 +7462,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
         : undefined,
     KeyId: __expectString(output.KeyId),
     KeyState: __expectString(output.KeyState),
-    PendingWindowInDays: __expectNumber(output.PendingWindowInDays),
+    PendingWindowInDays: __expectInt(output.PendingWindowInDays),
   } as any;
 };
 

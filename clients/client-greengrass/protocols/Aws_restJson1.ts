@@ -368,7 +368,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -3002,7 +3002,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -10058,9 +10058,9 @@ const deserializeAws_restJson1BulkDeployment = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1BulkDeploymentMetrics = (output: any, context: __SerdeContext): BulkDeploymentMetrics => {
   return {
-    InvalidInputRecords: __expectNumber(output.InvalidInputRecords),
-    RecordsProcessed: __expectNumber(output.RecordsProcessed),
-    RetryAttempts: __expectNumber(output.RetryAttempts),
+    InvalidInputRecords: __expectInt(output.InvalidInputRecords),
+    RecordsProcessed: __expectInt(output.RecordsProcessed),
+    RetryAttempts: __expectInt(output.RetryAttempts),
   } as any;
 };
 
@@ -10110,7 +10110,7 @@ const deserializeAws_restJson1ConnectivityInfo = (output: any, context: __SerdeC
     HostAddress: __expectString(output.HostAddress),
     Id: __expectString(output.Id),
     Metadata: __expectString(output.Metadata),
-    PortNumber: __expectNumber(output.PortNumber),
+    PortNumber: __expectInt(output.PortNumber),
   } as any;
 };
 
@@ -10251,9 +10251,9 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
         : undefined,
     ExecArgs: __expectString(output.ExecArgs),
     Executable: __expectString(output.Executable),
-    MemorySize: __expectNumber(output.MemorySize),
+    MemorySize: __expectInt(output.MemorySize),
     Pinned: __expectBoolean(output.Pinned),
-    Timeout: __expectNumber(output.Timeout),
+    Timeout: __expectInt(output.Timeout),
   } as any;
 };
 
@@ -10331,8 +10331,8 @@ const deserializeAws_restJson1FunctionExecutionConfig = (
 
 const deserializeAws_restJson1FunctionRunAsConfig = (output: any, context: __SerdeContext): FunctionRunAsConfig => {
   return {
-    Gid: __expectNumber(output.Gid),
-    Uid: __expectNumber(output.Uid),
+    Gid: __expectInt(output.Gid),
+    Uid: __expectInt(output.Uid),
   } as any;
 };
 
@@ -10409,7 +10409,7 @@ const deserializeAws_restJson1Logger = (output: any, context: __SerdeContext): L
     Component: __expectString(output.Component),
     Id: __expectString(output.Id),
     Level: __expectString(output.Level),
-    Space: __expectNumber(output.Space),
+    Space: __expectInt(output.Space),
     Type: __expectString(output.Type),
   } as any;
 };

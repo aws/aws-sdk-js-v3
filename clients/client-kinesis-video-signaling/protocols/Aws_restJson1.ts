@@ -13,7 +13,7 @@ import {
   SessionExpiredException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectNumber as __expectNumber, expectString as __expectString } from "@aws-sdk/smithy-client";
+import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -358,7 +358,7 @@ const deserializeAws_restJson1SessionExpiredExceptionResponse = async (
 const deserializeAws_restJson1IceServer = (output: any, context: __SerdeContext): IceServer => {
   return {
     Password: __expectString(output.Password),
-    Ttl: __expectNumber(output.Ttl),
+    Ttl: __expectInt(output.Ttl),
     Uris:
       output.Uris !== undefined && output.Uris !== null
         ? deserializeAws_restJson1Uris(output.Uris, context)

@@ -131,10 +131,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -865,7 +865,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -2089,7 +2089,7 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
     contents.Description = __expectString(data.description);
   }
   if (data.revision !== undefined && data.revision !== null) {
-    contents.Revision = __expectNumber(data.revision);
+    contents.Revision = __expectInt(data.revision);
   }
   if (data.serverProperties !== undefined && data.serverProperties !== null) {
     contents.ServerProperties = context.base64Decoder(data.serverProperties);
@@ -4552,7 +4552,7 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 const deserializeAws_restJson1BrokerEBSVolumeInfo = (output: any, context: __SerdeContext): BrokerEBSVolumeInfo => {
   return {
     KafkaBrokerNodeId: __expectString(output.kafkaBrokerNodeId),
-    VolumeSizeGB: __expectNumber(output.volumeSizeGB),
+    VolumeSizeGB: __expectInt(output.volumeSizeGB),
   } as any;
 };
 
@@ -4592,7 +4592,7 @@ const deserializeAws_restJson1BrokerNodeGroupInfo = (output: any, context: __Ser
 const deserializeAws_restJson1BrokerNodeInfo = (output: any, context: __SerdeContext): BrokerNodeInfo => {
   return {
     AttachedENIId: __expectString(output.attachedENIId),
-    BrokerId: __handleFloat(output.brokerId),
+    BrokerId: __limitedParseFloat(output.brokerId),
     ClientSubnet: __expectString(output.clientSubnet),
     ClientVpcIpAddress: __expectString(output.clientVpcIpAddress),
     CurrentBrokerSoftwareInfo:
@@ -4609,7 +4609,7 @@ const deserializeAws_restJson1BrokerNodeInfo = (output: any, context: __SerdeCon
 const deserializeAws_restJson1BrokerSoftwareInfo = (output: any, context: __SerdeContext): BrokerSoftwareInfo => {
   return {
     ConfigurationArn: __expectString(output.configurationArn),
-    ConfigurationRevision: __expectNumber(output.configurationRevision),
+    ConfigurationRevision: __expectInt(output.configurationRevision),
     KafkaVersion: __expectString(output.kafkaVersion),
   } as any;
 };
@@ -4660,7 +4660,7 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
       output.loggingInfo !== undefined && output.loggingInfo !== null
         ? deserializeAws_restJson1LoggingInfo(output.loggingInfo, context)
         : undefined,
-    NumberOfBrokerNodes: __expectNumber(output.numberOfBrokerNodes),
+    NumberOfBrokerNodes: __expectInt(output.numberOfBrokerNodes),
     OpenMonitoring:
       output.openMonitoring !== undefined && output.openMonitoring !== null
         ? deserializeAws_restJson1OpenMonitoring(output.openMonitoring, context)
@@ -4762,7 +4762,7 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
 const deserializeAws_restJson1ConfigurationInfo = (output: any, context: __SerdeContext): ConfigurationInfo => {
   return {
     Arn: __expectString(output.arn),
-    Revision: __expectNumber(output.revision),
+    Revision: __expectInt(output.revision),
   } as any;
 };
 
@@ -4771,13 +4771,13 @@ const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __S
     CreationTime:
       output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
     Description: __expectString(output.description),
-    Revision: __expectNumber(output.revision),
+    Revision: __expectInt(output.revision),
   } as any;
 };
 
 const deserializeAws_restJson1EBSStorageInfo = (output: any, context: __SerdeContext): EBSStorageInfo => {
   return {
-    VolumeSize: __expectNumber(output.volumeSize),
+    VolumeSize: __expectInt(output.volumeSize),
   } as any;
 };
 
@@ -4866,7 +4866,7 @@ const deserializeAws_restJson1MutableClusterInfo = (output: any, context: __Serd
       output.loggingInfo !== undefined && output.loggingInfo !== null
         ? deserializeAws_restJson1LoggingInfo(output.loggingInfo, context)
         : undefined,
-    NumberOfBrokerNodes: __expectNumber(output.numberOfBrokerNodes),
+    NumberOfBrokerNodes: __expectInt(output.numberOfBrokerNodes),
     OpenMonitoring:
       output.openMonitoring !== undefined && output.openMonitoring !== null
         ? deserializeAws_restJson1OpenMonitoring(output.openMonitoring, context)
@@ -4987,7 +4987,7 @@ const deserializeAws_restJson1ZookeeperNodeInfo = (output: any, context: __Serde
       output.endpoints !== undefined && output.endpoints !== null
         ? deserializeAws_restJson1__listOf__string(output.endpoints, context)
         : undefined,
-    ZookeeperId: __handleFloat(output.zookeeperId),
+    ZookeeperId: __limitedParseFloat(output.zookeeperId),
     ZookeeperVersion: __expectString(output.zookeeperVersion),
   } as any;
 };

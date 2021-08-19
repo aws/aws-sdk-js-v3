@@ -205,10 +205,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1900,7 +1900,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -3396,7 +3396,7 @@ export const deserializeAws_restJson1DescribePublishingDestinationCommand = asyn
     contents.DestinationType = __expectString(data.destinationType);
   }
   if (data.publishingFailureStartTimestamp !== undefined && data.publishingFailureStartTimestamp !== null) {
-    contents.PublishingFailureStartTimestamp = __expectNumber(data.publishingFailureStartTimestamp);
+    contents.PublishingFailureStartTimestamp = __expectInt(data.publishingFailureStartTimestamp);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.Status = __expectString(data.status);
@@ -3806,7 +3806,7 @@ export const deserializeAws_restJson1GetFilterCommand = async (
     contents.Name = __expectString(data.name);
   }
   if (data.rank !== undefined && data.rank !== null) {
-    contents.Rank = __expectNumber(data.rank);
+    contents.Rank = __expectInt(data.rank);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.tags, context);
@@ -3998,7 +3998,7 @@ export const deserializeAws_restJson1GetInvitationsCountCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.invitationsCount !== undefined && data.invitationsCount !== null) {
-    contents.InvitationsCount = __expectNumber(data.invitationsCount);
+    contents.InvitationsCount = __expectInt(data.invitationsCount);
   }
   return Promise.resolve(contents);
 };
@@ -6416,14 +6416,14 @@ const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext)
       output.equals !== undefined && output.equals !== null
         ? deserializeAws_restJson1Equals(output.equals, context)
         : undefined,
-    GreaterThan: __expectNumber(output.greaterThan),
-    GreaterThanOrEqual: __expectNumber(output.greaterThanOrEqual),
-    Gt: __expectNumber(output.gt),
-    Gte: __expectNumber(output.gte),
-    LessThan: __expectNumber(output.lessThan),
-    LessThanOrEqual: __expectNumber(output.lessThanOrEqual),
-    Lt: __expectNumber(output.lt),
-    Lte: __expectNumber(output.lte),
+    GreaterThan: __expectInt(output.greaterThan),
+    GreaterThanOrEqual: __expectInt(output.greaterThanOrEqual),
+    Gt: __expectInt(output.gt),
+    Gte: __expectInt(output.gte),
+    LessThan: __expectInt(output.lessThan),
+    LessThanOrEqual: __expectInt(output.lessThanOrEqual),
+    Lt: __expectInt(output.lt),
+    Lte: __expectInt(output.lte),
     Neq: output.neq !== undefined && output.neq !== null ? deserializeAws_restJson1Neq(output.neq, context) : undefined,
     NotEquals:
       output.notEquals !== undefined && output.notEquals !== null
@@ -6439,7 +6439,7 @@ const deserializeAws_restJson1CountBySeverity = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __expectInt(value) as any,
     };
   }, {});
 };
@@ -6601,7 +6601,7 @@ const deserializeAws_restJson1Finding = (output: any, context: __SerdeContext): 
   return {
     AccountId: __expectString(output.accountId),
     Arn: __expectString(output.arn),
-    Confidence: __handleFloat(output.confidence),
+    Confidence: __limitedParseFloat(output.confidence),
     CreatedAt: __expectString(output.createdAt),
     Description: __expectString(output.description),
     Id: __expectString(output.id),
@@ -6616,7 +6616,7 @@ const deserializeAws_restJson1Finding = (output: any, context: __SerdeContext): 
       output.service !== undefined && output.service !== null
         ? deserializeAws_restJson1Service(output.service, context)
         : undefined,
-    Severity: __handleFloat(output.severity),
+    Severity: __limitedParseFloat(output.severity),
     Title: __expectString(output.title),
     Type: __expectString(output.type),
     UpdatedAt: __expectString(output.updatedAt),
@@ -6674,8 +6674,8 @@ const deserializeAws_restJson1FlowLogsConfigurationResult = (
 
 const deserializeAws_restJson1GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   return {
-    Lat: __handleFloat(output.lat),
-    Lon: __handleFloat(output.lon),
+    Lat: __limitedParseFloat(output.lat),
+    Lon: __limitedParseFloat(output.lon),
   } as any;
 };
 
@@ -6766,7 +6766,7 @@ const deserializeAws_restJson1LocalIpDetails = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1LocalPortDetails = (output: any, context: __SerdeContext): LocalPortDetails => {
   return {
-    Port: __expectNumber(output.port),
+    Port: __expectInt(output.port),
     PortName: __expectString(output.portName),
   } as any;
 };
@@ -7080,7 +7080,7 @@ const deserializeAws_restJson1RemoteIpDetails = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1RemotePortDetails = (output: any, context: __SerdeContext): RemotePortDetails => {
   return {
-    Port: __expectNumber(output.port),
+    Port: __expectInt(output.port),
     PortName: __expectString(output.portName),
   } as any;
 };
@@ -7176,7 +7176,7 @@ const deserializeAws_restJson1Service = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1Action(output.action, context)
         : undefined,
     Archived: __expectBoolean(output.archived),
-    Count: __expectNumber(output.count),
+    Count: __expectInt(output.count),
     DetectorId: __expectString(output.detectorId),
     EventFirstSeen: __expectString(output.eventFirstSeen),
     EventLastSeen: __expectString(output.eventLastSeen),

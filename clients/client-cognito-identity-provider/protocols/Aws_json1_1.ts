@@ -576,7 +576,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -15769,7 +15769,7 @@ const deserializeAws_json1_1AdminCreateUserConfigType = (
       output.InviteMessageTemplate !== undefined && output.InviteMessageTemplate !== null
         ? deserializeAws_json1_1MessageTemplateType(output.InviteMessageTemplate, context)
         : undefined,
-    UnusedAccountValidityDays: __expectNumber(output.UnusedAccountValidityDays),
+    UnusedAccountValidityDays: __expectInt(output.UnusedAccountValidityDays),
   } as any;
 };
 
@@ -16071,7 +16071,7 @@ const deserializeAws_json1_1AuthenticationResultType = (
 ): AuthenticationResultType => {
   return {
     AccessToken: __expectString(output.AccessToken),
-    ExpiresIn: __expectNumber(output.ExpiresIn),
+    ExpiresIn: __expectInt(output.ExpiresIn),
     IdToken: __expectString(output.IdToken),
     NewDeviceMetadata:
       output.NewDeviceMetadata !== undefined && output.NewDeviceMetadata !== null
@@ -16782,7 +16782,7 @@ const deserializeAws_json1_1GroupType = (output: any, context: __SerdeContext): 
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
-    Precedence: __expectNumber(output.Precedence),
+    Precedence: __expectInt(output.Precedence),
     RoleArn: __expectString(output.RoleArn),
     UserPoolId: __expectString(output.UserPoolId),
   } as any;
@@ -17191,12 +17191,12 @@ const deserializeAws_json1_1OAuthFlowsType = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1PasswordPolicyType = (output: any, context: __SerdeContext): PasswordPolicyType => {
   return {
-    MinimumLength: __expectNumber(output.MinimumLength),
+    MinimumLength: __expectInt(output.MinimumLength),
     RequireLowercase: __expectBoolean(output.RequireLowercase),
     RequireNumbers: __expectBoolean(output.RequireNumbers),
     RequireSymbols: __expectBoolean(output.RequireSymbols),
     RequireUppercase: __expectBoolean(output.RequireUppercase),
-    TemporaryPasswordValidityDays: __expectNumber(output.TemporaryPasswordValidityDays),
+    TemporaryPasswordValidityDays: __expectInt(output.TemporaryPasswordValidityDays),
   } as any;
 };
 
@@ -17270,7 +17270,7 @@ const deserializeAws_json1_1RecoveryMechanismsType = (output: any, context: __Se
 const deserializeAws_json1_1RecoveryOptionType = (output: any, context: __SerdeContext): RecoveryOptionType => {
   return {
     Name: __expectString(output.Name),
-    Priority: __expectNumber(output.Priority),
+    Priority: __expectInt(output.Priority),
   } as any;
 };
 
@@ -17835,12 +17835,12 @@ const deserializeAws_json1_1UserImportJobType = (output: any, context: __SerdeCo
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
         : undefined,
-    FailedUsers: __expectNumber(output.FailedUsers),
-    ImportedUsers: __expectNumber(output.ImportedUsers),
+    FailedUsers: __expectInt(output.FailedUsers),
+    ImportedUsers: __expectInt(output.ImportedUsers),
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     PreSignedUrl: __expectString(output.PreSignedUrl),
-    SkippedUsers: __expectNumber(output.SkippedUsers),
+    SkippedUsers: __expectInt(output.SkippedUsers),
     StartDate:
       output.StartDate !== undefined && output.StartDate !== null
         ? new Date(Math.round(output.StartDate * 1000))
@@ -17959,7 +17959,7 @@ const deserializeAws_json1_1UserPoolClientListType = (
 
 const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeContext): UserPoolClientType => {
   return {
-    AccessTokenValidity: __expectNumber(output.AccessTokenValidity),
+    AccessTokenValidity: __expectInt(output.AccessTokenValidity),
     AllowedOAuthFlows:
       output.AllowedOAuthFlows !== undefined && output.AllowedOAuthFlows !== null
         ? deserializeAws_json1_1OAuthFlowsType(output.AllowedOAuthFlows, context)
@@ -17990,7 +17990,7 @@ const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeC
       output.ExplicitAuthFlows !== undefined && output.ExplicitAuthFlows !== null
         ? deserializeAws_json1_1ExplicitAuthFlowsListType(output.ExplicitAuthFlows, context)
         : undefined,
-    IdTokenValidity: __expectNumber(output.IdTokenValidity),
+    IdTokenValidity: __expectInt(output.IdTokenValidity),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
@@ -18004,7 +18004,7 @@ const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeC
       output.ReadAttributes !== undefined && output.ReadAttributes !== null
         ? deserializeAws_json1_1ClientPermissionListType(output.ReadAttributes, context)
         : undefined,
-    RefreshTokenValidity: __expectNumber(output.RefreshTokenValidity),
+    RefreshTokenValidity: __expectInt(output.RefreshTokenValidity),
     SupportedIdentityProviders:
       output.SupportedIdentityProviders !== undefined && output.SupportedIdentityProviders !== null
         ? deserializeAws_json1_1SupportedIdentityProvidersListType(output.SupportedIdentityProviders, context)
@@ -18121,7 +18121,7 @@ const deserializeAws_json1_1UserPoolType = (output: any, context: __SerdeContext
     EmailConfigurationFailure: __expectString(output.EmailConfigurationFailure),
     EmailVerificationMessage: __expectString(output.EmailVerificationMessage),
     EmailVerificationSubject: __expectString(output.EmailVerificationSubject),
-    EstimatedNumberOfUsers: __expectNumber(output.EstimatedNumberOfUsers),
+    EstimatedNumberOfUsers: __expectInt(output.EstimatedNumberOfUsers),
     Id: __expectString(output.Id),
     LambdaConfig:
       output.LambdaConfig !== undefined && output.LambdaConfig !== null

@@ -3010,6 +3010,8 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   serializeFloat as __serializeFloat,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -50335,7 +50337,7 @@ const deserializeAws_ec2AnalysisAclRule = (output: any, context: __SerdeContext)
     contents.RuleAction = __expectString(output["ruleAction"]);
   }
   if (output["ruleNumber"] !== undefined) {
-    contents.RuleNumber = parseInt(output["ruleNumber"]);
+    contents.RuleNumber = __strictParseInt(output["ruleNumber"]) as number;
   }
   return contents;
 };
@@ -50374,10 +50376,10 @@ const deserializeAws_ec2AnalysisLoadBalancerListener = (
     InstancePort: undefined,
   };
   if (output["loadBalancerPort"] !== undefined) {
-    contents.LoadBalancerPort = parseInt(output["loadBalancerPort"]);
+    contents.LoadBalancerPort = __strictParseInt(output["loadBalancerPort"]) as number;
   }
   if (output["instancePort"] !== undefined) {
-    contents.InstancePort = parseInt(output["instancePort"]);
+    contents.InstancePort = __strictParseInt(output["instancePort"]) as number;
   }
   return contents;
 };
@@ -50402,7 +50404,7 @@ const deserializeAws_ec2AnalysisLoadBalancerTarget = (
     contents.Instance = deserializeAws_ec2AnalysisComponent(output["instance"], context);
   }
   if (output["port"] !== undefined) {
-    contents.Port = parseInt(output["port"]);
+    contents.Port = __strictParseInt(output["port"]) as number;
   }
   return contents;
 };
@@ -50960,7 +50962,7 @@ const deserializeAws_ec2AttachNetworkInterfaceResult = (
     contents.AttachmentId = __expectString(output["attachmentId"]);
   }
   if (output["networkCardIndex"] !== undefined) {
-    contents.NetworkCardIndex = parseInt(output["networkCardIndex"]);
+    contents.NetworkCardIndex = __strictParseInt(output["networkCardIndex"]) as number;
   }
   return contents;
 };
@@ -51201,7 +51203,7 @@ const deserializeAws_ec2AvailableCapacity = (output: any, context: __SerdeContex
     );
   }
   if (output["availableVCpus"] !== undefined) {
-    contents.AvailableVCpus = parseInt(output["availableVCpus"]);
+    contents.AvailableVCpus = __strictParseInt(output["availableVCpus"]) as number;
   }
   return contents;
 };
@@ -51643,10 +51645,10 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
     contents.Tenancy = __expectString(output["tenancy"]);
   }
   if (output["totalInstanceCount"] !== undefined) {
-    contents.TotalInstanceCount = parseInt(output["totalInstanceCount"]);
+    contents.TotalInstanceCount = __strictParseInt(output["totalInstanceCount"]) as number;
   }
   if (output["availableInstanceCount"] !== undefined) {
-    contents.AvailableInstanceCount = parseInt(output["availableInstanceCount"]);
+    contents.AvailableInstanceCount = __strictParseInt(output["availableInstanceCount"]) as number;
   }
   if (output["ebsOptimized"] !== undefined) {
     contents.EbsOptimized = __parseBoolean(output["ebsOptimized"]);
@@ -52214,7 +52216,7 @@ const deserializeAws_ec2ClientVpnEndpoint = (output: any, context: __SerdeContex
     contents.TransportProtocol = __expectString(output["transportProtocol"]);
   }
   if (output["vpnPort"] !== undefined) {
-    contents.VpnPort = parseInt(output["vpnPort"]);
+    contents.VpnPort = __strictParseInt(output["vpnPort"]) as number;
   }
   if (output.associatedTargetNetwork === "") {
     contents.AssociatedTargetNetworks = [];
@@ -52626,7 +52628,7 @@ const deserializeAws_ec2CoreCountList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return parseInt(entry);
+      return __strictParseInt(entry) as number;
     });
 };
 
@@ -52636,10 +52638,10 @@ const deserializeAws_ec2CpuOptions = (output: any, context: __SerdeContext): Cpu
     ThreadsPerCore: undefined,
   };
   if (output["coreCount"] !== undefined) {
-    contents.CoreCount = parseInt(output["coreCount"]);
+    contents.CoreCount = __strictParseInt(output["coreCount"]) as number;
   }
   if (output["threadsPerCore"] !== undefined) {
-    contents.ThreadsPerCore = parseInt(output["threadsPerCore"]);
+    contents.ThreadsPerCore = __strictParseInt(output["threadsPerCore"]) as number;
   }
   return contents;
 };
@@ -53912,7 +53914,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorItem = (
     contents.LaunchTemplateName = __expectString(output["launchTemplateName"]);
   }
   if (output["versionNumber"] !== undefined) {
-    contents.VersionNumber = parseInt(output["versionNumber"]);
+    contents.VersionNumber = __strictParseInt(output["versionNumber"]) as number;
   }
   if (output["responseError"] !== undefined) {
     contents.ResponseError = deserializeAws_ec2ResponseError(output["responseError"], context);
@@ -53950,7 +53952,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessItem = (
     contents.LaunchTemplateName = __expectString(output["launchTemplateName"]);
   }
   if (output["versionNumber"] !== undefined) {
-    contents.VersionNumber = parseInt(output["versionNumber"]);
+    contents.VersionNumber = __strictParseInt(output["versionNumber"]) as number;
   }
   return contents;
 };
@@ -54925,7 +54927,7 @@ const deserializeAws_ec2DescribeElasticGpusResult = (
     );
   }
   if (output["maxResults"] !== undefined) {
-    contents.MaxResults = parseInt(output["maxResults"]);
+    contents.MaxResults = __strictParseInt(output["maxResults"]) as number;
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
@@ -57918,7 +57920,7 @@ const deserializeAws_ec2DiskImageDescription = (output: any, context: __SerdeCon
     contents.ImportManifestUrl = __expectString(output["importManifestUrl"]);
   }
   if (output["size"] !== undefined) {
-    contents.Size = parseInt(output["size"]);
+    contents.Size = __strictParseInt(output["size"]) as number;
   }
   return contents;
 };
@@ -57935,7 +57937,7 @@ const deserializeAws_ec2DiskImageVolumeDescription = (
     contents.Id = __expectString(output["id"]);
   }
   if (output["size"] !== undefined) {
-    contents.Size = parseInt(output["size"]);
+    contents.Size = __strictParseInt(output["size"]) as number;
   }
   return contents;
 };
@@ -57947,10 +57949,10 @@ const deserializeAws_ec2DiskInfo = (output: any, context: __SerdeContext): DiskI
     Type: undefined,
   };
   if (output["sizeInGB"] !== undefined) {
-    contents.SizeInGB = parseInt(output["sizeInGB"]);
+    contents.SizeInGB = __strictParseInt(output["sizeInGB"]) as number;
   }
   if (output["count"] !== undefined) {
-    contents.Count = parseInt(output["count"]);
+    contents.Count = __strictParseInt(output["count"]) as number;
   }
   if (output["type"] !== undefined) {
     contents.Type = __expectString(output["type"]);
@@ -58010,13 +58012,13 @@ const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext):
     contents.DeleteOnTermination = __parseBoolean(output["deleteOnTermination"]);
   }
   if (output["iops"] !== undefined) {
-    contents.Iops = parseInt(output["iops"]);
+    contents.Iops = __strictParseInt(output["iops"]) as number;
   }
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
   if (output["volumeSize"] !== undefined) {
-    contents.VolumeSize = parseInt(output["volumeSize"]);
+    contents.VolumeSize = __strictParseInt(output["volumeSize"]) as number;
   }
   if (output["volumeType"] !== undefined) {
     contents.VolumeType = __expectString(output["volumeType"]);
@@ -58025,7 +58027,7 @@ const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext):
     contents.KmsKeyId = __expectString(output["KmsKeyId"]);
   }
   if (output["throughput"] !== undefined) {
-    contents.Throughput = parseInt(output["throughput"]);
+    contents.Throughput = __strictParseInt(output["throughput"]) as number;
   }
   if (output["outpostArn"] !== undefined) {
     contents.OutpostArn = __expectString(output["outpostArn"]);
@@ -58090,22 +58092,22 @@ const deserializeAws_ec2EbsOptimizedInfo = (output: any, context: __SerdeContext
     MaximumIops: undefined,
   };
   if (output["baselineBandwidthInMbps"] !== undefined) {
-    contents.BaselineBandwidthInMbps = parseInt(output["baselineBandwidthInMbps"]);
+    contents.BaselineBandwidthInMbps = __strictParseInt(output["baselineBandwidthInMbps"]) as number;
   }
   if (output["baselineThroughputInMBps"] !== undefined) {
-    contents.BaselineThroughputInMBps = parseFloat(output["baselineThroughputInMBps"]);
+    contents.BaselineThroughputInMBps = __strictParseFloat(output["baselineThroughputInMBps"]) as number;
   }
   if (output["baselineIops"] !== undefined) {
-    contents.BaselineIops = parseInt(output["baselineIops"]);
+    contents.BaselineIops = __strictParseInt(output["baselineIops"]) as number;
   }
   if (output["maximumBandwidthInMbps"] !== undefined) {
-    contents.MaximumBandwidthInMbps = parseInt(output["maximumBandwidthInMbps"]);
+    contents.MaximumBandwidthInMbps = __strictParseInt(output["maximumBandwidthInMbps"]) as number;
   }
   if (output["maximumThroughputInMBps"] !== undefined) {
-    contents.MaximumThroughputInMBps = parseFloat(output["maximumThroughputInMBps"]);
+    contents.MaximumThroughputInMBps = __strictParseFloat(output["maximumThroughputInMBps"]) as number;
   }
   if (output["maximumIops"] !== undefined) {
-    contents.MaximumIops = parseInt(output["maximumIops"]);
+    contents.MaximumIops = __strictParseInt(output["maximumIops"]) as number;
   }
   return contents;
 };
@@ -58115,7 +58117,7 @@ const deserializeAws_ec2EfaInfo = (output: any, context: __SerdeContext): EfaInf
     MaximumEfaInterfaces: undefined,
   };
   if (output["maximumEfaInterfaces"] !== undefined) {
-    contents.MaximumEfaInterfaces = parseInt(output["maximumEfaInterfaces"]);
+    contents.MaximumEfaInterfaces = __strictParseInt(output["maximumEfaInterfaces"]) as number;
   }
   return contents;
 };
@@ -58754,7 +58756,7 @@ const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Ex
     );
   }
   if (output["loadBalancerListenerPort"] !== undefined) {
-    contents.LoadBalancerListenerPort = parseInt(output["loadBalancerListenerPort"]);
+    contents.LoadBalancerListenerPort = __strictParseInt(output["loadBalancerListenerPort"]) as number;
   }
   if (output["loadBalancerTarget"] !== undefined) {
     contents.LoadBalancerTarget = deserializeAws_ec2AnalysisLoadBalancerTarget(output["loadBalancerTarget"], context);
@@ -58775,7 +58777,7 @@ const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Ex
     );
   }
   if (output["loadBalancerTargetPort"] !== undefined) {
-    contents.LoadBalancerTargetPort = parseInt(output["loadBalancerTargetPort"]);
+    contents.LoadBalancerTargetPort = __strictParseInt(output["loadBalancerTargetPort"]) as number;
   }
   if (output["elasticLoadBalancerListener"] !== undefined) {
     contents.ElasticLoadBalancerListener = deserializeAws_ec2AnalysisComponent(
@@ -58799,7 +58801,7 @@ const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Ex
     contents.VpcPeeringConnection = deserializeAws_ec2AnalysisComponent(output["vpcPeeringConnection"], context);
   }
   if (output["port"] !== undefined) {
-    contents.Port = parseInt(output["port"]);
+    contents.Port = __strictParseInt(output["port"]) as number;
   }
   if (output.portRangeSet === "") {
     contents.PortRanges = [];
@@ -59194,10 +59196,10 @@ const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): Flee
     contents.ExcessCapacityTerminationPolicy = __expectString(output["excessCapacityTerminationPolicy"]);
   }
   if (output["fulfilledCapacity"] !== undefined) {
-    contents.FulfilledCapacity = parseFloat(output["fulfilledCapacity"]);
+    contents.FulfilledCapacity = __strictParseFloat(output["fulfilledCapacity"]) as number;
   }
   if (output["fulfilledOnDemandCapacity"] !== undefined) {
-    contents.FulfilledOnDemandCapacity = parseFloat(output["fulfilledOnDemandCapacity"]);
+    contents.FulfilledOnDemandCapacity = __strictParseFloat(output["fulfilledOnDemandCapacity"]) as number;
   }
   if (output.launchTemplateConfigs === "") {
     contents.LaunchTemplateConfigs = [];
@@ -59331,10 +59333,10 @@ const deserializeAws_ec2FleetLaunchTemplateOverrides = (
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["weightedCapacity"] !== undefined) {
-    contents.WeightedCapacity = parseFloat(output["weightedCapacity"]);
+    contents.WeightedCapacity = __strictParseFloat(output["weightedCapacity"]) as number;
   }
   if (output["priority"] !== undefined) {
-    contents.Priority = parseFloat(output["priority"]);
+    contents.Priority = __strictParseFloat(output["priority"]) as number;
   }
   if (output["placement"] !== undefined) {
     contents.Placement = deserializeAws_ec2PlacementResponse(output["placement"], context);
@@ -59474,7 +59476,7 @@ const deserializeAws_ec2FlowLog = (output: any, context: __SerdeContext): FlowLo
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
   }
   if (output["maxAggregationInterval"] !== undefined) {
-    contents.MaxAggregationInterval = parseInt(output["maxAggregationInterval"]);
+    contents.MaxAggregationInterval = __strictParseInt(output["maxAggregationInterval"]) as number;
   }
   return contents;
 };
@@ -59504,7 +59506,7 @@ const deserializeAws_ec2FpgaDeviceInfo = (output: any, context: __SerdeContext):
     contents.Manufacturer = __expectString(output["manufacturer"]);
   }
   if (output["count"] !== undefined) {
-    contents.Count = parseInt(output["count"]);
+    contents.Count = __strictParseInt(output["count"]) as number;
   }
   if (output["memoryInfo"] !== undefined) {
     contents.MemoryInfo = deserializeAws_ec2FpgaDeviceMemoryInfo(output["memoryInfo"], context);
@@ -59528,7 +59530,7 @@ const deserializeAws_ec2FpgaDeviceMemoryInfo = (output: any, context: __SerdeCon
     SizeInMiB: undefined,
   };
   if (output["sizeInMiB"] !== undefined) {
-    contents.SizeInMiB = parseInt(output["sizeInMiB"]);
+    contents.SizeInMiB = __strictParseInt(output["sizeInMiB"]) as number;
   }
   return contents;
 };
@@ -59683,7 +59685,7 @@ const deserializeAws_ec2FpgaInfo = (output: any, context: __SerdeContext): FpgaI
     contents.Fpgas = deserializeAws_ec2FpgaDeviceInfoList(__getArrayIfSingleItem(output["fpgas"]["item"]), context);
   }
   if (output["totalFpgaMemoryInMiB"] !== undefined) {
-    contents.TotalFpgaMemoryInMiB = parseInt(output["totalFpgaMemoryInMiB"]);
+    contents.TotalFpgaMemoryInMiB = __strictParseInt(output["totalFpgaMemoryInMiB"]) as number;
   }
   return contents;
 };
@@ -59753,10 +59755,10 @@ const deserializeAws_ec2GetCapacityReservationUsageResult = (
     contents.InstanceType = __expectString(output["instanceType"]);
   }
   if (output["totalInstanceCount"] !== undefined) {
-    contents.TotalInstanceCount = parseInt(output["totalInstanceCount"]);
+    contents.TotalInstanceCount = __strictParseInt(output["totalInstanceCount"]) as number;
   }
   if (output["availableInstanceCount"] !== undefined) {
-    contents.AvailableInstanceCount = parseInt(output["availableInstanceCount"]);
+    contents.AvailableInstanceCount = __strictParseInt(output["availableInstanceCount"]) as number;
   }
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -60277,7 +60279,7 @@ const deserializeAws_ec2GpuDeviceInfo = (output: any, context: __SerdeContext): 
     contents.Manufacturer = __expectString(output["manufacturer"]);
   }
   if (output["count"] !== undefined) {
-    contents.Count = parseInt(output["count"]);
+    contents.Count = __strictParseInt(output["count"]) as number;
   }
   if (output["memoryInfo"] !== undefined) {
     contents.MemoryInfo = deserializeAws_ec2GpuDeviceMemoryInfo(output["memoryInfo"], context);
@@ -60301,7 +60303,7 @@ const deserializeAws_ec2GpuDeviceMemoryInfo = (output: any, context: __SerdeCont
     SizeInMiB: undefined,
   };
   if (output["sizeInMiB"] !== undefined) {
-    contents.SizeInMiB = parseInt(output["sizeInMiB"]);
+    contents.SizeInMiB = __strictParseInt(output["sizeInMiB"]) as number;
   }
   return contents;
 };
@@ -60318,7 +60320,7 @@ const deserializeAws_ec2GpuInfo = (output: any, context: __SerdeContext): GpuInf
     contents.Gpus = deserializeAws_ec2GpuDeviceInfoList(__getArrayIfSingleItem(output["gpus"]["item"]), context);
   }
   if (output["totalGpuMemoryInMiB"] !== undefined) {
-    contents.TotalGpuMemoryInMiB = parseInt(output["totalGpuMemoryInMiB"]);
+    contents.TotalGpuMemoryInMiB = __strictParseInt(output["totalGpuMemoryInMiB"]) as number;
   }
   return contents;
 };
@@ -60575,7 +60577,7 @@ const deserializeAws_ec2HostOffering = (output: any, context: __SerdeContext): H
     contents.CurrencyCode = __expectString(output["currencyCode"]);
   }
   if (output["duration"] !== undefined) {
-    contents.Duration = parseInt(output["duration"]);
+    contents.Duration = __strictParseInt(output["duration"]) as number;
   }
   if (output["hourlyPrice"] !== undefined) {
     contents.HourlyPrice = __expectString(output["hourlyPrice"]);
@@ -60615,7 +60617,7 @@ const deserializeAws_ec2HostProperties = (output: any, context: __SerdeContext):
     TotalVCpus: undefined,
   };
   if (output["cores"] !== undefined) {
-    contents.Cores = parseInt(output["cores"]);
+    contents.Cores = __strictParseInt(output["cores"]) as number;
   }
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
@@ -60624,10 +60626,10 @@ const deserializeAws_ec2HostProperties = (output: any, context: __SerdeContext):
     contents.InstanceFamily = __expectString(output["instanceFamily"]);
   }
   if (output["sockets"] !== undefined) {
-    contents.Sockets = parseInt(output["sockets"]);
+    contents.Sockets = __strictParseInt(output["sockets"]) as number;
   }
   if (output["totalVCpus"] !== undefined) {
-    contents.TotalVCpus = parseInt(output["totalVCpus"]);
+    contents.TotalVCpus = __strictParseInt(output["totalVCpus"]) as number;
   }
   return contents;
 };
@@ -60650,13 +60652,13 @@ const deserializeAws_ec2HostReservation = (output: any, context: __SerdeContext)
     Tags: undefined,
   };
   if (output["count"] !== undefined) {
-    contents.Count = parseInt(output["count"]);
+    contents.Count = __strictParseInt(output["count"]) as number;
   }
   if (output["currencyCode"] !== undefined) {
     contents.CurrencyCode = __expectString(output["currencyCode"]);
   }
   if (output["duration"] !== undefined) {
-    contents.Duration = parseInt(output["duration"]);
+    contents.Duration = __strictParseInt(output["duration"]) as number;
   }
   if (output["end"] !== undefined) {
     contents.End = new Date(output["end"]);
@@ -60794,10 +60796,10 @@ const deserializeAws_ec2IcmpTypeCode = (output: any, context: __SerdeContext): I
     Type: undefined,
   };
   if (output["code"] !== undefined) {
-    contents.Code = parseInt(output["code"]);
+    contents.Code = __strictParseInt(output["code"]) as number;
   }
   if (output["type"] !== undefined) {
-    contents.Type = parseInt(output["type"]);
+    contents.Type = __strictParseInt(output["type"]) as number;
   }
   return contents;
 };
@@ -61327,7 +61329,7 @@ const deserializeAws_ec2ImportInstanceVolumeDetailItem = (
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["bytesConverted"] !== undefined) {
-    contents.BytesConverted = parseInt(output["bytesConverted"]);
+    contents.BytesConverted = __strictParseInt(output["bytesConverted"]) as number;
   }
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
@@ -61469,7 +61471,7 @@ const deserializeAws_ec2ImportVolumeTaskDetails = (output: any, context: __Serde
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["bytesConverted"] !== undefined) {
-    contents.BytesConverted = parseInt(output["bytesConverted"]);
+    contents.BytesConverted = __strictParseInt(output["bytesConverted"]) as number;
   }
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
@@ -61506,7 +61508,7 @@ const deserializeAws_ec2InferenceDeviceInfo = (output: any, context: __SerdeCont
     Manufacturer: undefined,
   };
   if (output["count"] !== undefined) {
-    contents.Count = parseInt(output["count"]);
+    contents.Count = __strictParseInt(output["count"]) as number;
   }
   if (output["name"] !== undefined) {
     contents.Name = __expectString(output["name"]);
@@ -61592,7 +61594,7 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
     BootMode: undefined,
   };
   if (output["amiLaunchIndex"] !== undefined) {
-    contents.AmiLaunchIndex = parseInt(output["amiLaunchIndex"]);
+    contents.AmiLaunchIndex = __strictParseInt(output["amiLaunchIndex"]) as number;
   }
   if (output["imageId"] !== undefined) {
     contents.ImageId = __expectString(output["imageId"]);
@@ -61918,13 +61920,13 @@ const deserializeAws_ec2InstanceCapacity = (output: any, context: __SerdeContext
     TotalCapacity: undefined,
   };
   if (output["availableCapacity"] !== undefined) {
-    contents.AvailableCapacity = parseInt(output["availableCapacity"]);
+    contents.AvailableCapacity = __strictParseInt(output["availableCapacity"]) as number;
   }
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
   }
   if (output["totalCapacity"] !== undefined) {
-    contents.TotalCapacity = parseInt(output["totalCapacity"]);
+    contents.TotalCapacity = __strictParseInt(output["totalCapacity"]) as number;
   }
   return contents;
 };
@@ -61935,7 +61937,7 @@ const deserializeAws_ec2InstanceCount = (output: any, context: __SerdeContext): 
     State: undefined,
   };
   if (output["instanceCount"] !== undefined) {
-    contents.InstanceCount = parseInt(output["instanceCount"]);
+    contents.InstanceCount = __strictParseInt(output["instanceCount"]) as number;
   }
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -62109,13 +62111,13 @@ const deserializeAws_ec2InstanceEventWindowTimeRange = (
     contents.StartWeekDay = __expectString(output["startWeekDay"]);
   }
   if (output["startHour"] !== undefined) {
-    contents.StartHour = parseInt(output["startHour"]);
+    contents.StartHour = __strictParseInt(output["startHour"]) as number;
   }
   if (output["endWeekDay"] !== undefined) {
     contents.EndWeekDay = __expectString(output["endWeekDay"]);
   }
   if (output["endHour"] !== undefined) {
-    contents.EndHour = parseInt(output["endHour"]);
+    contents.EndHour = __strictParseInt(output["endHour"]) as number;
   }
   return contents;
 };
@@ -62289,7 +62291,7 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
     contents.HttpTokens = __expectString(output["httpTokens"]);
   }
   if (output["httpPutResponseHopLimit"] !== undefined) {
-    contents.HttpPutResponseHopLimit = parseInt(output["httpPutResponseHopLimit"]);
+    contents.HttpPutResponseHopLimit = __strictParseInt(output["httpPutResponseHopLimit"]) as number;
   }
   if (output["httpEndpoint"] !== undefined) {
     contents.HttpEndpoint = __expectString(output["httpEndpoint"]);
@@ -62477,13 +62479,13 @@ const deserializeAws_ec2InstanceNetworkInterfaceAttachment = (
     contents.DeleteOnTermination = __parseBoolean(output["deleteOnTermination"]);
   }
   if (output["deviceIndex"] !== undefined) {
-    contents.DeviceIndex = parseInt(output["deviceIndex"]);
+    contents.DeviceIndex = __strictParseInt(output["deviceIndex"]) as number;
   }
   if (output["status"] !== undefined) {
     contents.Status = __expectString(output["status"]);
   }
   if (output["networkCardIndex"] !== undefined) {
-    contents.NetworkCardIndex = parseInt(output["networkCardIndex"]);
+    contents.NetworkCardIndex = __strictParseInt(output["networkCardIndex"]) as number;
   }
   return contents;
 };
@@ -62537,7 +62539,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
     contents.Description = __expectString(output["description"]);
   }
   if (output["deviceIndex"] !== undefined) {
-    contents.DeviceIndex = parseInt(output["deviceIndex"]);
+    contents.DeviceIndex = __strictParseInt(output["deviceIndex"]) as number;
   }
   if (output.SecurityGroupId === "") {
     contents.Groups = [];
@@ -62549,7 +62551,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
     );
   }
   if (output["ipv6AddressCount"] !== undefined) {
-    contents.Ipv6AddressCount = parseInt(output["ipv6AddressCount"]);
+    contents.Ipv6AddressCount = __strictParseInt(output["ipv6AddressCount"]) as number;
   }
   if (output.ipv6AddressesSet === "") {
     contents.Ipv6Addresses = [];
@@ -62576,7 +62578,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
     );
   }
   if (output["secondaryPrivateIpAddressCount"] !== undefined) {
-    contents.SecondaryPrivateIpAddressCount = parseInt(output["secondaryPrivateIpAddressCount"]);
+    contents.SecondaryPrivateIpAddressCount = __strictParseInt(output["secondaryPrivateIpAddressCount"]) as number;
   }
   if (output["subnetId"] !== undefined) {
     contents.SubnetId = __expectString(output["subnetId"]);
@@ -62588,7 +62590,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
     contents.InterfaceType = __expectString(output["InterfaceType"]);
   }
   if (output["NetworkCardIndex"] !== undefined) {
-    contents.NetworkCardIndex = parseInt(output["NetworkCardIndex"]);
+    contents.NetworkCardIndex = __strictParseInt(output["NetworkCardIndex"]) as number;
   }
   if (output.Ipv4Prefix === "") {
     contents.Ipv4Prefixes = [];
@@ -62600,7 +62602,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
     );
   }
   if (output["Ipv4PrefixCount"] !== undefined) {
-    contents.Ipv4PrefixCount = parseInt(output["Ipv4PrefixCount"]);
+    contents.Ipv4PrefixCount = __strictParseInt(output["Ipv4PrefixCount"]) as number;
   }
   if (output.Ipv6Prefix === "") {
     contents.Ipv6Prefixes = [];
@@ -62612,7 +62614,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
     );
   }
   if (output["Ipv6PrefixCount"] !== undefined) {
-    contents.Ipv6PrefixCount = parseInt(output["Ipv6PrefixCount"]);
+    contents.Ipv6PrefixCount = __strictParseInt(output["Ipv6PrefixCount"]) as number;
   }
   return contents;
 };
@@ -62673,7 +62675,7 @@ const deserializeAws_ec2InstanceState = (output: any, context: __SerdeContext): 
     Name: undefined,
   };
   if (output["code"] !== undefined) {
-    contents.Code = parseInt(output["code"]);
+    contents.Code = __strictParseInt(output["code"]) as number;
   }
   if (output["name"] !== undefined) {
     contents.Name = __expectString(output["name"]);
@@ -62858,7 +62860,7 @@ const deserializeAws_ec2InstanceStorageInfo = (output: any, context: __SerdeCont
     NvmeSupport: undefined,
   };
   if (output["totalSizeInGB"] !== undefined) {
-    contents.TotalSizeInGB = parseInt(output["totalSizeInGB"]);
+    contents.TotalSizeInGB = __strictParseInt(output["totalSizeInGB"]) as number;
   }
   if (output.disks === "") {
     contents.Disks = [];
@@ -63087,7 +63089,7 @@ const deserializeAws_ec2InstanceUsage = (output: any, context: __SerdeContext): 
     contents.AccountId = __expectString(output["accountId"]);
   }
   if (output["usedInstanceCount"] !== undefined) {
-    contents.UsedInstanceCount = parseInt(output["usedInstanceCount"]);
+    contents.UsedInstanceCount = __strictParseInt(output["usedInstanceCount"]) as number;
   }
   return contents;
 };
@@ -63198,7 +63200,7 @@ const deserializeAws_ec2IpPermission = (output: any, context: __SerdeContext): I
     UserIdGroupPairs: undefined,
   };
   if (output["fromPort"] !== undefined) {
-    contents.FromPort = parseInt(output["fromPort"]);
+    contents.FromPort = __strictParseInt(output["fromPort"]) as number;
   }
   if (output["ipProtocol"] !== undefined) {
     contents.IpProtocol = __expectString(output["ipProtocol"]);
@@ -63228,7 +63230,7 @@ const deserializeAws_ec2IpPermission = (output: any, context: __SerdeContext): I
     );
   }
   if (output["toPort"] !== undefined) {
-    contents.ToPort = parseInt(output["toPort"]);
+    contents.ToPort = __strictParseInt(output["toPort"]) as number;
   }
   if (output.groups === "") {
     contents.UserIdGroupPairs = [];
@@ -63793,10 +63795,10 @@ const deserializeAws_ec2LaunchTemplate = (output: any, context: __SerdeContext):
     contents.CreatedBy = __expectString(output["createdBy"]);
   }
   if (output["defaultVersionNumber"] !== undefined) {
-    contents.DefaultVersionNumber = parseInt(output["defaultVersionNumber"]);
+    contents.DefaultVersionNumber = __strictParseInt(output["defaultVersionNumber"]) as number;
   }
   if (output["latestVersionNumber"] !== undefined) {
-    contents.LatestVersionNumber = parseInt(output["latestVersionNumber"]);
+    contents.LatestVersionNumber = __strictParseInt(output["latestVersionNumber"]) as number;
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -63926,10 +63928,10 @@ const deserializeAws_ec2LaunchTemplateCpuOptions = (output: any, context: __Serd
     ThreadsPerCore: undefined,
   };
   if (output["coreCount"] !== undefined) {
-    contents.CoreCount = parseInt(output["coreCount"]);
+    contents.CoreCount = __strictParseInt(output["coreCount"]) as number;
   }
   if (output["threadsPerCore"] !== undefined) {
-    contents.ThreadsPerCore = parseInt(output["threadsPerCore"]);
+    contents.ThreadsPerCore = __strictParseInt(output["threadsPerCore"]) as number;
   }
   return contents;
 };
@@ -63955,7 +63957,7 @@ const deserializeAws_ec2LaunchTemplateEbsBlockDevice = (
     contents.DeleteOnTermination = __parseBoolean(output["deleteOnTermination"]);
   }
   if (output["iops"] !== undefined) {
-    contents.Iops = parseInt(output["iops"]);
+    contents.Iops = __strictParseInt(output["iops"]) as number;
   }
   if (output["kmsKeyId"] !== undefined) {
     contents.KmsKeyId = __expectString(output["kmsKeyId"]);
@@ -63964,13 +63966,13 @@ const deserializeAws_ec2LaunchTemplateEbsBlockDevice = (
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
   if (output["volumeSize"] !== undefined) {
-    contents.VolumeSize = parseInt(output["volumeSize"]);
+    contents.VolumeSize = __strictParseInt(output["volumeSize"]) as number;
   }
   if (output["volumeType"] !== undefined) {
     contents.VolumeType = __expectString(output["volumeType"]);
   }
   if (output["throughput"] !== undefined) {
-    contents.Throughput = parseInt(output["throughput"]);
+    contents.Throughput = __strictParseInt(output["throughput"]) as number;
   }
   return contents;
 };
@@ -63987,7 +63989,7 @@ const deserializeAws_ec2LaunchTemplateElasticInferenceAcceleratorResponse = (
     contents.Type = __expectString(output["type"]);
   }
   if (output["count"] !== undefined) {
-    contents.Count = parseInt(output["count"]);
+    contents.Count = __strictParseInt(output["count"]) as number;
   }
   return contents;
 };
@@ -64083,7 +64085,7 @@ const deserializeAws_ec2LaunchTemplateInstanceMetadataOptions = (
     contents.HttpTokens = __expectString(output["httpTokens"]);
   }
   if (output["httpPutResponseHopLimit"] !== undefined) {
-    contents.HttpPutResponseHopLimit = parseInt(output["httpPutResponseHopLimit"]);
+    contents.HttpPutResponseHopLimit = __strictParseInt(output["httpPutResponseHopLimit"]) as number;
   }
   if (output["httpEndpoint"] !== undefined) {
     contents.HttpEndpoint = __expectString(output["httpEndpoint"]);
@@ -64129,7 +64131,7 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
     contents.Description = __expectString(output["description"]);
   }
   if (output["deviceIndex"] !== undefined) {
-    contents.DeviceIndex = parseInt(output["deviceIndex"]);
+    contents.DeviceIndex = __strictParseInt(output["deviceIndex"]) as number;
   }
   if (output.groupSet === "") {
     contents.Groups = [];
@@ -64144,7 +64146,7 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
     contents.InterfaceType = __expectString(output["interfaceType"]);
   }
   if (output["ipv6AddressCount"] !== undefined) {
-    contents.Ipv6AddressCount = parseInt(output["ipv6AddressCount"]);
+    contents.Ipv6AddressCount = __strictParseInt(output["ipv6AddressCount"]) as number;
   }
   if (output.ipv6AddressesSet === "") {
     contents.Ipv6Addresses = [];
@@ -64171,13 +64173,13 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
     );
   }
   if (output["secondaryPrivateIpAddressCount"] !== undefined) {
-    contents.SecondaryPrivateIpAddressCount = parseInt(output["secondaryPrivateIpAddressCount"]);
+    contents.SecondaryPrivateIpAddressCount = __strictParseInt(output["secondaryPrivateIpAddressCount"]) as number;
   }
   if (output["subnetId"] !== undefined) {
     contents.SubnetId = __expectString(output["subnetId"]);
   }
   if (output["networkCardIndex"] !== undefined) {
-    contents.NetworkCardIndex = parseInt(output["networkCardIndex"]);
+    contents.NetworkCardIndex = __strictParseInt(output["networkCardIndex"]) as number;
   }
   if (output.ipv4PrefixSet === "") {
     contents.Ipv4Prefixes = [];
@@ -64189,7 +64191,7 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
     );
   }
   if (output["ipv4PrefixCount"] !== undefined) {
-    contents.Ipv4PrefixCount = parseInt(output["ipv4PrefixCount"]);
+    contents.Ipv4PrefixCount = __strictParseInt(output["ipv4PrefixCount"]) as number;
   }
   if (output.ipv6PrefixSet === "") {
     contents.Ipv6Prefixes = [];
@@ -64201,7 +64203,7 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
     );
   }
   if (output["ipv6PrefixCount"] !== undefined) {
-    contents.Ipv6PrefixCount = parseInt(output["ipv6PrefixCount"]);
+    contents.Ipv6PrefixCount = __strictParseInt(output["ipv6PrefixCount"]) as number;
   }
   return contents;
 };
@@ -64269,10 +64271,10 @@ const deserializeAws_ec2LaunchTemplateOverrides = (output: any, context: __Serde
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["weightedCapacity"] !== undefined) {
-    contents.WeightedCapacity = parseFloat(output["weightedCapacity"]);
+    contents.WeightedCapacity = __strictParseFloat(output["weightedCapacity"]) as number;
   }
   if (output["priority"] !== undefined) {
-    contents.Priority = parseFloat(output["priority"]);
+    contents.Priority = __strictParseFloat(output["priority"]) as number;
   }
   return contents;
 };
@@ -64324,7 +64326,7 @@ const deserializeAws_ec2LaunchTemplatePlacement = (output: any, context: __Serde
     contents.HostResourceGroupArn = __expectString(output["hostResourceGroupArn"]);
   }
   if (output["partitionNumber"] !== undefined) {
-    contents.PartitionNumber = parseInt(output["partitionNumber"]);
+    contents.PartitionNumber = __strictParseInt(output["partitionNumber"]) as number;
   }
   return contents;
 };
@@ -64371,7 +64373,7 @@ const deserializeAws_ec2LaunchTemplateSpotMarketOptions = (
     contents.SpotInstanceType = __expectString(output["spotInstanceType"]);
   }
   if (output["blockDurationMinutes"] !== undefined) {
-    contents.BlockDurationMinutes = parseInt(output["blockDurationMinutes"]);
+    contents.BlockDurationMinutes = __strictParseInt(output["blockDurationMinutes"]) as number;
   }
   if (output["validUntil"] !== undefined) {
     contents.ValidUntil = new Date(output["validUntil"]);
@@ -64434,7 +64436,7 @@ const deserializeAws_ec2LaunchTemplateVersion = (output: any, context: __SerdeCo
     contents.LaunchTemplateName = __expectString(output["launchTemplateName"]);
   }
   if (output["versionNumber"] !== undefined) {
-    contents.VersionNumber = parseInt(output["versionNumber"]);
+    contents.VersionNumber = __strictParseInt(output["versionNumber"]) as number;
   }
   if (output["versionDescription"] !== undefined) {
     contents.VersionDescription = __expectString(output["versionDescription"]);
@@ -64804,7 +64806,7 @@ const deserializeAws_ec2LocalGatewayVirtualInterface = (
     contents.LocalGatewayId = __expectString(output["localGatewayId"]);
   }
   if (output["vlan"] !== undefined) {
-    contents.Vlan = parseInt(output["vlan"]);
+    contents.Vlan = __strictParseInt(output["vlan"]) as number;
   }
   if (output["localAddress"] !== undefined) {
     contents.LocalAddress = __expectString(output["localAddress"]);
@@ -64813,10 +64815,10 @@ const deserializeAws_ec2LocalGatewayVirtualInterface = (
     contents.PeerAddress = __expectString(output["peerAddress"]);
   }
   if (output["localBgpAsn"] !== undefined) {
-    contents.LocalBgpAsn = parseInt(output["localBgpAsn"]);
+    contents.LocalBgpAsn = __strictParseInt(output["localBgpAsn"]) as number;
   }
   if (output["peerBgpAsn"] !== undefined) {
-    contents.PeerBgpAsn = parseInt(output["peerBgpAsn"]);
+    contents.PeerBgpAsn = __strictParseInt(output["peerBgpAsn"]) as number;
   }
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
@@ -64942,10 +64944,10 @@ const deserializeAws_ec2ManagedPrefixList = (output: any, context: __SerdeContex
     contents.PrefixListName = __expectString(output["prefixListName"]);
   }
   if (output["maxEntries"] !== undefined) {
-    contents.MaxEntries = parseInt(output["maxEntries"]);
+    contents.MaxEntries = __strictParseInt(output["maxEntries"]) as number;
   }
   if (output["version"] !== undefined) {
-    contents.Version = parseInt(output["version"]);
+    contents.Version = __strictParseInt(output["version"]) as number;
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -64975,7 +64977,7 @@ const deserializeAws_ec2MemoryInfo = (output: any, context: __SerdeContext): Mem
     SizeInMiB: undefined,
   };
   if (output["sizeInMiB"] !== undefined) {
-    contents.SizeInMiB = parseInt(output["sizeInMiB"]);
+    contents.SizeInMiB = __strictParseInt(output["sizeInMiB"]) as number;
   }
   return contents;
 };
@@ -65796,7 +65798,7 @@ const deserializeAws_ec2NetworkAclEntry = (output: any, context: __SerdeContext)
     contents.RuleAction = __expectString(output["ruleAction"]);
   }
   if (output["ruleNumber"] !== undefined) {
-    contents.RuleNumber = parseInt(output["ruleNumber"]);
+    contents.RuleNumber = __strictParseInt(output["ruleNumber"]) as number;
   }
   return contents;
 };
@@ -65830,13 +65832,13 @@ const deserializeAws_ec2NetworkCardInfo = (output: any, context: __SerdeContext)
     MaximumNetworkInterfaces: undefined,
   };
   if (output["networkCardIndex"] !== undefined) {
-    contents.NetworkCardIndex = parseInt(output["networkCardIndex"]);
+    contents.NetworkCardIndex = __strictParseInt(output["networkCardIndex"]) as number;
   }
   if (output["networkPerformance"] !== undefined) {
     contents.NetworkPerformance = __expectString(output["networkPerformance"]);
   }
   if (output["maximumNetworkInterfaces"] !== undefined) {
-    contents.MaximumNetworkInterfaces = parseInt(output["maximumNetworkInterfaces"]);
+    contents.MaximumNetworkInterfaces = __strictParseInt(output["maximumNetworkInterfaces"]) as number;
   }
   return contents;
 };
@@ -65870,13 +65872,13 @@ const deserializeAws_ec2NetworkInfo = (output: any, context: __SerdeContext): Ne
     contents.NetworkPerformance = __expectString(output["networkPerformance"]);
   }
   if (output["maximumNetworkInterfaces"] !== undefined) {
-    contents.MaximumNetworkInterfaces = parseInt(output["maximumNetworkInterfaces"]);
+    contents.MaximumNetworkInterfaces = __strictParseInt(output["maximumNetworkInterfaces"]) as number;
   }
   if (output["maximumNetworkCards"] !== undefined) {
-    contents.MaximumNetworkCards = parseInt(output["maximumNetworkCards"]);
+    contents.MaximumNetworkCards = __strictParseInt(output["maximumNetworkCards"]) as number;
   }
   if (output["defaultNetworkCardIndex"] !== undefined) {
-    contents.DefaultNetworkCardIndex = parseInt(output["defaultNetworkCardIndex"]);
+    contents.DefaultNetworkCardIndex = __strictParseInt(output["defaultNetworkCardIndex"]) as number;
   }
   if (output.networkCards === "") {
     contents.NetworkCards = [];
@@ -65888,10 +65890,10 @@ const deserializeAws_ec2NetworkInfo = (output: any, context: __SerdeContext): Ne
     );
   }
   if (output["ipv4AddressesPerInterface"] !== undefined) {
-    contents.Ipv4AddressesPerInterface = parseInt(output["ipv4AddressesPerInterface"]);
+    contents.Ipv4AddressesPerInterface = __strictParseInt(output["ipv4AddressesPerInterface"]) as number;
   }
   if (output["ipv6AddressesPerInterface"] !== undefined) {
-    contents.Ipv6AddressesPerInterface = parseInt(output["ipv6AddressesPerInterface"]);
+    contents.Ipv6AddressesPerInterface = __strictParseInt(output["ipv6AddressesPerInterface"]) as number;
   }
   if (output["ipv6Supported"] !== undefined) {
     contents.Ipv6Supported = __parseBoolean(output["ipv6Supported"]);
@@ -66051,7 +66053,7 @@ const deserializeAws_ec2NetworkInsightsPath = (output: any, context: __SerdeCont
     contents.Protocol = __expectString(output["protocol"]);
   }
   if (output["destinationPort"] !== undefined) {
-    contents.DestinationPort = parseInt(output["destinationPort"]);
+    contents.DestinationPort = __strictParseInt(output["destinationPort"]) as number;
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -66265,10 +66267,10 @@ const deserializeAws_ec2NetworkInterfaceAttachment = (
     contents.DeleteOnTermination = __parseBoolean(output["deleteOnTermination"]);
   }
   if (output["deviceIndex"] !== undefined) {
-    contents.DeviceIndex = parseInt(output["deviceIndex"]);
+    contents.DeviceIndex = __strictParseInt(output["deviceIndex"]) as number;
   }
   if (output["networkCardIndex"] !== undefined) {
-    contents.NetworkCardIndex = parseInt(output["networkCardIndex"]);
+    contents.NetworkCardIndex = __strictParseInt(output["networkCardIndex"]) as number;
   }
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
@@ -66430,7 +66432,7 @@ const deserializeAws_ec2OccurrenceDaySet = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return parseInt(entry);
+      return __strictParseInt(entry) as number;
     });
 };
 
@@ -66459,7 +66461,7 @@ const deserializeAws_ec2OnDemandOptions = (output: any, context: __SerdeContext)
     contents.SingleAvailabilityZone = __parseBoolean(output["singleAvailabilityZone"]);
   }
   if (output["minTargetCapacity"] !== undefined) {
-    contents.MinTargetCapacity = parseInt(output["minTargetCapacity"]);
+    contents.MinTargetCapacity = __strictParseInt(output["minTargetCapacity"]) as number;
   }
   if (output["maxTotalPrice"] !== undefined) {
     contents.MaxTotalPrice = __expectString(output["maxTotalPrice"]);
@@ -66482,7 +66484,7 @@ const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): 
     Vpc: undefined,
   };
   if (output["sequenceNumber"] !== undefined) {
-    contents.SequenceNumber = parseInt(output["sequenceNumber"]);
+    contents.SequenceNumber = __strictParseInt(output["sequenceNumber"]) as number;
   }
   if (output["aclRule"] !== undefined) {
     contents.AclRule = deserializeAws_ec2AnalysisAclRule(output["aclRule"], context);
@@ -66626,7 +66628,7 @@ const deserializeAws_ec2Phase1DHGroupNumbersListValue = (
     Value: undefined,
   };
   if (output["value"] !== undefined) {
-    contents.Value = parseInt(output["value"]);
+    contents.Value = __strictParseInt(output["value"]) as number;
   }
   return contents;
 };
@@ -66707,7 +66709,7 @@ const deserializeAws_ec2Phase2DHGroupNumbersListValue = (
     Value: undefined,
   };
   if (output["value"] !== undefined) {
-    contents.Value = parseInt(output["value"]);
+    contents.Value = __strictParseInt(output["value"]) as number;
   }
   return contents;
 };
@@ -66787,7 +66789,7 @@ const deserializeAws_ec2Placement = (output: any, context: __SerdeContext): Plac
     contents.GroupName = __expectString(output["groupName"]);
   }
   if (output["partitionNumber"] !== undefined) {
-    contents.PartitionNumber = parseInt(output["partitionNumber"]);
+    contents.PartitionNumber = __strictParseInt(output["partitionNumber"]) as number;
   }
   if (output["hostId"] !== undefined) {
     contents.HostId = __expectString(output["hostId"]);
@@ -66823,7 +66825,7 @@ const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext):
     contents.Strategy = __expectString(output["strategy"]);
   }
   if (output["partitionCount"] !== undefined) {
-    contents.PartitionCount = parseInt(output["partitionCount"]);
+    contents.PartitionCount = __strictParseInt(output["partitionCount"]) as number;
   }
   if (output["groupId"] !== undefined) {
     contents.GroupId = __expectString(output["groupId"]);
@@ -66915,10 +66917,10 @@ const deserializeAws_ec2PortRange = (output: any, context: __SerdeContext): Port
     To: undefined,
   };
   if (output["from"] !== undefined) {
-    contents.From = parseInt(output["from"]);
+    contents.From = __strictParseInt(output["from"]) as number;
   }
   if (output["to"] !== undefined) {
-    contents.To = parseInt(output["to"]);
+    contents.To = __strictParseInt(output["to"]) as number;
   }
   return contents;
 };
@@ -67066,10 +67068,10 @@ const deserializeAws_ec2PriceSchedule = (output: any, context: __SerdeContext): 
     contents.CurrencyCode = __expectString(output["currencyCode"]);
   }
   if (output["price"] !== undefined) {
-    contents.Price = parseFloat(output["price"]);
+    contents.Price = __strictParseFloat(output["price"]) as number;
   }
   if (output["term"] !== undefined) {
-    contents.Term = parseInt(output["term"]);
+    contents.Term = __strictParseInt(output["term"]) as number;
   }
   return contents;
 };
@@ -67091,10 +67093,10 @@ const deserializeAws_ec2PricingDetail = (output: any, context: __SerdeContext): 
     Price: undefined,
   };
   if (output["count"] !== undefined) {
-    contents.Count = parseInt(output["count"]);
+    contents.Count = __strictParseInt(output["count"]) as number;
   }
   if (output["price"] !== undefined) {
-    contents.Price = parseFloat(output["price"]);
+    contents.Price = __strictParseFloat(output["price"]) as number;
   }
   return contents;
 };
@@ -67230,7 +67232,7 @@ const deserializeAws_ec2ProcessorInfo = (output: any, context: __SerdeContext): 
     );
   }
   if (output["sustainedClockSpeedInGhz"] !== undefined) {
-    contents.SustainedClockSpeedInGhz = parseFloat(output["sustainedClockSpeedInGhz"]);
+    contents.SustainedClockSpeedInGhz = __strictParseFloat(output["sustainedClockSpeedInGhz"]) as number;
   }
   return contents;
 };
@@ -67361,10 +67363,10 @@ const deserializeAws_ec2PublicIpv4Pool = (output: any, context: __SerdeContext):
     );
   }
   if (output["totalAddressCount"] !== undefined) {
-    contents.TotalAddressCount = parseInt(output["totalAddressCount"]);
+    contents.TotalAddressCount = __strictParseInt(output["totalAddressCount"]) as number;
   }
   if (output["totalAvailableAddressCount"] !== undefined) {
-    contents.TotalAvailableAddressCount = parseInt(output["totalAvailableAddressCount"]);
+    contents.TotalAvailableAddressCount = __strictParseInt(output["totalAvailableAddressCount"]) as number;
   }
   if (output["networkBorderGroup"] !== undefined) {
     contents.NetworkBorderGroup = __expectString(output["networkBorderGroup"]);
@@ -67392,10 +67394,10 @@ const deserializeAws_ec2PublicIpv4PoolRange = (output: any, context: __SerdeCont
     contents.LastAddress = __expectString(output["lastAddress"]);
   }
   if (output["addressCount"] !== undefined) {
-    contents.AddressCount = parseInt(output["addressCount"]);
+    contents.AddressCount = __strictParseInt(output["addressCount"]) as number;
   }
   if (output["availableAddressCount"] !== undefined) {
-    contents.AvailableAddressCount = parseInt(output["availableAddressCount"]);
+    contents.AvailableAddressCount = __strictParseInt(output["availableAddressCount"]) as number;
   }
   return contents;
 };
@@ -67437,7 +67439,7 @@ const deserializeAws_ec2Purchase = (output: any, context: __SerdeContext): Purch
     contents.CurrencyCode = __expectString(output["currencyCode"]);
   }
   if (output["duration"] !== undefined) {
-    contents.Duration = parseInt(output["duration"]);
+    contents.Duration = __strictParseInt(output["duration"]) as number;
   }
   if (output.hostIdSet === "") {
     contents.HostIdSet = [];
@@ -67558,7 +67560,7 @@ const deserializeAws_ec2RecurringCharge = (output: any, context: __SerdeContext)
     Frequency: undefined,
   };
   if (output["amount"] !== undefined) {
-    contents.Amount = parseFloat(output["amount"]);
+    contents.Amount = __strictParseFloat(output["amount"]) as number;
   }
   if (output["frequency"] !== undefined) {
     contents.Frequency = __expectString(output["frequency"]);
@@ -68051,16 +68053,16 @@ const deserializeAws_ec2ReservedInstances = (output: any, context: __SerdeContex
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["duration"] !== undefined) {
-    contents.Duration = parseInt(output["duration"]);
+    contents.Duration = __strictParseInt(output["duration"]) as number;
   }
   if (output["end"] !== undefined) {
     contents.End = new Date(output["end"]);
   }
   if (output["fixedPrice"] !== undefined) {
-    contents.FixedPrice = parseFloat(output["fixedPrice"]);
+    contents.FixedPrice = __strictParseFloat(output["fixedPrice"]) as number;
   }
   if (output["instanceCount"] !== undefined) {
-    contents.InstanceCount = parseInt(output["instanceCount"]);
+    contents.InstanceCount = __strictParseInt(output["instanceCount"]) as number;
   }
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
@@ -68078,7 +68080,7 @@ const deserializeAws_ec2ReservedInstances = (output: any, context: __SerdeContex
     contents.State = __expectString(output["state"]);
   }
   if (output["usagePrice"] !== undefined) {
-    contents.UsagePrice = parseFloat(output["usagePrice"]);
+    contents.UsagePrice = __strictParseFloat(output["usagePrice"]) as number;
   }
   if (output["currencyCode"] !== undefined) {
     contents.CurrencyCode = __expectString(output["currencyCode"]);
@@ -68128,7 +68130,7 @@ const deserializeAws_ec2ReservedInstancesConfiguration = (
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["instanceCount"] !== undefined) {
-    contents.InstanceCount = parseInt(output["instanceCount"]);
+    contents.InstanceCount = __strictParseInt(output["instanceCount"]) as number;
   }
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
@@ -68368,10 +68370,10 @@ const deserializeAws_ec2ReservedInstancesOffering = (
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["duration"] !== undefined) {
-    contents.Duration = parseInt(output["duration"]);
+    contents.Duration = __strictParseInt(output["duration"]) as number;
   }
   if (output["fixedPrice"] !== undefined) {
-    contents.FixedPrice = parseFloat(output["fixedPrice"]);
+    contents.FixedPrice = __strictParseFloat(output["fixedPrice"]) as number;
   }
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
@@ -68383,7 +68385,7 @@ const deserializeAws_ec2ReservedInstancesOffering = (
     contents.ReservedInstancesOfferingId = __expectString(output["reservedInstancesOfferingId"]);
   }
   if (output["usagePrice"] !== undefined) {
-    contents.UsagePrice = parseFloat(output["usagePrice"]);
+    contents.UsagePrice = __strictParseFloat(output["usagePrice"]) as number;
   }
   if (output["currencyCode"] !== undefined) {
     contents.CurrencyCode = __expectString(output["currencyCode"]);
@@ -69095,7 +69097,7 @@ const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContex
     contents.HourlyPrice = __expectString(output["hourlyPrice"]);
   }
   if (output["instanceCount"] !== undefined) {
-    contents.InstanceCount = parseInt(output["instanceCount"]);
+    contents.InstanceCount = __strictParseInt(output["instanceCount"]) as number;
   }
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
@@ -69119,7 +69121,7 @@ const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContex
     contents.ScheduledInstanceId = __expectString(output["scheduledInstanceId"]);
   }
   if (output["slotDurationInHours"] !== undefined) {
-    contents.SlotDurationInHours = parseInt(output["slotDurationInHours"]);
+    contents.SlotDurationInHours = __strictParseInt(output["slotDurationInHours"]) as number;
   }
   if (output["termEndDate"] !== undefined) {
     contents.TermEndDate = new Date(output["termEndDate"]);
@@ -69128,7 +69130,7 @@ const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContex
     contents.TermStartDate = new Date(output["termStartDate"]);
   }
   if (output["totalScheduledInstanceHours"] !== undefined) {
-    contents.TotalScheduledInstanceHours = parseInt(output["totalScheduledInstanceHours"]);
+    contents.TotalScheduledInstanceHours = __strictParseInt(output["totalScheduledInstanceHours"]) as number;
   }
   return contents;
 };
@@ -69156,7 +69158,7 @@ const deserializeAws_ec2ScheduledInstanceAvailability = (
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["availableInstanceCount"] !== undefined) {
-    contents.AvailableInstanceCount = parseInt(output["availableInstanceCount"]);
+    contents.AvailableInstanceCount = __strictParseInt(output["availableInstanceCount"]) as number;
   }
   if (output["firstSlotStartTime"] !== undefined) {
     contents.FirstSlotStartTime = new Date(output["firstSlotStartTime"]);
@@ -69168,10 +69170,10 @@ const deserializeAws_ec2ScheduledInstanceAvailability = (
     contents.InstanceType = __expectString(output["instanceType"]);
   }
   if (output["maxTermDurationInDays"] !== undefined) {
-    contents.MaxTermDurationInDays = parseInt(output["maxTermDurationInDays"]);
+    contents.MaxTermDurationInDays = __strictParseInt(output["maxTermDurationInDays"]) as number;
   }
   if (output["minTermDurationInDays"] !== undefined) {
-    contents.MinTermDurationInDays = parseInt(output["minTermDurationInDays"]);
+    contents.MinTermDurationInDays = __strictParseInt(output["minTermDurationInDays"]) as number;
   }
   if (output["networkPlatform"] !== undefined) {
     contents.NetworkPlatform = __expectString(output["networkPlatform"]);
@@ -69186,10 +69188,10 @@ const deserializeAws_ec2ScheduledInstanceAvailability = (
     contents.Recurrence = deserializeAws_ec2ScheduledInstanceRecurrence(output["recurrence"], context);
   }
   if (output["slotDurationInHours"] !== undefined) {
-    contents.SlotDurationInHours = parseInt(output["slotDurationInHours"]);
+    contents.SlotDurationInHours = __strictParseInt(output["slotDurationInHours"]) as number;
   }
   if (output["totalScheduledInstanceHours"] !== undefined) {
-    contents.TotalScheduledInstanceHours = parseInt(output["totalScheduledInstanceHours"]);
+    contents.TotalScheduledInstanceHours = __strictParseInt(output["totalScheduledInstanceHours"]) as number;
   }
   return contents;
 };
@@ -69223,7 +69225,7 @@ const deserializeAws_ec2ScheduledInstanceRecurrence = (
     contents.Frequency = __expectString(output["frequency"]);
   }
   if (output["interval"] !== undefined) {
-    contents.Interval = parseInt(output["interval"]);
+    contents.Interval = __strictParseInt(output["interval"]) as number;
   }
   if (output.occurrenceDaySet === "") {
     contents.OccurrenceDaySet = [];
@@ -69473,10 +69475,10 @@ const deserializeAws_ec2SecurityGroupRule = (output: any, context: __SerdeContex
     contents.IpProtocol = __expectString(output["ipProtocol"]);
   }
   if (output["fromPort"] !== undefined) {
-    contents.FromPort = parseInt(output["fromPort"]);
+    contents.FromPort = __strictParseInt(output["fromPort"]) as number;
   }
   if (output["toPort"] !== undefined) {
-    contents.ToPort = parseInt(output["toPort"]);
+    contents.ToPort = __strictParseInt(output["toPort"]) as number;
   }
   if (output["cidrIpv4"] !== undefined) {
     contents.CidrIpv4 = __expectString(output["cidrIpv4"]);
@@ -69787,7 +69789,7 @@ const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snaps
     contents.VolumeId = __expectString(output["volumeId"]);
   }
   if (output["volumeSize"] !== undefined) {
-    contents.VolumeSize = parseInt(output["volumeSize"]);
+    contents.VolumeSize = __strictParseInt(output["volumeSize"]) as number;
   }
   if (output["ownerAlias"] !== undefined) {
     contents.OwnerAlias = __expectString(output["ownerAlias"]);
@@ -69824,7 +69826,7 @@ const deserializeAws_ec2SnapshotDetail = (output: any, context: __SerdeContext):
     contents.DeviceName = __expectString(output["deviceName"]);
   }
   if (output["diskImageSize"] !== undefined) {
-    contents.DiskImageSize = parseFloat(output["diskImageSize"]);
+    contents.DiskImageSize = __strictParseFloat(output["diskImageSize"]) as number;
   }
   if (output["format"] !== undefined) {
     contents.Format = __expectString(output["format"]);
@@ -69894,7 +69896,7 @@ const deserializeAws_ec2SnapshotInfo = (output: any, context: __SerdeContext): S
     contents.State = __expectString(output["state"]);
   }
   if (output["volumeSize"] !== undefined) {
-    contents.VolumeSize = parseInt(output["volumeSize"]);
+    contents.VolumeSize = __strictParseInt(output["volumeSize"]) as number;
   }
   if (output["startTime"] !== undefined) {
     contents.StartTime = new Date(output["startTime"]);
@@ -69954,7 +69956,7 @@ const deserializeAws_ec2SnapshotTaskDetail = (output: any, context: __SerdeConte
     contents.Description = __expectString(output["description"]);
   }
   if (output["diskImageSize"] !== undefined) {
-    contents.DiskImageSize = parseFloat(output["diskImageSize"]);
+    contents.DiskImageSize = __strictParseFloat(output["diskImageSize"]) as number;
   }
   if (output["encrypted"] !== undefined) {
     contents.Encrypted = __parseBoolean(output["encrypted"]);
@@ -70116,7 +70118,7 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
     contents.UserData = __expectString(output["userData"]);
   }
   if (output["weightedCapacity"] !== undefined) {
-    contents.WeightedCapacity = parseFloat(output["weightedCapacity"]);
+    contents.WeightedCapacity = __strictParseFloat(output["weightedCapacity"]) as number;
   }
   if (output.tagSpecificationSet === "") {
     contents.TagSpecifications = [];
@@ -70226,10 +70228,10 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
     contents.ExcessCapacityTerminationPolicy = __expectString(output["excessCapacityTerminationPolicy"]);
   }
   if (output["fulfilledCapacity"] !== undefined) {
-    contents.FulfilledCapacity = parseFloat(output["fulfilledCapacity"]);
+    contents.FulfilledCapacity = __strictParseFloat(output["fulfilledCapacity"]) as number;
   }
   if (output["onDemandFulfilledCapacity"] !== undefined) {
-    contents.OnDemandFulfilledCapacity = parseFloat(output["onDemandFulfilledCapacity"]);
+    contents.OnDemandFulfilledCapacity = __strictParseFloat(output["onDemandFulfilledCapacity"]) as number;
   }
   if (output["iamFleetRole"] !== undefined) {
     contents.IamFleetRole = __expectString(output["iamFleetRole"]);
@@ -70256,10 +70258,10 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
     contents.SpotPrice = __expectString(output["spotPrice"]);
   }
   if (output["targetCapacity"] !== undefined) {
-    contents.TargetCapacity = parseInt(output["targetCapacity"]);
+    contents.TargetCapacity = __strictParseInt(output["targetCapacity"]) as number;
   }
   if (output["onDemandTargetCapacity"] !== undefined) {
-    contents.OnDemandTargetCapacity = parseInt(output["onDemandTargetCapacity"]);
+    contents.OnDemandTargetCapacity = __strictParseInt(output["onDemandTargetCapacity"]) as number;
   }
   if (output["onDemandMaxTotalPrice"] !== undefined) {
     contents.OnDemandMaxTotalPrice = __expectString(output["onDemandMaxTotalPrice"]);
@@ -70289,7 +70291,7 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
     contents.LoadBalancersConfig = deserializeAws_ec2LoadBalancersConfig(output["loadBalancersConfig"], context);
   }
   if (output["instancePoolsToUseCount"] !== undefined) {
-    contents.InstancePoolsToUseCount = parseInt(output["instancePoolsToUseCount"]);
+    contents.InstancePoolsToUseCount = __strictParseInt(output["instancePoolsToUseCount"]) as number;
   }
   if (output["context"] !== undefined) {
     contents.Context = __expectString(output["context"]);
@@ -70383,7 +70385,7 @@ const deserializeAws_ec2SpotInstanceRequest = (output: any, context: __SerdeCont
     contents.AvailabilityZoneGroup = __expectString(output["availabilityZoneGroup"]);
   }
   if (output["blockDurationMinutes"] !== undefined) {
-    contents.BlockDurationMinutes = parseInt(output["blockDurationMinutes"]);
+    contents.BlockDurationMinutes = __strictParseInt(output["blockDurationMinutes"]) as number;
   }
   if (output["createTime"] !== undefined) {
     contents.CreateTime = new Date(output["createTime"]);
@@ -70519,7 +70521,7 @@ const deserializeAws_ec2SpotOptions = (output: any, context: __SerdeContext): Sp
     contents.InstanceInterruptionBehavior = __expectString(output["instanceInterruptionBehavior"]);
   }
   if (output["instancePoolsToUseCount"] !== undefined) {
-    contents.InstancePoolsToUseCount = parseInt(output["instancePoolsToUseCount"]);
+    contents.InstancePoolsToUseCount = __strictParseInt(output["instancePoolsToUseCount"]) as number;
   }
   if (output["singleInstanceType"] !== undefined) {
     contents.SingleInstanceType = __parseBoolean(output["singleInstanceType"]);
@@ -70528,7 +70530,7 @@ const deserializeAws_ec2SpotOptions = (output: any, context: __SerdeContext): Sp
     contents.SingleAvailabilityZone = __parseBoolean(output["singleAvailabilityZone"]);
   }
   if (output["minTargetCapacity"] !== undefined) {
-    contents.MinTargetCapacity = parseInt(output["minTargetCapacity"]);
+    contents.MinTargetCapacity = __strictParseInt(output["minTargetCapacity"]) as number;
   }
   if (output["maxTotalPrice"] !== undefined) {
     contents.MaxTotalPrice = __expectString(output["maxTotalPrice"]);
@@ -70601,7 +70603,7 @@ const deserializeAws_ec2StaleIpPermission = (output: any, context: __SerdeContex
     UserIdGroupPairs: undefined,
   };
   if (output["fromPort"] !== undefined) {
-    contents.FromPort = parseInt(output["fromPort"]);
+    contents.FromPort = __strictParseInt(output["fromPort"]) as number;
   }
   if (output["ipProtocol"] !== undefined) {
     contents.IpProtocol = __expectString(output["ipProtocol"]);
@@ -70622,7 +70624,7 @@ const deserializeAws_ec2StaleIpPermission = (output: any, context: __SerdeContex
     );
   }
   if (output["toPort"] !== undefined) {
-    contents.ToPort = parseInt(output["toPort"]);
+    contents.ToPort = __strictParseInt(output["toPort"]) as number;
   }
   if (output.groups === "") {
     contents.UserIdGroupPairs = [];
@@ -70808,7 +70810,7 @@ const deserializeAws_ec2StoreImageTaskResult = (output: any, context: __SerdeCon
     contents.S3objectKey = __expectString(output["s3objectKey"]);
   }
   if (output["progressPercentage"] !== undefined) {
-    contents.ProgressPercentage = parseInt(output["progressPercentage"]);
+    contents.ProgressPercentage = __strictParseInt(output["progressPercentage"]) as number;
   }
   if (output["storeTaskState"] !== undefined) {
     contents.StoreTaskState = __expectString(output["storeTaskState"]);
@@ -70868,7 +70870,7 @@ const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet 
     contents.AvailabilityZoneId = __expectString(output["availabilityZoneId"]);
   }
   if (output["availableIpAddressCount"] !== undefined) {
-    contents.AvailableIpAddressCount = parseInt(output["availableIpAddressCount"]);
+    contents.AvailableIpAddressCount = __strictParseInt(output["availableIpAddressCount"]) as number;
   }
   if (output["cidrBlock"] !== undefined) {
     contents.CidrBlock = __expectString(output["cidrBlock"]);
@@ -71211,13 +71213,13 @@ const deserializeAws_ec2TargetCapacitySpecification = (
     DefaultTargetCapacityType: undefined,
   };
   if (output["totalTargetCapacity"] !== undefined) {
-    contents.TotalTargetCapacity = parseInt(output["totalTargetCapacity"]);
+    contents.TotalTargetCapacity = __strictParseInt(output["totalTargetCapacity"]) as number;
   }
   if (output["onDemandTargetCapacity"] !== undefined) {
-    contents.OnDemandTargetCapacity = parseInt(output["onDemandTargetCapacity"]);
+    contents.OnDemandTargetCapacity = __strictParseInt(output["onDemandTargetCapacity"]) as number;
   }
   if (output["spotTargetCapacity"] !== undefined) {
-    contents.SpotTargetCapacity = parseInt(output["spotTargetCapacity"]);
+    contents.SpotTargetCapacity = __strictParseInt(output["spotTargetCapacity"]) as number;
   }
   if (output["defaultTargetCapacityType"] !== undefined) {
     contents.DefaultTargetCapacityType = __expectString(output["defaultTargetCapacityType"]);
@@ -71231,7 +71233,7 @@ const deserializeAws_ec2TargetConfiguration = (output: any, context: __SerdeCont
     OfferingId: undefined,
   };
   if (output["instanceCount"] !== undefined) {
-    contents.InstanceCount = parseInt(output["instanceCount"]);
+    contents.InstanceCount = __strictParseInt(output["instanceCount"]) as number;
   }
   if (output["offeringId"] !== undefined) {
     contents.OfferingId = __expectString(output["offeringId"]);
@@ -71436,7 +71438,7 @@ const deserializeAws_ec2ThreadsPerCoreList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return parseInt(entry);
+      return __strictParseInt(entry) as number;
     });
 };
 
@@ -71515,13 +71517,13 @@ const deserializeAws_ec2TrafficMirrorFilterRule = (output: any, context: __Serde
     contents.TrafficDirection = __expectString(output["trafficDirection"]);
   }
   if (output["ruleNumber"] !== undefined) {
-    contents.RuleNumber = parseInt(output["ruleNumber"]);
+    contents.RuleNumber = __strictParseInt(output["ruleNumber"]) as number;
   }
   if (output["ruleAction"] !== undefined) {
     contents.RuleAction = __expectString(output["ruleAction"]);
   }
   if (output["protocol"] !== undefined) {
-    contents.Protocol = parseInt(output["protocol"]);
+    contents.Protocol = __strictParseInt(output["protocol"]) as number;
   }
   if (output["destinationPortRange"] !== undefined) {
     contents.DestinationPortRange = deserializeAws_ec2TrafficMirrorPortRange(output["destinationPortRange"], context);
@@ -71586,10 +71588,10 @@ const deserializeAws_ec2TrafficMirrorPortRange = (output: any, context: __SerdeC
     ToPort: undefined,
   };
   if (output["fromPort"] !== undefined) {
-    contents.FromPort = parseInt(output["fromPort"]);
+    contents.FromPort = __strictParseInt(output["fromPort"]) as number;
   }
   if (output["toPort"] !== undefined) {
-    contents.ToPort = parseInt(output["toPort"]);
+    contents.ToPort = __strictParseInt(output["toPort"]) as number;
   }
   return contents;
 };
@@ -71623,13 +71625,13 @@ const deserializeAws_ec2TrafficMirrorSession = (output: any, context: __SerdeCon
     contents.OwnerId = __expectString(output["ownerId"]);
   }
   if (output["packetLength"] !== undefined) {
-    contents.PacketLength = parseInt(output["packetLength"]);
+    contents.PacketLength = __strictParseInt(output["packetLength"]) as number;
   }
   if (output["sessionNumber"] !== undefined) {
-    contents.SessionNumber = parseInt(output["sessionNumber"]);
+    contents.SessionNumber = __strictParseInt(output["sessionNumber"]) as number;
   }
   if (output["virtualNetworkId"] !== undefined) {
-    contents.VirtualNetworkId = parseInt(output["virtualNetworkId"]);
+    contents.VirtualNetworkId = __strictParseInt(output["virtualNetworkId"]) as number;
   }
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
@@ -71850,10 +71852,10 @@ const deserializeAws_ec2TransitGatewayAttachmentBgpConfiguration = (
     BgpStatus: undefined,
   };
   if (output["transitGatewayAsn"] !== undefined) {
-    contents.TransitGatewayAsn = parseInt(output["transitGatewayAsn"]);
+    contents.TransitGatewayAsn = __strictParseInt(output["transitGatewayAsn"]) as number;
   }
   if (output["peerAsn"] !== undefined) {
-    contents.PeerAsn = parseInt(output["peerAsn"]);
+    contents.PeerAsn = __strictParseInt(output["peerAsn"]) as number;
   }
   if (output["transitGatewayAddress"] !== undefined) {
     contents.TransitGatewayAddress = __expectString(output["transitGatewayAddress"]);
@@ -72454,7 +72456,7 @@ const deserializeAws_ec2TransitGatewayOptions = (output: any, context: __SerdeCo
     MulticastSupport: undefined,
   };
   if (output["amazonSideAsn"] !== undefined) {
-    contents.AmazonSideAsn = parseInt(output["amazonSideAsn"]);
+    contents.AmazonSideAsn = __strictParseInt(output["amazonSideAsn"]) as number;
   }
   if (output.transitGatewayCidrBlocks === "") {
     contents.TransitGatewayCidrBlocks = [];
@@ -72968,10 +72970,10 @@ const deserializeAws_ec2TrunkInterfaceAssociation = (
     contents.InterfaceProtocol = __expectString(output["interfaceProtocol"]);
   }
   if (output["vlanId"] !== undefined) {
-    contents.VlanId = parseInt(output["vlanId"]);
+    contents.VlanId = __strictParseInt(output["vlanId"]) as number;
   }
   if (output["greKey"] !== undefined) {
-    contents.GreKey = parseInt(output["greKey"]);
+    contents.GreKey = __strictParseInt(output["greKey"]) as number;
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -73031,22 +73033,22 @@ const deserializeAws_ec2TunnelOption = (output: any, context: __SerdeContext): T
     contents.PreSharedKey = __expectString(output["preSharedKey"]);
   }
   if (output["phase1LifetimeSeconds"] !== undefined) {
-    contents.Phase1LifetimeSeconds = parseInt(output["phase1LifetimeSeconds"]);
+    contents.Phase1LifetimeSeconds = __strictParseInt(output["phase1LifetimeSeconds"]) as number;
   }
   if (output["phase2LifetimeSeconds"] !== undefined) {
-    contents.Phase2LifetimeSeconds = parseInt(output["phase2LifetimeSeconds"]);
+    contents.Phase2LifetimeSeconds = __strictParseInt(output["phase2LifetimeSeconds"]) as number;
   }
   if (output["rekeyMarginTimeSeconds"] !== undefined) {
-    contents.RekeyMarginTimeSeconds = parseInt(output["rekeyMarginTimeSeconds"]);
+    contents.RekeyMarginTimeSeconds = __strictParseInt(output["rekeyMarginTimeSeconds"]) as number;
   }
   if (output["rekeyFuzzPercentage"] !== undefined) {
-    contents.RekeyFuzzPercentage = parseInt(output["rekeyFuzzPercentage"]);
+    contents.RekeyFuzzPercentage = __strictParseInt(output["rekeyFuzzPercentage"]) as number;
   }
   if (output["replayWindowSize"] !== undefined) {
-    contents.ReplayWindowSize = parseInt(output["replayWindowSize"]);
+    contents.ReplayWindowSize = __strictParseInt(output["replayWindowSize"]) as number;
   }
   if (output["dpdTimeoutSeconds"] !== undefined) {
-    contents.DpdTimeoutSeconds = parseInt(output["dpdTimeoutSeconds"]);
+    contents.DpdTimeoutSeconds = __strictParseInt(output["dpdTimeoutSeconds"]) as number;
   }
   if (output["dpdTimeoutAction"] !== undefined) {
     contents.DpdTimeoutAction = __expectString(output["dpdTimeoutAction"]);
@@ -73444,13 +73446,13 @@ const deserializeAws_ec2VCpuInfo = (output: any, context: __SerdeContext): VCpuI
     ValidThreadsPerCore: undefined,
   };
   if (output["defaultVCpus"] !== undefined) {
-    contents.DefaultVCpus = parseInt(output["defaultVCpus"]);
+    contents.DefaultVCpus = __strictParseInt(output["defaultVCpus"]) as number;
   }
   if (output["defaultCores"] !== undefined) {
-    contents.DefaultCores = parseInt(output["defaultCores"]);
+    contents.DefaultCores = __strictParseInt(output["defaultCores"]) as number;
   }
   if (output["defaultThreadsPerCore"] !== undefined) {
-    contents.DefaultThreadsPerCore = parseInt(output["defaultThreadsPerCore"]);
+    contents.DefaultThreadsPerCore = __strictParseInt(output["defaultThreadsPerCore"]) as number;
   }
   if (output.validCores === "") {
     contents.ValidCores = [];
@@ -73483,7 +73485,7 @@ const deserializeAws_ec2VgwTelemetry = (output: any, context: __SerdeContext): V
     CertificateArn: undefined,
   };
   if (output["acceptedRouteCount"] !== undefined) {
-    contents.AcceptedRouteCount = parseInt(output["acceptedRouteCount"]);
+    contents.AcceptedRouteCount = __strictParseInt(output["acceptedRouteCount"]) as number;
   }
   if (output["lastStatusChange"] !== undefined) {
     contents.LastStatusChange = new Date(output["lastStatusChange"]);
@@ -73572,7 +73574,7 @@ const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume 
     contents.OutpostArn = __expectString(output["outpostArn"]);
   }
   if (output["size"] !== undefined) {
-    contents.Size = parseInt(output["size"]);
+    contents.Size = __strictParseInt(output["size"]) as number;
   }
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
@@ -73584,7 +73586,7 @@ const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume 
     contents.VolumeId = __expectString(output["volumeId"]);
   }
   if (output["iops"] !== undefined) {
-    contents.Iops = parseInt(output["iops"]);
+    contents.Iops = __strictParseInt(output["iops"]) as number;
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -73602,7 +73604,7 @@ const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume 
     contents.MultiAttachEnabled = __parseBoolean(output["multiAttachEnabled"]);
   }
   if (output["throughput"] !== undefined) {
-    contents.Throughput = parseInt(output["throughput"]);
+    contents.Throughput = __strictParseInt(output["throughput"]) as number;
   }
   return contents;
 };
@@ -73688,37 +73690,37 @@ const deserializeAws_ec2VolumeModification = (output: any, context: __SerdeConte
     contents.StatusMessage = __expectString(output["statusMessage"]);
   }
   if (output["targetSize"] !== undefined) {
-    contents.TargetSize = parseInt(output["targetSize"]);
+    contents.TargetSize = __strictParseInt(output["targetSize"]) as number;
   }
   if (output["targetIops"] !== undefined) {
-    contents.TargetIops = parseInt(output["targetIops"]);
+    contents.TargetIops = __strictParseInt(output["targetIops"]) as number;
   }
   if (output["targetVolumeType"] !== undefined) {
     contents.TargetVolumeType = __expectString(output["targetVolumeType"]);
   }
   if (output["targetThroughput"] !== undefined) {
-    contents.TargetThroughput = parseInt(output["targetThroughput"]);
+    contents.TargetThroughput = __strictParseInt(output["targetThroughput"]) as number;
   }
   if (output["targetMultiAttachEnabled"] !== undefined) {
     contents.TargetMultiAttachEnabled = __parseBoolean(output["targetMultiAttachEnabled"]);
   }
   if (output["originalSize"] !== undefined) {
-    contents.OriginalSize = parseInt(output["originalSize"]);
+    contents.OriginalSize = __strictParseInt(output["originalSize"]) as number;
   }
   if (output["originalIops"] !== undefined) {
-    contents.OriginalIops = parseInt(output["originalIops"]);
+    contents.OriginalIops = __strictParseInt(output["originalIops"]) as number;
   }
   if (output["originalVolumeType"] !== undefined) {
     contents.OriginalVolumeType = __expectString(output["originalVolumeType"]);
   }
   if (output["originalThroughput"] !== undefined) {
-    contents.OriginalThroughput = parseInt(output["originalThroughput"]);
+    contents.OriginalThroughput = __strictParseInt(output["originalThroughput"]) as number;
   }
   if (output["originalMultiAttachEnabled"] !== undefined) {
     contents.OriginalMultiAttachEnabled = __parseBoolean(output["originalMultiAttachEnabled"]);
   }
   if (output["progress"] !== undefined) {
-    contents.Progress = parseInt(output["progress"]);
+    contents.Progress = __strictParseInt(output["progress"]) as number;
   }
   if (output["startTime"] !== undefined) {
     contents.StartTime = new Date(output["startTime"]);
@@ -74641,7 +74643,7 @@ const deserializeAws_ec2VpnGateway = (output: any, context: __SerdeContext): Vpn
     contents.VpnGatewayId = __expectString(output["vpnGatewayId"]);
   }
   if (output["amazonSideAsn"] !== undefined) {
-    contents.AmazonSideAsn = parseInt(output["amazonSideAsn"]);
+    contents.AmazonSideAsn = __strictParseInt(output["amazonSideAsn"]) as number;
   }
   if (output.tagSet === "") {
     contents.Tags = [];

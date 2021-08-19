@@ -209,10 +209,10 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1431,9 +1431,11 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
     ...(input.assetId !== undefined && { assetId: input.assetId }),
     ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
     ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
-    ...(input.aggregateTypes !== undefined && { aggregateTypes: (input.aggregateTypes || []).map((_entry) => _entry) }),
+    ...(input.aggregateTypes !== undefined && {
+      aggregateTypes: (input.aggregateTypes || []).map((_entry) => _entry as any),
+    }),
     ...(input.resolution !== undefined && { resolution: input.resolution }),
-    ...(input.qualities !== undefined && { qualities: (input.qualities || []).map((_entry) => _entry) }),
+    ...(input.qualities !== undefined && { qualities: (input.qualities || []).map((_entry) => _entry as any) }),
     ...(input.startDate !== undefined && { startDate: (input.startDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.endDate !== undefined && { endDate: (input.endDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.timeOrdering !== undefined && { timeOrdering: input.timeOrdering }),
@@ -1505,7 +1507,7 @@ export const serializeAws_restJson1GetAssetPropertyValueHistoryCommand = async (
     ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
     ...(input.startDate !== undefined && { startDate: (input.startDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.endDate !== undefined && { endDate: (input.endDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.qualities !== undefined && { qualities: (input.qualities || []).map((_entry) => _entry) }),
+    ...(input.qualities !== undefined && { qualities: (input.qualities || []).map((_entry) => _entry as any) }),
     ...(input.timeOrdering !== undefined && { timeOrdering: input.timeOrdering }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -2103,7 +2105,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -8765,12 +8767,12 @@ const deserializeAws_restJson1AggregatedValues = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Aggregates = (output: any, context: __SerdeContext): Aggregates => {
   return {
-    average: __handleFloat(output.average),
-    count: __handleFloat(output.count),
-    maximum: __handleFloat(output.maximum),
-    minimum: __handleFloat(output.minimum),
-    standardDeviation: __handleFloat(output.standardDeviation),
-    sum: __handleFloat(output.sum),
+    average: __limitedParseFloat(output.average),
+    count: __limitedParseFloat(output.count),
+    maximum: __limitedParseFloat(output.maximum),
+    minimum: __limitedParseFloat(output.minimum),
+    standardDeviation: __limitedParseFloat(output.standardDeviation),
+    sum: __limitedParseFloat(output.sum),
   } as any;
 };
 
@@ -9741,8 +9743,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1TimeInNanos = (output: any, context: __SerdeContext): TimeInNanos => {
   return {
-    offsetInNanos: __expectNumber(output.offsetInNanos),
-    timeInSeconds: __expectNumber(output.timeInSeconds),
+    offsetInNanos: __expectInt(output.offsetInNanos),
+    timeInSeconds: __expectInt(output.timeInSeconds),
   } as any;
 };
 
@@ -9807,8 +9809,8 @@ const deserializeAws_restJson1VariableValue = (output: any, context: __SerdeCont
 const deserializeAws_restJson1Variant = (output: any, context: __SerdeContext): Variant => {
   return {
     booleanValue: __expectBoolean(output.booleanValue),
-    doubleValue: __handleFloat(output.doubleValue),
-    integerValue: __expectNumber(output.integerValue),
+    doubleValue: __limitedParseFloat(output.doubleValue),
+    integerValue: __expectInt(output.integerValue),
     stringValue: __expectString(output.stringValue),
   } as any;
 };

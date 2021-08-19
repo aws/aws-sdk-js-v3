@@ -127,9 +127,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3261,7 +3261,7 @@ const deserializeAws_json1_1LogPattern = (output: any, context: __SerdeContext):
     Pattern: __expectString(output.Pattern),
     PatternName: __expectString(output.PatternName),
     PatternSetName: __expectString(output.PatternSetName),
-    Rank: __expectNumber(output.Rank),
+    Rank: __expectInt(output.Rank),
   } as any;
 };
 
@@ -3333,14 +3333,14 @@ const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext)
     StatesInput: __expectString(output.StatesInput),
     StatesStatus: __expectString(output.StatesStatus),
     Unit: __expectString(output.Unit),
-    Value: __handleFloat(output.Value),
-    XRayErrorPercent: __expectNumber(output.XRayErrorPercent),
-    XRayFaultPercent: __expectNumber(output.XRayFaultPercent),
+    Value: __limitedParseFloat(output.Value),
+    XRayErrorPercent: __expectInt(output.XRayErrorPercent),
+    XRayFaultPercent: __expectInt(output.XRayFaultPercent),
     XRayNodeName: __expectString(output.XRayNodeName),
     XRayNodeType: __expectString(output.XRayNodeType),
-    XRayRequestAverageLatency: __expectNumber(output.XRayRequestAverageLatency),
-    XRayRequestCount: __expectNumber(output.XRayRequestCount),
-    XRayThrottlePercent: __expectNumber(output.XRayThrottlePercent),
+    XRayRequestAverageLatency: __expectInt(output.XRayRequestAverageLatency),
+    XRayRequestCount: __expectInt(output.XRayRequestCount),
+    XRayThrottlePercent: __expectInt(output.XRayThrottlePercent),
   } as any;
 };
 

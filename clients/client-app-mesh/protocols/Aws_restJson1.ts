@@ -242,7 +242,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -7556,7 +7556,7 @@ const deserializeAws_restJson1DnsServiceDiscovery = (output: any, context: __Ser
 const deserializeAws_restJson1Duration = (output: any, context: __SerdeContext): Duration => {
   return {
     unit: __expectString(output.unit),
-    value: __expectNumber(output.value),
+    value: __expectInt(output.value),
   } as any;
 };
 
@@ -7637,7 +7637,7 @@ const deserializeAws_restJson1GatewayRouteRef = (output: any, context: __SerdeCo
     meshName: __expectString(output.meshName),
     meshOwner: __expectString(output.meshOwner),
     resourceOwner: __expectString(output.resourceOwner),
-    version: __expectNumber(output.version),
+    version: __expectInt(output.version),
     virtualGatewayName: __expectString(output.virtualGatewayName),
   } as any;
 };
@@ -7656,7 +7656,7 @@ const deserializeAws_restJson1GatewayRouteSpec = (output: any, context: __SerdeC
       output.httpRoute !== undefined && output.httpRoute !== null
         ? deserializeAws_restJson1HttpGatewayRoute(output.httpRoute, context)
         : undefined,
-    priority: __expectNumber(output.priority),
+    priority: __expectInt(output.priority),
   } as any;
 };
 
@@ -7801,7 +7801,7 @@ const deserializeAws_restJson1GrpcRetryPolicy = (output: any, context: __SerdeCo
       output.httpRetryEvents !== undefined && output.httpRetryEvents !== null
         ? deserializeAws_restJson1HttpRetryPolicyEvents(output.httpRetryEvents, context)
         : undefined,
-    maxRetries: __expectNumber(output.maxRetries),
+    maxRetries: __expectInt(output.maxRetries),
     perRetryTimeout:
       output.perRetryTimeout !== undefined && output.perRetryTimeout !== null
         ? deserializeAws_restJson1Duration(output.perRetryTimeout, context)
@@ -7950,13 +7950,13 @@ const deserializeAws_restJson1HeaderMatchMethod = (output: any, context: __Serde
 
 const deserializeAws_restJson1HealthCheckPolicy = (output: any, context: __SerdeContext): HealthCheckPolicy => {
   return {
-    healthyThreshold: __expectNumber(output.healthyThreshold),
-    intervalMillis: __expectNumber(output.intervalMillis),
+    healthyThreshold: __expectInt(output.healthyThreshold),
+    intervalMillis: __expectInt(output.intervalMillis),
     path: __expectString(output.path),
-    port: __expectNumber(output.port),
+    port: __expectInt(output.port),
     protocol: __expectString(output.protocol),
-    timeoutMillis: __expectNumber(output.timeoutMillis),
-    unhealthyThreshold: __expectNumber(output.unhealthyThreshold),
+    timeoutMillis: __expectInt(output.timeoutMillis),
+    unhealthyThreshold: __expectInt(output.unhealthyThreshold),
   } as any;
 };
 
@@ -8113,7 +8113,7 @@ const deserializeAws_restJson1HttpRetryPolicy = (output: any, context: __SerdeCo
       output.httpRetryEvents !== undefined && output.httpRetryEvents !== null
         ? deserializeAws_restJson1HttpRetryPolicyEvents(output.httpRetryEvents, context)
         : undefined,
-    maxRetries: __expectNumber(output.maxRetries),
+    maxRetries: __expectInt(output.maxRetries),
     perRetryTimeout:
       output.perRetryTimeout !== undefined && output.perRetryTimeout !== null
         ? deserializeAws_restJson1Duration(output.perRetryTimeout, context)
@@ -8393,8 +8393,8 @@ const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1MatchRange = (output: any, context: __SerdeContext): MatchRange => {
   return {
-    end: __expectNumber(output.end),
-    start: __expectNumber(output.start),
+    end: __expectInt(output.end),
+    start: __expectInt(output.start),
   } as any;
 };
 
@@ -8441,7 +8441,7 @@ const deserializeAws_restJson1MeshRef = (output: any, context: __SerdeContext): 
     meshName: __expectString(output.meshName),
     meshOwner: __expectString(output.meshOwner),
     resourceOwner: __expectString(output.resourceOwner),
-    version: __expectNumber(output.version),
+    version: __expectInt(output.version),
   } as any;
 };
 
@@ -8470,14 +8470,14 @@ const deserializeAws_restJson1OutlierDetection = (output: any, context: __SerdeC
       output.interval !== undefined && output.interval !== null
         ? deserializeAws_restJson1Duration(output.interval, context)
         : undefined,
-    maxEjectionPercent: __expectNumber(output.maxEjectionPercent),
-    maxServerErrors: __expectNumber(output.maxServerErrors),
+    maxEjectionPercent: __expectInt(output.maxEjectionPercent),
+    maxServerErrors: __expectInt(output.maxServerErrors),
   } as any;
 };
 
 const deserializeAws_restJson1PortMapping = (output: any, context: __SerdeContext): PortMapping => {
   return {
-    port: __expectNumber(output.port),
+    port: __expectInt(output.port),
     protocol: __expectString(output.protocol),
   } as any;
 };
@@ -8489,7 +8489,7 @@ const deserializeAws_restJson1PortSet = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __expectInt(entry) as any;
     });
 };
 
@@ -8513,7 +8513,7 @@ const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeC
     meshOwner: __expectString(output.meshOwner),
     resourceOwner: __expectString(output.resourceOwner),
     uid: __expectString(output.uid),
-    version: __expectNumber(output.version),
+    version: __expectInt(output.version),
   } as any;
 };
 
@@ -8563,7 +8563,7 @@ const deserializeAws_restJson1RouteRef = (output: any, context: __SerdeContext):
     meshOwner: __expectString(output.meshOwner),
     resourceOwner: __expectString(output.resourceOwner),
     routeName: __expectString(output.routeName),
-    version: __expectNumber(output.version),
+    version: __expectInt(output.version),
     virtualRouterName: __expectString(output.virtualRouterName),
   } as any;
 };
@@ -8582,7 +8582,7 @@ const deserializeAws_restJson1RouteSpec = (output: any, context: __SerdeContext)
       output.httpRoute !== undefined && output.httpRoute !== null
         ? deserializeAws_restJson1HttpRoute(output.httpRoute, context)
         : undefined,
-    priority: __expectNumber(output.priority),
+    priority: __expectInt(output.priority),
     tcpRoute:
       output.tcpRoute !== undefined && output.tcpRoute !== null
         ? deserializeAws_restJson1TcpRoute(output.tcpRoute, context)
@@ -8916,7 +8916,7 @@ const deserializeAws_restJson1VirtualGatewayGrpcConnectionPool = (
   context: __SerdeContext
 ): VirtualGatewayGrpcConnectionPool => {
   return {
-    maxRequests: __expectNumber(output.maxRequests),
+    maxRequests: __expectInt(output.maxRequests),
   } as any;
 };
 
@@ -8925,13 +8925,13 @@ const deserializeAws_restJson1VirtualGatewayHealthCheckPolicy = (
   context: __SerdeContext
 ): VirtualGatewayHealthCheckPolicy => {
   return {
-    healthyThreshold: __expectNumber(output.healthyThreshold),
-    intervalMillis: __expectNumber(output.intervalMillis),
+    healthyThreshold: __expectInt(output.healthyThreshold),
+    intervalMillis: __expectInt(output.intervalMillis),
     path: __expectString(output.path),
-    port: __expectNumber(output.port),
+    port: __expectInt(output.port),
     protocol: __expectString(output.protocol),
-    timeoutMillis: __expectNumber(output.timeoutMillis),
-    unhealthyThreshold: __expectNumber(output.unhealthyThreshold),
+    timeoutMillis: __expectInt(output.timeoutMillis),
+    unhealthyThreshold: __expectInt(output.unhealthyThreshold),
   } as any;
 };
 
@@ -8940,7 +8940,7 @@ const deserializeAws_restJson1VirtualGatewayHttp2ConnectionPool = (
   context: __SerdeContext
 ): VirtualGatewayHttp2ConnectionPool => {
   return {
-    maxRequests: __expectNumber(output.maxRequests),
+    maxRequests: __expectInt(output.maxRequests),
   } as any;
 };
 
@@ -8949,8 +8949,8 @@ const deserializeAws_restJson1VirtualGatewayHttpConnectionPool = (
   context: __SerdeContext
 ): VirtualGatewayHttpConnectionPool => {
   return {
-    maxConnections: __expectNumber(output.maxConnections),
-    maxPendingRequests: __expectNumber(output.maxPendingRequests),
+    maxConnections: __expectInt(output.maxConnections),
+    maxPendingRequests: __expectInt(output.maxPendingRequests),
   } as any;
 };
 
@@ -9117,7 +9117,7 @@ const deserializeAws_restJson1VirtualGatewayPortMapping = (
   context: __SerdeContext
 ): VirtualGatewayPortMapping => {
   return {
-    port: __expectNumber(output.port),
+    port: __expectInt(output.port),
     protocol: __expectString(output.protocol),
   } as any;
 };
@@ -9136,7 +9136,7 @@ const deserializeAws_restJson1VirtualGatewayRef = (output: any, context: __Serde
     meshName: __expectString(output.meshName),
     meshOwner: __expectString(output.meshOwner),
     resourceOwner: __expectString(output.resourceOwner),
-    version: __expectNumber(output.version),
+    version: __expectInt(output.version),
     virtualGatewayName: __expectString(output.virtualGatewayName),
   } as any;
 };
@@ -9283,7 +9283,7 @@ const deserializeAws_restJson1VirtualNodeGrpcConnectionPool = (
   context: __SerdeContext
 ): VirtualNodeGrpcConnectionPool => {
   return {
-    maxRequests: __expectNumber(output.maxRequests),
+    maxRequests: __expectInt(output.maxRequests),
   } as any;
 };
 
@@ -9292,7 +9292,7 @@ const deserializeAws_restJson1VirtualNodeHttp2ConnectionPool = (
   context: __SerdeContext
 ): VirtualNodeHttp2ConnectionPool => {
   return {
-    maxRequests: __expectNumber(output.maxRequests),
+    maxRequests: __expectInt(output.maxRequests),
   } as any;
 };
 
@@ -9301,8 +9301,8 @@ const deserializeAws_restJson1VirtualNodeHttpConnectionPool = (
   context: __SerdeContext
 ): VirtualNodeHttpConnectionPool => {
   return {
-    maxConnections: __expectNumber(output.maxConnections),
-    maxPendingRequests: __expectNumber(output.maxPendingRequests),
+    maxConnections: __expectInt(output.maxConnections),
+    maxPendingRequests: __expectInt(output.maxPendingRequests),
   } as any;
 };
 
@@ -9331,7 +9331,7 @@ const deserializeAws_restJson1VirtualNodeRef = (output: any, context: __SerdeCon
     meshName: __expectString(output.meshName),
     meshOwner: __expectString(output.meshOwner),
     resourceOwner: __expectString(output.resourceOwner),
-    version: __expectNumber(output.version),
+    version: __expectInt(output.version),
     virtualNodeName: __expectString(output.virtualNodeName),
   } as any;
 };
@@ -9381,7 +9381,7 @@ const deserializeAws_restJson1VirtualNodeTcpConnectionPool = (
   context: __SerdeContext
 ): VirtualNodeTcpConnectionPool => {
   return {
-    maxConnections: __expectNumber(output.maxConnections),
+    maxConnections: __expectInt(output.maxConnections),
   } as any;
 };
 
@@ -9452,7 +9452,7 @@ const deserializeAws_restJson1VirtualRouterRef = (output: any, context: __SerdeC
     meshName: __expectString(output.meshName),
     meshOwner: __expectString(output.meshOwner),
     resourceOwner: __expectString(output.resourceOwner),
-    version: __expectNumber(output.version),
+    version: __expectInt(output.version),
     virtualRouterName: __expectString(output.virtualRouterName),
   } as any;
 };
@@ -9552,7 +9552,7 @@ const deserializeAws_restJson1VirtualServiceRef = (output: any, context: __Serde
     meshName: __expectString(output.meshName),
     meshOwner: __expectString(output.meshOwner),
     resourceOwner: __expectString(output.resourceOwner),
-    version: __expectNumber(output.version),
+    version: __expectInt(output.version),
     virtualServiceName: __expectString(output.virtualServiceName),
   } as any;
 };
@@ -9575,7 +9575,7 @@ const deserializeAws_restJson1VirtualServiceStatus = (output: any, context: __Se
 const deserializeAws_restJson1WeightedTarget = (output: any, context: __SerdeContext): WeightedTarget => {
   return {
     virtualNode: __expectString(output.virtualNode),
-    weight: __expectNumber(output.weight),
+    weight: __expectInt(output.weight),
   } as any;
 };
 

@@ -12,9 +12,10 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -288,7 +289,7 @@ export const deserializeAws_restJson1DescribeObjectCommand = async (
     contents.ContentType = output.headers["content-type"];
   }
   if (output.headers["content-length"] !== undefined) {
-    contents.ContentLength = parseInt(output.headers["content-length"], 10);
+    contents.ContentLength = __strictParseInt(output.headers["content-length"]);
   }
   if (output.headers["cache-control"] !== undefined) {
     contents.CacheControl = output.headers["cache-control"];
@@ -378,7 +379,7 @@ export const deserializeAws_restJson1GetObjectCommand = async (
     contents.ContentRange = output.headers["content-range"];
   }
   if (output.headers["content-length"] !== undefined) {
-    contents.ContentLength = parseInt(output.headers["content-length"], 10);
+    contents.ContentLength = __strictParseInt(output.headers["content-length"]);
   }
   if (output.headers["content-type"] !== undefined) {
     contents.ContentType = output.headers["content-type"];
@@ -666,7 +667,7 @@ const deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse = as
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
-    ContentLength: __expectNumber(output.ContentLength),
+    ContentLength: __expectInt(output.ContentLength),
     ContentType: __expectString(output.ContentType),
     ETag: __expectString(output.ETag),
     LastModified:

@@ -334,10 +334,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1093,7 +1093,7 @@ export const serializeAws_restJson1GetBlacklistReportsCommand = async (
     "/v2/email/deliverability-dashboard/blacklist-report";
   const query: any = {
     ...(input.BlacklistItemNames !== undefined && {
-      BlacklistItemNames: (input.BlacklistItemNames || []).map((_entry) => _entry),
+      BlacklistItemNames: (input.BlacklistItemNames || []).map((_entry) => _entry as any),
     }),
   };
   let body: any;
@@ -1877,7 +1877,7 @@ export const serializeAws_restJson1ListSuppressedDestinationsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/suppression/addresses";
   const query: any = {
-    ...(input.Reasons !== undefined && { Reason: (input.Reasons || []).map((_entry) => _entry) }),
+    ...(input.Reasons !== undefined && { Reason: (input.Reasons || []).map((_entry) => _entry as any) }),
     ...(input.StartDate !== undefined && { StartDate: (input.StartDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.EndDate !== undefined && { EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -2736,7 +2736,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/tags";
   const query: any = {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { TagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { TagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -6015,7 +6015,7 @@ export const deserializeAws_restJson1GetImportJobCommand = async (
     contents.CreatedTimestamp = new Date(Math.round(data.CreatedTimestamp * 1000));
   }
   if (data.FailedRecordsCount !== undefined && data.FailedRecordsCount !== null) {
-    contents.FailedRecordsCount = __expectNumber(data.FailedRecordsCount);
+    contents.FailedRecordsCount = __expectInt(data.FailedRecordsCount);
   }
   if (data.FailureInfo !== undefined && data.FailureInfo !== null) {
     contents.FailureInfo = deserializeAws_restJson1FailureInfo(data.FailureInfo, context);
@@ -6033,7 +6033,7 @@ export const deserializeAws_restJson1GetImportJobCommand = async (
     contents.JobStatus = __expectString(data.JobStatus);
   }
   if (data.ProcessedRecordsCount !== undefined && data.ProcessedRecordsCount !== null) {
-    contents.ProcessedRecordsCount = __expectNumber(data.ProcessedRecordsCount);
+    contents.ProcessedRecordsCount = __expectInt(data.ProcessedRecordsCount);
   }
   return Promise.resolve(contents);
 };
@@ -10130,7 +10130,7 @@ const deserializeAws_restJson1DedicatedIp = (output: any, context: __SerdeContex
   return {
     Ip: __expectString(output.Ip),
     PoolName: __expectString(output.PoolName),
-    WarmupPercentage: __expectNumber(output.WarmupPercentage),
+    WarmupPercentage: __expectInt(output.WarmupPercentage),
     WarmupStatus: __expectString(output.WarmupStatus),
   } as any;
 };
@@ -10213,7 +10213,7 @@ const deserializeAws_restJson1DomainDeliverabilityCampaign = (
 ): DomainDeliverabilityCampaign => {
   return {
     CampaignId: __expectString(output.CampaignId),
-    DeleteRate: __handleFloat(output.DeleteRate),
+    DeleteRate: __limitedParseFloat(output.DeleteRate),
     Esps:
       output.Esps !== undefined && output.Esps !== null
         ? deserializeAws_restJson1Esps(output.Esps, context)
@@ -10224,19 +10224,19 @@ const deserializeAws_restJson1DomainDeliverabilityCampaign = (
         : undefined,
     FromAddress: __expectString(output.FromAddress),
     ImageUrl: __expectString(output.ImageUrl),
-    InboxCount: __expectNumber(output.InboxCount),
+    InboxCount: __expectInt(output.InboxCount),
     LastSeenDateTime:
       output.LastSeenDateTime !== undefined && output.LastSeenDateTime !== null
         ? new Date(Math.round(output.LastSeenDateTime * 1000))
         : undefined,
-    ProjectedVolume: __expectNumber(output.ProjectedVolume),
-    ReadDeleteRate: __handleFloat(output.ReadDeleteRate),
-    ReadRate: __handleFloat(output.ReadRate),
+    ProjectedVolume: __expectInt(output.ProjectedVolume),
+    ReadDeleteRate: __limitedParseFloat(output.ReadDeleteRate),
+    ReadRate: __limitedParseFloat(output.ReadRate),
     SendingIps:
       output.SendingIps !== undefined && output.SendingIps !== null
         ? deserializeAws_restJson1IpList(output.SendingIps, context)
         : undefined,
-    SpamCount: __expectNumber(output.SpamCount),
+    SpamCount: __expectInt(output.SpamCount),
     Subject: __expectString(output.Subject),
   } as any;
 };
@@ -10288,11 +10288,11 @@ const deserializeAws_restJson1DomainDeliverabilityTrackingOptions = (
 
 const deserializeAws_restJson1DomainIspPlacement = (output: any, context: __SerdeContext): DomainIspPlacement => {
   return {
-    InboxPercentage: __handleFloat(output.InboxPercentage),
-    InboxRawCount: __expectNumber(output.InboxRawCount),
+    InboxPercentage: __limitedParseFloat(output.InboxPercentage),
+    InboxRawCount: __expectInt(output.InboxRawCount),
     IspName: __expectString(output.IspName),
-    SpamPercentage: __handleFloat(output.SpamPercentage),
-    SpamRawCount: __expectNumber(output.SpamRawCount),
+    SpamPercentage: __limitedParseFloat(output.SpamPercentage),
+    SpamRawCount: __expectInt(output.SpamRawCount),
   } as any;
 };
 
@@ -10584,7 +10584,7 @@ const deserializeAws_restJson1OverallVolume = (output: any, context: __SerdeCont
       output.DomainIspPlacements !== undefined && output.DomainIspPlacements !== null
         ? deserializeAws_restJson1DomainIspPlacements(output.DomainIspPlacements, context)
         : undefined,
-    ReadRatePercent: __handleFloat(output.ReadRatePercent),
+    ReadRatePercent: __limitedParseFloat(output.ReadRatePercent),
     VolumeStatistics:
       output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
         ? deserializeAws_restJson1VolumeStatistics(output.VolumeStatistics, context)
@@ -10600,11 +10600,11 @@ const deserializeAws_restJson1PinpointDestination = (output: any, context: __Ser
 
 const deserializeAws_restJson1PlacementStatistics = (output: any, context: __SerdeContext): PlacementStatistics => {
   return {
-    DkimPercentage: __handleFloat(output.DkimPercentage),
-    InboxPercentage: __handleFloat(output.InboxPercentage),
-    MissingPercentage: __handleFloat(output.MissingPercentage),
-    SpamPercentage: __handleFloat(output.SpamPercentage),
-    SpfPercentage: __handleFloat(output.SpfPercentage),
+    DkimPercentage: __limitedParseFloat(output.DkimPercentage),
+    InboxPercentage: __limitedParseFloat(output.InboxPercentage),
+    MissingPercentage: __limitedParseFloat(output.MissingPercentage),
+    SpamPercentage: __limitedParseFloat(output.SpamPercentage),
+    SpfPercentage: __limitedParseFloat(output.SpfPercentage),
   } as any;
 };
 
@@ -10645,9 +10645,9 @@ const deserializeAws_restJson1SendingOptions = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1SendQuota = (output: any, context: __SerdeContext): SendQuota => {
   return {
-    Max24HourSend: __handleFloat(output.Max24HourSend),
-    MaxSendRate: __handleFloat(output.MaxSendRate),
-    SentLast24Hours: __handleFloat(output.SentLast24Hours),
+    Max24HourSend: __limitedParseFloat(output.Max24HourSend),
+    MaxSendRate: __limitedParseFloat(output.MaxSendRate),
+    SentLast24Hours: __limitedParseFloat(output.SentLast24Hours),
   } as any;
 };
 
@@ -10815,10 +10815,10 @@ const deserializeAws_restJson1TrackingOptions = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1VolumeStatistics = (output: any, context: __SerdeContext): VolumeStatistics => {
   return {
-    InboxRawCount: __expectNumber(output.InboxRawCount),
-    ProjectedInbox: __expectNumber(output.ProjectedInbox),
-    ProjectedSpam: __expectNumber(output.ProjectedSpam),
-    SpamRawCount: __expectNumber(output.SpamRawCount),
+    InboxRawCount: __expectInt(output.InboxRawCount),
+    ProjectedInbox: __expectInt(output.ProjectedInbox),
+    ProjectedSpam: __expectInt(output.ProjectedSpam),
+    SpamRawCount: __expectInt(output.SpamRawCount),
   } as any;
 };
 

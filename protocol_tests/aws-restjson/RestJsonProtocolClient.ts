@@ -80,98 +80,6 @@ import { JsonListsCommandInput, JsonListsCommandOutput } from "./commands/JsonLi
 import { JsonMapsCommandInput, JsonMapsCommandOutput } from "./commands/JsonMapsCommand";
 import { JsonTimestampsCommandInput, JsonTimestampsCommandOutput } from "./commands/JsonTimestampsCommand";
 import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
-import {
-  MalformedAcceptWithBodyCommandInput,
-  MalformedAcceptWithBodyCommandOutput,
-} from "./commands/MalformedAcceptWithBodyCommand";
-import {
-  MalformedAcceptWithGenericStringCommandInput,
-  MalformedAcceptWithGenericStringCommandOutput,
-} from "./commands/MalformedAcceptWithGenericStringCommand";
-import {
-  MalformedAcceptWithPayloadCommandInput,
-  MalformedAcceptWithPayloadCommandOutput,
-} from "./commands/MalformedAcceptWithPayloadCommand";
-import { MalformedBlobCommandInput, MalformedBlobCommandOutput } from "./commands/MalformedBlobCommand";
-import { MalformedBooleanCommandInput, MalformedBooleanCommandOutput } from "./commands/MalformedBooleanCommand";
-import { MalformedByteCommandInput, MalformedByteCommandOutput } from "./commands/MalformedByteCommand";
-import {
-  MalformedContentTypeWithBodyCommandInput,
-  MalformedContentTypeWithBodyCommandOutput,
-} from "./commands/MalformedContentTypeWithBodyCommand";
-import {
-  MalformedContentTypeWithGenericStringCommandInput,
-  MalformedContentTypeWithGenericStringCommandOutput,
-} from "./commands/MalformedContentTypeWithGenericStringCommand";
-import {
-  MalformedContentTypeWithPayloadCommandInput,
-  MalformedContentTypeWithPayloadCommandOutput,
-} from "./commands/MalformedContentTypeWithPayloadCommand";
-import {
-  MalformedContentTypeWithoutBodyCommandInput,
-  MalformedContentTypeWithoutBodyCommandOutput,
-} from "./commands/MalformedContentTypeWithoutBodyCommand";
-import { MalformedDoubleCommandInput, MalformedDoubleCommandOutput } from "./commands/MalformedDoubleCommand";
-import { MalformedFloatCommandInput, MalformedFloatCommandOutput } from "./commands/MalformedFloatCommand";
-import { MalformedIntegerCommandInput, MalformedIntegerCommandOutput } from "./commands/MalformedIntegerCommand";
-import { MalformedListCommandInput, MalformedListCommandOutput } from "./commands/MalformedListCommand";
-import { MalformedLongCommandInput, MalformedLongCommandOutput } from "./commands/MalformedLongCommand";
-import { MalformedMapCommandInput, MalformedMapCommandOutput } from "./commands/MalformedMapCommand";
-import {
-  MalformedRequestBodyCommandInput,
-  MalformedRequestBodyCommandOutput,
-} from "./commands/MalformedRequestBodyCommand";
-import { MalformedSetCommandInput, MalformedSetCommandOutput } from "./commands/MalformedSetCommand";
-import { MalformedShortCommandInput, MalformedShortCommandOutput } from "./commands/MalformedShortCommand";
-import {
-  MalformedTimestampBodyDateTimeCommandInput,
-  MalformedTimestampBodyDateTimeCommandOutput,
-} from "./commands/MalformedTimestampBodyDateTimeCommand";
-import {
-  MalformedTimestampBodyDefaultCommandInput,
-  MalformedTimestampBodyDefaultCommandOutput,
-} from "./commands/MalformedTimestampBodyDefaultCommand";
-import {
-  MalformedTimestampBodyHttpDateCommandInput,
-  MalformedTimestampBodyHttpDateCommandOutput,
-} from "./commands/MalformedTimestampBodyHttpDateCommand";
-import {
-  MalformedTimestampHeaderDateTimeCommandInput,
-  MalformedTimestampHeaderDateTimeCommandOutput,
-} from "./commands/MalformedTimestampHeaderDateTimeCommand";
-import {
-  MalformedTimestampHeaderDefaultCommandInput,
-  MalformedTimestampHeaderDefaultCommandOutput,
-} from "./commands/MalformedTimestampHeaderDefaultCommand";
-import {
-  MalformedTimestampHeaderEpochCommandInput,
-  MalformedTimestampHeaderEpochCommandOutput,
-} from "./commands/MalformedTimestampHeaderEpochCommand";
-import {
-  MalformedTimestampPathDefaultCommandInput,
-  MalformedTimestampPathDefaultCommandOutput,
-} from "./commands/MalformedTimestampPathDefaultCommand";
-import {
-  MalformedTimestampPathEpochCommandInput,
-  MalformedTimestampPathEpochCommandOutput,
-} from "./commands/MalformedTimestampPathEpochCommand";
-import {
-  MalformedTimestampPathHttpDateCommandInput,
-  MalformedTimestampPathHttpDateCommandOutput,
-} from "./commands/MalformedTimestampPathHttpDateCommand";
-import {
-  MalformedTimestampQueryDefaultCommandInput,
-  MalformedTimestampQueryDefaultCommandOutput,
-} from "./commands/MalformedTimestampQueryDefaultCommand";
-import {
-  MalformedTimestampQueryEpochCommandInput,
-  MalformedTimestampQueryEpochCommandOutput,
-} from "./commands/MalformedTimestampQueryEpochCommand";
-import {
-  MalformedTimestampQueryHttpDateCommandInput,
-  MalformedTimestampQueryHttpDateCommandOutput,
-} from "./commands/MalformedTimestampQueryHttpDateCommand";
-import { MalformedUnionCommandInput, MalformedUnionCommandOutput } from "./commands/MalformedUnionCommand";
 import { MediaTypeHeaderCommandInput, MediaTypeHeaderCommandOutput } from "./commands/MediaTypeHeaderCommand";
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
@@ -293,38 +201,6 @@ export type ServiceInputTypes =
   | JsonMapsCommandInput
   | JsonTimestampsCommandInput
   | JsonUnionsCommandInput
-  | MalformedAcceptWithBodyCommandInput
-  | MalformedAcceptWithGenericStringCommandInput
-  | MalformedAcceptWithPayloadCommandInput
-  | MalformedBlobCommandInput
-  | MalformedBooleanCommandInput
-  | MalformedByteCommandInput
-  | MalformedContentTypeWithBodyCommandInput
-  | MalformedContentTypeWithGenericStringCommandInput
-  | MalformedContentTypeWithPayloadCommandInput
-  | MalformedContentTypeWithoutBodyCommandInput
-  | MalformedDoubleCommandInput
-  | MalformedFloatCommandInput
-  | MalformedIntegerCommandInput
-  | MalformedListCommandInput
-  | MalformedLongCommandInput
-  | MalformedMapCommandInput
-  | MalformedRequestBodyCommandInput
-  | MalformedSetCommandInput
-  | MalformedShortCommandInput
-  | MalformedTimestampBodyDateTimeCommandInput
-  | MalformedTimestampBodyDefaultCommandInput
-  | MalformedTimestampBodyHttpDateCommandInput
-  | MalformedTimestampHeaderDateTimeCommandInput
-  | MalformedTimestampHeaderDefaultCommandInput
-  | MalformedTimestampHeaderEpochCommandInput
-  | MalformedTimestampPathDefaultCommandInput
-  | MalformedTimestampPathEpochCommandInput
-  | MalformedTimestampPathHttpDateCommandInput
-  | MalformedTimestampQueryDefaultCommandInput
-  | MalformedTimestampQueryEpochCommandInput
-  | MalformedTimestampQueryHttpDateCommandInput
-  | MalformedUnionCommandInput
   | MediaTypeHeaderCommandInput
   | NoInputAndNoOutputCommandInput
   | NoInputAndOutputCommandInput
@@ -373,38 +249,6 @@ export type ServiceOutputTypes =
   | JsonMapsCommandOutput
   | JsonTimestampsCommandOutput
   | JsonUnionsCommandOutput
-  | MalformedAcceptWithBodyCommandOutput
-  | MalformedAcceptWithGenericStringCommandOutput
-  | MalformedAcceptWithPayloadCommandOutput
-  | MalformedBlobCommandOutput
-  | MalformedBooleanCommandOutput
-  | MalformedByteCommandOutput
-  | MalformedContentTypeWithBodyCommandOutput
-  | MalformedContentTypeWithGenericStringCommandOutput
-  | MalformedContentTypeWithPayloadCommandOutput
-  | MalformedContentTypeWithoutBodyCommandOutput
-  | MalformedDoubleCommandOutput
-  | MalformedFloatCommandOutput
-  | MalformedIntegerCommandOutput
-  | MalformedListCommandOutput
-  | MalformedLongCommandOutput
-  | MalformedMapCommandOutput
-  | MalformedRequestBodyCommandOutput
-  | MalformedSetCommandOutput
-  | MalformedShortCommandOutput
-  | MalformedTimestampBodyDateTimeCommandOutput
-  | MalformedTimestampBodyDefaultCommandOutput
-  | MalformedTimestampBodyHttpDateCommandOutput
-  | MalformedTimestampHeaderDateTimeCommandOutput
-  | MalformedTimestampHeaderDefaultCommandOutput
-  | MalformedTimestampHeaderEpochCommandOutput
-  | MalformedTimestampPathDefaultCommandOutput
-  | MalformedTimestampPathEpochCommandOutput
-  | MalformedTimestampPathHttpDateCommandOutput
-  | MalformedTimestampQueryDefaultCommandOutput
-  | MalformedTimestampQueryEpochCommandOutput
-  | MalformedTimestampQueryHttpDateCommandOutput
-  | MalformedUnionCommandOutput
   | MediaTypeHeaderCommandOutput
   | NoInputAndNoOutputCommandOutput
   | NoInputAndOutputCommandOutput

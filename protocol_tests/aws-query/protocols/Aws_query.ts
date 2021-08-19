@@ -98,6 +98,8 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   serializeFloat as __serializeFloat,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2485,22 +2487,22 @@ const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
     contents.falseBooleanValue = __parseBoolean(output["falseBooleanValue"]);
   }
   if (output["byteValue"] !== undefined) {
-    contents.byteValue = parseInt(output["byteValue"]);
+    contents.byteValue = __strictParseInt(output["byteValue"]) as number;
   }
   if (output["shortValue"] !== undefined) {
-    contents.shortValue = parseInt(output["shortValue"]);
+    contents.shortValue = __strictParseInt(output["shortValue"]) as number;
   }
   if (output["integerValue"] !== undefined) {
-    contents.integerValue = parseInt(output["integerValue"]);
+    contents.integerValue = __strictParseInt(output["integerValue"]) as number;
   }
   if (output["longValue"] !== undefined) {
-    contents.longValue = parseInt(output["longValue"]);
+    contents.longValue = __strictParseInt(output["longValue"]) as number;
   }
   if (output["floatValue"] !== undefined) {
-    contents.floatValue = parseFloat(output["floatValue"]);
+    contents.floatValue = __strictParseFloat(output["floatValue"]) as number;
   }
   if (output["DoubleDribble"] !== undefined) {
-    contents.doubleValue = parseFloat(output["DoubleDribble"]);
+    contents.doubleValue = __strictParseFloat(output["DoubleDribble"]) as number;
   }
   return contents;
 };
@@ -2902,7 +2904,7 @@ const deserializeAws_queryIntegerList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return parseInt(entry);
+      return __strictParseInt(entry) as number;
     });
 };
 

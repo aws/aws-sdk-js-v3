@@ -5,7 +5,7 @@ import {
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
 import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectString as __expectString, handleFloat as __handleFloat } from "@aws-sdk/smithy-client";
+import { expectString as __expectString, limitedParseFloat as __limitedParseFloat } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -295,7 +295,7 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
   return {
     itemId: __expectString(output.itemId),
-    score: __handleFloat(output.score),
+    score: __limitedParseFloat(output.score),
   } as any;
 };
 

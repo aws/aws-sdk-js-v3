@@ -49,9 +49,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1049,7 +1049,7 @@ const deserializeAws_json1_1CreateScalingPlanResponse = (
   context: __SerdeContext
 ): CreateScalingPlanResponse => {
   return {
-    ScalingPlanVersion: __expectNumber(output.ScalingPlanVersion),
+    ScalingPlanVersion: __expectInt(output.ScalingPlanVersion),
   } as any;
 };
 
@@ -1091,7 +1091,7 @@ const deserializeAws_json1_1Datapoint = (output: any, context: __SerdeContext): 
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value: __handleFloat(output.Value),
+    Value: __limitedParseFloat(output.Value),
   } as any;
 };
 
@@ -1229,19 +1229,19 @@ const deserializeAws_json1_1ScalingInstruction = (output: any, context: __SerdeC
         ? deserializeAws_json1_1CustomizedLoadMetricSpecification(output.CustomizedLoadMetricSpecification, context)
         : undefined,
     DisableDynamicScaling: __expectBoolean(output.DisableDynamicScaling),
-    MaxCapacity: __expectNumber(output.MaxCapacity),
-    MinCapacity: __expectNumber(output.MinCapacity),
+    MaxCapacity: __expectInt(output.MaxCapacity),
+    MinCapacity: __expectInt(output.MinCapacity),
     PredefinedLoadMetricSpecification:
       output.PredefinedLoadMetricSpecification !== undefined && output.PredefinedLoadMetricSpecification !== null
         ? deserializeAws_json1_1PredefinedLoadMetricSpecification(output.PredefinedLoadMetricSpecification, context)
         : undefined,
     PredictiveScalingMaxCapacityBehavior: __expectString(output.PredictiveScalingMaxCapacityBehavior),
-    PredictiveScalingMaxCapacityBuffer: __expectNumber(output.PredictiveScalingMaxCapacityBuffer),
+    PredictiveScalingMaxCapacityBuffer: __expectInt(output.PredictiveScalingMaxCapacityBuffer),
     PredictiveScalingMode: __expectString(output.PredictiveScalingMode),
     ResourceId: __expectString(output.ResourceId),
     ScalableDimension: __expectString(output.ScalableDimension),
     ScalingPolicyUpdateBehavior: __expectString(output.ScalingPolicyUpdateBehavior),
-    ScheduledActionBufferTime: __expectNumber(output.ScheduledActionBufferTime),
+    ScheduledActionBufferTime: __expectInt(output.ScheduledActionBufferTime),
     ServiceNamespace: __expectString(output.ServiceNamespace),
     TargetTrackingConfigurations:
       output.TargetTrackingConfigurations !== undefined && output.TargetTrackingConfigurations !== null
@@ -1276,7 +1276,7 @@ const deserializeAws_json1_1ScalingPlan = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1ScalingInstructions(output.ScalingInstructions, context)
         : undefined,
     ScalingPlanName: __expectString(output.ScalingPlanName),
-    ScalingPlanVersion: __expectNumber(output.ScalingPlanVersion),
+    ScalingPlanVersion: __expectInt(output.ScalingPlanVersion),
     StatusCode: __expectString(output.StatusCode),
     StatusMessage: __expectString(output.StatusMessage),
     StatusStartTime:
@@ -1291,7 +1291,7 @@ const deserializeAws_json1_1ScalingPlanResource = (output: any, context: __Serde
     ResourceId: __expectString(output.ResourceId),
     ScalableDimension: __expectString(output.ScalableDimension),
     ScalingPlanName: __expectString(output.ScalingPlanName),
-    ScalingPlanVersion: __expectNumber(output.ScalingPlanVersion),
+    ScalingPlanVersion: __expectInt(output.ScalingPlanVersion),
     ScalingPolicies:
       output.ScalingPolicies !== undefined && output.ScalingPolicies !== null
         ? deserializeAws_json1_1ScalingPolicies(output.ScalingPolicies, context)
@@ -1391,7 +1391,7 @@ const deserializeAws_json1_1TargetTrackingConfiguration = (
           )
         : undefined,
     DisableScaleIn: __expectBoolean(output.DisableScaleIn),
-    EstimatedInstanceWarmup: __expectNumber(output.EstimatedInstanceWarmup),
+    EstimatedInstanceWarmup: __expectInt(output.EstimatedInstanceWarmup),
     PredefinedScalingMetricSpecification:
       output.PredefinedScalingMetricSpecification !== undefined && output.PredefinedScalingMetricSpecification !== null
         ? deserializeAws_json1_1PredefinedScalingMetricSpecification(
@@ -1399,9 +1399,9 @@ const deserializeAws_json1_1TargetTrackingConfiguration = (
             context
           )
         : undefined,
-    ScaleInCooldown: __expectNumber(output.ScaleInCooldown),
-    ScaleOutCooldown: __expectNumber(output.ScaleOutCooldown),
-    TargetValue: __handleFloat(output.TargetValue),
+    ScaleInCooldown: __expectInt(output.ScaleInCooldown),
+    ScaleOutCooldown: __expectInt(output.ScaleOutCooldown),
+    TargetValue: __limitedParseFloat(output.TargetValue),
   } as any;
 };
 

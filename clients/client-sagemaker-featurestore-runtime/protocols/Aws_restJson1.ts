@@ -110,7 +110,7 @@ export const serializeAws_restJson1GetRecordCommand = async (
     ...(input.RecordIdentifierValueAsString !== undefined && {
       RecordIdentifierValueAsString: input.RecordIdentifierValueAsString,
     }),
-    ...(input.FeatureNames !== undefined && { FeatureName: (input.FeatureNames || []).map((_entry) => _entry) }),
+    ...(input.FeatureNames !== undefined && { FeatureName: (input.FeatureNames || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({

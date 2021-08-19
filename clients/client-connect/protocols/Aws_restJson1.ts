@@ -406,10 +406,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2392,7 +2392,7 @@ export const serializeAws_restJson1ListAgentStatusesCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.AgentStatusTypes !== undefined && {
-      AgentStatusTypes: (input.AgentStatusTypes || []).map((_entry) => _entry),
+      AgentStatusTypes: (input.AgentStatusTypes || []).map((_entry) => _entry as any),
     }),
   };
   let body: any;
@@ -2496,7 +2496,7 @@ export const serializeAws_restJson1ListContactFlowsCommand = async (
   }
   const query: any = {
     ...(input.ContactFlowTypes !== undefined && {
-      contactFlowTypes: (input.ContactFlowTypes || []).map((_entry) => _entry),
+      contactFlowTypes: (input.ContactFlowTypes || []).map((_entry) => _entry as any),
     }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -2763,10 +2763,10 @@ export const serializeAws_restJson1ListPhoneNumbersCommand = async (
   }
   const query: any = {
     ...(input.PhoneNumberTypes !== undefined && {
-      phoneNumberTypes: (input.PhoneNumberTypes || []).map((_entry) => _entry),
+      phoneNumberTypes: (input.PhoneNumberTypes || []).map((_entry) => _entry as any),
     }),
     ...(input.PhoneNumberCountryCodes !== undefined && {
-      phoneNumberCountryCodes: (input.PhoneNumberCountryCodes || []).map((_entry) => _entry),
+      phoneNumberCountryCodes: (input.PhoneNumberCountryCodes || []).map((_entry) => _entry as any),
     }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -2880,7 +2880,7 @@ export const serializeAws_restJson1ListQueuesCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.QueueTypes !== undefined && { queueTypes: (input.QueueTypes || []).map((_entry) => _entry) }),
+    ...(input.QueueTypes !== undefined && { queueTypes: (input.QueueTypes || []).map((_entry) => _entry as any) }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
@@ -2918,7 +2918,7 @@ export const serializeAws_restJson1ListQuickConnectsCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.QuickConnectTypes !== undefined && {
-      QuickConnectTypes: (input.QuickConnectTypes || []).map((_entry) => _entry),
+      QuickConnectTypes: (input.QuickConnectTypes || []).map((_entry) => _entry as any),
     }),
   };
   let body: any;
@@ -3516,7 +3516,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -15027,7 +15027,7 @@ const deserializeAws_restJson1AgentStatus = (output: any, context: __SerdeContex
     AgentStatusARN: __expectString(output.AgentStatusARN),
     AgentStatusId: __expectString(output.AgentStatusId),
     Description: __expectString(output.Description),
-    DisplayOrder: __expectNumber(output.DisplayOrder),
+    DisplayOrder: __expectInt(output.DisplayOrder),
     Name: __expectString(output.Name),
     State: __expectString(output.State),
     Tags:
@@ -15151,7 +15151,7 @@ const deserializeAws_restJson1CurrentMetricData = (output: any, context: __Serde
       output.Metric !== undefined && output.Metric !== null
         ? deserializeAws_restJson1CurrentMetric(output.Metric, context)
         : undefined,
-    Value: __handleFloat(output.Value),
+    Value: __limitedParseFloat(output.Value),
   } as any;
 };
 
@@ -15332,7 +15332,7 @@ const deserializeAws_restJson1HistoricalMetricData = (output: any, context: __Se
       output.Metric !== undefined && output.Metric !== null
         ? deserializeAws_restJson1HistoricalMetric(output.Metric, context)
         : undefined,
-    Value: __handleFloat(output.Value),
+    Value: __limitedParseFloat(output.Value),
   } as any;
 };
 
@@ -15459,8 +15459,8 @@ const deserializeAws_restJson1HoursOfOperationTimeSlice = (
   context: __SerdeContext
 ): HoursOfOperationTimeSlice => {
   return {
-    Hours: __expectNumber(output.Hours),
-    Minutes: __expectNumber(output.Minutes),
+    Hours: __expectInt(output.Hours),
+    Minutes: __expectInt(output.Minutes),
   } as any;
 };
 
@@ -15608,7 +15608,7 @@ const deserializeAws_restJson1KinesisVideoStreamConfig = (
         ? deserializeAws_restJson1EncryptionConfig(output.EncryptionConfig, context)
         : undefined,
     Prefix: __expectString(output.Prefix),
-    RetentionPeriodHours: __expectNumber(output.RetentionPeriodHours),
+    RetentionPeriodHours: __expectInt(output.RetentionPeriodHours),
   } as any;
 };
 
@@ -15674,7 +15674,7 @@ const deserializeAws_restJson1MediaConcurrencies = (output: any, context: __Serd
 const deserializeAws_restJson1MediaConcurrency = (output: any, context: __SerdeContext): MediaConcurrency => {
   return {
     Channel: __expectString(output.Channel),
-    Concurrency: __expectNumber(output.Concurrency),
+    Concurrency: __expectInt(output.Concurrency),
   } as any;
 };
 
@@ -15767,7 +15767,7 @@ const deserializeAws_restJson1Queue = (output: any, context: __SerdeContext): Qu
   return {
     Description: __expectString(output.Description),
     HoursOfOperationId: __expectString(output.HoursOfOperationId),
-    MaxContacts: __expectNumber(output.MaxContacts),
+    MaxContacts: __expectInt(output.MaxContacts),
     Name: __expectString(output.Name),
     OutboundCallerConfig:
       output.OutboundCallerConfig !== undefined && output.OutboundCallerConfig !== null
@@ -15903,8 +15903,8 @@ const deserializeAws_restJson1RoutingProfileQueueConfigSummary = (
 ): RoutingProfileQueueConfigSummary => {
   return {
     Channel: __expectString(output.Channel),
-    Delay: __expectNumber(output.Delay),
-    Priority: __expectNumber(output.Priority),
+    Delay: __expectInt(output.Delay),
+    Priority: __expectInt(output.Priority),
     QueueArn: __expectString(output.QueueArn),
     QueueId: __expectString(output.QueueId),
     QueueName: __expectString(output.QueueName),
@@ -16031,7 +16031,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 const deserializeAws_restJson1Threshold = (output: any, context: __SerdeContext): Threshold => {
   return {
     Comparison: __expectString(output.Comparison),
-    ThresholdValue: __handleFloat(output.ThresholdValue),
+    ThresholdValue: __limitedParseFloat(output.ThresholdValue),
   } as any;
 };
 
@@ -16091,7 +16091,7 @@ const deserializeAws_restJson1UserIdentityInfo = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1UserPhoneConfig = (output: any, context: __SerdeContext): UserPhoneConfig => {
   return {
-    AfterContactWorkTimeLimit: __expectNumber(output.AfterContactWorkTimeLimit),
+    AfterContactWorkTimeLimit: __expectInt(output.AfterContactWorkTimeLimit),
     AutoAccept: __expectBoolean(output.AutoAccept),
     DeskPhoneNumber: __expectString(output.DeskPhoneNumber),
     PhoneType: __expectString(output.PhoneType),

@@ -77,7 +77,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -357,7 +357,7 @@ export const serializeAws_restJson1ListSigningProfilesCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.platformId !== undefined && { platformId: input.platformId }),
-    ...(input.statuses !== undefined && { statuses: (input.statuses || []).map((_entry) => _entry) }),
+    ...(input.statuses !== undefined && { statuses: (input.statuses || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -647,7 +647,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1018,7 +1018,7 @@ export const deserializeAws_restJson1GetSigningPlatformCommand = async (
     contents.displayName = __expectString(data.displayName);
   }
   if (data.maxSizeInMB !== undefined && data.maxSizeInMB !== null) {
-    contents.maxSizeInMB = __expectNumber(data.maxSizeInMB);
+    contents.maxSizeInMB = __expectInt(data.maxSizeInMB);
   }
   if (data.partner !== undefined && data.partner !== null) {
     contents.partner = __expectString(data.partner);
@@ -1258,7 +1258,7 @@ export const deserializeAws_restJson1ListProfilePermissionsCommand = async (
     contents.permissions = deserializeAws_restJson1Permissions(data.permissions, context);
   }
   if (data.policySizeBytes !== undefined && data.policySizeBytes !== null) {
-    contents.policySizeBytes = __expectNumber(data.policySizeBytes);
+    contents.policySizeBytes = __expectInt(data.policySizeBytes);
   }
   if (data.revisionId !== undefined && data.revisionId !== null) {
     contents.revisionId = __expectString(data.revisionId);
@@ -2663,7 +2663,7 @@ const deserializeAws_restJson1SignatureValidityPeriod = (
 ): SignatureValidityPeriod => {
   return {
     type: __expectString(output.type),
-    value: __expectNumber(output.value),
+    value: __expectInt(output.value),
   } as any;
 };
 
@@ -2790,7 +2790,7 @@ const deserializeAws_restJson1SigningPlatform = (output: any, context: __SerdeCo
   return {
     category: __expectString(output.category),
     displayName: __expectString(output.displayName),
-    maxSizeInMB: __expectNumber(output.maxSizeInMB),
+    maxSizeInMB: __expectInt(output.maxSizeInMB),
     partner: __expectString(output.partner),
     platformId: __expectString(output.platformId),
     revocationSupported: __expectBoolean(output.revocationSupported),

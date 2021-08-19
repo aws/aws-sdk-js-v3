@@ -96,7 +96,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -627,7 +627,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1492,7 +1492,7 @@ export const deserializeAws_restJson1RegisterJobDefinitionCommand = async (
     contents.jobDefinitionName = __expectString(data.jobDefinitionName);
   }
   if (data.revision !== undefined && data.revision !== null) {
-    contents.revision = __expectNumber(data.revision);
+    contents.revision = __expectInt(data.revision);
   }
   return Promise.resolve(contents);
 };
@@ -2609,15 +2609,15 @@ const deserializeAws_restJson1ArrayJobStatusSummary = (
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __expectInt(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1ArrayPropertiesDetail = (output: any, context: __SerdeContext): ArrayPropertiesDetail => {
   return {
-    index: __expectNumber(output.index),
-    size: __expectNumber(output.size),
+    index: __expectInt(output.index),
+    size: __expectInt(output.size),
     statusSummary:
       output.statusSummary !== undefined && output.statusSummary !== null
         ? deserializeAws_restJson1ArrayJobStatusSummary(output.statusSummary, context)
@@ -2630,8 +2630,8 @@ const deserializeAws_restJson1ArrayPropertiesSummary = (
   context: __SerdeContext
 ): ArrayPropertiesSummary => {
   return {
-    index: __expectNumber(output.index),
-    size: __expectNumber(output.size),
+    index: __expectInt(output.index),
+    size: __expectInt(output.size),
   } as any;
 };
 
@@ -2641,7 +2641,7 @@ const deserializeAws_restJson1AttemptContainerDetail = (
 ): AttemptContainerDetail => {
   return {
     containerInstanceArn: __expectString(output.containerInstanceArn),
-    exitCode: __expectNumber(output.exitCode),
+    exitCode: __expectInt(output.exitCode),
     logStreamName: __expectString(output.logStreamName),
     networkInterfaces:
       output.networkInterfaces !== undefined && output.networkInterfaces !== null
@@ -2658,9 +2658,9 @@ const deserializeAws_restJson1AttemptDetail = (output: any, context: __SerdeCont
       output.container !== undefined && output.container !== null
         ? deserializeAws_restJson1AttemptContainerDetail(output.container, context)
         : undefined,
-    startedAt: __expectNumber(output.startedAt),
+    startedAt: __expectInt(output.startedAt),
     statusReason: __expectString(output.statusReason),
-    stoppedAt: __expectNumber(output.stoppedAt),
+    stoppedAt: __expectInt(output.stoppedAt),
   } as any;
 };
 
@@ -2719,7 +2719,7 @@ const deserializeAws_restJson1ComputeEnvironmentOrder = (
 ): ComputeEnvironmentOrder => {
   return {
     computeEnvironment: __expectString(output.computeEnvironment),
-    order: __expectNumber(output.order),
+    order: __expectInt(output.order),
   } as any;
 };
 
@@ -2740,8 +2740,8 @@ const deserializeAws_restJson1ComputeEnvironmentOrders = (
 const deserializeAws_restJson1ComputeResource = (output: any, context: __SerdeContext): ComputeResource => {
   return {
     allocationStrategy: __expectString(output.allocationStrategy),
-    bidPercentage: __expectNumber(output.bidPercentage),
-    desiredvCpus: __expectNumber(output.desiredvCpus),
+    bidPercentage: __expectInt(output.bidPercentage),
+    desiredvCpus: __expectInt(output.desiredvCpus),
     ec2Configuration:
       output.ec2Configuration !== undefined && output.ec2Configuration !== null
         ? deserializeAws_restJson1Ec2ConfigurationList(output.ec2Configuration, context)
@@ -2757,8 +2757,8 @@ const deserializeAws_restJson1ComputeResource = (output: any, context: __SerdeCo
       output.launchTemplate !== undefined && output.launchTemplate !== null
         ? deserializeAws_restJson1LaunchTemplateSpecification(output.launchTemplate, context)
         : undefined,
-    maxvCpus: __expectNumber(output.maxvCpus),
-    minvCpus: __expectNumber(output.minvCpus),
+    maxvCpus: __expectInt(output.maxvCpus),
+    minvCpus: __expectInt(output.minvCpus),
     placementGroup: __expectString(output.placementGroup),
     securityGroupIds:
       output.securityGroupIds !== undefined && output.securityGroupIds !== null
@@ -2789,7 +2789,7 @@ const deserializeAws_restJson1ContainerDetail = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1EnvironmentVariables(output.environment, context)
         : undefined,
     executionRoleArn: __expectString(output.executionRoleArn),
-    exitCode: __expectNumber(output.exitCode),
+    exitCode: __expectInt(output.exitCode),
     fargatePlatformConfiguration:
       output.fargatePlatformConfiguration !== undefined && output.fargatePlatformConfiguration !== null
         ? deserializeAws_restJson1FargatePlatformConfiguration(output.fargatePlatformConfiguration, context)
@@ -2806,7 +2806,7 @@ const deserializeAws_restJson1ContainerDetail = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1LogConfiguration(output.logConfiguration, context)
         : undefined,
     logStreamName: __expectString(output.logStreamName),
-    memory: __expectNumber(output.memory),
+    memory: __expectInt(output.memory),
     mountPoints:
       output.mountPoints !== undefined && output.mountPoints !== null
         ? deserializeAws_restJson1MountPoints(output.mountPoints, context)
@@ -2836,7 +2836,7 @@ const deserializeAws_restJson1ContainerDetail = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1Ulimits(output.ulimits, context)
         : undefined,
     user: __expectString(output.user),
-    vcpus: __expectNumber(output.vcpus),
+    vcpus: __expectInt(output.vcpus),
     volumes:
       output.volumes !== undefined && output.volumes !== null
         ? deserializeAws_restJson1Volumes(output.volumes, context)
@@ -2870,7 +2870,7 @@ const deserializeAws_restJson1ContainerProperties = (output: any, context: __Ser
       output.logConfiguration !== undefined && output.logConfiguration !== null
         ? deserializeAws_restJson1LogConfiguration(output.logConfiguration, context)
         : undefined,
-    memory: __expectNumber(output.memory),
+    memory: __expectInt(output.memory),
     mountPoints:
       output.mountPoints !== undefined && output.mountPoints !== null
         ? deserializeAws_restJson1MountPoints(output.mountPoints, context)
@@ -2894,7 +2894,7 @@ const deserializeAws_restJson1ContainerProperties = (output: any, context: __Ser
         ? deserializeAws_restJson1Ulimits(output.ulimits, context)
         : undefined,
     user: __expectString(output.user),
-    vcpus: __expectNumber(output.vcpus),
+    vcpus: __expectInt(output.vcpus),
     volumes:
       output.volumes !== undefined && output.volumes !== null
         ? deserializeAws_restJson1Volumes(output.volumes, context)
@@ -2904,7 +2904,7 @@ const deserializeAws_restJson1ContainerProperties = (output: any, context: __Ser
 
 const deserializeAws_restJson1ContainerSummary = (output: any, context: __SerdeContext): ContainerSummary => {
   return {
-    exitCode: __expectNumber(output.exitCode),
+    exitCode: __expectInt(output.exitCode),
     reason: __expectString(output.reason),
   } as any;
 };
@@ -2985,7 +2985,7 @@ const deserializeAws_restJson1EFSVolumeConfiguration = (
     fileSystemId: __expectString(output.fileSystemId),
     rootDirectory: __expectString(output.rootDirectory),
     transitEncryption: __expectString(output.transitEncryption),
-    transitEncryptionPort: __expectNumber(output.transitEncryptionPort),
+    transitEncryptionPort: __expectInt(output.transitEncryptionPort),
   } as any;
 };
 
@@ -3060,7 +3060,7 @@ const deserializeAws_restJson1JobDefinition = (output: any, context: __SerdeCont
       output.retryStrategy !== undefined && output.retryStrategy !== null
         ? deserializeAws_restJson1RetryStrategy(output.retryStrategy, context)
         : undefined,
-    revision: __expectNumber(output.revision),
+    revision: __expectInt(output.revision),
     status: __expectString(output.status),
     tags:
       output.tags !== undefined && output.tags !== null
@@ -3117,7 +3117,7 @@ const deserializeAws_restJson1JobDetail = (output: any, context: __SerdeContext)
       output.container !== undefined && output.container !== null
         ? deserializeAws_restJson1ContainerDetail(output.container, context)
         : undefined,
-    createdAt: __expectNumber(output.createdAt),
+    createdAt: __expectInt(output.createdAt),
     dependsOn:
       output.dependsOn !== undefined && output.dependsOn !== null
         ? deserializeAws_restJson1JobDependencyList(output.dependsOn, context)
@@ -3148,10 +3148,10 @@ const deserializeAws_restJson1JobDetail = (output: any, context: __SerdeContext)
       output.retryStrategy !== undefined && output.retryStrategy !== null
         ? deserializeAws_restJson1RetryStrategy(output.retryStrategy, context)
         : undefined,
-    startedAt: __expectNumber(output.startedAt),
+    startedAt: __expectInt(output.startedAt),
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
-    stoppedAt: __expectNumber(output.stoppedAt),
+    stoppedAt: __expectInt(output.stoppedAt),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagrisTagsMap(output.tags, context)
@@ -3182,7 +3182,7 @@ const deserializeAws_restJson1JobQueueDetail = (output: any, context: __SerdeCon
         : undefined,
     jobQueueArn: __expectString(output.jobQueueArn),
     jobQueueName: __expectString(output.jobQueueName),
-    priority: __expectNumber(output.priority),
+    priority: __expectInt(output.priority),
     state: __expectString(output.state),
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
@@ -3214,7 +3214,7 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
       output.container !== undefined && output.container !== null
         ? deserializeAws_restJson1ContainerSummary(output.container, context)
         : undefined,
-    createdAt: __expectNumber(output.createdAt),
+    createdAt: __expectInt(output.createdAt),
     jobArn: __expectString(output.jobArn),
     jobDefinition: __expectString(output.jobDefinition),
     jobId: __expectString(output.jobId),
@@ -3223,10 +3223,10 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
       output.nodeProperties !== undefined && output.nodeProperties !== null
         ? deserializeAws_restJson1NodePropertiesSummary(output.nodeProperties, context)
         : undefined,
-    startedAt: __expectNumber(output.startedAt),
+    startedAt: __expectInt(output.startedAt),
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
-    stoppedAt: __expectNumber(output.stoppedAt),
+    stoppedAt: __expectInt(output.stoppedAt),
   } as any;
 };
 
@@ -3243,7 +3243,7 @@ const deserializeAws_restJson1JobSummaryList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1JobTimeout = (output: any, context: __SerdeContext): JobTimeout => {
   return {
-    attemptDurationSeconds: __expectNumber(output.attemptDurationSeconds),
+    attemptDurationSeconds: __expectInt(output.attemptDurationSeconds),
   } as any;
 };
 
@@ -3272,9 +3272,9 @@ const deserializeAws_restJson1LinuxParameters = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1DevicesList(output.devices, context)
         : undefined,
     initProcessEnabled: __expectBoolean(output.initProcessEnabled),
-    maxSwap: __expectNumber(output.maxSwap),
-    sharedMemorySize: __expectNumber(output.sharedMemorySize),
-    swappiness: __expectNumber(output.swappiness),
+    maxSwap: __expectInt(output.maxSwap),
+    sharedMemorySize: __expectInt(output.sharedMemorySize),
+    swappiness: __expectInt(output.swappiness),
     tmpfs:
       output.tmpfs !== undefined && output.tmpfs !== null
         ? deserializeAws_restJson1TmpfsList(output.tmpfs, context)
@@ -3358,26 +3358,26 @@ const deserializeAws_restJson1NetworkInterfaceList = (output: any, context: __Se
 const deserializeAws_restJson1NodeDetails = (output: any, context: __SerdeContext): NodeDetails => {
   return {
     isMainNode: __expectBoolean(output.isMainNode),
-    nodeIndex: __expectNumber(output.nodeIndex),
+    nodeIndex: __expectInt(output.nodeIndex),
   } as any;
 };
 
 const deserializeAws_restJson1NodeProperties = (output: any, context: __SerdeContext): NodeProperties => {
   return {
-    mainNode: __expectNumber(output.mainNode),
+    mainNode: __expectInt(output.mainNode),
     nodeRangeProperties:
       output.nodeRangeProperties !== undefined && output.nodeRangeProperties !== null
         ? deserializeAws_restJson1NodeRangeProperties(output.nodeRangeProperties, context)
         : undefined,
-    numNodes: __expectNumber(output.numNodes),
+    numNodes: __expectInt(output.numNodes),
   } as any;
 };
 
 const deserializeAws_restJson1NodePropertiesSummary = (output: any, context: __SerdeContext): NodePropertiesSummary => {
   return {
     isMainNode: __expectBoolean(output.isMainNode),
-    nodeIndex: __expectNumber(output.nodeIndex),
-    numNodes: __expectNumber(output.numNodes),
+    nodeIndex: __expectInt(output.nodeIndex),
+    numNodes: __expectInt(output.numNodes),
   } as any;
 };
 
@@ -3448,7 +3448,7 @@ const deserializeAws_restJson1ResourceRequirements = (output: any, context: __Se
 
 const deserializeAws_restJson1RetryStrategy = (output: any, context: __SerdeContext): RetryStrategy => {
   return {
-    attempts: __expectNumber(output.attempts),
+    attempts: __expectInt(output.attempts),
     evaluateOnExit:
       output.evaluateOnExit !== undefined && output.evaluateOnExit !== null
         ? deserializeAws_restJson1EvaluateOnExitList(output.evaluateOnExit, context)
@@ -3516,7 +3516,7 @@ const deserializeAws_restJson1Tmpfs = (output: any, context: __SerdeContext): Tm
       output.mountOptions !== undefined && output.mountOptions !== null
         ? deserializeAws_restJson1StringList(output.mountOptions, context)
         : undefined,
-    size: __expectNumber(output.size),
+    size: __expectInt(output.size),
   } as any;
 };
 
@@ -3533,9 +3533,9 @@ const deserializeAws_restJson1TmpfsList = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1Ulimit = (output: any, context: __SerdeContext): Ulimit => {
   return {
-    hardLimit: __expectNumber(output.hardLimit),
+    hardLimit: __expectInt(output.hardLimit),
     name: __expectString(output.name),
-    softLimit: __expectNumber(output.softLimit),
+    softLimit: __expectInt(output.softLimit),
   } as any;
 };
 

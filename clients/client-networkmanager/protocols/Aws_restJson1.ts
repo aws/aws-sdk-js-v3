@@ -104,9 +104,10 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -657,7 +658,7 @@ export const serializeAws_restJson1DescribeGlobalNetworksCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-networks";
   const query: any = {
     ...(input.GlobalNetworkIds !== undefined && {
-      globalNetworkIds: (input.GlobalNetworkIds || []).map((_entry) => _entry),
+      globalNetworkIds: (input.GlobalNetworkIds || []).map((_entry) => _entry as any),
     }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -807,7 +808,9 @@ export const serializeAws_restJson1GetConnectionsCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
-    ...(input.ConnectionIds !== undefined && { connectionIds: (input.ConnectionIds || []).map((_entry) => _entry) }),
+    ...(input.ConnectionIds !== undefined && {
+      connectionIds: (input.ConnectionIds || []).map((_entry) => _entry as any),
+    }),
     ...(input.DeviceId !== undefined && { deviceId: input.DeviceId }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -845,7 +848,7 @@ export const serializeAws_restJson1GetCustomerGatewayAssociationsCommand = async
   }
   const query: any = {
     ...(input.CustomerGatewayArns !== undefined && {
-      customerGatewayArns: (input.CustomerGatewayArns || []).map((_entry) => _entry),
+      customerGatewayArns: (input.CustomerGatewayArns || []).map((_entry) => _entry as any),
     }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -882,7 +885,7 @@ export const serializeAws_restJson1GetDevicesCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
-    ...(input.DeviceIds !== undefined && { deviceIds: (input.DeviceIds || []).map((_entry) => _entry) }),
+    ...(input.DeviceIds !== undefined && { deviceIds: (input.DeviceIds || []).map((_entry) => _entry as any) }),
     ...(input.SiteId !== undefined && { siteId: input.SiteId }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -955,7 +958,7 @@ export const serializeAws_restJson1GetLinksCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
-    ...(input.LinkIds !== undefined && { linkIds: (input.LinkIds || []).map((_entry) => _entry) }),
+    ...(input.LinkIds !== undefined && { linkIds: (input.LinkIds || []).map((_entry) => _entry as any) }),
     ...(input.SiteId !== undefined && { siteId: input.SiteId }),
     ...(input.Type !== undefined && { type: input.Type }),
     ...(input.Provider !== undefined && { provider: input.Provider }),
@@ -993,7 +996,7 @@ export const serializeAws_restJson1GetSitesCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
-    ...(input.SiteIds !== undefined && { siteIds: (input.SiteIds || []).map((_entry) => _entry) }),
+    ...(input.SiteIds !== undefined && { siteIds: (input.SiteIds || []).map((_entry) => _entry as any) }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
@@ -1030,7 +1033,7 @@ export const serializeAws_restJson1GetTransitGatewayConnectPeerAssociationsComma
   }
   const query: any = {
     ...(input.TransitGatewayConnectPeerArns !== undefined && {
-      transitGatewayConnectPeerArns: (input.TransitGatewayConnectPeerArns || []).map((_entry) => _entry),
+      transitGatewayConnectPeerArns: (input.TransitGatewayConnectPeerArns || []).map((_entry) => _entry as any),
     }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -1068,7 +1071,7 @@ export const serializeAws_restJson1GetTransitGatewayRegistrationsCommand = async
   }
   const query: any = {
     ...(input.TransitGatewayArns !== undefined && {
-      transitGatewayArns: (input.TransitGatewayArns || []).map((_entry) => _entry),
+      transitGatewayArns: (input.TransitGatewayArns || []).map((_entry) => _entry as any),
     }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -1201,7 +1204,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -4878,7 +4881,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     RetryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
+    contents.RetryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -4957,7 +4960,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     RetryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
+    contents.RetryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -5040,8 +5043,8 @@ const deserializeAws_restJson1AWSLocation = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Bandwidth = (output: any, context: __SerdeContext): Bandwidth => {
   return {
-    DownloadSpeed: __expectNumber(output.DownloadSpeed),
-    UploadSpeed: __expectNumber(output.UploadSpeed),
+    DownloadSpeed: __expectInt(output.DownloadSpeed),
+    UploadSpeed: __expectInt(output.UploadSpeed),
   } as any;
 };
 

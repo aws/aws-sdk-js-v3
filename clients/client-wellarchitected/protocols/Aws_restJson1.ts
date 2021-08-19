@@ -95,7 +95,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -989,7 +989,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: WorkloadArn.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1402,7 +1402,7 @@ export const deserializeAws_restJson1CreateMilestoneCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
+    contents.MilestoneNumber = __expectInt(data.MilestoneNumber);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
     contents.WorkloadId = __expectString(data.WorkloadId);
@@ -1996,7 +1996,7 @@ export const deserializeAws_restJson1GetAnswerCommand = async (
     contents.LensAlias = __expectString(data.LensAlias);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
+    contents.MilestoneNumber = __expectInt(data.MilestoneNumber);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
     contents.WorkloadId = __expectString(data.WorkloadId);
@@ -2091,7 +2091,7 @@ export const deserializeAws_restJson1GetLensReviewCommand = async (
     contents.LensReview = deserializeAws_restJson1LensReview(data.LensReview, context);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
+    contents.MilestoneNumber = __expectInt(data.MilestoneNumber);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
     contents.WorkloadId = __expectString(data.WorkloadId);
@@ -2186,7 +2186,7 @@ export const deserializeAws_restJson1GetLensReviewReportCommand = async (
     contents.LensReviewReport = deserializeAws_restJson1LensReviewReport(data.LensReviewReport, context);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
+    contents.MilestoneNumber = __expectInt(data.MilestoneNumber);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
     contents.WorkloadId = __expectString(data.WorkloadId);
@@ -2563,7 +2563,7 @@ export const deserializeAws_restJson1ListAnswersCommand = async (
     contents.LensAlias = __expectString(data.LensAlias);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
+    contents.MilestoneNumber = __expectInt(data.MilestoneNumber);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -2749,7 +2749,7 @@ export const deserializeAws_restJson1ListLensReviewImprovementsCommand = async (
     contents.LensAlias = __expectString(data.LensAlias);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
+    contents.MilestoneNumber = __expectInt(data.MilestoneNumber);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -2848,7 +2848,7 @@ export const deserializeAws_restJson1ListLensReviewsCommand = async (
     contents.LensReviewSummaries = deserializeAws_restJson1LensReviewSummaries(data.LensReviewSummaries, context);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
+    contents.MilestoneNumber = __expectInt(data.MilestoneNumber);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -4655,7 +4655,7 @@ const deserializeAws_restJson1LensUpgradeSummary = (output: any, context: __Serd
 const deserializeAws_restJson1Milestone = (output: any, context: __SerdeContext): Milestone => {
   return {
     MilestoneName: __expectString(output.MilestoneName),
-    MilestoneNumber: __expectNumber(output.MilestoneNumber),
+    MilestoneNumber: __expectInt(output.MilestoneNumber),
     RecordedAt:
       output.RecordedAt !== undefined && output.RecordedAt !== null
         ? new Date(Math.round(output.RecordedAt * 1000))
@@ -4681,7 +4681,7 @@ const deserializeAws_restJson1MilestoneSummaries = (output: any, context: __Serd
 const deserializeAws_restJson1MilestoneSummary = (output: any, context: __SerdeContext): MilestoneSummary => {
   return {
     MilestoneName: __expectString(output.MilestoneName),
-    MilestoneNumber: __expectNumber(output.MilestoneNumber),
+    MilestoneNumber: __expectInt(output.MilestoneNumber),
     RecordedAt:
       output.RecordedAt !== undefined && output.RecordedAt !== null
         ? new Date(Math.round(output.RecordedAt * 1000))
@@ -4785,7 +4785,7 @@ const deserializeAws_restJson1RiskCounts = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __expectInt(value) as any,
     };
   }, {});
 };

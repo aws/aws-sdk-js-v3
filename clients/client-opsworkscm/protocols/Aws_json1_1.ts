@@ -87,7 +87,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2015,9 +2015,9 @@ const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, con
 
 const deserializeAws_json1_1AccountAttribute = (output: any, context: __SerdeContext): AccountAttribute => {
   return {
-    Maximum: __expectNumber(output.Maximum),
+    Maximum: __expectInt(output.Maximum),
     Name: __expectString(output.Name),
-    Used: __expectNumber(output.Used),
+    Used: __expectInt(output.Used),
   } as any;
 };
 
@@ -2056,7 +2056,7 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
     KeyPair: __expectString(output.KeyPair),
     PreferredBackupWindow: __expectString(output.PreferredBackupWindow),
     PreferredMaintenanceWindow: __expectString(output.PreferredMaintenanceWindow),
-    S3DataSize: __expectNumber(output.S3DataSize),
+    S3DataSize: __expectInt(output.S3DataSize),
     S3DataUrl: __expectString(output.S3DataUrl),
     S3LogUrl: __expectString(output.S3LogUrl),
     SecurityGroupIds:
@@ -2278,7 +2278,7 @@ const deserializeAws_json1_1RestoreServerResponse = (output: any, context: __Ser
 const deserializeAws_json1_1Server = (output: any, context: __SerdeContext): Server => {
   return {
     AssociatePublicIpAddress: __expectBoolean(output.AssociatePublicIpAddress),
-    BackupRetentionCount: __expectNumber(output.BackupRetentionCount),
+    BackupRetentionCount: __expectInt(output.BackupRetentionCount),
     CloudFormationStackArn: __expectString(output.CloudFormationStackArn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null

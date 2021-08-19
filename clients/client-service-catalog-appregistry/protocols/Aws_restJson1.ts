@@ -62,7 +62,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -653,7 +653,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1362,7 +1362,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.associatedResourceCount !== undefined && data.associatedResourceCount !== null) {
-    contents.associatedResourceCount = __expectNumber(data.associatedResourceCount);
+    contents.associatedResourceCount = __expectInt(data.associatedResourceCount);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.creationTime = new Date(data.creationTime);

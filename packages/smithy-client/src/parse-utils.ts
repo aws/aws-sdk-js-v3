@@ -50,6 +50,23 @@ export const expectNumber = (value: any): number | undefined => {
 };
 
 /**
+ * Asserts a value is an integer and returns it.
+ *
+ * @param value A value that is expected to be an integer.
+ * @returns The value if it's an integer, undefined if it's null/undefined,
+ *   otherwise an error is thrown.
+ */
+export const expectInt = (value: any): number | undefined => {
+  if (value === null || value === undefined) {
+    return undefined;
+  }
+  if (Number.isInteger(value) && !Number.isNaN(value)) {
+    return value;
+  }
+  throw new TypeError(`Expected integer, got ${typeof value}`);
+};
+
+/**
  * Asserts a value is a string and returns it.
  *
  * @param value A value that is expected to be a string.
@@ -67,14 +84,41 @@ export const expectString = (value: any): string | undefined => {
 };
 
 /**
- * Asserts a value is a number and returns it, and also converts string
- * representations of non-numeric floats into Numbers.
+ * Parses a value into a float. If the value is null or undefined, undefined
+ * will be returned. If the value is a string, it will be parsed by the standard
+ * parseFloat with one exception: NaN may only be explicitly set as the string
+ * "NaN", any implicit Nan values will result in an error being thrown. If any
+ * other type is provided, an exception will be thrown.
+ *
+ * @param value A number or string representation of a float.
+ * @returns The value as a number, or undefined if it's null/undefined.
+ */
+export const strictParseFloat = (value: string | number): number | undefined => {
+  if (value === "NaN") {
+    return NaN;
+  }
+  if (typeof value == "string") {
+    // TODO: handle underflow / overflow explicitly
+    const parsed: number = parseFloat(value);
+    if (Number.isNaN(parsed)) {
+      throw new TypeError(`Expected real number, got implicit NaN`);
+    }
+    return expectNumber(parsed);
+  }
+  return expectNumber(value);
+};
+
+/**
+ * Asserts a value is a number and returns it. If the value is a string
+ * representation of a non-numeric number type (NaN, Infinity, -Infinity),
+ * the value will be parsed. Any other string value will result in an exception
+ * being thrown. Null or undefined will be returned as undefined. Any other
+ * type will result in an exception being thrown.
  *
  * @param value A number or string representation of a non-numeric float.
- * @returns The value as a number, undefined if it's null/undefined,
- *     otherwise an error is thrown.
+ * @returns The value as a number, or undefined if it's null/undefined.
  */
-export const handleFloat = (value: string | number): number | undefined => {
+export const limitedParseFloat = (value: string | number): number | undefined => {
   if (typeof value == "string") {
     switch (value) {
       case "NaN":
@@ -87,5 +131,31 @@ export const handleFloat = (value: string | number): number | undefined => {
         throw new Error(`Unable to parse float value: ${value}`);
     }
   }
+
   return expectNumber(value);
+};
+
+/**
+ * @deprecated Use limitedParseFloat or strictParseFloat
+ */
+export const handleFloat = limitedParseFloat;
+
+/**
+ * Parses a value into an integer. If the value is null or undefined, undefined
+ * will be returned. If the value is a string, it will be parsed by parseFloat
+ * and the result will be asserted to be an integer. If the parsed value is not
+ * an integer, or the raw value is any type other than a string or number, an
+ * exception will be thrown.
+ *
+ * @param value A number or string representation of an integer.
+ * @returns The value as a number, or undefined if it's null/undefined.
+ */
+export const strictParseInt = (value: string | number): number | undefined => {
+  if (typeof value === "string") {
+    // parseInt can't be used here, because it will silently discard any
+    // existing decimals. We want to instead throw an error if there are any.
+    // TODO: handle underflow / overflow explicitly
+    return expectInt(parseFloat(value));
+  }
+  return expectInt(value);
 };

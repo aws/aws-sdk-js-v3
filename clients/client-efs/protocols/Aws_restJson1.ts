@@ -112,10 +112,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -939,7 +939,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1183,7 +1183,7 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
     contents.Name = __expectString(data.Name);
   }
   if (data.NumberOfMountTargets !== undefined && data.NumberOfMountTargets !== null) {
-    contents.NumberOfMountTargets = __expectNumber(data.NumberOfMountTargets);
+    contents.NumberOfMountTargets = __expectInt(data.NumberOfMountTargets);
   }
   if (data.OwnerId !== undefined && data.OwnerId !== null) {
     contents.OwnerId = __expectString(data.OwnerId);
@@ -1192,7 +1192,7 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
     contents.PerformanceMode = __expectString(data.PerformanceMode);
   }
   if (data.ProvisionedThroughputInMibps !== undefined && data.ProvisionedThroughputInMibps !== null) {
-    contents.ProvisionedThroughputInMibps = __handleFloat(data.ProvisionedThroughputInMibps);
+    contents.ProvisionedThroughputInMibps = __limitedParseFloat(data.ProvisionedThroughputInMibps);
   }
   if (data.SizeInBytes !== undefined && data.SizeInBytes !== null) {
     contents.SizeInBytes = deserializeAws_restJson1FileSystemSize(data.SizeInBytes, context);
@@ -3290,7 +3290,7 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
     contents.Name = __expectString(data.Name);
   }
   if (data.NumberOfMountTargets !== undefined && data.NumberOfMountTargets !== null) {
-    contents.NumberOfMountTargets = __expectNumber(data.NumberOfMountTargets);
+    contents.NumberOfMountTargets = __expectInt(data.NumberOfMountTargets);
   }
   if (data.OwnerId !== undefined && data.OwnerId !== null) {
     contents.OwnerId = __expectString(data.OwnerId);
@@ -3299,7 +3299,7 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
     contents.PerformanceMode = __expectString(data.PerformanceMode);
   }
   if (data.ProvisionedThroughputInMibps !== undefined && data.ProvisionedThroughputInMibps !== null) {
-    contents.ProvisionedThroughputInMibps = __handleFloat(data.ProvisionedThroughputInMibps);
+    contents.ProvisionedThroughputInMibps = __limitedParseFloat(data.ProvisionedThroughputInMibps);
   }
   if (data.SizeInBytes !== undefined && data.SizeInBytes !== null) {
     contents.SizeInBytes = deserializeAws_restJson1FileSystemSize(data.SizeInBytes, context);
@@ -4145,8 +4145,8 @@ const deserializeAws_restJson1BackupPolicy = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1CreationInfo = (output: any, context: __SerdeContext): CreationInfo => {
   return {
-    OwnerGid: __expectNumber(output.OwnerGid),
-    OwnerUid: __expectNumber(output.OwnerUid),
+    OwnerGid: __expectInt(output.OwnerGid),
+    OwnerUid: __expectInt(output.OwnerUid),
     Permissions: __expectString(output.Permissions),
   } as any;
 };
@@ -4166,10 +4166,10 @@ const deserializeAws_restJson1FileSystemDescription = (output: any, context: __S
     KmsKeyId: __expectString(output.KmsKeyId),
     LifeCycleState: __expectString(output.LifeCycleState),
     Name: __expectString(output.Name),
-    NumberOfMountTargets: __expectNumber(output.NumberOfMountTargets),
+    NumberOfMountTargets: __expectInt(output.NumberOfMountTargets),
     OwnerId: __expectString(output.OwnerId),
     PerformanceMode: __expectString(output.PerformanceMode),
-    ProvisionedThroughputInMibps: __handleFloat(output.ProvisionedThroughputInMibps),
+    ProvisionedThroughputInMibps: __limitedParseFloat(output.ProvisionedThroughputInMibps),
     SizeInBytes:
       output.SizeInBytes !== undefined && output.SizeInBytes !== null
         ? deserializeAws_restJson1FileSystemSize(output.SizeInBytes, context)
@@ -4202,9 +4202,9 @@ const deserializeAws_restJson1FileSystemSize = (output: any, context: __SerdeCon
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value: __expectNumber(output.Value),
-    ValueInIA: __expectNumber(output.ValueInIA),
-    ValueInStandard: __expectNumber(output.ValueInStandard),
+    Value: __expectInt(output.Value),
+    ValueInIA: __expectInt(output.ValueInIA),
+    ValueInStandard: __expectInt(output.ValueInStandard),
   } as any;
 };
 
@@ -4259,12 +4259,12 @@ const deserializeAws_restJson1MountTargetDescriptions = (
 
 const deserializeAws_restJson1PosixUser = (output: any, context: __SerdeContext): PosixUser => {
   return {
-    Gid: __expectNumber(output.Gid),
+    Gid: __expectInt(output.Gid),
     SecondaryGids:
       output.SecondaryGids !== undefined && output.SecondaryGids !== null
         ? deserializeAws_restJson1SecondaryGids(output.SecondaryGids, context)
         : undefined,
-    Uid: __expectNumber(output.Uid),
+    Uid: __expectInt(output.Uid),
   } as any;
 };
 
@@ -4306,7 +4306,7 @@ const deserializeAws_restJson1SecondaryGids = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __expectInt(entry) as any;
     });
 };
 

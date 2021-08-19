@@ -28,7 +28,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -302,7 +302,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
   };
   let body: any;
   return new __HttpRequest({
@@ -681,7 +681,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
     contents.quantumTaskArn = __expectString(data.quantumTaskArn);
   }
   if (data.shots !== undefined && data.shots !== null) {
-    contents.shots = __expectNumber(data.shots);
+    contents.shots = __expectInt(data.shots);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -1386,7 +1386,7 @@ const deserializeAws_restJson1QuantumTaskSummary = (output: any, context: __Serd
     outputS3Bucket: __expectString(output.outputS3Bucket),
     outputS3Directory: __expectString(output.outputS3Directory),
     quantumTaskArn: __expectString(output.quantumTaskArn),
-    shots: __expectNumber(output.shots),
+    shots: __expectInt(output.shots),
     status: __expectString(output.status),
     tags:
       output.tags !== undefined && output.tags !== null

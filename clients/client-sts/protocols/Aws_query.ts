@@ -48,6 +48,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getValueFromTextNode as __getValueFromTextNode,
+  strictParseInt as __strictParseInt,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1126,7 +1127,7 @@ const deserializeAws_queryAssumeRoleResponse = (output: any, context: __SerdeCon
     contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
   }
   if (output["PackedPolicySize"] !== undefined) {
-    contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
+    contents.PackedPolicySize = __strictParseInt(output["PackedPolicySize"]) as number;
   }
   if (output["SourceIdentity"] !== undefined) {
     contents.SourceIdentity = __expectString(output["SourceIdentity"]);
@@ -1156,7 +1157,7 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (
     contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
   }
   if (output["PackedPolicySize"] !== undefined) {
-    contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
+    contents.PackedPolicySize = __strictParseInt(output["PackedPolicySize"]) as number;
   }
   if (output["Subject"] !== undefined) {
     contents.Subject = __expectString(output["Subject"]);
@@ -1202,7 +1203,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
     contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
   }
   if (output["PackedPolicySize"] !== undefined) {
-    contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
+    contents.PackedPolicySize = __strictParseInt(output["PackedPolicySize"]) as number;
   }
   if (output["Provider"] !== undefined) {
     contents.Provider = __expectString(output["Provider"]);
@@ -1325,7 +1326,7 @@ const deserializeAws_queryGetFederationTokenResponse = (
     contents.FederatedUser = deserializeAws_queryFederatedUser(output["FederatedUser"], context);
   }
   if (output["PackedPolicySize"] !== undefined) {
-    contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
+    contents.PackedPolicySize = __strictParseInt(output["PackedPolicySize"]) as number;
   }
   return contents;
 };

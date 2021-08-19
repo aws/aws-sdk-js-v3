@@ -182,9 +182,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3926,8 +3926,8 @@ const deserializeAws_json1_1ContinuousParameterRange = (
   context: __SerdeContext
 ): ContinuousParameterRange => {
   return {
-    MaxValue: __handleFloat(output.MaxValue),
-    MinValue: __handleFloat(output.MinValue),
+    MaxValue: __limitedParseFloat(output.MaxValue),
+    MinValue: __limitedParseFloat(output.MinValue),
     Name: __expectString(output.Name),
     ScalingType: __expectString(output.ScalingType),
   } as any;
@@ -4144,7 +4144,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DataSize: __handleFloat(output.DataSize),
+    DataSize: __limitedParseFloat(output.DataSize),
     DataSource:
       output.DataSource !== undefined && output.DataSource !== null
         ? deserializeAws_json1_1DataSource(output.DataSource, context)
@@ -4152,7 +4152,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
     DatasetArn: __expectString(output.DatasetArn),
     DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
     DatasetImportJobName: __expectString(output.DatasetImportJobName),
-    EstimatedTimeRemainingInMinutes: __expectNumber(output.EstimatedTimeRemainingInMinutes),
+    EstimatedTimeRemainingInMinutes: __expectInt(output.EstimatedTimeRemainingInMinutes),
     FieldStatistics:
       output.FieldStatistics !== undefined && output.FieldStatistics !== null
         ? deserializeAws_json1_1FieldStatistics(output.FieldStatistics, context)
@@ -4235,7 +4235,7 @@ const deserializeAws_json1_1DescribeForecastResponse = (
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    EstimatedTimeRemainingInMinutes: __expectNumber(output.EstimatedTimeRemainingInMinutes),
+    EstimatedTimeRemainingInMinutes: __expectInt(output.EstimatedTimeRemainingInMinutes),
     ForecastArn: __expectString(output.ForecastArn),
     ForecastName: __expectString(output.ForecastName),
     ForecastTypes:
@@ -4300,7 +4300,7 @@ const deserializeAws_json1_1DescribePredictorResponse = (
       output.EncryptionConfig !== undefined && output.EncryptionConfig !== null
         ? deserializeAws_json1_1EncryptionConfig(output.EncryptionConfig, context)
         : undefined,
-    EstimatedTimeRemainingInMinutes: __expectNumber(output.EstimatedTimeRemainingInMinutes),
+    EstimatedTimeRemainingInMinutes: __expectInt(output.EstimatedTimeRemainingInMinutes),
     EvaluationParameters:
       output.EvaluationParameters !== undefined && output.EvaluationParameters !== null
         ? deserializeAws_json1_1EvaluationParameters(output.EvaluationParameters, context)
@@ -4309,7 +4309,7 @@ const deserializeAws_json1_1DescribePredictorResponse = (
       output.FeaturizationConfig !== undefined && output.FeaturizationConfig !== null
         ? deserializeAws_json1_1FeaturizationConfig(output.FeaturizationConfig, context)
         : undefined,
-    ForecastHorizon: __expectNumber(output.ForecastHorizon),
+    ForecastHorizon: __expectInt(output.ForecastHorizon),
     ForecastTypes:
       output.ForecastTypes !== undefined && output.ForecastTypes !== null
         ? deserializeAws_json1_1ForecastTypes(output.ForecastTypes, context)
@@ -4353,8 +4353,8 @@ const deserializeAws_json1_1EncryptionConfig = (output: any, context: __SerdeCon
 const deserializeAws_json1_1ErrorMetric = (output: any, context: __SerdeContext): ErrorMetric => {
   return {
     ForecastType: __expectString(output.ForecastType),
-    RMSE: __handleFloat(output.RMSE),
-    WAPE: __handleFloat(output.WAPE),
+    RMSE: __limitedParseFloat(output.RMSE),
+    WAPE: __limitedParseFloat(output.WAPE),
   } as any;
 };
 
@@ -4371,8 +4371,8 @@ const deserializeAws_json1_1ErrorMetrics = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1EvaluationParameters = (output: any, context: __SerdeContext): EvaluationParameters => {
   return {
-    BackTestWindowOffset: __expectNumber(output.BackTestWindowOffset),
-    NumberOfBacktestWindows: __expectNumber(output.NumberOfBacktestWindows),
+    BackTestWindowOffset: __expectInt(output.BackTestWindowOffset),
+    NumberOfBacktestWindows: __expectInt(output.NumberOfBacktestWindows),
   } as any;
 };
 
@@ -4593,8 +4593,8 @@ const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1IntegerParameterRange = (output: any, context: __SerdeContext): IntegerParameterRange => {
   return {
-    MaxValue: __expectNumber(output.MaxValue),
-    MinValue: __expectNumber(output.MinValue),
+    MaxValue: __expectInt(output.MaxValue),
+    MinValue: __expectInt(output.MinValue),
     Name: __expectString(output.Name),
     ScalingType: __expectString(output.ScalingType),
   } as any;
@@ -4733,7 +4733,7 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Me
       output.ErrorMetrics !== undefined && output.ErrorMetrics !== null
         ? deserializeAws_json1_1ErrorMetrics(output.ErrorMetrics, context)
         : undefined,
-    RMSE: __handleFloat(output.RMSE),
+    RMSE: __limitedParseFloat(output.RMSE),
     WeightedQuantileLosses:
       output.WeightedQuantileLosses !== undefined && output.WeightedQuantileLosses !== null
         ? deserializeAws_json1_1WeightedQuantileLosses(output.WeightedQuantileLosses, context)
@@ -4930,18 +4930,18 @@ const deserializeAws_json1_1SchemaAttributes = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
-    Avg: __handleFloat(output.Avg),
-    Count: __expectNumber(output.Count),
-    CountDistinct: __expectNumber(output.CountDistinct),
-    CountDistinctLong: __expectNumber(output.CountDistinctLong),
-    CountLong: __expectNumber(output.CountLong),
-    CountNan: __expectNumber(output.CountNan),
-    CountNanLong: __expectNumber(output.CountNanLong),
-    CountNull: __expectNumber(output.CountNull),
-    CountNullLong: __expectNumber(output.CountNullLong),
+    Avg: __limitedParseFloat(output.Avg),
+    Count: __expectInt(output.Count),
+    CountDistinct: __expectInt(output.CountDistinct),
+    CountDistinctLong: __expectInt(output.CountDistinctLong),
+    CountLong: __expectInt(output.CountLong),
+    CountNan: __expectInt(output.CountNan),
+    CountNanLong: __expectInt(output.CountNanLong),
+    CountNull: __expectInt(output.CountNull),
+    CountNullLong: __expectInt(output.CountNullLong),
     Max: __expectString(output.Max),
     Min: __expectString(output.Min),
-    Stddev: __handleFloat(output.Stddev),
+    Stddev: __limitedParseFloat(output.Stddev),
   } as any;
 };
 
@@ -5058,8 +5058,8 @@ const deserializeAws_json1_1Values = (output: any, context: __SerdeContext): str
 
 const deserializeAws_json1_1WeightedQuantileLoss = (output: any, context: __SerdeContext): WeightedQuantileLoss => {
   return {
-    LossValue: __handleFloat(output.LossValue),
-    Quantile: __handleFloat(output.Quantile),
+    LossValue: __limitedParseFloat(output.LossValue),
+    Quantile: __limitedParseFloat(output.Quantile),
   } as any;
 };
 
@@ -5077,7 +5077,7 @@ const deserializeAws_json1_1WeightedQuantileLosses = (output: any, context: __Se
 const deserializeAws_json1_1WindowSummary = (output: any, context: __SerdeContext): WindowSummary => {
   return {
     EvaluationType: __expectString(output.EvaluationType),
-    ItemCount: __expectNumber(output.ItemCount),
+    ItemCount: __expectInt(output.ItemCount),
     Metrics:
       output.Metrics !== undefined && output.Metrics !== null
         ? deserializeAws_json1_1Metrics(output.Metrics, context)

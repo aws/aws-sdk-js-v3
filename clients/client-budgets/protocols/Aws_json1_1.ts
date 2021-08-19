@@ -121,7 +121,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectString as __expectString,
-  handleFloat as __handleFloat,
+  limitedParseFloat as __limitedParseFloat,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3084,7 +3084,7 @@ const deserializeAws_json1_1Actions = (output: any, context: __SerdeContext): Ac
 const deserializeAws_json1_1ActionThreshold = (output: any, context: __SerdeContext): ActionThreshold => {
   return {
     ActionThresholdType: __expectString(output.ActionThresholdType),
-    ActionThresholdValue: __handleFloat(output.ActionThresholdValue),
+    ActionThresholdValue: __limitedParseFloat(output.ActionThresholdValue),
   } as any;
 };
 
@@ -3550,7 +3550,7 @@ const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext
     ComparisonOperator: __expectString(output.ComparisonOperator),
     NotificationState: __expectString(output.NotificationState),
     NotificationType: __expectString(output.NotificationType),
-    Threshold: __handleFloat(output.Threshold),
+    Threshold: __limitedParseFloat(output.Threshold),
     ThresholdType: __expectString(output.ThresholdType),
   } as any;
 };

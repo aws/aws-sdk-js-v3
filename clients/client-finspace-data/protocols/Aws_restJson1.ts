@@ -16,7 +16,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectNumber as __expectNumber,
+  expectInt as __expectInt,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -223,7 +223,7 @@ export const deserializeAws_restJson1GetProgrammaticAccessCredentialsCommand = a
     contents.credentials = deserializeAws_restJson1Credentials(data.credentials, context);
   }
   if (data.durationInMinutes !== undefined && data.durationInMinutes !== null) {
-    contents.durationInMinutes = __expectNumber(data.durationInMinutes);
+    contents.durationInMinutes = __expectInt(data.durationInMinutes);
   }
   return Promise.resolve(contents);
 };
