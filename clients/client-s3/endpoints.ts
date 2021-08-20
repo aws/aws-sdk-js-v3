@@ -28,12 +28,6 @@ const regionHash: { [key: string]: Partial<RegionInfo> } = {
   "accesspoint-ca-central-1": {
     hostname: "s3-accesspoint.ca-central-1.amazonaws.com",
   },
-  "accesspoint-cn-north-1": {
-    hostname: "s3-accesspoint.cn-north-1.amazonaws.com.cn",
-  },
-  "accesspoint-cn-northwest-1": {
-    hostname: "s3-accesspoint.cn-northwest-1.amazonaws.com.cn",
-  },
   "accesspoint-eu-central-1": {
     hostname: "s3-accesspoint.eu-central-1.amazonaws.com",
   },
@@ -76,18 +70,9 @@ const regionHash: { [key: string]: Partial<RegionInfo> } = {
   "accesspoint-us-west-2": {
     hostname: "s3-accesspoint.us-west-2.amazonaws.com",
   },
-  "af-south-1": { hostname: "s3.af-south-1.amazonaws.com" },
-  "ap-east-1": { hostname: "s3.ap-east-1.amazonaws.com" },
   "ap-northeast-1": {
     hostname: "s3.ap-northeast-1.amazonaws.com",
   },
-  "ap-northeast-2": {
-    hostname: "s3.ap-northeast-2.amazonaws.com",
-  },
-  "ap-northeast-3": {
-    hostname: "s3.ap-northeast-3.amazonaws.com",
-  },
-  "ap-south-1": { hostname: "s3.ap-south-1.amazonaws.com" },
   "ap-southeast-1": {
     hostname: "s3.ap-southeast-1.amazonaws.com",
   },
@@ -96,7 +81,6 @@ const regionHash: { [key: string]: Partial<RegionInfo> } = {
   },
   "aws-global": {
     hostname: "s3.amazonaws.com",
-
     signingRegion: "us-east-1",
   },
   "cn-north-1": {
@@ -105,17 +89,7 @@ const regionHash: { [key: string]: Partial<RegionInfo> } = {
   "cn-northwest-1": {
     hostname: "s3.cn-northwest-1.amazonaws.com.cn",
   },
-  "ca-central-1": {
-    hostname: "s3.ca-central-1.amazonaws.com",
-  },
-  "eu-central-1": {
-    hostname: "s3.eu-central-1.amazonaws.com",
-  },
-  "eu-north-1": { hostname: "s3.eu-north-1.amazonaws.com" },
-  "eu-south-1": { hostname: "s3.eu-south-1.amazonaws.com" },
   "eu-west-1": { hostname: "s3.eu-west-1.amazonaws.com" },
-  "eu-west-2": { hostname: "s3.eu-west-2.amazonaws.com" },
-  "eu-west-3": { hostname: "s3.eu-west-3.amazonaws.com" },
   "fips-accesspoint-ca-central-1": {
     hostname: "s3-accesspoint-fips.ca-central-1.amazonaws.com",
   },
@@ -139,29 +113,19 @@ const regionHash: { [key: string]: Partial<RegionInfo> } = {
   },
   "fips-us-gov-west-1": {
     hostname: "s3-fips.us-gov-west-1.amazonaws.com",
-
     signingRegion: "us-gov-west-1",
   },
-  "me-south-1": { hostname: "s3.me-south-1.amazonaws.com" },
-  "sa-east-1": { hostname: "s3.sa-east-1.amazonaws.com" },
   "s3-external-1": {
     hostname: "s3-external-1.amazonaws.com",
-
     signingRegion: "us-east-1",
   },
+  "sa-east-1": { hostname: "s3.sa-east-1.amazonaws.com" },
   "us-east-1": { hostname: "s3.us-east-1.amazonaws.com" },
-  "us-east-2": { hostname: "s3.us-east-2.amazonaws.com" },
   "us-gov-east-1": {
     hostname: "s3.us-gov-east-1.amazonaws.com",
   },
   "us-gov-west-1": {
     hostname: "s3.us-gov-west-1.amazonaws.com",
-  },
-  "us-iso-east-1": {
-    hostname: "s3.us-iso-east-1.c2s.ic.gov",
-  },
-  "us-isob-east-1": {
-    hostname: "s3.us-isob-east-1.sc2s.sgov.gov",
   },
   "us-west-1": { hostname: "s3.us-west-1.amazonaws.com" },
   "us-west-2": { hostname: "s3.us-west-2.amazonaws.com" },
