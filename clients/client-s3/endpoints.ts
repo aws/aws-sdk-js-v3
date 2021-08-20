@@ -221,7 +221,7 @@ const partitionTemplatesHash: { [key: string]: { hostname: string } } = {
 };
 
 export const defaultRegionInfoProvider: RegionInfoProvider = async (region: string, options?: any) => ({
-  signingService: "{service}",
+  signingService: "s3",
   hostname: getResolvedHostName(region),
   partition: getResolvedPartition(region),
   ...(regionHash[region]?.signingRegion && {
