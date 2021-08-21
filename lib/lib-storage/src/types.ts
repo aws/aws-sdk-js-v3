@@ -15,21 +15,20 @@ export type ServiceClients = S3Client;
 
 export interface Configuration {
   /**
+   * Default: 4
    * The size of the concurrent queue manager to upload parts in parallel. Set to 1 for synchronous uploading of parts. Note that the uploader will buffer at most queueSize * partSize bytes into memory at any given time.
-   * default: 4
    */
   queueSize: number;
 
   /**
-   * Default: 5 mb
-   * The size in bytes for each individual part to be uploaded. Adjust the part size to ensure the number of parts does not exceed maxTotalParts. See 5mb is the minimum allowed part size.
+   * Default: 5MB
+   * The size in bytes for each individual part to be uploaded. Adjust the part size to ensure the number of parts does not exceed maxTotalParts. 5MB is the minimum allowed part size.
    */
   partSize: number;
 
   /**
    * Default: false
-   * Whether to abort the multipart upload if an error occurs. Set to true if you want to handle failures manually. If set to false (default)
-   * the upload will drop parts that have failed.
+   * Whether to abort the multipart upload if an error occurs. Set to true if you want to handle failures manually. If set to false (default), the upload will drop parts that have failed.
    */
   leavePartsOnError: boolean;
 
