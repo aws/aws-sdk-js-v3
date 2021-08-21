@@ -17,7 +17,7 @@ Upload allows for easy and efficient uploading of buffers, blobs, or streams, us
       client: new S3({}) || new S3Client({}),
       tags: [...], // optional tags
       queueSize: 4, // optional concurrency configuration
-      partSize: 5MB, // optional size of each part
+      partSize: 5, // optional size of each part
       leavePartsOnError: false, // optional manually handle dropped parts
       params: target,
     });
