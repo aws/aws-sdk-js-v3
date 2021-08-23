@@ -31,7 +31,6 @@ import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.CaseUtils;
 import software.amazon.smithy.utils.IoUtils;
-import software.amazon.smithy.utils.OptionalUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 import software.amazon.smithy.utils.StringUtils;
 
@@ -107,8 +106,21 @@ final class EndpointGenerator implements Runnable {
 
     @Override
     public void run() {
+        writeRegionHash();
         writePartitionHash();
         writeEndpointProviderFunction();
+    }
+
+    private void writeRegionHash() {
+        writer.addImport("RegionHash", "RegionHash", TypeScriptDependency.CONFIG_RESOLVER.packageName);
+        writer.openBlock("const regionHash: RegionHash = {", "};", () -> {
+            for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
+                writer.openBlock("$S: {", "},", entry.getKey(), () -> {
+                    writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
+                });
+            }
+        });
+        writer.write("");
     }
 
     private void writePartitionHash() {
@@ -140,28 +152,10 @@ final class EndpointGenerator implements Runnable {
         });
     }
 
-    private void writePartitionEndpointResolver(Partition partition) {
-        OptionalUtils.ifPresentOrElse(
-                partition.getPartitionEndpoint(),
-                name -> writer.write("return defaultRegionInfoProvider($S);", name),
-                () -> {
-                    writer.openBlock("regionInfo = {", "};", () -> {
-                        String template = partition.templateVariableName;
-                        writer.write("hostname: $L.replace(\"{region}\", region),", template);
-                        writer.write("partition: $S,", partition.identifier);
-                        writeAdditionalEndpointSettings(partition.getDefaults());
-                    });
-                }
-        );
-    }
-
     private void writeEndpointSpecificResolver(String region, ObjectNode resolved) {
         String hostname = resolved.expectStringMember("hostname").getValue();
-        writer.openBlock("regionInfo = {", "};", () -> {
-            writer.write("hostname: $S,", hostname);
-            writer.write("partition: $S,", regionPartitionsMap.get(region).identifier);
-            writeAdditionalEndpointSettings(resolved);
-        });
+        writer.write("hostname: $S,", hostname);
+        writeAdditionalEndpointSettings(resolved);
     }
 
     // Write credential scope settings into the resolved endpoint object.
