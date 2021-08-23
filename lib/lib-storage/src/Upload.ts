@@ -11,6 +11,7 @@ import {
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
+import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
 import { EventEmitter } from "events";
 import { BodyDataTypes, Options, Progress, ServiceClients } from "./types";
 import { getChunk } from "./chunker";
@@ -213,11 +214,17 @@ export class Upload extends EventEmitter {
       result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
     } else {
       const endpoint = await this.client.config.endpoint();
+      const locationKey = this.params
+        .Key!.split("/")
+        .map((segment) => extendedEncodeURIComponent(segment))
+        .join("/");
+      const locationBucket = extendedEncodeURIComponent(this.params.Bucket!);
+
       let Location: string;
-      if (this.client.config.forcePathStyle){
-        Location = `${endpoint.protocol}//${endpoint.hostname}/${this.params.Bucket}/${this.params.Key}`
+      if (this.client.config.forcePathStyle) {
+        Location = `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`;
       } else {
-        Location = `${endpoint.protocol}//${this.params.Bucket}.${endpoint.hostname}/${this.params.Key}`
+        Location = `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
       }
       result = {
         ...this.putResponse!,
