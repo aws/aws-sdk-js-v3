@@ -107,26 +107,22 @@ final class EndpointGenerator implements Runnable {
 
     @Override
     public void run() {
-        writePartitionTemplates();
-        writePartitionRegions();
+        writePartitionHash();
         writeEndpointProviderFunction();
     }
 
-    private void writePartitionTemplates() {
-        writer.write("// Partition default templates");
-        partitions.values().forEach(partition -> {
-            writer.write("const $L = $S;", partition.templateVariableName, partition.templateValue);
-        });
-        writer.write("");
-    }
-
-    private void writePartitionRegions() {
-        writer.write("// Partition regions");
-        partitions.values().forEach(partition -> {
-            writer.openBlock("const $L = new Set([", "]);", partition.regionVariableName, () -> {
-                for (String region : partition.getAllRegions()) {
-                    writer.write("$S,", region);
-                }
+    private void writePartitionHash() {
+        writer.addImport("PartitionHash", "PartitionHash", TypeScriptDependency.CONFIG_RESOLVER.packageName);
+        writer.openBlock("const partitionHash: PartitionHash = {", "};", () -> {
+            partitions.values().forEach(partition -> {
+                writer.openBlock("$S: {", "},", partition.identifier, () -> {
+                    writer.openBlock("regions: [", "],", () -> {
+                        for (String region : partition.getAllRegions()) {
+                            writer.write("$S,", region);
+                        }
+                    });
+                    writer.write("hostname: $S,", partition.templateValue);
+                });
             });
         });
         writer.write("");
