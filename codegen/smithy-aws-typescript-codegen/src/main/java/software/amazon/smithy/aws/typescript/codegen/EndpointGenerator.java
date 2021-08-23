@@ -128,7 +128,7 @@ final class EndpointGenerator implements Runnable {
                             writer.write("$S,", region);
                         }
                     });
-                    writer.write("hostname: $S,", partition.templateValue);
+                    writer.write("hostname: $S,", partition.hostnameTemplate);
                 });
             });
         });
@@ -166,7 +166,7 @@ final class EndpointGenerator implements Runnable {
 
     private final class Partition {
         final ObjectNode defaults;
-        final String templateValue;
+        final String hostnameTemplate;
         final String dnsSuffix;
         final String identifier;
         private final ObjectNode config;
@@ -181,7 +181,7 @@ final class EndpointGenerator implements Runnable {
             String template = defaults.expectStringMember("hostname").getValue();
             template = template.replace("{service}", endpointPrefix);
             template = template.replace("{dnsSuffix}", config.expectStringMember("dnsSuffix").getValue());
-            templateValue = template;
+            hostnameTemplate = template;
 
             dnsSuffix = config.expectStringMember("dnsSuffix").getValue();
             identifier = partition;
