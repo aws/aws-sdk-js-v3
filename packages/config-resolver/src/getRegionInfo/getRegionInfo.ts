@@ -1,5 +1,7 @@
-import { getResolvedHostname, GetResolvedHostnameOptions } from "./getResolvedHostname";
-import { getResolvedPartition } from "./getResolvedPartition";
+import { getResolvedHostname, GetResolvedHostnameOptions, RegionHash } from "./getResolvedHostname";
+import { getResolvedPartition, PartitionHash } from "./getResolvedPartition";
+
+export { RegionHash, PartitionHash };
 
 export interface GetRegionInfoOptions extends GetResolvedHostnameOptions {}
 
