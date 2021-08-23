@@ -189,11 +189,11 @@ const getRegionInfo = (region: string, options: RegionInfoOptions) => ({
   signingService: "s3",
   hostname: getResolvedHostName(region, options),
   partition: getResolvedPartition(region, options),
-  ...(regionHash[region]?.signingRegion && {
-    signingRegion: regionHash[region].signingRegion,
+  ...(options.regionHash[region]?.signingRegion && {
+    signingRegion: options.regionHash[region].signingRegion,
   }),
-  ...(regionHash[region]?.signingService && {
-    signingService: regionHash[region].signingService,
+  ...(options.regionHash[region]?.signingService && {
+    signingService: options.regionHash[region].signingService,
   }),
 });
 
