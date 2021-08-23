@@ -45,7 +45,7 @@ final class EndpointGenerator implements Runnable {
     private final ObjectNode endpointData;
     private final ServiceTrait serviceTrait;
     private final String endpointPrefix;
-    private final String baseSigningSerivce;
+    private final String baseSigningService;
     private final Map<String, Partition> partitions = new TreeMap<>();
     private final Map<String, ObjectNode> endpoints = new TreeMap<>();
 
@@ -54,7 +54,7 @@ final class EndpointGenerator implements Runnable {
         serviceTrait = service.getTrait(ServiceTrait.class)
                 .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()));
         endpointPrefix = serviceTrait.getEndpointPrefix();
-        baseSigningSerivce = service.getTrait(SigV4Trait.class).map(SigV4Trait::getName)
+        baseSigningService = service.getTrait(SigV4Trait.class).map(SigV4Trait::getName)
                 .orElse(serviceTrait.getArnNamespace());
         endpointData = Node.parse(IoUtils.readUtf8Resource(getClass(), "endpoints.json")).expectObjectNode();
         validateVersion();
@@ -143,7 +143,12 @@ final class EndpointGenerator implements Runnable {
                          + "  region: string,\n"
                          + "  options?: any\n"
                          + ") => ", ";", () -> {
-            writer.write("getRegionInfo(region, { ...options })");
+            writer.openBlock("getRegionInfo(region, {", "})", () -> {
+                writer.write("...options,");
+                writer.write("signingService: $S,", baseSigningService);
+                writer.write("regionHash,");
+                writer.write("partitionHash,");
+            });
         });
     }
 
