@@ -1,9 +1,15 @@
-import { getResolvedHostName } from "./getResolvedHostname";
-import { getResolvedPartition } from "./getResolvedPartition";
-import { RegionInfoOptions } from "./types";
+import { getResolvedHostName, GetResolvedHostnameOptions } from "./getResolvedHostname";
+import { getResolvedPartition, GetResolvedPartitionOptions } from "./getResolvedPartition";
 
-export const getRegionInfo = (region: string, { regionHash, partitionHash }: RegionInfoOptions) => ({
-  signingService: "s3",
+export interface GetRegionInfoOptions extends GetResolvedHostnameOptions, GetResolvedPartitionOptions {
+  /**
+   * The name to be used while signing the service request.
+   */
+  signingService: string;
+}
+
+export const getRegionInfo = (region: string, { signingService, regionHash, partitionHash }: GetRegionInfoOptions) => ({
+  signingService,
   hostname: getResolvedHostName(region, { regionHash, partitionHash }),
   partition: getResolvedPartition(region, { partitionHash }),
   ...(regionHash[region]?.signingRegion && {

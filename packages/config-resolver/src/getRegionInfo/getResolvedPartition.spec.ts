@@ -1,5 +1,4 @@
-import { getResolvedPartition } from "./getResolvedPartition";
-import { PartitionHash } from "./types";
+import { getResolvedPartition, PartitionHash } from "./getResolvedPartition";
 
 describe(getResolvedPartition.name, () => {
   const mockRegion = "mockRegion";
