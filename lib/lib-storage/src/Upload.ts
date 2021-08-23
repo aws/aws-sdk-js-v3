@@ -212,7 +212,19 @@ export class Upload extends EventEmitter {
       };
       result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
     } else {
-      result = this.putResponse!;
+      const endpoint = await this.client.config.endpoint();
+      let Location: string;
+      if (this.client.config.forcePathStyle){
+        Location = `${endpoint.protocol}//${endpoint.hostname}/${this.params.Bucket}/${this.params.Key}`
+      } else {
+        Location = `${endpoint.protocol}//${this.params.Bucket}.${endpoint.hostname}/${this.params.Key}`
+      }
+      result = {
+        ...this.putResponse,
+        Bucket: this.params.Bucket,
+        Key: this.params.Key,
+        Location,
+      };
     }
 
     // Add tags to the object after it's completed the upload.

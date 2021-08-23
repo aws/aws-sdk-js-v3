@@ -21,13 +21,27 @@ const putObjectTaggingMock = jest.fn().mockResolvedValue({
   Success: "Tags have been applied!",
 });
 
+const endpointMock = jest.fn().mockResolvedValue({
+  hostname: "s3.region.amazonaws.com",
+  port: undefined,
+  protocol: "https:",
+  path: "/",
+  query: undefined,
+});
+
 jest.mock("@aws-sdk/client-s3", () => ({
   ...(jest.requireActual("@aws-sdk/client-s3") as {}),
   S3: jest.fn().mockReturnValue({
     send: sendMock,
+    config: {
+      endpoint: endpointMock,
+    },
   }),
   S3Client: jest.fn().mockReturnValue({
     send: sendMock,
+    config: {
+      endpoint: endpointMock,
+    },
   }),
   CreateMultipartUploadCommand: createMultipartMock,
   UploadPartCommand: uploadPartMock,
@@ -36,7 +50,7 @@ jest.mock("@aws-sdk/client-s3", () => ({
   PutObjectCommand: putObjectMock,
 }));
 
-import { S3 } from "@aws-sdk/client-s3";
+import { CompleteMultipartUploadCommandOutput, S3 } from "@aws-sdk/client-s3";
 import { Upload, Progress } from "./index";
 import { Readable } from "stream";
 
@@ -189,6 +203,38 @@ describe(Upload.name, () => {
     expect(completeMultipartMock).toHaveBeenCalledTimes(0);
     // no tags were passed.
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
+
+    done();
+  });
+
+  it("should return a Bucket, Key and Location fields when upload uses a PUT", async (done) => {
+    const buffer = Buffer.from("");
+    const actionParams = { ...params, Body: buffer };
+    const upload = new Upload({
+      params: actionParams,
+      client: new S3({}),
+    });
+
+    const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+    expect(result.Key).toEqual("example-key");
+    expect(result.Bucket).toEqual("example-bucket");
+    expect(result.Location).toEqual("https://example-bucket.s3.region.amazonaws.com/example-key");
+
+    done();
+  });
+
+  it("should return a Location field formatted in path style when forcePathStyle is true", async (done) => {
+    const buffer = Buffer.from("");
+    const actionParams = { ...params, Body: buffer };
+    const s3Client = new S3({});
+    s3Client.config.forcePathStyle = true;
+    const upload = new Upload({
+      params: actionParams,
+      client: s3Client,
+    });
+
+    const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+    expect(result.Location).toEqual("https://s3.region.amazonaws.com/example-bucket/example-key");
 
     done();
   });
