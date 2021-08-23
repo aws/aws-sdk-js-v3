@@ -29,10 +29,8 @@ import software.amazon.smithy.model.node.StringNode;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
-import software.amazon.smithy.utils.CaseUtils;
 import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
-import software.amazon.smithy.utils.StringUtils;
 
 /**
  * Writes out a file that resolves endpoints using endpoints.json, but the
@@ -168,8 +166,6 @@ final class EndpointGenerator implements Runnable {
 
     private final class Partition {
         final ObjectNode defaults;
-        final String regionVariableName;
-        final String templateVariableName;
         final String templateValue;
         final String dnsSuffix;
         final String identifier;
@@ -186,11 +182,6 @@ final class EndpointGenerator implements Runnable {
             template = template.replace("{service}", endpointPrefix);
             template = template.replace("{dnsSuffix}", config.expectStringMember("dnsSuffix").getValue());
             templateValue = template;
-
-            // Compute the template and regions variable names.
-            String snakePartition = StringUtils.upperCase(CaseUtils.toSnakeCase(partition));
-            templateVariableName = snakePartition + "_TEMPLATE";
-            regionVariableName = snakePartition + "_REGIONS";
 
             dnsSuffix = config.expectStringMember("dnsSuffix").getValue();
             identifier = partition;
