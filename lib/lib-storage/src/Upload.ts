@@ -220,7 +220,7 @@ export class Upload extends EventEmitter {
         Location = `${endpoint.protocol}//${this.params.Bucket}.${endpoint.hostname}/${this.params.Key}`
       }
       result = {
-        ...this.putResponse,
+        ...this.putResponse!,
         Bucket: this.params.Bucket,
         Key: this.params.Key,
         Location,
