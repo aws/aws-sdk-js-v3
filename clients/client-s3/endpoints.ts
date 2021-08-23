@@ -1,6 +1,9 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: { [key: string]: Partial<Omit<RegionInfo, "partition" | "path">> } = {
+type RegionHash = { [key: string]: Partial<Omit<RegionInfo, "partition" | "path">> };
+type PartitionHash = { [key: string]: { regions: string[]; hostname: string } };
+
+const regionHash: RegionHash = {
   "accesspoint-af-south-1": {
     hostname: "s3-accesspoint.af-south-1.amazonaws.com",
   },
@@ -131,7 +134,7 @@ const regionHash: { [key: string]: Partial<Omit<RegionInfo, "partition" | "path"
   "us-west-2": { hostname: "s3.us-west-2.amazonaws.com" },
 };
 
-const partitionHash: { [key: string]: { regions: string[]; hostname: string } } = {
+const partitionHash: PartitionHash = {
   aws: {
     regions: [
       "af-south-1",
@@ -164,10 +167,28 @@ const partitionHash: { [key: string]: { regions: string[]; hostname: string } } 
   "aws-us-gov": { regions: ["us-gov-east-1", "us-gov-west-1"], hostname: "s3.{region}.amazonaws.com" },
 };
 
-export const defaultRegionInfoProvider: RegionInfoProvider = async (region: string, options?: any) => ({
+export const defaultRegionInfoProvider: RegionInfoProvider = async (region: string, options?: any) =>
+  getRegionInfo(region, { regionHash, partitionHash });
+
+interface RegionInfoOptions {
+  /**
+   * The hash of region with the information specific to that region.
+   * The information can include hostname, signingService and signingRegion.
+   */
+  regionHash: RegionHash;
+
+  /**
+   * The hash of partition with the information specific to that partition.
+   * The information includes the list of regions belonging to that partition,
+   * and the hostname to be used for the partition.
+   */
+  partitionHash: PartitionHash;
+}
+
+const getRegionInfo = (region: string, options: RegionInfoOptions) => ({
   signingService: "s3",
-  hostname: getResolvedHostName(region),
-  partition: getResolvedPartition(region),
+  hostname: getResolvedHostName(region, options),
+  partition: getResolvedPartition(region, options),
   ...(regionHash[region]?.signingRegion && {
     signingRegion: regionHash[region].signingRegion,
   }),
@@ -176,8 +197,9 @@ export const defaultRegionInfoProvider: RegionInfoProvider = async (region: stri
   }),
 });
 
-const getResolvedHostName = (region: string) =>
-  regionHash[region]?.hostname ?? partitionHash[getResolvedPartition(region)].hostname.replace("{region}", region);
+const getResolvedHostName = (region: string, options: RegionInfoOptions) =>
+  options.regionHash[region]?.hostname ??
+  options.partitionHash[getResolvedPartition(region, options)].hostname.replace("{region}", region);
 
-const getResolvedPartition = (region: string) =>
-  Object.keys(partitionHash).find((key) => partitionHash[key].regions.includes(region)) ?? "aws";
+const getResolvedPartition = (region: string, options: Omit<RegionInfoOptions, "regionHash">) =>
+  Object.keys(options.partitionHash).find((key) => partitionHash[key].regions.includes(region)) ?? "aws";
