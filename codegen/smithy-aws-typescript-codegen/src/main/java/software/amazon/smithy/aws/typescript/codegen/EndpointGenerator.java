@@ -155,12 +155,7 @@ final class EndpointGenerator implements Runnable {
     private void writeEndpointSpecificResolver(String region, ObjectNode resolved) {
         String hostname = resolved.expectStringMember("hostname").getValue();
         writer.write("hostname: $S,", hostname);
-        writeAdditionalEndpointSettings(resolved);
-    }
-
-    // Write credential scope settings into the resolved endpoint object.
-    private void writeAdditionalEndpointSettings(ObjectNode settings) {
-        settings.getObjectMember("credentialScope").ifPresent(scope -> {
+        resolved.getObjectMember("credentialScope").ifPresent(scope -> {
             scope.getStringMember("region").ifPresent(signingRegion -> {
                 writer.write("signingRegion: $S,", signingRegion);
             });
