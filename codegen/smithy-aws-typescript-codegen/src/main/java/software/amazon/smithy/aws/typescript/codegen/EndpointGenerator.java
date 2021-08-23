@@ -135,32 +135,12 @@ final class EndpointGenerator implements Runnable {
     private void writeEndpointProviderFunction() {
         writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.addImport("RegionInfo", "RegionInfo", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.openBlock("export const defaultRegionInfoProvider: RegionInfoProvider = (\n"
+        writer.addImport("getRegionInfo", "getRegionInfo", TypeScriptDependency.CONFIG_RESOLVER.packageName);
+        writer.openBlock("export const defaultRegionInfoProvider: RegionInfoProvider = async (\n"
                          + "  region: string,\n"
                          + "  options?: any\n"
-                         + ") => {", "};", () -> {
-            writer.write("let regionInfo: RegionInfo | undefined = undefined;");
-            writer.openBlock("switch (region) {", "}", () -> {
-                writer.write("// First, try to match exact region names.");
-                for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
-                    writer.write("case $S:", entry.getKey()).indent();
-                    writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
-                    writer.write("break;");
-                    writer.dedent();
-                }
-                writer.write("// Next, try to match partition endpoints.");
-                writer.write("default:").indent();
-                partitions.values().forEach(partition -> {
-                    writer.openBlock("if ($L.has(region)) {", "}", partition.regionVariableName, () -> {
-                        writePartitionEndpointResolver(partition); });
-                });
-                // Default to using the AWS partition resolver.
-                writer.write("// Finally, assume it's an AWS partition endpoint.");
-                writer.openBlock("if (regionInfo === undefined) {", "}", () -> {
-                    writePartitionEndpointResolver(partitions.get("aws")); });
-                writer.dedent();
-            });
-            writer.write("return Promise.resolve({ signingService: $S, ...regionInfo });", baseSigningSerivce);
+                         + ") => ", ";", () -> {
+            writer.write("getRegionInfo(region, { ...options })");
         });
     }
 
