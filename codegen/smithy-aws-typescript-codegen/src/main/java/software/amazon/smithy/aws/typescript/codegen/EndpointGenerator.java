@@ -89,15 +89,16 @@ final class EndpointGenerator implements Runnable {
             ObjectNode endpointMap = serviceData.getObjectMember("endpoints").orElse(Node.objectNode());
 
             for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
-                // Merge the endpoint settings into the resolved service settings.
-                ObjectNode config = partition.getDefaults().merge(entry.getValue().expectObjectNode());
-                // Resolve the hostname.
-                String hostName = config.expectStringMember("hostname").getValue();
-                hostName = hostName.replace("{dnsSuffix}", dnsSuffix);
-                hostName = hostName.replace("{service}", endpointPrefix);
-                hostName = hostName.replace("{region}", entry.getKey());
-                config = config.withMember("hostname", hostName);
-                endpoints.put(entry.getKey(), config);
+                ObjectNode config = entry.getValue().expectObjectNode();
+                if (config.containsMember("hostname")) {
+                    // Resolve the hostname.
+                    String hostName = config.expectStringMember("hostname").getValue();
+                    hostName = hostName.replace("{dnsSuffix}", dnsSuffix);
+                    hostName = hostName.replace("{service}", endpointPrefix);
+                    hostName = hostName.replace("{region}", entry.getKey());
+                    config = config.withMember("hostname", hostName);
+                    endpoints.put(entry.getKey(), config);
+                }
             }
         }
     }
@@ -113,9 +114,7 @@ final class EndpointGenerator implements Runnable {
         writer.addImport("RegionHash", "RegionHash", TypeScriptDependency.CONFIG_RESOLVER.packageName);
         writer.openBlock("const regionHash: RegionHash = {", "};", () -> {
             for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
-                writer.openBlock("$S: {", "},", entry.getKey(), () -> {
-                    writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
-                });
+                writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
             }
         });
         writer.write("");
@@ -151,16 +150,20 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writeEndpointSpecificResolver(String region, ObjectNode resolved) {
-        String hostname = resolved.expectStringMember("hostname").getValue();
-        writer.write("hostname: $S,", hostname);
-        resolved.getObjectMember("credentialScope").ifPresent(scope -> {
-            scope.getStringMember("region").ifPresent(signingRegion -> {
-                writer.write("signingRegion: $S,", signingRegion);
+        if (resolved.containsMember("hostname") || resolved.containsMember("credentialScope")) {
+            writer.openBlock("$S: {", "},", region, () -> {
+                String hostname = resolved.expectStringMember("hostname").getValue();
+                writer.write("hostname: $S,", hostname);
+                resolved.getObjectMember("credentialScope").ifPresent(scope -> {
+                    scope.getStringMember("region").ifPresent(signingRegion -> {
+                        writer.write("signingRegion: $S,", signingRegion);
+                    });
+                    scope.getStringMember("service").ifPresent(signingService -> {
+                        writer.write("signingService: $S,", signingService);
+                    });
+                });
             });
-            scope.getStringMember("service").ifPresent(signingService -> {
-                writer.write("signingService: $S,", signingService);
-            });
-        });
+        }
     }
 
     private final class Partition {
