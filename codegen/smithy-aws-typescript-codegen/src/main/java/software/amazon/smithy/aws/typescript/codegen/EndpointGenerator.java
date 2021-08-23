@@ -50,7 +50,6 @@ final class EndpointGenerator implements Runnable {
     private final String baseSigningSerivce;
     private final Map<String, Partition> partitions = new TreeMap<>();
     private final Map<String, ObjectNode> endpoints = new TreeMap<>();
-    private final Map<String, Partition> regionPartitionsMap = new TreeMap<>();
 
     EndpointGenerator(ServiceShape service, TypeScriptWriter writer) {
         this.writer = writer;
@@ -99,7 +98,6 @@ final class EndpointGenerator implements Runnable {
                 hostName = hostName.replace("{region}", entry.getKey());
                 config = config.withMember("hostname", hostName);
                 endpoints.put(entry.getKey(), config);
-                regionPartitionsMap.put(entry.getKey(), partition);
             }
         }
     }
