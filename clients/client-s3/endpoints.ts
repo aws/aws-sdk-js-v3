@@ -1,6 +1,6 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: { [key: string]: Partial<RegionInfo> } = {
+const regionHash: { [key: string]: Partial<Omit<RegionInfo, "partition" | "path">> } = {
   "accesspoint-af-south-1": {
     hostname: "s3-accesspoint.af-south-1.amazonaws.com",
   },
