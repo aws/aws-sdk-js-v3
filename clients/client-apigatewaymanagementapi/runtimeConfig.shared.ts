@@ -6,11 +6,11 @@ import { ApiGatewayManagementApiClientConfig } from "./ApiGatewayManagementApiCl
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ApiGatewayManagementApiClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ApiGatewayManagementApiClientConfig) => ({
   apiVersion: "2018-11-29",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "ApiGatewayManagementApi",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "ApiGatewayManagementApi",
+  urlParser: config?.urlParser ?? parseUrl,
 });

@@ -6,11 +6,11 @@ import { KafkaClientConfig } from "./KafkaClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: KafkaClientConfig = {}) => ({
+export const getRuntimeConfig = (config: KafkaClientConfig) => ({
   apiVersion: "2018-11-14",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Kafka",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Kafka",
+  urlParser: config?.urlParser ?? parseUrl,
 });

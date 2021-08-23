@@ -6,11 +6,11 @@ import { DataPipelineClientConfig } from "./DataPipelineClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: DataPipelineClientConfig = {}) => ({
+export const getRuntimeConfig = (config: DataPipelineClientConfig) => ({
   apiVersion: "2012-10-29",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Data Pipeline",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Data Pipeline",
+  urlParser: config?.urlParser ?? parseUrl,
 });

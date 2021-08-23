@@ -14,27 +14,27 @@ import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shar
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AmplifyClientConfig = {}) => {
+export const getRuntimeConfig = (config: AmplifyClientConfig) => {
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,
     ...config,
     runtime: "browser",
-    base64Decoder: config.base64Decoder ?? fromBase64,
-    base64Encoder: config.base64Encoder ?? toBase64,
-    bodyLengthChecker: config.bodyLengthChecker ?? calculateBodyLength,
+    base64Decoder: config?.base64Decoder ?? fromBase64,
+    base64Encoder: config?.base64Encoder ?? toBase64,
+    bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider:
-      config.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
+      config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
     defaultUserAgentProvider:
-      config.defaultUserAgentProvider ??
+      config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
-    maxAttempts: config.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
-    region: config.region ?? invalidProvider("Region is missing"),
-    requestHandler: config.requestHandler ?? new FetchHttpHandler(),
-    retryModeProvider: config.retryModeProvider ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
-    sha256: config.sha256 ?? Sha256,
-    streamCollector: config.streamCollector ?? streamCollector,
-    utf8Decoder: config.utf8Decoder ?? fromUtf8,
-    utf8Encoder: config.utf8Encoder ?? toUtf8,
+    maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
+    region: config?.region ?? invalidProvider("Region is missing"),
+    requestHandler: config?.requestHandler ?? new FetchHttpHandler(),
+    retryModeProvider: config?.retryModeProvider ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
+    sha256: config?.sha256 ?? Sha256,
+    streamCollector: config?.streamCollector ?? streamCollector,
+    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+    utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };
 };

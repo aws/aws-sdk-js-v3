@@ -6,11 +6,11 @@ import { KinesisClientConfig } from "./KinesisClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: KinesisClientConfig = {}) => ({
+export const getRuntimeConfig = (config: KinesisClientConfig) => ({
   apiVersion: "2013-12-02",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Kinesis",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Kinesis",
+  urlParser: config?.urlParser ?? parseUrl,
 });

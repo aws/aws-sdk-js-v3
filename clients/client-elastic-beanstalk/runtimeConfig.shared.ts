@@ -6,11 +6,11 @@ import { ElasticBeanstalkClientConfig } from "./ElasticBeanstalkClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ElasticBeanstalkClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ElasticBeanstalkClientConfig) => ({
   apiVersion: "2010-12-01",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Elastic Beanstalk",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Elastic Beanstalk",
+  urlParser: config?.urlParser ?? parseUrl,
 });

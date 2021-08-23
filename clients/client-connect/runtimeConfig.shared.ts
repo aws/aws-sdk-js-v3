@@ -6,11 +6,11 @@ import { ConnectClientConfig } from "./ConnectClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ConnectClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ConnectClientConfig) => ({
   apiVersion: "2017-08-08",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Connect",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Connect",
+  urlParser: config?.urlParser ?? parseUrl,
 });

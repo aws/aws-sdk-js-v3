@@ -6,11 +6,11 @@ import { SESv2ClientConfig } from "./SESv2Client";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SESv2ClientConfig = {}) => ({
+export const getRuntimeConfig = (config: SESv2ClientConfig) => ({
   apiVersion: "2019-09-27",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "SESv2",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "SESv2",
+  urlParser: config?.urlParser ?? parseUrl,
 });

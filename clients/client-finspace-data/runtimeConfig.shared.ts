@@ -6,11 +6,11 @@ import { FinspaceDataClientConfig } from "./FinspaceDataClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: FinspaceDataClientConfig = {}) => ({
+export const getRuntimeConfig = (config: FinspaceDataClientConfig) => ({
   apiVersion: "2020-07-13",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "finspace data",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "finspace data",
+  urlParser: config?.urlParser ?? parseUrl,
 });

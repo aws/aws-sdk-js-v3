@@ -6,11 +6,11 @@ import { ACMClientConfig } from "./ACMClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ACMClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ACMClientConfig) => ({
   apiVersion: "2015-12-08",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "ACM",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "ACM",
+  urlParser: config?.urlParser ?? parseUrl,
 });

@@ -6,11 +6,11 @@ import { MediaConvertClientConfig } from "./MediaConvertClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MediaConvertClientConfig = {}) => ({
+export const getRuntimeConfig = (config: MediaConvertClientConfig) => ({
   apiVersion: "2017-08-29",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "MediaConvert",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "MediaConvert",
+  urlParser: config?.urlParser ?? parseUrl,
 });

@@ -6,11 +6,11 @@ import { AppConfigClientConfig } from "./AppConfigClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AppConfigClientConfig = {}) => ({
+export const getRuntimeConfig = (config: AppConfigClientConfig) => ({
   apiVersion: "2019-10-09",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "AppConfig",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "AppConfig",
+  urlParser: config?.urlParser ?? parseUrl,
 });

@@ -6,11 +6,11 @@ import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: TranscribeStreamingClientConfig = {}) => ({
+export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => ({
   apiVersion: "2017-10-26",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Transcribe Streaming",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Transcribe Streaming",
+  urlParser: config?.urlParser ?? parseUrl,
 });

@@ -6,11 +6,11 @@ import { AppStreamClientConfig } from "./AppStreamClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AppStreamClientConfig = {}) => ({
+export const getRuntimeConfig = (config: AppStreamClientConfig) => ({
   apiVersion: "2016-12-01",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "AppStream",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "AppStream",
+  urlParser: config?.urlParser ?? parseUrl,
 });

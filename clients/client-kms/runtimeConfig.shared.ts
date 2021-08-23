@@ -6,11 +6,11 @@ import { KMSClientConfig } from "./KMSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: KMSClientConfig = {}) => ({
+export const getRuntimeConfig = (config: KMSClientConfig) => ({
   apiVersion: "2014-11-01",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "KMS",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "KMS",
+  urlParser: config?.urlParser ?? parseUrl,
 });

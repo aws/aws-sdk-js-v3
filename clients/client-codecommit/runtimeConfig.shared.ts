@@ -6,11 +6,11 @@ import { CodeCommitClientConfig } from "./CodeCommitClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CodeCommitClientConfig = {}) => ({
+export const getRuntimeConfig = (config: CodeCommitClientConfig) => ({
   apiVersion: "2015-04-13",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "CodeCommit",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "CodeCommit",
+  urlParser: config?.urlParser ?? parseUrl,
 });

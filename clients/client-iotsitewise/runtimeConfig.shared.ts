@@ -6,11 +6,11 @@ import { IoTSiteWiseClientConfig } from "./IoTSiteWiseClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: IoTSiteWiseClientConfig = {}) => ({
+export const getRuntimeConfig = (config: IoTSiteWiseClientConfig) => ({
   apiVersion: "2019-12-02",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "IoTSiteWise",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "IoTSiteWise",
+  urlParser: config?.urlParser ?? parseUrl,
 });

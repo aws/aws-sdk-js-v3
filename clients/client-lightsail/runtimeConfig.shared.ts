@@ -6,11 +6,11 @@ import { LightsailClientConfig } from "./LightsailClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: LightsailClientConfig = {}) => ({
+export const getRuntimeConfig = (config: LightsailClientConfig) => ({
   apiVersion: "2016-11-28",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Lightsail",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Lightsail",
+  urlParser: config?.urlParser ?? parseUrl,
 });

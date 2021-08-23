@@ -6,11 +6,11 @@ import { STSClientConfig } from "./STSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: STSClientConfig = {}) => ({
+export const getRuntimeConfig = (config: STSClientConfig) => ({
   apiVersion: "2011-06-15",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "STS",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "STS",
+  urlParser: config?.urlParser ?? parseUrl,
 });

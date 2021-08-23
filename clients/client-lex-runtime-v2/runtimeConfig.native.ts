@@ -6,15 +6,15 @@ import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.bro
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: LexRuntimeV2ClientConfig = {}) => {
+export const getRuntimeConfig = (config: LexRuntimeV2ClientConfig) => {
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,
     ...config,
     runtime: "react-native",
     eventStreamPayloadHandlerProvider:
-      config.eventStreamPayloadHandlerProvider ??
+      config?.eventStreamPayloadHandlerProvider ??
       (() => ({ handle: invalidFunction("event stream request is not supported in ReactNative.") })),
-    sha256: config.sha256 ?? Sha256,
+    sha256: config?.sha256 ?? Sha256,
   };
 };

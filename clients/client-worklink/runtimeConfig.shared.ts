@@ -6,11 +6,11 @@ import { WorkLinkClientConfig } from "./WorkLinkClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: WorkLinkClientConfig = {}) => ({
+export const getRuntimeConfig = (config: WorkLinkClientConfig) => ({
   apiVersion: "2018-09-25",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "WorkLink",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "WorkLink",
+  urlParser: config?.urlParser ?? parseUrl,
 });
