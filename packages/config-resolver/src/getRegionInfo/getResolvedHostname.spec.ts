@@ -1,9 +1,9 @@
-import { getResolvedHostName, RegionHash } from "./getResolvedHostname";
+import { getResolvedHostname, RegionHash } from "./getResolvedHostname";
 import { getResolvedPartition, PartitionHash } from "./getResolvedPartition";
 
 jest.mock("./getResolvedPartition");
 
-describe(getResolvedHostName.name, () => {
+describe(getResolvedHostname.name, () => {
   const mockRegion = "mockRegion";
   const mockPartition = "mockPartition";
   const mockHostname = "{region}.mockHostname.com";
@@ -19,7 +19,7 @@ describe(getResolvedHostName.name, () => {
       },
     };
     const mockPartitionHash: PartitionHash = {};
-    expect(getResolvedHostName(mockRegion, { regionHash: mockRegionHash, partitionHash: mockPartitionHash })).toBe(
+    expect(getResolvedHostname(mockRegion, { regionHash: mockRegionHash, partitionHash: mockPartitionHash })).toBe(
       mockHostname
     );
     expect(getResolvedPartition).not.toHaveBeenCalled();
@@ -39,7 +39,7 @@ describe(getResolvedHostName.name, () => {
           hostname: mockHostname,
         },
       };
-      expect(getResolvedHostName(mockRegion, { regionHash: mockRegionHash, partitionHash: mockPartitionHash })).toBe(
+      expect(getResolvedHostname(mockRegion, { regionHash: mockRegionHash, partitionHash: mockPartitionHash })).toBe(
         mockHostname.replace("{region}", mockRegion)
       );
       expect(getResolvedPartition).toHaveBeenCalledTimes(1);
@@ -49,7 +49,7 @@ describe(getResolvedHostName.name, () => {
     it("throws if partitionHash is empty", () => {
       const mockPartitionHash: PartitionHash = {};
       expect(() =>
-        getResolvedHostName(mockRegion, { regionHash: mockRegionHash, partitionHash: mockPartitionHash })
+        getResolvedHostname(mockRegion, { regionHash: mockRegionHash, partitionHash: mockPartitionHash })
       ).toThrow();
     });
   });

@@ -1,4 +1,4 @@
-import { getResolvedHostName, GetResolvedHostnameOptions } from "./getResolvedHostname";
+import { getResolvedHostname, GetResolvedHostnameOptions } from "./getResolvedHostname";
 import { getResolvedPartition, GetResolvedPartitionOptions } from "./getResolvedPartition";
 
 export interface GetRegionInfoOptions extends GetResolvedHostnameOptions, GetResolvedPartitionOptions {
@@ -10,7 +10,7 @@ export interface GetRegionInfoOptions extends GetResolvedHostnameOptions, GetRes
 
 export const getRegionInfo = (region: string, { signingService, regionHash, partitionHash }: GetRegionInfoOptions) => ({
   signingService,
-  hostname: getResolvedHostName(region, { regionHash, partitionHash }),
+  hostname: getResolvedHostname(region, { regionHash, partitionHash }),
   partition: getResolvedPartition(region, { partitionHash }),
   ...(regionHash[region]?.signingRegion && {
     signingRegion: regionHash[region].signingRegion,

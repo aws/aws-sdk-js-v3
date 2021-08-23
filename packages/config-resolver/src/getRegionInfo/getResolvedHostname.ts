@@ -12,6 +12,6 @@ export interface GetResolvedHostnameOptions extends GetResolvedPartitionOptions 
   regionHash: RegionHash;
 }
 
-export const getResolvedHostName = (region: string, { regionHash, partitionHash }: GetResolvedHostnameOptions) =>
+export const getResolvedHostname = (region: string, { regionHash, partitionHash }: GetResolvedHostnameOptions) =>
   regionHash[region]?.hostname ??
   partitionHash[getResolvedPartition(region, { partitionHash })].hostname.replace("{region}", region);

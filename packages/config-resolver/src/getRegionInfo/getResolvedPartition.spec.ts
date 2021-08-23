@@ -6,7 +6,7 @@ describe(getResolvedPartition.name, () => {
   const mockHostname = "mockHostname";
 
   it("returns the partition if region is present in partitionHash", () => {
-    const mockPartitionHash = {
+    const mockPartitionHash: PartitionHash = {
       [mockPartition]: {
         regions: [mockRegion, `${mockRegion}2`, `${mockRegion}3`],
         hostname: mockHostname,
