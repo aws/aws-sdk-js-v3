@@ -1,9 +1,11 @@
+import { getHostnameTemplate } from "./getHostnameTemplate";
 import { getResolvedHostname, RegionHash } from "./getResolvedHostname";
-import { getResolvedPartition, PartitionHash } from "./getResolvedPartition";
+import { PartitionHash } from "./getResolvedPartition";
 
-jest.mock("./getResolvedPartition");
+jest.mock("./getHostnameTemplate");
 
 describe(getResolvedHostname.name, () => {
+  const mockSigningService = "mockSigningService";
   const mockRegion = "mockRegion";
   const mockPartition = "mockPartition";
   const mockHostname = "{region}.mockHostname.com";
@@ -19,38 +21,41 @@ describe(getResolvedHostname.name, () => {
       },
     };
     const mockPartitionHash: PartitionHash = {};
-    expect(getResolvedHostname(mockRegion, { regionHash: mockRegionHash, partitionHash: mockPartitionHash })).toBe(
-      mockHostname
-    );
-    expect(getResolvedPartition).not.toHaveBeenCalled();
+
+    expect(
+      getResolvedHostname(mockRegion, {
+        signingService: mockSigningService,
+        regionHash: mockRegionHash,
+        partitionHash: mockPartitionHash,
+      })
+    ).toBe(mockHostname);
+    expect(getHostnameTemplate).not.toHaveBeenCalled();
   });
 
-  describe("when hostname is not available in regionHash", () => {
+  it("returns hostname from hostname template when not available in regionHash", () => {
     const mockRegionHash: RegionHash = {};
 
-    beforeEach(() => {
-      (getResolvedPartition as jest.Mock).mockReturnValue(mockPartition);
-    });
+    (getHostnameTemplate as jest.Mock).mockReturnValue(mockHostname);
 
-    it("returns hostname if available in partitionHash", () => {
-      const mockPartitionHash: PartitionHash = {
-        [mockPartition]: {
-          regions: [mockRegion, `${mockRegion}2`, `${mockRegion}3`],
-          hostname: mockHostname,
-        },
-      };
-      expect(getResolvedHostname(mockRegion, { regionHash: mockRegionHash, partitionHash: mockPartitionHash })).toBe(
-        mockHostname.replace("{region}", mockRegion)
-      );
-      expect(getResolvedPartition).toHaveBeenCalledTimes(1);
-      expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, { partitionHash: mockPartitionHash });
-    });
+    const mockPartitionHash: PartitionHash = {
+      [mockPartition]: {
+        regions: [mockRegion, `${mockRegion}2`, `${mockRegion}3`],
+        hostname: mockHostname,
+      },
+    };
 
-    it("throws if partitionHash is empty", () => {
-      const mockPartitionHash: PartitionHash = {};
-      expect(() =>
-        getResolvedHostname(mockRegion, { regionHash: mockRegionHash, partitionHash: mockPartitionHash })
-      ).toThrow();
+    expect(
+      getResolvedHostname(mockRegion, {
+        signingService: mockSigningService,
+        regionHash: mockRegionHash,
+        partitionHash: mockPartitionHash,
+      })
+    ).toBe(mockHostname.replace("{region}", mockRegion));
+
+    expect(getHostnameTemplate).toHaveBeenCalledTimes(1);
+    expect(getHostnameTemplate).toHaveBeenCalledWith(mockRegion, {
+      signingService: mockSigningService,
+      partitionHash: mockPartitionHash,
     });
   });
 });

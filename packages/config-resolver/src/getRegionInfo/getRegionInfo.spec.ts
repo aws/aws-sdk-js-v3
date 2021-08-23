@@ -29,12 +29,12 @@ describe(getRegionInfo.name, () => {
 
   const mockGetResolvedHostnameOptions = {
     ...mockGetResolvedPartitionOptions,
+    signingService: mockSigningService,
     regionHash: mockRegionHash,
   };
 
   const mockGetRegionInfoOptions = {
     ...mockGetResolvedHostnameOptions,
-    signingService: mockSigningService,
   };
 
   beforeEach(() => {

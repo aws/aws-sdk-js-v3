@@ -1,10 +1,11 @@
 import { RegionInfo } from "@aws-sdk/types";
 
-import { getResolvedPartition, GetResolvedPartitionOptions } from "./getResolvedPartition";
+import { getHostnameTemplate, GetHostnameTemplateOptions } from "./getHostnameTemplate";
+import { GetResolvedPartitionOptions } from "./getResolvedPartition";
 
 export type RegionHash = { [key: string]: Partial<Omit<RegionInfo, "partition" | "path">> };
 
-export interface GetResolvedHostnameOptions extends GetResolvedPartitionOptions {
+export interface GetResolvedHostnameOptions extends GetHostnameTemplateOptions, GetResolvedPartitionOptions {
   /**
    * The hash of region with the information specific to that region.
    * The information can include hostname, signingService and signingRegion.
@@ -12,6 +13,9 @@ export interface GetResolvedHostnameOptions extends GetResolvedPartitionOptions 
   regionHash: RegionHash;
 }
 
-export const getResolvedHostname = (region: string, { regionHash, partitionHash }: GetResolvedHostnameOptions) =>
+export const getResolvedHostname = (
+  region: string,
+  { signingService, regionHash, partitionHash }: GetResolvedHostnameOptions
+) =>
   regionHash[region]?.hostname ??
-  partitionHash[getResolvedPartition(region, { partitionHash })].hostname.replace("{region}", region);
+  getHostnameTemplate(region, { signingService, partitionHash }).replace("{region}", region);
