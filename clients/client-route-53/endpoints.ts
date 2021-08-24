@@ -43,6 +43,7 @@ const partitionHash: PartitionHash = {
       "ap-south-1",
       "ap-southeast-1",
       "ap-southeast-2",
+      "aws-global",
       "ca-central-1",
       "eu-central-1",
       "eu-north-1",
@@ -50,6 +51,7 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-aws-global",
       "me-south-1",
       "sa-east-1",
       "us-east-1",
@@ -60,19 +62,19 @@ const partitionHash: PartitionHash = {
     endpoint: "aws-global",
   },
   "aws-cn": {
-    regions: ["cn-north-1", "cn-northwest-1"],
+    regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     endpoint: "aws-cn-global",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["aws-iso-global", "us-iso-east-1"],
     endpoint: "aws-iso-global",
   },
   "aws-iso-b": {
-    regions: ["us-isob-east-1"],
+    regions: ["aws-iso-b-global", "us-isob-east-1"],
     endpoint: "aws-iso-b-global",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["aws-us-gov-global", "fips-aws-us-gov-global", "us-gov-east-1", "us-gov-west-1"],
     endpoint: "aws-us-gov-global",
   },
 };

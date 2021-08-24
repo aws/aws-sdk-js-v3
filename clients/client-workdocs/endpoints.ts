@@ -30,6 +30,8 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-us-east-1",
+      "fips-us-west-2",
       "me-south-1",
       "sa-east-1",
       "us-east-1",

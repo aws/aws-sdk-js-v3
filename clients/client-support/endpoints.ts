@@ -39,6 +39,7 @@ const partitionHash: PartitionHash = {
       "ap-south-1",
       "ap-southeast-1",
       "ap-southeast-2",
+      "aws-global",
       "ca-central-1",
       "eu-central-1",
       "eu-north-1",
@@ -56,19 +57,19 @@ const partitionHash: PartitionHash = {
     hostname: "support.{region}.amazonaws.com",
   },
   "aws-cn": {
-    regions: ["cn-north-1", "cn-northwest-1"],
+    regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     hostname: "support.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["aws-iso-global", "us-iso-east-1"],
     hostname: "support.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {
-    regions: ["us-isob-east-1"],
+    regions: ["aws-iso-b-global", "us-isob-east-1"],
     hostname: "support.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["aws-us-gov-global", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     hostname: "support.{region}.amazonaws.com",
   },
 };

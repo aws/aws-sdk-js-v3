@@ -37,9 +37,11 @@ const partitionHash: PartitionHash = {
       "me-south-1",
       "sa-east-1",
       "us-east-1",
+      "us-east-1-fips",
       "us-east-2",
       "us-west-1",
       "us-west-2",
+      "us-west-2-fips",
     ],
     hostname: "models.lex.{region}.amazonaws.com",
   },
@@ -56,7 +58,7 @@ const partitionHash: PartitionHash = {
     hostname: "models.lex.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["us-gov-east-1", "us-gov-west-1", "us-gov-west-1-fips"],
     hostname: "models.lex.{region}.amazonaws.com",
   },
 };

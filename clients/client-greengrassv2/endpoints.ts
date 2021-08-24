@@ -64,7 +64,13 @@ const partitionHash: PartitionHash = {
     hostname: "greengrass.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: [
+      "dataplane-us-gov-east-1",
+      "dataplane-us-gov-west-1",
+      "fips-us-gov-east-1",
+      "us-gov-east-1",
+      "us-gov-west-1",
+    ],
     hostname: "greengrass.{region}.amazonaws.com",
   },
 };

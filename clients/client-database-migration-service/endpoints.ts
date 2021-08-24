@@ -20,6 +20,7 @@ const partitionHash: PartitionHash = {
       "ap-southeast-1",
       "ap-southeast-2",
       "ca-central-1",
+      "dms-fips",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -40,15 +41,15 @@ const partitionHash: PartitionHash = {
     hostname: "dms.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["dms-fips", "us-iso-east-1"],
     hostname: "dms.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {
-    regions: ["us-isob-east-1"],
+    regions: ["dms-fips", "us-isob-east-1"],
     hostname: "dms.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["dms-fips", "us-gov-east-1", "us-gov-west-1"],
     hostname: "dms.{region}.amazonaws.com",
   },
 };

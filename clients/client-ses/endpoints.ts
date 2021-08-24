@@ -48,7 +48,7 @@ const partitionHash: PartitionHash = {
     hostname: "email.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     hostname: "email.{region}.amazonaws.com",
   },
 };

@@ -40,15 +40,15 @@ const partitionHash: PartitionHash = {
     hostname: "kms.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["ProdFips", "us-iso-east-1"],
     hostname: "kms.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {
-    regions: ["us-isob-east-1"],
+    regions: ["ProdFips", "us-isob-east-1"],
     hostname: "kms.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["ProdFips", "us-gov-east-1", "us-gov-west-1"],
     hostname: "kms.{region}.amazonaws.com",
   },
 };

@@ -35,6 +35,7 @@ const partitionHash: PartitionHash = {
       "ap-south-1",
       "ap-southeast-1",
       "ap-southeast-2",
+      "aws-global",
       "ca-central-1",
       "eu-central-1",
       "eu-north-1",
@@ -42,6 +43,7 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-aws-global",
       "me-south-1",
       "sa-east-1",
       "us-east-1",
@@ -52,7 +54,7 @@ const partitionHash: PartitionHash = {
     endpoint: "aws-global",
   },
   "aws-cn": {
-    regions: ["cn-north-1", "cn-northwest-1"],
+    regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     endpoint: "aws-cn-global",
   },
   "aws-iso": {
@@ -64,7 +66,7 @@ const partitionHash: PartitionHash = {
     hostname: "organizations.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["aws-us-gov-global", "fips-aws-us-gov-global", "us-gov-east-1", "us-gov-west-1"],
     endpoint: "aws-us-gov-global",
   },
 };

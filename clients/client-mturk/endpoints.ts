@@ -27,6 +27,7 @@ const partitionHash: PartitionHash = {
       "eu-west-3",
       "me-south-1",
       "sa-east-1",
+      "sandbox",
       "us-east-1",
       "us-east-2",
       "us-west-1",

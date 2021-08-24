@@ -47,6 +47,11 @@ const partitionHash: PartitionHash = {
       "eu-west-2",
       "eu-west-3",
       "me-south-1",
+      "rekognition-fips.ca-central-1",
+      "rekognition-fips.us-east-1",
+      "rekognition-fips.us-east-2",
+      "rekognition-fips.us-west-1",
+      "rekognition-fips.us-west-2",
       "sa-east-1",
       "us-east-1",
       "us-east-2",
@@ -68,7 +73,7 @@ const partitionHash: PartitionHash = {
     hostname: "rekognition.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["rekognition-fips.us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     hostname: "rekognition.{region}.amazonaws.com",
   },
 };

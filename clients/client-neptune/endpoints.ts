@@ -51,6 +51,11 @@ const partitionHash: PartitionHash = {
       "eu-west-2",
       "eu-west-3",
       "me-south-1",
+      "rds-fips.ca-central-1",
+      "rds-fips.us-east-1",
+      "rds-fips.us-east-2",
+      "rds-fips.us-west-1",
+      "rds-fips.us-west-2",
       "sa-east-1",
       "us-east-1",
       "us-east-2",
@@ -72,7 +77,7 @@ const partitionHash: PartitionHash = {
     hostname: "rds.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["rds.us-gov-east-1", "rds.us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     hostname: "rds.{region}.amazonaws.com",
   },
 };
