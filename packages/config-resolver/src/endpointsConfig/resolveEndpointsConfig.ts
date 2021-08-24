@@ -1,6 +1,7 @@
 import { Endpoint, Provider } from "@aws-sdk/types";
 
 import { EndpointsInputConfig, EndpointsResolvedConfig, PreviouslyResolved } from "./configurations";
+import { getEndPointFromRegion } from "./getEndPointFromRegion";
 
 export const resolveEndpointsConfig = <T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
@@ -21,21 +22,4 @@ const normalizeEndpoint = (input: EndpointsInputConfig & PreviouslyResolved): Pr
     return () => promisified;
   }
   return endpoint!;
-};
-
-const getEndPointFromRegion = async (input: EndpointsInputConfig & PreviouslyResolved) => {
-  const { tls = true } = input;
-  const region = await input.region();
-
-  const dnsHostRegex = new RegExp(/^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])$/);
-  if (!dnsHostRegex.test(region)) {
-    throw new Error("Invalid region in client config");
-  }
-
-  const { hostname } = (await input.regionInfoProvider(region)) ?? {};
-  if (!hostname) {
-    throw new Error("Cannot resolve hostname from client config");
-  }
-
-  return input.urlParser(`${tls ? "https:" : "http:"}//${hostname}`);
 };
