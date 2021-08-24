@@ -11,11 +11,12 @@ export const getRegionInfo = (
   region: string,
   { signingService, regionHash, partitionHash }: GetRegionInfoOptions
 ): RegionInfo => {
-  const resolvedRegion = partitionHash[getResolvedPartition(region, { partitionHash })]?.endpoint ?? region;
+  const partition = getResolvedPartition(region, { partitionHash });
+  const resolvedRegion = partitionHash[partition]?.endpoint ?? region;
   return {
+    partition,
     signingService,
     hostname: getResolvedHostname(resolvedRegion, { signingService, regionHash, partitionHash }),
-    partition: getResolvedPartition(region, { partitionHash }),
     ...(regionHash[resolvedRegion]?.signingRegion && {
       signingRegion: regionHash[resolvedRegion].signingRegion,
     }),

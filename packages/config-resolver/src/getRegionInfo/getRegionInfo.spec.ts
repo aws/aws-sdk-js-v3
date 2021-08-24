@@ -6,36 +6,55 @@ jest.mock("./getResolvedHostname");
 jest.mock("./getResolvedPartition");
 
 describe(getRegionInfo.name, () => {
-  const mockSigningService = "mockSigningService";
-  const mockRegion = "mockRegion";
   const mockPartition = "mockPartition";
-  const mockHostname = "{region}.mockHostname.com";
+  const mockSigningService = "mockSigningService";
 
-  const mockRegionHash: RegionHash = {
-    [mockRegion]: {
-      hostname: mockHostname,
-    },
-  };
-  const mockPartitionHash: PartitionHash = {
+  const mockRegion = "mockRegion";
+  const mockHostname = "{region}.mockHostname.com";
+  const mockEndpointRegion = "mockEndpointRegion";
+  const mockEndpointHostname = "{region}.mockEndpointHostname.com";
+
+  enum RegionCase {
+    REGION = "Region",
+    ENDPOINT = "Endpoint",
+    REGION_AND_ENDPOINT = "Region and Endpoint",
+  }
+
+  const getMockRegionHash = (regionCase: RegionCase): RegionHash => ({
+    ...((regionCase === RegionCase.REGION || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
+      [mockRegion]: {
+        hostname: mockHostname,
+      },
+    }),
+    ...((regionCase === RegionCase.ENDPOINT || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
+      [mockEndpointRegion]: {
+        hostname: mockEndpointHostname,
+      },
+    }),
+  });
+
+  const getMockPartitionHash = (regionCase: RegionCase): PartitionHash => ({
     [mockPartition]: {
       regions: [mockRegion, `${mockRegion}2`, `${mockRegion}3`],
-      hostname: mockHostname,
+      ...((regionCase === RegionCase.REGION || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
+        hostname: mockHostname,
+      }),
+      ...((regionCase === RegionCase.ENDPOINT || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
+        endpoint: mockEndpointRegion,
+      }),
     },
-  };
+  });
 
-  const mockGetResolvedPartitionOptions = {
-    partitionHash: mockPartitionHash,
-  };
+  const getMockResolvedRegion = (regionCase: RegionCase): string =>
+    regionCase === RegionCase.REGION ? mockRegion : mockEndpointRegion;
 
-  const mockGetResolvedHostnameOptions = {
-    ...mockGetResolvedPartitionOptions,
+  const getMockResolvedPartitionOptions = (partitionHash) => ({ partitionHash });
+
+  const getMockResolvedHostnameOptions = (regionHash, getResolvedPartitionOptions) => ({
+    ...getResolvedPartitionOptions,
     signingService: mockSigningService,
-    regionHash: mockRegionHash,
-  };
-
-  const mockGetRegionInfoOptions = {
-    ...mockGetResolvedHostnameOptions,
-  };
+    regionHash,
+  });
 
   beforeEach(() => {
     (getResolvedHostname as jest.Mock).mockReturnValue(mockHostname);
@@ -48,65 +67,137 @@ describe(getRegionInfo.name, () => {
     jest.clearAllMocks();
   });
 
-  it("returns data based on options passed", () => {
-    expect(getRegionInfo(mockRegion, mockGetRegionInfoOptions)).toEqual({
-      signingService: mockSigningService,
-      hostname: mockHostname,
-      partition: mockPartition,
-    });
+  describe("returns data based on options passed", () => {
+    it.each(Object.values(RegionCase))("%s", (regionCase) => {
+      const mockRegionHash = getMockRegionHash(regionCase);
+      const mockPartitionHash = getMockPartitionHash(regionCase);
 
-    expect(getResolvedHostname).toHaveBeenCalledWith(mockRegion, mockGetResolvedHostnameOptions);
-    expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
+      const mockGetResolvedPartitionOptions = getMockResolvedPartitionOptions(mockPartitionHash);
+      const mockGetResolvedHostnameOptions = getMockResolvedHostnameOptions(
+        mockRegionHash,
+        mockGetResolvedPartitionOptions
+      );
+
+      expect(getRegionInfo(mockRegion, mockGetResolvedHostnameOptions)).toEqual({
+        signingService: mockSigningService,
+        hostname: mockHostname,
+        partition: mockPartition,
+      });
+
+      expect(getResolvedHostname).toHaveBeenCalledWith(
+        getMockResolvedRegion(regionCase),
+        mockGetResolvedHostnameOptions
+      );
+      expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
+    });
   });
 
-  it("returns signingRegion if present in regionHash", () => {
-    const mockSigningRegion = "mockSigningRegion";
-    const mockRegionHashWithSigningRegion = {
+  describe("returns signingRegion if present in regionHash", () => {
+    const getMockRegionHashWithSigningRegion = (
+      regionCase: RegionCase,
+      mockRegionHash: RegionHash,
+      mockSigningRegion: string
+    ): RegionHash => ({
       ...mockRegionHash,
-      [mockRegion]: {
-        ...mockRegionHash[mockRegion],
+      ...((regionCase === RegionCase.REGION || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
+        [mockRegion]: {
+          ...mockRegionHash[mockRegion],
+          signingRegion: mockSigningRegion,
+        },
+      }),
+      ...((regionCase === RegionCase.ENDPOINT || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
+        [mockEndpointRegion]: {
+          ...mockRegionHash[mockEndpointRegion],
+          signingRegion: mockSigningRegion,
+        },
+      }),
+    });
+
+    it.each(Object.values(RegionCase))("%s", (regionCase) => {
+      const mockSigningRegion = "mockSigningRegion";
+      const mockRegionHash = getMockRegionHash(regionCase);
+      const mockPartitionHash = getMockPartitionHash(regionCase);
+
+      const mockGetResolvedPartitionOptions = getMockResolvedPartitionOptions(mockPartitionHash);
+      const mockGetResolvedHostnameOptions = getMockResolvedHostnameOptions(
+        mockRegionHash,
+        mockGetResolvedPartitionOptions
+      );
+
+      const mockRegionHashWithSigningRegion = getMockRegionHashWithSigningRegion(
+        regionCase,
+        mockRegionHash,
+        mockSigningRegion
+      );
+
+      expect(
+        getRegionInfo(mockRegion, { ...mockGetResolvedHostnameOptions, regionHash: mockRegionHashWithSigningRegion })
+      ).toEqual({
+        signingService: mockSigningService,
+        hostname: mockHostname,
+        partition: mockPartition,
         signingRegion: mockSigningRegion,
-      },
-    };
+      });
 
-    expect(
-      getRegionInfo(mockRegion, { ...mockGetRegionInfoOptions, regionHash: mockRegionHashWithSigningRegion })
-    ).toEqual({
-      signingService: mockSigningService,
-      hostname: mockHostname,
-      partition: mockPartition,
-      signingRegion: mockSigningRegion,
+      expect(getResolvedHostname).toHaveBeenCalledWith(getMockResolvedRegion(regionCase), {
+        ...mockGetResolvedHostnameOptions,
+        regionHash: mockRegionHashWithSigningRegion,
+      });
+      expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
     });
-
-    expect(getResolvedHostname).toHaveBeenCalledWith(mockRegion, {
-      ...mockGetResolvedHostnameOptions,
-      regionHash: mockRegionHashWithSigningRegion,
-    });
-    expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
   });
 
-  it("returns signingService if present in regionHash", () => {
-    const mockSigningServiceInRegionHash = "mockSigningServiceInRegionHash";
-    const mockRegionHashWithSigningService = {
+  describe("returns signingService if present in regionHash", () => {
+    const getMockRegionHashWithSigningService = (
+      regionCase: RegionCase,
+      mockRegionHash: RegionHash,
+      mockSigningService: string
+    ): RegionHash => ({
       ...mockRegionHash,
-      [mockRegion]: {
-        ...mockRegionHash[mockRegion],
+      ...((regionCase === RegionCase.REGION || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
+        [mockRegion]: {
+          ...mockRegionHash[mockRegion],
+          signingService: mockSigningService,
+        },
+      }),
+      ...((regionCase === RegionCase.ENDPOINT || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
+        [mockEndpointRegion]: {
+          ...mockRegionHash[mockEndpointRegion],
+          signingService: mockSigningService,
+        },
+      }),
+    });
+
+    it.each(Object.values(RegionCase))("%s", (regionCase) => {
+      const mockSigningServiceInRegionHash = "mockSigningServiceInRegionHash";
+      const mockRegionHash = getMockRegionHash(regionCase);
+      const mockPartitionHash = getMockPartitionHash(regionCase);
+
+      const mockGetResolvedPartitionOptions = getMockResolvedPartitionOptions(mockPartitionHash);
+      const mockGetResolvedHostnameOptions = getMockResolvedHostnameOptions(
+        mockRegionHash,
+        mockGetResolvedPartitionOptions
+      );
+
+      const mockRegionHashWithSigningRegion = getMockRegionHashWithSigningService(
+        regionCase,
+        mockRegionHash,
+        mockSigningServiceInRegionHash
+      );
+
+      expect(
+        getRegionInfo(mockRegion, { ...mockGetResolvedHostnameOptions, regionHash: mockRegionHashWithSigningRegion })
+      ).toEqual({
         signingService: mockSigningServiceInRegionHash,
-      },
-    };
+        hostname: mockHostname,
+        partition: mockPartition,
+      });
 
-    expect(
-      getRegionInfo(mockRegion, { ...mockGetRegionInfoOptions, regionHash: mockRegionHashWithSigningService })
-    ).toEqual({
-      signingService: mockSigningServiceInRegionHash,
-      hostname: mockHostname,
-      partition: mockPartition,
+      expect(getResolvedHostname).toHaveBeenCalledWith(getMockResolvedRegion(regionCase), {
+        ...mockGetResolvedHostnameOptions,
+        regionHash: mockRegionHashWithSigningRegion,
+      });
+      expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
     });
-
-    expect(getResolvedHostname).toHaveBeenCalledWith(mockRegion, {
-      ...mockGetResolvedHostnameOptions,
-      regionHash: mockRegionHashWithSigningService,
-    });
-    expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
   });
 });
