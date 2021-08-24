@@ -2,8 +2,10 @@ import { Endpoint, Provider } from "@aws-sdk/types";
 
 import { EndpointsInputConfig, PreviouslyResolved } from "./configurations";
 
-export const normalizeEndpoint = (input: EndpointsInputConfig & PreviouslyResolved): Provider<Endpoint> => {
-  const { endpoint, urlParser } = input;
+export const normalizeEndpoint = ({
+  endpoint,
+  urlParser,
+}: EndpointsInputConfig & PreviouslyResolved): Provider<Endpoint> => {
   if (typeof endpoint === "string") {
     const promisified = Promise.resolve(urlParser(endpoint));
     return () => promisified;
