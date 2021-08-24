@@ -6,11 +6,11 @@ import { XRayClientConfig } from "./XRayClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: XRayClientConfig = {}) => ({
+export const getRuntimeConfig = (config: XRayClientConfig) => ({
   apiVersion: "2016-04-12",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "XRay",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "XRay",
+  urlParser: config?.urlParser ?? parseUrl,
 });

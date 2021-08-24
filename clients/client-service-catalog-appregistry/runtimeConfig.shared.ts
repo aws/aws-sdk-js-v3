@@ -6,11 +6,11 @@ import { ServiceCatalogAppRegistryClientConfig } from "./ServiceCatalogAppRegist
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ServiceCatalogAppRegistryClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ServiceCatalogAppRegistryClientConfig) => ({
   apiVersion: "2020-06-24",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Service Catalog AppRegistry",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Service Catalog AppRegistry",
+  urlParser: config?.urlParser ?? parseUrl,
 });

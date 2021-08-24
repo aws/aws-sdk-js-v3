@@ -6,11 +6,11 @@ import { ApplicationDiscoveryServiceClientConfig } from "./ApplicationDiscoveryS
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ApplicationDiscoveryServiceClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ApplicationDiscoveryServiceClientConfig) => ({
   apiVersion: "2015-11-01",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Application Discovery Service",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Application Discovery Service",
+  urlParser: config?.urlParser ?? parseUrl,
 });

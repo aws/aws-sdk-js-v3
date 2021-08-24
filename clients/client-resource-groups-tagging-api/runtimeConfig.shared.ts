@@ -6,11 +6,11 @@ import { ResourceGroupsTaggingAPIClientConfig } from "./ResourceGroupsTaggingAPI
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ResourceGroupsTaggingAPIClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ResourceGroupsTaggingAPIClientConfig) => ({
   apiVersion: "2017-01-26",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Resource Groups Tagging API",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Resource Groups Tagging API",
+  urlParser: config?.urlParser ?? parseUrl,
 });

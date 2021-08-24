@@ -6,14 +6,14 @@ import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.bro
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: TranscribeStreamingClientConfig = {}) => {
+export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,
     ...config,
     runtime: "react-native",
-    eventStreamPayloadHandlerProvider: config.eventStreamPayloadHandlerProvider ?? (() => eventStreamPayloadHandler),
-    requestHandler: config.requestHandler ?? new WebSocketHandler(),
-    sha256: config.sha256 ?? Sha256,
+    eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? (() => eventStreamPayloadHandler),
+    requestHandler: config?.requestHandler ?? new WebSocketHandler(),
+    sha256: config?.sha256 ?? Sha256,
   };
 };

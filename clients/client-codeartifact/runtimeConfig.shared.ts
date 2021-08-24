@@ -6,11 +6,11 @@ import { CodeartifactClientConfig } from "./CodeartifactClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CodeartifactClientConfig = {}) => ({
+export const getRuntimeConfig = (config: CodeartifactClientConfig) => ({
   apiVersion: "2018-09-22",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "codeartifact",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "codeartifact",
+  urlParser: config?.urlParser ?? parseUrl,
 });

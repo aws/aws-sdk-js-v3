@@ -6,11 +6,11 @@ import { RekognitionClientConfig } from "./RekognitionClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: RekognitionClientConfig = {}) => ({
+export const getRuntimeConfig = (config: RekognitionClientConfig) => ({
   apiVersion: "2016-06-27",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Rekognition",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Rekognition",
+  urlParser: config?.urlParser ?? parseUrl,
 });

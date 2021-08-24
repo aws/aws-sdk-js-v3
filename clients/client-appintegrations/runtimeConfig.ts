@@ -18,28 +18,28 @@ import { emitWarningIfUnsupportedVersion } from "@aws-sdk/smithy-client";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AppIntegrationsClientConfig = {}) => {
+export const getRuntimeConfig = (config: AppIntegrationsClientConfig) => {
   emitWarningIfUnsupportedVersion(process.version);
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,
     ...config,
     runtime: "node",
-    base64Decoder: config.base64Decoder ?? fromBase64,
-    base64Encoder: config.base64Encoder ?? toBase64,
-    bodyLengthChecker: config.bodyLengthChecker ?? calculateBodyLength,
+    base64Decoder: config?.base64Decoder ?? fromBase64,
+    base64Encoder: config?.base64Encoder ?? toBase64,
+    bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider:
-      config.credentialDefaultProvider ?? decorateDefaultCredentialProvider(credentialDefaultProvider),
+      config?.credentialDefaultProvider ?? decorateDefaultCredentialProvider(credentialDefaultProvider),
     defaultUserAgentProvider:
-      config.defaultUserAgentProvider ??
+      config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
-    maxAttempts: config.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
-    region: config.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
-    requestHandler: config.requestHandler ?? new NodeHttpHandler(),
-    retryModeProvider: config.retryModeProvider ?? loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),
-    sha256: config.sha256 ?? Hash.bind(null, "sha256"),
-    streamCollector: config.streamCollector ?? streamCollector,
-    utf8Decoder: config.utf8Decoder ?? fromUtf8,
-    utf8Encoder: config.utf8Encoder ?? toUtf8,
+    maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
+    region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
+    requestHandler: config?.requestHandler ?? new NodeHttpHandler(),
+    retryModeProvider: config?.retryModeProvider ?? loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),
+    sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
+    streamCollector: config?.streamCollector ?? streamCollector,
+    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+    utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };
 };

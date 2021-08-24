@@ -6,11 +6,11 @@ import { ConfigServiceClientConfig } from "./ConfigServiceClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ConfigServiceClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ConfigServiceClientConfig) => ({
   apiVersion: "2014-11-12",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Config Service",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Config Service",
+  urlParser: config?.urlParser ?? parseUrl,
 });

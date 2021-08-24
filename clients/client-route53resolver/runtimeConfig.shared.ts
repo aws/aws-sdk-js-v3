@@ -6,11 +6,11 @@ import { Route53ResolverClientConfig } from "./Route53ResolverClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: Route53ResolverClientConfig = {}) => ({
+export const getRuntimeConfig = (config: Route53ResolverClientConfig) => ({
   apiVersion: "2018-04-01",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Route53Resolver",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Route53Resolver",
+  urlParser: config?.urlParser ?? parseUrl,
 });

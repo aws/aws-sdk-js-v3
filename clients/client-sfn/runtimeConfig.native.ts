@@ -5,12 +5,12 @@ import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.bro
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SFNClientConfig = {}) => {
+export const getRuntimeConfig = (config: SFNClientConfig) => {
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,
     ...config,
     runtime: "react-native",
-    sha256: config.sha256 ?? Sha256,
+    sha256: config?.sha256 ?? Sha256,
   };
 };

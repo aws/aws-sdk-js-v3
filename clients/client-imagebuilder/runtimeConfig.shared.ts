@@ -6,11 +6,11 @@ import { ImagebuilderClientConfig } from "./ImagebuilderClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ImagebuilderClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ImagebuilderClientConfig) => ({
   apiVersion: "2019-12-02",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "imagebuilder",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "imagebuilder",
+  urlParser: config?.urlParser ?? parseUrl,
 });

@@ -6,11 +6,11 @@ import { NetworkFirewallClientConfig } from "./NetworkFirewallClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: NetworkFirewallClientConfig = {}) => ({
+export const getRuntimeConfig = (config: NetworkFirewallClientConfig) => ({
   apiVersion: "2020-11-12",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Network Firewall",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Network Firewall",
+  urlParser: config?.urlParser ?? parseUrl,
 });

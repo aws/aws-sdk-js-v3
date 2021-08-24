@@ -6,11 +6,11 @@ import { ConnectContactLensClientConfig } from "./ConnectContactLensClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ConnectContactLensClientConfig = {}) => ({
+export const getRuntimeConfig = (config: ConnectContactLensClientConfig) => ({
   apiVersion: "2020-08-21",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "Connect Contact Lens",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "Connect Contact Lens",
+  urlParser: config?.urlParser ?? parseUrl,
 });

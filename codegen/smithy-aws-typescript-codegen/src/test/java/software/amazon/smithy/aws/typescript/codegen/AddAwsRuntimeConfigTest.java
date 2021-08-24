@@ -44,9 +44,9 @@ public class AddAwsRuntimeConfigTest {
         assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("region?:"));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("serviceId: config.serviceId ?? \"Not Same\""));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("region: config.region ?? invalidProvider"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("region: config.region ?? loadNodeConfig"));
+        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("serviceId: config?.serviceId ?? \"Not Same\""));
+        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("region: config?.region ?? invalidProvider"));
+        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("region: config?.region ?? loadNodeConfig"));
     }
 
     @Test
@@ -81,8 +81,8 @@ public class AddAwsRuntimeConfigTest {
 
         // Check config files
         assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), not(containsString("serviceId:")));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("region: config.region ?? invalidProvider"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("region: config.region ?? loadNodeConfig"));
+        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("region: config?.region ?? invalidProvider"));
+        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("region: config?.region ?? loadNodeConfig"));
     }
 
     @Test

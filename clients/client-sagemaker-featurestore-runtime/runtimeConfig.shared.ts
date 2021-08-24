@@ -6,11 +6,11 @@ import { SageMakerFeatureStoreRuntimeClientConfig } from "./SageMakerFeatureStor
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SageMakerFeatureStoreRuntimeClientConfig = {}) => ({
+export const getRuntimeConfig = (config: SageMakerFeatureStoreRuntimeClientConfig) => ({
   apiVersion: "2020-07-01",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "SageMaker FeatureStore Runtime",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "SageMaker FeatureStore Runtime",
+  urlParser: config?.urlParser ?? parseUrl,
 });

@@ -6,11 +6,11 @@ import { MediaLiveClientConfig } from "./MediaLiveClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MediaLiveClientConfig = {}) => ({
+export const getRuntimeConfig = (config: MediaLiveClientConfig) => ({
   apiVersion: "2017-10-14",
-  disableHostPrefix: config.disableHostPrefix ?? false,
-  logger: config.logger ?? ({} as __Logger),
-  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config.serviceId ?? "MediaLive",
-  urlParser: config.urlParser ?? parseUrl,
+  disableHostPrefix: config?.disableHostPrefix ?? false,
+  logger: config?.logger ?? ({} as __Logger),
+  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config?.serviceId ?? "MediaLive",
+  urlParser: config?.urlParser ?? parseUrl,
 });
