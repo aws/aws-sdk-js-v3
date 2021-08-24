@@ -1,6 +1,6 @@
 import { EndpointsInputConfig, PreviouslyResolved } from "./configurations";
 
-export const getEndPointFromRegion = async (input: EndpointsInputConfig & PreviouslyResolved) => {
+export const getEndpointFromRegion = async (input: EndpointsInputConfig & PreviouslyResolved) => {
   const { tls = true } = input;
   const region = await input.region();
 

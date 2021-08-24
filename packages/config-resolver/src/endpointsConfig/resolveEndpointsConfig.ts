@@ -1,5 +1,5 @@
 import { EndpointsInputConfig, EndpointsResolvedConfig, PreviouslyResolved } from "./configurations";
-import { getEndPointFromRegion } from "./getEndPointFromRegion";
+import { getEndpointFromRegion } from "./getEndpointFromRegion";
 import { normalizeEndpoint } from "./normalizeEndpoint";
 
 export const resolveEndpointsConfig = <T>(
@@ -7,6 +7,6 @@ export const resolveEndpointsConfig = <T>(
 ): T & EndpointsResolvedConfig => ({
   ...input,
   tls: input.tls ?? true,
-  endpoint: input.endpoint ? normalizeEndpoint(input) : () => getEndPointFromRegion(input),
+  endpoint: input.endpoint ? normalizeEndpoint(input) : () => getEndpointFromRegion(input),
   isCustomEndpoint: input.endpoint ? true : false,
 });
