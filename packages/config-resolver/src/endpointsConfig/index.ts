@@ -1,2 +1,2 @@
 export * from "./configurations";
-export * from "./EndpointsConfig";
+export * from "./resolveEndpointsConfig";

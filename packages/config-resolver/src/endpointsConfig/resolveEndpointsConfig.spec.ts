@@ -1,6 +1,6 @@
 import { Endpoint } from "@aws-sdk/types";
 
-import { resolveEndpointsConfig } from "./EndpointsConfig";
+import { resolveEndpointsConfig } from "./resolveEndpointsConfig";
 
 describe("EndpointsConfig", () => {
   const region = jest.fn();
