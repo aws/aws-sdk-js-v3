@@ -49,11 +49,11 @@ const partitionHash: PartitionHash = {
       "us-west-1",
       "us-west-2",
     ],
-    hostname: "organizations.{region}.amazonaws.com",
+    endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
-    hostname: "organizations.{region}.amazonaws.com.cn",
+    endpoint: "aws-cn-global",
   },
   "aws-iso": {
     regions: ["us-iso-east-1"],
@@ -65,7 +65,7 @@ const partitionHash: PartitionHash = {
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
-    hostname: "organizations.{region}.amazonaws.com",
+    endpoint: "aws-us-gov-global",
   },
 };
 

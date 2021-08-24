@@ -37,7 +37,7 @@ const partitionHash: PartitionHash = {
       "us-west-1",
       "us-west-2",
     ],
-    hostname: "waf.{region}.amazonaws.com",
+    endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],

@@ -57,23 +57,23 @@ const partitionHash: PartitionHash = {
       "us-west-1",
       "us-west-2",
     ],
-    hostname: "route53.{region}.amazonaws.com",
+    endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
-    hostname: "route53.{region}.amazonaws.com.cn",
+    endpoint: "aws-cn-global",
   },
   "aws-iso": {
     regions: ["us-iso-east-1"],
-    hostname: "route53.{region}.c2s.ic.gov",
+    endpoint: "aws-iso-global",
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
-    hostname: "route53.{region}.sc2s.sgov.gov",
+    endpoint: "aws-iso-b-global",
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
-    hostname: "route53.{region}.amazonaws.com",
+    endpoint: "aws-us-gov-global",
   },
 };
 
