@@ -10,14 +10,17 @@ export interface GetRegionInfoOptions extends GetResolvedHostnameOptions {}
 export const getRegionInfo = (
   region: string,
   { signingService, regionHash, partitionHash }: GetRegionInfoOptions
-): RegionInfo => ({
-  signingService,
-  hostname: getResolvedHostname(region, { signingService, regionHash, partitionHash }),
-  partition: getResolvedPartition(region, { partitionHash }),
-  ...(regionHash[region]?.signingRegion && {
-    signingRegion: regionHash[region].signingRegion,
-  }),
-  ...(regionHash[region]?.signingService && {
-    signingService: regionHash[region].signingService,
-  }),
-});
+): RegionInfo => {
+  const resolvedRegion = partitionHash[getResolvedPartition(region, { partitionHash })]?.endpoint ?? region;
+  return {
+    signingService,
+    hostname: getResolvedHostname(resolvedRegion, { signingService, regionHash, partitionHash }),
+    partition: getResolvedPartition(region, { partitionHash }),
+    ...(regionHash[resolvedRegion]?.signingRegion && {
+      signingRegion: regionHash[resolvedRegion].signingRegion,
+    }),
+    ...(regionHash[resolvedRegion]?.signingService && {
+      signingService: regionHash[resolvedRegion].signingService,
+    }),
+  };
+};
