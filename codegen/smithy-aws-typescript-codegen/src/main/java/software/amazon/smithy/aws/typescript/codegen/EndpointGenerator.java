@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.codegen.core.CodegenException;
@@ -204,7 +205,16 @@ final class EndpointGenerator implements Runnable {
         }
 
         Set<String> getAllRegions() {
-            return config.getObjectMember("regions").orElse(Node.objectNode()).getStringMap().keySet();
+            Set<String> regions = new TreeSet<String>();
+            regions.addAll(
+                config.getObjectMember("regions")
+                    .orElse(Node.objectNode()).getStringMap().keySet()
+            );
+            regions.addAll(
+                getService().getObjectMember("endpoints")
+                    .orElse(Node.objectNode()).getStringMap().keySet()
+            );
+            return regions;
         }
 
         Optional<String> getPartitionEndpoint() {
