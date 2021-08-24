@@ -49,7 +49,17 @@ describe(getEndpointFromRegion.name, () => {
 
   describe("throws if region is invalid", () => {
     const errorMsg = "Invalid region in client config";
-    it.each(["-", "--", "a-", "a".repeat(64)])("region: %s", async (region) => {
+    it.each([
+      "",
+      "has_underscore",
+      "-starts-with-dash",
+      "ends-with-dash-",
+      "-starts-and-ends-with-dash-",
+      "-",
+      "a-",
+      "c0nt@in$-$ymb01$",
+      "a".repeat(64),
+    ])("region: %s", async (region) => {
       mockRegion.mockResolvedValue(region);
       try {
         await getEndpointFromRegion(mockInput);
