@@ -30,6 +30,7 @@ import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.OptionalUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -128,7 +129,9 @@ final class EndpointGenerator implements Runnable {
                             writer.write("$S,", region);
                         }
                     });
-                    writer.write("hostname: $S,", partition.hostnameTemplate);
+                    OptionalUtils.ifPresentOrElse(partition.getPartitionEndpoint(),
+                        endpoint -> writer.write("endpoint: $S,", endpoint),
+                        () -> writer.write("hostname: $S,", partition.hostnameTemplate));
                 });
             });
         });
