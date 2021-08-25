@@ -14,7 +14,6 @@ import {
   Provider,
 } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { escapeUri } from "@aws-sdk/util-uri-escape";
 
 const regARN = /arn:[\w+=/,.@-]+:[\w+=/,.@-]+:([\w+=/,.@-]*)?:[0-9]+:[\w+=/,.@-]+(:[\w+=/,.@-]+)?(:[\w+=/,.@-]+)?/;
 
@@ -94,7 +93,7 @@ export function crossRegionPresignedUrlMiddleware(options: PreviouslyResolved): 
           ...args,
           input: {
             ...args.input,
-            PreSignedUrl: escapeUri(formatUrl(presignedRequest)),
+            PreSignedUrl: formatUrl(presignedRequest),
           },
         };
       }
