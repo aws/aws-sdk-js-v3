@@ -1,11 +1,11 @@
-import { Endpoint, Provider } from "@aws-sdk/types";
+import { Endpoint, Provider, UrlParser } from "@aws-sdk/types";
 
-import { EndpointsInputConfig, PreviouslyResolved } from "./configurations";
+interface NormalizeEndpointOptions {
+  endpoint: string | Endpoint | Provider<Endpoint>;
+  urlParser: UrlParser;
+}
 
-export const normalizeEndpoint = ({
-  endpoint,
-  urlParser,
-}: EndpointsInputConfig & PreviouslyResolved): Provider<Endpoint> => {
+export const normalizeEndpoint = ({ endpoint, urlParser }: NormalizeEndpointOptions): Provider<Endpoint> => {
   if (typeof endpoint === "string") {
     const promisified = Promise.resolve(urlParser(endpoint));
     return () => promisified;
@@ -13,5 +13,5 @@ export const normalizeEndpoint = ({
     const promisified = Promise.resolve(endpoint);
     return () => promisified;
   }
-  return endpoint!;
+  return endpoint;
 };

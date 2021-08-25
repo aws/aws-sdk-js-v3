@@ -1,6 +1,13 @@
-import { EndpointsInputConfig, PreviouslyResolved } from "./configurations";
+import { Provider, RegionInfoProvider, UrlParser } from "@aws-sdk/types";
 
-export const getEndpointFromRegion = async (input: EndpointsInputConfig & PreviouslyResolved) => {
+interface GetEndpointFromRegionOptions {
+  region: Provider<string>;
+  tls?: boolean;
+  regionInfoProvider: RegionInfoProvider;
+  urlParser: UrlParser;
+}
+
+export const getEndpointFromRegion = async (input: GetEndpointFromRegionOptions) => {
   const { tls = true } = input;
   const region = await input.region();
 
