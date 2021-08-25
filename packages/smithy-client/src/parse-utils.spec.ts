@@ -1,4 +1,12 @@
-import { expectInt, limitedParseFloat, parseBoolean, strictParseFloat, strictParseInt } from "./parse-utils";
+import {
+  expectInt,
+  expectNonNull,
+  expectObject,
+  limitedParseFloat,
+  parseBoolean,
+  strictParseFloat,
+  strictParseInt,
+} from "./parse-utils";
 import { expectBoolean, expectNumber, expectString } from "./parse-utils";
 
 describe("parseBoolean", () => {
@@ -96,6 +104,38 @@ describe("expectInt", () => {
     it.each([1.1, "1", "1.1", NaN, true, [], {}])("rejects %s", (value) => {
       expect(() => expectInt(value)).toThrowError();
     });
+  });
+});
+
+describe("expectNonNull", () => {
+  it.each([1, 1.1, "1", NaN, true, [], ["a", 123], { a: 123 }, [{ a: 123 }], "{ a : 123 }", '{"a":123}'])(
+    "accepts %s",
+    (value) => {
+      expect(expectNonNull(value)).toEqual(value);
+    }
+  );
+
+  it.each([null, undefined])("rejects %s", (value) => {
+    expect(() => expectNonNull(value)).toThrowError();
+  });
+});
+
+describe("expectObject", () => {
+  it("accepts objects", () => {
+    expect(expectObject({ a: 123 })).toEqual({ a: 123 });
+  });
+
+  it.each([null, undefined])("accepts %s", (value) => {
+    expect(expectObject(value)).toEqual(undefined);
+  });
+
+  describe("rejects non-objects", () => {
+    it.each([1, 1.1, "1", NaN, true, [], ["a", 123], [{ a: 123 }], "{ a : 123 }", '{"a":123}'])(
+      "rejects %s",
+      (value) => {
+        expect(() => expectObject(value)).toThrowError();
+      }
+    );
   });
 });
 
