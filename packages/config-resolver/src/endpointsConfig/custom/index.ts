@@ -1,1 +1,1 @@
-export * from "./CustomEndpointsConfig";
+export * from "./resolveCustomEndpointsConfig";

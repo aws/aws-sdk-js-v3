@@ -1,6 +1,6 @@
 import { Endpoint } from "@aws-sdk/types";
 
-import { resolveCustomEndpointsConfig } from "./CustomEndpointsConfig";
+import { resolveCustomEndpointsConfig } from "./resolveCustomEndpointsConfig";
 
 describe("CustomEndpointsConfig", () => {
   const urlParser = jest.fn();
