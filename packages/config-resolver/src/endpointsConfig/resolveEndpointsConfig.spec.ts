@@ -2,8 +2,8 @@ import { resolveEndpointsConfig } from "./resolveEndpointsConfig";
 import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
 import { normalizeEndpoint } from "./utils/normalizeEndpoint";
 
-jest.mock("./getEndpointFromRegion");
-jest.mock("./normalizeEndpoint");
+jest.mock("./utils/getEndpointFromRegion");
+jest.mock("./utils/normalizeEndpoint");
 
 describe(resolveEndpointsConfig.name, () => {
   const mockEndpoint = {
