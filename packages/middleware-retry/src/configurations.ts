@@ -39,10 +39,6 @@ export interface RetryInputConfig {
    * The strategy to retry the request. Using built-in exponential backoff strategy by default.
    */
   retryStrategy?: RetryStrategy;
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string;
 }
 
 interface PreviouslyResolved {
@@ -50,7 +46,7 @@ interface PreviouslyResolved {
    * Specifies provider for retry algorithm to use.
    * @internal
    */
-  retryModeProvider: Provider<string>;
+  retryMode: string | Provider<string>;
 }
 
 export interface RetryResolvedConfig {
@@ -73,13 +69,20 @@ export const resolveRetryConfig = <T>(input: T & PreviouslyResolved & RetryInput
       if (input.retryStrategy) {
         return input.retryStrategy;
       }
-      const retryMode = input.retryMode || (await input.retryModeProvider());
+      const retryMode = await getRetryMode(input.retryMode);
       if (retryMode === RETRY_MODES.ADAPTIVE) {
         return new AdaptiveRetryStrategy(maxAttempts);
       }
       return new StandardRetryStrategy(maxAttempts);
     },
   };
+};
+
+const getRetryMode = async (retryMode: string | Provider<string>): Promise<string> => {
+  if (typeof retryMode === "string") {
+    return retryMode;
+  }
+  return await retryMode();
 };
 
 const normalizeMaxAttempts = (maxAttempts: number | Provider<number> = DEFAULT_MAX_ATTEMPTS): Provider<number> => {

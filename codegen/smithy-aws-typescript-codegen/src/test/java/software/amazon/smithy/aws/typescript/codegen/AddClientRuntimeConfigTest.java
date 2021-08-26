@@ -42,17 +42,17 @@ public class AddClientRuntimeConfigTest {
 
         // Check config interface fields
         assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("maxAttempts?:"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("retryModeProvider?:"));
+        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("retryMode?:"));
         assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("logger?:"));
 
         // Check config files
         assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("logger:"));
 
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("retryModeProvider:"));
+        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("retryMode:"));
 
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("retryModeProvider:"));
+        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("retryMode:"));
     }
 
     @Test
@@ -85,17 +85,17 @@ public class AddClientRuntimeConfigTest {
 
         // Check config interface fields
         assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("maxAttempts?:"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("retryModeProvider?:"));
+        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("retryMode?:"));
         assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("logger?:"));
 
         // Check config files
         assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("logger:"));
 
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("retryModeProvider:"));
+        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("retryMode:"));
 
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("retryModeProvider:"));
+        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("retryMode:"));
     }
 
     @Test
@@ -128,16 +128,16 @@ public class AddClientRuntimeConfigTest {
 
         // Check config interface fields
         assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("maxAttempts?:"));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("retryModeProvider?:"));
+        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("retryMode?:"));
         assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("logger?:"));
 
         // Check config files
         assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("logger:"));
 
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("retryModeProvider:"));
+        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("retryMode:"));
 
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("retryModeProvider:"));
+        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("retryMode:"));
     }
 }
