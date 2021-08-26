@@ -1,7 +1,7 @@
 import { Endpoint, Provider, RegionInfoProvider, UrlParser } from "@aws-sdk/types";
 
-import { getEndpointFromRegion } from "./getEndpointFromRegion";
-import { normalizeEndpoint } from "./normalizeEndpoint";
+import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
+import { normalizeEndpoint } from "./utils/normalizeEndpoint";
 
 export interface EndpointsInputConfig {
   /**
