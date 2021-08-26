@@ -1,5 +1,7 @@
 import { Provider } from "@aws-sdk/types";
 
+import { normalizeRegion } from "./normalizeRegion";
+
 export interface RegionInputConfig {
   /**
    * The AWS region to which this client will send requests
@@ -24,12 +26,4 @@ export const resolveRegionConfig = <T>(input: T & RegionInputConfig & Previously
     ...input,
     region: normalizeRegion(input.region!),
   };
-};
-
-const normalizeRegion = (region: string | Provider<string>): Provider<string> => {
-  if (typeof region === "string") {
-    const promisified = Promise.resolve(region);
-    return () => promisified;
-  }
-  return region as Provider<string>;
 };
