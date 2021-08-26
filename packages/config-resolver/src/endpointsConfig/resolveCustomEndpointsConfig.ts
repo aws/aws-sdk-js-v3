@@ -14,7 +14,13 @@ interface PreviouslyResolved {
   urlParser: UrlParser;
 }
 
-export interface CustomEndpointsResolvedConfig extends EndpointsResolvedConfig {}
+export interface CustomEndpointsResolvedConfig extends EndpointsResolvedConfig {
+  /**
+   * Whether the endpoint is specified by caller.
+   * @internal
+   */
+  isCustomEndpoint: true;
+}
 
 export const resolveCustomEndpointsConfig = <T>(
   input: T & CustomEndpointsInputConfig & PreviouslyResolved
