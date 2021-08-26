@@ -48,18 +48,18 @@ export const memoize: MemoizeOverload = <T>(
   let resolved: T;
   let pending: Promise<T> | undefined;
   let hasResult: boolean;
-  // Wrapper over supplied provider with side effect to handle concurrent invocation
+  // Wrapper over supplied provider with side effect to handle concurrent invocation.
   const coalesceProvider: Provider<T> = async () => {
     if (!pending) {
       pending = provider();
     }
     try {
       resolved = await pending;
-      pending = undefined;
       hasResult = true;
     } catch (e) {
-      pending = undefined;
       throw e;
+    } finally {
+      pending = undefined;
     }
     return resolved;
   };
