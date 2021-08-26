@@ -1,1 +1,1 @@
-export * from "./RegionConfig";
+export * from "./resolveRegionConfig";

@@ -4,7 +4,7 @@ import {
   REGION_ENV_NAME,
   REGION_INI_NAME,
   resolveRegionConfig,
-} from "./RegionConfig";
+} from "./resolveRegionConfig";
 
 describe("RegionConfig", () => {
   afterEach(() => {
