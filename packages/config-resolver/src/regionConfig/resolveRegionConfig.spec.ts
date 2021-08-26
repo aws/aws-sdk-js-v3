@@ -1,24 +1,28 @@
+import { normalizeRegion } from "./normalizeRegion";
 import { resolveRegionConfig } from "./resolveRegionConfig";
 
+jest.mock("./normalizeRegion");
+
 describe("RegionConfig", () => {
+  const mockRegionProvider = () => Promise.resolve("mockRegion");
+
+  beforeEach(() => {
+    (normalizeRegion as jest.Mock).mockReturnValue(mockRegionProvider);
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it("assigns region provider if presented with a region string", async () => {
-    const region = "us-foo-0";
-    const output = await resolveRegionConfig({ region }).region();
-    expect(output).toStrictEqual(region);
-  });
-
-  it("assigns region as it-is if presented with a region provider", async () => {
-    const region = "us-foo-1";
-    const regionProvider = jest.fn().mockResolvedValue(region);
-    const output = await resolveRegionConfig({ region: regionProvider }).region();
-    expect(output).toStrictEqual(region);
+  it("assigns value returned by normalizeRegion to region", async () => {
+    const region = "mockRegion";
+    expect(resolveRegionConfig({ region }).region).toBe(mockRegionProvider);
+    expect(normalizeRegion).toHaveBeenCalledTimes(1);
+    expect(normalizeRegion).toHaveBeenCalledWith(region);
   });
 
   it("throw if region is not supplied", () => {
     expect(() => resolveRegionConfig({})).toThrow();
+    expect(normalizeRegion).not.toHaveBeenCalled();
   });
 });
