@@ -310,13 +310,15 @@ final class AwsProtocolUtils {
             HttpMalformedRequestTestCase testCase,
             TypeScriptSettings settings
     ) {
-        //TODO: underflow/overflow not rejected yet
-        if (testCase.hasTag("underflow/overflow")) {
-            return true;
-        }
-
-        //TODO: float truncation not rejected yet
-        if (testCase.hasTag("float_truncation")) {
+        // Handling overflow/underflow of longs in JS is extraordinarily tricky.
+        // Numbers are actually all 62-bit floats, and so any integral number is
+        // limited to 53 bits. In typical JS fashion, a value outside of this
+        // range just kinda silently bumbles on in some third state between valid
+        // and invalid. Infuriatingly, there doesn't seem to be a consistent way
+        // to detect this. We could *try* to do bounds checking, but the constants
+        // we use wouldn't necessarily work, so it could work in some environments
+        // but not others.
+        if (operation.getId().getName().equals("MalformedLong") && testCase.hasTag("underflow/overflow")) {
             return true;
         }
 
