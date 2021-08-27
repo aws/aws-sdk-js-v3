@@ -25,7 +25,7 @@ describe(resolveCustomEndpointsConfig.name, () => {
       expect(resolveCustomEndpointsConfig({ ...mockInput, tls }).tls).toStrictEqual(tls);
     });
 
-    it("returns true is input.tls is undefined", () => {
+    it("returns true if input.tls is undefined", () => {
       expect(resolveCustomEndpointsConfig({ ...mockInput }).tls).toStrictEqual(true);
     });
   });
