@@ -135,6 +135,166 @@ import {
 } from "./commands/JsonTimestampsCommand";
 import { JsonUnionsCommand, JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
 import {
+  MalformedAcceptWithBodyCommand,
+  MalformedAcceptWithBodyCommandInput,
+  MalformedAcceptWithBodyCommandOutput,
+} from "./commands/MalformedAcceptWithBodyCommand";
+import {
+  MalformedAcceptWithGenericStringCommand,
+  MalformedAcceptWithGenericStringCommandInput,
+  MalformedAcceptWithGenericStringCommandOutput,
+} from "./commands/MalformedAcceptWithGenericStringCommand";
+import {
+  MalformedAcceptWithPayloadCommand,
+  MalformedAcceptWithPayloadCommandInput,
+  MalformedAcceptWithPayloadCommandOutput,
+} from "./commands/MalformedAcceptWithPayloadCommand";
+import {
+  MalformedBlobCommand,
+  MalformedBlobCommandInput,
+  MalformedBlobCommandOutput,
+} from "./commands/MalformedBlobCommand";
+import {
+  MalformedBooleanCommand,
+  MalformedBooleanCommandInput,
+  MalformedBooleanCommandOutput,
+} from "./commands/MalformedBooleanCommand";
+import {
+  MalformedByteCommand,
+  MalformedByteCommandInput,
+  MalformedByteCommandOutput,
+} from "./commands/MalformedByteCommand";
+import {
+  MalformedContentTypeWithBodyCommand,
+  MalformedContentTypeWithBodyCommandInput,
+  MalformedContentTypeWithBodyCommandOutput,
+} from "./commands/MalformedContentTypeWithBodyCommand";
+import {
+  MalformedContentTypeWithGenericStringCommand,
+  MalformedContentTypeWithGenericStringCommandInput,
+  MalformedContentTypeWithGenericStringCommandOutput,
+} from "./commands/MalformedContentTypeWithGenericStringCommand";
+import {
+  MalformedContentTypeWithPayloadCommand,
+  MalformedContentTypeWithPayloadCommandInput,
+  MalformedContentTypeWithPayloadCommandOutput,
+} from "./commands/MalformedContentTypeWithPayloadCommand";
+import {
+  MalformedContentTypeWithoutBodyCommand,
+  MalformedContentTypeWithoutBodyCommandInput,
+  MalformedContentTypeWithoutBodyCommandOutput,
+} from "./commands/MalformedContentTypeWithoutBodyCommand";
+import {
+  MalformedDoubleCommand,
+  MalformedDoubleCommandInput,
+  MalformedDoubleCommandOutput,
+} from "./commands/MalformedDoubleCommand";
+import {
+  MalformedFloatCommand,
+  MalformedFloatCommandInput,
+  MalformedFloatCommandOutput,
+} from "./commands/MalformedFloatCommand";
+import {
+  MalformedIntegerCommand,
+  MalformedIntegerCommandInput,
+  MalformedIntegerCommandOutput,
+} from "./commands/MalformedIntegerCommand";
+import {
+  MalformedListCommand,
+  MalformedListCommandInput,
+  MalformedListCommandOutput,
+} from "./commands/MalformedListCommand";
+import {
+  MalformedLongCommand,
+  MalformedLongCommandInput,
+  MalformedLongCommandOutput,
+} from "./commands/MalformedLongCommand";
+import {
+  MalformedMapCommand,
+  MalformedMapCommandInput,
+  MalformedMapCommandOutput,
+} from "./commands/MalformedMapCommand";
+import {
+  MalformedRequestBodyCommand,
+  MalformedRequestBodyCommandInput,
+  MalformedRequestBodyCommandOutput,
+} from "./commands/MalformedRequestBodyCommand";
+import {
+  MalformedSetCommand,
+  MalformedSetCommandInput,
+  MalformedSetCommandOutput,
+} from "./commands/MalformedSetCommand";
+import {
+  MalformedShortCommand,
+  MalformedShortCommandInput,
+  MalformedShortCommandOutput,
+} from "./commands/MalformedShortCommand";
+import {
+  MalformedTimestampBodyDateTimeCommand,
+  MalformedTimestampBodyDateTimeCommandInput,
+  MalformedTimestampBodyDateTimeCommandOutput,
+} from "./commands/MalformedTimestampBodyDateTimeCommand";
+import {
+  MalformedTimestampBodyDefaultCommand,
+  MalformedTimestampBodyDefaultCommandInput,
+  MalformedTimestampBodyDefaultCommandOutput,
+} from "./commands/MalformedTimestampBodyDefaultCommand";
+import {
+  MalformedTimestampBodyHttpDateCommand,
+  MalformedTimestampBodyHttpDateCommandInput,
+  MalformedTimestampBodyHttpDateCommandOutput,
+} from "./commands/MalformedTimestampBodyHttpDateCommand";
+import {
+  MalformedTimestampHeaderDateTimeCommand,
+  MalformedTimestampHeaderDateTimeCommandInput,
+  MalformedTimestampHeaderDateTimeCommandOutput,
+} from "./commands/MalformedTimestampHeaderDateTimeCommand";
+import {
+  MalformedTimestampHeaderDefaultCommand,
+  MalformedTimestampHeaderDefaultCommandInput,
+  MalformedTimestampHeaderDefaultCommandOutput,
+} from "./commands/MalformedTimestampHeaderDefaultCommand";
+import {
+  MalformedTimestampHeaderEpochCommand,
+  MalformedTimestampHeaderEpochCommandInput,
+  MalformedTimestampHeaderEpochCommandOutput,
+} from "./commands/MalformedTimestampHeaderEpochCommand";
+import {
+  MalformedTimestampPathDefaultCommand,
+  MalformedTimestampPathDefaultCommandInput,
+  MalformedTimestampPathDefaultCommandOutput,
+} from "./commands/MalformedTimestampPathDefaultCommand";
+import {
+  MalformedTimestampPathEpochCommand,
+  MalformedTimestampPathEpochCommandInput,
+  MalformedTimestampPathEpochCommandOutput,
+} from "./commands/MalformedTimestampPathEpochCommand";
+import {
+  MalformedTimestampPathHttpDateCommand,
+  MalformedTimestampPathHttpDateCommandInput,
+  MalformedTimestampPathHttpDateCommandOutput,
+} from "./commands/MalformedTimestampPathHttpDateCommand";
+import {
+  MalformedTimestampQueryDefaultCommand,
+  MalformedTimestampQueryDefaultCommandInput,
+  MalformedTimestampQueryDefaultCommandOutput,
+} from "./commands/MalformedTimestampQueryDefaultCommand";
+import {
+  MalformedTimestampQueryEpochCommand,
+  MalformedTimestampQueryEpochCommandInput,
+  MalformedTimestampQueryEpochCommandOutput,
+} from "./commands/MalformedTimestampQueryEpochCommand";
+import {
+  MalformedTimestampQueryHttpDateCommand,
+  MalformedTimestampQueryHttpDateCommandInput,
+  MalformedTimestampQueryHttpDateCommandOutput,
+} from "./commands/MalformedTimestampQueryHttpDateCommand";
+import {
+  MalformedUnionCommand,
+  MalformedUnionCommandInput,
+  MalformedUnionCommandOutput,
+} from "./commands/MalformedUnionCommand";
+import {
   MediaTypeHeaderCommand,
   MediaTypeHeaderCommandInput,
   MediaTypeHeaderCommandOutput,
@@ -1179,6 +1339,930 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: JsonUnionsCommandOutput) => void
   ): Promise<JsonUnionsCommandOutput> | void {
     const command = new JsonUnionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedAcceptWithBody(
+    args: MalformedAcceptWithBodyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedAcceptWithBodyCommandOutput>;
+  public malformedAcceptWithBody(
+    args: MalformedAcceptWithBodyCommandInput,
+    cb: (err: any, data?: MalformedAcceptWithBodyCommandOutput) => void
+  ): void;
+  public malformedAcceptWithBody(
+    args: MalformedAcceptWithBodyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedAcceptWithBodyCommandOutput) => void
+  ): void;
+  public malformedAcceptWithBody(
+    args: MalformedAcceptWithBodyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedAcceptWithBodyCommandOutput) => void),
+    cb?: (err: any, data?: MalformedAcceptWithBodyCommandOutput) => void
+  ): Promise<MalformedAcceptWithBodyCommandOutput> | void {
+    const command = new MalformedAcceptWithBodyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedAcceptWithGenericString(
+    args: MalformedAcceptWithGenericStringCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedAcceptWithGenericStringCommandOutput>;
+  public malformedAcceptWithGenericString(
+    args: MalformedAcceptWithGenericStringCommandInput,
+    cb: (err: any, data?: MalformedAcceptWithGenericStringCommandOutput) => void
+  ): void;
+  public malformedAcceptWithGenericString(
+    args: MalformedAcceptWithGenericStringCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedAcceptWithGenericStringCommandOutput) => void
+  ): void;
+  public malformedAcceptWithGenericString(
+    args: MalformedAcceptWithGenericStringCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedAcceptWithGenericStringCommandOutput) => void),
+    cb?: (err: any, data?: MalformedAcceptWithGenericStringCommandOutput) => void
+  ): Promise<MalformedAcceptWithGenericStringCommandOutput> | void {
+    const command = new MalformedAcceptWithGenericStringCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedAcceptWithPayload(
+    args: MalformedAcceptWithPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedAcceptWithPayloadCommandOutput>;
+  public malformedAcceptWithPayload(
+    args: MalformedAcceptWithPayloadCommandInput,
+    cb: (err: any, data?: MalformedAcceptWithPayloadCommandOutput) => void
+  ): void;
+  public malformedAcceptWithPayload(
+    args: MalformedAcceptWithPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedAcceptWithPayloadCommandOutput) => void
+  ): void;
+  public malformedAcceptWithPayload(
+    args: MalformedAcceptWithPayloadCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedAcceptWithPayloadCommandOutput) => void),
+    cb?: (err: any, data?: MalformedAcceptWithPayloadCommandOutput) => void
+  ): Promise<MalformedAcceptWithPayloadCommandOutput> | void {
+    const command = new MalformedAcceptWithPayloadCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedBlob(
+    args: MalformedBlobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedBlobCommandOutput>;
+  public malformedBlob(
+    args: MalformedBlobCommandInput,
+    cb: (err: any, data?: MalformedBlobCommandOutput) => void
+  ): void;
+  public malformedBlob(
+    args: MalformedBlobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedBlobCommandOutput) => void
+  ): void;
+  public malformedBlob(
+    args: MalformedBlobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedBlobCommandOutput) => void),
+    cb?: (err: any, data?: MalformedBlobCommandOutput) => void
+  ): Promise<MalformedBlobCommandOutput> | void {
+    const command = new MalformedBlobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedBoolean(
+    args: MalformedBooleanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedBooleanCommandOutput>;
+  public malformedBoolean(
+    args: MalformedBooleanCommandInput,
+    cb: (err: any, data?: MalformedBooleanCommandOutput) => void
+  ): void;
+  public malformedBoolean(
+    args: MalformedBooleanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedBooleanCommandOutput) => void
+  ): void;
+  public malformedBoolean(
+    args: MalformedBooleanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedBooleanCommandOutput) => void),
+    cb?: (err: any, data?: MalformedBooleanCommandOutput) => void
+  ): Promise<MalformedBooleanCommandOutput> | void {
+    const command = new MalformedBooleanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedByte(
+    args: MalformedByteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedByteCommandOutput>;
+  public malformedByte(
+    args: MalformedByteCommandInput,
+    cb: (err: any, data?: MalformedByteCommandOutput) => void
+  ): void;
+  public malformedByte(
+    args: MalformedByteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedByteCommandOutput) => void
+  ): void;
+  public malformedByte(
+    args: MalformedByteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedByteCommandOutput) => void),
+    cb?: (err: any, data?: MalformedByteCommandOutput) => void
+  ): Promise<MalformedByteCommandOutput> | void {
+    const command = new MalformedByteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedContentTypeWithBody(
+    args: MalformedContentTypeWithBodyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedContentTypeWithBodyCommandOutput>;
+  public malformedContentTypeWithBody(
+    args: MalformedContentTypeWithBodyCommandInput,
+    cb: (err: any, data?: MalformedContentTypeWithBodyCommandOutput) => void
+  ): void;
+  public malformedContentTypeWithBody(
+    args: MalformedContentTypeWithBodyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedContentTypeWithBodyCommandOutput) => void
+  ): void;
+  public malformedContentTypeWithBody(
+    args: MalformedContentTypeWithBodyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedContentTypeWithBodyCommandOutput) => void),
+    cb?: (err: any, data?: MalformedContentTypeWithBodyCommandOutput) => void
+  ): Promise<MalformedContentTypeWithBodyCommandOutput> | void {
+    const command = new MalformedContentTypeWithBodyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedContentTypeWithGenericString(
+    args: MalformedContentTypeWithGenericStringCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedContentTypeWithGenericStringCommandOutput>;
+  public malformedContentTypeWithGenericString(
+    args: MalformedContentTypeWithGenericStringCommandInput,
+    cb: (err: any, data?: MalformedContentTypeWithGenericStringCommandOutput) => void
+  ): void;
+  public malformedContentTypeWithGenericString(
+    args: MalformedContentTypeWithGenericStringCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedContentTypeWithGenericStringCommandOutput) => void
+  ): void;
+  public malformedContentTypeWithGenericString(
+    args: MalformedContentTypeWithGenericStringCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: MalformedContentTypeWithGenericStringCommandOutput) => void),
+    cb?: (err: any, data?: MalformedContentTypeWithGenericStringCommandOutput) => void
+  ): Promise<MalformedContentTypeWithGenericStringCommandOutput> | void {
+    const command = new MalformedContentTypeWithGenericStringCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedContentTypeWithoutBody(
+    args: MalformedContentTypeWithoutBodyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedContentTypeWithoutBodyCommandOutput>;
+  public malformedContentTypeWithoutBody(
+    args: MalformedContentTypeWithoutBodyCommandInput,
+    cb: (err: any, data?: MalformedContentTypeWithoutBodyCommandOutput) => void
+  ): void;
+  public malformedContentTypeWithoutBody(
+    args: MalformedContentTypeWithoutBodyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedContentTypeWithoutBodyCommandOutput) => void
+  ): void;
+  public malformedContentTypeWithoutBody(
+    args: MalformedContentTypeWithoutBodyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedContentTypeWithoutBodyCommandOutput) => void),
+    cb?: (err: any, data?: MalformedContentTypeWithoutBodyCommandOutput) => void
+  ): Promise<MalformedContentTypeWithoutBodyCommandOutput> | void {
+    const command = new MalformedContentTypeWithoutBodyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedContentTypeWithPayload(
+    args: MalformedContentTypeWithPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedContentTypeWithPayloadCommandOutput>;
+  public malformedContentTypeWithPayload(
+    args: MalformedContentTypeWithPayloadCommandInput,
+    cb: (err: any, data?: MalformedContentTypeWithPayloadCommandOutput) => void
+  ): void;
+  public malformedContentTypeWithPayload(
+    args: MalformedContentTypeWithPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedContentTypeWithPayloadCommandOutput) => void
+  ): void;
+  public malformedContentTypeWithPayload(
+    args: MalformedContentTypeWithPayloadCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedContentTypeWithPayloadCommandOutput) => void),
+    cb?: (err: any, data?: MalformedContentTypeWithPayloadCommandOutput) => void
+  ): Promise<MalformedContentTypeWithPayloadCommandOutput> | void {
+    const command = new MalformedContentTypeWithPayloadCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedDouble(
+    args: MalformedDoubleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedDoubleCommandOutput>;
+  public malformedDouble(
+    args: MalformedDoubleCommandInput,
+    cb: (err: any, data?: MalformedDoubleCommandOutput) => void
+  ): void;
+  public malformedDouble(
+    args: MalformedDoubleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedDoubleCommandOutput) => void
+  ): void;
+  public malformedDouble(
+    args: MalformedDoubleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedDoubleCommandOutput) => void),
+    cb?: (err: any, data?: MalformedDoubleCommandOutput) => void
+  ): Promise<MalformedDoubleCommandOutput> | void {
+    const command = new MalformedDoubleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedFloat(
+    args: MalformedFloatCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedFloatCommandOutput>;
+  public malformedFloat(
+    args: MalformedFloatCommandInput,
+    cb: (err: any, data?: MalformedFloatCommandOutput) => void
+  ): void;
+  public malformedFloat(
+    args: MalformedFloatCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedFloatCommandOutput) => void
+  ): void;
+  public malformedFloat(
+    args: MalformedFloatCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedFloatCommandOutput) => void),
+    cb?: (err: any, data?: MalformedFloatCommandOutput) => void
+  ): Promise<MalformedFloatCommandOutput> | void {
+    const command = new MalformedFloatCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedInteger(
+    args: MalformedIntegerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedIntegerCommandOutput>;
+  public malformedInteger(
+    args: MalformedIntegerCommandInput,
+    cb: (err: any, data?: MalformedIntegerCommandOutput) => void
+  ): void;
+  public malformedInteger(
+    args: MalformedIntegerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedIntegerCommandOutput) => void
+  ): void;
+  public malformedInteger(
+    args: MalformedIntegerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedIntegerCommandOutput) => void),
+    cb?: (err: any, data?: MalformedIntegerCommandOutput) => void
+  ): Promise<MalformedIntegerCommandOutput> | void {
+    const command = new MalformedIntegerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedList(
+    args: MalformedListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedListCommandOutput>;
+  public malformedList(
+    args: MalformedListCommandInput,
+    cb: (err: any, data?: MalformedListCommandOutput) => void
+  ): void;
+  public malformedList(
+    args: MalformedListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedListCommandOutput) => void
+  ): void;
+  public malformedList(
+    args: MalformedListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedListCommandOutput) => void),
+    cb?: (err: any, data?: MalformedListCommandOutput) => void
+  ): Promise<MalformedListCommandOutput> | void {
+    const command = new MalformedListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedLong(
+    args: MalformedLongCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedLongCommandOutput>;
+  public malformedLong(
+    args: MalformedLongCommandInput,
+    cb: (err: any, data?: MalformedLongCommandOutput) => void
+  ): void;
+  public malformedLong(
+    args: MalformedLongCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedLongCommandOutput) => void
+  ): void;
+  public malformedLong(
+    args: MalformedLongCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedLongCommandOutput) => void),
+    cb?: (err: any, data?: MalformedLongCommandOutput) => void
+  ): Promise<MalformedLongCommandOutput> | void {
+    const command = new MalformedLongCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedMap(
+    args: MalformedMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedMapCommandOutput>;
+  public malformedMap(args: MalformedMapCommandInput, cb: (err: any, data?: MalformedMapCommandOutput) => void): void;
+  public malformedMap(
+    args: MalformedMapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedMapCommandOutput) => void
+  ): void;
+  public malformedMap(
+    args: MalformedMapCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedMapCommandOutput) => void),
+    cb?: (err: any, data?: MalformedMapCommandOutput) => void
+  ): Promise<MalformedMapCommandOutput> | void {
+    const command = new MalformedMapCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedRequestBody(
+    args: MalformedRequestBodyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedRequestBodyCommandOutput>;
+  public malformedRequestBody(
+    args: MalformedRequestBodyCommandInput,
+    cb: (err: any, data?: MalformedRequestBodyCommandOutput) => void
+  ): void;
+  public malformedRequestBody(
+    args: MalformedRequestBodyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedRequestBodyCommandOutput) => void
+  ): void;
+  public malformedRequestBody(
+    args: MalformedRequestBodyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedRequestBodyCommandOutput) => void),
+    cb?: (err: any, data?: MalformedRequestBodyCommandOutput) => void
+  ): Promise<MalformedRequestBodyCommandOutput> | void {
+    const command = new MalformedRequestBodyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedSet(
+    args: MalformedSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedSetCommandOutput>;
+  public malformedSet(args: MalformedSetCommandInput, cb: (err: any, data?: MalformedSetCommandOutput) => void): void;
+  public malformedSet(
+    args: MalformedSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedSetCommandOutput) => void
+  ): void;
+  public malformedSet(
+    args: MalformedSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedSetCommandOutput) => void),
+    cb?: (err: any, data?: MalformedSetCommandOutput) => void
+  ): Promise<MalformedSetCommandOutput> | void {
+    const command = new MalformedSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedShort(
+    args: MalformedShortCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedShortCommandOutput>;
+  public malformedShort(
+    args: MalformedShortCommandInput,
+    cb: (err: any, data?: MalformedShortCommandOutput) => void
+  ): void;
+  public malformedShort(
+    args: MalformedShortCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedShortCommandOutput) => void
+  ): void;
+  public malformedShort(
+    args: MalformedShortCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedShortCommandOutput) => void),
+    cb?: (err: any, data?: MalformedShortCommandOutput) => void
+  ): Promise<MalformedShortCommandOutput> | void {
+    const command = new MalformedShortCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampBodyDateTime(
+    args: MalformedTimestampBodyDateTimeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampBodyDateTimeCommandOutput>;
+  public malformedTimestampBodyDateTime(
+    args: MalformedTimestampBodyDateTimeCommandInput,
+    cb: (err: any, data?: MalformedTimestampBodyDateTimeCommandOutput) => void
+  ): void;
+  public malformedTimestampBodyDateTime(
+    args: MalformedTimestampBodyDateTimeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampBodyDateTimeCommandOutput) => void
+  ): void;
+  public malformedTimestampBodyDateTime(
+    args: MalformedTimestampBodyDateTimeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampBodyDateTimeCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampBodyDateTimeCommandOutput) => void
+  ): Promise<MalformedTimestampBodyDateTimeCommandOutput> | void {
+    const command = new MalformedTimestampBodyDateTimeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampBodyDefault(
+    args: MalformedTimestampBodyDefaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampBodyDefaultCommandOutput>;
+  public malformedTimestampBodyDefault(
+    args: MalformedTimestampBodyDefaultCommandInput,
+    cb: (err: any, data?: MalformedTimestampBodyDefaultCommandOutput) => void
+  ): void;
+  public malformedTimestampBodyDefault(
+    args: MalformedTimestampBodyDefaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampBodyDefaultCommandOutput) => void
+  ): void;
+  public malformedTimestampBodyDefault(
+    args: MalformedTimestampBodyDefaultCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampBodyDefaultCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampBodyDefaultCommandOutput) => void
+  ): Promise<MalformedTimestampBodyDefaultCommandOutput> | void {
+    const command = new MalformedTimestampBodyDefaultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampBodyHttpDate(
+    args: MalformedTimestampBodyHttpDateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampBodyHttpDateCommandOutput>;
+  public malformedTimestampBodyHttpDate(
+    args: MalformedTimestampBodyHttpDateCommandInput,
+    cb: (err: any, data?: MalformedTimestampBodyHttpDateCommandOutput) => void
+  ): void;
+  public malformedTimestampBodyHttpDate(
+    args: MalformedTimestampBodyHttpDateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampBodyHttpDateCommandOutput) => void
+  ): void;
+  public malformedTimestampBodyHttpDate(
+    args: MalformedTimestampBodyHttpDateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampBodyHttpDateCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampBodyHttpDateCommandOutput) => void
+  ): Promise<MalformedTimestampBodyHttpDateCommandOutput> | void {
+    const command = new MalformedTimestampBodyHttpDateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampHeaderDateTime(
+    args: MalformedTimestampHeaderDateTimeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampHeaderDateTimeCommandOutput>;
+  public malformedTimestampHeaderDateTime(
+    args: MalformedTimestampHeaderDateTimeCommandInput,
+    cb: (err: any, data?: MalformedTimestampHeaderDateTimeCommandOutput) => void
+  ): void;
+  public malformedTimestampHeaderDateTime(
+    args: MalformedTimestampHeaderDateTimeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampHeaderDateTimeCommandOutput) => void
+  ): void;
+  public malformedTimestampHeaderDateTime(
+    args: MalformedTimestampHeaderDateTimeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampHeaderDateTimeCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampHeaderDateTimeCommandOutput) => void
+  ): Promise<MalformedTimestampHeaderDateTimeCommandOutput> | void {
+    const command = new MalformedTimestampHeaderDateTimeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampHeaderDefault(
+    args: MalformedTimestampHeaderDefaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampHeaderDefaultCommandOutput>;
+  public malformedTimestampHeaderDefault(
+    args: MalformedTimestampHeaderDefaultCommandInput,
+    cb: (err: any, data?: MalformedTimestampHeaderDefaultCommandOutput) => void
+  ): void;
+  public malformedTimestampHeaderDefault(
+    args: MalformedTimestampHeaderDefaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampHeaderDefaultCommandOutput) => void
+  ): void;
+  public malformedTimestampHeaderDefault(
+    args: MalformedTimestampHeaderDefaultCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampHeaderDefaultCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampHeaderDefaultCommandOutput) => void
+  ): Promise<MalformedTimestampHeaderDefaultCommandOutput> | void {
+    const command = new MalformedTimestampHeaderDefaultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampHeaderEpoch(
+    args: MalformedTimestampHeaderEpochCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampHeaderEpochCommandOutput>;
+  public malformedTimestampHeaderEpoch(
+    args: MalformedTimestampHeaderEpochCommandInput,
+    cb: (err: any, data?: MalformedTimestampHeaderEpochCommandOutput) => void
+  ): void;
+  public malformedTimestampHeaderEpoch(
+    args: MalformedTimestampHeaderEpochCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampHeaderEpochCommandOutput) => void
+  ): void;
+  public malformedTimestampHeaderEpoch(
+    args: MalformedTimestampHeaderEpochCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampHeaderEpochCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampHeaderEpochCommandOutput) => void
+  ): Promise<MalformedTimestampHeaderEpochCommandOutput> | void {
+    const command = new MalformedTimestampHeaderEpochCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampPathDefault(
+    args: MalformedTimestampPathDefaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampPathDefaultCommandOutput>;
+  public malformedTimestampPathDefault(
+    args: MalformedTimestampPathDefaultCommandInput,
+    cb: (err: any, data?: MalformedTimestampPathDefaultCommandOutput) => void
+  ): void;
+  public malformedTimestampPathDefault(
+    args: MalformedTimestampPathDefaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampPathDefaultCommandOutput) => void
+  ): void;
+  public malformedTimestampPathDefault(
+    args: MalformedTimestampPathDefaultCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampPathDefaultCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampPathDefaultCommandOutput) => void
+  ): Promise<MalformedTimestampPathDefaultCommandOutput> | void {
+    const command = new MalformedTimestampPathDefaultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampPathEpoch(
+    args: MalformedTimestampPathEpochCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampPathEpochCommandOutput>;
+  public malformedTimestampPathEpoch(
+    args: MalformedTimestampPathEpochCommandInput,
+    cb: (err: any, data?: MalformedTimestampPathEpochCommandOutput) => void
+  ): void;
+  public malformedTimestampPathEpoch(
+    args: MalformedTimestampPathEpochCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampPathEpochCommandOutput) => void
+  ): void;
+  public malformedTimestampPathEpoch(
+    args: MalformedTimestampPathEpochCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampPathEpochCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampPathEpochCommandOutput) => void
+  ): Promise<MalformedTimestampPathEpochCommandOutput> | void {
+    const command = new MalformedTimestampPathEpochCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampPathHttpDate(
+    args: MalformedTimestampPathHttpDateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampPathHttpDateCommandOutput>;
+  public malformedTimestampPathHttpDate(
+    args: MalformedTimestampPathHttpDateCommandInput,
+    cb: (err: any, data?: MalformedTimestampPathHttpDateCommandOutput) => void
+  ): void;
+  public malformedTimestampPathHttpDate(
+    args: MalformedTimestampPathHttpDateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampPathHttpDateCommandOutput) => void
+  ): void;
+  public malformedTimestampPathHttpDate(
+    args: MalformedTimestampPathHttpDateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampPathHttpDateCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampPathHttpDateCommandOutput) => void
+  ): Promise<MalformedTimestampPathHttpDateCommandOutput> | void {
+    const command = new MalformedTimestampPathHttpDateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampQueryDefault(
+    args: MalformedTimestampQueryDefaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampQueryDefaultCommandOutput>;
+  public malformedTimestampQueryDefault(
+    args: MalformedTimestampQueryDefaultCommandInput,
+    cb: (err: any, data?: MalformedTimestampQueryDefaultCommandOutput) => void
+  ): void;
+  public malformedTimestampQueryDefault(
+    args: MalformedTimestampQueryDefaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampQueryDefaultCommandOutput) => void
+  ): void;
+  public malformedTimestampQueryDefault(
+    args: MalformedTimestampQueryDefaultCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampQueryDefaultCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampQueryDefaultCommandOutput) => void
+  ): Promise<MalformedTimestampQueryDefaultCommandOutput> | void {
+    const command = new MalformedTimestampQueryDefaultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampQueryEpoch(
+    args: MalformedTimestampQueryEpochCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampQueryEpochCommandOutput>;
+  public malformedTimestampQueryEpoch(
+    args: MalformedTimestampQueryEpochCommandInput,
+    cb: (err: any, data?: MalformedTimestampQueryEpochCommandOutput) => void
+  ): void;
+  public malformedTimestampQueryEpoch(
+    args: MalformedTimestampQueryEpochCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampQueryEpochCommandOutput) => void
+  ): void;
+  public malformedTimestampQueryEpoch(
+    args: MalformedTimestampQueryEpochCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampQueryEpochCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampQueryEpochCommandOutput) => void
+  ): Promise<MalformedTimestampQueryEpochCommandOutput> | void {
+    const command = new MalformedTimestampQueryEpochCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedTimestampQueryHttpDate(
+    args: MalformedTimestampQueryHttpDateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedTimestampQueryHttpDateCommandOutput>;
+  public malformedTimestampQueryHttpDate(
+    args: MalformedTimestampQueryHttpDateCommandInput,
+    cb: (err: any, data?: MalformedTimestampQueryHttpDateCommandOutput) => void
+  ): void;
+  public malformedTimestampQueryHttpDate(
+    args: MalformedTimestampQueryHttpDateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedTimestampQueryHttpDateCommandOutput) => void
+  ): void;
+  public malformedTimestampQueryHttpDate(
+    args: MalformedTimestampQueryHttpDateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedTimestampQueryHttpDateCommandOutput) => void),
+    cb?: (err: any, data?: MalformedTimestampQueryHttpDateCommandOutput) => void
+  ): Promise<MalformedTimestampQueryHttpDateCommandOutput> | void {
+    const command = new MalformedTimestampQueryHttpDateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public malformedUnion(
+    args: MalformedUnionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedUnionCommandOutput>;
+  public malformedUnion(
+    args: MalformedUnionCommandInput,
+    cb: (err: any, data?: MalformedUnionCommandOutput) => void
+  ): void;
+  public malformedUnion(
+    args: MalformedUnionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedUnionCommandOutput) => void
+  ): void;
+  public malformedUnion(
+    args: MalformedUnionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MalformedUnionCommandOutput) => void),
+    cb?: (err: any, data?: MalformedUnionCommandOutput) => void
+  ): Promise<MalformedUnionCommandOutput> | void {
+    const command = new MalformedUnionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
