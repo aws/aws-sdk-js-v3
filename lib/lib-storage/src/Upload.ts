@@ -1,11 +1,11 @@
 import {
   CompletedPart,
   CompleteMultipartUploadCommand,
+  CompleteMultipartUploadCommandOutput,
   CreateMultipartUploadCommand,
   CreateMultipartUploadCommandOutput,
   PutObjectCommand,
   PutObjectCommandInput,
-  PutObjectCommandOutput,
   PutObjectTaggingCommand,
   ServiceOutputTypes,
   Tag,
@@ -53,8 +53,7 @@ export class Upload extends EventEmitter {
   private uploadedParts: CompletedPart[] = [];
   private uploadId?: string;
   uploadEvent?: string;
-
-  private isMultiPart: boolean = true;
+  private putResponse?: CompleteMultipartUploadCommandOutput;
   private putResponse?: PutObjectCommandOutput;
 
   constructor(options: Options) {
@@ -97,8 +96,29 @@ export class Upload extends EventEmitter {
   async __uploadUsingPut(dataPart: RawDataPart) {
     this.isMultiPart = false;
     const params = { ...this.params, Body: dataPart.data };
-    const putResult = await this.client.send(new PutObjectCommand(params));
-    this.putResponse = putResult;
+    const [putResult, endpoint] = await Promise.all([
+      this.client.send(new PutObjectCommand(params)),
+      this.client.config.endpoint(),
+    ]);
+
+    const locationKey = this.params
+      .Key!.split("/")
+      .map((segment) => extendedEncodeURIComponent(segment))
+      .join("/");
+    const locationBucket = extendedEncodeURIComponent(this.params.Bucket!);
+
+    let Location: string;
+    if (this.client.config.forcePathStyle) {
+      Location = `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`;
+    } else {
+      Location = `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
+    }
+    this.putResponse = {
+      ...putResult,
+      Bucket: this.params.Bucket,
+      Key: this.params.Key,
+      Location,
+    };
     const totalSize = byteLength(dataPart.data);
     this.__notifyProgress({
       loaded: totalSize,
@@ -213,25 +233,7 @@ export class Upload extends EventEmitter {
       };
       result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
     } else {
-      const endpoint = await this.client.config.endpoint();
-      const locationKey = this.params
-        .Key!.split("/")
-        .map((segment) => extendedEncodeURIComponent(segment))
-        .join("/");
-      const locationBucket = extendedEncodeURIComponent(this.params.Bucket!);
-
-      let Location: string;
-      if (this.client.config.forcePathStyle) {
-        Location = `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`;
-      } else {
-        Location = `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
-      }
-      result = {
-        ...this.putResponse!,
-        Bucket: this.params.Bucket,
-        Key: this.params.Key,
-        Location,
-      };
+      result = this.putResponse!;
     }
 
     // Add tags to the object after it's completed the upload.
