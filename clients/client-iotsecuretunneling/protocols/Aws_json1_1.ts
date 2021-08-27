@@ -862,13 +862,13 @@ const buildHttpRpcRequest = async (
   resolvedHostname: string | undefined,
   body: any
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port } = await context.endpoint();
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const contents: any = {
     protocol,
     hostname,
     port,
     method: "POST",
-    path,
+    path: basePath.endsWith("/") ? basePath.slice(0, -1) + path : basePath + path,
     headers,
   };
   if (resolvedHostname !== undefined) {
