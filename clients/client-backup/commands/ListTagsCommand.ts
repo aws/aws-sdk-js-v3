@@ -25,7 +25,8 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  *          backup vault.</p>
  *          <note>
  *             <p>
- *                <code>ListTags</code> are currently only supported with Amazon EFS backups.</p>
+ *                <code>ListTags</code> are currently only supported with Amazon EFS
+ *             backups.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

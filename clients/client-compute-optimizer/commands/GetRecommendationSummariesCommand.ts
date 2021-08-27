@@ -22,23 +22,26 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
 
 /**
  * <p>Returns the optimization findings for an account.</p>
+ *
  *         <p>It returns the number of:</p>
+ *
  *         <ul>
  *             <li>
- *                 <p>Amazon EC2 instances in an account that are <code>Underprovisioned</code>,
- *                         <code>Overprovisioned</code>, or <code>Optimized</code>.</p>
+ *                 <p>Amazon EC2 instances in an account that are
+ *                         <code>Underprovisioned</code>, <code>Overprovisioned</code>, or
+ *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
  *                 <p>Auto Scaling groups in an account that are <code>NotOptimized</code>, or
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
- *                 <p>Amazon EBS volumes in an account that are <code>NotOptimized</code>, or
- *                         <code>Optimized</code>.</p>
+ *                 <p>Amazon EBS volumes in an account that are <code>NotOptimized</code>,
+ *                     or <code>Optimized</code>.</p>
  *             </li>
  *             <li>
- *                 <p>Lambda functions in an account that are <code>NotOptimized</code>, or
- *                         <code>Optimized</code>.</p>
+ *                 <p>Lambda functions in an account that are <code>NotOptimized</code>,
+ *                     or <code>Optimized</code>.</p>
  *             </li>
  *          </ul>
  * @example

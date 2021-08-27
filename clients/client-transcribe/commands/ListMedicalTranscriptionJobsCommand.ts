@@ -23,8 +23,7 @@ export interface ListMedicalTranscriptionJobsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists medical transcription jobs with a specified status or substring that matches
- *             their names.</p>
+ * <p>Lists medical transcription jobs with a specified status or substring that matches their names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -25,9 +25,9 @@ export interface GetEC2InstanceRecommendationsCommandOutput
 /**
  * <p>Returns Amazon EC2 instance recommendations.</p>
  *
- *         <p>AWS Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet
- *             a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
- *                 resources and requirements</a> in the <i>AWS Compute Optimizer User
+ *         <p>Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a specific set of requirements. For more
+ *             information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
+ *                 requirements</a> in the <i>Compute Optimizer User
  *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

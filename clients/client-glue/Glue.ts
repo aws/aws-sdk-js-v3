@@ -25,6 +25,11 @@ import {
   BatchDeleteTableVersionCommandOutput,
 } from "./commands/BatchDeleteTableVersionCommand";
 import {
+  BatchGetBlueprintsCommand,
+  BatchGetBlueprintsCommandInput,
+  BatchGetBlueprintsCommandOutput,
+} from "./commands/BatchGetBlueprintsCommand";
+import {
   BatchGetCrawlersCommand,
   BatchGetCrawlersCommandInput,
   BatchGetCrawlersCommandOutput,
@@ -74,6 +79,11 @@ import {
   CheckSchemaVersionValidityCommandInput,
   CheckSchemaVersionValidityCommandOutput,
 } from "./commands/CheckSchemaVersionValidityCommand";
+import {
+  CreateBlueprintCommand,
+  CreateBlueprintCommandInput,
+  CreateBlueprintCommandOutput,
+} from "./commands/CreateBlueprintCommand";
 import {
   CreateClassifierCommand,
   CreateClassifierCommandInput,
@@ -151,6 +161,11 @@ import {
   CreateWorkflowCommandInput,
   CreateWorkflowCommandOutput,
 } from "./commands/CreateWorkflowCommand";
+import {
+  DeleteBlueprintCommand,
+  DeleteBlueprintCommandInput,
+  DeleteBlueprintCommandOutput,
+} from "./commands/DeleteBlueprintCommand";
 import {
   DeleteClassifierCommand,
   DeleteClassifierCommandInput,
@@ -248,6 +263,21 @@ import {
   DeleteWorkflowCommandInput,
   DeleteWorkflowCommandOutput,
 } from "./commands/DeleteWorkflowCommand";
+import {
+  GetBlueprintCommand,
+  GetBlueprintCommandInput,
+  GetBlueprintCommandOutput,
+} from "./commands/GetBlueprintCommand";
+import {
+  GetBlueprintRunCommand,
+  GetBlueprintRunCommandInput,
+  GetBlueprintRunCommandOutput,
+} from "./commands/GetBlueprintRunCommand";
+import {
+  GetBlueprintRunsCommand,
+  GetBlueprintRunsCommandInput,
+  GetBlueprintRunsCommandOutput,
+} from "./commands/GetBlueprintRunsCommand";
 import {
   GetCatalogImportStatusCommand,
   GetCatalogImportStatusCommandInput,
@@ -446,6 +476,11 @@ import {
   ImportCatalogToGlueCommandOutput,
 } from "./commands/ImportCatalogToGlueCommand";
 import {
+  ListBlueprintsCommand,
+  ListBlueprintsCommandInput,
+  ListBlueprintsCommandOutput,
+} from "./commands/ListBlueprintsCommand";
+import {
   ListCrawlersCommand,
   ListCrawlersCommandInput,
   ListCrawlersCommandOutput,
@@ -533,6 +568,11 @@ import {
   SearchTablesCommandOutput,
 } from "./commands/SearchTablesCommand";
 import {
+  StartBlueprintRunCommand,
+  StartBlueprintRunCommandInput,
+  StartBlueprintRunCommandOutput,
+} from "./commands/StartBlueprintRunCommand";
+import {
   StartCrawlerCommand,
   StartCrawlerCommandInput,
   StartCrawlerCommandOutput,
@@ -591,6 +631,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateBlueprintCommand,
+  UpdateBlueprintCommandInput,
+  UpdateBlueprintCommandOutput,
+} from "./commands/UpdateBlueprintCommand";
 import {
   UpdateClassifierCommand,
   UpdateClassifierCommandInput,
@@ -835,6 +880,38 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: BatchDeleteTableVersionCommandOutput) => void
   ): Promise<BatchDeleteTableVersionCommandOutput> | void {
     const command = new BatchDeleteTableVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about a list of blueprints.</p>
+   */
+  public batchGetBlueprints(
+    args: BatchGetBlueprintsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetBlueprintsCommandOutput>;
+  public batchGetBlueprints(
+    args: BatchGetBlueprintsCommandInput,
+    cb: (err: any, data?: BatchGetBlueprintsCommandOutput) => void
+  ): void;
+  public batchGetBlueprints(
+    args: BatchGetBlueprintsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetBlueprintsCommandOutput) => void
+  ): void;
+  public batchGetBlueprints(
+    args: BatchGetBlueprintsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetBlueprintsCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetBlueprintsCommandOutput) => void
+  ): Promise<BatchGetBlueprintsCommandOutput> | void {
+    const command = new BatchGetBlueprintsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1158,6 +1235,38 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: CheckSchemaVersionValidityCommandOutput) => void
   ): Promise<CheckSchemaVersionValidityCommandOutput> | void {
     const command = new CheckSchemaVersionValidityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Registers a blueprint with Glue.</p>
+   */
+  public createBlueprint(
+    args: CreateBlueprintCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBlueprintCommandOutput>;
+  public createBlueprint(
+    args: CreateBlueprintCommandInput,
+    cb: (err: any, data?: CreateBlueprintCommandOutput) => void
+  ): void;
+  public createBlueprint(
+    args: CreateBlueprintCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBlueprintCommandOutput) => void
+  ): void;
+  public createBlueprint(
+    args: CreateBlueprintCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBlueprintCommandOutput) => void),
+    cb?: (err: any, data?: CreateBlueprintCommandOutput) => void
+  ): Promise<CreateBlueprintCommandOutput> | void {
+    const command = new CreateBlueprintCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1702,6 +1811,38 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: CreateWorkflowCommandOutput) => void
   ): Promise<CreateWorkflowCommandOutput> | void {
     const command = new CreateWorkflowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an existing blueprint.</p>
+   */
+  public deleteBlueprint(
+    args: DeleteBlueprintCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBlueprintCommandOutput>;
+  public deleteBlueprint(
+    args: DeleteBlueprintCommandInput,
+    cb: (err: any, data?: DeleteBlueprintCommandOutput) => void
+  ): void;
+  public deleteBlueprint(
+    args: DeleteBlueprintCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBlueprintCommandOutput) => void
+  ): void;
+  public deleteBlueprint(
+    args: DeleteBlueprintCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBlueprintCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBlueprintCommandOutput) => void
+  ): Promise<DeleteBlueprintCommandOutput> | void {
+    const command = new DeleteBlueprintCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2396,6 +2537,99 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: DeleteWorkflowCommandOutput) => void
   ): Promise<DeleteWorkflowCommandOutput> | void {
     const command = new DeleteWorkflowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the details of a blueprint.</p>
+   */
+  public getBlueprint(
+    args: GetBlueprintCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBlueprintCommandOutput>;
+  public getBlueprint(args: GetBlueprintCommandInput, cb: (err: any, data?: GetBlueprintCommandOutput) => void): void;
+  public getBlueprint(
+    args: GetBlueprintCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBlueprintCommandOutput) => void
+  ): void;
+  public getBlueprint(
+    args: GetBlueprintCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlueprintCommandOutput) => void),
+    cb?: (err: any, data?: GetBlueprintCommandOutput) => void
+  ): Promise<GetBlueprintCommandOutput> | void {
+    const command = new GetBlueprintCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the details of a blueprint run.</p>
+   */
+  public getBlueprintRun(
+    args: GetBlueprintRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBlueprintRunCommandOutput>;
+  public getBlueprintRun(
+    args: GetBlueprintRunCommandInput,
+    cb: (err: any, data?: GetBlueprintRunCommandOutput) => void
+  ): void;
+  public getBlueprintRun(
+    args: GetBlueprintRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBlueprintRunCommandOutput) => void
+  ): void;
+  public getBlueprintRun(
+    args: GetBlueprintRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlueprintRunCommandOutput) => void),
+    cb?: (err: any, data?: GetBlueprintRunCommandOutput) => void
+  ): Promise<GetBlueprintRunCommandOutput> | void {
+    const command = new GetBlueprintRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the details of blueprint runs for a specified blueprint.</p>
+   */
+  public getBlueprintRuns(
+    args: GetBlueprintRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBlueprintRunsCommandOutput>;
+  public getBlueprintRuns(
+    args: GetBlueprintRunsCommandInput,
+    cb: (err: any, data?: GetBlueprintRunsCommandOutput) => void
+  ): void;
+  public getBlueprintRuns(
+    args: GetBlueprintRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBlueprintRunsCommandOutput) => void
+  ): void;
+  public getBlueprintRuns(
+    args: GetBlueprintRunsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlueprintRunsCommandOutput) => void),
+    cb?: (err: any, data?: GetBlueprintRunsCommandOutput) => void
+  ): Promise<GetBlueprintRunsCommandOutput> | void {
+    const command = new GetBlueprintRunsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4034,6 +4268,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Lists all the blueprint names in an account.</p>
+   */
+  public listBlueprints(
+    args: ListBlueprintsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBlueprintsCommandOutput>;
+  public listBlueprints(
+    args: ListBlueprintsCommandInput,
+    cb: (err: any, data?: ListBlueprintsCommandOutput) => void
+  ): void;
+  public listBlueprints(
+    args: ListBlueprintsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBlueprintsCommandOutput) => void
+  ): void;
+  public listBlueprints(
+    args: ListBlueprintsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBlueprintsCommandOutput) => void),
+    cb?: (err: any, data?: ListBlueprintsCommandOutput) => void
+  ): Promise<ListBlueprintsCommandOutput> | void {
+    const command = new ListBlueprintsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the names of all crawler resources in this Amazon Web Services account, or the
    *       resources with the specified tag. This operation allows you to see which
    *       resources are available in your account, and their names.</p>
@@ -4650,6 +4916,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Starts a new run of the specified blueprint.</p>
+   */
+  public startBlueprintRun(
+    args: StartBlueprintRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBlueprintRunCommandOutput>;
+  public startBlueprintRun(
+    args: StartBlueprintRunCommandInput,
+    cb: (err: any, data?: StartBlueprintRunCommandOutput) => void
+  ): void;
+  public startBlueprintRun(
+    args: StartBlueprintRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartBlueprintRunCommandOutput) => void
+  ): void;
+  public startBlueprintRun(
+    args: StartBlueprintRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartBlueprintRunCommandOutput) => void),
+    cb?: (err: any, data?: StartBlueprintRunCommandOutput) => void
+  ): Promise<StartBlueprintRunCommandOutput> | void {
+    const command = new StartBlueprintRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts a crawl using the specified crawler, regardless
    *       of what is scheduled. If the crawler is already running, returns a
    *       <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException">CrawlerRunningException</a>.</p>
@@ -5151,6 +5449,38 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a registered blueprint.</p>
+   */
+  public updateBlueprint(
+    args: UpdateBlueprintCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBlueprintCommandOutput>;
+  public updateBlueprint(
+    args: UpdateBlueprintCommandInput,
+    cb: (err: any, data?: UpdateBlueprintCommandOutput) => void
+  ): void;
+  public updateBlueprint(
+    args: UpdateBlueprintCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBlueprintCommandOutput) => void
+  ): void;
+  public updateBlueprint(
+    args: UpdateBlueprintCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBlueprintCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBlueprintCommandOutput) => void
+  ): Promise<UpdateBlueprintCommandOutput> | void {
+    const command = new UpdateBlueprintCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

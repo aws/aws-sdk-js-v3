@@ -25,8 +25,10 @@ import {
   Action,
   CreateRule,
   CrossRegionCopyAction,
+  CrossRegionCopyDeprecateRule,
   CrossRegionCopyRetainRule,
   CrossRegionCopyRule,
+  DeprecateRule,
   EncryptionConfiguration,
   EventParameters,
   EventSource,
@@ -1058,6 +1060,16 @@ const serializeAws_restJson1CrossRegionCopyActionList = (
     });
 };
 
+const serializeAws_restJson1CrossRegionCopyDeprecateRule = (
+  input: CrossRegionCopyDeprecateRule,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Interval !== undefined && input.Interval !== null && { Interval: input.Interval }),
+    ...(input.IntervalUnit !== undefined && input.IntervalUnit !== null && { IntervalUnit: input.IntervalUnit }),
+  };
+};
+
 const serializeAws_restJson1CrossRegionCopyRetainRule = (
   input: CrossRegionCopyRetainRule,
   context: __SerdeContext
@@ -1072,6 +1084,10 @@ const serializeAws_restJson1CrossRegionCopyRule = (input: CrossRegionCopyRule, c
   return {
     ...(input.CmkArn !== undefined && input.CmkArn !== null && { CmkArn: input.CmkArn }),
     ...(input.CopyTags !== undefined && input.CopyTags !== null && { CopyTags: input.CopyTags }),
+    ...(input.DeprecateRule !== undefined &&
+      input.DeprecateRule !== null && {
+        DeprecateRule: serializeAws_restJson1CrossRegionCopyDeprecateRule(input.DeprecateRule, context),
+      }),
     ...(input.Encrypted !== undefined && input.Encrypted !== null && { Encrypted: input.Encrypted }),
     ...(input.RetainRule !== undefined &&
       input.RetainRule !== null && {
@@ -1091,6 +1107,14 @@ const serializeAws_restJson1CrossRegionCopyRules = (input: CrossRegionCopyRule[]
       }
       return serializeAws_restJson1CrossRegionCopyRule(entry, context);
     });
+};
+
+const serializeAws_restJson1DeprecateRule = (input: DeprecateRule, context: __SerdeContext): any => {
+  return {
+    ...(input.Count !== undefined && input.Count !== null && { Count: input.Count }),
+    ...(input.Interval !== undefined && input.Interval !== null && { Interval: input.Interval }),
+    ...(input.IntervalUnit !== undefined && input.IntervalUnit !== null && { IntervalUnit: input.IntervalUnit }),
+  };
 };
 
 const serializeAws_restJson1EncryptionConfiguration = (
@@ -1211,6 +1235,10 @@ const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext
     ...(input.CrossRegionCopyRules !== undefined &&
       input.CrossRegionCopyRules !== null && {
         CrossRegionCopyRules: serializeAws_restJson1CrossRegionCopyRules(input.CrossRegionCopyRules, context),
+      }),
+    ...(input.DeprecateRule !== undefined &&
+      input.DeprecateRule !== null && {
+        DeprecateRule: serializeAws_restJson1DeprecateRule(input.DeprecateRule, context),
       }),
     ...(input.FastRestoreRule !== undefined &&
       input.FastRestoreRule !== null && {
@@ -1423,6 +1451,16 @@ const deserializeAws_restJson1CrossRegionCopyActionList = (
     });
 };
 
+const deserializeAws_restJson1CrossRegionCopyDeprecateRule = (
+  output: any,
+  context: __SerdeContext
+): CrossRegionCopyDeprecateRule => {
+  return {
+    Interval: __expectInt(output.Interval),
+    IntervalUnit: __expectString(output.IntervalUnit),
+  } as any;
+};
+
 const deserializeAws_restJson1CrossRegionCopyRetainRule = (
   output: any,
   context: __SerdeContext
@@ -1437,6 +1475,10 @@ const deserializeAws_restJson1CrossRegionCopyRule = (output: any, context: __Ser
   return {
     CmkArn: __expectString(output.CmkArn),
     CopyTags: __expectBoolean(output.CopyTags),
+    DeprecateRule:
+      output.DeprecateRule !== undefined && output.DeprecateRule !== null
+        ? deserializeAws_restJson1CrossRegionCopyDeprecateRule(output.DeprecateRule, context)
+        : undefined,
     Encrypted: __expectBoolean(output.Encrypted),
     RetainRule:
       output.RetainRule !== undefined && output.RetainRule !== null
@@ -1456,6 +1498,14 @@ const deserializeAws_restJson1CrossRegionCopyRules = (output: any, context: __Se
       }
       return deserializeAws_restJson1CrossRegionCopyRule(entry, context);
     });
+};
+
+const deserializeAws_restJson1DeprecateRule = (output: any, context: __SerdeContext): DeprecateRule => {
+  return {
+    Count: __expectInt(output.Count),
+    Interval: __expectInt(output.Interval),
+    IntervalUnit: __expectString(output.IntervalUnit),
+  } as any;
 };
 
 const deserializeAws_restJson1EncryptionConfiguration = (
@@ -1667,6 +1717,10 @@ const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext):
     CrossRegionCopyRules:
       output.CrossRegionCopyRules !== undefined && output.CrossRegionCopyRules !== null
         ? deserializeAws_restJson1CrossRegionCopyRules(output.CrossRegionCopyRules, context)
+        : undefined,
+    DeprecateRule:
+      output.DeprecateRule !== undefined && output.DeprecateRule !== null
+        ? deserializeAws_restJson1DeprecateRule(output.DeprecateRule, context)
         : undefined,
     FastRestoreRule:
       output.FastRestoreRule !== undefined && output.FastRestoreRule !== null

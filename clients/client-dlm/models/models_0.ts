@@ -12,8 +12,8 @@ export interface EncryptionConfiguration {
   Encrypted: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS
-   * 			encryption. If this parameter is not specified, your AWS managed CMK for EBS is used.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key to use for EBS encryption. If
+   * 			this parameter is not specified, the default KMS key for the account is used.</p>
    */
   CmkArn?: string;
 }
@@ -126,8 +126,8 @@ export interface EventParameters {
   EventType: EventTypeValues | string | undefined;
 
   /**
-   * <p>The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The
-   * 			policy only runs if one of the specified AWS accounts shares a snapshot with your account.</p>
+   * <p>The IDs of the Amazon Web Services accounts that can trigger policy by sharing snapshots with your account.
+   * 			The policy only runs if one of the specified Amazon Web Services accounts shares a snapshot with your account.</p>
    */
   SnapshotOwner: string[] | undefined;
 
@@ -160,7 +160,7 @@ export enum EventSourceValues {
  */
 export interface EventSource {
   /**
-   * <p>The source of the event. Currently only managed AWS CloudWatch Events rules are supported.</p>
+   * <p>The source of the event. Currently only managed CloudWatch Events rules are supported.</p>
    */
   Type: EventSourceValues | string | undefined;
 
@@ -245,8 +245,8 @@ export interface CreateRule {
    * 			Region as the source resource, specify <code>CLOUD</code>. To create snapshots on the same
    * 			Outpost as the source resource, specify <code>OUTPOST_LOCAL</code>. If you omit this
    * 			parameter, <code>CLOUD</code> is used by default.</p>
-   * 		       <p>If the policy targets resources in an AWS Region, then you must create snapshots in the same
-   * 			Region as the source resource. </p>
+   * 		       <p>If the policy targets resources in an Amazon Web Services Region, then you must create snapshots in the same
+   * 			Region as the source resource.</p>
    * 		       <p>If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost
    * 			as the source resource, or in the Region of that Outpost.</p>
    */
@@ -288,20 +288,48 @@ export namespace CreateRule {
 }
 
 /**
+ * <p>Specifies an AMI deprecation rule for cross-Region AMI copies created by a cross-Region copy rule.</p>
+ */
+export interface CrossRegionCopyDeprecateRule {
+  /**
+   * <p>The period after which to deprecate the cross-Region AMI copies. The period must be less than or
+   * 			equal to the cross-Region AMI copy retention period, and it can't be greater than 10 years. This is
+   * 			equivalent to 120 months, 520 weeks, or 3650 days.</p>
+   */
+  Interval?: number;
+
+  /**
+   * <p>The unit of time in which to measure the <b>Interval</b>.</p>
+   */
+  IntervalUnit?: RetentionIntervalUnitValues | string;
+}
+
+export namespace CrossRegionCopyDeprecateRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CrossRegionCopyDeprecateRule): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies a rule for cross-Region snapshot copies.</p>
  */
 export interface CrossRegionCopyRule {
   /**
-   * <p>The target Region for the snapshot copies.</p>
-   * 		       <p>If you specify a target Region, you must omit <b>Target</b>. You cannot
-   * 			specify a target Region and a target Outpost in the same rule.</p>
+   * <p>Avoid using this parameter when creating new policies. Instead, use <b>Target</b>
+   * 			to specify a target Region or a target Outpost for snapshot copies.</p>
+   * 		       <p>For policies created before the <b>Target</b> parameter
+   * 			was introduced, this parameter indicates the target Region for snapshot copies.</p>
    */
   TargetRegion?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the target AWS Outpost for the snapshot copies.</p>
-   * 		       <p>If you specify an ARN, you must omit <b>TargetRegion</b>. You cannot
-   * 			specify a target Region and a target Outpost in the same rule.</p>
+   * <p>The target Region or the Amazon Resource Name (ARN) of the target Outpost for the
+   * 			snapshot copies.</p>
+   * 		       <p>Use this parameter instead of <b>TargetRegion</b>. Do not
+   * 			specify both.</p>
    */
   Target?: string;
 
@@ -313,21 +341,27 @@ export interface CrossRegionCopyRule {
   Encrypted: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS
-   * 			encryption. If this parameter is not specified, your AWS managed CMK for EBS is
-   * 			used.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key to use for EBS encryption. If this
+   * 			parameter is not specified, the default KMS key for the account is used.</p>
    */
   CmkArn?: string;
 
   /**
-   * <p>Copy all user-defined tags from the source snapshot to the copied snapshot.</p>
+   * <p>Indicates whether to copy all user-defined tags from the source snapshot to the cross-Region
+   * 			snapshot copy.</p>
    */
   CopyTags?: boolean;
 
   /**
-   * <p>The retention rule.</p>
+   * <p>The retention rule that indicates how long snapshot copies are to be retained in the
+   * 			destination Region.</p>
    */
   RetainRule?: CrossRegionCopyRetainRule;
+
+  /**
+   * <p>The AMI deprecation rule for cross-Region AMI copies created by the rule.</p>
+   */
+  DeprecateRule?: CrossRegionCopyDeprecateRule;
 }
 
 export namespace CrossRegionCopyRule {
@@ -335,6 +369,40 @@ export namespace CrossRegionCopyRule {
    * @internal
    */
   export const filterSensitiveLog = (obj: CrossRegionCopyRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies an AMI deprecation rule for a schedule.</p>
+ */
+export interface DeprecateRule {
+  /**
+   * <p>If the schedule has a count-based retention rule, this parameter specifies the number of oldest
+   * 			AMIs to deprecate. The count must be less than or equal to the schedule's retention count, and it
+   * 			can't be greater than 1000.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>If the schedule has an age-based retention rule, this parameter specifies the period after which
+   * 			to deprecate AMIs created by the schedule. The period must be less than or equal to the schedule's
+   * 			retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520
+   * 			weeks, or 3650 days.</p>
+   */
+  Interval?: number;
+
+  /**
+   * <p>The unit of time in which to measure the <b>Interval</b>.</p>
+   */
+  IntervalUnit?: RetentionIntervalUnitValues | string;
+}
+
+export namespace DeprecateRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeprecateRule): any => ({
     ...obj,
   });
 }
@@ -407,16 +475,16 @@ export namespace RetainRule {
 }
 
 /**
- * <p>Specifies a rule for sharing snapshots across AWS accounts.</p>
+ * <p>Specifies a rule for sharing snapshots across Amazon Web Services accounts.</p>
  */
 export interface ShareRule {
   /**
-   * <p>The IDs of the AWS accounts with which to share the snapshots.</p>
+   * <p>The IDs of the Amazon Web Services accounts with which to share the snapshots.</p>
    */
   TargetAccounts: string[] | undefined;
 
   /**
-   * <p>The period after which snapshots that are shared with other AWS accounts are automatically unshared.</p>
+   * <p>The period after which snapshots that are shared with other Amazon Web Services accounts are automatically unshared.</p>
    */
   UnshareInterval?: number;
 
@@ -476,7 +544,7 @@ export interface Schedule {
 
   /**
    * <p>The tags to apply to policy-created resources. These user-defined tags are in addition
-   * 			to the AWS-added lifecycle tags.</p>
+   * 			to the Amazon Web Services-added lifecycle tags.</p>
    */
   TagsToAdd?: Tag[];
 
@@ -513,9 +581,14 @@ export interface Schedule {
   CrossRegionCopyRules?: CrossRegionCopyRule[];
 
   /**
-   * <p>The rule for sharing snapshots with other AWS accounts.</p>
+   * <p>The rule for sharing snapshots with other Amazon Web Services accounts.</p>
    */
   ShareRules?: ShareRule[];
+
+  /**
+   * <p>The AMI deprecation rule for the schedule.</p>
+   */
+  DeprecateRule?: DeprecateRule;
 }
 
 export namespace Schedule {
@@ -535,7 +608,7 @@ export interface PolicyDetails {
    * <p>The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code>
    * 			to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code>
    * 			to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code>
-   * 			to create an event-based policy that performs specific actions when a defined event occurs in your AWS account.</p>
+   * 			to create an event-based policy that performs specific actions when a defined event occurs in your Amazon Web Services account.</p>
    * 		       <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
    */
   PolicyType?: PolicyTypeValues | string;
@@ -549,8 +622,8 @@ export interface PolicyDetails {
   ResourceTypes?: (ResourceTypeValues | string)[];
 
   /**
-   * <p>The location of the resources to backup. If the source resources are located in an AWS Region, specify
-   * 			<code>CLOUD</code>. If the source resources are located on an AWS Outpost
+   * <p>The location of the resources to backup. If the source resources are located in an Amazon Web Services Region,
+   * 			specify <code>CLOUD</code>. If the source resources are located on an Outpost
    * 			in your account, specify <code>OUTPOST</code>. </p>
    * 			      <p>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
    * 				of the specified type with matching target tags across all of the Outposts in your account.</p>
@@ -815,7 +888,7 @@ export interface GetLifecyclePoliciesRequest {
   /**
    * <p>The tags to add to objects created by the policy.</p>
    * 		       <p>Tags are strings in the format <code>key=value</code>.</p>
-   * 		       <p>These user-defined tags are added in addition to the AWS-added lifecycle tags.</p>
+   * 		       <p>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle tags.</p>
    */
   TagsToAdd?: string[];
 }

@@ -2824,7 +2824,6 @@ import {
   ModifyVpcEndpointServicePermissionsResult,
   ModifyVpcPeeringConnectionOptionsRequest,
   NetworkInterfaceAttachmentChanges,
-  PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
   PrefixListAssociation,
   PrefixListEntry,
@@ -2883,6 +2882,7 @@ import {
   MonitorInstancesResult,
   MoveAddressToVpcRequest,
   MoveAddressToVpcResult,
+  PeeringConnectionOptions,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
   PurchaseHostReservationRequest,
@@ -41966,6 +41966,9 @@ const serializeAws_ec2ImportImageRequest = (input: ImportImageRequest, context: 
   if (input.UsageOperation !== undefined && input.UsageOperation !== null) {
     entries["UsageOperation"] = input.UsageOperation;
   }
+  if (input.BootMode !== undefined && input.BootMode !== null) {
+    entries["BootMode"] = input.BootMode;
+  }
   return entries;
 };
 
@@ -42483,6 +42486,9 @@ const serializeAws_ec2InstanceMetadataOptionsRequest = (
   }
   if (input.HttpEndpoint !== undefined && input.HttpEndpoint !== null) {
     entries["HttpEndpoint"] = input.HttpEndpoint;
+  }
+  if (input.HttpProtocolIpv6 !== undefined && input.HttpProtocolIpv6 !== null) {
+    entries["HttpProtocolIpv6"] = input.HttpProtocolIpv6;
   }
   return entries;
 };
@@ -44267,6 +44273,9 @@ const serializeAws_ec2ModifyInstanceMetadataOptionsRequest = (
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.HttpProtocolIpv6 !== undefined && input.HttpProtocolIpv6 !== null) {
+    entries["HttpProtocolIpv6"] = input.HttpProtocolIpv6;
+  }
   return entries;
 };
 
@@ -44352,6 +44361,9 @@ const serializeAws_ec2ModifyManagedPrefixListRequest = (
       const loc = `RemoveEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.MaxEntries !== undefined && input.MaxEntries !== null) {
+    entries["MaxEntries"] = input.MaxEntries;
   }
   return entries;
 };
@@ -61207,6 +61219,7 @@ const deserializeAws_ec2ImportImageTask = (output: any, context: __SerdeContext)
     Tags: undefined,
     LicenseSpecifications: undefined,
     UsageOperation: undefined,
+    BootMode: undefined,
   };
   if (output["architecture"] !== undefined) {
     contents.Architecture = __expectString(output["architecture"]);
@@ -61270,6 +61283,9 @@ const deserializeAws_ec2ImportImageTask = (output: any, context: __SerdeContext)
   }
   if (output["usageOperation"] !== undefined) {
     contents.UsageOperation = __expectString(output["usageOperation"]);
+  }
+  if (output["bootMode"] !== undefined) {
+    contents.BootMode = __expectString(output["bootMode"]);
   }
   return contents;
 };
@@ -62297,6 +62313,7 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
     HttpTokens: undefined,
     HttpPutResponseHopLimit: undefined,
     HttpEndpoint: undefined,
+    HttpProtocolIpv6: undefined,
   };
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -62309,6 +62326,9 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
   }
   if (output["httpEndpoint"] !== undefined) {
     contents.HttpEndpoint = __expectString(output["httpEndpoint"]);
+  }
+  if (output["httpProtocolIpv6"] !== undefined) {
+    contents.HttpProtocolIpv6 = __expectString(output["httpProtocolIpv6"]);
   }
   return contents;
 };
@@ -65885,6 +65905,7 @@ const deserializeAws_ec2NetworkInfo = (output: any, context: __SerdeContext): Ne
     EnaSupport: undefined,
     EfaSupported: undefined,
     EfaInfo: undefined,
+    EncryptionInTransitSupported: undefined,
   };
   if (output["networkPerformance"] !== undefined) {
     contents.NetworkPerformance = __expectString(output["networkPerformance"]);
@@ -65924,6 +65945,9 @@ const deserializeAws_ec2NetworkInfo = (output: any, context: __SerdeContext): Ne
   }
   if (output["efaInfo"] !== undefined) {
     contents.EfaInfo = deserializeAws_ec2EfaInfo(output["efaInfo"], context);
+  }
+  if (output["encryptionInTransitSupported"] !== undefined) {
+    contents.EncryptionInTransitSupported = __parseBoolean(output["encryptionInTransitSupported"]);
   }
   return contents;
 };

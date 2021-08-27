@@ -378,6 +378,7 @@ export * from "./pagination/DescribeTransitGatewaysPaginator";
 export * from "./commands/DescribeTransitGatewayVpcAttachmentsCommand";
 export * from "./pagination/DescribeTransitGatewayVpcAttachmentsPaginator";
 export * from "./commands/DescribeTrunkInterfaceAssociationsCommand";
+export * from "./pagination/DescribeTrunkInterfaceAssociationsPaginator";
 export * from "./commands/DescribeVolumeAttributeCommand";
 export * from "./commands/DescribeVolumesCommand";
 export * from "./pagination/DescribeVolumesPaginator";

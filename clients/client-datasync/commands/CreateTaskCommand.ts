@@ -27,14 +27,14 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  *       location to the destination location. The configuration specifies options such as
  *       task scheduling, bandwidth limits, etc. A task is the complete definition of a data
  *       transfer.</p>
- *          <p>When you create a task that transfers data between AWS services in different AWS Regions,
+ *          <p>When you create a task that transfers data between Amazon Web Services services in different Amazon Web Services Regions,
  *       one of the two locations that you specify must reside in the Region where DataSync is being
  *       used. The other location must be specified in a different Region.</p>
- *          <p>You can transfer data between commercial AWS Regions except for China, or between AWS
- *       GovCloud (US-East and US-West) Regions.</p>
+ *          <p>You can transfer data between commercial Amazon Web Services Regions except for China, or between
+ *       Amazon Web Services GovCloud (US) Regions.</p>
  *
  *          <important>
- *             <p>When you use DataSync to copy files or objects between AWS Regions,
+ *             <p>When you use DataSync to copy files or objects between Amazon Web Services Regions,
  *       you pay for data transfer between Regions. This is billed as data transfer OUT
  *       from your source Region to your destination Region. For more information,
  *       see <a href="http://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer">Data Transfer pricing</a>.

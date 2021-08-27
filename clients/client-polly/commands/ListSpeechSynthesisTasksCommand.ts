@@ -21,9 +21,9 @@ export interface ListSpeechSynthesisTasksCommandInput extends ListSpeechSynthesi
 export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthesisTasksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This
- *       operation can filter the tasks by their status, for example, allowing users to list only tasks
- *       that are completed.</p>
+ * <p>Returns a list of SpeechSynthesisTask objects ordered by their
+ *       creation date. This operation can filter the tasks by their status, for
+ *       example, allowing users to list only tasks that are completed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

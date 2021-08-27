@@ -21,7 +21,8 @@ export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsIn
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the current global settings for the AWS account. Use the
+ * <p>Updates whether the Amazon Web Services account is opted in to cross-account backup.
+ *          Returns an error if the account is not an Organizations management account. Use the
  *             <code>DescribeGlobalSettings</code> API to determine the current settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

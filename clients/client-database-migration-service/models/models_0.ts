@@ -24,12 +24,12 @@ export namespace AccessDeniedFault {
 }
 
 /**
- * <p>Describes a quota for an account, for example the number of replication instances
+ * <p>Describes a quota for an Amazon Web Services account, for example the number of replication instances
  *          allowed.</p>
  */
 export interface AccountQuota {
   /**
-   * <p>The name of the DMS quota for this account.</p>
+   * <p>The name of the DMS quota for this Amazon Web Services account.</p>
    */
   AccountQuotaName?: string;
 
@@ -90,6 +90,11 @@ export interface Tag {
    *          (Java regular expressions: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
    */
   Value?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the resource for which the tag is created.</p>
+   */
+  ResourceArn?: string;
 }
 
 export namespace Tag {
@@ -616,7 +621,7 @@ export interface DocDbSettings {
    * <p>The KMS key identifier that is used to encrypt the content on the replication
    *          instance. If you don't specify a value for the <code>KmsKeyId</code> parameter, then
    *          DMS uses your default encryption key. KMS creates the default encryption key for
-   *          your account. Your account has a different default encryption key for each Region.</p>
+   *          your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
@@ -921,7 +926,7 @@ export interface KafkaSettings {
   SslClientKeyPassword?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) for the private Certification Authority (CA) cert that DMS uses
+   * <p> The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that DMS uses
    *          to securely connect to your Kafka target endpoint.</p>
    */
   SslCaCertificateArn?: string;
@@ -940,9 +945,11 @@ export interface KafkaSettings {
   SaslPassword?: string;
 
   /**
-   * <p>If this attribute is Y, it allows hexadecimal values that don't have the
-   *             <code>0x</code> prefix when migrated to a Kafka target. If this attribute is N, all
-   *          hexadecimal values include this prefix when migrated to Kafka.</p>
+   * <p>Set this optional parameter to <code>true</code> to avoid adding a '0x' prefix
+   *          to raw data in hexadecimal format. For example, by default, DMS adds a '0x'
+   *          prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka
+   *          target. Use the <code>NoHexPrefix</code> endpoint setting to enable migration of RAW data
+   *          type columns without adding the '0x' prefix.</p>
    */
   NoHexPrefix?: boolean;
 }
@@ -1025,9 +1032,11 @@ export interface KinesisSettings {
   IncludeNullAndEmpty?: boolean;
 
   /**
-   * <p>If this attribute is Y, it allows hexadecimal values that don't have the
-   *             <code>0x</code> prefix when migrated to a Kinesis target. If this attribute is N, all
-   *          hexadecimal values include this prefix when migrated to Kinesis.</p>
+   * <p>Set this optional parameter to <code>true</code> to avoid adding a '0x' prefix
+   *          to raw data in hexadecimal format. For example, by default, DMS adds a '0x'
+   *          prefix to the LOB column type in hexadecimal format moving from an Oracle source to an
+   *          Amazon Kinesis target. Use the <code>NoHexPrefix</code> endpoint setting to enable
+   *          migration of RAW data type columns without adding the '0x' prefix.</p>
    */
   NoHexPrefix?: boolean;
 }
@@ -1273,7 +1282,7 @@ export interface MongoDbSettings {
    * <p>The KMS key identifier that is used to encrypt the content on the replication
    *          instance. If you don't specify a value for the <code>KmsKeyId</code> parameter, then
    *          DMS uses your default encryption key. KMS creates the default encryption key for
-   *          your account. Your account has a different default encryption key for each Region.</p>
+   *          your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
@@ -1557,6 +1566,30 @@ export interface OracleSettings {
    *          <i>Oracle Database Backup and Recovery User's Guide</i>.</p>
    */
   AdditionalArchivedLogDestId?: number;
+
+  /**
+   * <p>Specifies the IDs of one more destinations for one or more archived redo logs. These IDs
+   *          are the values of the <code>dest_id</code> column in the <code>v$archived_log</code> view.
+   *          Use this setting with the <code>archivedLogDestId</code> extra connection attribute in a
+   *          primary-to-single setup or a primary-to-multiple-standby setup. </p>
+   *          <p>This setting is useful in a switchover when you use an Oracle Data Guard database as a
+   *          source. In this case, DMS needs information about what destination to get archive redo
+   *          logs from to read changes. DMS needs this because after the switchover the previous
+   *          primary is a standby instance. For example, in a primary-to-single standby setup you might
+   *          apply the following settings. </p>
+   *          <p>
+   *             <code>archivedLogDestId=1; ExtraArchivedLogDestIds=[2]</code>
+   *          </p>
+   *          <p>In a primary-to-multiple-standby setup, you might apply the following settings.</p>
+   *          <p>
+   *             <code>archivedLogDestId=1; ExtraArchivedLogDestIds=[2,3,4]</code>
+   *          </p>
+   *          <p>Although DMS supports the use of the Oracle <code>RESETLOGS</code> option to open the
+   *          database, never use <code>RESETLOGS</code> unless it's necessary. For more information
+   *          about <code>RESETLOGS</code>, see <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-data-repair-concepts.html#GUID-1805CCF7-4AF2-482D-B65A-998192F89C2B"> RMAN Data Repair Concepts</a> in the <i>Oracle Database Backup and Recovery
+   *             User's Guide</i>.</p>
+   */
+  ExtraArchivedLogDestIds?: number[];
 
   /**
    * <p>Set this attribute to <code>true</code> to enable replication of Oracle
@@ -1953,12 +1986,10 @@ export interface PostgreSQLSettings {
   FailTasksOnLobTruncation?: boolean;
 
   /**
-   * <p>If this attribute is set to true, the write-ahead log (WAL) heartbeat keeps
-   *          <code>restart_lsn</code> moving and prevents storage full scenarios.
-   *          The WAL heartbeat mimics a dummy transaction, so that idle
-   *          logical replication slots don't hold onto old WAL logs that result in storage full
-   *          situations on the source.
-   *          </p>
+   * <p>The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this,
+   *          it prevents idle logical replication slots from holding onto old WAL logs, which can result in
+   *          storage full situations on the source. This heartbeat keeps <code>restart_lsn</code> moving
+   *          and prevents storage full scenarios.</p>
    */
   HeartbeatEnable?: boolean;
 
@@ -1994,10 +2025,20 @@ export interface PostgreSQLSettings {
 
   /**
    * <p>Sets the name of a previously created logical replication slot
-   *          for a CDC load of the PostgreSQL source instance.</p>
-   *          <p>When used with the DMS API <code>CdcStartPosition</code>
-   *          request parameter, this attribute also enables using native
-   *          CDC start points.</p>
+   *          for a change data capture (CDC) load of the PostgreSQL source instance. </p>
+   *          <p>When used with the <code>CdcStartPosition</code>
+   *          request parameter for the DMS API , this attribute also makes it possible to use native CDC
+   *          start points. DMS verifies that the specified logical
+   *          replication slot exists before starting the CDC load task. It
+   *          also verifies that the task was created with a valid setting of
+   *          <code>CdcStartPosition</code>. If the specified slot
+   *          doesn't exist or the task doesn't have a valid
+   *          <code>CdcStartPosition</code> setting, DMS raises an
+   *          error.</p>
+   *          <p>For more information about setting the <code>CdcStartPosition</code> request parameter,
+   *          see <a href="dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native">Determining a CDC native start point</a> in the <i>Database Migration Service User
+   *             Guide</i>. For more information about using <code>CdcStartPosition</code>, see
+   *             <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html">CreateReplicationTask</a>, <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html">StartReplicationTask</a>, and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html">ModifyReplicationTask</a>.</p>
    */
   SlotName?: string;
 
@@ -2039,6 +2080,82 @@ export namespace PostgreSQLSettings {
   export const filterSensitiveLog = (obj: PostgreSQLSettings): any => ({
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
+  });
+}
+
+export enum RedisAuthTypeValue {
+  AUTH_ROLE = "auth-role",
+  AUTH_TOKEN = "auth-token",
+  NONE = "none",
+}
+
+export enum SslSecurityProtocolValue {
+  PLAINTEXT = "plaintext",
+  SSL_ENCRYPTION = "ssl-encryption",
+}
+
+/**
+ * <p>Provides information that defines a Redis target endpoint.</p>
+ */
+export interface RedisSettings {
+  /**
+   * <p>Fully qualified domain name of the endpoint.</p>
+   */
+  ServerName: string | undefined;
+
+  /**
+   * <p>Transmission Control Protocol (TCP) port for the endpoint.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The connection to a Redis target endpoint using Transport Layer Security (TLS). Valid
+   *          values include <code>plaintext</code> and <code>ssl-encryption</code>. The default is
+   *             <code>ssl-encryption</code>. The <code>ssl-encryption</code> option makes an encrypted
+   *          connection. Optionally, you can identify an Amazon Resource Name (ARN) for an SSL certificate authority (CA)
+   *           using the <code>SslCaCertificateArn </code>setting. If an ARN isn't given for a CA, DMS
+   *          uses the Amazon root CA.</p>
+   *          <p>The <code>plaintext</code> option doesn't provide Transport Layer Security (TLS)
+   *          encryption for traffic between endpoint and database.</p>
+   */
+  SslSecurityProtocol?: SslSecurityProtocolValue | string;
+
+  /**
+   * <p>The type of authentication to perform when connecting to a Redis target. Options include
+   *             <code>none</code>, <code>auth-token</code>, and <code>auth-role</code>. The
+   *             <code>auth-token</code> option requires an <code>AuthPassword</code> value to be provided. The
+   *          <code>auth-role</code> option requires <code>AuthUserName</code> and <code>AuthPassword</code> values
+   *          to be provided.</p>
+   */
+  AuthType?: RedisAuthTypeValue | string;
+
+  /**
+   * <p>The user name provided with the <code>auth-role</code> option of the
+   *          <code>AuthType</code> setting for a Redis target endpoint.</p>
+   */
+  AuthUserName?: string;
+
+  /**
+   * <p>The password provided with the <code>auth-role</code> and
+   *          <code>auth-token</code> options of the <code>AuthType</code> setting for a Redis
+   *          target endpoint.</p>
+   */
+  AuthPassword?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to
+   *          connect to your Redis target endpoint.</p>
+   */
+  SslCaCertificateArn?: string;
+}
+
+export namespace RedisSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RedisSettings): any => ({
+    ...obj,
+    ...(obj.AuthPassword && { AuthPassword: SENSITIVE_STRING }),
   });
 }
 
@@ -2299,6 +2416,17 @@ export namespace RedshiftSettings {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
+}
+
+export enum CannedAclForObjectsValue {
+  AUTHENTICATED_READ = "authenticated-read",
+  AWS_EXEC_READ = "aws-exec-read",
+  BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control",
+  BUCKET_OWNER_READ = "bucket-owner-read",
+  NONE = "none",
+  PRIVATE = "private",
+  PUBLIC_READ = "public-read",
+  PUBLIC_READ_WRITE = "public-read-write",
 }
 
 export enum CompressionTypeValue {
@@ -2649,15 +2777,13 @@ export interface S3Settings {
    *          this parameter to <code>true</code> for S3 endpoint object
    *          files that are .parquet formatted only if you plan to query or process the data with Athena or Glue.</p>
    *          <note>
-   *
-   *                <p>DMS writes any <code>TIMESTAMP</code> column
+   *               <p>DMS writes any <code>TIMESTAMP</code> column
    *                   values written to an S3 file in .csv format with
    *                   microsecond precision.</p>
    *
    *                <p>Setting <code>ParquetTimestampInMillisecond</code> has no effect on the string
    *             format of the timestamp column value that is inserted by setting the
    *                <code>TimestampColumnName</code> parameter.</p>
-   *
    *          </note>
    */
   ParquetTimestampInMillisecond?: boolean;
@@ -2778,6 +2904,94 @@ export interface S3Settings {
    *          </note>
    */
   CdcPath?: string;
+
+  /**
+   * <p>A value that enables DMS to specify a predefined (canned) access control list for
+   *          objects created in an Amazon S3 bucket as .csv or .parquet files. For more information
+   *          about Amazon S3 canned ACLs, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+   *             ACL</a> in the <i>Amazon S3 Developer Guide.</i>
+   *          </p>
+   *          <p>The default value is NONE. Valid values include NONE, PRIVATE,
+   *          PUBLIC_READ, PUBLIC_READ_WRITE, AUTHENTICATED_READ,
+   *          AWS_EXEC_READ, BUCKET_OWNER_READ, and
+   *          BUCKET_OWNER_FULL_CONTROL.</p>
+   */
+  CannedAclForObjects?: CannedAclForObjectsValue | string;
+
+  /**
+   * <p>An optional parameter that, when set to <code>true</code> or <code>y</code>, you can use
+   *          to add column name information to the .csv output file.</p>
+   *          <p>The default value is <code>false</code>. Valid values are <code>true</code>, <code>false</code>,
+   *          <code>y</code>, and <code>n</code>.</p>
+   */
+  AddColumnName?: boolean;
+
+  /**
+   * <p>Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3.</p>
+   *          <p>When <code>CdcMaxBatchInterval</code> and <code>CdcMinFileSize</code> are both specified, the
+   *          file write is triggered by whichever parameter condition is met first within an DMS
+   *          CloudFormation template.</p>
+   *          <p>The default value is 60 seconds.</p>
+   */
+  CdcMaxBatchInterval?: number;
+
+  /**
+   * <p>Minimum file size, defined in megabytes, to reach for a file output to Amazon S3.</p>
+   *          <p>When <code>CdcMinFileSize</code> and <code>CdcMaxBatchInterval</code> are both specified, the file
+   *          write is triggered by whichever parameter condition is met first within an DMS
+   *          CloudFormation template.</p>
+   *          <p>The default value is 32 MB.</p>
+   */
+  CdcMinFileSize?: number;
+
+  /**
+   * <p>An optional parameter that specifies how DMS treats null
+   *          values. While handling the null value, you can use this
+   *          parameter to pass a user-defined string as null when writing to
+   *          the target. For example, when target columns are not nullable,
+   *          you can use this option to differentiate between the empty
+   *          string value and the null value. So, if you set this parameter
+   *          value to the empty string ("" or ''), DMS treats the empty
+   *          string as the null value instead of <code>NULL</code>.</p>
+   *          <p>The default value is <code>NULL</code>. Valid values include any valid string.</p>
+   */
+  CsvNullValue?: string;
+
+  /**
+   * <p>When this value is set to 1, DMS ignores the first row header in a .csv file. A value
+   *          of 1 turns on the feature; a value of 0 turns off the feature.</p>
+   *          <p>The default is 0.</p>
+   */
+  IgnoreHeaderRows?: number;
+
+  /**
+   * <p>A value that specifies the maximum size (in KB) of any .csv
+   *          file to be created while migrating to an S3 target during full
+   *          load.</p>
+   *          <p>The default value is 1,048,576 KB (1 GB). Valid values include 1 to 1,048,576.</p>
+   */
+  MaxFileSize?: number;
+
+  /**
+   * <p>For an S3 source, when this value is set to <code>true</code> or <code>y</code>,
+   *          each leading double quotation mark has to be followed by an
+   *          ending double quotation mark. This formatting complies with RFC
+   *          4180. When this value is set to <code>false</code> or
+   *          <code>n</code>, string literals are copied to the target as
+   *          is. In this case, a delimiter (row or column) signals the end of
+   *          the field. Thus, you can't use a delimiter as part of the
+   *          string, because it signals the end of the value.</p>
+   *          <p>For an S3 target, an optional parameter used to set behavior to comply with RFC
+   *          4180 for data migrated to Amazon S3 using .csv file format only. When this
+   *          value is set to <code>true</code> or <code>y</code> using Amazon
+   *          S3 as a target, if the data has quotation marks or newline
+   *          characters in it, DMS encloses the entire column with an
+   *          additional pair of double quotation marks ("). Every quotation
+   *          mark within the data is repeated twice.</p>
+   *          <p>The default value is <code>true</code>. Valid values include <code>true</code>, <code>false</code>,
+   *          <code>y</code>, and <code>n</code>.</p>
+   */
+  Rfc4180?: boolean;
 }
 
 export namespace S3Settings {
@@ -2928,8 +3142,8 @@ export interface CreateEndpointMessage {
    * <p>An KMS key identifier that is used to encrypt the connection parameters for the endpoint.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then
    *            DMS uses your default encryption key.</p>
-   *          <p>KMS creates the default encryption key for your account. Your account has a
-   *          different default encryption key for each Region.</p>
+   *          <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a
+   *          different default encryption key for each Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
@@ -3124,6 +3338,11 @@ export interface CreateEndpointMessage {
    * <p>Provides information that defines a DocumentDB endpoint.</p>
    */
   DocDbSettings?: DocDbSettings;
+
+  /**
+   * <p>Settings in JSON format for the target Redis endpoint.</p>
+   */
+  RedisSettings?: RedisSettings;
 }
 
 export namespace CreateEndpointMessage {
@@ -3147,6 +3366,7 @@ export namespace CreateEndpointMessage {
     }),
     ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2Settings.filterSensitiveLog(obj.IBMDb2Settings) }),
     ...(obj.DocDbSettings && { DocDbSettings: DocDbSettings.filterSensitiveLog(obj.DocDbSettings) }),
+    ...(obj.RedisSettings && { RedisSettings: RedisSettings.filterSensitiveLog(obj.RedisSettings) }),
   });
 }
 
@@ -3235,8 +3455,8 @@ export interface Endpoint {
    * <p>An KMS key identifier that is used to encrypt the connection parameters for the endpoint.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then
    *            DMS uses your default encryption key.</p>
-   *          <p>KMS creates the default encryption key for your account. Your account has a
-   *          different default encryption key for each Region.</p>
+   *          <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a
+   *          different default encryption key for each Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
@@ -3384,6 +3604,12 @@ export interface Endpoint {
    * <p>Provides information that defines a DocumentDB endpoint.</p>
    */
   DocDbSettings?: DocDbSettings;
+
+  /**
+   * <p>The settings for the Redis target endpoint. For more information, see the
+   *          <code>RedisSettings</code> structure.</p>
+   */
+  RedisSettings?: RedisSettings;
 }
 
 export namespace Endpoint {
@@ -3406,6 +3632,7 @@ export namespace Endpoint {
     }),
     ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2Settings.filterSensitiveLog(obj.IBMDb2Settings) }),
     ...(obj.DocDbSettings && { DocDbSettings: DocDbSettings.filterSensitiveLog(obj.DocDbSettings) }),
+    ...(obj.RedisSettings && { RedisSettings: RedisSettings.filterSensitiveLog(obj.RedisSettings) }),
   });
 }
 
@@ -3844,7 +4071,7 @@ export interface CreateReplicationInstanceMessage {
 
   /**
    * <p>The Availability Zone where the replication instance will be created. The default
-   *          value is a random, system-chosen Availability Zone in the endpoint's Region, for
+   *          value is a random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region, for
    *          example: <code>us-east-1d</code>
    *          </p>
    */
@@ -3860,7 +4087,7 @@ export interface CreateReplicationInstanceMessage {
    *          Coordinated Time (UTC).</p>
    *          <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
-   *          <p>Default: A 30-minute window selected at random from an 8-hour block of time per Region,
+   *          <p>Default: A 30-minute window selected at random from an 8-hour block of time per Amazon Web Services Region,
    *           occurring on a random day of the week.</p>
    *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
    *          <p>Constraints: Minimum 30-minute window.</p>
@@ -3900,8 +4127,8 @@ export interface CreateReplicationInstanceMessage {
    *            instance.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then
    *            DMS uses your default encryption key.</p>
-   *          <p>KMS creates the default encryption key for your account. Your account has a
-   *          different default encryption key for each Region.</p>
+   *          <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a
+   *          different default encryption key for each Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
@@ -3998,7 +4225,7 @@ export namespace ReplicationPendingModifiedValues {
  *             <code>AvailabilityZone</code> is an optional parameter to the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationInstance.html">
  *                <code>CreateReplicationInstance</code>
  *             </a> operation, and it’s value relates to
- *          the Region of an endpoint. For example, the availability zone of an endpoint in the
+ *          the Amazon Web Services Region of an endpoint. For example, the availability zone of an endpoint in the
  *          us-east-1 region might be us-east-1a, us-east-1b, us-east-1c, or us-east-1d.</p>
  */
 export interface AvailabilityZone {
@@ -4285,8 +4512,8 @@ export interface ReplicationInstance {
    *            instance.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then
    *            DMS uses your default encryption key.</p>
-   *          <p>KMS creates the default encryption key for your account. Your account has a
-   *          different default encryption key for each Region.</p>
+   *          <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a
+   *          different default encryption key for each Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
@@ -5475,10 +5702,10 @@ export interface DescribeAccountAttributesResponse {
   AccountQuotas?: AccountQuota[];
 
   /**
-   * <p>A unique DMS identifier for an account in a particular Region. The value of this
+   * <p>A unique DMS identifier for an account in a particular Amazon Web Services Region. The value of this
    *          identifier has the following format: <code>c99999999999</code>. DMS uses this identifier to
    *          name artifacts. For example, DMS uses this identifier to name the default Amazon S3 bucket
-   *          for storing task assessment reports in a given Region. The format of this S3 bucket
+   *          for storing task assessment reports in a given Amazon Web Services Region. The format of this S3 bucket
    *          name is the following:
    *                <code>dms-<i>AccountNumber</i>-<i>UniqueAccountIdentifier</i>.</code>
    *          Here is an example name for this default S3 bucket:
@@ -7558,10 +7785,19 @@ export namespace InvalidCertificateFault {
  */
 export interface ListTagsForResourceMessage {
   /**
-   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the DMS
-   *          resource.</p>
+   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the DMS resource to
+   *          list tags for. This returns a list of keys (names of tags) created for the resource and
+   *          their associated tag values.</p>
    */
-  ResourceArn: string | undefined;
+  ResourceArn?: string;
+
+  /**
+   * <p>List of ARNs that identify multiple DMS resources that you want to list tags for. This
+   *          returns a list of keys (tag names) and their associated tag values. It also returns each
+   *          tag's associated <code>ResourceArn</code> value, which is the ARN of the resource for which
+   *          each listed tag is created. </p>
+   */
+  ResourceArnList?: string[];
 }
 
 export namespace ListTagsForResourceMessage {
@@ -7831,6 +8067,11 @@ export interface ModifyEndpointMessage {
   DocDbSettings?: DocDbSettings;
 
   /**
+   * <p>Settings in JSON format for the Redis target endpoint.</p>
+   */
+  RedisSettings?: RedisSettings;
+
+  /**
    * <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all
    *          existing endpoint settings with the exact settings that you specify in this call. If this
    *          attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p>
@@ -7877,6 +8118,7 @@ export namespace ModifyEndpointMessage {
     }),
     ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2Settings.filterSensitiveLog(obj.IBMDb2Settings) }),
     ...(obj.DocDbSettings && { DocDbSettings: DocDbSettings.filterSensitiveLog(obj.DocDbSettings) }),
+    ...(obj.RedisSettings && { RedisSettings: RedisSettings.filterSensitiveLog(obj.RedisSettings) }),
   });
 }
 

@@ -26,12 +26,12 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  * <p>Exports optimization recommendations for Amazon EBS volumes.</p>
  *
  *         <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
- *             in a JavaScript Object Notation (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that
- *             you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
- *                 Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p>
+ *             in a JavaScript Object Notation (JSON)   (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
+ *                 Recommendations</a> in the <i>Compute Optimizer User
+ *             Guide</i>.</p>
  *
- *         <p>You can have only one Amazon EBS volume export job in progress per AWS
- *             Region.</p>
+ *         <p>You can have only one Amazon EBS volume export job in progress per Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

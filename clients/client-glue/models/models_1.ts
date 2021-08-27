@@ -1,5 +1,7 @@
 import {
   Action,
+  CodeGenEdge,
+  CodeGenNode,
   CodeGenNodeArg,
   Column,
   ColumnStatistics,
@@ -8,9 +10,10 @@ import {
   ConnectionsList,
   CrawlerTargets,
   CsvHeaderOption,
-  DataCatalogEncryptionSettings,
   DataFormat,
+  Database,
   DatabaseInput,
+  DevEndpoint,
   EncryptionConfiguration,
   ErrorDetail,
   EventBatchingCondition,
@@ -30,7 +33,6 @@ import {
   RecrawlPolicy,
   RegistryId,
   RegistryStatus,
-  ResourceShareType,
   ResourceUri,
   SchemaChangePolicy,
   SchemaId,
@@ -50,6 +52,365 @@ import {
   WorkflowRun,
 } from "./models_0";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+export interface GetDatabaseResponse {
+  /**
+   * <p>The definition of the specified database in the Data Catalog.</p>
+   */
+  Database?: Database;
+}
+
+export namespace GetDatabaseResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDatabaseResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ResourceShareType {
+  ALL = "ALL",
+  FOREIGN = "FOREIGN",
+}
+
+export interface GetDatabasesRequest {
+  /**
+   * <p>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none is
+   *       provided, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of databases to return in one response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
+   *
+   * 	        <ul>
+   *             <li>
+   *                <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p>
+   *             </li>
+   *             <li>
+   *                <p>If set to <code>ALL</code>, will list the databases shared with your account, as well as the databases in yor local account. </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceShareType?: ResourceShareType | string;
+}
+
+export namespace GetDatabasesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDatabasesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDatabasesResponse {
+  /**
+   * <p>A list of <code>Database</code> objects from the specified catalog.</p>
+   */
+  DatabaseList: Database[] | undefined;
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens,
+   *       returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetDatabasesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDatabasesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDataCatalogEncryptionSettingsRequest {
+  /**
+   * <p>The ID of the Data Catalog to retrieve the security configuration for. If none is
+   *       provided, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+}
+
+export namespace GetDataCatalogEncryptionSettingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDataCatalogEncryptionSettingsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The data structure used by the Data Catalog to encrypt the password as part of
+ *         <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the
+ *         <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog
+ *       encryption or only password encryption.</p>
+ *
+ * 	        <p>When a <code>CreationConnection</code> request arrives containing a password, the Data
+ *       Catalog first encrypts the password using your KMS key. It then encrypts the whole
+ *       connection object again if catalog encryption is also enabled.</p>
+ *
+ *          <p>This encryption requires that you set KMS key permissions to enable or restrict access
+ *       on the password key according to your security requirements. For example, you might want only
+ *       administrators to have decrypt permission on the password key.</p>
+ */
+export interface ConnectionPasswordEncryption {
+  /**
+   * <p>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to "true", passwords remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>. This encryption takes effect independently from catalog encryption. </p>
+   */
+  ReturnConnectionPasswordEncrypted: boolean | undefined;
+
+  /**
+   * <p>An KMS key that is used to encrypt the connection password. </p>
+   *
+   *          <p>If connection password protection is enabled, the caller of <code>CreateConnection</code>
+   *       and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the
+   *       specified KMS key, to encrypt passwords before storing them in the Data Catalog. </p>
+   *
+   * 	        <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>
+   */
+  AwsKmsKeyId?: string;
+}
+
+export namespace ConnectionPasswordEncryption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectionPasswordEncryption): any => ({
+    ...obj,
+  });
+}
+
+export enum CatalogEncryptionMode {
+  DISABLED = "DISABLED",
+  SSEKMS = "SSE-KMS",
+}
+
+/**
+ * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
+ */
+export interface EncryptionAtRest {
+  /**
+   * <p>The encryption-at-rest mode for encrypting Data Catalog data.</p>
+   */
+  CatalogEncryptionMode: CatalogEncryptionMode | string | undefined;
+
+  /**
+   * <p>The ID of the KMS key to use for encryption at rest.</p>
+   */
+  SseAwsKmsKeyId?: string;
+}
+
+export namespace EncryptionAtRest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EncryptionAtRest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains configuration information for maintaining Data Catalog security.</p>
+ */
+export interface DataCatalogEncryptionSettings {
+  /**
+   * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
+   */
+  EncryptionAtRest?: EncryptionAtRest;
+
+  /**
+   * <p>When connection password protection is enabled, the Data Catalog uses a customer-provided
+   *       key to encrypt the password as part of <code>CreateConnection</code> or
+   *         <code>UpdateConnection</code> and store it in the <code>ENCRYPTED_PASSWORD</code> field in
+   *       the connection properties. You can enable catalog encryption or only password
+   *       encryption.</p>
+   */
+  ConnectionPasswordEncryption?: ConnectionPasswordEncryption;
+}
+
+export namespace DataCatalogEncryptionSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataCatalogEncryptionSettings): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDataCatalogEncryptionSettingsResponse {
+  /**
+   * <p>The requested security configuration.</p>
+   */
+  DataCatalogEncryptionSettings?: DataCatalogEncryptionSettings;
+}
+
+export namespace GetDataCatalogEncryptionSettingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDataCatalogEncryptionSettingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDataflowGraphRequest {
+  /**
+   * <p>The Python script to transform.</p>
+   */
+  PythonScript?: string;
+}
+
+export namespace GetDataflowGraphRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDataflowGraphRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDataflowGraphResponse {
+  /**
+   * <p>A list of the nodes in the resulting DAG.</p>
+   */
+  DagNodes?: CodeGenNode[];
+
+  /**
+   * <p>A list of the edges in the resulting DAG.</p>
+   */
+  DagEdges?: CodeGenEdge[];
+}
+
+export namespace GetDataflowGraphResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDataflowGraphResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDevEndpointRequest {
+  /**
+   * <p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>
+   */
+  EndpointName: string | undefined;
+}
+
+export namespace GetDevEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDevEndpointRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDevEndpointResponse {
+  /**
+   * <p>A <code>DevEndpoint</code> definition.</p>
+   */
+  DevEndpoint?: DevEndpoint;
+}
+
+export namespace GetDevEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDevEndpointResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDevEndpointsRequest {
+  /**
+   * <p>The maximum size of information to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetDevEndpointsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDevEndpointsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDevEndpointsResponse {
+  /**
+   * <p>A list of <code>DevEndpoint</code> definitions.</p>
+   */
+  DevEndpoints?: DevEndpoint[];
+
+  /**
+   * <p>A continuation token, if not all <code>DevEndpoint</code> definitions have yet been
+   *       returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetDevEndpointsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDevEndpointsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetJobRequest {
+  /**
+   * <p>The name of the job definition to retrieve.</p>
+   */
+  JobName: string | undefined;
+}
+
+export namespace GetJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetJobResponse {
+  /**
+   * <p>The requested job definition.</p>
+   */
+  Job?: Job;
+}
+
+export namespace GetJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetJobResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface GetJobBookmarkRequest {
   /**
@@ -3424,6 +3785,53 @@ export namespace ImportCatalogToGlueResponse {
   });
 }
 
+export interface ListBlueprintsRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters the list by an Amazon Web Services resource tag.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListBlueprintsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListBlueprintsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListBlueprintsResponse {
+  /**
+   * <p>List of names of blueprints in the account.</p>
+   */
+  Blueprints?: string[];
+
+  /**
+   * <p>A continuation token, if not all blueprint names have been returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListBlueprintsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListBlueprintsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListCrawlersRequest {
   /**
    * <p>The maximum size of a list to return.</p>
@@ -4787,6 +5195,63 @@ export namespace SearchTablesResponse {
   });
 }
 
+export interface IllegalBlueprintStateException extends __SmithyException, $MetadataBearer {
+  name: "IllegalBlueprintStateException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace IllegalBlueprintStateException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IllegalBlueprintStateException): any => ({
+    ...obj,
+  });
+}
+
+export interface StartBlueprintRunRequest {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  BlueprintName: string | undefined;
+
+  /**
+   * <p>Specifies the parameters as a <code>BlueprintParameters</code> object.</p>
+   */
+  Parameters?: string;
+
+  /**
+   * <p>Specifies the IAM role used to create the workflow.</p>
+   */
+  RoleArn: string | undefined;
+}
+
+export namespace StartBlueprintRunRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartBlueprintRunRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartBlueprintRunResponse {
+  /**
+   * <p>The run ID for this blueprint run.</p>
+   */
+  RunId?: string;
+}
+
+export namespace StartBlueprintRunResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartBlueprintRunResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface StartCrawlerRequest {
   /**
    * <p>Name of the crawler to start.</p>
@@ -5482,6 +5947,48 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateBlueprintRequest {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the blueprint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies a path in Amazon S3 where the blueprint is published.</p>
+   */
+  BlueprintLocation: string | undefined;
+}
+
+export namespace UpdateBlueprintRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateBlueprintRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateBlueprintResponse {
+  /**
+   * <p>Returns the name of the blueprint that was updated.</p>
+   */
+  Name?: string;
+}
+
+export namespace UpdateBlueprintResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateBlueprintResponse): any => ({
     ...obj,
   });
 }

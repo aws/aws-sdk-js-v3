@@ -29,7 +29,7 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  *       PREPARING | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. </p>
  *
  *          <p>For detailed information, see the Task Execution section in the Components and
- *       Terminology topic in the <i>AWS DataSync User Guide</i>.</p>
+ *       Terminology topic in the <i>DataSync User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

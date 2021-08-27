@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetDataflowGraphRequest, GetDataflowGraphResponse } from "../models/models_0";
+import { GetDataflowGraphRequest, GetDataflowGraphResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetDataflowGraphCommand,
   serializeAws_json1_1GetDataflowGraphCommand,

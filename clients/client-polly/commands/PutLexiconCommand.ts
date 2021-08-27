@@ -21,12 +21,12 @@ export interface PutLexiconCommandInput extends PutLexiconInput {}
 export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBearer {}
 
 /**
- * <p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name
- *       already exists in the region, it is overwritten by the new lexicon. Lexicon operations have
- *       eventual consistency, therefore, it might take some time before the lexicon is available to
- *       the SynthesizeSpeech operation.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
- *         Lexicons</a>.</p>
+ * <p>Stores a pronunciation lexicon in an Amazon Web Services Region. If
+ *       a lexicon with the same name already exists in the region, it is
+ *       overwritten by the new lexicon. Lexicon operations have eventual
+ *       consistency, therefore, it might take some time before the lexicon is
+ *       available to the SynthesizeSpeech operation.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

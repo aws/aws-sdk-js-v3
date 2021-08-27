@@ -21,12 +21,16 @@ export interface StartSpeechSynthesisTaskCommandInput extends StartSpeechSynthes
 export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Allows the creation of an asynchronous synthesis task, by starting a new
- *         <code>SpeechSynthesisTask</code>. This operation requires all the standard information
- *       needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the
- *       output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn).
- *       Once the synthesis task is created, this operation will return a SpeechSynthesisTask object,
- *       which will include an identifier of this task as well as the current status.</p>
+ * <p>Allows the creation of an asynchronous synthesis task, by starting a
+ *       new <code>SpeechSynthesisTask</code>. This operation requires all the
+ *       standard information needed for speech synthesis, plus the name of an
+ *       Amazon S3 bucket for the service to store the output of the synthesis task
+ *       and two optional parameters (<code>OutputS3KeyPrefix</code> and
+ *         <code>SnsTopicArn</code>). Once the synthesis task is created, this
+ *       operation will return a <code>SpeechSynthesisTask</code> object, which
+ *       will include an identifier of this task as well as the current status. The
+ *         <code>SpeechSynthesisTask</code> object is available for 72 hours after
+ *       starting the asynchronous synthesis task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

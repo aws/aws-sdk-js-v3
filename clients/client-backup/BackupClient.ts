@@ -4,6 +4,8 @@ import {
   CreateBackupSelectionCommandOutput,
 } from "./commands/CreateBackupSelectionCommand";
 import { CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput } from "./commands/CreateBackupVaultCommand";
+import { CreateFrameworkCommandInput, CreateFrameworkCommandOutput } from "./commands/CreateFrameworkCommand";
+import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "./commands/CreateReportPlanCommand";
 import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "./commands/DeleteBackupPlanCommand";
 import {
   DeleteBackupSelectionCommandInput,
@@ -18,16 +20,19 @@ import {
   DeleteBackupVaultNotificationsCommandInput,
   DeleteBackupVaultNotificationsCommandOutput,
 } from "./commands/DeleteBackupVaultNotificationsCommand";
+import { DeleteFrameworkCommandInput, DeleteFrameworkCommandOutput } from "./commands/DeleteFrameworkCommand";
 import {
   DeleteRecoveryPointCommandInput,
   DeleteRecoveryPointCommandOutput,
 } from "./commands/DeleteRecoveryPointCommand";
+import { DeleteReportPlanCommandInput, DeleteReportPlanCommandOutput } from "./commands/DeleteReportPlanCommand";
 import { DescribeBackupJobCommandInput, DescribeBackupJobCommandOutput } from "./commands/DescribeBackupJobCommand";
 import {
   DescribeBackupVaultCommandInput,
   DescribeBackupVaultCommandOutput,
 } from "./commands/DescribeBackupVaultCommand";
 import { DescribeCopyJobCommandInput, DescribeCopyJobCommandOutput } from "./commands/DescribeCopyJobCommand";
+import { DescribeFrameworkCommandInput, DescribeFrameworkCommandOutput } from "./commands/DescribeFrameworkCommand";
 import {
   DescribeGlobalSettingsCommandInput,
   DescribeGlobalSettingsCommandOutput,
@@ -44,6 +49,8 @@ import {
   DescribeRegionSettingsCommandInput,
   DescribeRegionSettingsCommandOutput,
 } from "./commands/DescribeRegionSettingsCommand";
+import { DescribeReportJobCommandInput, DescribeReportJobCommandOutput } from "./commands/DescribeReportJobCommand";
+import { DescribeReportPlanCommandInput, DescribeReportPlanCommandOutput } from "./commands/DescribeReportPlanCommand";
 import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "./commands/DescribeRestoreJobCommand";
 import {
   DisassociateRecoveryPointCommandInput,
@@ -95,6 +102,7 @@ import {
 } from "./commands/ListBackupSelectionsCommand";
 import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "./commands/ListBackupVaultsCommand";
 import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "./commands/ListCopyJobsCommand";
+import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "./commands/ListFrameworksCommand";
 import {
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
@@ -107,6 +115,8 @@ import {
   ListRecoveryPointsByResourceCommandInput,
   ListRecoveryPointsByResourceCommandOutput,
 } from "./commands/ListRecoveryPointsByResourceCommand";
+import { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "./commands/ListReportJobsCommand";
+import { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "./commands/ListReportPlansCommand";
 import { ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput } from "./commands/ListRestoreJobsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
@@ -119,11 +129,13 @@ import {
 } from "./commands/PutBackupVaultNotificationsCommand";
 import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "./commands/StartBackupJobCommand";
 import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "./commands/StartCopyJobCommand";
+import { StartReportJobCommandInput, StartReportJobCommandOutput } from "./commands/StartReportJobCommand";
 import { StartRestoreJobCommandInput, StartRestoreJobCommandOutput } from "./commands/StartRestoreJobCommand";
 import { StopBackupJobCommandInput, StopBackupJobCommandOutput } from "./commands/StopBackupJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBackupPlanCommandInput, UpdateBackupPlanCommandOutput } from "./commands/UpdateBackupPlanCommand";
+import { UpdateFrameworkCommandInput, UpdateFrameworkCommandOutput } from "./commands/UpdateFrameworkCommand";
 import {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
@@ -136,6 +148,7 @@ import {
   UpdateRegionSettingsCommandInput,
   UpdateRegionSettingsCommandOutput,
 } from "./commands/UpdateRegionSettingsCommand";
+import { UpdateReportPlanCommandInput, UpdateReportPlanCommandOutput } from "./commands/UpdateReportPlanCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -192,19 +205,26 @@ export type ServiceInputTypes =
   | CreateBackupPlanCommandInput
   | CreateBackupSelectionCommandInput
   | CreateBackupVaultCommandInput
+  | CreateFrameworkCommandInput
+  | CreateReportPlanCommandInput
   | DeleteBackupPlanCommandInput
   | DeleteBackupSelectionCommandInput
   | DeleteBackupVaultAccessPolicyCommandInput
   | DeleteBackupVaultCommandInput
   | DeleteBackupVaultNotificationsCommandInput
+  | DeleteFrameworkCommandInput
   | DeleteRecoveryPointCommandInput
+  | DeleteReportPlanCommandInput
   | DescribeBackupJobCommandInput
   | DescribeBackupVaultCommandInput
   | DescribeCopyJobCommandInput
+  | DescribeFrameworkCommandInput
   | DescribeGlobalSettingsCommandInput
   | DescribeProtectedResourceCommandInput
   | DescribeRecoveryPointCommandInput
   | DescribeRegionSettingsCommandInput
+  | DescribeReportJobCommandInput
+  | DescribeReportPlanCommandInput
   | DescribeRestoreJobCommandInput
   | DisassociateRecoveryPointCommandInput
   | ExportBackupPlanTemplateCommandInput
@@ -223,41 +243,54 @@ export type ServiceInputTypes =
   | ListBackupSelectionsCommandInput
   | ListBackupVaultsCommandInput
   | ListCopyJobsCommandInput
+  | ListFrameworksCommandInput
   | ListProtectedResourcesCommandInput
   | ListRecoveryPointsByBackupVaultCommandInput
   | ListRecoveryPointsByResourceCommandInput
+  | ListReportJobsCommandInput
+  | ListReportPlansCommandInput
   | ListRestoreJobsCommandInput
   | ListTagsCommandInput
   | PutBackupVaultAccessPolicyCommandInput
   | PutBackupVaultNotificationsCommandInput
   | StartBackupJobCommandInput
   | StartCopyJobCommandInput
+  | StartReportJobCommandInput
   | StartRestoreJobCommandInput
   | StopBackupJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBackupPlanCommandInput
+  | UpdateFrameworkCommandInput
   | UpdateGlobalSettingsCommandInput
   | UpdateRecoveryPointLifecycleCommandInput
-  | UpdateRegionSettingsCommandInput;
+  | UpdateRegionSettingsCommandInput
+  | UpdateReportPlanCommandInput;
 
 export type ServiceOutputTypes =
   | CreateBackupPlanCommandOutput
   | CreateBackupSelectionCommandOutput
   | CreateBackupVaultCommandOutput
+  | CreateFrameworkCommandOutput
+  | CreateReportPlanCommandOutput
   | DeleteBackupPlanCommandOutput
   | DeleteBackupSelectionCommandOutput
   | DeleteBackupVaultAccessPolicyCommandOutput
   | DeleteBackupVaultCommandOutput
   | DeleteBackupVaultNotificationsCommandOutput
+  | DeleteFrameworkCommandOutput
   | DeleteRecoveryPointCommandOutput
+  | DeleteReportPlanCommandOutput
   | DescribeBackupJobCommandOutput
   | DescribeBackupVaultCommandOutput
   | DescribeCopyJobCommandOutput
+  | DescribeFrameworkCommandOutput
   | DescribeGlobalSettingsCommandOutput
   | DescribeProtectedResourceCommandOutput
   | DescribeRecoveryPointCommandOutput
   | DescribeRegionSettingsCommandOutput
+  | DescribeReportJobCommandOutput
+  | DescribeReportPlanCommandOutput
   | DescribeRestoreJobCommandOutput
   | DisassociateRecoveryPointCommandOutput
   | ExportBackupPlanTemplateCommandOutput
@@ -276,23 +309,29 @@ export type ServiceOutputTypes =
   | ListBackupSelectionsCommandOutput
   | ListBackupVaultsCommandOutput
   | ListCopyJobsCommandOutput
+  | ListFrameworksCommandOutput
   | ListProtectedResourcesCommandOutput
   | ListRecoveryPointsByBackupVaultCommandOutput
   | ListRecoveryPointsByResourceCommandOutput
+  | ListReportJobsCommandOutput
+  | ListReportPlansCommandOutput
   | ListRestoreJobsCommandOutput
   | ListTagsCommandOutput
   | PutBackupVaultAccessPolicyCommandOutput
   | PutBackupVaultNotificationsCommandOutput
   | StartBackupJobCommandOutput
   | StartCopyJobCommandOutput
+  | StartReportJobCommandOutput
   | StartRestoreJobCommandOutput
   | StopBackupJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBackupPlanCommandOutput
+  | UpdateFrameworkCommandOutput
   | UpdateGlobalSettingsCommandOutput
   | UpdateRecoveryPointLifecycleCommandOutput
-  | UpdateRegionSettingsCommandOutput;
+  | UpdateRegionSettingsCommandOutput
+  | UpdateReportPlanCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -433,10 +472,11 @@ type BackupClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
 export interface BackupClientResolvedConfig extends BackupClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Backup</fullname>
- *          <p>AWS Backup is a unified backup service designed to protect AWS services and their
- *          associated data. AWS Backup simplifies the creation, migration, restoration, and deletion
- *          of backups, while also providing reporting and auditing.</p>
+ * <fullname>Backup</fullname>
+ *          <p>Backup is a unified backup service designed to protect Amazon Web Services
+ *          services and their associated data. Backup simplifies the creation, migration,
+ *          restoration, and deletion of backups, while also providing reporting and
+ *          auditing.</p>
  */
 export class BackupClient extends __Client<
   __HttpHandlerOptions,

@@ -21,7 +21,7 @@ export interface DeleteLocationCommandInput extends DeleteLocationRequest {}
 export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the configuration of a location used by AWS DataSync. </p>
+ * <p>Deletes the configuration of a location used by DataSync. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -910,6 +910,178 @@ export namespace BatchDeleteTableVersionResponse {
   });
 }
 
+export interface BatchGetBlueprintsRequest {
+  /**
+   * <p>A list of blueprint names.</p>
+   */
+  Names: string[] | undefined;
+
+  /**
+   * <p>Specifies whether or not to include the blueprint in the response.</p>
+   */
+  IncludeBlueprint?: boolean;
+
+  /**
+   * <p>Specifies whether or not to include the parameters, as a JSON string, for the blueprint in the response.</p>
+   */
+  IncludeParameterSpec?: boolean;
+}
+
+export namespace BatchGetBlueprintsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetBlueprintsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>When there are multiple versions of a blueprint and the latest version has some errors, this attribute indicates the last successful blueprint definition that is available with the service.</p>
+ */
+export interface LastActiveDefinition {
+  /**
+   * <p>The description of the blueprint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date and time the blueprint was last modified.</p>
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   * <p>A JSON string specifying the parameters for the blueprint.</p>
+   */
+  ParameterSpec?: string;
+
+  /**
+   * <p>Specifies a path in Amazon S3 where the blueprint is published by the Glue developer.</p>
+   */
+  BlueprintLocation?: string;
+
+  /**
+   * <p>Specifies a path in Amazon S3 where the blueprint is copied when you create or update the blueprint.</p>
+   */
+  BlueprintServiceLocation?: string;
+}
+
+export namespace LastActiveDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LastActiveDefinition): any => ({
+    ...obj,
+  });
+}
+
+export enum BlueprintStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  FAILED = "FAILED",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>The details of a blueprint.</p>
+ */
+export interface Blueprint {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the blueprint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date and time the blueprint was registered.</p>
+   */
+  CreatedOn?: Date;
+
+  /**
+   * <p>The date and time the blueprint was last modified.</p>
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   * <p>A JSON string that indicates the list of parameter specifications for the blueprint.</p>
+   */
+  ParameterSpec?: string;
+
+  /**
+   * <p>Specifies the path in Amazon S3 where the blueprint is published.</p>
+   */
+  BlueprintLocation?: string;
+
+  /**
+   * <p>Specifies a path in Amazon S3 where the blueprint is copied when you call <code>CreateBlueprint/UpdateBlueprint</code> to register the blueprint in Glue.</p>
+   */
+  BlueprintServiceLocation?: string;
+
+  /**
+   * <p>The status of the blueprint registration.</p>
+   *
+   * 	        <ul>
+   *             <li>
+   *                <p>Creating — The blueprint registration is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>Active — The blueprint has been successfully registered.</p>
+   *             </li>
+   *             <li>
+   *                <p>Updating — An update to the blueprint registration is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed — The blueprint registration failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: BlueprintStatus | string;
+
+  /**
+   * <p>An error message.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>When there are multiple versions of a blueprint and the latest version has some errors, this attribute indicates the last successful blueprint definition that is available with the service.</p>
+   */
+  LastActiveDefinition?: LastActiveDefinition;
+}
+
+export namespace Blueprint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Blueprint): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetBlueprintsResponse {
+  /**
+   * <p>Returns a list of blueprint as a <code>Blueprints</code> object.</p>
+   */
+  Blueprints?: Blueprint[];
+
+  /**
+   * <p>Returns a list of <code>BlueprintNames</code> that were not found.</p>
+   */
+  MissingBlueprints?: string[];
+}
+
+export namespace BatchGetBlueprintsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetBlueprintsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface BatchGetCrawlersRequest {
   /**
    * <p>A list of crawler names, which might be the names returned from the
@@ -2339,6 +2511,30 @@ export namespace BatchGetWorkflowsRequest {
 }
 
 /**
+ * <p>The details of a blueprint.</p>
+ */
+export interface BlueprintDetails {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  BlueprintName?: string;
+
+  /**
+   * <p>The run ID for this blueprint.</p>
+   */
+  RunId?: string;
+}
+
+export namespace BlueprintDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlueprintDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>An edge represents a directed connection between two components
  *       on a workflow graph.</p>
  */
@@ -2909,8 +3105,8 @@ export interface Workflow {
 
   /**
    * <p>A collection of properties to be used as part of each execution of the workflow.
-   *       The run properties are made available to each job in the workflow. A job can modify
-   *       the properties for the next jobs in the flow.</p>
+   *     The run properties are made available to each job in the workflow. A job can modify
+   *     the properties for the next jobs in the flow.</p>
    */
   DefaultRunProperties?: { [key: string]: string };
 
@@ -2939,6 +3135,11 @@ export interface Workflow {
    * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
    */
   MaxConcurrentRuns?: number;
+
+  /**
+   * <p>This structure indicates the details of the blueprint that this particular workflow is created from.</p>
+   */
+  BlueprintDetails?: BlueprintDetails;
 }
 
 export namespace Workflow {
@@ -3267,6 +3468,53 @@ export namespace CheckSchemaVersionValidityResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CheckSchemaVersionValidityResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateBlueprintRequest {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the blueprint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies a path in Amazon S3 where the blueprint is published.</p>
+   */
+  BlueprintLocation: string | undefined;
+
+  /**
+   * <p>The tags to be applied to this blueprint.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateBlueprintRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateBlueprintRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateBlueprintResponse {
+  /**
+   * <p>Returns the name of the blueprint that was registered.</p>
+   */
+  Name?: string;
+}
+
+export namespace CreateBlueprintResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateBlueprintResponse): any => ({
     ...obj,
   });
 }
@@ -5831,6 +6079,38 @@ export namespace CreateWorkflowResponse {
   });
 }
 
+export interface DeleteBlueprintRequest {
+  /**
+   * <p>The name of the blueprint to delete.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteBlueprintRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteBlueprintRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteBlueprintResponse {
+  /**
+   * <p>Returns the name of the blueprint that was deleted.</p>
+   */
+  Name?: string;
+}
+
+export namespace DeleteBlueprintResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteBlueprintResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteClassifierRequest {
   /**
    * <p>Name of the classifier to remove.</p>
@@ -6728,6 +7008,218 @@ export namespace DeleteWorkflowResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteWorkflowResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintRequest {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies whether or not to include the blueprint in the response.</p>
+   */
+  IncludeBlueprint?: boolean;
+
+  /**
+   * <p>Specifies whether or not to include the parameter specification.</p>
+   */
+  IncludeParameterSpec?: boolean;
+}
+
+export namespace GetBlueprintRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintResponse {
+  /**
+   * <p>Returns a <code>Blueprint</code> object.</p>
+   */
+  Blueprint?: Blueprint;
+}
+
+export namespace GetBlueprintResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintRunRequest {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  BlueprintName: string | undefined;
+
+  /**
+   * <p>The run ID for the blueprint run you want to retrieve.</p>
+   */
+  RunId: string | undefined;
+}
+
+export namespace GetBlueprintRunRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintRunRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum BlueprintRunState {
+  FAILED = "FAILED",
+  ROLLING_BACK = "ROLLING_BACK",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>The details of a blueprint run.</p>
+ */
+export interface BlueprintRun {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  BlueprintName?: string;
+
+  /**
+   * <p>The run ID for this blueprint run.</p>
+   */
+  RunId?: string;
+
+  /**
+   * <p>The name of a workflow that is created as a result of a successful blueprint run. If a blueprint run has an error, there will not be a workflow created.</p>
+   */
+  WorkflowName?: string;
+
+  /**
+   * <p>The state of the blueprint run. Possible values are:</p>
+   *
+   * 	        <ul>
+   *             <li>
+   *                <p>Running — The blueprint run is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>Succeeded — The blueprint run completed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed — The blueprint run failed and rollback is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>Rolling Back — The blueprint run failed and rollback is in progress.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: BlueprintRunState | string;
+
+  /**
+   * <p>The date and time that the blueprint run started.</p>
+   */
+  StartedOn?: Date;
+
+  /**
+   * <p>The date and time that the blueprint run completed.</p>
+   */
+  CompletedOn?: Date;
+
+  /**
+   * <p>Indicates any errors that are seen while running the blueprint.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>If there are any errors while creating the entities of a workflow, we try to roll back the created entities until that point and delete them. This attribute indicates the errors seen while trying to delete the entities that are created.</p>
+   */
+  RollbackErrorMessage?: string;
+
+  /**
+   * <p>The blueprint parameters as a string. You will have to provide a value for each key that is required from the parameter spec that is defined in the <code>Blueprint$ParameterSpec</code>.</p>
+   */
+  Parameters?: string;
+
+  /**
+   * <p>The role ARN. This role will be assumed by the Glue service and will be used to create the workflow and other entities of a workflow.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace BlueprintRun {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlueprintRun): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintRunResponse {
+  /**
+   * <p>Returns a <code>BlueprintRun</code> object.</p>
+   */
+  BlueprintRun?: BlueprintRun;
+}
+
+export namespace GetBlueprintRunResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintRunResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintRunsRequest {
+  /**
+   * <p>The name of the blueprint.</p>
+   */
+  BlueprintName: string | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetBlueprintRunsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintRunsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBlueprintRunsResponse {
+  /**
+   * <p>Returns a list of <code>BlueprintRun</code> objects.</p>
+   */
+  BlueprintRuns?: BlueprintRun[];
+
+  /**
+   * <p>A continuation token, if not all blueprint runs have been returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetBlueprintRunsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBlueprintRunsResponse): any => ({
     ...obj,
   });
 }
@@ -8182,365 +8674,6 @@ export namespace Database {
    * @internal
    */
   export const filterSensitiveLog = (obj: Database): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDatabaseResponse {
-  /**
-   * <p>The definition of the specified database in the Data Catalog.</p>
-   */
-  Database?: Database;
-}
-
-export namespace GetDatabaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDatabaseResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum ResourceShareType {
-  ALL = "ALL",
-  FOREIGN = "FOREIGN",
-}
-
-export interface GetDatabasesRequest {
-  /**
-   * <p>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of databases to return in one response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
-   *
-   * 	        <ul>
-   *             <li>
-   *                <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p>
-   *             </li>
-   *             <li>
-   *                <p>If set to <code>ALL</code>, will list the databases shared with your account, as well as the databases in yor local account. </p>
-   *             </li>
-   *          </ul>
-   */
-  ResourceShareType?: ResourceShareType | string;
-}
-
-export namespace GetDatabasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDatabasesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDatabasesResponse {
-  /**
-   * <p>A list of <code>Database</code> objects from the specified catalog.</p>
-   */
-  DatabaseList: Database[] | undefined;
-
-  /**
-   * <p>A continuation token for paginating the returned list of tokens,
-   *       returned if the current segment of the list is not the last.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetDatabasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDatabasesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDataCatalogEncryptionSettingsRequest {
-  /**
-   * <p>The ID of the Data Catalog to retrieve the security configuration for. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   */
-  CatalogId?: string;
-}
-
-export namespace GetDataCatalogEncryptionSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataCatalogEncryptionSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The data structure used by the Data Catalog to encrypt the password as part of
- *         <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the
- *         <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog
- *       encryption or only password encryption.</p>
- *
- * 	        <p>When a <code>CreationConnection</code> request arrives containing a password, the Data
- *       Catalog first encrypts the password using your KMS key. It then encrypts the whole
- *       connection object again if catalog encryption is also enabled.</p>
- *
- *          <p>This encryption requires that you set KMS key permissions to enable or restrict access
- *       on the password key according to your security requirements. For example, you might want only
- *       administrators to have decrypt permission on the password key.</p>
- */
-export interface ConnectionPasswordEncryption {
-  /**
-   * <p>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to "true", passwords remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>. This encryption takes effect independently from catalog encryption. </p>
-   */
-  ReturnConnectionPasswordEncrypted: boolean | undefined;
-
-  /**
-   * <p>An KMS key that is used to encrypt the connection password. </p>
-   *
-   *          <p>If connection password protection is enabled, the caller of <code>CreateConnection</code>
-   *       and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the
-   *       specified KMS key, to encrypt passwords before storing them in the Data Catalog. </p>
-   *
-   * 	        <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>
-   */
-  AwsKmsKeyId?: string;
-}
-
-export namespace ConnectionPasswordEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionPasswordEncryption): any => ({
-    ...obj,
-  });
-}
-
-export enum CatalogEncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
-
-/**
- * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
- */
-export interface EncryptionAtRest {
-  /**
-   * <p>The encryption-at-rest mode for encrypting Data Catalog data.</p>
-   */
-  CatalogEncryptionMode: CatalogEncryptionMode | string | undefined;
-
-  /**
-   * <p>The ID of the KMS key to use for encryption at rest.</p>
-   */
-  SseAwsKmsKeyId?: string;
-}
-
-export namespace EncryptionAtRest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionAtRest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains configuration information for maintaining Data Catalog security.</p>
- */
-export interface DataCatalogEncryptionSettings {
-  /**
-   * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
-   */
-  EncryptionAtRest?: EncryptionAtRest;
-
-  /**
-   * <p>When connection password protection is enabled, the Data Catalog uses a customer-provided
-   *       key to encrypt the password as part of <code>CreateConnection</code> or
-   *         <code>UpdateConnection</code> and store it in the <code>ENCRYPTED_PASSWORD</code> field in
-   *       the connection properties. You can enable catalog encryption or only password
-   *       encryption.</p>
-   */
-  ConnectionPasswordEncryption?: ConnectionPasswordEncryption;
-}
-
-export namespace DataCatalogEncryptionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataCatalogEncryptionSettings): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDataCatalogEncryptionSettingsResponse {
-  /**
-   * <p>The requested security configuration.</p>
-   */
-  DataCatalogEncryptionSettings?: DataCatalogEncryptionSettings;
-}
-
-export namespace GetDataCatalogEncryptionSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataCatalogEncryptionSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDataflowGraphRequest {
-  /**
-   * <p>The Python script to transform.</p>
-   */
-  PythonScript?: string;
-}
-
-export namespace GetDataflowGraphRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataflowGraphRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDataflowGraphResponse {
-  /**
-   * <p>A list of the nodes in the resulting DAG.</p>
-   */
-  DagNodes?: CodeGenNode[];
-
-  /**
-   * <p>A list of the edges in the resulting DAG.</p>
-   */
-  DagEdges?: CodeGenEdge[];
-}
-
-export namespace GetDataflowGraphResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataflowGraphResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDevEndpointRequest {
-  /**
-   * <p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>
-   */
-  EndpointName: string | undefined;
-}
-
-export namespace GetDevEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDevEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDevEndpointResponse {
-  /**
-   * <p>A <code>DevEndpoint</code> definition.</p>
-   */
-  DevEndpoint?: DevEndpoint;
-}
-
-export namespace GetDevEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDevEndpointResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDevEndpointsRequest {
-  /**
-   * <p>The maximum size of information to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetDevEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDevEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDevEndpointsResponse {
-  /**
-   * <p>A list of <code>DevEndpoint</code> definitions.</p>
-   */
-  DevEndpoints?: DevEndpoint[];
-
-  /**
-   * <p>A continuation token, if not all <code>DevEndpoint</code> definitions have yet been
-   *       returned.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetDevEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDevEndpointsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobRequest {
-  /**
-   * <p>The name of the job definition to retrieve.</p>
-   */
-  JobName: string | undefined;
-}
-
-export namespace GetJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobResponse {
-  /**
-   * <p>The requested job definition.</p>
-   */
-  Job?: Job;
-}
-
-export namespace GetJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobResponse): any => ({
     ...obj,
   });
 }

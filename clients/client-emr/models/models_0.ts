@@ -1126,6 +1126,25 @@ export namespace AutoScalingPolicyDescription {
 }
 
 /**
+ * <p>An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. For alternative cluster termination options, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control cluster termination</a>.</p>
+ */
+export interface AutoTerminationPolicy {
+  /**
+   * <p>Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days).</p>
+   */
+  IdleTimeout?: number;
+}
+
+export namespace AutoTerminationPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoTerminationPolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A list of port ranges that are permitted to allow inbound traffic from all public IP
  *          addresses. To specify a single port, use the same value for <code>MinRange</code> and
  *             <code>MaxRange</code>.</p>
@@ -2496,12 +2515,12 @@ export interface JobFlowDetail {
   SupportedProducts?: string[];
 
   /**
-   * <p>Indicates whether the cluster is visible to IAM principals in the account associated
+   * <p>Indicates whether the cluster is visible to IAM principals in the Amazon Web Services account associated
    *          with the cluster. When <code>true</code>, IAM principals in the
-   *          account can perform EMR cluster actions that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions, regardless of IAM permissions policies attached to other IAM principals.</p>
+   *          Amazon Web Services account can perform EMR cluster actions that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform EMR actions, regardless of IAM permissions policies attached to other IAM principals.</p>
    *          <p>The default value is <code>true</code> if a value is not provided when creating a
    *          cluster using the EMR API <a>RunJobFlow</a> command, the CLI
-   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Management Console. IAM principals that are authorized to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Amazon Web Services Management Console. IAM principals that are authorized to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
    */
   VisibleToAllUsers?: boolean;
 
@@ -3342,6 +3361,38 @@ export namespace EbsVolume {
    * @internal
    */
   export const filterSensitiveLog = (obj: EbsVolume): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAutoTerminationPolicyInput {
+  /**
+   * <p>Specifies the ID of the Amazon EMR cluster for which the auto-termination policy will be fetched.</p>
+   */
+  ClusterId: string | undefined;
+}
+
+export namespace GetAutoTerminationPolicyInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAutoTerminationPolicyInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAutoTerminationPolicyOutput {
+  /**
+   * <p>Specifies the auto-termination policy that is attached to an Amazon EMR cluster. </p>
+   */
+  AutoTerminationPolicy?: AutoTerminationPolicy;
+}
+
+export namespace GetAutoTerminationPolicyOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAutoTerminationPolicyOutput): any => ({
     ...obj,
   });
 }
@@ -4457,7 +4508,7 @@ export interface ListReleaseLabelsInput {
   Filters?: ReleaseLabelFilter;
 
   /**
-   * <p>Specifies the next page of results. If <code>NextToken</code> is not specified, which is usually the case for the first request of ListReleaseLabels, the first page of results are determined by other filtering parameters or by the latest version. The <code>ListReleaseLabels</code> request fails if the identity (account ID) and all filtering parameters are different from the original request, or if the <code>NextToken</code> is expired or tampered with.</p>
+   * <p>Specifies the next page of results. If <code>NextToken</code> is not specified, which is usually the case for the first request of ListReleaseLabels, the first page of results are determined by other filtering parameters or by the latest version. The <code>ListReleaseLabels</code> request fails if the identity (Amazon Web Services account ID) and all filtering parameters are different from the original request, or if the <code>NextToken</code> is expired or tampered with.</p>
    */
   NextToken?: string;
 
@@ -4995,6 +5046,38 @@ export namespace PutAutoScalingPolicyOutput {
   });
 }
 
+export interface PutAutoTerminationPolicyInput {
+  /**
+   * <p>Specifies the ID of the Amazon EMR cluster to which the auto-termination policy will be attached.</p>
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * <p>Specifies the auto-termination policy to attach to the cluster.</p>
+   */
+  AutoTerminationPolicy?: AutoTerminationPolicy;
+}
+
+export namespace PutAutoTerminationPolicyInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutAutoTerminationPolicyInput): any => ({
+    ...obj,
+  });
+}
+
+export interface PutAutoTerminationPolicyOutput {}
+
+export namespace PutAutoTerminationPolicyOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutAutoTerminationPolicyOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface PutBlockPublicAccessConfigurationOutput {}
 
 export namespace PutBlockPublicAccessConfigurationOutput {
@@ -5067,6 +5150,33 @@ export namespace RemoveAutoScalingPolicyOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: RemoveAutoScalingPolicyOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveAutoTerminationPolicyInput {
+  /**
+   * <p>Specifies the ID of the Amazon EMR cluster from which the auto-termination policy will be removed.</p>
+   */
+  ClusterId: string | undefined;
+}
+
+export namespace RemoveAutoTerminationPolicyInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveAutoTerminationPolicyInput): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveAutoTerminationPolicyOutput {}
+
+export namespace RemoveAutoTerminationPolicyOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveAutoTerminationPolicyOutput): any => ({
     ...obj,
   });
 }
@@ -5225,7 +5335,7 @@ export interface SetVisibleToAllUsersInput {
   JobFlowIds: string[] | undefined;
 
   /**
-   * <p>A value of <code>true</code> indicates that an IAM principal in the account can perform
+   * <p>A value of <code>true</code> indicates that an IAM principal in the Amazon Web Services account can perform
    *          EMR actions on the cluster that the IAM policies attached to the principal allow. A
    *          value of <code>false</code> indicates that only the IAM principal that created the cluster and the Amazon Web Services root user can perform EMR actions on the cluster.</p>
    */
@@ -5601,12 +5711,12 @@ export interface Cluster {
   TerminationProtected?: boolean;
 
   /**
-   * <p>Indicates whether the cluster is visible to IAM principals in the account associated
+   * <p>Indicates whether the cluster is visible to IAM principals in the Amazon Web Services account associated
    *          with the cluster. When <code>true</code>, IAM principals in the
-   *          account can perform EMR cluster actions on the cluster that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions, regardless of IAM permissions policies attached to other IAM principals.</p>
+   *          Amazon Web Services account can perform EMR cluster actions on the cluster that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform EMR actions, regardless of IAM permissions policies attached to other IAM principals.</p>
    *          <p>The default value is <code>true</code> if a value is not provided when creating a
    *          cluster using the EMR API <a>RunJobFlow</a> command, the CLI
-   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Management Console. IAM principals that are
+   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Amazon Web Services Management Console. IAM principals that are
    *          allowed to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
    */
   VisibleToAllUsers?: boolean;
@@ -6749,8 +6859,8 @@ export interface RunJobFlowInput {
   Configurations?: Configuration[];
 
   /**
-   * <p>Set this value to <code>true</code> so that IAM principals in the account associated with the cluster can perform EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
-   *          <p>When set to <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions for the cluster, regardless of the IAM permissions policies attached to other IAM principals. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
+   * <p>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services account associated with the cluster can perform EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
+   *          <p>When set to <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform EMR actions for the cluster, regardless of the IAM permissions policies attached to other IAM principals. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
    */
   VisibleToAllUsers?: boolean;
 
@@ -6853,6 +6963,11 @@ export interface RunJobFlowInput {
    * <p>The specified placement group configuration for an Amazon EMR cluster.</p>
    */
   PlacementGroupConfigs?: PlacementGroupConfig[];
+
+  /**
+   * <p>An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. For alternative cluster termination options, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control cluster termination</a>.</p>
+   */
+  AutoTerminationPolicy?: AutoTerminationPolicy;
 }
 
 export namespace RunJobFlowInput {

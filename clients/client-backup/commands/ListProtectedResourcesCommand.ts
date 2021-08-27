@@ -21,9 +21,9 @@ export interface ListProtectedResourcesCommandInput extends ListProtectedResourc
 export interface ListProtectedResourcesCommandOutput extends ListProtectedResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns an array of resources successfully backed up by AWS Backup, including the time
- *          the resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
- *          type.</p>
+ * <p>Returns an array of resources successfully backed up by Backup, including
+ *          the time the resource was saved, an Amazon Resource Name (ARN) of the resource, and a
+ *          resource type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

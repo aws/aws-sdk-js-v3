@@ -5874,7 +5874,7 @@ export interface EventInformation {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>modify_successful</code> - The EC2 Fleet or Spot Fleet request was modified.</p>
+   *                     <code>modify_succeeded</code> - The EC2 Fleet or Spot Fleet request was modified.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -7473,7 +7473,7 @@ export interface DescribeHostReservationsRequest {
    *             </li>
    *             <li>
    *         		     <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *         	   </li>
    *             <li>
@@ -8963,6 +8963,11 @@ export interface ImportImageTask {
    * <p>The usage operation value.</p>
    */
   UsageOperation?: string;
+
+  /**
+   * <p>The boot mode of the virtual machine.</p>
+   */
+  BootMode?: BootModeValues | string;
 }
 
 export namespace ImportImageTask {

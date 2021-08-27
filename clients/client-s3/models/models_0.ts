@@ -1690,7 +1690,8 @@ export interface DeleteObjectRequest {
 
   /**
    * <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process
-   *          this operation.</p>
+   *          this operation. To use this header, you must have the <code>s3:PutBucketPublicAccessBlock</code>
+   *          permission.</p>
    */
   BypassGovernanceRetention?: boolean;
 
@@ -3756,7 +3757,8 @@ export interface DeleteObjectsRequest {
 
   /**
    * <p>Specifies whether you want to delete this object even if it has a Governance-type Object
-   *          Lock in place. You must have sufficient permissions to perform this operation.</p>
+   *          Lock in place. To use this header, you must have the <code>s3:PutBucketPublicAccessBlock</code>
+   *          permission.</p>
    */
   BypassGovernanceRetention?: boolean;
 

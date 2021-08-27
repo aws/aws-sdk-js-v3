@@ -55,9 +55,6 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *                <p>Amazon EC2 <code>CreateSnapshot</code> API call</p>
  *             </li>
  *             <li>
- *                <p>EC2 Image Builder</p>
- *             </li>
- *             <li>
  *                <p>Amazon EC2 <code>RebootInstances</code> API call</p>
  *             </li>
  *             <li>

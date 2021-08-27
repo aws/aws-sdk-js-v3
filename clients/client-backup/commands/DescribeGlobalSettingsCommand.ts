@@ -21,8 +21,10 @@ export interface DescribeGlobalSettingsCommandInput extends DescribeGlobalSettin
 export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the global settings of the AWS account, including whether it is opted in to
- *          cross-account backup.</p>
+ * <p>Describes whether the Amazon Web Services account is opted in to cross-account backup.
+ *          Returns an error if the account is not a member of an Organizations organization.
+ *          Example: <code>describe-global-settings --region us-west-2</code>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,7 +27,9 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
 
 /**
  * <p>Get interpolated values for an asset property for a specified time interval, during a
- *       period of time. For example, you can use the this operation to return the interpolated
+ *       period of time. If your time series is missing data points during the specified time interval,
+ *       you can use interpolation to estimate the missing data.</p>
+ *          <p>For example, you can use this operation to return the interpolated
  *       temperature values for a wind turbine every 24 hours over a duration of 7 days.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
  *          <ul>

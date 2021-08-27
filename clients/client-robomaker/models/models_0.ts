@@ -718,7 +718,7 @@ export interface SimulationJob {
    *          <dl>
    *             <dt>Continue</dt>
    *             <dd>
-   *                <p>Restart the simulation job in the same host instance.</p>
+   *                <p>Leaves the host running for its maximum timeout duration after a <code>4XX</code> error code.</p>
    *             </dd>
    *             <dt>Fail</dt>
    *             <dd>
@@ -2159,7 +2159,7 @@ export interface CreateSimulationJobRequest {
    *          <dl>
    *             <dt>Continue</dt>
    *             <dd>
-   *                <p>Restart the simulation job in the same host instance.</p>
+   *                <p>Leaves the instance running for its maximum timeout duration after a <code>4XX</code> error code.</p>
    *             </dd>
    *             <dt>Fail</dt>
    *             <dd>
@@ -2433,7 +2433,7 @@ export interface SimulationJobRequest {
    *          <dl>
    *             <dt>Continue</dt>
    *             <dd>
-   *                <p>Restart the simulation job in the same host instance.</p>
+   *                <p>Leaves the host running for its maximum timeout duration after a <code>4XX</code> error code.</p>
    *             </dd>
    *             <dt>Fail</dt>
    *             <dd>

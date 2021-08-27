@@ -21,7 +21,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Applies a key-value pair to an AWS resource.</p>
+ * <p>Applies a key-value pair to an Amazon Web Services resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

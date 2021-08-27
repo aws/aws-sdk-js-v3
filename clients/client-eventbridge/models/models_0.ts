@@ -3093,6 +3093,7 @@ export namespace CapacityProviderStrategyItem {
 
 export enum LaunchType {
   EC2 = "EC2",
+  EXTERNAL = "EXTERNAL",
   FARGATE = "FARGATE",
 }
 

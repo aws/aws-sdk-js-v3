@@ -28,7 +28,6 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *
  *          <p>For an example, see Analyzing Images Stored in an Amazon S3 Bucket in the Amazon Rekognition Developer Guide.</p>
  *          <note>
- *
  *             <p>
  *                <code>DetectLabels</code> does not support the detection of activities. However, activity detection
  *         is supported for label detection in videos. For more information, see StartLabelDetection in the Amazon Rekognition Developer Guide.</p>

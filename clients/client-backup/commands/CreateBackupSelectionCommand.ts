@@ -54,9 +54,10 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  *                </p>
  *             </li>
  *          </ul>
- *          <p>Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS) volumes
- *          that are tagged as <code>"department=finance"</code>, <code>"importance=critical"</code>,
- *          in addition to an EBS volume with the specified volume ID.</p>
+ *          <p>Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS)
+ *          volumes that are tagged as <code>"department=finance"</code>,
+ *             <code>"importance=critical"</code>, in addition to an EBS volume with the specified
+ *          volume ID.</p>
  *          <p>Resources and conditions are additive in that all resources that match the pattern are
  *          selected. This shouldn't be confused with a logical AND, where all conditions must match.
  *          The matching patterns are logically put together using the OR operator.

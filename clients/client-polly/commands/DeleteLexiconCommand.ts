@@ -21,11 +21,10 @@ export interface DeleteLexiconCommandInput extends DeleteLexiconInput {}
 export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which
- *       has been deleted is not available for speech synthesis, nor is it possible to retrieve it
- *       using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
- *         Lexicons</a>.</p>
+ * <p>Deletes the specified pronunciation lexicon stored in an Amazon Web Services Region. A lexicon which has been deleted is not available for
+ *       speech synthesis, nor is it possible to retrieve it using either the
+ *         <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

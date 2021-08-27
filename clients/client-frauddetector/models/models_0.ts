@@ -386,7 +386,7 @@ export namespace CancelBatchPredictionJobResult {
 }
 
 /**
- * <p>An exception indicating the specified resource was not found.</p>
+ * <p>An exception indicating the specified resource was not found. This can occur if you submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector name or version does not exist.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -1620,9 +1620,9 @@ export namespace TrainingMetrics {
 }
 
 /**
- * <p>The logit metric details.</p>
+ * <p>The log odds metric details.</p>
  */
-export interface LogitMetric {
+export interface LogOddsMetric {
   /**
    * <p>The name of the variable.</p>
    */
@@ -1634,16 +1634,16 @@ export interface LogitMetric {
   variableType: string | undefined;
 
   /**
-   * <p>The relative importance of the variable.</p>
+   * <p>The relative importance of the variable. For more information, see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/model-variable-importance.html">Model variable importance</a>.</p>
    */
   variableImportance: number | undefined;
 }
 
-export namespace LogitMetric {
+export namespace LogOddsMetric {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: LogitMetric): any => ({
+  export const filterSensitiveLog = (obj: LogOddsMetric): any => ({
     ...obj,
   });
 }
@@ -1655,7 +1655,7 @@ export interface VariableImportanceMetrics {
   /**
    * <p>List of variable metrics.</p>
    */
-  LogitMetrics?: LogitMetric[];
+  logOddsMetrics?: LogOddsMetric[];
 }
 
 export namespace VariableImportanceMetrics {
@@ -2312,6 +2312,7 @@ export namespace GetEventPredictionRequest {
    */
   export const filterSensitiveLog = (obj: GetEventPredictionRequest): any => ({
     ...obj,
+    ...(obj.entities && { entities: SENSITIVE_STRING }),
     ...(obj.eventVariables && { eventVariables: SENSITIVE_STRING }),
     ...(obj.externalModelEndpointDataBlobs && { externalModelEndpointDataBlobs: SENSITIVE_STRING }),
   });
@@ -2372,7 +2373,7 @@ export interface GetEventPredictionResult {
   modelScores?: ModelScores[];
 
   /**
-   * <p>The results.</p>
+   * <p>The results from the rules.</p>
    */
   ruleResults?: RuleResult[];
 }
@@ -2382,6 +2383,26 @@ export namespace GetEventPredictionResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetEventPredictionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *          An exception indicating that the attached customer-owned (external) model threw an exception when Amazon Fraud Detector invoked the model.
+ *       </p>
+ */
+export interface ResourceUnavailableException extends __SmithyException, $MetadataBearer {
+  name: "ResourceUnavailableException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceUnavailableException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
     ...obj,
   });
 }
@@ -2484,6 +2505,7 @@ export namespace GetEventTypesResult {
    */
   export const filterSensitiveLog = (obj: GetEventTypesResult): any => ({
     ...obj,
+    ...(obj.eventTypes && { eventTypes: SENSITIVE_STRING }),
   });
 }
 

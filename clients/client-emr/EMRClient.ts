@@ -38,6 +38,10 @@ import {
 import { DescribeStepCommandInput, DescribeStepCommandOutput } from "./commands/DescribeStepCommand";
 import { DescribeStudioCommandInput, DescribeStudioCommandOutput } from "./commands/DescribeStudioCommand";
 import {
+  GetAutoTerminationPolicyCommandInput,
+  GetAutoTerminationPolicyCommandOutput,
+} from "./commands/GetAutoTerminationPolicyCommand";
+import {
   GetBlockPublicAccessConfigurationCommandInput,
   GetBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/GetBlockPublicAccessConfigurationCommand";
@@ -86,6 +90,10 @@ import {
   PutAutoScalingPolicyCommandOutput,
 } from "./commands/PutAutoScalingPolicyCommand";
 import {
+  PutAutoTerminationPolicyCommandInput,
+  PutAutoTerminationPolicyCommandOutput,
+} from "./commands/PutAutoTerminationPolicyCommand";
+import {
   PutBlockPublicAccessConfigurationCommandInput,
   PutBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/PutBlockPublicAccessConfigurationCommand";
@@ -97,6 +105,10 @@ import {
   RemoveAutoScalingPolicyCommandInput,
   RemoveAutoScalingPolicyCommandOutput,
 } from "./commands/RemoveAutoScalingPolicyCommand";
+import {
+  RemoveAutoTerminationPolicyCommandInput,
+  RemoveAutoTerminationPolicyCommandOutput,
+} from "./commands/RemoveAutoTerminationPolicyCommand";
 import {
   RemoveManagedScalingPolicyCommandInput,
   RemoveManagedScalingPolicyCommandOutput,
@@ -196,6 +208,7 @@ export type ServiceInputTypes =
   | DescribeSecurityConfigurationCommandInput
   | DescribeStepCommandInput
   | DescribeStudioCommandInput
+  | GetAutoTerminationPolicyCommandInput
   | GetBlockPublicAccessConfigurationCommandInput
   | GetManagedScalingPolicyCommandInput
   | GetStudioSessionMappingCommandInput
@@ -214,9 +227,11 @@ export type ServiceInputTypes =
   | ModifyInstanceFleetCommandInput
   | ModifyInstanceGroupsCommandInput
   | PutAutoScalingPolicyCommandInput
+  | PutAutoTerminationPolicyCommandInput
   | PutBlockPublicAccessConfigurationCommandInput
   | PutManagedScalingPolicyCommandInput
   | RemoveAutoScalingPolicyCommandInput
+  | RemoveAutoTerminationPolicyCommandInput
   | RemoveManagedScalingPolicyCommandInput
   | RemoveTagsCommandInput
   | RunJobFlowCommandInput
@@ -247,6 +262,7 @@ export type ServiceOutputTypes =
   | DescribeSecurityConfigurationCommandOutput
   | DescribeStepCommandOutput
   | DescribeStudioCommandOutput
+  | GetAutoTerminationPolicyCommandOutput
   | GetBlockPublicAccessConfigurationCommandOutput
   | GetManagedScalingPolicyCommandOutput
   | GetStudioSessionMappingCommandOutput
@@ -265,9 +281,11 @@ export type ServiceOutputTypes =
   | ModifyInstanceFleetCommandOutput
   | ModifyInstanceGroupsCommandOutput
   | PutAutoScalingPolicyCommandOutput
+  | PutAutoTerminationPolicyCommandOutput
   | PutBlockPublicAccessConfigurationCommandOutput
   | PutManagedScalingPolicyCommandOutput
   | RemoveAutoScalingPolicyCommandOutput
+  | RemoveAutoTerminationPolicyCommandOutput
   | RemoveManagedScalingPolicyCommandOutput
   | RemoveTagsCommandOutput
   | RunJobFlowCommandOutput

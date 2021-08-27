@@ -809,21 +809,46 @@ export class Rekognition extends RekognitionClient {
    *          Each <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level
    *          of confidence that the image contains the object (<code>Confidence</code>), and
    *          object location information, if it exists,  for the label on the image (<code>Geometry</code>). </p>
-   *          <p>During training model calculates a threshold value that determines
-   *          if a prediction for a label is true. By default, <code>DetectCustomLabels</code> doesn't
-   *          return labels whose confidence value is below the model's calculated threshold value.  To filter
-   *          labels that are returned, specify a value for <code>MinConfidence</code> that is higher than the
-   *          model's calculated threshold. You can get the model's calculated threshold from the model's
-   *          training results shown in the Amazon Rekognition Custom Labels console.
-   *          To get all labels, regardless of confidence, specify a <code>MinConfidence</code>
-   *          value of 0. </p>
-   *          <p>You can also add the <code>MaxResults</code> parameter
-   *            to limit the number of labels returned. </p>
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *          <p>To filter labels that are returned, specify a value for <code>MinConfidence</code>.
+   *          <code>DetectCustomLabelsLabels</code> only returns labels with a confidence that's higher than
+   *          the specified value.
+   *
+   *          The value of <code>MinConfidence</code> maps to the assumed threshold values
+   *          created during training. For more information, see <i>Assumed threshold</i>
+   *          in the Amazon Rekognition Custom Labels Developer Guide.
+   *          Amazon Rekognition Custom Labels metrics expresses an assumed threshold as a floating point value between 0-1. The range of
+   *          <code>MinConfidence</code> normalizes the threshold value to a percentage value (0-100). Confidence
+   *          responses from <code>DetectCustomLabels</code> are also returned as a percentage.
+   *          You can use <code>MinConfidence</code> to change the precision and recall or your model.
+   *          For more information, see
+   *          <i>Analyzing an image</i> in the Amazon Rekognition Custom Labels Developer Guide. </p>
+   *
+   *          <p>If you don't specify a value for <code>MinConfidence</code>,  <code>DetectCustomLabels</code>
+   *       returns labels based on the assumed threshold of each label.</p>
+   *
+   *
+   *
+   *
    *
    *          <p>This is a stateless API operation. That is, the operation does not persist any
    *          data.</p>
    *          <p>This operation requires permissions to perform the
    *          <code>rekognition:DetectCustomLabels</code> action. </p>
+   *
+   *
+   *
+   *          <p>For more information, see
+   *       <i>Analyzing an image</i> in the Amazon Rekognition Custom Labels Developer Guide. </p>
    */
   public detectCustomLabels(
     args: DetectCustomLabelsCommandInput,
@@ -910,7 +935,6 @@ export class Rekognition extends RekognitionClient {
    *
    *          <p>For an example, see Analyzing Images Stored in an Amazon S3 Bucket in the Amazon Rekognition Developer Guide.</p>
    *          <note>
-   *
    *             <p>
    *                <code>DetectLabels</code> does not support the detection of activities. However, activity detection
    *         is supported for label detection in videos. For more information, see StartLabelDetection in the Amazon Rekognition Developer Guide.</p>
@@ -1168,9 +1192,9 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   * <p>Gets the name and additional information about a celebrity based on his or her
-   *       Amazon Rekognition ID. The additional information is returned as an array of URLs. If there is no
-   *       additional information about the celebrity, this list is empty.</p>
+   * <p>Gets the name and additional information about a celebrity based on their Amazon Rekognition ID.
+   *       The additional information is returned as an array of URLs. If there is no additional
+   *       information about the celebrity, this list is empty.</p>
    *
    *          <p>For more information, see Recognizing Celebrities in an Image in
    *       the Amazon Rekognition Developer Guide.</p>
@@ -1221,12 +1245,10 @@ export class Rekognition extends RekognitionClient {
    *          <p>
    *             <code>GetCelebrityRecognition</code> returns detected celebrities and the time(s) they are detected in an array
    *       (<code>Celebrities</code>) of <a>CelebrityRecognition</a>
-   *
    *       objects. Each <code>CelebrityRecognition</code> contains information about the celebrity in a <a>CelebrityDetail</a>
    *       object and the time, <code>Timestamp</code>, the celebrity was detected.
    *       </p>
    *          <note>
-   *
    *             <p>
    *                <code>GetCelebrityRecognition</code> only returns the default
    *         facial attributes (<code>BoundingBox</code>, <code>Confidence</code>,
@@ -1399,7 +1421,6 @@ export class Rekognition extends RekognitionClient {
    *     bounding boxes, and person identifer)
    *     for the matched person, and the time the person was matched in the video.</p>
    *          <note>
-   *
    *             <p>
    *                <code>GetFaceSearch</code> only returns the default
    *         facial attributes (<code>BoundingBox</code>, <code>Confidence</code>,

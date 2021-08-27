@@ -21,7 +21,7 @@ export interface ListAgentsCommandInput extends ListAgentsRequest {}
 export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of agents owned by an AWS account in the AWS Region specified in the
+ * <p>Returns a list of agents owned by an Amazon Web Services account in the Amazon Web Services Region specified in the
  *       request. The returned list is ordered by agent Amazon Resource Name (ARN).</p>
  *          <p>By default, this operation returns a maximum of 100 agents. This operation supports
  *       pagination that enables you to optionally reduce the number of agents returned in a

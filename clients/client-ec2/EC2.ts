@@ -2674,7 +2674,8 @@ export class EC2 extends EC2Client {
    *         <p>You must specify either the IPv6 addresses or the IPv6 address count in the request. </p>
    *         <p>You can optionally use Prefix Delegation on the network interface. You must specify
    *             either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation">Prefix Delegation</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
+   *                 Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public assignIpv6Addresses(
     args: AssignIpv6AddressesCommandInput,
@@ -2720,7 +2721,8 @@ export class EC2 extends EC2Client {
    *         <p>You must specify either the IP addresses or the IP address count in the request.</p>
    *         <p>You can optionally use Prefix Delegation on the network interface. You must specify
    *             either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation">Prefix Delegation</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
+   *                 Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public assignPrivateIpAddresses(
     args: AssignPrivateIpAddressesCommandInput,
@@ -3062,7 +3064,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p>
-   *         <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a> to see the state of the attachment.</p>
+   *         <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a>
+   *             to see the state of the attachment.</p>
    */
   public associateTransitGatewayMulticastDomain(
     args: AssociateTransitGatewayMulticastDomainCommandInput,
@@ -3129,11 +3132,14 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Associates a branch network interface with a trunk network interface.</p>
+   * <note>
+   *             <p>This API action is currently in <b>limited preview only</b>.
+   *                 If you are interested in using this feature, contact your account manager.</p>
+   *         </note>
+   *
+   *         <p>Associates a branch network interface with a trunk network interface.</p>
    *         <p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set
    *             <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html">
-   *             Network interface trunking</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public associateTrunkInterface(
     args: AssociateTrunkInterfaceCommandInput,
@@ -5864,7 +5870,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p>
-   *         <p>A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the underlying transport mechanism. </p>
+   *         <p>A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.</p>
    */
   public createTransitGatewayConnect(
     args: CreateTransitGatewayConnectCommandInput,
@@ -5966,10 +5972,10 @@ export class EC2 extends EC2Client {
   /**
    * <p>Requests a transit gateway peering attachment between the specified transit gateway
    *             (requester) and a peer transit gateway (accepter). The transit gateways must be in
-   *             different Regions. The peer transit gateway can be in your account or a different AWS
-   *             account. </p>
-   *          <p>After you create the peering attachment, the owner of the accepter
-   *             transit gateway must accept the attachment request.</p>
+   *             different Regions. The peer transit gateway can be in your account or a different
+   *             Amazon Web Services account.</p>
+   *         <p>After you create the peering attachment, the owner of the accepter transit gateway
+   *             must accept the attachment request.</p>
    */
   public createTransitGatewayPeeringAttachment(
     args: CreateTransitGatewayPeeringAttachmentCommandInput,
@@ -12369,7 +12375,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes one or more network interface trunk associations.</p>
+   * <note>
+   *             <p>This API action is currently in <b>limited preview only</b>.
+   *                 If you are interested in using this feature, contact your account manager.</p>
+   *         </note>
+   *         <p>Describes one or more network interface trunk associations.</p>
    */
   public describeTrunkInterfaceAssociations(
     args: DescribeTrunkInterfaceAssociationsCommandInput,
@@ -13781,7 +13791,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Removes an association between a branch network interface with a trunk network interface.</p>
+   * <note>
+   *             <p>This API action is currently in <b>limited preview only</b>.
+   *                 If you are interested in using this feature, contact your account manager.</p>
+   *         </note>
+   *         <p>Removes an association between a branch network interface with a trunk network interface.</p>
    */
   public disassociateTrunkInterface(
     args: DisassociateTrunkInterfaceCommandInput,

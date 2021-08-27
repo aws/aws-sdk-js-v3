@@ -40,7 +40,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *                <p>API Gateway</p>
  *             </li>
  *             <li>
- *                <p>AWS Batch job queue</p>
+ *                <p>Batch job queue</p>
  *             </li>
  *             <li>
  *                <p>CloudWatch Logs group</p>
@@ -49,7 +49,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *                <p>CodeBuild project</p>
  *             </li>
  *             <li>
- *                <p>CodePineline</p>
+ *                <p>CodePipeline</p>
  *             </li>
  *             <li>
  *                <p>Amazon EC2 <code>CreateSnapshot</code> API call</p>
@@ -67,7 +67,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *                <p>Amazon ECS tasks</p>
  *             </li>
  *             <li>
- *                <p>Event bus in a different AWS account or Region.</p>
+ *                <p>Event bus in a different Amazon Web Services account or Region.</p>
  *                <p>You can use an event bus in the US East (N. Virginia) us-east-1, US West (Oregon)
  *           us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a rule.</p>
  *             </li>
@@ -81,7 +81,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *                <p>Kinesis stream (Kinesis Data Stream)</p>
  *             </li>
  *             <li>
- *                <p>AWS Lambda function</p>
+ *                <p>Lambda function</p>
  *             </li>
  *             <li>
  *                <p>Redshift clusters (Data API statement execution)</p>
@@ -106,7 +106,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *             </li>
  *          </ul>
  *
- *          <p>Creating rules with built-in targets is supported only in the AWS Management Console. The
+ *          <p>Creating rules with built-in targets is supported only in the Management Console. The
  *       built-in targets are <code>EC2 CreateSnapshot API call</code>, <code>EC2 RebootInstances API
  *         call</code>, <code>EC2 StopInstances API call</code>, and <code>EC2 TerminateInstances API
  *         call</code>. </p>
@@ -117,26 +117,26 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *       instances with one rule, you can use the <code>RunCommandParameters</code> field.</p>
  *
  *          <p>To be able to make API calls against the resources that you own, Amazon EventBridge
- *       (CloudWatch Events) needs the appropriate permissions. For AWS Lambda and Amazon SNS
- *       resources, EventBridge relies on resource-based policies. For EC2 instances, Kinesis data
- *       streams, AWS Step Functions state machines and API Gateway REST APIs, EventBridge relies on
+ *       needs the appropriate permissions. For Lambda and Amazon SNS
+ *       resources, EventBridge relies on resource-based policies. For EC2 instances, Kinesis Data Streams,
+ *       Step Functions state machines and API Gateway REST APIs, EventBridge relies on
  *       IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.
  *       For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication
  *         and Access Control</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  *
- *          <p>If another AWS account is in the same region and has granted you permission (using
+ *          <p>If another Amazon Web Services account is in the same region and has granted you permission (using
  *         <code>PutPermission</code>), you can send events to that account. Set that account's event
  *       bus as a target of the rules in your account. To send the matched events to the other account,
  *       specify that account's event bus as the <code>Arn</code> value when you run
  *         <code>PutTargets</code>. If your account sends events to another account, your account is
  *       charged for each sent event. Each event sent to another account is charged as a custom event.
- *       The account receiving the event is not charged. For more information, see <a href="https://aws.amazon.com/eventbridge/pricing/">Amazon EventBridge (CloudWatch Events)
+ *       The account receiving the event is not charged. For more information, see <a href="http://aws.amazon.com/eventbridge/pricing/">Amazon EventBridge
  *         Pricing</a>.</p>
  *
  *          <note>
  *             <p>
  *                <code>Input</code>, <code>InputPath</code>, and <code>InputTransformer</code> are not
- *         available with <code>PutTarget</code> if the target is an event bus of a different AWS
+ *         available with <code>PutTarget</code> if the target is an event bus of a different Amazon Web Services
  *         account.</p>
  *          </note>
  *
@@ -144,10 +144,10 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *       granted permission to your account through an organization instead of directly by the account
  *       ID, then you must specify a <code>RoleArn</code> with proper permissions in the
  *         <code>Target</code> structure. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending and
- *         Receiving Events Between AWS Accounts</a> in the <i>Amazon EventBridge User
+ *           Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User
  *         Guide</i>.</p>
  *
- *          <p>For more information about enabling cross-account events, see <a>PutPermission</a>.</p>
+ *          <p>For more information about enabling cross-account events, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html">PutPermission</a>.</p>
  *
  *          <p>
  *             <b>Input</b>, <b>InputPath</b>, and

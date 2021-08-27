@@ -687,11 +687,12 @@ export namespace LaunchTemplatesMonitoringRequest {
 }
 
 /**
- * <p>Describes the IPv4 Prefix Delegation option for a network interface.</p>
+ * <p>Describes the IPv4 prefix option for a network interface.</p>
  */
 export interface Ipv4PrefixSpecificationRequest {
   /**
-   * <p>The IPv4 Prefix Delegation prefix. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation">Prefix Delegation</a> in the
+   * <p>The IPv4 prefix. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
+   *             Assigning prefixes to Amazon EC2 network interfaces</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   Ipv4Prefix?: string;
@@ -726,11 +727,11 @@ export namespace InstanceIpv6AddressRequest {
 }
 
 /**
- * <p>Describes the IPv4 Prefix Delegation option for a network interface.</p>
+ * <p>Describes the IPv4 prefix option for a network interface.</p>
  */
 export interface Ipv6PrefixSpecificationRequest {
   /**
-   * <p>The IPv6 Prefix Delegation prefix.</p>
+   * <p>The IPv6 prefix.</p>
    */
   Ipv6Prefix?: string;
 }
@@ -3475,22 +3476,22 @@ export interface CreateNetworkInterfaceRequest {
   SecondaryPrivateIpAddressCount?: number;
 
   /**
-   * <p>One or moreIPv4 Prefix Delegation prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   * <p>One or more IPv4 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
    */
   Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[];
 
   /**
-   * <p>The number of IPv4 Prefix Delegation prefixes that AWS automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
+   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
    */
   Ipv4PrefixCount?: number;
 
   /**
-   * <p>One or moreIPv6 Prefix Delegation prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   * <p>One or more IPv6 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
    */
   Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[];
 
   /**
-   * <p>The number of IPv6 Prefix Delegation prefixes that AWS automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code> option.</p>
+   * <p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code> option.</p>
    */
   Ipv6PrefixCount?: number;
 
@@ -3681,11 +3682,11 @@ export namespace NetworkInterfaceIpv6Address {
 }
 
 /**
- * <p>Describes the IPv6 Prefix Delegation.</p>
+ * <p>Describes the IPv6 prefix.</p>
  */
 export interface Ipv6PrefixSpecification {
   /**
-   * <p>The IPv6 Prefix Delegation prefix.</p>
+   * <p>The IPv6 prefix.</p>
    */
   Ipv6Prefix?: string;
 }
@@ -3810,16 +3811,12 @@ export interface NetworkInterface {
   PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[];
 
   /**
-   * <p>The IPv4 Prefix Delegation prefixes
-   *             that are
-   *             assigned to the network interface.</p>
+   * <p>The IPv4 prefixes that are assigned to the network interface.</p>
    */
   Ipv4Prefixes?: Ipv4PrefixSpecification[];
 
   /**
-   * <p>The IPv6 Prefix Delegation prefixes
-   *             that are
-   *             assigned to the network interface.</p>
+   * <p>The IPv6 prefixes that are assigned to the network interface.</p>
    */
   Ipv6Prefixes?: Ipv6PrefixSpecification[];
 
@@ -6419,7 +6416,7 @@ export interface TransitGateway {
   State?: TransitGatewayState | string;
 
   /**
-   * <p>The ID of the AWS account ID that owns the transit gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
    */
   OwnerId?: string;
 
@@ -6492,7 +6489,7 @@ export namespace CreateTransitGatewayConnectRequestOptions {
 
 export interface CreateTransitGatewayConnectRequest {
   /**
-   * <p>The ID of the transit gateway attachment. You can specify a VPC attachment or a AWS Direct Connect attachment.</p>
+   * <p>The ID of the transit gateway attachment. You can specify a VPC attachment or Amazon Web Services Direct Connect attachment.</p>
    */
   TransportTransitGatewayAttachmentId: string | undefined;
 
@@ -6941,7 +6938,7 @@ export interface TransitGatewayMulticastDomain {
   TransitGatewayMulticastDomainArn?: string;
 
   /**
-   * <p> The ID of the AWS account that owns the transit gateway multiicast domain.</p>
+   * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain.</p>
    */
   OwnerId?: string;
 
@@ -7003,7 +7000,7 @@ export interface CreateTransitGatewayPeeringAttachmentRequest {
   PeerTransitGatewayId: string | undefined;
 
   /**
-   * <p>The AWS account ID of the owner of the peer transit gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the peer transit gateway.</p>
    */
   PeerAccountId: string | undefined;
 

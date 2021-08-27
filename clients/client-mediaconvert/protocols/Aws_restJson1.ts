@@ -108,11 +108,9 @@ import {
   Mp2Settings,
   Mp3Settings,
   Mp4Settings,
-  MpdSettings,
   MsSmoothAdditionalManifest,
   MsSmoothEncryptionSettings,
   MsSmoothGroupSettings,
-  MxfXavcProfileSettings,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OpusSettings,
@@ -168,8 +166,10 @@ import {
   JobSettings,
   JobTemplate,
   JobTemplateSettings,
+  MpdSettings,
   Mpeg2Settings,
   MxfSettings,
+  MxfXavcProfileSettings,
   NexGuardFileMarkerSettings,
   NoiseReducer,
   NoiseReducerFilterSettings,
@@ -4436,6 +4436,8 @@ const serializeAws_restJson1CmafGroupSettings = (input: CmafGroupSettings, conte
     ...(input.SegmentControl !== undefined &&
       input.SegmentControl !== null && { segmentControl: input.SegmentControl }),
     ...(input.SegmentLength !== undefined && input.SegmentLength !== null && { segmentLength: input.SegmentLength }),
+    ...(input.SegmentLengthControl !== undefined &&
+      input.SegmentLengthControl !== null && { segmentLengthControl: input.SegmentLengthControl }),
     ...(input.StreamInfResolution !== undefined &&
       input.StreamInfResolution !== null && { streamInfResolution: input.StreamInfResolution }),
     ...(input.TargetDurationCompatibilityMode !== undefined &&
@@ -4569,6 +4571,8 @@ const serializeAws_restJson1DashIsoGroupSettings = (input: DashIsoGroupSettings,
     ...(input.SegmentControl !== undefined &&
       input.SegmentControl !== null && { segmentControl: input.SegmentControl }),
     ...(input.SegmentLength !== undefined && input.SegmentLength !== null && { segmentLength: input.SegmentLength }),
+    ...(input.SegmentLengthControl !== undefined &&
+      input.SegmentLengthControl !== null && { segmentLengthControl: input.SegmentLengthControl }),
     ...(input.WriteSegmentTimelineInRepresentation !== undefined &&
       input.WriteSegmentTimelineInRepresentation !== null && {
         writeSegmentTimelineInRepresentation: input.WriteSegmentTimelineInRepresentation,
@@ -5178,6 +5182,8 @@ const serializeAws_restJson1HlsGroupSettings = (input: HlsGroupSettings, context
     ...(input.SegmentControl !== undefined &&
       input.SegmentControl !== null && { segmentControl: input.SegmentControl }),
     ...(input.SegmentLength !== undefined && input.SegmentLength !== null && { segmentLength: input.SegmentLength }),
+    ...(input.SegmentLengthControl !== undefined &&
+      input.SegmentLengthControl !== null && { segmentLengthControl: input.SegmentLengthControl }),
     ...(input.SegmentsPerSubdirectory !== undefined &&
       input.SegmentsPerSubdirectory !== null && { segmentsPerSubdirectory: input.SegmentsPerSubdirectory }),
     ...(input.StreamInfResolution !== undefined &&
@@ -5540,6 +5546,8 @@ const serializeAws_restJson1M2tsSettings = (input: M2tsSettings, context: __Serd
       }),
     ...(input.Bitrate !== undefined && input.Bitrate !== null && { bitrate: input.Bitrate }),
     ...(input.BufferModel !== undefined && input.BufferModel !== null && { bufferModel: input.BufferModel }),
+    ...(input.DataPTSControl !== undefined &&
+      input.DataPTSControl !== null && { dataPTSControl: input.DataPTSControl }),
     ...(input.DvbNitSettings !== undefined &&
       input.DvbNitSettings !== null && {
         dvbNitSettings: serializeAws_restJson1DvbNitSettings(input.DvbNitSettings, context),
@@ -5609,6 +5617,8 @@ const serializeAws_restJson1M3u8Settings = (input: M3u8Settings, context: __Serd
       input.AudioPids !== null && {
         audioPids: serializeAws_restJson1__listOf__integerMin32Max8182(input.AudioPids, context),
       }),
+    ...(input.DataPTSControl !== undefined &&
+      input.DataPTSControl !== null && { dataPTSControl: input.DataPTSControl }),
     ...(input.MaxPcrInterval !== undefined &&
       input.MaxPcrInterval !== null && { maxPcrInterval: input.MaxPcrInterval }),
     ...(input.NielsenId3 !== undefined && input.NielsenId3 !== null && { nielsenId3: input.NielsenId3 }),
@@ -5831,6 +5841,8 @@ const serializeAws_restJson1MsSmoothGroupSettings = (input: MsSmoothGroupSetting
       }),
     ...(input.FragmentLength !== undefined &&
       input.FragmentLength !== null && { fragmentLength: input.FragmentLength }),
+    ...(input.FragmentLengthControl !== undefined &&
+      input.FragmentLengthControl !== null && { fragmentLengthControl: input.FragmentLengthControl }),
     ...(input.ManifestEncoding !== undefined &&
       input.ManifestEncoding !== null && { manifestEncoding: input.ManifestEncoding }),
   };
@@ -6178,6 +6190,8 @@ const serializeAws_restJson1S3EncryptionSettings = (input: S3EncryptionSettings,
   return {
     ...(input.EncryptionType !== undefined &&
       input.EncryptionType !== null && { encryptionType: input.EncryptionType }),
+    ...(input.KmsEncryptionContext !== undefined &&
+      input.KmsEncryptionContext !== null && { kmsEncryptionContext: input.KmsEncryptionContext }),
     ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { kmsKeyArn: input.KmsKeyArn }),
   };
 };
@@ -7637,6 +7651,7 @@ const deserializeAws_restJson1CmafGroupSettings = (output: any, context: __Serde
     PtsOffsetHandlingForBFrames: __expectString(output.ptsOffsetHandlingForBFrames),
     SegmentControl: __expectString(output.segmentControl),
     SegmentLength: __expectInt(output.segmentLength),
+    SegmentLengthControl: __expectString(output.segmentLengthControl),
     StreamInfResolution: __expectString(output.streamInfResolution),
     TargetDurationCompatibilityMode: __expectString(output.targetDurationCompatibilityMode),
     WriteDashManifest: __expectString(output.writeDashManifest),
@@ -7763,6 +7778,7 @@ const deserializeAws_restJson1DashIsoGroupSettings = (output: any, context: __Se
     PtsOffsetHandlingForBFrames: __expectString(output.ptsOffsetHandlingForBFrames),
     SegmentControl: __expectString(output.segmentControl),
     SegmentLength: __expectInt(output.segmentLength),
+    SegmentLengthControl: __expectString(output.segmentLengthControl),
     WriteSegmentTimelineInRepresentation: __expectString(output.writeSegmentTimelineInRepresentation),
   } as any;
 };
@@ -8235,6 +8251,7 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
     ProgramDateTimePeriod: __expectInt(output.programDateTimePeriod),
     SegmentControl: __expectString(output.segmentControl),
     SegmentLength: __expectInt(output.segmentLength),
+    SegmentLengthControl: __expectString(output.segmentLengthControl),
     SegmentsPerSubdirectory: __expectInt(output.segmentsPerSubdirectory),
     StreamInfResolution: __expectString(output.streamInfResolution),
     TargetDurationCompatibilityMode: __expectString(output.targetDurationCompatibilityMode),
@@ -8677,6 +8694,7 @@ const deserializeAws_restJson1M2tsSettings = (output: any, context: __SerdeConte
         : undefined,
     Bitrate: __expectInt(output.bitrate),
     BufferModel: __expectString(output.bufferModel),
+    DataPTSControl: __expectString(output.dataPTSControl),
     DvbNitSettings:
       output.dvbNitSettings !== undefined && output.dvbNitSettings !== null
         ? deserializeAws_restJson1DvbNitSettings(output.dvbNitSettings, context)
@@ -8734,6 +8752,7 @@ const deserializeAws_restJson1M3u8Settings = (output: any, context: __SerdeConte
       output.audioPids !== undefined && output.audioPids !== null
         ? deserializeAws_restJson1__listOf__integerMin32Max8182(output.audioPids, context)
         : undefined,
+    DataPTSControl: __expectString(output.dataPTSControl),
     MaxPcrInterval: __expectInt(output.maxPcrInterval),
     NielsenId3: __expectString(output.nielsenId3),
     PatInterval: __expectInt(output.patInterval),
@@ -8917,6 +8936,7 @@ const deserializeAws_restJson1MsSmoothGroupSettings = (output: any, context: __S
         ? deserializeAws_restJson1MsSmoothEncryptionSettings(output.encryption, context)
         : undefined,
     FragmentLength: __expectInt(output.fragmentLength),
+    FragmentLengthControl: __expectString(output.fragmentLengthControl),
     ManifestEncoding: __expectString(output.manifestEncoding),
   } as any;
 };
@@ -9330,6 +9350,7 @@ const deserializeAws_restJson1S3DestinationSettings = (output: any, context: __S
 const deserializeAws_restJson1S3EncryptionSettings = (output: any, context: __SerdeContext): S3EncryptionSettings => {
   return {
     EncryptionType: __expectString(output.encryptionType),
+    KmsEncryptionContext: __expectString(output.kmsEncryptionContext),
     KmsKeyArn: __expectString(output.kmsKeyArn),
   } as any;
 };

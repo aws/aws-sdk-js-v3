@@ -52,6 +52,7 @@ import {
 import {
   HttpTokensState,
   InstanceMetadataEndpointState,
+  InstanceMetadataProtocolState,
   InstanceNetworkInterfaceSpecification,
   InstanceState,
   Monitoring,
@@ -63,7 +64,39 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_3";
-import { CapacityReservationSpecification, PeeringConnectionOptions, Purchase } from "./models_4";
+import { CapacityReservationSpecification, Purchase } from "./models_4";
+
+/**
+ * <p>Describes the VPC peering connection options.</p>
+ */
+export interface PeeringConnectionOptions {
+  /**
+   * <p>If true, the public DNS hostnames of instances in the specified VPC resolve to private
+   *             IP addresses when queried from instances in the peer VPC.</p>
+   */
+  AllowDnsResolutionFromRemoteVpc?: boolean;
+
+  /**
+   * <p>If true, enables outbound communication from an EC2-Classic instance that's linked to
+   *             a local VPC using ClassicLink to instances in a peer VPC.</p>
+   */
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
+
+  /**
+   * <p>If true, enables outbound communication from instances in a local VPC to an
+   *             EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
+   */
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
+}
+
+export namespace PeeringConnectionOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PeeringConnectionOptions): any => ({
+    ...obj,
+  });
+}
 
 export interface ModifyVpcPeeringConnectionOptionsResult {
   /**
@@ -3245,6 +3278,11 @@ export interface InstanceMetadataOptionsRequest {
    *         </note>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+   */
+  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
 }
 
 export namespace InstanceMetadataOptionsRequest {
@@ -3258,7 +3296,9 @@ export namespace InstanceMetadataOptionsRequest {
 
 export interface RunInstancesRequest {
   /**
-   * <p>The block device mapping entries.</p>
+   * <p>The block device mapping, which defines the EBS volumes and instance store
+   *             volumes to attach to the instance at launch. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device mappings</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
 
@@ -3301,7 +3341,7 @@ export interface RunInstancesRequest {
    * <p>The ID of the kernel.</p>
    *         <important>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
-   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html"> PV-GRUB</a> in the
+   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">PV-GRUB</a> in the
    *                     <i>Amazon EC2 User Guide</i>.</p>
    *         </important>
    */
@@ -3356,7 +3396,7 @@ export interface RunInstancesRequest {
    *             kernel ID.</p>
    *         <important>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
-   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html"> PV-GRUB</a> in the
+   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">PV-GRUB</a> in the
    *                     <i>Amazon EC2 User Guide</i>.</p>
    *         </important>
    */
@@ -4101,10 +4141,6 @@ export interface SearchTransitGatewayMulticastGroupsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>state</code> - The state of the subnet association. Valid values are <code>associated</code> | <code>associated</code> | <code>disassociated</code> | <code>disassociating</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
    *                   <code>subnet-id</code> - The ID of the subnet.</p>
    *             </li>
    *             <li>
@@ -4175,7 +4211,7 @@ export interface TransitGatewayMulticastGroup {
   ResourceType?: TransitGatewayAttachmentResourceType | string;
 
   /**
-   * <p> The ID of the AWS account that owns the transit gateway multicast domain group resource.</p>
+   * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain group resource.</p>
    */
   ResourceOwnerId?: string;
 
@@ -4718,7 +4754,7 @@ export interface UnassignIpv6AddressesRequest {
   Ipv6Addresses?: string[];
 
   /**
-   * <p>One or moreIPv6 Prefix Delegation prefixes to unassign from the network interface.</p>
+   * <p>One or more IPv6 prefixes to unassign from the network interface.</p>
    */
   Ipv6Prefixes?: string[];
 
@@ -4749,7 +4785,7 @@ export interface UnassignIpv6AddressesResult {
   UnassignedIpv6Addresses?: string[];
 
   /**
-   * <p>The IPv4 Prefix Delegation prefixes that have been unassigned from  the network interface.</p>
+   * <p>The IPv4 prefixes that have been unassigned from  the network interface.</p>
    */
   UnassignedIpv6Prefixes?: string[];
 }
@@ -4778,7 +4814,7 @@ export interface UnassignPrivateIpAddressesRequest {
   PrivateIpAddresses?: string[];
 
   /**
-   * <p>The IPv4 Prefix Delegation prefixes to unassign from  the network interface.</p>
+   * <p>The IPv4 prefixes to unassign from  the network interface.</p>
    */
   Ipv4Prefixes?: string[];
 }

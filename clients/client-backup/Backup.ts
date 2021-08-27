@@ -15,6 +15,16 @@ import {
   CreateBackupVaultCommandOutput,
 } from "./commands/CreateBackupVaultCommand";
 import {
+  CreateFrameworkCommand,
+  CreateFrameworkCommandInput,
+  CreateFrameworkCommandOutput,
+} from "./commands/CreateFrameworkCommand";
+import {
+  CreateReportPlanCommand,
+  CreateReportPlanCommandInput,
+  CreateReportPlanCommandOutput,
+} from "./commands/CreateReportPlanCommand";
+import {
   DeleteBackupPlanCommand,
   DeleteBackupPlanCommandInput,
   DeleteBackupPlanCommandOutput,
@@ -40,10 +50,20 @@ import {
   DeleteBackupVaultNotificationsCommandOutput,
 } from "./commands/DeleteBackupVaultNotificationsCommand";
 import {
+  DeleteFrameworkCommand,
+  DeleteFrameworkCommandInput,
+  DeleteFrameworkCommandOutput,
+} from "./commands/DeleteFrameworkCommand";
+import {
   DeleteRecoveryPointCommand,
   DeleteRecoveryPointCommandInput,
   DeleteRecoveryPointCommandOutput,
 } from "./commands/DeleteRecoveryPointCommand";
+import {
+  DeleteReportPlanCommand,
+  DeleteReportPlanCommandInput,
+  DeleteReportPlanCommandOutput,
+} from "./commands/DeleteReportPlanCommand";
 import {
   DescribeBackupJobCommand,
   DescribeBackupJobCommandInput,
@@ -59,6 +79,11 @@ import {
   DescribeCopyJobCommandInput,
   DescribeCopyJobCommandOutput,
 } from "./commands/DescribeCopyJobCommand";
+import {
+  DescribeFrameworkCommand,
+  DescribeFrameworkCommandInput,
+  DescribeFrameworkCommandOutput,
+} from "./commands/DescribeFrameworkCommand";
 import {
   DescribeGlobalSettingsCommand,
   DescribeGlobalSettingsCommandInput,
@@ -79,6 +104,16 @@ import {
   DescribeRegionSettingsCommandInput,
   DescribeRegionSettingsCommandOutput,
 } from "./commands/DescribeRegionSettingsCommand";
+import {
+  DescribeReportJobCommand,
+  DescribeReportJobCommandInput,
+  DescribeReportJobCommandOutput,
+} from "./commands/DescribeReportJobCommand";
+import {
+  DescribeReportPlanCommand,
+  DescribeReportPlanCommandInput,
+  DescribeReportPlanCommandOutput,
+} from "./commands/DescribeReportPlanCommand";
 import {
   DescribeRestoreJobCommand,
   DescribeRestoreJobCommandInput,
@@ -170,6 +205,11 @@ import {
   ListCopyJobsCommandOutput,
 } from "./commands/ListCopyJobsCommand";
 import {
+  ListFrameworksCommand,
+  ListFrameworksCommandInput,
+  ListFrameworksCommandOutput,
+} from "./commands/ListFrameworksCommand";
+import {
   ListProtectedResourcesCommand,
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
@@ -184,6 +224,16 @@ import {
   ListRecoveryPointsByResourceCommandInput,
   ListRecoveryPointsByResourceCommandOutput,
 } from "./commands/ListRecoveryPointsByResourceCommand";
+import {
+  ListReportJobsCommand,
+  ListReportJobsCommandInput,
+  ListReportJobsCommandOutput,
+} from "./commands/ListReportJobsCommand";
+import {
+  ListReportPlansCommand,
+  ListReportPlansCommandInput,
+  ListReportPlansCommandOutput,
+} from "./commands/ListReportPlansCommand";
 import {
   ListRestoreJobsCommand,
   ListRestoreJobsCommandInput,
@@ -211,6 +261,11 @@ import {
   StartCopyJobCommandOutput,
 } from "./commands/StartCopyJobCommand";
 import {
+  StartReportJobCommand,
+  StartReportJobCommandInput,
+  StartReportJobCommandOutput,
+} from "./commands/StartReportJobCommand";
+import {
   StartRestoreJobCommand,
   StartRestoreJobCommandInput,
   StartRestoreJobCommandOutput,
@@ -232,6 +287,11 @@ import {
   UpdateBackupPlanCommandOutput,
 } from "./commands/UpdateBackupPlanCommand";
 import {
+  UpdateFrameworkCommand,
+  UpdateFrameworkCommandInput,
+  UpdateFrameworkCommandOutput,
+} from "./commands/UpdateFrameworkCommand";
+import {
   UpdateGlobalSettingsCommand,
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
@@ -246,21 +306,27 @@ import {
   UpdateRegionSettingsCommandInput,
   UpdateRegionSettingsCommandOutput,
 } from "./commands/UpdateRegionSettingsCommand";
+import {
+  UpdateReportPlanCommand,
+  UpdateReportPlanCommandInput,
+  UpdateReportPlanCommandOutput,
+} from "./commands/UpdateReportPlanCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <fullname>AWS Backup</fullname>
- *          <p>AWS Backup is a unified backup service designed to protect AWS services and their
- *          associated data. AWS Backup simplifies the creation, migration, restoration, and deletion
- *          of backups, while also providing reporting and auditing.</p>
+ * <fullname>Backup</fullname>
+ *          <p>Backup is a unified backup service designed to protect Amazon Web Services
+ *          services and their associated data. Backup simplifies the creation, migration,
+ *          restoration, and deletion of backups, while also providing reporting and
+ *          auditing.</p>
  */
 export class Backup extends BackupClient {
   /**
    * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
-   *          document that contains information that AWS Backup uses to schedule tasks that create
-   *          recovery points for resources.</p>
-   *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an
-   *             <code>AlreadyExistsException</code> is returned.</p>
+   *          document that contains information that Backup uses to schedule tasks that
+   *          create recovery points for resources.</p>
+   *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, you receive
+   *          an <code>AlreadyExistsException</code> exception.</p>
    */
   public createBackupPlan(
     args: CreateBackupPlanCommandInput,
@@ -325,9 +391,10 @@ export class Backup extends BackupClient {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS) volumes
-   *          that are tagged as <code>"department=finance"</code>, <code>"importance=critical"</code>,
-   *          in addition to an EBS volume with the specified volume ID.</p>
+   *          <p>Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS)
+   *          volumes that are tagged as <code>"department=finance"</code>,
+   *             <code>"importance=critical"</code>, in addition to an EBS volume with the specified
+   *          volume ID.</p>
    *          <p>Resources and conditions are additive in that all resources that match the pattern are
    *          selected. This shouldn't be confused with a logical AND, where all conditions must match.
    *          The matching patterns are logically put together using the OR operator.
@@ -367,7 +434,7 @@ export class Backup extends BackupClient {
    *          request includes a name, optionally one or more resource tags, an encryption key, and a
    *          request ID.</p>
    *          <note>
-   *             <p>Sensitive data, such as passport numbers, should not be included the name of a backup
+   *             <p>Do not include sensitive data, such as passport numbers, in the name of a backup
    *             vault.</p>
    *          </note>
    */
@@ -390,6 +457,77 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: CreateBackupVaultCommandOutput) => void
   ): Promise<CreateBackupVaultCommandOutput> | void {
     const command = new CreateBackupVaultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a framework with one or more controls. A framework is a collection of controls
+   *          that you can use to evaluate your backup practices. By using pre-built customizable
+   *          controls to define your policies, you can evaluate whether your backup practices comply
+   *          with your policies. To get insights into the compliance status of your frameworks, you can
+   *          set up automatic daily reports.</p>
+   */
+  public createFramework(
+    args: CreateFrameworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFrameworkCommandOutput>;
+  public createFramework(
+    args: CreateFrameworkCommandInput,
+    cb: (err: any, data?: CreateFrameworkCommandOutput) => void
+  ): void;
+  public createFramework(
+    args: CreateFrameworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFrameworkCommandOutput) => void
+  ): void;
+  public createFramework(
+    args: CreateFrameworkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFrameworkCommandOutput) => void),
+    cb?: (err: any, data?: CreateFrameworkCommandOutput) => void
+  ): Promise<CreateFrameworkCommandOutput> | void {
+    const command = new CreateFrameworkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a report plan. A report plan is a document that contains information about the
+   *          contents of the report and where Backup will deliver it.</p>
+   *          <p>If you call <code>CreateReportPlan</code> with a plan that already exists, you receive
+   *          an <code>AlreadyExistsException</code> exception.</p>
+   */
+  public createReportPlan(
+    args: CreateReportPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateReportPlanCommandOutput>;
+  public createReportPlan(
+    args: CreateReportPlanCommandInput,
+    cb: (err: any, data?: CreateReportPlanCommandOutput) => void
+  ): void;
+  public createReportPlan(
+    args: CreateReportPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateReportPlanCommandOutput) => void
+  ): void;
+  public createReportPlan(
+    args: CreateReportPlanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReportPlanCommandOutput) => void),
+    cb?: (err: any, data?: CreateReportPlanCommandOutput) => void
+  ): Promise<CreateReportPlanCommandOutput> | void {
+    const command = new CreateReportPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -565,6 +703,38 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * <p>Deletes the framework specified by a framework name.</p>
+   */
+  public deleteFramework(
+    args: DeleteFrameworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFrameworkCommandOutput>;
+  public deleteFramework(
+    args: DeleteFrameworkCommandInput,
+    cb: (err: any, data?: DeleteFrameworkCommandOutput) => void
+  ): void;
+  public deleteFramework(
+    args: DeleteFrameworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFrameworkCommandOutput) => void
+  ): void;
+  public deleteFramework(
+    args: DeleteFrameworkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFrameworkCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFrameworkCommandOutput) => void
+  ): Promise<DeleteFrameworkCommandOutput> | void {
+    const command = new DeleteFrameworkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the recovery point specified by a recovery point ID.</p>
    *          <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
    *          the existing continuous backup and stops future continuous backup.</p>
@@ -588,6 +758,38 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: DeleteRecoveryPointCommandOutput) => void
   ): Promise<DeleteRecoveryPointCommandOutput> | void {
     const command = new DeleteRecoveryPointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the report plan specified by a report plan name.</p>
+   */
+  public deleteReportPlan(
+    args: DeleteReportPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteReportPlanCommandOutput>;
+  public deleteReportPlan(
+    args: DeleteReportPlanCommandInput,
+    cb: (err: any, data?: DeleteReportPlanCommandOutput) => void
+  ): void;
+  public deleteReportPlan(
+    args: DeleteReportPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteReportPlanCommandOutput) => void
+  ): void;
+  public deleteReportPlan(
+    args: DeleteReportPlanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReportPlanCommandOutput) => void),
+    cb?: (err: any, data?: DeleteReportPlanCommandOutput) => void
+  ): Promise<DeleteReportPlanCommandOutput> | void {
+    const command = new DeleteReportPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -695,8 +897,42 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Describes the global settings of the AWS account, including whether it is opted in to
-   *          cross-account backup.</p>
+   * <p>Returns the framework details for the specified <code>FrameworkName</code>.</p>
+   */
+  public describeFramework(
+    args: DescribeFrameworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFrameworkCommandOutput>;
+  public describeFramework(
+    args: DescribeFrameworkCommandInput,
+    cb: (err: any, data?: DescribeFrameworkCommandOutput) => void
+  ): void;
+  public describeFramework(
+    args: DescribeFrameworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFrameworkCommandOutput) => void
+  ): void;
+  public describeFramework(
+    args: DescribeFrameworkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFrameworkCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFrameworkCommandOutput) => void
+  ): Promise<DescribeFrameworkCommandOutput> | void {
+    const command = new DescribeFrameworkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes whether the Amazon Web Services account is opted in to cross-account backup.
+   *          Returns an error if the account is not a member of an Organizations organization.
+   *          Example: <code>describe-global-settings --region us-west-2</code>
+   *          </p>
    */
   public describeGlobalSettings(
     args: DescribeGlobalSettingsCommandInput,
@@ -729,7 +965,8 @@ export class Backup extends BackupClient {
 
   /**
    * <p>Returns information about a saved resource, including the last time it was backed up,
-   *          its Amazon Resource Name (ARN), and the AWS service type of the saved resource.</p>
+   *          its Amazon Resource Name (ARN), and the Amazon Web Services service type of the saved
+   *          resource.</p>
    */
   public describeProtectedResource(
     args: DescribeProtectedResourceCommandInput,
@@ -794,11 +1031,11 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns the current service opt-in settings for the Region. If service-opt-in is enabled
-   *          for a service, AWS Backup tries to protect that service's resources in this Region, when
-   *          the resource is included in an on-demand backup or scheduled backup plan. Otherwise, AWS
-   *          Backup does not try to protect that service's resources in this Region, AWS Backup does not
-   *          try to protect that service's resources in this Region.</p>
+   * <p>Returns the current service opt-in settings for the Region. If service opt-in is enabled
+   *          for a service, Backup tries to protect that service's resources in this Region,
+   *          when the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
+   *             Backup does not try to protect that service's resources in this
+   *          Region.</p>
    */
   public describeRegionSettings(
     args: DescribeRegionSettingsCommandInput,
@@ -819,6 +1056,71 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: DescribeRegionSettingsCommandOutput) => void
   ): Promise<DescribeRegionSettingsCommandOutput> | void {
     const command = new DescribeRegionSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the details associated with creating a report as specified by its
+   *             <code>ReportJobId</code>.</p>
+   */
+  public describeReportJob(
+    args: DescribeReportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReportJobCommandOutput>;
+  public describeReportJob(
+    args: DescribeReportJobCommandInput,
+    cb: (err: any, data?: DescribeReportJobCommandOutput) => void
+  ): void;
+  public describeReportJob(
+    args: DescribeReportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReportJobCommandOutput) => void
+  ): void;
+  public describeReportJob(
+    args: DescribeReportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReportJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReportJobCommandOutput) => void
+  ): Promise<DescribeReportJobCommandOutput> | void {
+    const command = new DescribeReportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of all report plans for an Amazon Web Services account and Amazon Web Services Region.</p>
+   */
+  public describeReportPlan(
+    args: DescribeReportPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReportPlanCommandOutput>;
+  public describeReportPlan(
+    args: DescribeReportPlanCommandInput,
+    cb: (err: any, data?: DescribeReportPlanCommandOutput) => void
+  ): void;
+  public describeReportPlan(
+    args: DescribeReportPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReportPlanCommandOutput) => void
+  ): void;
+  public describeReportPlan(
+    args: DescribeReportPlanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReportPlanCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReportPlanCommandOutput) => void
+  ): Promise<DescribeReportPlanCommandOutput> | void {
+    const command = new DescribeReportPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -862,10 +1164,9 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Deletes the specified continuous backup recovery point from AWS Backup and releases
-   *          control of that continuous backup to the source service, such as Amazon RDS. The source
-   *          service will continue to create and retain continuous backups using the lifecycle that you
-   *          specified in your original backup plan.</p>
+   * <p>Deletes the specified continuous backup recovery point from Backup and
+   *          releases control of that continuous backup to the source service, such as Amazon RDS. The source service will continue to create and retain continuous backups using the
+   *          lifecycle that you specified in your original backup plan.</p>
    *          <p>Does not support snapshot backup recovery points.</p>
    */
   public disassociateRecoveryPoint(
@@ -1157,7 +1458,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns the AWS resource types supported by AWS Backup.</p>
+   * <p>Returns the Amazon Web Services resource types supported by Backup.</p>
    */
   public getSupportedResourceTypes(
     args: GetSupportedResourceTypesCommandInput,
@@ -1222,10 +1523,9 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns a list of existing backup plans for an authenticated account. The list is
-   *          populated only if the advanced option is set for the backup plan. The list contains
-   *          information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion dates,
-   *          version IDs, plan names, and creator request IDs.</p>
+   * <p>Returns a list of all active backup plans for an authenticated account. The list
+   *          contains information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion
+   *          dates, version IDs, plan names, and creator request IDs.</p>
    */
   public listBackupPlans(
     args: ListBackupPlansCommandInput,
@@ -1418,9 +1718,41 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns an array of resources successfully backed up by AWS Backup, including the time
-   *          the resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
-   *          type.</p>
+   * <p>Returns a list of all frameworks for an Amazon Web Services account and Amazon Web Services Region.</p>
+   */
+  public listFrameworks(
+    args: ListFrameworksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFrameworksCommandOutput>;
+  public listFrameworks(
+    args: ListFrameworksCommandInput,
+    cb: (err: any, data?: ListFrameworksCommandOutput) => void
+  ): void;
+  public listFrameworks(
+    args: ListFrameworksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFrameworksCommandOutput) => void
+  ): void;
+  public listFrameworks(
+    args: ListFrameworksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFrameworksCommandOutput) => void),
+    cb?: (err: any, data?: ListFrameworksCommandOutput) => void
+  ): Promise<ListFrameworksCommandOutput> | void {
+    const command = new ListFrameworksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an array of resources successfully backed up by Backup, including
+   *          the time the resource was saved, an Amazon Resource Name (ARN) of the resource, and a
+   *          resource type.</p>
    */
   public listProtectedResources(
     args: ListProtectedResourcesCommandInput,
@@ -1484,8 +1816,12 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns detailed information about recovery points of the type specified by a resource
-   *          Amazon Resource Name (ARN).</p>
+   * <p>Returns detailed information about all the recovery points of the type specified by a
+   *          resource Amazon Resource Name (ARN).</p>
+   *          <note>
+   *             <p>For Amazon EFS and Amazon EC2, this action only lists recovery points
+   *             created by Backup.</p>
+   *          </note>
    */
   public listRecoveryPointsByResource(
     args: ListRecoveryPointsByResourceCommandInput,
@@ -1517,8 +1853,73 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns a list of jobs that AWS Backup initiated to restore a saved resource, including
-   *          metadata about the recovery process.</p>
+   * <p>Returns details about your report jobs.</p>
+   */
+  public listReportJobs(
+    args: ListReportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReportJobsCommandOutput>;
+  public listReportJobs(
+    args: ListReportJobsCommandInput,
+    cb: (err: any, data?: ListReportJobsCommandOutput) => void
+  ): void;
+  public listReportJobs(
+    args: ListReportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReportJobsCommandOutput) => void
+  ): void;
+  public listReportJobs(
+    args: ListReportJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReportJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListReportJobsCommandOutput) => void
+  ): Promise<ListReportJobsCommandOutput> | void {
+    const command = new ListReportJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of your report plans. For detailed information about a single report
+   *          plan, use <code>DescribeReportPlan</code>.</p>
+   */
+  public listReportPlans(
+    args: ListReportPlansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReportPlansCommandOutput>;
+  public listReportPlans(
+    args: ListReportPlansCommandInput,
+    cb: (err: any, data?: ListReportPlansCommandOutput) => void
+  ): void;
+  public listReportPlans(
+    args: ListReportPlansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReportPlansCommandOutput) => void
+  ): void;
+  public listReportPlans(
+    args: ListReportPlansCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReportPlansCommandOutput) => void),
+    cb?: (err: any, data?: ListReportPlansCommandOutput) => void
+  ): Promise<ListReportPlansCommandOutput> | void {
+    const command = new ListReportPlansCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of jobs that Backup initiated to restore a saved resource,
+   *          including details about the recovery process.</p>
    */
   public listRestoreJobs(
     args: ListRestoreJobsCommandInput,
@@ -1554,7 +1955,8 @@ export class Backup extends BackupClient {
    *          backup vault.</p>
    *          <note>
    *             <p>
-   *                <code>ListTags</code> are currently only supported with Amazon EFS backups.</p>
+   *                <code>ListTags</code> are currently only supported with Amazon EFS
+   *             backups.</p>
    *          </note>
    */
   public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
@@ -1698,6 +2100,38 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: StartCopyJobCommandOutput) => void
   ): Promise<StartCopyJobCommandOutput> | void {
     const command = new StartCopyJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts an on-demand report job for the specified report plan.</p>
+   */
+  public startReportJob(
+    args: StartReportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartReportJobCommandOutput>;
+  public startReportJob(
+    args: StartReportJobCommandInput,
+    cb: (err: any, data?: StartReportJobCommandOutput) => void
+  ): void;
+  public startReportJob(
+    args: StartReportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartReportJobCommandOutput) => void
+  ): void;
+  public startReportJob(
+    args: StartReportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReportJobCommandOutput) => void),
+    cb?: (err: any, data?: StartReportJobCommandOutput) => void
+  ): Promise<StartReportJobCommandOutput> | void {
+    const command = new StartReportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1867,7 +2301,41 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Updates the current global settings for the AWS account. Use the
+   * <p>Updates an existing framework identified by its <code>FrameworkName</code> with the
+   *          input document in JSON format.</p>
+   */
+  public updateFramework(
+    args: UpdateFrameworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFrameworkCommandOutput>;
+  public updateFramework(
+    args: UpdateFrameworkCommandInput,
+    cb: (err: any, data?: UpdateFrameworkCommandOutput) => void
+  ): void;
+  public updateFramework(
+    args: UpdateFrameworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFrameworkCommandOutput) => void
+  ): void;
+  public updateFramework(
+    args: UpdateFrameworkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFrameworkCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFrameworkCommandOutput) => void
+  ): Promise<UpdateFrameworkCommandOutput> | void {
+    const command = new UpdateFrameworkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates whether the Amazon Web Services account is opted in to cross-account backup.
+   *          Returns an error if the account is not an Organizations management account. Use the
    *             <code>DescribeGlobalSettings</code> API to determine the current settings.</p>
    */
   public updateGlobalSettings(
@@ -1902,8 +2370,8 @@ export class Backup extends BackupClient {
   /**
    * <p>Sets the transition lifecycle of a recovery point.</p>
    *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define.</p>
+   *          it expires. Backup transitions and expires backups automatically according to
+   *          the lifecycle that you define.</p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
@@ -1942,10 +2410,10 @@ export class Backup extends BackupClient {
 
   /**
    * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled
-   *          for a service, AWS Backup tries to protect that service's resources in this Region, when
-   *          the resource is included in an on-demand backup or scheduled backup plan. Otherwise, AWS
-   *          Backup does not try to protect that service's resources in this Region. Use the
-   *             <code>DescribeRegionSettings</code> API to determine the resource types that are
+   *          for a service, Backup tries to protect that service's resources in this Region,
+   *          when the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
+   *             Backup does not try to protect that service's resources in this Region. Use
+   *          the <code>DescribeRegionSettings</code> API to determine the resource types that are
    *          supported.</p>
    */
   public updateRegionSettings(
@@ -1967,6 +2435,39 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: UpdateRegionSettingsCommandOutput) => void
   ): Promise<UpdateRegionSettingsCommandOutput> | void {
     const command = new UpdateRegionSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing report plan identified by its <code>ReportPlanName</code> with the
+   *          input document in JSON format.</p>
+   */
+  public updateReportPlan(
+    args: UpdateReportPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateReportPlanCommandOutput>;
+  public updateReportPlan(
+    args: UpdateReportPlanCommandInput,
+    cb: (err: any, data?: UpdateReportPlanCommandOutput) => void
+  ): void;
+  public updateReportPlan(
+    args: UpdateReportPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateReportPlanCommandOutput) => void
+  ): void;
+  public updateReportPlan(
+    args: UpdateReportPlanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateReportPlanCommandOutput) => void),
+    cb?: (err: any, data?: UpdateReportPlanCommandOutput) => void
+  ): Promise<UpdateReportPlanCommandOutput> | void {
+    const command = new UpdateReportPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -39,7 +39,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon Data Lifecycle Manager</fullname>
- * 		       <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create
+ * 		       <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon Web Services resources. You create
  * 			lifecycle policies, which are used to automate operations on the specified
  * 			resources.</p>
  * 		       <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM
@@ -48,7 +48,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class DLM extends DLMClient {
   /**
-   * <p>Creates a policy to manage the lifecycle of the specified AWS resources. You can
+   * <p>Creates a policy to manage the lifecycle of the specified Amazon Web Services resources. You can
    * 			create up to 100 lifecycle policies.</p>
    */
   public createLifecyclePolicy(

@@ -21,9 +21,7 @@ export interface CreateMedicalVocabularyCommandInput extends CreateMedicalVocabu
 export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom vocabulary that you can use to
- *             change
- *             how Amazon Transcribe Medical transcribes your audio file.</p>
+ * <p>Creates a new custom vocabulary that you can use to modify how Amazon Transcribe Medical transcribes your audio file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

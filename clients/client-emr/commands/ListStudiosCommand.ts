@@ -21,7 +21,7 @@ export interface ListStudiosCommandInput extends ListStudiosInput {}
 export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all Amazon EMR Studios associated with the account. The list
+ * <p>Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account. The list
  *          includes details such as ID, Studio Access URL, and creation time for each Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

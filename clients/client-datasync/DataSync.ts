@@ -141,13 +141,13 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <fullname>AWS DataSync</fullname>
+ * <fullname>DataSync</fullname>
  *
- *          <p>AWS DataSync is a managed data transfer service that makes it simpler for you to
+ *          <p>DataSync is a managed data transfer service that makes it simpler for you to
  *       automate moving data between on-premises storage and Amazon Simple Storage Service (Amazon S3)
  *       or Amazon Elastic File System (Amazon EFS). </p>
- *          <p>This API interface reference for AWS DataSync contains documentation for a
- *       programming interface that you can use to manage AWS DataSync.</p>
+ *          <p>This API interface reference for DataSync contains documentation for a
+ *       programming interface that you can use to manage DataSync.</p>
  */
 export class DataSync extends DataSyncClient {
   /**
@@ -157,7 +157,7 @@ export class DataSync extends DataSyncClient {
    *       inconsistent with the source files. However, if you start a new task execution on the same
    *       task and you allow the task execution to complete, file content on the destination is complete
    *       and consistent. This applies to other unexpected failures that interrupt a task execution. In
-   *       all of these cases, AWS DataSync successfully complete the transfer when you start the next
+   *       all of these cases, DataSync successfully complete the transfer when you start the next
    *       task execution.</p>
    */
   public cancelTaskExecution(
@@ -190,11 +190,11 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Activates an AWS DataSync agent that you have deployed on your host. The activation
+   * <p>Activates an DataSync agent that you have deployed on your host. The activation
    *       process associates your agent with your account. In the activation process, you specify
-   *       information such as the AWS Region that you want to activate the agent in. You activate the
-   *       agent in the AWS Region where your target locations (in Amazon S3 or Amazon EFS) reside. Your
-   *       tasks are created in this AWS Region.</p>
+   *       information such as the Amazon Web Services Region that you want to activate the agent in. You activate the
+   *       agent in the Amazon Web Services Region where your target locations (in Amazon S3 or Amazon EFS) reside. Your
+   *       tasks are created in this Amazon Web Services Region.</p>
    *          <p>You can activate the agent in a VPC (virtual private cloud) or provide the agent access to
    *       a VPC endpoint so you can run tasks without going over the public internet.</p>
    *          <p>You can use an agent for more than one location. If a task uses multiple agents, all of
@@ -202,7 +202,7 @@ export class DataSync extends DataSyncClient {
    *       source location, the status of all the agents must be AVAILABLE for the task to run. </p>
    *
    *
-   *          <p>Agents are automatically updated by AWS on a regular basis, using a mechanism that
+   *          <p>Agents are automatically updated by Amazon Web Services on a regular basis, using a mechanism that
    *       ensures minimal interruption to your tasks.</p>
    *          <p></p>
    */
@@ -365,8 +365,8 @@ export class DataSync extends DataSyncClient {
    *
    *          <p>For
    *       more information, see
-   *       https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
-   *       in the <i>AWS DataSync User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>
+   *       in the <i>DataSync User Guide</i>.</p>
    */
   public createLocationS3(
     args: CreateLocationS3CommandInput,
@@ -437,14 +437,14 @@ export class DataSync extends DataSyncClient {
    *       location to the destination location. The configuration specifies options such as
    *       task scheduling, bandwidth limits, etc. A task is the complete definition of a data
    *       transfer.</p>
-   *          <p>When you create a task that transfers data between AWS services in different AWS Regions,
+   *          <p>When you create a task that transfers data between Amazon Web Services services in different Amazon Web Services Regions,
    *       one of the two locations that you specify must reside in the Region where DataSync is being
    *       used. The other location must be specified in a different Region.</p>
-   *          <p>You can transfer data between commercial AWS Regions except for China, or between AWS
-   *       GovCloud (US-East and US-West) Regions.</p>
+   *          <p>You can transfer data between commercial Amazon Web Services Regions except for China, or between
+   *       Amazon Web Services GovCloud (US) Regions.</p>
    *
    *          <important>
-   *             <p>When you use DataSync to copy files or objects between AWS Regions,
+   *             <p>When you use DataSync to copy files or objects between Amazon Web Services Regions,
    *       you pay for data transfer between Regions. This is billed as data transfer OUT
    *       from your source Region to your destination Region. For more information,
    *       see <a href="http://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer">Data Transfer pricing</a>.
@@ -476,7 +476,7 @@ export class DataSync extends DataSyncClient {
 
   /**
    * <p>Deletes an agent. To specify which agent to delete, use the Amazon Resource Name (ARN)
-   *       of the agent in your request. The operation disassociates the agent from your AWS account.
+   *       of the agent in your request. The operation disassociates the agent from your Amazon Web Services account.
    *       However, it doesn't delete the agent virtual machine (VM) from your on-premises
    *       environment.</p>
    */
@@ -504,7 +504,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Deletes the configuration of a location used by AWS DataSync. </p>
+   * <p>Deletes the configuration of a location used by DataSync. </p>
    */
   public deleteLocation(
     args: DeleteLocationCommandInput,
@@ -851,7 +851,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns a list of agents owned by an AWS account in the AWS Region specified in the
+   * <p>Returns a list of agents owned by an Amazon Web Services account in the Amazon Web Services Region specified in the
    *       request. The returned list is ordered by agent Amazon Resource Name (ARN).</p>
    *          <p>By default, this operation returns a maximum of 100 agents. This operation supports
    *       pagination that enables you to optionally reduce the number of agents returned in a
@@ -1017,7 +1017,7 @@ export class DataSync extends DataSyncClient {
    *       PREPARING | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. </p>
    *
    *          <p>For detailed information, see the Task Execution section in the Components and
-   *       Terminology topic in the <i>AWS DataSync User Guide</i>.</p>
+   *       Terminology topic in the <i>DataSync User Guide</i>.</p>
    */
   public startTaskExecution(
     args: StartTaskExecutionCommandInput,
@@ -1049,7 +1049,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Applies a key-value pair to an AWS resource.</p>
+   * <p>Applies a key-value pair to an Amazon Web Services resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1075,7 +1075,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Removes a tag from an AWS resource.</p>
+   * <p>Removes a tag from an Amazon Web Services resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

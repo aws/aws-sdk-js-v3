@@ -21,8 +21,8 @@ export interface CreateVocabularyCommandInput extends CreateVocabularyRequest {}
 export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles
- *             transcription of an audio file.</p>
+ * <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an
+ *             audio file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

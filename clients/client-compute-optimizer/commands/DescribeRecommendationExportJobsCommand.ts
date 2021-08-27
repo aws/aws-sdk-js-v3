@@ -25,10 +25,9 @@ export interface DescribeRecommendationExportJobsCommandOutput
 /**
  * <p>Describes recommendation export jobs created in the last seven days.</p>
  *
- *         <p>Use the <code>ExportAutoScalingGroupRecommendations</code> or
- *                 <code>ExportEC2InstanceRecommendations</code> actions to request an export of your
- *             recommendations. Then use the <code>DescribeRecommendationExportJobs</code> action to
- *             view your export jobs.</p>
+ *         <p>Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions to request an export of your
+ *             recommendations. Then use the <a>DescribeRecommendationExportJobs</a> action
+ *             to view your export jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

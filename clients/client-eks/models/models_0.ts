@@ -7,6 +7,7 @@ export enum AddonIssueCode {
   CONFIGURATION_CONFLICT = "ConfigurationConflict",
   INSUFFICIENT_NUMBER_OF_REPLICAS = "InsufficientNumberOfReplicas",
   INTERNAL_FAILURE = "InternalFailure",
+  K8S_RESOURCE_NOT_FOUND = "K8sResourceNotFound",
   UNSUPPORTED_ADDON_MODIFICATION = "UnsupportedAddonModification",
 }
 
@@ -307,6 +308,7 @@ export enum ErrorCode {
   INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
   INSUFFICIENT_NUMBER_OF_REPLICAS = "InsufficientNumberOfReplicas",
   IP_NOT_AVAILABLE = "IpNotAvailable",
+  K8S_RESOURCE_NOT_FOUND = "K8sResourceNotFound",
   NODE_CREATION_FAILURE = "NodeCreationFailure",
   OPERATION_NOT_PERMITTED = "OperationNotPermitted",
   POD_EVICTION_FAILURE = "PodEvictionFailure",
@@ -2422,6 +2424,11 @@ export interface DeleteAddonRequest {
    *             </a>.</p>
    */
   addonName: string | undefined;
+
+  /**
+   * <p>Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on. If an IAM account is associated with the add-on, it is not removed.</p>
+   */
+  preserve?: boolean;
 }
 
 export namespace DeleteAddonRequest {
