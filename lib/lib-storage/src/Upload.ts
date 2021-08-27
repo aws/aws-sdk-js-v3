@@ -53,8 +53,9 @@ export class Upload extends EventEmitter {
   private uploadedParts: CompletedPart[] = [];
   private uploadId?: string;
   uploadEvent?: string;
+
+  private isMultiPart: boolean = true;
   private putResponse?: CompleteMultipartUploadCommandOutput;
-  private putResponse?: PutObjectCommandOutput;
 
   constructor(options: Options) {
     super();
