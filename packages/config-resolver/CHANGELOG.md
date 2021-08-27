@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.28.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.27.0...v3.28.0) (2021-08-27)
+
+
+### Bug Fixes
+
+* **config-resolver:** add options for utility functions ([#2712](https://github.com/aws/aws-sdk-js-v3/issues/2712)) ([56ab50e](https://github.com/aws/aws-sdk-js-v3/commit/56ab50ec7765ffa3884bc3fb302a2c32ff56807b))
+
+
+### Features
+
+* **config-resolver:** add getRegionInfo helper functions ([#2701](https://github.com/aws/aws-sdk-js-v3/issues/2701)) ([7c6a790](https://github.com/aws/aws-sdk-js-v3/commit/7c6a7901f222273f7e82f169eaaf23b08c803596))
+
+
+
+
+
 # [3.27.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.26.0...v3.27.0) (2021-08-19)
 
 **Note:** Version bump only for package @aws-sdk/config-resolver

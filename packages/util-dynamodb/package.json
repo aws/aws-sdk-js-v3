@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-dynamodb",
-  "version": "3.27.0",
+  "version": "3.28.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -20,7 +20,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-dynamodb": "3.27.0",
+    "@aws-sdk/client-dynamodb": "3.28.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.3.2"

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.28.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.27.0...v3.28.0) (2021-08-27)
+
+
+### Bug Fixes
+
+* **clients:** use optional chaining while processing runtime config ([#2690](https://github.com/aws/aws-sdk-js-v3/issues/2690)) ([18469ce](https://github.com/aws/aws-sdk-js-v3/commit/18469cefc27840ba00d516265ebd976f10240496))
+* **config-resolver:** add options for utility functions ([#2712](https://github.com/aws/aws-sdk-js-v3/issues/2712)) ([56ab50e](https://github.com/aws/aws-sdk-js-v3/commit/56ab50ec7765ffa3884bc3fb302a2c32ff56807b))
+* **property-provider:** do not make extra provider calls when concurrent ([#2716](https://github.com/aws/aws-sdk-js-v3/issues/2716)) ([f9aa15e](https://github.com/aws/aws-sdk-js-v3/commit/f9aa15e1ce0f677f9eb469c3084ff591a1b08ba4))
+
+
+### Features
+
+* **clients:** allow setting path prefix from custom endpoints ([#2722](https://github.com/aws/aws-sdk-js-v3/issues/2722)) ([990ba2f](https://github.com/aws/aws-sdk-js-v3/commit/990ba2fe1c03cf10c3cb345cee4d137af7095f3d))
+* **clients:** modular endpoints resolution ([#2704](https://github.com/aws/aws-sdk-js-v3/issues/2704)) ([88de69b](https://github.com/aws/aws-sdk-js-v3/commit/88de69ba28aaedfc7f13fa165044ef8cae023bbe))
+* **clients:** update clients as of 08/27/2021 ([#2723](https://github.com/aws/aws-sdk-js-v3/issues/2723)) ([b9d88c4](https://github.com/aws/aws-sdk-js-v3/commit/b9d88c45898f272a08dc3155a00efd5f792d417f))
+* **codegen:** support malformed request tests ([#2695](https://github.com/aws/aws-sdk-js-v3/issues/2695)) ([705de4e](https://github.com/aws/aws-sdk-js-v3/commit/705de4e2463f41a50c347a5e8b2a5ddf39fbef19))
+* **config-resolver:** add getRegionInfo helper functions ([#2701](https://github.com/aws/aws-sdk-js-v3/issues/2701)) ([7c6a790](https://github.com/aws/aws-sdk-js-v3/commit/7c6a7901f222273f7e82f169eaaf23b08c803596))
+* **smithy-client:** stricter parsing of request/response bodies ([#2713](https://github.com/aws/aws-sdk-js-v3/issues/2713)) ([0c74892](https://github.com/aws/aws-sdk-js-v3/commit/0c74892b3cbf1e288a4d5648a49f672ee48f2643))
+
+
+
+
+
 # [3.27.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.26.0...v3.27.0) (2021-08-19)
 
 

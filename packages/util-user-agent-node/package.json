@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-user-agent-node",
-  "version": "3.27.0",
+  "version": "3.28.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -17,7 +17,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/node-config-provider": "3.27.0",
+    "@aws-sdk/node-config-provider": "3.28.0",
     "@aws-sdk/types": "3.25.0",
     "tslib": "^2.3.0"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/property-provider",
-  "version": "3.27.0",
+  "version": "3.28.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
