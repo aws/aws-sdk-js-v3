@@ -45,14 +45,28 @@ export const memoize: MemoizeOverload = <T>(
   isExpired?: (resolved: T) => boolean,
   requiresRefresh?: (resolved: T) => boolean
 ): Provider<T> => {
-  let resolved: any;
+  let resolved: T;
+  let pending: Promise<T> | undefined;
   let hasResult: boolean;
+  // Wrapper over supplied provider with side effect to handle concurrent invocation.
+  const coalesceProvider: Provider<T> = async () => {
+    if (!pending) {
+      pending = provider();
+    }
+    try {
+      resolved = await pending;
+      hasResult = true;
+    } finally {
+      pending = undefined;
+    }
+    return resolved;
+  };
+
   if (isExpired === undefined) {
     // This is a static memoization; no need to incorporate refreshing
     return async () => {
       if (!hasResult) {
-        resolved = await provider();
-        hasResult = true;
+        resolved = await coalesceProvider();
       }
       return resolved;
     };
@@ -62,8 +76,7 @@ export const memoize: MemoizeOverload = <T>(
 
   return async () => {
     if (!hasResult) {
-      resolved = await provider();
-      hasResult = true;
+      resolved = await coalesceProvider();
     }
     if (isConstant) {
       return resolved;
@@ -74,7 +87,8 @@ export const memoize: MemoizeOverload = <T>(
       return resolved;
     }
     if (isExpired(resolved)) {
-      return (resolved = await provider());
+      await coalesceProvider();
+      return resolved;
     }
     return resolved;
   };

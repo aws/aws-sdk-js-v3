@@ -26,6 +26,15 @@ describe("memoize", () => {
       }
     });
 
+    it("should not make extra request for concurrent calls", async () => {
+      const memoized = memoize(provider);
+      const results = await Promise.all([...Array(repeatTimes).keys()].map(() => memoized()));
+      expect(provider).toHaveBeenCalledTimes(1);
+      for (const res of results) {
+        expect(res).toStrictEqual(mockReturn);
+      }
+    });
+
     it("should retry provider if previous provider is failed", async () => {
       provider
         .mockReset()
@@ -119,6 +128,26 @@ describe("memoize", () => {
 
         expect(requiresRefresh).toHaveBeenCalledTimes(1);
         expect(isExpired).not.toHaveBeenCalled();
+      };
+
+      it("when isExpired returns true", () => {
+        return requiresRefreshFalseTest();
+      });
+
+      it("when isExpired returns false", () => {
+        isExpired.mockReturnValue(false);
+        return requiresRefreshFalseTest();
+      });
+    });
+
+    describe("should not make extra request for concurrent calls", () => {
+      const requiresRefreshFalseTest = async () => {
+        const memoized = memoize(provider, isExpired, requiresRefresh);
+        const results = await Promise.all([...Array(repeatTimes).keys()].map(() => memoized()));
+        expect(provider).toHaveBeenCalledTimes(1);
+        for (const res of results) {
+          expect(res).toStrictEqual(mockReturn);
+        }
       };
 
       it("when isExpired returns true", () => {
