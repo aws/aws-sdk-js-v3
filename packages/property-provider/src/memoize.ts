@@ -56,8 +56,6 @@ export const memoize: MemoizeOverload = <T>(
     try {
       resolved = await pending;
       hasResult = true;
-    } catch (e) {
-      throw e;
     } finally {
       pending = undefined;
     }
@@ -68,7 +66,7 @@ export const memoize: MemoizeOverload = <T>(
     // This is a static memoization; no need to incorporate refreshing
     return async () => {
       if (!hasResult) {
-        return await coalesceProvider();
+        resolved = await coalesceProvider();
       }
       return resolved;
     };
@@ -78,7 +76,7 @@ export const memoize: MemoizeOverload = <T>(
 
   return async () => {
     if (!hasResult) {
-      await coalesceProvider();
+      resolved = await coalesceProvider();
     }
     if (isConstant) {
       return resolved;

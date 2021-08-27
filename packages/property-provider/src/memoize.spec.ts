@@ -28,11 +28,10 @@ describe("memoize", () => {
 
     it("should not make extra request for concurrent calls", async () => {
       const memoized = memoize(provider);
-      const result = await memoized();
       const results = await Promise.all([...Array(repeatTimes).keys()].map(() => memoized()));
       expect(provider).toHaveBeenCalledTimes(1);
       for (const res of results) {
-        expect(res).toStrictEqual(result);
+        expect(res).toStrictEqual(mockReturn);
       }
     });
 
@@ -144,11 +143,10 @@ describe("memoize", () => {
     describe("should not make extra request for concurrent calls", () => {
       const requiresRefreshFalseTest = async () => {
         const memoized = memoize(provider, isExpired, requiresRefresh);
-        const result = await memoized();
         const results = await Promise.all([...Array(repeatTimes).keys()].map(() => memoized()));
         expect(provider).toHaveBeenCalledTimes(1);
         for (const res of results) {
-          expect(res).toStrictEqual(result);
+          expect(res).toStrictEqual(mockReturn);
         }
       };
 
