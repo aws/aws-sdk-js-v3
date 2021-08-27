@@ -36,7 +36,7 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     md5: config?.md5 ?? Md5,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: config?.requestHandler ?? new FetchHttpHandler(),
-    retryModeProvider: config?.retryModeProvider ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
+    retryMode: config?.retryMode ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,

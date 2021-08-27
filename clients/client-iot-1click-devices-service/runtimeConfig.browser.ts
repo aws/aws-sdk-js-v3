@@ -31,7 +31,7 @@ export const getRuntimeConfig = (config: IoT1ClickDevicesServiceClientConfig) =>
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: config?.requestHandler ?? new FetchHttpHandler(),
-    retryModeProvider: config?.retryModeProvider ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
+    retryMode: config?.retryMode ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

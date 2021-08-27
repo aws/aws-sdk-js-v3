@@ -67,6 +67,41 @@ export const expectInt = (value: any): number | undefined => {
 };
 
 /**
+ * Asserts a value is not null or undefined and returns it, or throws an error.
+ *
+ * @param value A value that is expected to be defined
+ * @param location The location where we're expecting to find a defined object (optional)
+ * @returns The value if it's not undefined, otherwise throws an error
+ */
+export const expectNonNull = <T>(value: T | null | undefined, location?: string): T => {
+  if (value === null || value === undefined) {
+    if (location) {
+      throw new TypeError(`Expected a non-null value for ${location}`);
+    }
+    throw new TypeError("Expected a non-null value");
+  }
+  return value;
+};
+
+/**
+ * Asserts a value is an JSON-like object and returns it. This is expected to be used
+ * with values parsed from JSON (arrays, objects, numbers, strings, booleans).
+ *
+ * @param value A value that is expected to be an object
+ * @returns The value if it's an object, undefined if it's null/undefined,
+ *   otherwise an error is thrown.
+ */
+export const expectObject = (value: any): { [key: string]: any } | undefined => {
+  if (value === null || value === undefined) {
+    return undefined;
+  }
+  if (typeof value === "object" && !Array.isArray(value)) {
+    return value;
+  }
+  throw new TypeError(`Expected object, got ${typeof value}`);
+};
+
+/**
  * Asserts a value is a string and returns it.
  *
  * @param value A value that is expected to be a string.

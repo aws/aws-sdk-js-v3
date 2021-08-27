@@ -33,6 +33,7 @@ import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
+import software.amazon.smithy.protocoltests.traits.HttpMalformedRequestTestCase;
 import software.amazon.smithy.protocoltests.traits.HttpMessageTestCase;
 import software.amazon.smithy.typescript.codegen.HttpProtocolTestGenerator;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -281,7 +282,10 @@ final class AwsProtocolUtils {
     }
 
     static void generateProtocolTests(ProtocolGenerator generator, GenerationContext context) {
-        new HttpProtocolTestGenerator(context, generator, AwsProtocolUtils::filterProtocolTests).run();
+        new HttpProtocolTestGenerator(context,
+                generator,
+                AwsProtocolUtils::filterProtocolTests,
+                AwsProtocolUtils::filterMalformedRequestTests).run();
     }
 
     private static boolean filterProtocolTests(
@@ -297,6 +301,63 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("RestJsonNoInputAndOutput")) {
             return true;
         }
+        return false;
+    }
+
+    private static boolean filterMalformedRequestTests(
+            ServiceShape service,
+            OperationShape operation,
+            HttpMalformedRequestTestCase testCase,
+            TypeScriptSettings settings
+    ) {
+        //TODO: underflow/overflow not rejected yet
+        if (testCase.hasTag("underflow/overflow")) {
+            return true;
+        }
+
+        //TODO: float truncation not rejected yet
+        if (testCase.hasTag("float_truncation")) {
+            return true;
+        }
+
+        // TODO: handle timestamps
+        if (testCase.hasTag("timestamp")) {
+            return true;
+        }
+
+        if (!testCase.getId().matches("^RestJsonBody\\w+MalformedValueRejected.*")) {
+            //TODO: trailing characters in untyped contexts not rejected yet
+            if (testCase.hasTag("trailing_chars") || testCase.hasTag("hex")) {
+                return true;
+            }
+        }
+
+        //TODO: request serialization does not verify that the request is an object
+        if (testCase.hasTag("technically_valid_json_body")) {
+            return true;
+        }
+        //TODO: we don't do any union validation
+        if (testCase.getId().startsWith("RestJsonMalformedUnion")) {
+            return true;
+        }
+        //TODO: we don't do any set validation
+        if (testCase.getId().startsWith("RestJsonMalformedSet")) {
+            return true;
+        }
+        //TODO: we don't do any list validation
+        if (testCase.getId().startsWith("RestJsonBodyMalformedList")) {
+            return true;
+        }
+        //TODO: we don't validate map values
+        if (testCase.getId().equals("RestJsonBodyMalformedMapNullValue")) {
+            return true;
+        }
+        //TODO: Buffer.from isn't decoding base64 strictly.
+        if (testCase.getId().equals("RestJsonBodyMalformedBlobInvalidBase64_case1")
+            || testCase.getId().equals("RestJsonBodyMalformedBlobInvalidBase64_case2")) {
+            return true;
+        }
+
         return false;
     }
 }

@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.codegen.core.CodegenException;
@@ -29,11 +30,9 @@ import software.amazon.smithy.model.node.StringNode;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
-import software.amazon.smithy.utils.CaseUtils;
 import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.OptionalUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
-import software.amazon.smithy.utils.StringUtils;
 
 /**
  * Writes out a file that resolves endpoints using endpoints.json, but the
@@ -48,17 +47,16 @@ final class EndpointGenerator implements Runnable {
     private final ObjectNode endpointData;
     private final ServiceTrait serviceTrait;
     private final String endpointPrefix;
-    private final String baseSigningSerivce;
+    private final String baseSigningService;
     private final Map<String, Partition> partitions = new TreeMap<>();
     private final Map<String, ObjectNode> endpoints = new TreeMap<>();
-    private final Map<String, Partition> regionPartitionsMap = new TreeMap<>();
 
     EndpointGenerator(ServiceShape service, TypeScriptWriter writer) {
         this.writer = writer;
         serviceTrait = service.getTrait(ServiceTrait.class)
                 .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()));
         endpointPrefix = serviceTrait.getEndpointPrefix();
-        baseSigningSerivce = service.getTrait(SigV4Trait.class).map(SigV4Trait::getName)
+        baseSigningService = service.getTrait(SigV4Trait.class).map(SigV4Trait::getName)
                 .orElse(serviceTrait.getArnNamespace());
         endpointData = Node.parse(IoUtils.readUtf8Resource(getClass(), "endpoints.json")).expectObjectNode();
         validateVersion();
@@ -91,42 +89,51 @@ final class EndpointGenerator implements Runnable {
             ObjectNode endpointMap = serviceData.getObjectMember("endpoints").orElse(Node.objectNode());
 
             for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
-                // Merge the endpoint settings into the resolved service settings.
-                ObjectNode config = partition.getDefaults().merge(entry.getValue().expectObjectNode());
-                // Resolve the hostname.
-                String hostName = config.expectStringMember("hostname").getValue();
-                hostName = hostName.replace("{dnsSuffix}", dnsSuffix);
-                hostName = hostName.replace("{service}", endpointPrefix);
-                hostName = hostName.replace("{region}", entry.getKey());
-                config = config.withMember("hostname", hostName);
-                endpoints.put(entry.getKey(), config);
-                regionPartitionsMap.put(entry.getKey(), partition);
+                ObjectNode config = entry.getValue().expectObjectNode();
+                if (config.containsMember("hostname")) {
+                    // Resolve the hostname.
+                    String hostName = config.expectStringMember("hostname").getValue();
+                    hostName = hostName.replace("{dnsSuffix}", dnsSuffix);
+                    hostName = hostName.replace("{service}", endpointPrefix);
+                    hostName = hostName.replace("{region}", entry.getKey());
+                    config = config.withMember("hostname", hostName);
+                    endpoints.put(entry.getKey(), config);
+                }
             }
         }
     }
 
     @Override
     public void run() {
-        writePartitionTemplates();
-        writePartitionRegions();
+        writeRegionHash();
+        writePartitionHash();
         writeEndpointProviderFunction();
     }
 
-    private void writePartitionTemplates() {
-        writer.write("// Partition default templates");
-        partitions.values().forEach(partition -> {
-            writer.write("const $L = $S;", partition.templateVariableName, partition.templateValue);
+    private void writeRegionHash() {
+        writer.addImport("RegionHash", "RegionHash", TypeScriptDependency.CONFIG_RESOLVER.packageName);
+        writer.openBlock("const regionHash: RegionHash = {", "};", () -> {
+            for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
+                writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
+            }
         });
         writer.write("");
     }
 
-    private void writePartitionRegions() {
-        writer.write("// Partition regions");
-        partitions.values().forEach(partition -> {
-            writer.openBlock("const $L = new Set([", "]);", partition.regionVariableName, () -> {
-                for (String region : partition.getAllRegions()) {
-                    writer.write("$S,", region);
-                }
+    private void writePartitionHash() {
+        writer.addImport("PartitionHash", "PartitionHash", TypeScriptDependency.CONFIG_RESOLVER.packageName);
+        writer.openBlock("const partitionHash: PartitionHash = {", "};", () -> {
+            partitions.values().forEach(partition -> {
+                writer.openBlock("$S: {", "},", partition.identifier, () -> {
+                    writer.openBlock("regions: [", "],", () -> {
+                        for (String region : partition.getAllRegions()) {
+                            writer.write("$S,", region);
+                        }
+                    });
+                    OptionalUtils.ifPresentOrElse(partition.getPartitionEndpoint(),
+                        endpoint -> writer.write("endpoint: $S,", endpoint),
+                        () -> writer.write("hostname: $S,", partition.hostnameTemplate));
+                });
             });
         });
         writer.write("");
@@ -134,77 +141,40 @@ final class EndpointGenerator implements Runnable {
 
     private void writeEndpointProviderFunction() {
         writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.addImport("RegionInfo", "RegionInfo", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.openBlock("export const defaultRegionInfoProvider: RegionInfoProvider = (\n"
+        writer.addImport("getRegionInfo", "getRegionInfo", TypeScriptDependency.CONFIG_RESOLVER.packageName);
+        writer.openBlock("export const defaultRegionInfoProvider: RegionInfoProvider = async (\n"
                          + "  region: string,\n"
                          + "  options?: any\n"
-                         + ") => {", "};", () -> {
-            writer.write("let regionInfo: RegionInfo | undefined = undefined;");
-            writer.openBlock("switch (region) {", "}", () -> {
-                writer.write("// First, try to match exact region names.");
-                for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
-                    writer.write("case $S:", entry.getKey()).indent();
-                    writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
-                    writer.write("break;");
-                    writer.dedent();
-                }
-                writer.write("// Next, try to match partition endpoints.");
-                writer.write("default:").indent();
-                partitions.values().forEach(partition -> {
-                    writer.openBlock("if ($L.has(region)) {", "}", partition.regionVariableName, () -> {
-                        writePartitionEndpointResolver(partition); });
-                });
-                // Default to using the AWS partition resolver.
-                writer.write("// Finally, assume it's an AWS partition endpoint.");
-                writer.openBlock("if (regionInfo === undefined) {", "}", () -> {
-                    writePartitionEndpointResolver(partitions.get("aws")); });
-                writer.dedent();
+                         + ") => ", ";", () -> {
+            writer.openBlock("getRegionInfo(region, {", "})", () -> {
+                writer.write("...options,");
+                writer.write("signingService: $S,", baseSigningService);
+                writer.write("regionHash,");
+                writer.write("partitionHash,");
             });
-            writer.write("return Promise.resolve({ signingService: $S, ...regionInfo });", baseSigningSerivce);
         });
-    }
-
-    private void writePartitionEndpointResolver(Partition partition) {
-        OptionalUtils.ifPresentOrElse(
-                partition.getPartitionEndpoint(),
-                name -> writer.write("return defaultRegionInfoProvider($S);", name),
-                () -> {
-                    writer.openBlock("regionInfo = {", "};", () -> {
-                        String template = partition.templateVariableName;
-                        writer.write("hostname: $L.replace(\"{region}\", region),", template);
-                        writer.write("partition: $S,", partition.identifier);
-                        writeAdditionalEndpointSettings(partition.getDefaults());
-                    });
-                }
-        );
     }
 
     private void writeEndpointSpecificResolver(String region, ObjectNode resolved) {
-        String hostname = resolved.expectStringMember("hostname").getValue();
-        writer.openBlock("regionInfo = {", "};", () -> {
-            writer.write("hostname: $S,", hostname);
-            writer.write("partition: $S,", regionPartitionsMap.get(region).identifier);
-            writeAdditionalEndpointSettings(resolved);
-        });
-    }
-
-    // Write credential scope settings into the resolved endpoint object.
-    private void writeAdditionalEndpointSettings(ObjectNode settings) {
-        settings.getObjectMember("credentialScope").ifPresent(scope -> {
-            scope.getStringMember("region").ifPresent(signingRegion -> {
-                writer.write("signingRegion: $S,", signingRegion);
+        if (resolved.containsMember("hostname") || resolved.containsMember("credentialScope")) {
+            writer.openBlock("$S: {", "},", region, () -> {
+                String hostname = resolved.expectStringMember("hostname").getValue();
+                writer.write("hostname: $S,", hostname);
+                resolved.getObjectMember("credentialScope").ifPresent(scope -> {
+                    scope.getStringMember("region").ifPresent(signingRegion -> {
+                        writer.write("signingRegion: $S,", signingRegion);
+                    });
+                    scope.getStringMember("service").ifPresent(signingService -> {
+                        writer.write("signingService: $S,", signingService);
+                    });
+                });
             });
-            scope.getStringMember("service").ifPresent(signingService -> {
-                writer.write("signingService: $S,", signingService);
-            });
-        });
+        }
     }
 
     private final class Partition {
         final ObjectNode defaults;
-        final String regionVariableName;
-        final String templateVariableName;
-        final String templateValue;
+        final String hostnameTemplate;
         final String dnsSuffix;
         final String identifier;
         private final ObjectNode config;
@@ -219,12 +189,7 @@ final class EndpointGenerator implements Runnable {
             String template = defaults.expectStringMember("hostname").getValue();
             template = template.replace("{service}", endpointPrefix);
             template = template.replace("{dnsSuffix}", config.expectStringMember("dnsSuffix").getValue());
-            templateValue = template;
-
-            // Compute the template and regions variable names.
-            String snakePartition = StringUtils.upperCase(CaseUtils.toSnakeCase(partition));
-            templateVariableName = snakePartition + "_TEMPLATE";
-            regionVariableName = snakePartition + "_REGIONS";
+            hostnameTemplate = template;
 
             dnsSuffix = config.expectStringMember("dnsSuffix").getValue();
             identifier = partition;
@@ -240,7 +205,16 @@ final class EndpointGenerator implements Runnable {
         }
 
         Set<String> getAllRegions() {
-            return config.getObjectMember("regions").orElse(Node.objectNode()).getStringMap().keySet();
+            Set<String> regions = new TreeSet<String>();
+            regions.addAll(
+                config.getObjectMember("regions")
+                    .orElse(Node.objectNode()).getStringMap().keySet()
+            );
+            regions.addAll(
+                getService().getObjectMember("endpoints")
+                    .orElse(Node.objectNode()).getStringMap().keySet()
+            );
+            return regions;
         }
 
         Optional<String> getPartitionEndpoint() {

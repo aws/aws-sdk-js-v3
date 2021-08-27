@@ -30,7 +30,7 @@ export const getRuntimeConfig = (config: RestXmlProtocolClientConfig) => {
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     requestHandler: config?.requestHandler ?? new NodeHttpHandler(),
-    retryModeProvider: config?.retryModeProvider ?? loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),
+    retryMode: config?.retryMode ?? loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

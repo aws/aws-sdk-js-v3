@@ -37,7 +37,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * <ul>
  *     <li>maxAttempts: Provides value for how many times a request will be
  *     made at most in case of retry.</li>
- *     <li>retryModeProvider: Specifies provider for retry algorithm to use.</li>
+ *     <li>retryMode: Specifies which retry algorithm to use.</li>
  *     <li>logger: Optional logger for logging debug/info/warn/error.</li>
  * </ul>
  *
@@ -46,7 +46,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * <ul>
  *     <li>maxAttempts: Uses the default maxAttempts provider that checks things
  *     like environment variables and the AWS config file.</li>
- *     <li>retryModeProvider: Specifies provider for retry algorithm to use.</li>
+ *     <li>retryMode: Specifies which retry algorithm to use.</li>
  *     <li>logger: Sets to empty as logger is passed in client configuration</li>
  * </ul>
  *
@@ -54,7 +54,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *
  * <ul>
  *     <li>maxAttempts: Returns default value of 3.</li>
- *     <li>retryModeProvider: Provider which returns DEFAULT_RETRY_MODE.</li>
+ *     <li>retryMode: Provider which returns DEFAULT_RETRY_MODE.</li>
  *     <li>logger: Sets to empty as logger is passed in client configuration</li>
  * </ul>
  */
@@ -73,8 +73,8 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
 
         writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
                 .write("maxAttempts?: number | __Provider<number>;\n");
-        writer.writeDocs("Specifies provider for retry algorithm to use.\n@internal")
-                .write("retryModeProvider?: __Provider<string>;\n");
+        writer.writeDocs("Specifies which retry algorithm to use.")
+                .write("retryMode?: string | __Provider<string>;\n");
         writer.writeDocs("Optional logger for logging debug/info/warn/error.")
                 .write("logger?: __Logger;\n");
     }
@@ -102,7 +102,7 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                                     TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
                             writer.write("DEFAULT_MAX_ATTEMPTS");
                         },
-                        "retryModeProvider", writer -> {
+                        "retryMode", writer -> {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
                             writer.addImport("DEFAULT_RETRY_MODE", "DEFAULT_RETRY_MODE",
                                     TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
@@ -119,7 +119,7 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                                 TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
                             writer.write("loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS)");
                         },
-                        "retryModeProvider", writer -> {
+                        "retryMode", writer -> {
                             writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
                             writer.addImport("loadConfig", "loadNodeConfig",
                                     AwsDependency.NODE_CONFIG_PROVIDER.packageName);

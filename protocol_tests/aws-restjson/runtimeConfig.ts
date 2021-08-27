@@ -33,7 +33,7 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     md5: config?.md5 ?? Hash.bind(null, "md5"),
     requestHandler: config?.requestHandler ?? new NodeHttpHandler(),
-    retryModeProvider: config?.retryModeProvider ?? loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),
+    retryMode: config?.retryMode ?? loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,
