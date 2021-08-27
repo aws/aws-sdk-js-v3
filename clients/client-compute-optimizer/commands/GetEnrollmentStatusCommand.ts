@@ -21,13 +21,12 @@ export interface GetEnrollmentStatusCommandInput extends GetEnrollmentStatusRequ
 export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the enrollment (opt in) status of an account to the AWS Compute Optimizer
+ * <p>Returns the enrollment (opt in) status of an account to the Compute Optimizer
  *             service.</p>
  *
- *
- *
  *         <p>If the account is the management account of an organization, this action also confirms
- *             the enrollment status of member accounts within the organization.</p>
+ *             the enrollment status of member accounts of the organization. Use the <a>GetEnrollmentStatusesForOrganization</a> action to get detailed information
+ *             about the enrollment status of member accounts of an organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

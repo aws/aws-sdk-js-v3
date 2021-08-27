@@ -26,8 +26,8 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  *
  *          <p>For
  *       more information, see
- *       https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
- *       in the <i>AWS DataSync User Guide</i>.</p>
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>
+ *       in the <i>DataSync User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

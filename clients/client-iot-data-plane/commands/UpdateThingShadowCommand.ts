@@ -22,8 +22,9 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowRespons
 
 /**
  * <p>Updates the shadow for the specified thing.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingShadow</a> action.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the
- *         AWS IoT Developer Guide.</p>
+ *         IoT Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

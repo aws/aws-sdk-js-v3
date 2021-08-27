@@ -22,8 +22,9 @@ export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __M
 
 /**
  * <p>Gets the shadow for the specified thing.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetThingShadow</a> action.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the
- *         AWS IoT Developer Guide.</p>
+ *         IoT Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

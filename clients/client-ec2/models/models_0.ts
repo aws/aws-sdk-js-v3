@@ -174,7 +174,7 @@ export interface TransitGatewayMulticastDomainAssociations {
   ResourceType?: TransitGatewayAttachmentResourceType | string;
 
   /**
-   * <p> The ID of the AWS account that owns the resource.</p>
+   * <p> The ID of the Amazon Web Services account that owns the resource.</p>
    */
   ResourceOwnerId?: string;
 
@@ -242,7 +242,7 @@ export interface PeeringTgwInfo {
   TransitGatewayId?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the transit gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
    */
   OwnerId?: string;
 
@@ -470,7 +470,7 @@ export interface TransitGatewayVpcAttachment {
   VpcId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the VPC.</p>
+   * <p>The ID of the Amazon Web Services account that owns the VPC.</p>
    */
   VpcOwnerId?: string;
 
@@ -1660,14 +1660,14 @@ export interface AssignIpv6AddressesRequest {
   Ipv6Addresses?: string[];
 
   /**
-   * <p>The number of IPv6 Prefix Delegation prefixes that AWS automatically assigns to the
+   * <p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the
    *             network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code>
    *             option.</p>
    */
   Ipv6PrefixCount?: number;
 
   /**
-   * <p>One or more IPv6 Prefix Delegation prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   * <p>One or more IPv6 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
    */
   Ipv6Prefixes?: string[];
 
@@ -1694,9 +1694,7 @@ export interface AssignIpv6AddressesResult {
   AssignedIpv6Addresses?: string[];
 
   /**
-   * <p>The IPv6 Prefix Delegation prefixes
-   *             that are
-   *             assigned to the network interface.</p>
+   * <p>The IPv6 prefixes that are assigned to the network interface.</p>
    */
   AssignedIpv6Prefixes?: string[];
 
@@ -1741,12 +1739,12 @@ export interface AssignPrivateIpAddressesRequest {
   SecondaryPrivateIpAddressCount?: number;
 
   /**
-   * <p>One or more IPv4 Prefix Delegation prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   * <p>One or more IPv4 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
    */
   Ipv4Prefixes?: string[];
 
   /**
-   * <p>The number of IPv4 Prefix Delegation prefixes that AWS automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
+   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
    */
   Ipv4PrefixCount?: number;
 }
@@ -1761,11 +1759,12 @@ export namespace AssignPrivateIpAddressesRequest {
 }
 
 /**
- * <p>Describes an IPv4 Prefix Delegation.</p>
+ * <p>Describes an IPv4 prefix.</p>
  */
 export interface Ipv4PrefixSpecification {
   /**
-   * <p>The IPv4 Prefix Delegation prefix. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation">Prefix Delegation</a> in the
+   * <p>The IPv4 prefix. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
+   *             Assigning prefixes to Amazon EC2 network interfaces</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   Ipv4Prefix?: string;
@@ -1811,9 +1810,7 @@ export interface AssignPrivateIpAddressesResult {
   AssignedPrivateIpAddresses?: AssignedPrivateIpAddress[];
 
   /**
-   * <p>The IPv4 Prefix Delegation prefixes
-   *             that are
-   *             assigned to the network interface.</p>
+   * <p>The IPv4 prefixes that are assigned to the network interface.</p>
    */
   AssignedIpv4Prefixes?: Ipv4PrefixSpecification[];
 }
@@ -2776,7 +2773,11 @@ export enum InterfaceProtocolType {
 }
 
 /**
- * <p>Information about an association between a branch network interface with a trunk network interface.</p>
+ * <note>
+ *             <p>Currently available in <b>limited preview only</b>.
+ *                 If you are interested in using this feature, contact your account manager.</p>
+ *         </note>
+ *         <p>Information about an association between a branch network interface with a trunk network interface.</p>
  */
 export interface TrunkInterfaceAssociation {
   /**
@@ -2810,7 +2811,7 @@ export interface TrunkInterfaceAssociation {
   GreKey?: number;
 
   /**
-   * <p> The tags.</p>
+   * <p>The tags for the trunk interface association.</p>
    */
   Tags?: Tag[];
 }
@@ -5125,6 +5126,7 @@ export interface CreateCapacityReservationRequest {
 
   /**
    * <p>The number of instances for which to reserve capacity.</p>
+   * 	  	     <p>Valid range: 1 - 1000</p>
    */
   InstanceCount: number | undefined;
 
@@ -6889,6 +6891,15 @@ export type _InstanceType =
   | "m6gd.medium"
   | "m6gd.metal"
   | "m6gd.xlarge"
+  | "m6i.12xlarge"
+  | "m6i.16xlarge"
+  | "m6i.24xlarge"
+  | "m6i.2xlarge"
+  | "m6i.32xlarge"
+  | "m6i.4xlarge"
+  | "m6i.8xlarge"
+  | "m6i.large"
+  | "m6i.xlarge"
   | "mac1.metal"
   | "p2.16xlarge"
   | "p2.8xlarge"
@@ -8249,7 +8260,8 @@ export namespace EbsBlockDevice {
 }
 
 /**
- * <p>Describes a block device mapping.</p>
+ * <p>Describes a block device mapping, which defines the EBS volumes and instance store
+ *             volumes to attach to an instance at launch.</p>
  */
 export interface BlockDeviceMapping {
   /**
@@ -8278,7 +8290,9 @@ export interface BlockDeviceMapping {
   Ebs?: EbsBlockDevice;
 
   /**
-   * <p>To omit the device from the block device mapping, specify an empty string.</p>
+   * <p>To omit the device from the block device mapping, specify an empty string. When this
+   *             property is specified, the device is removed from the block device mapping regardless of
+   *             the assigned value.</p>
    */
   NoDevice?: string;
 }

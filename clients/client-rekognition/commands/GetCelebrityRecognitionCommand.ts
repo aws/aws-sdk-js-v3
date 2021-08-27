@@ -35,12 +35,10 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  *          <p>
  *             <code>GetCelebrityRecognition</code> returns detected celebrities and the time(s) they are detected in an array
  *       (<code>Celebrities</code>) of <a>CelebrityRecognition</a>
- *
  *       objects. Each <code>CelebrityRecognition</code> contains information about the celebrity in a <a>CelebrityDetail</a>
  *       object and the time, <code>Timestamp</code>, the celebrity was detected.
  *       </p>
  *          <note>
- *
  *             <p>
  *                <code>GetCelebrityRecognition</code> only returns the default
  *         facial attributes (<code>BoundingBox</code>, <code>Confidence</code>,

@@ -311,6 +311,7 @@ import {
   PostgreSQLSettings,
   RebootReplicationInstanceMessage,
   RebootReplicationInstanceResponse,
+  RedisSettings,
   RedshiftSettings,
   RefreshSchemasMessage,
   RefreshSchemasResponse,
@@ -4173,6 +4174,14 @@ const deserializeAws_json1_1MoveReplicationTaskCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -5235,6 +5244,17 @@ const serializeAws_json1_1ApplyPendingMaintenanceActionMessage = (
   };
 };
 
+const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1CancelReplicationTaskAssessmentRunMessage = (
   input: CancelReplicationTaskAssessmentRunMessage,
   context: __SerdeContext
@@ -5317,6 +5337,10 @@ const serializeAws_json1_1CreateEndpointMessage = (input: CreateEndpointMessage,
     ...(input.PostgreSQLSettings !== undefined &&
       input.PostgreSQLSettings !== null && {
         PostgreSQLSettings: serializeAws_json1_1PostgreSQLSettings(input.PostgreSQLSettings, context),
+      }),
+    ...(input.RedisSettings !== undefined &&
+      input.RedisSettings !== null && {
+        RedisSettings: serializeAws_json1_1RedisSettings(input.RedisSettings, context),
       }),
     ...(input.RedshiftSettings !== undefined &&
       input.RedshiftSettings !== null && {
@@ -5941,6 +5965,17 @@ const serializeAws_json1_1IncludeTestList = (input: string[], context: __SerdeCo
     });
 };
 
+const serializeAws_json1_1IntegerList = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1KafkaSettings = (input: KafkaSettings, context: __SerdeContext): any => {
   return {
     ...(input.Broker !== undefined && input.Broker !== null && { Broker: input.Broker }),
@@ -6015,6 +6050,10 @@ const serializeAws_json1_1ListTagsForResourceMessage = (
 ): any => {
   return {
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArnList !== undefined &&
+      input.ResourceArnList !== null && {
+        ResourceArnList: serializeAws_json1_1ArnList(input.ResourceArnList, context),
+      }),
   };
 };
 
@@ -6119,6 +6158,10 @@ const serializeAws_json1_1ModifyEndpointMessage = (input: ModifyEndpointMessage,
     ...(input.PostgreSQLSettings !== undefined &&
       input.PostgreSQLSettings !== null && {
         PostgreSQLSettings: serializeAws_json1_1PostgreSQLSettings(input.PostgreSQLSettings, context),
+      }),
+    ...(input.RedisSettings !== undefined &&
+      input.RedisSettings !== null && {
+        RedisSettings: serializeAws_json1_1RedisSettings(input.RedisSettings, context),
       }),
     ...(input.RedshiftSettings !== undefined &&
       input.RedshiftSettings !== null && {
@@ -6334,6 +6377,10 @@ const serializeAws_json1_1OracleSettings = (input: OracleSettings, context: __Se
       input.DirectPathParallelLoad !== null && { DirectPathParallelLoad: input.DirectPathParallelLoad }),
     ...(input.EnableHomogenousTablespace !== undefined &&
       input.EnableHomogenousTablespace !== null && { EnableHomogenousTablespace: input.EnableHomogenousTablespace }),
+    ...(input.ExtraArchivedLogDestIds !== undefined &&
+      input.ExtraArchivedLogDestIds !== null && {
+        ExtraArchivedLogDestIds: serializeAws_json1_1IntegerList(input.ExtraArchivedLogDestIds, context),
+      }),
     ...(input.FailTasksOnLobTruncation !== undefined &&
       input.FailTasksOnLobTruncation !== null && { FailTasksOnLobTruncation: input.FailTasksOnLobTruncation }),
     ...(input.NumberDatatypeScale !== undefined &&
@@ -6429,6 +6476,20 @@ const serializeAws_json1_1RebootReplicationInstanceMessage = (
   };
 };
 
+const serializeAws_json1_1RedisSettings = (input: RedisSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.AuthPassword !== undefined && input.AuthPassword !== null && { AuthPassword: input.AuthPassword }),
+    ...(input.AuthType !== undefined && input.AuthType !== null && { AuthType: input.AuthType }),
+    ...(input.AuthUserName !== undefined && input.AuthUserName !== null && { AuthUserName: input.AuthUserName }),
+    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
+    ...(input.SslCaCertificateArn !== undefined &&
+      input.SslCaCertificateArn !== null && { SslCaCertificateArn: input.SslCaCertificateArn }),
+    ...(input.SslSecurityProtocol !== undefined &&
+      input.SslSecurityProtocol !== null && { SslSecurityProtocol: input.SslSecurityProtocol }),
+  };
+};
+
 const serializeAws_json1_1RedshiftSettings = (input: RedshiftSettings, context: __SerdeContext): any => {
   return {
     ...(input.AcceptAnyDate !== undefined && input.AcceptAnyDate !== null && { AcceptAnyDate: input.AcceptAnyDate }),
@@ -6511,17 +6572,25 @@ const serializeAws_json1_1RemoveTagsFromResourceMessage = (
 
 const serializeAws_json1_1S3Settings = (input: S3Settings, context: __SerdeContext): any => {
   return {
+    ...(input.AddColumnName !== undefined && input.AddColumnName !== null && { AddColumnName: input.AddColumnName }),
     ...(input.BucketFolder !== undefined && input.BucketFolder !== null && { BucketFolder: input.BucketFolder }),
     ...(input.BucketName !== undefined && input.BucketName !== null && { BucketName: input.BucketName }),
+    ...(input.CannedAclForObjects !== undefined &&
+      input.CannedAclForObjects !== null && { CannedAclForObjects: input.CannedAclForObjects }),
     ...(input.CdcInsertsAndUpdates !== undefined &&
       input.CdcInsertsAndUpdates !== null && { CdcInsertsAndUpdates: input.CdcInsertsAndUpdates }),
     ...(input.CdcInsertsOnly !== undefined &&
       input.CdcInsertsOnly !== null && { CdcInsertsOnly: input.CdcInsertsOnly }),
+    ...(input.CdcMaxBatchInterval !== undefined &&
+      input.CdcMaxBatchInterval !== null && { CdcMaxBatchInterval: input.CdcMaxBatchInterval }),
+    ...(input.CdcMinFileSize !== undefined &&
+      input.CdcMinFileSize !== null && { CdcMinFileSize: input.CdcMinFileSize }),
     ...(input.CdcPath !== undefined && input.CdcPath !== null && { CdcPath: input.CdcPath }),
     ...(input.CompressionType !== undefined &&
       input.CompressionType !== null && { CompressionType: input.CompressionType }),
     ...(input.CsvDelimiter !== undefined && input.CsvDelimiter !== null && { CsvDelimiter: input.CsvDelimiter }),
     ...(input.CsvNoSupValue !== undefined && input.CsvNoSupValue !== null && { CsvNoSupValue: input.CsvNoSupValue }),
+    ...(input.CsvNullValue !== undefined && input.CsvNullValue !== null && { CsvNullValue: input.CsvNullValue }),
     ...(input.CsvRowDelimiter !== undefined &&
       input.CsvRowDelimiter !== null && { CsvRowDelimiter: input.CsvRowDelimiter }),
     ...(input.DataFormat !== undefined && input.DataFormat !== null && { DataFormat: input.DataFormat }),
@@ -6541,8 +6610,11 @@ const serializeAws_json1_1S3Settings = (input: S3Settings, context: __SerdeConte
       input.EncryptionMode !== null && { EncryptionMode: input.EncryptionMode }),
     ...(input.ExternalTableDefinition !== undefined &&
       input.ExternalTableDefinition !== null && { ExternalTableDefinition: input.ExternalTableDefinition }),
+    ...(input.IgnoreHeaderRows !== undefined &&
+      input.IgnoreHeaderRows !== null && { IgnoreHeaderRows: input.IgnoreHeaderRows }),
     ...(input.IncludeOpForFullLoad !== undefined &&
       input.IncludeOpForFullLoad !== null && { IncludeOpForFullLoad: input.IncludeOpForFullLoad }),
+    ...(input.MaxFileSize !== undefined && input.MaxFileSize !== null && { MaxFileSize: input.MaxFileSize }),
     ...(input.ParquetTimestampInMillisecond !== undefined &&
       input.ParquetTimestampInMillisecond !== null && {
         ParquetTimestampInMillisecond: input.ParquetTimestampInMillisecond,
@@ -6551,6 +6623,7 @@ const serializeAws_json1_1S3Settings = (input: S3Settings, context: __SerdeConte
       input.ParquetVersion !== null && { ParquetVersion: input.ParquetVersion }),
     ...(input.PreserveTransactions !== undefined &&
       input.PreserveTransactions !== null && { PreserveTransactions: input.PreserveTransactions }),
+    ...(input.Rfc4180 !== undefined && input.Rfc4180 !== null && { Rfc4180: input.Rfc4180 }),
     ...(input.RowGroupLength !== undefined &&
       input.RowGroupLength !== null && { RowGroupLength: input.RowGroupLength }),
     ...(input.ServerSideEncryptionKmsKeyId !== undefined &&
@@ -6687,6 +6760,7 @@ const serializeAws_json1_1TableToReload = (input: TableToReload, context: __Serd
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
     ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
@@ -7390,6 +7464,10 @@ const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): E
       output.PostgreSQLSettings !== undefined && output.PostgreSQLSettings !== null
         ? deserializeAws_json1_1PostgreSQLSettings(output.PostgreSQLSettings, context)
         : undefined,
+    RedisSettings:
+      output.RedisSettings !== undefined && output.RedisSettings !== null
+        ? deserializeAws_json1_1RedisSettings(output.RedisSettings, context)
+        : undefined,
     RedshiftSettings:
       output.RedshiftSettings !== undefined && output.RedshiftSettings !== null
         ? deserializeAws_json1_1RedshiftSettings(output.RedshiftSettings, context)
@@ -7592,6 +7670,17 @@ const deserializeAws_json1_1InsufficientResourceCapacityFault = (
   return {
     message: __expectString(output.message),
   } as any;
+};
+
+const deserializeAws_json1_1IntegerList = (output: any, context: __SerdeContext): number[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt(entry) as any;
+    });
 };
 
 const deserializeAws_json1_1InvalidCertificateFault = (
@@ -7870,6 +7959,10 @@ const deserializeAws_json1_1OracleSettings = (output: any, context: __SerdeConte
     DirectPathNoLog: __expectBoolean(output.DirectPathNoLog),
     DirectPathParallelLoad: __expectBoolean(output.DirectPathParallelLoad),
     EnableHomogenousTablespace: __expectBoolean(output.EnableHomogenousTablespace),
+    ExtraArchivedLogDestIds:
+      output.ExtraArchivedLogDestIds !== undefined && output.ExtraArchivedLogDestIds !== null
+        ? deserializeAws_json1_1IntegerList(output.ExtraArchivedLogDestIds, context)
+        : undefined,
     FailTasksOnLobTruncation: __expectBoolean(output.FailTasksOnLobTruncation),
     NumberDatatypeScale: __expectInt(output.NumberDatatypeScale),
     OraclePathPrefix: __expectString(output.OraclePathPrefix),
@@ -8015,6 +8108,18 @@ const deserializeAws_json1_1RebootReplicationInstanceResponse = (
       output.ReplicationInstance !== undefined && output.ReplicationInstance !== null
         ? deserializeAws_json1_1ReplicationInstance(output.ReplicationInstance, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RedisSettings = (output: any, context: __SerdeContext): RedisSettings => {
+  return {
+    AuthPassword: __expectString(output.AuthPassword),
+    AuthType: __expectString(output.AuthType),
+    AuthUserName: __expectString(output.AuthUserName),
+    Port: __expectInt(output.Port),
+    ServerName: __expectString(output.ServerName),
+    SslCaCertificateArn: __expectString(output.SslCaCertificateArn),
+    SslSecurityProtocol: __expectString(output.SslSecurityProtocol),
   } as any;
 };
 
@@ -8500,14 +8605,19 @@ const deserializeAws_json1_1S3ResourceNotFoundFault = (
 
 const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext): S3Settings => {
   return {
+    AddColumnName: __expectBoolean(output.AddColumnName),
     BucketFolder: __expectString(output.BucketFolder),
     BucketName: __expectString(output.BucketName),
+    CannedAclForObjects: __expectString(output.CannedAclForObjects),
     CdcInsertsAndUpdates: __expectBoolean(output.CdcInsertsAndUpdates),
     CdcInsertsOnly: __expectBoolean(output.CdcInsertsOnly),
+    CdcMaxBatchInterval: __expectInt(output.CdcMaxBatchInterval),
+    CdcMinFileSize: __expectInt(output.CdcMinFileSize),
     CdcPath: __expectString(output.CdcPath),
     CompressionType: __expectString(output.CompressionType),
     CsvDelimiter: __expectString(output.CsvDelimiter),
     CsvNoSupValue: __expectString(output.CsvNoSupValue),
+    CsvNullValue: __expectString(output.CsvNullValue),
     CsvRowDelimiter: __expectString(output.CsvRowDelimiter),
     DataFormat: __expectString(output.DataFormat),
     DataPageSize: __expectInt(output.DataPageSize),
@@ -8519,10 +8629,13 @@ const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext):
     EncodingType: __expectString(output.EncodingType),
     EncryptionMode: __expectString(output.EncryptionMode),
     ExternalTableDefinition: __expectString(output.ExternalTableDefinition),
+    IgnoreHeaderRows: __expectInt(output.IgnoreHeaderRows),
     IncludeOpForFullLoad: __expectBoolean(output.IncludeOpForFullLoad),
+    MaxFileSize: __expectInt(output.MaxFileSize),
     ParquetTimestampInMillisecond: __expectBoolean(output.ParquetTimestampInMillisecond),
     ParquetVersion: __expectString(output.ParquetVersion),
     PreserveTransactions: __expectBoolean(output.PreserveTransactions),
+    Rfc4180: __expectBoolean(output.Rfc4180),
     RowGroupLength: __expectInt(output.RowGroupLength),
     ServerSideEncryptionKmsKeyId: __expectString(output.ServerSideEncryptionKmsKeyId),
     ServiceAccessRoleArn: __expectString(output.ServiceAccessRoleArn),
@@ -8736,6 +8849,7 @@ const deserializeAws_json1_1TableStatisticsList = (output: any, context: __Serde
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
+    ResourceArn: __expectString(output.ResourceArn),
     Value: __expectString(output.Value),
   } as any;
 };

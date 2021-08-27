@@ -24,8 +24,7 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
 
 /**
  * <p>Updates the call analytics category with new values. The <code>UpdateCallAnalyticsCategory</code>
- *             operation overwrites all of the existing information with the values that you provide in the
- *             request. </p>
+ *             operation overwrites all of the existing information with the values that you provide in the request. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

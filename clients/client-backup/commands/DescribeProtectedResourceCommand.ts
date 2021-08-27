@@ -22,7 +22,8 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
 
 /**
  * <p>Returns information about a saved resource, including the last time it was backed up,
- *          its Amazon Resource Name (ARN), and the AWS service type of the saved resource.</p>
+ *          its Amazon Resource Name (ARN), and the Amazon Web Services service type of the saved
+ *          resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

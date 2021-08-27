@@ -112,7 +112,7 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *          <p>
  *             <b>Permissions</b>
  *          </p>
- *          <p>You need the <code>s3:GetObject</code> permission for this operation. For more
+ *          <p>You need the relevant read object (or version) permission for this operation. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions
  *             in a Policy</a>. If the object you request does not exist, the error Amazon S3 returns
  *          depends on whether you also have the s3:ListBucket permission.</p>

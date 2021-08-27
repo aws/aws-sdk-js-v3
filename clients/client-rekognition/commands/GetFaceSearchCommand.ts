@@ -40,7 +40,6 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  *     bounding boxes, and person identifer)
  *     for the matched person, and the time the person was matched in the video.</p>
  *          <note>
- *
  *             <p>
  *                <code>GetFaceSearch</code> only returns the default
  *         facial attributes (<code>BoundingBox</code>, <code>Confidence</code>,

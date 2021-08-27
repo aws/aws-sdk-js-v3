@@ -21,9 +21,13 @@ export interface PublishCommandInput extends PublishRequest {}
 export interface PublishCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Publishes state information.</p>
- *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the
- *        AWS IoT Developer Guide.</p>
+ * <p>Publishes an MQTT message.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">Publish</a> action.</p>
+ *          <p>For more information about MQTT messages, see
+ *       <a href="http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">MQTT Protocol</a> in the
+ *        IoT Developer Guide.</p>
+ *          <p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">IoT Core
+ *       pricing - Messaging</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,7 +21,7 @@ export interface GetSupportedResourceTypesCommandInput {}
 export interface GetSupportedResourceTypesCommandOutput extends GetSupportedResourceTypesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the AWS resource types supported by AWS Backup.</p>
+ * <p>Returns the Amazon Web Services resource types supported by Backup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

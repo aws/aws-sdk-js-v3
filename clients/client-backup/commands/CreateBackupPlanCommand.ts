@@ -22,10 +22,10 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
 
 /**
  * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
- *          document that contains information that AWS Backup uses to schedule tasks that create
- *          recovery points for resources.</p>
- *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an
- *             <code>AlreadyExistsException</code> is returned.</p>
+ *          document that contains information that Backup uses to schedule tasks that
+ *          create recovery points for resources.</p>
+ *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, you receive
+ *          an <code>AlreadyExistsException</code> exception.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

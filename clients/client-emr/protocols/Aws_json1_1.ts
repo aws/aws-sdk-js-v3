@@ -38,6 +38,10 @@ import {
 import { DescribeStepCommandInput, DescribeStepCommandOutput } from "../commands/DescribeStepCommand";
 import { DescribeStudioCommandInput, DescribeStudioCommandOutput } from "../commands/DescribeStudioCommand";
 import {
+  GetAutoTerminationPolicyCommandInput,
+  GetAutoTerminationPolicyCommandOutput,
+} from "../commands/GetAutoTerminationPolicyCommand";
+import {
   GetBlockPublicAccessConfigurationCommandInput,
   GetBlockPublicAccessConfigurationCommandOutput,
 } from "../commands/GetBlockPublicAccessConfigurationCommand";
@@ -86,6 +90,10 @@ import {
   PutAutoScalingPolicyCommandOutput,
 } from "../commands/PutAutoScalingPolicyCommand";
 import {
+  PutAutoTerminationPolicyCommandInput,
+  PutAutoTerminationPolicyCommandOutput,
+} from "../commands/PutAutoTerminationPolicyCommand";
+import {
   PutBlockPublicAccessConfigurationCommandInput,
   PutBlockPublicAccessConfigurationCommandOutput,
 } from "../commands/PutBlockPublicAccessConfigurationCommand";
@@ -97,6 +105,10 @@ import {
   RemoveAutoScalingPolicyCommandInput,
   RemoveAutoScalingPolicyCommandOutput,
 } from "../commands/RemoveAutoScalingPolicyCommand";
+import {
+  RemoveAutoTerminationPolicyCommandInput,
+  RemoveAutoTerminationPolicyCommandOutput,
+} from "../commands/RemoveAutoTerminationPolicyCommand";
 import {
   RemoveManagedScalingPolicyCommandInput,
   RemoveManagedScalingPolicyCommandOutput,
@@ -139,6 +151,7 @@ import {
   AutoScalingPolicyDescription,
   AutoScalingPolicyStateChangeReason,
   AutoScalingPolicyStatus,
+  AutoTerminationPolicy,
   BlockPublicAccessConfiguration,
   BlockPublicAccessConfigurationMetadata,
   BootstrapActionConfig,
@@ -186,6 +199,8 @@ import {
   Ec2InstanceAttributes,
   ExecutionEngineConfig,
   FailureDetails,
+  GetAutoTerminationPolicyInput,
+  GetAutoTerminationPolicyOutput,
   GetBlockPublicAccessConfigurationInput,
   GetBlockPublicAccessConfigurationOutput,
   GetManagedScalingPolicyInput,
@@ -264,6 +279,8 @@ import {
   PortRange,
   PutAutoScalingPolicyInput,
   PutAutoScalingPolicyOutput,
+  PutAutoTerminationPolicyInput,
+  PutAutoTerminationPolicyOutput,
   PutBlockPublicAccessConfigurationInput,
   PutBlockPublicAccessConfigurationOutput,
   PutManagedScalingPolicyInput,
@@ -271,6 +288,8 @@ import {
   ReleaseLabelFilter,
   RemoveAutoScalingPolicyInput,
   RemoveAutoScalingPolicyOutput,
+  RemoveAutoTerminationPolicyInput,
+  RemoveAutoTerminationPolicyOutput,
   RemoveManagedScalingPolicyInput,
   RemoveManagedScalingPolicyOutput,
   RemoveTagsInput,
@@ -563,6 +582,19 @@ export const serializeAws_json1_1DescribeStudioCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetAutoTerminationPolicyCommand = async (
+  input: GetAutoTerminationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "ElasticMapReduce.GetAutoTerminationPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetAutoTerminationPolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetBlockPublicAccessConfigurationCommand = async (
   input: GetBlockPublicAccessConfigurationCommandInput,
   context: __SerdeContext
@@ -797,6 +829,19 @@ export const serializeAws_json1_1PutAutoScalingPolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1PutAutoTerminationPolicyCommand = async (
+  input: PutAutoTerminationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "ElasticMapReduce.PutAutoTerminationPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutAutoTerminationPolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1PutBlockPublicAccessConfigurationCommand = async (
   input: PutBlockPublicAccessConfigurationCommandInput,
   context: __SerdeContext
@@ -833,6 +878,19 @@ export const serializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveAutoScalingPolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RemoveAutoTerminationPolicyCommand = async (
+  input: RemoveAutoTerminationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "ElasticMapReduce.RemoveAutoTerminationPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RemoveAutoTerminationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2049,6 +2107,52 @@ const deserializeAws_json1_1DescribeStudioCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetAutoTerminationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutoTerminationPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetAutoTerminationPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAutoTerminationPolicyOutput(data, context);
+  const response: GetAutoTerminationPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetAutoTerminationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutoTerminationPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3119,6 +3223,52 @@ const deserializeAws_json1_1PutAutoScalingPolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutAutoTerminationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAutoTerminationPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutAutoTerminationPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutAutoTerminationPolicyOutput(data, context);
+  const response: PutAutoTerminationPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutAutoTerminationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAutoTerminationPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3248,6 +3398,52 @@ const deserializeAws_json1_1RemoveAutoScalingPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAutoScalingPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1RemoveAutoTerminationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveAutoTerminationPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RemoveAutoTerminationPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RemoveAutoTerminationPolicyOutput(data, context);
+  const response: RemoveAutoTerminationPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RemoveAutoTerminationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveAutoTerminationPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3942,6 +4138,12 @@ const serializeAws_json1_1AutoScalingPolicy = (input: AutoScalingPolicy, context
   };
 };
 
+const serializeAws_json1_1AutoTerminationPolicy = (input: AutoTerminationPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.IdleTimeout !== undefined && input.IdleTimeout !== null && { IdleTimeout: input.IdleTimeout }),
+  };
+};
+
 const serializeAws_json1_1BlockPublicAccessConfiguration = (
   input: BlockPublicAccessConfiguration,
   context: __SerdeContext
@@ -4272,6 +4474,15 @@ const serializeAws_json1_1ExecutionEngineConfig = (input: ExecutionEngineConfig,
         MasterInstanceSecurityGroupId: input.MasterInstanceSecurityGroupId,
       }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1GetAutoTerminationPolicyInput = (
+  input: GetAutoTerminationPolicyInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
   };
 };
 
@@ -4920,6 +5131,19 @@ const serializeAws_json1_1PutAutoScalingPolicyInput = (
   };
 };
 
+const serializeAws_json1_1PutAutoTerminationPolicyInput = (
+  input: PutAutoTerminationPolicyInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutoTerminationPolicy !== undefined &&
+      input.AutoTerminationPolicy !== null && {
+        AutoTerminationPolicy: serializeAws_json1_1AutoTerminationPolicy(input.AutoTerminationPolicy, context),
+      }),
+    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
+  };
+};
+
 const serializeAws_json1_1PutBlockPublicAccessConfigurationInput = (
   input: PutBlockPublicAccessConfigurationInput,
   context: __SerdeContext
@@ -4966,6 +5190,15 @@ const serializeAws_json1_1RemoveAutoScalingPolicyInput = (
   };
 };
 
+const serializeAws_json1_1RemoveAutoTerminationPolicyInput = (
+  input: RemoveAutoTerminationPolicyInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
+  };
+};
+
 const serializeAws_json1_1RemoveManagedScalingPolicyInput = (
   input: RemoveManagedScalingPolicyInput,
   context: __SerdeContext
@@ -4994,6 +5227,10 @@ const serializeAws_json1_1RunJobFlowInput = (input: RunJobFlowInput, context: __
       }),
     ...(input.AutoScalingRole !== undefined &&
       input.AutoScalingRole !== null && { AutoScalingRole: input.AutoScalingRole }),
+    ...(input.AutoTerminationPolicy !== undefined &&
+      input.AutoTerminationPolicy !== null && {
+        AutoTerminationPolicy: serializeAws_json1_1AutoTerminationPolicy(input.AutoTerminationPolicy, context),
+      }),
     ...(input.BootstrapActions !== undefined &&
       input.BootstrapActions !== null && {
         BootstrapActions: serializeAws_json1_1BootstrapActionConfigList(input.BootstrapActions, context),
@@ -5506,6 +5743,12 @@ const deserializeAws_json1_1AutoScalingPolicyStatus = (
   } as any;
 };
 
+const deserializeAws_json1_1AutoTerminationPolicy = (output: any, context: __SerdeContext): AutoTerminationPolicy => {
+  return {
+    IdleTimeout: __expectInt(output.IdleTimeout),
+  } as any;
+};
+
 const deserializeAws_json1_1BlockPublicAccessConfiguration = (
   output: any,
   context: __SerdeContext
@@ -5994,6 +6237,18 @@ const deserializeAws_json1_1FailureDetails = (output: any, context: __SerdeConte
     LogFile: __expectString(output.LogFile),
     Message: __expectString(output.Message),
     Reason: __expectString(output.Reason),
+  } as any;
+};
+
+const deserializeAws_json1_1GetAutoTerminationPolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): GetAutoTerminationPolicyOutput => {
+  return {
+    AutoTerminationPolicy:
+      output.AutoTerminationPolicy !== undefined && output.AutoTerminationPolicy !== null
+        ? deserializeAws_json1_1AutoTerminationPolicy(output.AutoTerminationPolicy, context)
+        : undefined,
   } as any;
 };
 
@@ -6895,6 +7150,13 @@ const deserializeAws_json1_1PutAutoScalingPolicyOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1PutAutoTerminationPolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): PutAutoTerminationPolicyOutput => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput = (
   output: any,
   context: __SerdeContext
@@ -6913,6 +7175,13 @@ const deserializeAws_json1_1RemoveAutoScalingPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveAutoScalingPolicyOutput => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1RemoveAutoTerminationPolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): RemoveAutoTerminationPolicyOutput => {
   return {} as any;
 };
 

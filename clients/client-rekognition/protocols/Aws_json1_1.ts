@@ -226,6 +226,7 @@ import {
   InvalidS3ObjectException,
   KinesisDataStream,
   KinesisVideoStream,
+  KnownGender,
   Label,
   LabelDetection,
   Landmark,
@@ -7749,6 +7750,10 @@ const deserializeAws_json1_1Celebrity = (output: any, context: __SerdeContext): 
         ? deserializeAws_json1_1ComparedFace(output.Face, context)
         : undefined,
     Id: __expectString(output.Id),
+    KnownGender:
+      output.KnownGender !== undefined && output.KnownGender !== null
+        ? deserializeAws_json1_1KnownGender(output.KnownGender, context)
+        : undefined,
     MatchConfidence: __limitedParseFloat(output.MatchConfidence),
     Name: __expectString(output.Name),
     Urls:
@@ -7824,6 +7829,10 @@ const deserializeAws_json1_1ComparedFace = (output: any, context: __SerdeContext
         ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
         : undefined,
     Confidence: __limitedParseFloat(output.Confidence),
+    Emotions:
+      output.Emotions !== undefined && output.Emotions !== null
+        ? deserializeAws_json1_1Emotions(output.Emotions, context)
+        : undefined,
     Landmarks:
       output.Landmarks !== undefined && output.Landmarks !== null
         ? deserializeAws_json1_1Landmarks(output.Landmarks, context)
@@ -7833,6 +7842,10 @@ const deserializeAws_json1_1ComparedFace = (output: any, context: __SerdeContext
     Quality:
       output.Quality !== undefined && output.Quality !== null
         ? deserializeAws_json1_1ImageQuality(output.Quality, context)
+        : undefined,
+    Smile:
+      output.Smile !== undefined && output.Smile !== null
+        ? deserializeAws_json1_1Smile(output.Smile, context)
         : undefined,
   } as any;
 };
@@ -8473,6 +8486,10 @@ const deserializeAws_json1_1GetCelebrityInfoResponse = (
   context: __SerdeContext
 ): GetCelebrityInfoResponse => {
   return {
+    KnownGender:
+      output.KnownGender !== undefined && output.KnownGender !== null
+        ? deserializeAws_json1_1KnownGender(output.KnownGender, context)
+        : undefined,
     Name: __expectString(output.Name),
     Urls:
       output.Urls !== undefined && output.Urls !== null ? deserializeAws_json1_1Urls(output.Urls, context) : undefined,
@@ -8814,6 +8831,12 @@ const deserializeAws_json1_1KinesisDataStream = (output: any, context: __SerdeCo
 const deserializeAws_json1_1KinesisVideoStream = (output: any, context: __SerdeContext): KinesisVideoStream => {
   return {
     Arn: __expectString(output.Arn),
+  } as any;
+};
+
+const deserializeAws_json1_1KnownGender = (output: any, context: __SerdeContext): KnownGender => {
+  return {
+    Type: __expectString(output.Type),
   } as any;
 };
 

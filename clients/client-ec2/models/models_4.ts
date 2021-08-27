@@ -77,6 +77,7 @@ import {
 import {
   ArchitectureValues,
   AttributeBooleanValue,
+  BootModeValues,
   ConversionTask,
   ExportTaskS3Location,
   FastSnapshotRestoreStateCode,
@@ -97,14 +98,16 @@ import {
   HttpTokensState,
   InstanceMetadataEndpointState,
   InstanceMetadataOptionsResponse,
+  InstanceMetadataProtocolState,
   InstanceStatusEvent,
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
   SnapshotAttributeName,
   VolumeModification,
-  VpcAttributeName,
 } from "./models_3";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export type VpcAttributeName = "enableDnsHostnames" | "enableDnsSupport";
 
 export interface DescribeVpcAttributeRequest {
   /**
@@ -2517,7 +2520,7 @@ export namespace DisassociateTransitGatewayRouteTableResult {
 
 export interface DisassociateTrunkInterfaceRequest {
   /**
-   * <p>The ID ofthe association</p>
+   * <p>The ID of the association</p>
    */
   AssociationId: string | undefined;
 
@@ -5121,7 +5124,7 @@ export interface TransitGatewayMulticastDomainAssociation {
   ResourceType?: TransitGatewayAttachmentResourceType | string;
 
   /**
-   * <p> The ID of the AWS account that owns the transit gateway multicast domain association resource.</p>
+   * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource.</p>
    */
   ResourceOwnerId?: string;
 
@@ -5753,6 +5756,11 @@ export interface ImportImageRequest {
    * <p>The usage operation value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI billing information fields</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   UsageOperation?: string;
+
+  /**
+   * <p>The boot mode of the virtual machine.</p>
+   */
+  BootMode?: BootModeValues | string;
 }
 
 export namespace ImportImageRequest {
@@ -6453,6 +6461,7 @@ export interface ModifyCapacityReservationRequest {
 
   /**
    * <p>The number of instances for which to reserve capacity.</p>
+   * 	  	     <p>Valid range: 1 - 1000</p>
    */
   InstanceCount?: number;
 
@@ -7810,6 +7819,11 @@ export interface ModifyInstanceMetadataOptionsRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+   */
+  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
 }
 
 export namespace ModifyInstanceMetadataOptionsRequest {
@@ -8022,6 +8036,12 @@ export interface ModifyManagedPrefixListRequest {
    * <p>One or more entries to remove from the prefix list.</p>
    */
   RemoveEntries?: RemovePrefixListEntry[];
+
+  /**
+   * <p>The maximum number of entries for the prefix list. You cannot modify the entries
+   *             of a prefix list and modify the size of a prefix list at the same time.</p>
+   */
+  MaxEntries?: number;
 }
 
 export namespace ModifyManagedPrefixListRequest {
@@ -8929,9 +8949,6 @@ export interface ModifyTransitGatewayVpcAttachmentRequest {
 
   /**
    * <p>The new VPC attachment options.</p>
-   *          <note>
-   *             <p>You cannot modify the IPv6 options.</p>
-   *          </note>
    */
   Options?: ModifyTransitGatewayVpcAttachmentRequestOptions;
 
@@ -9470,38 +9487,6 @@ export namespace ModifyVpcPeeringConnectionOptionsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModifyVpcPeeringConnectionOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the VPC peering connection options.</p>
- */
-export interface PeeringConnectionOptions {
-  /**
-   * <p>If true, the public DNS hostnames of instances in the specified VPC resolve to private
-   *             IP addresses when queried from instances in the peer VPC.</p>
-   */
-  AllowDnsResolutionFromRemoteVpc?: boolean;
-
-  /**
-   * <p>If true, enables outbound communication from an EC2-Classic instance that's linked to
-   *             a local VPC using ClassicLink to instances in a peer VPC.</p>
-   */
-  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
-
-  /**
-   * <p>If true, enables outbound communication from instances in a local VPC to an
-   *             EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
-   */
-  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
-}
-
-export namespace PeeringConnectionOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PeeringConnectionOptions): any => ({
     ...obj,
   });
 }

@@ -82,6 +82,11 @@ import {
   DescribeStudioCommandOutput,
 } from "./commands/DescribeStudioCommand";
 import {
+  GetAutoTerminationPolicyCommand,
+  GetAutoTerminationPolicyCommandInput,
+  GetAutoTerminationPolicyCommandOutput,
+} from "./commands/GetAutoTerminationPolicyCommand";
+import {
   GetBlockPublicAccessConfigurationCommand,
   GetBlockPublicAccessConfigurationCommandInput,
   GetBlockPublicAccessConfigurationCommandOutput,
@@ -164,6 +169,11 @@ import {
   PutAutoScalingPolicyCommandOutput,
 } from "./commands/PutAutoScalingPolicyCommand";
 import {
+  PutAutoTerminationPolicyCommand,
+  PutAutoTerminationPolicyCommandInput,
+  PutAutoTerminationPolicyCommandOutput,
+} from "./commands/PutAutoTerminationPolicyCommand";
+import {
   PutBlockPublicAccessConfigurationCommand,
   PutBlockPublicAccessConfigurationCommandInput,
   PutBlockPublicAccessConfigurationCommandOutput,
@@ -178,6 +188,11 @@ import {
   RemoveAutoScalingPolicyCommandInput,
   RemoveAutoScalingPolicyCommandOutput,
 } from "./commands/RemoveAutoScalingPolicyCommand";
+import {
+  RemoveAutoTerminationPolicyCommand,
+  RemoveAutoTerminationPolicyCommandInput,
+  RemoveAutoTerminationPolicyCommandOutput,
+} from "./commands/RemoveAutoTerminationPolicyCommand";
 import {
   RemoveManagedScalingPolicyCommand,
   RemoveManagedScalingPolicyCommandInput,
@@ -837,7 +852,39 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Returns the Amazon EMR block public access configuration for your account in the
+   * <p>Returns the auto-termination policy for an Amazon EMR cluster.</p>
+   */
+  public getAutoTerminationPolicy(
+    args: GetAutoTerminationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutoTerminationPolicyCommandOutput>;
+  public getAutoTerminationPolicy(
+    args: GetAutoTerminationPolicyCommandInput,
+    cb: (err: any, data?: GetAutoTerminationPolicyCommandOutput) => void
+  ): void;
+  public getAutoTerminationPolicy(
+    args: GetAutoTerminationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutoTerminationPolicyCommandOutput) => void
+  ): void;
+  public getAutoTerminationPolicy(
+    args: GetAutoTerminationPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAutoTerminationPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetAutoTerminationPolicyCommandOutput) => void
+  ): Promise<GetAutoTerminationPolicyCommandOutput> | void {
+    const command = new GetAutoTerminationPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the Amazon EMR block public access configuration for your Amazon Web Services account in the
    *          current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
    *             Public Access for Amazon EMR</a> in the <i>Amazon EMR Management
    *             Guide</i>.</p>
@@ -969,7 +1016,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Provides the status of all clusters visible to this account. Allows you to filter
+   * <p>Provides the status of all clusters visible to this Amazon Web Services account. Allows you to filter
    *          the list of clusters based on certain criteria; for example, filtering by cluster creation
    *          date and time or by status. This call returns a maximum of 50 clusters in unsorted order per call, but
    *          returns a marker to track the paging of the cluster list across multiple ListClusters
@@ -1234,7 +1281,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Returns a list of all Amazon EMR Studios associated with the account. The list
+   * <p>Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account. The list
    *          includes details such as ID, Studio Access URL, and creation time for each Studio.</p>
    */
   public listStudios(args: ListStudiosCommandInput, options?: __HttpHandlerOptions): Promise<ListStudiosCommandOutput>;
@@ -1434,7 +1481,39 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Creates or updates an Amazon EMR block public access configuration for your account
+   * <p>Creates or updates an auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. For alternative cluster termination options, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control cluster termination</a>.</p>
+   */
+  public putAutoTerminationPolicy(
+    args: PutAutoTerminationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAutoTerminationPolicyCommandOutput>;
+  public putAutoTerminationPolicy(
+    args: PutAutoTerminationPolicyCommandInput,
+    cb: (err: any, data?: PutAutoTerminationPolicyCommandOutput) => void
+  ): void;
+  public putAutoTerminationPolicy(
+    args: PutAutoTerminationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAutoTerminationPolicyCommandOutput) => void
+  ): void;
+  public putAutoTerminationPolicy(
+    args: PutAutoTerminationPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAutoTerminationPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutAutoTerminationPolicyCommandOutput) => void
+  ): Promise<PutAutoTerminationPolicyCommandOutput> | void {
+    const command = new PutAutoTerminationPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates an Amazon EMR block public access configuration for your Amazon Web Services account
    *          in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
    *             Public Access for Amazon EMR</a> in the <i>Amazon EMR Management
    *             Guide</i>.</p>
@@ -1526,6 +1605,38 @@ export class EMR extends EMRClient {
     cb?: (err: any, data?: RemoveAutoScalingPolicyCommandOutput) => void
   ): Promise<RemoveAutoScalingPolicyCommandOutput> | void {
     const command = new RemoveAutoScalingPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes an auto-termination policy from an Amazon EMR cluster.</p>
+   */
+  public removeAutoTerminationPolicy(
+    args: RemoveAutoTerminationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveAutoTerminationPolicyCommandOutput>;
+  public removeAutoTerminationPolicy(
+    args: RemoveAutoTerminationPolicyCommandInput,
+    cb: (err: any, data?: RemoveAutoTerminationPolicyCommandOutput) => void
+  ): void;
+  public removeAutoTerminationPolicy(
+    args: RemoveAutoTerminationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveAutoTerminationPolicyCommandOutput) => void
+  ): void;
+  public removeAutoTerminationPolicy(
+    args: RemoveAutoTerminationPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveAutoTerminationPolicyCommandOutput) => void),
+    cb?: (err: any, data?: RemoveAutoTerminationPolicyCommandOutput) => void
+  ): Promise<RemoveAutoTerminationPolicyCommandOutput> | void {
+    const command = new RemoveAutoTerminationPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1693,7 +1804,7 @@ export class EMR extends EMRClient {
 
   /**
    * <p>Sets the <a>Cluster$VisibleToAllUsers</a> value for an EMR cluster. When <code>true</code>, IAM principals in the
-   *          account can perform EMR cluster actions that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions on the cluster, regardless of IAM permissions policies attached to other IAM principals.</p>
+   *          Amazon Web Services account can perform EMR cluster actions that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform EMR actions on the cluster, regardless of IAM permissions policies attached to other IAM principals.</p>
    *          <p>This action works on running clusters. When you create a cluster, use the <a>RunJobFlowInput$VisibleToAllUsers</a> parameter.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
    */

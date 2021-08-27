@@ -21,12 +21,11 @@ export interface StartCallAnalyticsJobCommandInput extends StartCallAnalyticsJob
 export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous analytics job that not only transcribes the audio recording of a caller and
- *             agent, but also returns additional insights. These insights include how quickly or loudly the caller
- *             or agent was speaking. To retrieve additional insights with your analytics jobs, create
- *             categories. A category is a way to classify analytics jobs based on attributes, such as a customer's
- *             sentiment or a particular phrase being used during the call. For more information, see the
- *              operation. </p>
+ * <p>Starts an asynchronous analytics job that not only transcribes the audio recording of a caller and agent, but
+ *             also returns additional insights. These insights include how quickly or loudly the caller or agent was speaking. To
+ *             retrieve additional insights with your analytics jobs, create categories. A category is a way to classify analytics jobs
+ *             based on attributes, such as a customer's sentiment or a particular phrase being used during the call. For more
+ *             information, see the  operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

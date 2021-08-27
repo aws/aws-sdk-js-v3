@@ -9,10 +9,10 @@ AWS SDK for JavaScript Polly Client for Node.js, Browser and React Native.
 
 <p>Amazon Polly is a web service that makes it easy to synthesize speech from
 text.</p>
-<p>The Amazon Polly service provides API operations for synthesizing high-quality speech
-from plain text and Speech Synthesis Markup Language (SSML), along with managing
-pronunciations lexicons that enable you to get the best results for your application
-domain.</p>
+<p>The Amazon Polly service provides API operations for synthesizing
+high-quality speech from plain text and Speech Synthesis Markup Language
+(SSML), along with managing pronunciations lexicons that enable you to get
+the best results for your application domain.</p>
 
 ## Installing
 

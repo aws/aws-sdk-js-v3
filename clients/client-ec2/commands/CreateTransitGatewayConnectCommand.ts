@@ -22,7 +22,7 @@ export interface CreateTransitGatewayConnectCommandOutput extends CreateTransitG
 
 /**
  * <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p>
- *         <p>A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the underlying transport mechanism. </p>
+ *         <p>A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

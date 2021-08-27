@@ -771,6 +771,9 @@ export interface SecurityServicePolicyData {
    *                <p>
    *                   <code>"{\"type\":\"DNS_FIREWALL\",\"preProcessRuleGroups\":[{\"ruleGroupId\":\"rslvr-frg-1\",\"priority\":10}],\"postProcessRuleGroups\":[{\"ruleGroupId\":\"rslvr-frg-2\",\"priority\":9911}]}"</code>
    *                </p>
+   *                <note>
+   *                   <p>Valid values for <code>preProcessRuleGroups</code> are between 1 and 99. Valid values for <code>postProcessRuleGroups</code> are between 9901 and 10000.</p>
+   *                </note>
    *             </li>
    *             <li>
    *                <p>Example: <code>NETWORK_FIREWALL</code>
@@ -783,7 +786,7 @@ export interface SecurityServicePolicyData {
    *                <p>Example: <code>WAFV2</code>
    *                </p>
    *                <p>
-   *                   <code>"{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[{\"ruleGroupArn\":null,\"overrideAction\":{\"type\":\"NONE\"},\"managedRuleGroupIdentifier\":{\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesAmazonIpReputationList\"},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[]}],\"postProcessRuleGroups\":[],\"defaultAction\":{\"type\":\"ALLOW\"},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"},{\"redactedFieldType\":\"Method\"}]}}"</code>
+   *                   <code>"{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[{\"ruleGroupArn\":null,\"overrideAction\":{\"type\":\"NONE\"},\"managedRuleGroupIdentifier\":{\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesAmazonIpReputationList\"},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[{\"name\":\"NoUserAgent_HEADER\"}]}],\"postProcessRuleGroups\":[],\"defaultAction\":{\"type\":\"ALLOW\"},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"},{\"redactedFieldType\":\"Method\"}]}}"</code>
    *                </p>
    *                <p>In the <code>loggingConfiguration</code>, you can specify one <code>logDestinationConfigs</code>, you can optionally provide up to 20 <code>redactedFields</code>, and the <code>RedactedFieldType</code> must be one of <code>URI</code>, <code>QUERY_STRING</code>, <code>HEADER</code>, or <code>METHOD</code>.</p>
    *             </li>
@@ -906,6 +909,11 @@ export interface Policy {
    * <p>Indicates if the policy should be automatically applied to new resources.</p>
    */
   RemediationEnabled: boolean | undefined;
+
+  /**
+   * <p>Indicates whether Firewall Manager should delete Firewall Manager managed resources, such as web ACLs and security groups, when they are not in use by the Firewall Manager policy. By default, Firewall Manager doesn't delete unused Firewall Manager managed resources. This option is not available for Shield Advanced or WAF Classic policies.</p>
+   */
+  DeleteUnusedFMManagedResources?: boolean;
 
   /**
    * <p>Specifies the Amazon Web Services account IDs and Organizations organizational units (OUs) to include in the policy.
@@ -3042,6 +3050,11 @@ export interface PolicySummary {
    * <p>Indicates if the policy should be automatically applied to new resources.</p>
    */
   RemediationEnabled?: boolean;
+
+  /**
+   * <p>Indicates whether Firewall Manager should delete Firewall Manager managed resources, such as web ACLs and security groups, when they are not in use by the Firewall Manager policy. By default, Firewall Manager doesn't delete unused Firewall Manager managed resources. This option is not available for Shield Advanced or WAF Classic policies.</p>
+   */
+  DeleteUnusedFMManagedResources?: boolean;
 }
 
 export namespace PolicySummary {

@@ -22,7 +22,7 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
 
 /**
  * <p>Deletes an agent. To specify which agent to delete, use the Amazon Resource Name (ARN)
- *       of the agent in your request. The operation disassociates the agent from your AWS account.
+ *       of the agent in your request. The operation disassociates the agent from your Amazon Web Services account.
  *       However, it doesn't delete the agent virtual machine (VM) from your on-premises
  *       environment.</p>
  * @example

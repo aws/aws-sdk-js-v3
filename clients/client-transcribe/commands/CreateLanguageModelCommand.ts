@@ -21,9 +21,8 @@ export interface CreateLanguageModelCommandInput extends CreateLanguageModelRequ
 export interface CreateLanguageModelCommandOutput extends CreateLanguageModelResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your
- *             input files. The time it takes to create your model depends on the size of your training
- *             data.</p>
+ * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your input files. The time it
+ *             takes to create your model depends on the size of your training data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

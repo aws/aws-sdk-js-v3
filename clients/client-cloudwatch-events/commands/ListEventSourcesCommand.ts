@@ -21,8 +21,8 @@ export interface ListEventSourcesCommandInput extends ListEventSourcesRequest {}
 export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>You can use this to see all the partner event sources that have been shared with your AWS
- *       account. For more information about partner event sources, see <a>CreateEventBus</a>.</p>
+ * <p>You can use this to see all the partner event sources that have been shared with your Amazon Web Services
+ *       account. For more information about partner event sources, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html">CreateEventBus</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

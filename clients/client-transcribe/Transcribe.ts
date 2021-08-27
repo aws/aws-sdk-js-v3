@@ -130,6 +130,11 @@ import {
   ListMedicalVocabulariesCommandOutput,
 } from "./commands/ListMedicalVocabulariesCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListTranscriptionJobsCommand,
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput,
@@ -159,6 +164,12 @@ import {
   StartTranscriptionJobCommandInput,
   StartTranscriptionJobCommandOutput,
 } from "./commands/StartTranscriptionJobCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateCallAnalyticsCategoryCommand,
   UpdateCallAnalyticsCategoryCommandInput,
@@ -222,9 +233,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your
-   *             input files. The time it takes to create your model depends on the size of your training
-   *             data.</p>
+   * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your input files. The time it
+   *             takes to create your model depends on the size of your training data.</p>
    */
   public createLanguageModel(
     args: CreateLanguageModelCommandInput,
@@ -256,9 +266,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Creates a new custom vocabulary that you can use to
-   *             change
-   *             how Amazon Transcribe Medical transcribes your audio file.</p>
+   * <p>Creates a new custom vocabulary that you can use to modify how Amazon Transcribe Medical transcribes your audio file.</p>
    */
   public createMedicalVocabulary(
     args: CreateMedicalVocabularyCommandInput,
@@ -290,8 +298,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles
-   *             transcription of an audio file.</p>
+   * <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an
+   *             audio file.</p>
    */
   public createVocabulary(
     args: CreateVocabularyCommandInput,
@@ -323,8 +331,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Creates a new vocabulary filter that you can use to filter words, such as profane
-   *             words, from the output of a transcription job.</p>
+   * <p>Creates a new vocabulary filter that you can use to filter words, such as profane words, from the output of
+   *             a transcription job.</p>
    */
   public createVocabularyFilter(
     args: CreateVocabularyFilterCommandInput,
@@ -516,8 +524,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Deletes a previously submitted transcription job along with any other generated
-   *             results such as the transcription, models, and so on.</p>
+   * <p>Deletes a previously submitted transcription job along with any other generated results such as the
+   *             transcription, models, and so on.</p>
    */
   public deleteTranscriptionJob(
     args: DeleteTranscriptionJobCommandInput,
@@ -613,11 +621,10 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Gets information about a single custom language model. Use this information to see
-   *             details about the language model in your Amazon Web Services account. You can also see
-   *             whether the base language model used to create your custom language model has been
-   *             updated. If Amazon Transcribe has updated the base model, you can create a new custom language model
-   *             using the updated base model. If the language model wasn't created, you can use this
+   * <p>Gets information about a single custom language model. Use this information to see details about the
+   *             language model in your Amazon Web Services account. You can also see whether the base language model used
+   *             to create your custom language model has been updated. If Amazon Transcribe has updated the base model, you can create a
+   *             new custom language model using the updated base model. If the language model wasn't created, you can use this
    *             operation to understand why Amazon Transcribe couldn't create it. </p>
    */
   public describeLanguageModel(
@@ -718,10 +725,9 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Returns information about a transcription job from Amazon Transcribe Medical. To see the status of the
-   *             job, check the <code>TranscriptionJobStatus</code> field. If the status is
-   *                 <code>COMPLETED</code>, the job is finished. You find the results of the completed
-   *             job in the <code>TranscriptFileUri</code> field.</p>
+   * <p>Returns information about a transcription job from Amazon Transcribe Medical. To see the status of the job, check the
+   *             <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished. You
+   *             find the results of the completed job in the <code>TranscriptFileUri</code> field.</p>
    */
   public getMedicalTranscriptionJob(
     args: GetMedicalTranscriptionJobCommandInput,
@@ -786,10 +792,9 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Returns information about a transcription job. To see the status of the job, check the
-   *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
-   *             the job is finished and you can find the results at the location specified in the
-   *                 <code>TranscriptFileUri</code> field. If you enable content redaction, the redacted
-   *             transcript appears in <code>RedactedTranscriptFileUri</code>.</p>
+   *             <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and
+   *             you can find the results at the location specified in the <code>TranscriptFileUri</code> field. If you enable content
+   *             redaction, the redacted transcript appears in <code>RedactedTranscriptFileUri</code>.</p>
    */
   public getTranscriptionJob(
     args: GetTranscriptionJobCommandInput,
@@ -951,10 +956,9 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Provides more information about the custom language models you've created. You can use
-   *             the information in this list to find a specific custom language model. You can then use
-   *             the  operation to get more information about
-   *             it.</p>
+   * <p>Provides more information about the custom language models you've created. You can use the information in
+   *             this list to find a specific custom language model. You can then use the
+   *              operation to get more information about it.</p>
    */
   public listLanguageModels(
     args: ListLanguageModelsCommandInput,
@@ -986,8 +990,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Lists medical transcription jobs with a specified status or substring that matches
-   *             their names.</p>
+   * <p>Lists medical transcription jobs with a specified status or substring that matches their names.</p>
    */
   public listMedicalTranscriptionJobs(
     args: ListMedicalTranscriptionJobsCommandInput,
@@ -1019,8 +1022,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Returns a list of vocabularies that match the specified criteria. If you don't enter a
-   *             value in any of the request parameters, returns the entire list of vocabularies.</p>
+   * <p>Returns a list of vocabularies that match the specified criteria. If you don't enter a value in any of the request
+   *             parameters, returns the entire list of vocabularies.</p>
    */
   public listMedicalVocabularies(
     args: ListMedicalVocabulariesCommandInput,
@@ -1041,6 +1044,38 @@ export class Transcribe extends TranscribeClient {
     cb?: (err: any, data?: ListMedicalVocabulariesCommandOutput) => void
   ): Promise<ListMedicalVocabulariesCommandOutput> | void {
     const command = new ListMedicalVocabulariesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all tags associated with a given transcription job, vocabulary, or resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1084,8 +1119,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Returns a list of vocabularies that match the specified criteria. If no criteria are
-   *             specified, returns the entire list of vocabularies.</p>
+   * <p>Returns a list of vocabularies that match the specified criteria. If no criteria are specified, returns the entire list
+   *             of vocabularies.</p>
    */
   public listVocabularies(
     args: ListVocabulariesCommandInput,
@@ -1149,12 +1184,11 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Starts an asynchronous analytics job that not only transcribes the audio recording of a caller and
-   *             agent, but also returns additional insights. These insights include how quickly or loudly the caller
-   *             or agent was speaking. To retrieve additional insights with your analytics jobs, create
-   *             categories. A category is a way to classify analytics jobs based on attributes, such as a customer's
-   *             sentiment or a particular phrase being used during the call. For more information, see the
-   *              operation. </p>
+   * <p>Starts an asynchronous analytics job that not only transcribes the audio recording of a caller and agent, but
+   *             also returns additional insights. These insights include how quickly or loudly the caller or agent was speaking. To
+   *             retrieve additional insights with your analytics jobs, create categories. A category is a way to classify analytics jobs
+   *             based on attributes, such as a customer's sentiment or a particular phrase being used during the call. For more
+   *             information, see the  operation. </p>
    */
   public startCallAnalyticsJob(
     args: StartCallAnalyticsJobCommandInput,
@@ -1250,9 +1284,66 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * <p>Tags a Amazon Transcribe resource with the given list of tags.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes specified tags from a specified Amazon Transcribe resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the call analytics category with new values. The <code>UpdateCallAnalyticsCategory</code>
-   *             operation overwrites all of the existing information with the values that you provide in the
-   *             request. </p>
+   *             operation overwrites all of the existing information with the values that you provide in the request. </p>
    */
   public updateCallAnalyticsCategory(
     args: UpdateCallAnalyticsCategoryCommandInput,
@@ -1284,10 +1375,9 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Updates a vocabulary with new values that you provide in a different text file from
-   *             the one you used to create the vocabulary. The <code>UpdateMedicalVocabulary</code>
-   *             operation overwrites all of the existing information with the values that you provide in
-   *             the request.</p>
+   * <p>Updates a vocabulary with new values that you provide in a different text file from the one you used to create
+   *             the vocabulary. The <code>UpdateMedicalVocabulary</code> operation overwrites all of the existing information
+   *             with the values that you provide in the request.</p>
    */
   public updateMedicalVocabulary(
     args: UpdateMedicalVocabularyCommandInput,
@@ -1319,9 +1409,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code>
-   *             operation overwrites all of the existing information with the values that you provide in
-   *             the request. </p>
+   * <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites
+   *             all of the existing information with the values that you provide in the request. </p>
    */
   public updateVocabulary(
     args: UpdateVocabularyCommandInput,

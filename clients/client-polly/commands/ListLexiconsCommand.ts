@@ -21,9 +21,7 @@ export interface ListLexiconsCommandInput extends ListLexiconsInput {}
 export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information,
- *       see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
- *         Lexicons</a>.</p>
+ * <p>Returns a list of pronunciation lexicons stored in an Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,9 +21,10 @@ export interface GetSpeechSynthesisTaskCommandInput extends GetSpeechSynthesisTa
 export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains
- *       information about the given speech synthesis task, including the status of the task, and a
- *       link to the S3 bucket containing the output of the task.</p>
+ * <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID.
+ *       This object contains information about the given speech synthesis task,
+ *       including the status of the task, and a link to the S3 bucket containing
+ *       the output of the task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

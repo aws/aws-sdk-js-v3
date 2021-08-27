@@ -23,8 +23,12 @@ export interface ListRecoveryPointsByResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns detailed information about recovery points of the type specified by a resource
- *          Amazon Resource Name (ARN).</p>
+ * <p>Returns detailed information about all the recovery points of the type specified by a
+ *          resource Amazon Resource Name (ARN).</p>
+ *          <note>
+ *             <p>For Amazon EFS and Amazon EC2, this action only lists recovery points
+ *             created by Backup.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

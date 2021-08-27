@@ -4713,6 +4713,14 @@ const deserializeAws_json1_1StartDocumentClassificationJobCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4787,6 +4795,14 @@ const deserializeAws_json1_1StartDominantLanguageDetectionJobCommandError = asyn
     case "com.amazonaws.comprehend#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4885,6 +4901,14 @@ const deserializeAws_json1_1StartEntitiesDetectionJobCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4959,6 +4983,14 @@ const deserializeAws_json1_1StartEventsDetectionJobCommandError = async (
     case "com.amazonaws.comprehend#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5041,6 +5073,14 @@ const deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -5115,6 +5155,14 @@ const deserializeAws_json1_1StartPiiEntitiesDetectionJobCommandError = async (
     case "com.amazonaws.comprehend#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5197,6 +5245,14 @@ const deserializeAws_json1_1StartSentimentDetectionJobCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -5271,6 +5327,14 @@ const deserializeAws_json1_1StartTopicsDetectionJobCommandError = async (
     case "com.amazonaws.comprehend#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7197,6 +7261,7 @@ const serializeAws_json1_1StartDocumentClassificationJobRequest = (
       input.OutputDataConfig !== null && {
         OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
       }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VolumeKmsKeyId !== undefined &&
       input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VpcConfig !== undefined &&
@@ -7221,6 +7286,7 @@ const serializeAws_json1_1StartDominantLanguageDetectionJobRequest = (
       input.OutputDataConfig !== null && {
         OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
       }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VolumeKmsKeyId !== undefined &&
       input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VpcConfig !== undefined &&
@@ -7248,6 +7314,7 @@ const serializeAws_json1_1StartEntitiesDetectionJobRequest = (
       input.OutputDataConfig !== null && {
         OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
       }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VolumeKmsKeyId !== undefined &&
       input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VpcConfig !== undefined &&
@@ -7273,6 +7340,7 @@ const serializeAws_json1_1StartEventsDetectionJobRequest = (
       input.OutputDataConfig !== null && {
         OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
       }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TargetEventTypes !== undefined &&
       input.TargetEventTypes !== null && {
         TargetEventTypes: serializeAws_json1_1TargetEventTypes(input.TargetEventTypes, context),
@@ -7298,6 +7366,7 @@ const serializeAws_json1_1StartKeyPhrasesDetectionJobRequest = (
       input.OutputDataConfig !== null && {
         OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
       }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VolumeKmsKeyId !== undefined &&
       input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VpcConfig !== undefined &&
@@ -7328,6 +7397,7 @@ const serializeAws_json1_1StartPiiEntitiesDetectionJobRequest = (
       input.RedactionConfig !== null && {
         RedactionConfig: serializeAws_json1_1RedactionConfig(input.RedactionConfig, context),
       }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -7349,6 +7419,7 @@ const serializeAws_json1_1StartSentimentDetectionJobRequest = (
       input.OutputDataConfig !== null && {
         OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
       }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VolumeKmsKeyId !== undefined &&
       input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VpcConfig !== undefined &&
@@ -7375,6 +7446,7 @@ const serializeAws_json1_1StartTopicsDetectionJobRequest = (
       input.OutputDataConfig !== null && {
         OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
       }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VolumeKmsKeyId !== undefined &&
       input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VpcConfig !== undefined &&
@@ -8083,6 +8155,7 @@ const deserializeAws_json1_1DocumentClassificationJobProperties = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),
@@ -8242,6 +8315,7 @@ const deserializeAws_json1_1DominantLanguageDetectionJobProperties = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),
@@ -8320,6 +8394,7 @@ const deserializeAws_json1_1EntitiesDetectionJobProperties = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),
@@ -8594,6 +8669,7 @@ const deserializeAws_json1_1EventsDetectionJobProperties = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),
@@ -8686,6 +8762,7 @@ const deserializeAws_json1_1KeyPhrasesDetectionJobProperties = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),
@@ -9096,6 +9173,7 @@ const deserializeAws_json1_1PiiEntitiesDetectionJobProperties = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),
@@ -9214,6 +9292,7 @@ const deserializeAws_json1_1SentimentDetectionJobProperties = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),
@@ -9263,6 +9342,7 @@ const deserializeAws_json1_1StartDocumentClassificationJobResponse = (
   context: __SerdeContext
 ): StartDocumentClassificationJobResponse => {
   return {
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
   } as any;
@@ -9273,6 +9353,7 @@ const deserializeAws_json1_1StartDominantLanguageDetectionJobResponse = (
   context: __SerdeContext
 ): StartDominantLanguageDetectionJobResponse => {
   return {
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
   } as any;
@@ -9283,6 +9364,7 @@ const deserializeAws_json1_1StartEntitiesDetectionJobResponse = (
   context: __SerdeContext
 ): StartEntitiesDetectionJobResponse => {
   return {
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
   } as any;
@@ -9293,6 +9375,7 @@ const deserializeAws_json1_1StartEventsDetectionJobResponse = (
   context: __SerdeContext
 ): StartEventsDetectionJobResponse => {
   return {
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
   } as any;
@@ -9303,6 +9386,7 @@ const deserializeAws_json1_1StartKeyPhrasesDetectionJobResponse = (
   context: __SerdeContext
 ): StartKeyPhrasesDetectionJobResponse => {
   return {
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
   } as any;
@@ -9313,6 +9397,7 @@ const deserializeAws_json1_1StartPiiEntitiesDetectionJobResponse = (
   context: __SerdeContext
 ): StartPiiEntitiesDetectionJobResponse => {
   return {
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
   } as any;
@@ -9323,6 +9408,7 @@ const deserializeAws_json1_1StartSentimentDetectionJobResponse = (
   context: __SerdeContext
 ): StartSentimentDetectionJobResponse => {
   return {
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
   } as any;
@@ -9333,6 +9419,7 @@ const deserializeAws_json1_1StartTopicsDetectionJobResponse = (
   context: __SerdeContext
 ): StartTopicsDetectionJobResponse => {
   return {
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobStatus: __expectString(output.JobStatus),
   } as any;
@@ -9514,6 +9601,7 @@ const deserializeAws_json1_1TopicsDetectionJobProperties = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
+    JobArn: __expectString(output.JobArn),
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),

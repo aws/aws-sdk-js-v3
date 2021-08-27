@@ -27,10 +27,10 @@ import {
   MotionImageInserter,
   MovSettings,
   Mp4Settings,
-  MpdSettings,
-  MxfAfdSignaling,
-  MxfProfile,
-  MxfXavcProfileSettings,
+  MpdAccessibilityCaptionHints,
+  MpdAudioDuration,
+  MpdCaptionContainerType,
+  MpdScte35Esam,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OutputGroupDetail,
@@ -39,6 +39,91 @@ import {
   Rectangle,
 } from "./models_0";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+export enum MpdScte35Source {
+  NONE = "NONE",
+  PASSTHROUGH = "PASSTHROUGH",
+}
+
+/**
+ * These settings relate to the fragmented MP4 container for the segments in your DASH outputs.
+ */
+export interface MpdSettings {
+  /**
+   * Optional. Choose Include (INCLUDE) to have MediaConvert mark up your DASH manifest with <Accessibility> elements for embedded 608 captions. This markup isn't generally required, but some video players require it to discover and play embedded 608 captions. Keep the default value, Exclude (EXCLUDE), to leave these elements out. When you enable this setting, this is the markup that MediaConvert includes in your manifest: <Accessibility schemeIdUri="urn:scte:dash:cc:cea-608:2015" value="CC1=eng"/>
+   */
+  AccessibilityCaptionHints?: MpdAccessibilityCaptionHints | string;
+
+  /**
+   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+   */
+  AudioDuration?: MpdAudioDuration | string;
+
+  /**
+   * Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
+   */
+  CaptionContainerType?: MpdCaptionContainerType | string;
+
+  /**
+   * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
+   */
+  Scte35Esam?: MpdScte35Esam | string;
+
+  /**
+   * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
+   */
+  Scte35Source?: MpdScte35Source | string;
+}
+
+export namespace MpdSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MpdSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum MxfAfdSignaling {
+  COPY_FROM_VIDEO = "COPY_FROM_VIDEO",
+  NO_COPY = "NO_COPY",
+}
+
+export enum MxfProfile {
+  D_10 = "D_10",
+  OP1A = "OP1A",
+  XAVC = "XAVC",
+  XDCAM = "XDCAM",
+}
+
+export enum MxfXavcDurationMode {
+  ALLOW_ANY_DURATION = "ALLOW_ANY_DURATION",
+  DROP_FRAMES_FOR_COMPLIANCE = "DROP_FRAMES_FOR_COMPLIANCE",
+}
+
+/**
+ * Specify the XAVC profile settings for MXF outputs when you set your MXF profile to XAVC.
+ */
+export interface MxfXavcProfileSettings {
+  /**
+   * To create an output that complies with the XAVC file format guidelines for interoperability, keep the default value, Drop frames for compliance (DROP_FRAMES_FOR_COMPLIANCE). To include all frames from your input in this output, keep the default setting, Allow any duration (ALLOW_ANY_DURATION). The number of frames that MediaConvert excludes when you set this to Drop frames for compliance depends on the output frame rate and duration.
+   */
+  DurationMode?: MxfXavcDurationMode | string;
+
+  /**
+   * Specify a value for this setting only for outputs that you set up with one of these two XAVC profiles: XAVC HD Intra CBG (XAVC_HD_INTRA_CBG) or XAVC 4K Intra CBG (XAVC_4K_INTRA_CBG). Specify the amount of space in each frame that the service reserves for ancillary data, such as teletext captions. The default value for this setting is 1492 bytes per frame. This should be sufficient to prevent overflow unless you have multiple pages of teletext captions data. If you have a large amount of teletext data, specify a larger number.
+   */
+  MaxAncDataSize?: number;
+}
+
+export namespace MxfXavcProfileSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MxfXavcProfileSettings): any => ({
+    ...obj,
+  });
+}
 
 /**
  * These settings relate to your MXF output container.
@@ -584,6 +669,7 @@ export enum H264EntropyEncoding {
 
 export enum H264FieldEncoding {
   FORCE_FIELD = "FORCE_FIELD",
+  MBAFF = "MBAFF",
   PAFF = "PAFF",
 }
 
@@ -749,7 +835,7 @@ export interface H264Settings {
   EntropyEncoding?: H264EntropyEncoding | string;
 
   /**
-   * Keep the default value, PAFF, to have MediaConvert use PAFF encoding for interlaced outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and create separate interlaced fields.
+   * The video encoding method for your MPEG-4 AVC output. Keep the default value, PAFF, to have MediaConvert use PAFF encoding for interlaced outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and create separate interlaced fields. Choose MBAFF to disable PAFF and have MediaConvert use MBAFF encoding for interlaced outputs.
    */
   FieldEncoding?: H264FieldEncoding | string;
 
@@ -824,7 +910,7 @@ export interface H264Settings {
   MinIInterval?: number;
 
   /**
-   * Number of B-frames between reference frames.
+   * Specify the number of B-frames that MediaConvert puts between reference frames in this output. Valid values are whole numbers from 0 through 7. When you don't specify a value, MediaConvert defaults to 2.
    */
   NumberBFramesBetweenReferenceFrames?: number;
 
@@ -1218,7 +1304,7 @@ export interface H265Settings {
   MinIInterval?: number;
 
   /**
-   * Number of B-frames between reference frames.
+   * Specify the number of B-frames that MediaConvert puts between reference frames in this output. Valid values are whole numbers from 0 through 7. When you don't specify a value, MediaConvert defaults to 2.
    */
   NumberBFramesBetweenReferenceFrames?: number;
 
@@ -1490,12 +1576,12 @@ export interface Mpeg2Settings {
   GopClosedCadence?: number;
 
   /**
-   * GOP Length (keyframe interval) in frames or seconds. Must be greater than zero.
+   * Specify the interval between keyframes, in seconds or frames, for this output. Default: 12 Related settings: When you specify the GOP size in seconds, set GOP mode control (GopSizeUnits) to Specified, seconds (SECONDS). The default value for GOP mode control (GopSizeUnits) is Frames (FRAMES).
    */
   GopSize?: number;
 
   /**
-   * Indicates if the GOP Size in MPEG2 is specified in frames or seconds. If seconds the system will convert the GOP Size into a frame count at run time.
+   * Specify the units for GOP size (GopSize). If you don't specify a value here, by default the encoder measures GOP size in frames.
    */
   GopSizeUnits?: Mpeg2GopSizeUnits | string;
 
@@ -1530,7 +1616,7 @@ export interface Mpeg2Settings {
   MinIInterval?: number;
 
   /**
-   * Number of B-frames between reference frames.
+   * Specify the number of B-frames that MediaConvert puts between reference frames in this output. Valid values are whole numbers from 0 through 7. When you don't specify a value, MediaConvert defaults to 2.
    */
   NumberBFramesBetweenReferenceFrames?: number;
 

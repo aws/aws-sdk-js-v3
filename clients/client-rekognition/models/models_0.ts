@@ -397,6 +397,44 @@ export namespace ProtectiveEquipmentBodyPart {
   });
 }
 
+export type EmotionName =
+  | "ANGRY"
+  | "CALM"
+  | "CONFUSED"
+  | "DISGUSTED"
+  | "FEAR"
+  | "HAPPY"
+  | "SAD"
+  | "SURPRISED"
+  | "UNKNOWN";
+
+/**
+ * <p>The emotions that appear to be expressed on the face, and the confidence level in the determination.
+ *       The API is only making a determination of the physical appearance of a person's face. It is not a determination
+ *       of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have
+ *       a sad face might not be sad emotionally.</p>
+ */
+export interface Emotion {
+  /**
+   * <p>Type of emotion detected.</p>
+   */
+  Type?: EmotionName | string;
+
+  /**
+   * <p>Level of confidence in the determination.</p>
+   */
+  Confidence?: number;
+}
+
+export namespace Emotion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Emotion): any => ({
+    ...obj,
+  });
+}
+
 export enum LandmarkType {
   chinBottom = "chinBottom",
   eyeLeft = "eyeLeft",
@@ -519,6 +557,31 @@ export namespace ImageQuality {
 }
 
 /**
+ * <p>Indicates whether or not the face is smiling, and the confidence level in the
+ *       determination.</p>
+ */
+export interface Smile {
+  /**
+   * <p>Boolean value that indicates whether the face is smiling or not.</p>
+   */
+  Value?: boolean;
+
+  /**
+   * <p>Level of confidence in the determination.</p>
+   */
+  Confidence?: number;
+}
+
+export namespace Smile {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Smile): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Provides face metadata for target image faces that are analyzed by
  *         <code>CompareFaces</code> and <code>RecognizeCelebrities</code>.</p>
  */
@@ -547,6 +610,20 @@ export interface ComparedFace {
    * <p>Identifies face image brightness and sharpness. </p>
    */
   Quality?: ImageQuality;
+
+  /**
+   * <p> The emotions that appear to be expressed on the face,
+   *       and the confidence level in the determination. Valid values include "Happy", "Sad",
+   *       "Angry", "Confused", "Disgusted", "Surprised", "Calm", "Unknown", and "Fear".
+   *     </p>
+   */
+  Emotions?: Emotion[];
+
+  /**
+   * <p> Indicates whether or not the face is smiling, and the confidence level in the determination.
+   *     </p>
+   */
+  Smile?: Smile;
 }
 
 export namespace ComparedFace {
@@ -554,6 +631,30 @@ export namespace ComparedFace {
    * @internal
    */
   export const filterSensitiveLog = (obj: ComparedFace): any => ({
+    ...obj,
+  });
+}
+
+export enum KnownGenderType {
+  Female = "Female",
+  Male = "Male",
+}
+
+/**
+ * <p>The known gender identity for the celebrity that matches the provided ID.</p>
+ */
+export interface KnownGender {
+  /**
+   * <p>A string value of the KnownGender info about the Celebrity.</p>
+   */
+  Type?: KnownGenderType | string;
+}
+
+export namespace KnownGender {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KnownGender): any => ({
     ...obj,
   });
 }
@@ -589,6 +690,11 @@ export interface Celebrity {
    *       celebrity.</p>
    */
   MatchConfidence?: number;
+
+  /**
+   * <p>The known gender identity for the celebrity that matches the provided ID.</p>
+   */
+  KnownGender?: KnownGender;
 }
 
 export namespace Celebrity {
@@ -596,44 +702,6 @@ export namespace Celebrity {
    * @internal
    */
   export const filterSensitiveLog = (obj: Celebrity): any => ({
-    ...obj,
-  });
-}
-
-export type EmotionName =
-  | "ANGRY"
-  | "CALM"
-  | "CONFUSED"
-  | "DISGUSTED"
-  | "FEAR"
-  | "HAPPY"
-  | "SAD"
-  | "SURPRISED"
-  | "UNKNOWN";
-
-/**
- * <p>The emotions that appear to be expressed on the face, and the confidence level in the determination.
- *       The API is only making a determination of the physical appearance of a person's face. It is not a determination
- *       of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have
- *       a sad face might not be sad emotionally.</p>
- */
-export interface Emotion {
-  /**
-   * <p>Type of emotion detected.</p>
-   */
-  Type?: EmotionName | string;
-
-  /**
-   * <p>Level of confidence in the determination.</p>
-   */
-  Confidence?: number;
-}
-
-export namespace Emotion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Emotion): any => ({
     ...obj,
   });
 }
@@ -775,31 +843,6 @@ export namespace Mustache {
    * @internal
    */
   export const filterSensitiveLog = (obj: Mustache): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Indicates whether or not the face is smiling, and the confidence level in the
- *       determination.</p>
- */
-export interface Smile {
-  /**
-   * <p>Boolean value that indicates whether the face is smiling or not.</p>
-   */
-  Value?: boolean;
-
-  /**
-   * <p>Level of confidence in the determination.</p>
-   */
-  Confidence?: number;
-}
-
-export namespace Smile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Smile): any => ({
     ...obj,
   });
 }
@@ -2878,8 +2921,12 @@ export interface DetectCustomLabelsRequest {
 
   /**
    * <p>Specifies the minimum confidence level for the labels to return.
-   *          Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a
-   *       value of 0, all labels are return, regardless of the default thresholds that the model version applies.</p>
+   *          <code>DetectCustomLabels</code> doesn't return any labels with a confidence value that's lower than
+   *          this specified value. If you specify a
+   *       value of 0, <code>DetectCustomLabels</code> returns all labels, regardless of the assumed
+   *          threshold applied to each label.
+   *       If you don't specify a value for <code>MinConfidence</code>,  <code>DetectCustomLabels</code>
+   *          returns labels based on the assumed threshold of each label.</p>
    */
   MinConfidence?: number;
 }
@@ -3853,6 +3900,11 @@ export interface GetCelebrityInfoResponse {
    * <p>The name of the celebrity.</p>
    */
   Name?: string;
+
+  /**
+   * <p>Retrieves the known gender for the celebrity.</p>
+   */
+  KnownGender?: KnownGender;
 }
 
 export namespace GetCelebrityInfoResponse {
@@ -5340,9 +5392,9 @@ export interface RecognizeCelebritiesRequest {
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
    *       Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
    */
   Image: Image | undefined;
 }
@@ -5359,7 +5411,11 @@ export namespace RecognizeCelebritiesRequest {
 export interface RecognizeCelebritiesResponse {
   /**
    * <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64
-   *       celebrities in an image.</p>
+   *       celebrities in an image. Each celebrity object includes the following attributes:
+   *       <code>Face</code>, <code>Confidence</code>, <code>Emotions</code>, <code>Landmarks</code>,
+   *       <code>Pose</code>, <code>Quality</code>, <code>Smile</code>, <code>Id</code>,
+   *       <code>KnownGender</code>, <code>MatchConfidence</code>, <code>Name</code>,
+   *       <code>Urls</code>.</p>
    */
   CelebrityFaces?: Celebrity[];
 
@@ -5369,7 +5425,11 @@ export interface RecognizeCelebritiesResponse {
   UnrecognizedFaces?: ComparedFace[];
 
   /**
-   * <p>The orientation of the input image (counterclockwise direction). If your application
+   * <note>
+   *             <p>Support for estimating image orientation using the the OrientationCorrection field has ceased as of August 2021.
+   *         Any returned values for this field included in an API response will always be NULL.</p>
+   *          </note>
+   *          <p>The orientation of the input image (counterclockwise direction). If your application
    *       displays the image, you can use this value to correct the orientation. The bounding box
    *       coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code>
    *       represent face locations before the image orientation is corrected. </p>

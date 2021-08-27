@@ -3492,6 +3492,7 @@ export namespace Parameter {
    */
   export const filterSensitiveLog = (obj: Parameter): any => ({
     ...obj,
+    ...(obj.Value && { Value: SENSITIVE_STRING }),
   });
 }
 
@@ -3508,6 +3509,7 @@ export namespace GetParameterResult {
    */
   export const filterSensitiveLog = (obj: GetParameterResult): any => ({
     ...obj,
+    ...(obj.Parameter && { Parameter: Parameter.filterSensitiveLog(obj.Parameter) }),
   });
 }
 
@@ -3663,6 +3665,7 @@ export namespace ParameterHistory {
    */
   export const filterSensitiveLog = (obj: ParameterHistory): any => ({
     ...obj,
+    ...(obj.Value && { Value: SENSITIVE_STRING }),
   });
 }
 
@@ -3685,6 +3688,7 @@ export namespace GetParameterHistoryResult {
    */
   export const filterSensitiveLog = (obj: GetParameterHistoryResult): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => ParameterHistory.filterSensitiveLog(item)) }),
   });
 }
 
@@ -3731,6 +3735,7 @@ export namespace GetParametersResult {
    */
   export const filterSensitiveLog = (obj: GetParametersResult): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => Parameter.filterSensitiveLog(item)) }),
   });
 }
 
@@ -3815,6 +3820,7 @@ export namespace GetParametersByPathResult {
    */
   export const filterSensitiveLog = (obj: GetParametersByPathResult): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => Parameter.filterSensitiveLog(item)) }),
   });
 }
 
@@ -8183,6 +8189,7 @@ export namespace PutParameterRequest {
    */
   export const filterSensitiveLog = (obj: PutParameterRequest): any => ({
     ...obj,
+    ...(obj.Value && { Value: SENSITIVE_STRING }),
   });
 }
 

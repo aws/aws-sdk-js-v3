@@ -25,7 +25,7 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  *          request includes a name, optionally one or more resource tags, an encryption key, and a
  *          request ID.</p>
  *          <note>
- *             <p>Sensitive data, such as passport numbers, should not be included the name of a backup
+ *             <p>Do not include sensitive data, such as passport numbers, in the name of a backup
  *             vault.</p>
  *          </note>
  * @example

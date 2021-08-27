@@ -35,7 +35,8 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  *         <p>You must specify either the IP addresses or the IP address count in the request.</p>
  *         <p>You can optionally use Prefix Delegation on the network interface. You must specify
  *             either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For
- *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation">Prefix Delegation</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
+ *                 Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

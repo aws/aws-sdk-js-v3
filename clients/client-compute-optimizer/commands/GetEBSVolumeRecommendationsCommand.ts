@@ -25,9 +25,10 @@ export interface GetEBSVolumeRecommendationsCommandOutput
 /**
  * <p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p>
  *
- *         <p>AWS Compute Optimizer generates recommendations for Amazon EBS volumes that meet a specific
- *             set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
- *                 requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>
+ *         <p>Compute Optimizer generates recommendations for Amazon EBS volumes that
+ *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
+ *                 resources and requirements</a> in the <i>Compute Optimizer User
+ *                 Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

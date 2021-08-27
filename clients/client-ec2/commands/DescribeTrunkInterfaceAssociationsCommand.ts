@@ -26,7 +26,11 @@ export interface DescribeTrunkInterfaceAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes one or more network interface trunk associations.</p>
+ * <note>
+ *             <p>This API action is currently in <b>limited preview only</b>.
+ *                 If you are interested in using this feature, contact your account manager.</p>
+ *         </note>
+ *         <p>Describes one or more network interface trunk associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

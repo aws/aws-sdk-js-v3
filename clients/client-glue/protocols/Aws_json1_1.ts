@@ -15,6 +15,7 @@ import {
   BatchDeleteTableVersionCommandInput,
   BatchDeleteTableVersionCommandOutput,
 } from "../commands/BatchDeleteTableVersionCommand";
+import { BatchGetBlueprintsCommandInput, BatchGetBlueprintsCommandOutput } from "../commands/BatchGetBlueprintsCommand";
 import { BatchGetCrawlersCommandInput, BatchGetCrawlersCommandOutput } from "../commands/BatchGetCrawlersCommand";
 import {
   BatchGetDevEndpointsCommandInput,
@@ -34,6 +35,7 @@ import {
   CheckSchemaVersionValidityCommandInput,
   CheckSchemaVersionValidityCommandOutput,
 } from "../commands/CheckSchemaVersionValidityCommand";
+import { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "../commands/CreateBlueprintCommand";
 import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "../commands/CreateClassifierCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
 import { CreateCrawlerCommandInput, CreateCrawlerCommandOutput } from "../commands/CreateCrawlerCommand";
@@ -60,6 +62,7 @@ import {
   CreateUserDefinedFunctionCommandOutput,
 } from "../commands/CreateUserDefinedFunctionCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "../commands/CreateWorkflowCommand";
+import { DeleteBlueprintCommandInput, DeleteBlueprintCommandOutput } from "../commands/DeleteBlueprintCommand";
 import { DeleteClassifierCommandInput, DeleteClassifierCommandOutput } from "../commands/DeleteClassifierCommand";
 import {
   DeleteColumnStatisticsForPartitionCommandInput,
@@ -102,6 +105,9 @@ import {
   DeleteUserDefinedFunctionCommandOutput,
 } from "../commands/DeleteUserDefinedFunctionCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "../commands/DeleteWorkflowCommand";
+import { GetBlueprintCommandInput, GetBlueprintCommandOutput } from "../commands/GetBlueprintCommand";
+import { GetBlueprintRunCommandInput, GetBlueprintRunCommandOutput } from "../commands/GetBlueprintRunCommand";
+import { GetBlueprintRunsCommandInput, GetBlueprintRunsCommandOutput } from "../commands/GetBlueprintRunsCommand";
 import {
   GetCatalogImportStatusCommandInput,
   GetCatalogImportStatusCommandOutput,
@@ -197,6 +203,7 @@ import {
   ImportCatalogToGlueCommandInput,
   ImportCatalogToGlueCommandOutput,
 } from "../commands/ImportCatalogToGlueCommand";
+import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "../commands/ListBlueprintsCommand";
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "../commands/ListCrawlersCommand";
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "../commands/ListDevEndpointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
@@ -234,6 +241,7 @@ import {
 import { ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput } from "../commands/ResetJobBookmarkCommand";
 import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from "../commands/ResumeWorkflowRunCommand";
 import { SearchTablesCommandInput, SearchTablesCommandOutput } from "../commands/SearchTablesCommand";
+import { StartBlueprintRunCommandInput, StartBlueprintRunCommandOutput } from "../commands/StartBlueprintRunCommand";
 import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "../commands/StartCrawlerCommand";
 import {
   StartCrawlerScheduleCommandInput,
@@ -267,6 +275,7 @@ import { StopTriggerCommandInput, StopTriggerCommandOutput } from "../commands/S
 import { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "../commands/StopWorkflowRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "../commands/UpdateBlueprintCommand";
 import { UpdateClassifierCommandInput, UpdateClassifierCommandOutput } from "../commands/UpdateClassifierCommand";
 import {
   UpdateColumnStatisticsForPartitionCommandInput,
@@ -310,6 +319,8 @@ import {
   BatchDeleteTableResponse,
   BatchDeleteTableVersionRequest,
   BatchDeleteTableVersionResponse,
+  BatchGetBlueprintsRequest,
+  BatchGetBlueprintsResponse,
   BatchGetCrawlersRequest,
   BatchGetCrawlersResponse,
   BatchGetDevEndpointsRequest,
@@ -331,6 +342,9 @@ import {
   BatchUpdatePartitionRequestEntry,
   BatchUpdatePartitionResponse,
   BinaryColumnStatisticsData,
+  Blueprint,
+  BlueprintDetails,
+  BlueprintRun,
   BooleanColumnStatisticsData,
   CancelMLTaskRunRequest,
   CancelMLTaskRunResponse,
@@ -353,7 +367,6 @@ import {
   ConflictException,
   Connection,
   ConnectionInput,
-  ConnectionPasswordEncryption,
   ConnectionPropertyKey,
   ConnectionsList,
   Crawl,
@@ -362,6 +375,8 @@ import {
   CrawlerNodeDetails,
   CrawlerRunningException,
   CrawlerTargets,
+  CreateBlueprintRequest,
+  CreateBlueprintResponse,
   CreateClassifierRequest,
   CreateClassifierResponse,
   CreateConnectionRequest,
@@ -401,7 +416,6 @@ import {
   CreateWorkflowResponse,
   CreateXMLClassifierRequest,
   CsvClassifier,
-  DataCatalogEncryptionSettings,
   DataLakePrincipal,
   Database,
   DatabaseIdentifier,
@@ -409,6 +423,8 @@ import {
   DateColumnStatisticsData,
   DecimalColumnStatisticsData,
   DecimalNumber,
+  DeleteBlueprintRequest,
+  DeleteBlueprintResponse,
   DeleteClassifierRequest,
   DeleteClassifierResponse,
   DeleteColumnStatisticsForPartitionRequest,
@@ -455,7 +471,6 @@ import {
   DoubleColumnStatisticsData,
   DynamoDBTarget,
   Edge,
-  EncryptionAtRest,
   EncryptionConfiguration,
   EntityNotFoundException,
   ErrorDetail,
@@ -463,6 +478,12 @@ import {
   EventBatchingCondition,
   ExecutionProperty,
   FindMatchesParameters,
+  GetBlueprintRequest,
+  GetBlueprintResponse,
+  GetBlueprintRunRequest,
+  GetBlueprintRunResponse,
+  GetBlueprintRunsRequest,
+  GetBlueprintRunsResponse,
   GetCatalogImportStatusRequest,
   GetCatalogImportStatusResponse,
   GetClassifierRequest,
@@ -484,20 +505,7 @@ import {
   GetCrawlerResponse,
   GetCrawlersRequest,
   GetCrawlersResponse,
-  GetDataCatalogEncryptionSettingsRequest,
-  GetDataCatalogEncryptionSettingsResponse,
   GetDatabaseRequest,
-  GetDatabaseResponse,
-  GetDatabasesRequest,
-  GetDatabasesResponse,
-  GetDataflowGraphRequest,
-  GetDataflowGraphResponse,
-  GetDevEndpointRequest,
-  GetDevEndpointResponse,
-  GetDevEndpointsRequest,
-  GetDevEndpointsResponse,
-  GetJobRequest,
-  GetJobResponse,
   GlueEncryptionException,
   GlueTable,
   GrokClassifier,
@@ -511,6 +519,7 @@ import {
   JobNodeDetails,
   JobRun,
   JsonClassifier,
+  LastActiveDefinition,
   LastCrawlInfo,
   LineageConfiguration,
   LongColumnStatisticsData,
@@ -570,15 +579,31 @@ import {
   ColumnStatisticsError,
   ConcurrentRunsExceededException,
   ConfusionMatrix,
+  ConnectionPasswordEncryption,
   CrawlerNotRunningException,
   CrawlerStoppingException,
+  DataCatalogEncryptionSettings,
   DevEndpointCustomLibraries,
+  EncryptionAtRest,
   EvaluationMetrics,
   ExportLabelsTaskRunProperties,
   FindMatchesMetrics,
   FindMatchesTaskRunProperties,
+  GetDataCatalogEncryptionSettingsRequest,
+  GetDataCatalogEncryptionSettingsResponse,
+  GetDatabaseResponse,
+  GetDatabasesRequest,
+  GetDatabasesResponse,
+  GetDataflowGraphRequest,
+  GetDataflowGraphResponse,
+  GetDevEndpointRequest,
+  GetDevEndpointResponse,
+  GetDevEndpointsRequest,
+  GetDevEndpointsResponse,
   GetJobBookmarkRequest,
   GetJobBookmarkResponse,
+  GetJobRequest,
+  GetJobResponse,
   GetJobRunRequest,
   GetJobRunResponse,
   GetJobRunsRequest,
@@ -648,6 +673,7 @@ import {
   GetWorkflowRunsRequest,
   GetWorkflowRunsResponse,
   GluePolicy,
+  IllegalBlueprintStateException,
   IllegalWorkflowStateException,
   ImportCatalogToGlueRequest,
   ImportCatalogToGlueResponse,
@@ -656,6 +682,8 @@ import {
   JobUpdate,
   KeySchemaElement,
   LabelingSetGenerationTaskRunProperties,
+  ListBlueprintsRequest,
+  ListBlueprintsResponse,
   ListCrawlersRequest,
   ListCrawlersResponse,
   ListDevEndpointsRequest,
@@ -714,6 +742,8 @@ import {
   SecurityConfiguration,
   Segment,
   SortCriterion,
+  StartBlueprintRunRequest,
+  StartBlueprintRunResponse,
   StartCrawlerRequest,
   StartCrawlerResponse,
   StartCrawlerScheduleRequest,
@@ -753,6 +783,8 @@ import {
   TriggerUpdate,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateBlueprintRequest,
+  UpdateBlueprintResponse,
   UpdateClassifierRequest,
   UpdateClassifierResponse,
   UpdateColumnStatisticsForPartitionRequest,
@@ -873,6 +905,19 @@ export const serializeAws_json1_1BatchDeleteTableVersionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDeleteTableVersionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchGetBlueprintsCommand = async (
+  input: BatchGetBlueprintsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.BatchGetBlueprints",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchGetBlueprintsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1003,6 +1048,19 @@ export const serializeAws_json1_1CheckSchemaVersionValidityCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CheckSchemaVersionValidityInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateBlueprintCommand = async (
+  input: CreateBlueprintCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.CreateBlueprint",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateBlueprintRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1224,6 +1282,19 @@ export const serializeAws_json1_1CreateWorkflowCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateWorkflowRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteBlueprintCommand = async (
+  input: DeleteBlueprintCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.DeleteBlueprint",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteBlueprintRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1497,6 +1568,45 @@ export const serializeAws_json1_1DeleteWorkflowCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteWorkflowRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetBlueprintCommand = async (
+  input: GetBlueprintCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.GetBlueprint",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetBlueprintRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetBlueprintRunCommand = async (
+  input: GetBlueprintRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.GetBlueprintRun",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetBlueprintRunRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetBlueprintRunsCommand = async (
+  input: GetBlueprintRunsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.GetBlueprintRuns",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetBlueprintRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2189,6 +2299,19 @@ export const serializeAws_json1_1ImportCatalogToGlueCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListBlueprintsCommand = async (
+  input: ListBlueprintsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.ListBlueprints",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListBlueprintsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListCrawlersCommand = async (
   input: ListCrawlersCommandInput,
   context: __SerdeContext
@@ -2436,6 +2559,19 @@ export const serializeAws_json1_1SearchTablesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartBlueprintRunCommand = async (
+  input: StartBlueprintRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.StartBlueprintRun",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartBlueprintRunRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartCrawlerCommand = async (
   input: StartCrawlerCommandInput,
   context: __SerdeContext
@@ -2628,6 +2764,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateBlueprintCommand = async (
+  input: UpdateBlueprintCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.UpdateBlueprint",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateBlueprintRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3209,6 +3358,76 @@ const deserializeAws_json1_1BatchDeleteTableVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1BatchGetBlueprintsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetBlueprintsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchGetBlueprintsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchGetBlueprintsResponse(data, context);
+  const response: BatchGetBlueprintsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchGetBlueprintsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetBlueprintsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue#InternalServiceException":
       response = {
@@ -3969,6 +4188,92 @@ const deserializeAws_json1_1CheckSchemaVersionValidityCommandError = async (
     case "com.amazonaws.glue#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateBlueprintCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBlueprintCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateBlueprintCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateBlueprintResponse(data, context);
+  const response: CreateBlueprintCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateBlueprintCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBlueprintCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.glue#AlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5575,6 +5880,76 @@ const deserializeAws_json1_1CreateWorkflowCommandError = async (
     case "com.amazonaws.glue#ResourceNumberLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteBlueprintCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBlueprintCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteBlueprintCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteBlueprintResponse(data, context);
+  const response: DeleteBlueprintCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteBlueprintCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBlueprintCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7205,6 +7580,232 @@ const deserializeAws_json1_1DeleteWorkflowCommandError = async (
     case "com.amazonaws.glue#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetBlueprintCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBlueprintCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetBlueprintCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetBlueprintResponse(data, context);
+  const response: GetBlueprintCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetBlueprintCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBlueprintCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetBlueprintRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBlueprintRunCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetBlueprintRunCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetBlueprintRunResponse(data, context);
+  const response: GetBlueprintRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetBlueprintRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBlueprintRunCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetBlueprintRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBlueprintRunsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetBlueprintRunsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetBlueprintRunsResponse(data, context);
+  const response: GetBlueprintRunsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetBlueprintRunsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBlueprintRunsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11328,6 +11929,76 @@ const deserializeAws_json1_1ImportCatalogToGlueCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListBlueprintsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBlueprintsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListBlueprintsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListBlueprintsResponse(data, context);
+  const response: ListBlueprintsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListBlueprintsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBlueprintsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListCrawlersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12810,6 +13481,100 @@ const deserializeAws_json1_1SearchTablesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1StartBlueprintRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBlueprintRunCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartBlueprintRunCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartBlueprintRunResponse(data, context);
+  const response: StartBlueprintRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartBlueprintRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBlueprintRunCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IllegalBlueprintStateException":
+    case "com.amazonaws.glue#IllegalBlueprintStateException":
+      response = {
+        ...(await deserializeAws_json1_1IllegalBlueprintStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1StartCrawlerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14031,6 +14796,100 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "com.amazonaws.glue#EntityNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateBlueprintCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBlueprintCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateBlueprintCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateBlueprintResponse(data, context);
+  const response: UpdateBlueprintCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateBlueprintCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBlueprintCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IllegalBlueprintStateException":
+    case "com.amazonaws.glue#IllegalBlueprintStateException":
+      response = {
+        ...(await deserializeAws_json1_1IllegalBlueprintStateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -15726,6 +16585,21 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
   return contents;
 };
 
+const deserializeAws_json1_1IllegalBlueprintStateExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IllegalBlueprintStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1IllegalBlueprintStateException(body, context);
+  const contents: IllegalBlueprintStateException = {
+    name: "IllegalBlueprintStateException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1IllegalWorkflowStateExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -16050,6 +16924,31 @@ const serializeAws_json1_1BatchDeleteTableVersionRequest = (
       input.VersionIds !== null && {
         VersionIds: serializeAws_json1_1BatchDeleteTableVersionList(input.VersionIds, context),
       }),
+  };
+};
+
+const serializeAws_json1_1BatchGetBlueprintNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1BatchGetBlueprintsRequest = (
+  input: BatchGetBlueprintsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IncludeBlueprint !== undefined &&
+      input.IncludeBlueprint !== null && { IncludeBlueprint: input.IncludeBlueprint }),
+    ...(input.IncludeParameterSpec !== undefined &&
+      input.IncludeParameterSpec !== null && { IncludeParameterSpec: input.IncludeParameterSpec }),
+    ...(input.Names !== undefined &&
+      input.Names !== null && { Names: serializeAws_json1_1BatchGetBlueprintNames(input.Names, context) }),
   };
 };
 
@@ -16560,6 +17459,16 @@ const serializeAws_json1_1CrawlerTargets = (input: CrawlerTargets, context: __Se
   };
 };
 
+const serializeAws_json1_1CreateBlueprintRequest = (input: CreateBlueprintRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.BlueprintLocation !== undefined &&
+      input.BlueprintLocation !== null && { BlueprintLocation: input.BlueprintLocation }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateClassifierRequest = (input: CreateClassifierRequest, context: __SerdeContext): any => {
   return {
     ...(input.CsvClassifier !== undefined &&
@@ -17054,6 +17963,12 @@ const serializeAws_json1_1DecimalNumber = (input: DecimalNumber, context: __Serd
   };
 };
 
+const serializeAws_json1_1DeleteBlueprintRequest = (input: DeleteBlueprintRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1DeleteClassifierRequest = (input: DeleteClassifierRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -17378,6 +18293,31 @@ const serializeAws_json1_1GenericMap = (input: { [key: string]: string }, contex
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_json1_1GetBlueprintRequest = (input: GetBlueprintRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.IncludeBlueprint !== undefined &&
+      input.IncludeBlueprint !== null && { IncludeBlueprint: input.IncludeBlueprint }),
+    ...(input.IncludeParameterSpec !== undefined &&
+      input.IncludeParameterSpec !== null && { IncludeParameterSpec: input.IncludeParameterSpec }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1GetBlueprintRunRequest = (input: GetBlueprintRunRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.BlueprintName !== undefined && input.BlueprintName !== null && { BlueprintName: input.BlueprintName }),
+    ...(input.RunId !== undefined && input.RunId !== null && { RunId: input.RunId }),
+  };
+};
+
+const serializeAws_json1_1GetBlueprintRunsRequest = (input: GetBlueprintRunsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.BlueprintName !== undefined && input.BlueprintName !== null && { BlueprintName: input.BlueprintName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
 };
 
 const serializeAws_json1_1GetCatalogImportStatusRequest = (
@@ -18037,6 +18977,14 @@ const serializeAws_json1_1LineageConfiguration = (input: LineageConfiguration, c
   return {
     ...(input.CrawlerLineageSettings !== undefined &&
       input.CrawlerLineageSettings !== null && { CrawlerLineageSettings: input.CrawlerLineageSettings }),
+  };
+};
+
+const serializeAws_json1_1ListBlueprintsRequest = (input: ListBlueprintsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
   };
 };
 
@@ -18791,6 +19739,17 @@ const serializeAws_json1_1SortCriterion = (input: SortCriterion, context: __Serd
   };
 };
 
+const serializeAws_json1_1StartBlueprintRunRequest = (
+  input: StartBlueprintRunRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BlueprintName !== undefined && input.BlueprintName !== null && { BlueprintName: input.BlueprintName }),
+    ...(input.Parameters !== undefined && input.Parameters !== null && { Parameters: input.Parameters }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+  };
+};
+
 const serializeAws_json1_1StartCrawlerRequest = (input: StartCrawlerRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -19145,6 +20104,15 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
     ...(input.TagsToRemove !== undefined &&
       input.TagsToRemove !== null && { TagsToRemove: serializeAws_json1_1TagKeysList(input.TagsToRemove, context) }),
+  };
+};
+
+const serializeAws_json1_1UpdateBlueprintRequest = (input: UpdateBlueprintRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.BlueprintLocation !== undefined &&
+      input.BlueprintLocation !== null && { BlueprintLocation: input.BlueprintLocation }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -19669,6 +20637,22 @@ const deserializeAws_json1_1BatchDeleteTableVersionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1BatchGetBlueprintsResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchGetBlueprintsResponse => {
+  return {
+    Blueprints:
+      output.Blueprints !== undefined && output.Blueprints !== null
+        ? deserializeAws_json1_1Blueprints(output.Blueprints, context)
+        : undefined,
+    MissingBlueprints:
+      output.MissingBlueprints !== undefined && output.MissingBlueprints !== null
+        ? deserializeAws_json1_1BlueprintNames(output.MissingBlueprints, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1BatchGetCrawlersResponse = (
   output: any,
   context: __SerdeContext
@@ -19892,6 +20876,91 @@ const deserializeAws_json1_1BinaryColumnStatisticsData = (
     MaximumLength: __expectInt(output.MaximumLength),
     NumberOfNulls: __expectInt(output.NumberOfNulls),
   } as any;
+};
+
+const deserializeAws_json1_1Blueprint = (output: any, context: __SerdeContext): Blueprint => {
+  return {
+    BlueprintLocation: __expectString(output.BlueprintLocation),
+    BlueprintServiceLocation: __expectString(output.BlueprintServiceLocation),
+    CreatedOn:
+      output.CreatedOn !== undefined && output.CreatedOn !== null
+        ? new Date(Math.round(output.CreatedOn * 1000))
+        : undefined,
+    Description: __expectString(output.Description),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    LastActiveDefinition:
+      output.LastActiveDefinition !== undefined && output.LastActiveDefinition !== null
+        ? deserializeAws_json1_1LastActiveDefinition(output.LastActiveDefinition, context)
+        : undefined,
+    LastModifiedOn:
+      output.LastModifiedOn !== undefined && output.LastModifiedOn !== null
+        ? new Date(Math.round(output.LastModifiedOn * 1000))
+        : undefined,
+    Name: __expectString(output.Name),
+    ParameterSpec: __expectString(output.ParameterSpec),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1BlueprintDetails = (output: any, context: __SerdeContext): BlueprintDetails => {
+  return {
+    BlueprintName: __expectString(output.BlueprintName),
+    RunId: __expectString(output.RunId),
+  } as any;
+};
+
+const deserializeAws_json1_1BlueprintNames = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1BlueprintRun = (output: any, context: __SerdeContext): BlueprintRun => {
+  return {
+    BlueprintName: __expectString(output.BlueprintName),
+    CompletedOn:
+      output.CompletedOn !== undefined && output.CompletedOn !== null
+        ? new Date(Math.round(output.CompletedOn * 1000))
+        : undefined,
+    ErrorMessage: __expectString(output.ErrorMessage),
+    Parameters: __expectString(output.Parameters),
+    RoleArn: __expectString(output.RoleArn),
+    RollbackErrorMessage: __expectString(output.RollbackErrorMessage),
+    RunId: __expectString(output.RunId),
+    StartedOn:
+      output.StartedOn !== undefined && output.StartedOn !== null
+        ? new Date(Math.round(output.StartedOn * 1000))
+        : undefined,
+    State: __expectString(output.State),
+    WorkflowName: __expectString(output.WorkflowName),
+  } as any;
+};
+
+const deserializeAws_json1_1BlueprintRuns = (output: any, context: __SerdeContext): BlueprintRun[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BlueprintRun(entry, context);
+    });
+};
+
+const deserializeAws_json1_1Blueprints = (output: any, context: __SerdeContext): Blueprint[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Blueprint(entry, context);
+    });
 };
 
 const deserializeAws_json1_1BooleanColumnStatisticsData = (
@@ -20555,6 +21624,15 @@ const deserializeAws_json1_1CrawlList = (output: any, context: __SerdeContext): 
     });
 };
 
+const deserializeAws_json1_1CreateBlueprintResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateBlueprintResponse => {
+  return {
+    Name: __expectString(output.Name),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateClassifierResponse = (
   output: any,
   context: __SerdeContext
@@ -20884,6 +21962,15 @@ const deserializeAws_json1_1DecimalNumber = (output: any, context: __SerdeContex
       output.UnscaledValue !== undefined && output.UnscaledValue !== null
         ? context.base64Decoder(output.UnscaledValue)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteBlueprintResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteBlueprintResponse => {
+  return {
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -21299,6 +22386,40 @@ const deserializeAws_json1_1GenericMap = (output: any, context: __SerdeContext):
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_json1_1GetBlueprintResponse = (output: any, context: __SerdeContext): GetBlueprintResponse => {
+  return {
+    Blueprint:
+      output.Blueprint !== undefined && output.Blueprint !== null
+        ? deserializeAws_json1_1Blueprint(output.Blueprint, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetBlueprintRunResponse = (
+  output: any,
+  context: __SerdeContext
+): GetBlueprintRunResponse => {
+  return {
+    BlueprintRun:
+      output.BlueprintRun !== undefined && output.BlueprintRun !== null
+        ? deserializeAws_json1_1BlueprintRun(output.BlueprintRun, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetBlueprintRunsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetBlueprintRunsResponse => {
+  return {
+    BlueprintRuns:
+      output.BlueprintRuns !== undefined && output.BlueprintRuns !== null
+        ? deserializeAws_json1_1BlueprintRuns(output.BlueprintRuns, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
 };
 
 const deserializeAws_json1_1GetCatalogImportStatusResponse = (
@@ -22026,6 +23147,15 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
   } as any;
 };
 
+const deserializeAws_json1_1IllegalBlueprintStateException = (
+  output: any,
+  context: __SerdeContext
+): IllegalBlueprintStateException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1IllegalWorkflowStateException = (
   output: any,
   context: __SerdeContext
@@ -22295,6 +23425,19 @@ const deserializeAws_json1_1LabelingSetGenerationTaskRunProperties = (
   } as any;
 };
 
+const deserializeAws_json1_1LastActiveDefinition = (output: any, context: __SerdeContext): LastActiveDefinition => {
+  return {
+    BlueprintLocation: __expectString(output.BlueprintLocation),
+    BlueprintServiceLocation: __expectString(output.BlueprintServiceLocation),
+    Description: __expectString(output.Description),
+    LastModifiedOn:
+      output.LastModifiedOn !== undefined && output.LastModifiedOn !== null
+        ? new Date(Math.round(output.LastModifiedOn * 1000))
+        : undefined,
+    ParameterSpec: __expectString(output.ParameterSpec),
+  } as any;
+};
+
 const deserializeAws_json1_1LastCrawlInfo = (output: any, context: __SerdeContext): LastCrawlInfo => {
   return {
     ErrorMessage: __expectString(output.ErrorMessage),
@@ -22312,6 +23455,16 @@ const deserializeAws_json1_1LastCrawlInfo = (output: any, context: __SerdeContex
 const deserializeAws_json1_1LineageConfiguration = (output: any, context: __SerdeContext): LineageConfiguration => {
   return {
     CrawlerLineageSettings: __expectString(output.CrawlerLineageSettings),
+  } as any;
+};
+
+const deserializeAws_json1_1ListBlueprintsResponse = (output: any, context: __SerdeContext): ListBlueprintsResponse => {
+  return {
+    Blueprints:
+      output.Blueprints !== undefined && output.Blueprints !== null
+        ? deserializeAws_json1_1BlueprintNames(output.Blueprints, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -23351,6 +24504,15 @@ const deserializeAws_json1_1SkewedInfo = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1StartBlueprintRunResponse = (
+  output: any,
+  context: __SerdeContext
+): StartBlueprintRunResponse => {
+  return {
+    RunId: __expectString(output.RunId),
+  } as any;
+};
+
 const deserializeAws_json1_1StartCrawlerResponse = (output: any, context: __SerdeContext): StartCrawlerResponse => {
   return {} as any;
 };
@@ -23827,6 +24989,15 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
   return {} as any;
 };
 
+const deserializeAws_json1_1UpdateBlueprintResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateBlueprintResponse => {
+  return {
+    Name: __expectString(output.Name),
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateClassifierResponse = (
   output: any,
   context: __SerdeContext
@@ -24008,6 +25179,10 @@ const deserializeAws_json1_1VersionMismatchException = (
 
 const deserializeAws_json1_1Workflow = (output: any, context: __SerdeContext): Workflow => {
   return {
+    BlueprintDetails:
+      output.BlueprintDetails !== undefined && output.BlueprintDetails !== null
+        ? deserializeAws_json1_1BlueprintDetails(output.BlueprintDetails, context)
+        : undefined,
     CreatedOn:
       output.CreatedOn !== undefined && output.CreatedOn !== null
         ? new Date(Math.round(output.CreatedOn * 1000))

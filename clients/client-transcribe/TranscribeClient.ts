@@ -91,6 +91,10 @@ import {
   ListMedicalVocabulariesCommandOutput,
 } from "./commands/ListMedicalVocabulariesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput,
 } from "./commands/ListTranscriptionJobsCommand";
@@ -111,6 +115,8 @@ import {
   StartTranscriptionJobCommandInput,
   StartTranscriptionJobCommandOutput,
 } from "./commands/StartTranscriptionJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateCallAnalyticsCategoryCommandInput,
   UpdateCallAnalyticsCategoryCommandOutput,
@@ -203,12 +209,15 @@ export type ServiceInputTypes =
   | ListLanguageModelsCommandInput
   | ListMedicalTranscriptionJobsCommandInput
   | ListMedicalVocabulariesCommandInput
+  | ListTagsForResourceCommandInput
   | ListTranscriptionJobsCommandInput
   | ListVocabulariesCommandInput
   | ListVocabularyFiltersCommandInput
   | StartCallAnalyticsJobCommandInput
   | StartMedicalTranscriptionJobCommandInput
   | StartTranscriptionJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateCallAnalyticsCategoryCommandInput
   | UpdateMedicalVocabularyCommandInput
   | UpdateVocabularyCommandInput
@@ -241,12 +250,15 @@ export type ServiceOutputTypes =
   | ListLanguageModelsCommandOutput
   | ListMedicalTranscriptionJobsCommandOutput
   | ListMedicalVocabulariesCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListTranscriptionJobsCommandOutput
   | ListVocabulariesCommandOutput
   | ListVocabularyFiltersCommandOutput
   | StartCallAnalyticsJobCommandOutput
   | StartMedicalTranscriptionJobCommandOutput
   | StartTranscriptionJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateCallAnalyticsCategoryCommandOutput
   | UpdateMedicalVocabularyCommandOutput
   | UpdateVocabularyCommandOutput

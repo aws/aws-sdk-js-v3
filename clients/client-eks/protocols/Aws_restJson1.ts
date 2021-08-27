@@ -448,6 +448,9 @@ export const serializeAws_restJson1DeleteAddonCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: addonName.");
   }
+  const query: any = {
+    ...(input.preserve !== undefined && { preserve: input.preserve.toString() }),
+  };
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -456,6 +459,7 @@ export const serializeAws_restJson1DeleteAddonCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };

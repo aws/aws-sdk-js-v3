@@ -7,10 +7,9 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
 export interface AdvancedBackupSetting {
   /**
    * <p>Specifies an object containing resource type and backup options. The only supported
-   *          resource type is Amazon EC2 instances with Windows VSS. For an CloudFormation example, see
-   *          the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/integrate-cloudformation-with-aws-backup.html">sample
-   *             CloudFormation template to enable Windows VSS</a> in the <i>AWS Backup User
-   *             Guide</i>.</p>
+   *          resource type is Amazon EC2 instances with Windows Volume Shadow Copy Service
+   *          (VSS). For a CloudFormation example, see the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/integrate-cloudformation-with-aws-backup.html">sample
+   *             CloudFormation template to enable Windows VSS</a> in the <i>Backup User Guide</i>.</p>
    *          <p>Valid values: <code>EC2</code>.</p>
    */
   ResourceType?: string;
@@ -19,10 +18,10 @@ export interface AdvancedBackupSetting {
    * <p>Specifies the backup option for a selected resource. This option is only available for
    *          Windows VSS backup jobs.</p>
    *          <p>Valid values: </p>
-   *          <p>Set to <code>"WindowsVSS":"enabled"</code> to enable the WindowsVSS backup option and
-   *          create a VSS Windows backup. </p>
-   *          <p>Set to <code>"WindowsVSS":"disabled"</code> to create a regular backup. The WindowsVSS
-   *          option is not enabled by default.</p>
+   *          <p>Set to <code>"WindowsVSS":"enabled"</code> to enable the <code>WindowsVSS</code> backup
+   *          option and create a Windows VSS backup. </p>
+   *          <p>Set to <code>"WindowsVSS":"disabled"</code> to create a regular backup. The
+   *             <code>WindowsVSS</code> option is not enabled by default.</p>
    *          <p>If you specify an invalid option, you get an <code>InvalidParameterValueException</code>
    *          exception.</p>
    *          <p>For more information about Windows VSS backups, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html">Creating a VSS-Enabled Windows
@@ -79,8 +78,8 @@ export namespace AlreadyExistsException {
 }
 
 /**
- * <p>Contains information about the backup plan and rule that AWS Backup used to initiate the
- *          recovery point backup.</p>
+ * <p>Contains information about the backup plan and rule that Backup used to
+ *          initiate the recovery point backup.</p>
  */
 export interface RecoveryPointCreator {
   /**
@@ -137,14 +136,15 @@ export interface BackupJob {
   AccountId?: string;
 
   /**
-   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
+   * <p>Uniquely identifies a request to Backup to back up a resource.</p>
    */
   BackupJobId?: string;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName?: string;
 
@@ -237,9 +237,8 @@ export interface BackupJob {
   StartBy?: Date;
 
   /**
-   * <p>The type of AWS resource to be backed up; for example, an Amazon Elastic Block Store
-   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For VSS
-   *          Windows backups, the only supported resource type is Amazon EC2.</p>
+   * <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For Windows Volume Shadow Copy Service (VSS) backups, the only
+   *          supported resource type is Amazon EC2.</p>
    */
   ResourceType?: string;
 
@@ -251,11 +250,11 @@ export interface BackupJob {
 
   /**
    * <p>Specifies the backup option for a selected resource. This option is only available for
-   *          Windows VSS backup jobs.</p>
-   *          <p>Valid values: Set to <code>"WindowsVSS”:“enabled"</code> to enable WindowsVSS backup
-   *          option and create a VSS Windows backup. Set to “WindowsVSS”:”disabled” to create a regular
-   *          backup. If you specify an invalid option, you get an
-   *             <code>InvalidParameterValueException</code> exception.</p>
+   *          Windows Volume Shadow Copy Service (VSS) backup jobs.</p>
+   *          <p>Valid values: Set to <code>"WindowsVSS":"enabled"</code> to enable the
+   *             <code>WindowsVSS</code> backup option and create a Windows VSS backup. Set to
+   *             <code>"WindowsVSS":"disabled"</code> to create a regular backup. If you specify an
+   *          invalid option, you get an <code>InvalidParameterValueException</code> exception.</p>
    */
   BackupOptions?: { [key: string]: string };
 
@@ -349,14 +348,15 @@ export interface BackupRule {
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   TargetBackupVaultName: string | undefined;
 
   /**
-   * <p>A CRON expression specifying when AWS Backup initiates a backup job. For more
-   *          information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a> in the <i>Amazon CloudWatch Events User
+   * <p>A cron expression in UTC specifying when Backup initiates a backup job. For
+   *          more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a> in the <i>Amazon CloudWatch Events User
    *             Guide.</i>. Prior to specifying a value for this parameter, we recommend testing
    *          your cron expression using one of the many available cron generator and testing
    *          tools.</p>
@@ -371,14 +371,14 @@ export interface BackupRule {
 
   /**
    * <p>A value in minutes after a backup job is successfully started before it must be
-   *          completed or it will be canceled by AWS Backup. This value is optional.</p>
+   *          completed or it will be canceled by Backup. This value is optional.</p>
    */
   CompletionWindowMinutes?: number;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define. </p>
+   *          it expires. Backup transitions and expires backups automatically according to
+   *          the lifecycle that you define. </p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
@@ -406,9 +406,8 @@ export interface BackupRule {
   CopyActions?: CopyAction[];
 
   /**
-   * <p>Specifies whether AWS Backup creates continuous backups. True causes AWS Backup to
-   *          create continuous backups capable of point-in-time restore (PITR). False (or not specified)
-   *          causes AWS Backup to create snapshot backups.</p>
+   * <p>Specifies whether Backup creates continuous backups. True causes Backup to create continuous backups capable of point-in-time restore (PITR). False
+   *          (or not specified) causes Backup to create snapshot backups.</p>
    */
   EnableContinuousBackup?: boolean;
 }
@@ -426,7 +425,8 @@ export namespace BackupRule {
 /**
  * <p>Contains an optional backup plan display name and an array of <code>BackupRule</code>
  *          objects, each of which specifies a backup rule. Each rule in a backup plan is a separate
- *          scheduled task and can back up a different selection of AWS resources.</p>
+ *          scheduled task and can back up a different selection of Amazon Web Services
+ *          resources.</p>
  */
 export interface BackupPlan {
   /**
@@ -467,13 +467,15 @@ export interface BackupRuleInput {
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   TargetBackupVaultName: string | undefined;
 
   /**
-   * <p>A CRON expression specifying when AWS Backup initiates a backup job.</p>
+   * <p>A CRON expression in UTC specifying when Backup initiates a backup
+   *          job.</p>
    */
   ScheduleExpression?: string;
 
@@ -485,14 +487,14 @@ export interface BackupRuleInput {
 
   /**
    * <p>A value in minutes after a backup job is successfully started before it must be
-   *          completed or it will be canceled by AWS Backup. This value is optional.</p>
+   *          completed or it will be canceled by Backup. This value is optional.</p>
    */
   CompletionWindowMinutes?: number;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup will transition and expire backups automatically according to the
-   *          lifecycle that you define. </p>
+   *          it expires. Backup will transition and expire backups automatically according
+   *          to the lifecycle that you define. </p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
@@ -514,9 +516,8 @@ export interface BackupRuleInput {
   CopyActions?: CopyAction[];
 
   /**
-   * <p>Specifies whether AWS Backup creates continuous backups. True causes AWS Backup to
-   *          create continuous backups capable of point-in-time restore (PITR). False (or not specified)
-   *          causes AWS Backup to create snapshot backups.</p>
+   * <p>Specifies whether Backup creates continuous backups. True causes Backup to create continuous backups capable of point-in-time restore (PITR). False
+   *          (or not specified) causes Backup to create snapshot backups.</p>
    */
   EnableContinuousBackup?: boolean;
 }
@@ -534,7 +535,8 @@ export namespace BackupRuleInput {
 /**
  * <p>Contains an optional backup plan display name and an array of <code>BackupRule</code>
  *          objects, each of which specifies a backup rule. Each rule in a backup plan is a separate
- *          scheduled task and can back up a different selection of AWS resources. </p>
+ *          scheduled task and can back up a different selection of Amazon Web Services resources.
+ *       </p>
  */
 export interface BackupPlanInput {
   /**
@@ -550,7 +552,7 @@ export interface BackupPlanInput {
 
   /**
    * <p>Specifies a list of <code>BackupOptions</code> for each resource type. These settings
-   *          are only available for Windows VSS backup jobs.</p>
+   *          are only available for Windows Volume Shadow Copy Service (VSS) backup jobs.</p>
    */
   AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
@@ -708,8 +710,8 @@ export interface BackupSelection {
   SelectionName: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target
-   *          resource; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * <p>The ARN of the IAM role that Backup uses to authenticate when backing up the
+   *          target resource; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    */
   IamRoleArn: string | undefined;
 
@@ -810,8 +812,9 @@ export enum BackupVaultEvent {
 export interface BackupVaultListMember {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName?: string;
 
@@ -860,8 +863,8 @@ export namespace BackupVaultListMember {
  * <p>Contains <code>DeleteAt</code> and <code>MoveToColdStorageAt</code> timestamps, which
  *          are used to specify a lifecycle for a recovery point.</p>
  *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
- *          it expires. AWS Backup transitions and expires backups automatically according to the
- *          lifecycle that you define.</p>
+ *          it expires. Backup transitions and expires backups automatically according to
+ *          the lifecycle that you define.</p>
  *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
  *          days. Therefore, the “expire after days” setting must be 90 days greater than the
  *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
@@ -885,6 +888,95 @@ export namespace CalculatedLifecycle {
    * @internal
    */
   export const filterSensitiveLog = (obj: CalculatedLifecycle): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Backup can't perform the action that you requested until it finishes
+ *          performing a previous action. Try again later.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  Code?: string;
+  Message?: string;
+  Type?: string;
+  Context?: string;
+}
+
+export namespace ConflictException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of parameters for a control. A control can have zero, one, or more than one
+ *          parameter. An example of a control with two parameters is: "backup plan frequency is at
+ *          least <code>daily</code> and the retention period is at least <code>1 year</code>". The
+ *          first parameter is <code>daily</code>. The second parameter is <code>1 year</code>.</p>
+ */
+export interface ControlInputParameter {
+  /**
+   * <p>The name of a parameter, for example, <code>BackupPlanFrequency</code>.</p>
+   */
+  ParameterName?: string;
+
+  /**
+   * <p>The value of parameter, for example, <code>hourly</code>.</p>
+   */
+  ParameterValue?: string;
+}
+
+export namespace ControlInputParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ControlInputParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A framework consists of one or more controls. Each control has its own control scope.
+ *          The control scope defines what the control will evaluate. Three examples of control scopes
+ *          are: a specific backup plan, all backup plans with a specific tag, or all backup
+ *          plans.</p>
+ *          <note>
+ *             <p>To set a control scope that includes all of a particular resource, leave the
+ *                <code>ControlScope</code> empty or do not pass it when calling
+ *                <code>CreateFramework</code>.</p>
+ *          </note>
+ */
+export interface ControlScope {
+  /**
+   * <p>Describes whether the control scope includes a specific resource identified by its
+   *          unique Amazon Resource Name (ARN).</p>
+   */
+  ComplianceResourceIds?: string[];
+
+  /**
+   * <p>Describes whether the control scope includes one or more types of resources, such as
+   *             <code>EFS</code> or <code>RDS</code>.</p>
+   */
+  ComplianceResourceTypes?: string[];
+
+  /**
+   * <p>Describes whether the control scope includes resources with one or more tags. Each tag
+   *          is a key-value pair.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ControlScope {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ControlScope): any => ({
     ...obj,
   });
 }
@@ -935,8 +1027,9 @@ export interface CopyJob {
   DestinationRecoveryPointArn?: string;
 
   /**
-   * <p>The AWS resource to be copied; for example, an Amazon Elastic Block Store (Amazon EBS)
-   *          volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   * <p>The Amazon Web Services resource to be copied; for example, an Amazon Elastic Block Store
+   *             (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS)
+   *          database.</p>
    */
   ResourceArn?: string;
 
@@ -976,14 +1069,13 @@ export interface CopyJob {
   IamRoleArn?: string;
 
   /**
-   * <p>Contains information about the backup plan and rule that AWS Backup used to initiate the
-   *          recovery point backup.</p>
+   * <p>Contains information about the backup plan and rule that Backup used to
+   *          initiate the recovery point backup.</p>
    */
   CreatedBy?: RecoveryPointCreator;
 
   /**
-   * <p>The type of AWS resource to be copied; for example, an Amazon Elastic Block Store
-   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   * <p>The type of Amazon Web Services resource to be copied; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    */
   ResourceType?: string;
 }
@@ -1058,7 +1150,7 @@ export interface CreateBackupPlanOutput {
 
   /**
    * <p>A list of <code>BackupOptions</code> settings for a resource type. This option is only
-   *          available for Windows VSS backup jobs.</p>
+   *          available for Windows Volume Shadow Copy Service (VSS) backup jobs.</p>
    */
   AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
@@ -1247,8 +1339,8 @@ export namespace CreateBackupSelectionOutput {
 export interface CreateBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of letters, numbers, and hyphens.</p>
    */
   BackupVaultName: string | undefined;
 
@@ -1309,6 +1401,235 @@ export namespace CreateBackupVaultOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateBackupVaultOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains detailed information about all of the controls of a framework. Each framework
+ *          must contain at least one control.</p>
+ */
+export interface FrameworkControl {
+  /**
+   * <p>The name of a control. This name is between 1 and 256 characters.</p>
+   */
+  ControlName: string | undefined;
+
+  /**
+   * <p>A list of <code>ParameterName</code> and <code>ParameterValue</code> pairs.</p>
+   */
+  ControlInputParameters?: ControlInputParameter[];
+
+  /**
+   * <p>The scope of a control. The control scope defines what the control will evaluate. Three
+   *          examples of control scopes are: a specific backup plan, all backup plans with a specific
+   *          tag, or all backup plans. For more information, see <code>ControlScope</code>.</p>
+   */
+  ControlScope?: ControlScope;
+}
+
+export namespace FrameworkControl {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FrameworkControl): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFrameworkInput {
+  /**
+   * <p>The unique name of the framework. The name must be between 1 and 256 characters,
+   *          starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and
+   *          underscores (_).</p>
+   */
+  FrameworkName: string | undefined;
+
+  /**
+   * <p>An optional description of the framework with a maximum of 1,024 characters.</p>
+   */
+  FrameworkDescription?: string;
+
+  /**
+   * <p>A list of the controls that make up the framework. Each control in the list has a name,
+   *          input parameters, and scope.</p>
+   */
+  FrameworkControls: FrameworkControl[] | undefined;
+
+  /**
+   * <p>A customer-chosen string that you can use to distinguish between otherwise identical
+   *          calls to <code>CreateFrameworkInput</code>. Retrying a successful request with the same
+   *          idempotency token results in a success message with no action taken.</p>
+   */
+  IdempotencyToken?: string;
+
+  /**
+   * <p>Metadata that you can assign to help organize the frameworks that you create. Each tag
+   *          is a key-value pair.</p>
+   */
+  FrameworkTags?: { [key: string]: string };
+}
+
+export namespace CreateFrameworkInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFrameworkInput): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFrameworkOutput {
+  /**
+   * <p>The unique name of the framework. The name must be between 1 and 256 characters,
+   *          starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and
+   *          underscores (_).</p>
+   */
+  FrameworkName?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the resource type.</p>
+   */
+  FrameworkArn?: string;
+}
+
+export namespace CreateFrameworkOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFrameworkOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information from your report plan about where to deliver your reports,
+ *          specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your
+ *          reports.</p>
+ */
+export interface ReportDeliveryChannel {
+  /**
+   * <p>The unique name of the S3 bucket that receives your reports.</p>
+   */
+  S3BucketName: string | undefined;
+
+  /**
+   * <p>The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path:
+   *             s3://your-bucket-name/<code>prefix</code>/Backup/us-west-2/year/month/day/report-name.
+   *          If not specified, there is no prefix.</p>
+   */
+  S3KeyPrefix?: string;
+
+  /**
+   * <p>A list of the format of your reports: <code>CSV</code>, <code>JSON</code>, or both. If
+   *          not specified, the default format is <code>CSV</code>.</p>
+   */
+  Formats?: string[];
+}
+
+export namespace ReportDeliveryChannel {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReportDeliveryChannel): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains detailed information about a report setting.</p>
+ */
+export interface ReportSetting {
+  /**
+   * <p>Identifies the report template for the report. Reports are built using a report
+   *          template. The report templates are:</p>
+   *          <p>
+   *             <code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *          </p>
+   */
+  ReportTemplate: string | undefined;
+}
+
+export namespace ReportSetting {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReportSetting): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateReportPlanInput {
+  /**
+   * <p>The unique name of the report plan. The name must be between 1 and 256 characters,
+   *          starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and
+   *          underscores (_).</p>
+   */
+  ReportPlanName: string | undefined;
+
+  /**
+   * <p>An optional description of the report plan with a maximum of 1,024 characters.</p>
+   */
+  ReportPlanDescription?: string;
+
+  /**
+   * <p>A structure that contains information about where and how to deliver your reports,
+   *          specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your
+   *          reports.</p>
+   */
+  ReportDeliveryChannel: ReportDeliveryChannel | undefined;
+
+  /**
+   * <p>Identifies the report template for the report. Reports are built using a report
+   *          template. The report templates are:</p>
+   *          <p>
+   *             <code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *          </p>
+   */
+  ReportSetting: ReportSetting | undefined;
+
+  /**
+   * <p>Metadata that you can assign to help organize the frameworks that you create. Each tag
+   *          is a key-value pair.</p>
+   */
+  ReportPlanTags?: { [key: string]: string };
+
+  /**
+   * <p>A customer-chosen string that you can use to distinguish between otherwise identical
+   *          calls to <code>CreateReportPlanInput</code>. Retrying a successful request with the same
+   *          idempotency token results in a success message with no action taken.</p>
+   */
+  IdempotencyToken?: string;
+}
+
+export namespace CreateReportPlanInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateReportPlanInput): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateReportPlanOutput {
+  /**
+   * <p>The unique name of the report plan.</p>
+   */
+  ReportPlanName?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the resource type.</p>
+   */
+  ReportPlanArn?: string;
+}
+
+export namespace CreateReportPlanOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateReportPlanOutput): any => ({
     ...obj,
   });
 }
@@ -1447,8 +1768,9 @@ export namespace DeleteBackupSelectionInput {
 export interface DeleteBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 }
@@ -1465,8 +1787,9 @@ export namespace DeleteBackupVaultInput {
 export interface DeleteBackupVaultAccessPolicyInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 }
@@ -1498,11 +1821,28 @@ export namespace DeleteBackupVaultNotificationsInput {
   });
 }
 
+export interface DeleteFrameworkInput {
+  /**
+   * <p>The unique name of a framework.</p>
+   */
+  FrameworkName: string | undefined;
+}
+
+export namespace DeleteFrameworkInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFrameworkInput): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteRecoveryPointInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 
@@ -1523,8 +1863,8 @@ export namespace DeleteRecoveryPointInput {
 }
 
 /**
- * <p>AWS Backup is already performing an action on this recovery point. It can't perform the
- *          action you requested until the first action finishes. Try again later.</p>
+ * <p>Backup is already performing an action on this recovery point. It can't
+ *          perform the action you requested until the first action finishes. Try again later.</p>
  */
 export interface InvalidResourceStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceStateException";
@@ -1551,9 +1891,24 @@ export namespace InvalidResourceStateException {
   });
 }
 
+export interface DeleteReportPlanInput {
+  /**
+   * <p>The unique name of a report plan.</p>
+   */
+  ReportPlanName: string | undefined;
+}
+
+export namespace DeleteReportPlanInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteReportPlanInput): any => ({
+    ...obj,
+  });
+}
+
 /**
- * <p>A dependent AWS service or resource returned an error to the AWS Backup service, and the
- *          action cannot be completed.</p>
+ * <p>A dependent Amazon Web Services service or resource returned an error to the Backup service, and the action cannot be completed.</p>
  */
 export interface DependencyFailureException extends __SmithyException, $MetadataBearer {
   name: "DependencyFailureException";
@@ -1582,7 +1937,7 @@ export namespace DependencyFailureException {
 
 export interface DescribeBackupJobInput {
   /**
-   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
+   * <p>Uniquely identifies a request to Backup to back up a resource.</p>
    */
   BackupJobId: string | undefined;
 }
@@ -1603,14 +1958,15 @@ export interface DescribeBackupJobOutput {
   AccountId?: string;
 
   /**
-   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
+   * <p>Uniquely identifies a request to Backup to back up a resource.</p>
    */
   BackupJobId?: string;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName?: string;
 
@@ -1683,8 +2039,7 @@ export interface DescribeBackupJobOutput {
   CreatedBy?: RecoveryPointCreator;
 
   /**
-   * <p>The type of AWS resource to be backed up; for example, an Amazon Elastic Block Store
-   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   * <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    */
   ResourceType?: string;
 
@@ -1719,9 +2074,9 @@ export interface DescribeBackupJobOutput {
 
   /**
    * <p>Represents the actual backup type selected for a backup job. For example, if a
-   *          successful WindowsVSS backup was taken, <code>BackupType</code> returns "WindowsVSS". If
-   *             <code>BackupType</code> is empty, then the backup type that was is a regular
-   *          backup.</p>
+   *          successful Windows Volume Shadow Copy Service (VSS) backup was taken,
+   *             <code>BackupType</code> returns <code>"WindowsVSS"</code>. If <code>BackupType</code> is
+   *          empty, then the backup type was a regular backup.</p>
    */
   BackupType?: string;
 }
@@ -1738,8 +2093,9 @@ export namespace DescribeBackupJobOutput {
 export interface DescribeBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 }
@@ -1834,6 +2190,108 @@ export namespace DescribeCopyJobOutput {
   });
 }
 
+export interface DescribeFrameworkInput {
+  /**
+   * <p>The unique name of a framework.</p>
+   */
+  FrameworkName: string | undefined;
+}
+
+export namespace DescribeFrameworkInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFrameworkInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFrameworkOutput {
+  /**
+   * <p>The unique name of a framework.</p>
+   */
+  FrameworkName?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the resource type.</p>
+   */
+  FrameworkArn?: string;
+
+  /**
+   * <p>An optional description of the framework.</p>
+   */
+  FrameworkDescription?: string;
+
+  /**
+   * <p>A list of the controls that make up the framework. Each control in the list has a name,
+   *          input parameters, and scope.</p>
+   */
+  FrameworkControls?: FrameworkControl[];
+
+  /**
+   * <p>The date and time that a framework is created, in Unix format and Coordinated Universal
+   *          Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For
+   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The deployment status of a framework. The statuses are:</p>
+   *          <p>
+   *             <code>CREATE_IN_PROGRESS | UPDATE_IN_PROGRESS | DELETE_IN_PROGRESS | COMPLETED |
+   *             FAILED</code>
+   *          </p>
+   */
+  DeploymentStatus?: string;
+
+  /**
+   * <p>A framework consists of one or more controls. Each control governs a resource, such as
+   *          backup plans, backup selections, backup vaults, or recovery points. You can also turn
+   *             Config recording on or off for each resource. The statuses are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> when recording is turned on for all resources governed by the
+   *                framework.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIALLY_ACTIVE</code> when recording is turned off for at least one
+   *                resource governed by the framework.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE</code> when recording is turned off for all resources governed by
+   *                the framework.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNAVAILABLE</code> when Backup is unable to validate recording
+   *                status at this time.</p>
+   *             </li>
+   *          </ul>
+   */
+  FrameworkStatus?: string;
+
+  /**
+   * <p>A customer-chosen string that you can use to distinguish between otherwise identical
+   *          calls to <code>DescribeFrameworkOutput</code>. Retrying a successful request with the same
+   *          idempotency token results in a success message with no action taken.</p>
+   */
+  IdempotencyToken?: string;
+}
+
+export namespace DescribeFrameworkOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFrameworkOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeGlobalSettingsInput {}
 
 export namespace DescribeGlobalSettingsInput {
@@ -1847,15 +2305,15 @@ export namespace DescribeGlobalSettingsInput {
 
 export interface DescribeGlobalSettingsOutput {
   /**
-   * <p>A list of resources along with the opt-in preferences for the account.</p>
+   * <p>The status of the flag <code>isCrossAccountBackupEnabled</code>.</p>
    */
   GlobalSettings?: { [key: string]: string };
 
   /**
-   * <p>The date and time that the global settings were last updated. This update is in Unix
-   *          format and Coordinated Universal Time (UTC). The value of <code>LastUpdateTime</code> is
-   *          accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January
-   *          26, 2018 12:11:30.087 AM.</p>
+   * <p>The date and time that the flag <code>isCrossAccountBackupEnabled</code> was last
+   *          updated. This update is in Unix format and Coordinated Universal Time (UTC). The value of
+   *             <code>LastUpdateTime</code> is accurate to milliseconds. For example, the value
+   *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    */
   LastUpdateTime?: Date;
 }
@@ -1894,8 +2352,8 @@ export interface DescribeProtectedResourceOutput {
   ResourceArn?: string;
 
   /**
-   * <p>The type of AWS resource saved as a recovery point; for example, an EBS volume or an
-   *          Amazon RDS database.</p>
+   * <p>The type of Amazon Web Services resource saved as a recovery point; for example, an
+   *             Amazon EBS volume or an Amazon RDS database.</p>
    */
   ResourceType?: string;
 
@@ -1920,8 +2378,9 @@ export namespace DescribeProtectedResourceOutput {
 export interface DescribeRecoveryPointInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 
@@ -1978,7 +2437,8 @@ export interface DescribeRecoveryPointOutput {
    * <p>An Amazon Resource Name (ARN) that uniquely identifies the source vault where the
    *          resource was originally backed up in; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:vault:BackupVault</code>. If the recovery is
-   *          restored to the same AWS account or Region, this value will be <code>null</code>.</p>
+   *          restored to the same Amazon Web Services account or Region, this value will be
+   *             <code>null</code>.</p>
    */
   SourceBackupVaultArn?: string;
 
@@ -1989,9 +2449,8 @@ export interface DescribeRecoveryPointOutput {
   ResourceArn?: string;
 
   /**
-   * <p>The type of AWS resource to save as a recovery point; for example, an Amazon Elastic
-   *          Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS)
-   *          database.</p>
+   * <p>The type of Amazon Web Services resource to save as a recovery point; for example, an
+   *             Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    */
   ResourceType?: string;
 
@@ -2010,12 +2469,24 @@ export interface DescribeRecoveryPointOutput {
 
   /**
    * <p>A status code specifying the state of the recovery point.</p>
-   *          <note>
-   *             <p>A partial status indicates that the recovery point was not successfully re-created
-   *             and must be retried.</p>
-   *          </note>
+   *          <p>
+   *             <code>PARTIAL</code> status indicates Backup could not create the recovery
+   *          point before the backup window closed. To increase your backup plan window using the API,
+   *          see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateBackupPlan.html">UpdateBackupPlan</a>. You can also increase your backup plan window using the
+   *          Console by choosing and editing your backup plan.</p>
+   *          <p>
+   *             <code>EXPIRED</code> status indicates that the recovery point has exceeded its retention
+   *          period, but Backup lacks permission or is otherwise unable to delete it. To
+   *          manually delete these recovery points, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/gs-cleanup-resources.html#cleanup-backups"> Step 3:
+   *             Delete the recovery points</a> in the <i>Clean up resources</i>
+   *          section of <i>Getting started</i>.</p>
    */
   Status?: RecoveryPointStatus | string;
+
+  /**
+   * <p>A status message explaining the reason for the recovery point deletion failure.</p>
+   */
+  StatusMessage?: string;
 
   /**
    * <p>The date and time that a recovery point is created, in Unix format and Coordinated
@@ -2046,8 +2517,8 @@ export interface DescribeRecoveryPointOutput {
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define. </p>
+   *          it expires. Backup transitions and expires backups automatically according to
+   *          the lifecycle that you define. </p>
    *          <p>Backups that are transitioned to cold storage must be stored in cold storage for a
    *          minimum of 90 days. Therefore, the “expire after days” setting must be 90 days greater than
    *          the “transition to cold after days” setting. The “transition to cold after days” setting
@@ -2119,6 +2590,255 @@ export namespace DescribeRegionSettingsOutput {
   });
 }
 
+export interface DescribeReportJobInput {
+  /**
+   * <p>The identifier of the report job. A unique, randomly generated, Unicode, UTF-8 encoded
+   *          string that is at most 1,024 bytes long. The report job ID cannot be edited.</p>
+   */
+  ReportJobId: string | undefined;
+}
+
+export namespace DescribeReportJobInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReportJobInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information from your report job about your report destination.</p>
+ */
+export interface ReportDestination {
+  /**
+   * <p>The unique name of the Amazon S3 bucket that receives your reports.</p>
+   */
+  S3BucketName?: string;
+
+  /**
+   * <p>The object key that uniquely identifies your reports in your S3 bucket.</p>
+   */
+  S3Keys?: string[];
+}
+
+export namespace ReportDestination {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReportDestination): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains detailed information about a report job. A report job compiles a report based
+ *          on a report plan and publishes it to Amazon S3.</p>
+ */
+export interface ReportJob {
+  /**
+   * <p>The identifier for a report job. A unique, randomly generated, Unicode, UTF-8 encoded
+   *          string that is at most 1,024 bytes long. Report job IDs cannot be edited.</p>
+   */
+  ReportJobId?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the resource type.</p>
+   */
+  ReportPlanArn?: string;
+
+  /**
+   * <p>Identifies the report template for the report. Reports are built using a report
+   *          template. The report templates are: </p>
+   *          <p>
+   *             <code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *          </p>
+   */
+  ReportTemplate?: string;
+
+  /**
+   * <p>The date and time that a report job is created, in Unix format and Coordinated Universal
+   *          Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For
+   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The date and time that a report job is completed, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CompletionTime</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   */
+  CompletionTime?: Date;
+
+  /**
+   * <p>The status of a report job. The statuses are:</p>
+   *          <p>
+   *             <code>CREATED | RUNNING | COMPLETED | FAILED</code>
+   *          </p>
+   *          <p>
+   *             <code>COMPLETED</code> means that the report is available for your review at your
+   *          designated destination. If the status is <code>FAILED</code>, review the
+   *             <code>StatusMessage</code> for the reason.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>A message explaining the status of the report job.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The S3 bucket name and S3 keys for the destination where the report job publishes the
+   *          report.</p>
+   */
+  ReportDestination?: ReportDestination;
+}
+
+export namespace ReportJob {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReportJob): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeReportJobOutput {
+  /**
+   * <p>A list of information about a report job, including its completion and creation times,
+   *          report destination, unique report job ID, Amazon Resource Name (ARN), report template,
+   *          status, and status message.</p>
+   */
+  ReportJob?: ReportJob;
+}
+
+export namespace DescribeReportJobOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReportJobOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeReportPlanInput {
+  /**
+   * <p>The unique name of a report plan.</p>
+   */
+  ReportPlanName: string | undefined;
+}
+
+export namespace DescribeReportPlanInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReportPlanInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains detailed information about a report plan.</p>
+ */
+export interface ReportPlan {
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the resource type.</p>
+   */
+  ReportPlanArn?: string;
+
+  /**
+   * <p>The unique name of the report plan. This name is between 1 and 256 characters starting
+   *          with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores
+   *          (_).</p>
+   */
+  ReportPlanName?: string;
+
+  /**
+   * <p>An optional description of the report plan with a maximum 1,024 characters.</p>
+   */
+  ReportPlanDescription?: string;
+
+  /**
+   * <p>Identifies the report template for the report. Reports are built using a report
+   *          template. The report templates are:</p>
+   *          <p>
+   *             <code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *          </p>
+   */
+  ReportSetting?: ReportSetting;
+
+  /**
+   * <p>Contains information about where and how to deliver your reports, specifically your
+   *             Amazon S3 bucket name, S3 key prefix, and the formats of your reports.</p>
+   */
+  ReportDeliveryChannel?: ReportDeliveryChannel;
+
+  /**
+   * <p>The deployment status of a report plan. The statuses are:</p>
+   *          <p>
+   *             <code>CREATE_IN_PROGRESS | UPDATE_IN_PROGRESS | DELETE_IN_PROGRESS |
+   *          COMPLETED</code>
+   *          </p>
+   */
+  DeploymentStatus?: string;
+
+  /**
+   * <p>The date and time that a report plan is created, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The date and time that a report job associated with this report plan last attempted to
+   *          run, in Unix format and Coordinated Universal Time (UTC). The value of
+   *             <code>LastAttemptedExecutionTime</code> is accurate to milliseconds. For example, the
+   *          value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   */
+  LastAttemptedExecutionTime?: Date;
+
+  /**
+   * <p>The date and time that a report job associated with this report plan last successfully
+   *          ran, in Unix format and Coordinated Universal Time (UTC). The value of
+   *             <code>LastSuccessfulExecutionTime</code> is accurate to milliseconds. For example, the
+   *          value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   */
+  LastSuccessfulExecutionTime?: Date;
+}
+
+export namespace ReportPlan {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReportPlan): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeReportPlanOutput {
+  /**
+   * <p>Returns details about the report plan that is specified by its name. These details
+   *          include the report plan's Amazon Resource Name (ARN), description, settings, delivery
+   *          channel, deployment status, creation time, and last attempted and successful run
+   *          times.</p>
+   */
+  ReportPlan?: ReportPlan;
+}
+
+export namespace DescribeReportPlanOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReportPlanOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeRestoreJobInput {
   /**
    * <p>Uniquely identifies the job that restores a recovery point.</p>
@@ -2177,8 +2897,8 @@ export interface DescribeRestoreJobOutput {
   CompletionDate?: Date;
 
   /**
-   * <p>Status code specifying the state of the job that is initiated by AWS Backup to restore a
-   *          recovery point.</p>
+   * <p>Status code specifying the state of the job that is initiated by Backup to
+   *          restore a recovery point.</p>
    */
   Status?: RestoreJobStatus | string;
 
@@ -2234,13 +2954,13 @@ export namespace DescribeRestoreJobOutput {
 
 export interface DisassociateRecoveryPointInput {
   /**
-   * <p>The unique name of an AWS Backup vault. Required.</p>
+   * <p>The unique name of an Backup vault.</p>
    */
   BackupVaultName: string | undefined;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS Backup recovery point.
-   *          Required.</p>
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies an Backup recovery
+   *          point.</p>
    */
   RecoveryPointArn: string | undefined;
 }
@@ -2518,8 +3238,9 @@ export namespace GetBackupSelectionOutput {
 export interface GetBackupVaultAccessPolicyInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 }
@@ -2565,8 +3286,9 @@ export namespace GetBackupVaultAccessPolicyOutput {
 export interface GetBackupVaultNotificationsInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 }
@@ -2619,8 +3341,9 @@ export namespace GetBackupVaultNotificationsOutput {
 export interface GetRecoveryPointRestoreMetadataInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 
@@ -2673,7 +3396,7 @@ export namespace GetRecoveryPointRestoreMetadataOutput {
 
 export interface GetSupportedResourceTypesOutput {
   /**
-   * <p>Contains a string with the supported AWS resource types:</p>
+   * <p>Contains a string with the supported Amazon Web Services resource types:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2701,7 +3424,7 @@ export interface GetSupportedResourceTypesOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Storage Gateway</code> for AWS Storage Gateway</p>
+   *                   <code>Storage Gateway</code> for Storage Gateway</p>
    *             </li>
    *          </ul>
    */
@@ -2745,8 +3468,8 @@ export interface ListBackupJobsInput {
   /**
    * <p>Returns only backup jobs that will be stored in the specified backup vault. Backup
    *          vaults are identified by names that are unique to the account used to create them and the
-   *          AWS Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
+   *             Amazon Web Services Region where they are created. They consist of lowercase letters,
+   *          numbers, and hyphens.</p>
    */
   ByBackupVaultName?: string;
 
@@ -2789,7 +3512,7 @@ export interface ListBackupJobsInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Storage Gateway</code> for AWS Storage Gateway</p>
+   *                   <code>Storage Gateway</code> for Storage Gateway</p>
    *             </li>
    *          </ul>
    */
@@ -2798,8 +3521,8 @@ export interface ListBackupJobsInput {
   /**
    * <p>The account ID to list the jobs from. Returns only backup jobs associated with the
    *          specified account ID.</p>
-   *          <p>If used from an AWS Organizations management account, passing <code>*</code> returns all
-   *          jobs across the organization.</p>
+   *          <p>If used from an Organizations management account, passing <code>*</code> returns
+   *          all jobs across the organization.</p>
    */
   ByAccountId?: string;
 }
@@ -3161,7 +3884,7 @@ export interface ListCopyJobsInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Storage Gateway</code> for AWS Storage Gateway</p>
+   *                   <code>Storage Gateway</code> for Storage Gateway</p>
    *             </li>
    *          </ul>
    */
@@ -3214,6 +3937,108 @@ export namespace ListCopyJobsOutput {
   });
 }
 
+export interface ListFrameworksInput {
+  /**
+   * <p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will
+   *          return 1 MB of data.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can be
+   *          used to return the next set of items in the list.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFrameworksInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFrameworksInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains detailed information about a framework. Frameworks contain controls, which
+ *          evaluate and report on your backup events and resources. Frameworks generate daily
+ *          compliance results.</p>
+ */
+export interface Framework {
+  /**
+   * <p>The unique name of a framework. This name is between 1 and 256 characters, starting with
+   *          a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</p>
+   */
+  FrameworkName?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the resource type.</p>
+   */
+  FrameworkArn?: string;
+
+  /**
+   * <p>An optional description of the framework with a maximum 1,024 characters.</p>
+   */
+  FrameworkDescription?: string;
+
+  /**
+   * <p>The number of controls contained by the framework.</p>
+   */
+  NumberOfControls?: number;
+
+  /**
+   * <p>The date and time that a framework is created, in Unix format and Coordinated Universal
+   *          Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For
+   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The deployment status of a framework. The statuses are:</p>
+   *          <p>
+   *             <code>CREATE_IN_PROGRESS | UPDATE_IN_PROGRESS | DELETE_IN_PROGRESS | COMPLETED |
+   *             FAILED</code>
+   *          </p>
+   */
+  DeploymentStatus?: string;
+}
+
+export namespace Framework {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Framework): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFrameworksOutput {
+  /**
+   * <p>A list of frameworks with details for each framework, including the framework name,
+   *          Amazon Resource Name (ARN), description, number of controls, creation time, and deployment
+   *          status.</p>
+   */
+  Frameworks?: Framework[];
+
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can be
+   *          used to return the next set of items in the list.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFrameworksOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFrameworksOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface ListProtectedResourcesInput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -3249,9 +4074,9 @@ export interface ProtectedResource {
   ResourceArn?: string;
 
   /**
-   * <p>The type of AWS resource; for example, an Amazon Elastic Block Store (Amazon EBS) volume
-   *          or an Amazon Relational Database Service (Amazon RDS) database. For VSS Windows backups,
-   *          the only supported resource type is Amazon EC2.</p>
+   * <p>The type of Amazon Web Services resource; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For
+   *          Windows Volume Shadow Copy Service (VSS) backups, the only supported resource type is
+   *             Amazon EC2.</p>
    */
   ResourceType?: string;
 
@@ -3275,8 +4100,8 @@ export namespace ProtectedResource {
 
 export interface ListProtectedResourcesOutput {
   /**
-   * <p>An array of resources successfully backed up by AWS Backup including the time the
-   *          resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
+   * <p>An array of resources successfully backed up by Backup including the time
+   *          the resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
    *          type.</p>
    */
   Results?: ProtectedResource[];
@@ -3302,8 +4127,13 @@ export namespace ListProtectedResourcesOutput {
 export interface ListRecoveryPointsByBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
+   *          <note>
+   *             <p>Backup vault name might not be available when a supported service creates the
+   *             backup.</p>
+   *          </note>
    */
   BackupVaultName: string | undefined;
 
@@ -3368,8 +4198,9 @@ export interface RecoveryPointByBackupVault {
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName?: string;
 
@@ -3392,9 +4223,9 @@ export interface RecoveryPointByBackupVault {
   ResourceArn?: string;
 
   /**
-   * <p>The type of AWS resource saved as a recovery point; for example, an Amazon Elastic Block
-   *          Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.
-   *          For VSS Windows backups, the only supported resource type is Amazon EC2.</p>
+   * <p>The type of Amazon Web Services resource saved as a recovery point; for example, an
+   *             Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For Windows Volume Shadow Copy Service (VSS) backups, the only
+   *          supported resource type is Amazon EC2.</p>
    */
   ResourceType?: string;
 
@@ -3415,6 +4246,11 @@ export interface RecoveryPointByBackupVault {
    * <p>A status code specifying the state of the recovery point.</p>
    */
   Status?: RecoveryPointStatus | string;
+
+  /**
+   * <p>A message explaining the reason of the recovery point deletion failure.</p>
+   */
+  StatusMessage?: string;
 
   /**
    * <p>The date and time a recovery point is created, in Unix format and Coordinated Universal
@@ -3445,8 +4281,8 @@ export interface RecoveryPointByBackupVault {
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define. </p>
+   *          it expires. Backup transitions and expires backups automatically according to
+   *          the lifecycle that you define. </p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
@@ -3527,6 +4363,9 @@ export interface ListRecoveryPointsByResourceInput {
 
   /**
    * <p>The maximum number of items to be returned.</p>
+   *          <note>
+   *             <p>Amazon RDS requires a value of at least 20.</p>
+   *          </note>
    */
   MaxResults?: number;
 }
@@ -3564,6 +4403,11 @@ export interface RecoveryPointByResource {
   Status?: RecoveryPointStatus | string;
 
   /**
+   * <p>A message explaining the reason of the recovery point deletion failure.</p>
+   */
+  StatusMessage?: string;
+
+  /**
    * <p>The server-side encryption key that is used to protect your backups; for example,
    *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    */
@@ -3576,8 +4420,9 @@ export interface RecoveryPointByResource {
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName?: string;
 }
@@ -3603,6 +4448,10 @@ export interface ListRecoveryPointsByResourceOutput {
   /**
    * <p>An array of objects that contain detailed information about recovery points of the
    *          specified resource type.</p>
+   *          <note>
+   *             <p>Only Amazon EFS and Amazon EC2 recovery points return
+   *             BackupVaultName.</p>
+   *          </note>
    */
   RecoveryPoints?: RecoveryPointByResource[];
 }
@@ -3612,6 +4461,126 @@ export namespace ListRecoveryPointsByResourceOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListRecoveryPointsByResourceOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListReportJobsInput {
+  /**
+   * <p>Returns only report jobs with the specified report plan name.</p>
+   */
+  ByReportPlanName?: string;
+
+  /**
+   * <p>Returns only report jobs that were created before the date and time specified in Unix
+   *          format and Coordinated Universal Time (UTC). For example, the value 1516925490 represents
+   *          Friday, January 26, 2018 12:11:30 AM.</p>
+   */
+  ByCreationBefore?: Date;
+
+  /**
+   * <p>Returns only report jobs that were created after the date and time specified in Unix
+   *          format and Coordinated Universal Time (UTC). For example, the value 1516925490 represents
+   *          Friday, January 26, 2018 12:11:30 AM.</p>
+   */
+  ByCreationAfter?: Date;
+
+  /**
+   * <p>Returns only report jobs that are in the specified status. The statuses are:</p>
+   *          <p>
+   *             <code>CREATED | RUNNING | COMPLETED | FAILED</code>
+   *          </p>
+   */
+  ByStatus?: string;
+
+  /**
+   * <p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will
+   *          return 1 MB of data.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can be
+   *          used to return the next set of items in the list.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListReportJobsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListReportJobsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListReportJobsOutput {
+  /**
+   * <p>Details about your report jobs in JSON format.</p>
+   */
+  ReportJobs?: ReportJob[];
+
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can be
+   *          used to return the next set of items in the list.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListReportJobsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListReportJobsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListReportPlansInput {
+  /**
+   * <p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will
+   *          return 1 MB of data.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can be
+   *          used to return the next set of items in the list.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListReportPlansInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListReportPlansInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListReportPlansOutput {
+  /**
+   * <p>A list of your report plans with detailed information for each plan. This information
+   *          includes the Amazon Resource Name (ARN), report plan name, description, settings, delivery
+   *          channel, deployment status, creation time, and last times the report plan attempted to and
+   *          successfully ran.</p>
+   */
+  ReportPlans?: ReportPlan[];
+
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can be
+   *          used to return the next set of items in the list.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListReportPlansOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListReportPlansOutput): any => ({
     ...obj,
   });
 }
@@ -3698,8 +4667,8 @@ export interface RestoreJobsListMember {
   CompletionDate?: Date;
 
   /**
-   * <p>A status code specifying the state of the job initiated by AWS Backup to restore a
-   *          recovery point.</p>
+   * <p>A status code specifying the state of the job initiated by Backup to restore
+   *          a recovery point.</p>
    */
   Status?: RestoreJobStatus | string;
 
@@ -3739,8 +4708,9 @@ export interface RestoreJobsListMember {
 
   /**
    * <p>The resource type of the listed restore jobs; for example, an Amazon Elastic Block Store
-   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For VSS
-   *          Windows backups, the only supported resource type is Amazon EC2.</p>
+   *             (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.
+   *          For Windows Volume Shadow Copy Service (VSS) backups, the only supported resource type is
+   *             Amazon EC2.</p>
    */
   ResourceType?: string;
 }
@@ -3839,8 +4809,9 @@ export namespace ListTagsOutput {
 export interface PutBackupVaultAccessPolicyInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 
@@ -3862,8 +4833,9 @@ export namespace PutBackupVaultAccessPolicyInput {
 export interface PutBackupVaultNotificationsInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 
@@ -3876,6 +4848,20 @@ export interface PutBackupVaultNotificationsInput {
   /**
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
+   *          <note>
+   *             <p>The following events are supported:</p>
+   *             <p>
+   *                <code>BACKUP_JOB_STARTED</code>, <code>BACKUP_JOB_COMPLETED</code>,</p>
+   *             <p>
+   *                <code>COPY_JOB_STARTED</code>, <code>COPY_JOB_SUCCESSFUL</code>,
+   *                <code>COPY_JOB_FAILED</code>,</p>
+   *             <p>
+   *                <code>RESTORE_JOB_STARTED</code>, <code>RESTORE_JOB_COMPLETED</code>, and
+   *                <code>RECOVERY_POINT_MODIFIED</code>.</p>
+   *             <p>To find failed backup jobs, use <code>BACKUP_JOB_COMPLETED</code> and filter using
+   *             event metadata.</p>
+   *             <p>Other events in the following list are deprecated.</p>
+   *          </note>
    */
   BackupVaultEvents: (BackupVaultEvent | string)[] | undefined;
 }
@@ -3892,8 +4878,9 @@ export namespace PutBackupVaultNotificationsInput {
 export interface StartBackupJobInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 
@@ -3910,8 +4897,9 @@ export interface StartBackupJobInput {
   IamRoleArn: string | undefined;
 
   /**
-   * <p>A customer chosen string that can be used to distinguish between calls to
-   *             <code>StartBackupJob</code>.</p>
+   * <p>A customer-chosen string that you can use to distinguish between otherwise identical
+   *          calls to <code>StartBackupJob</code>. Retrying a successful request with the same
+   *          idempotency token results in a success message with no action taken.</p>
    */
   IdempotencyToken?: string;
 
@@ -3931,8 +4919,8 @@ export interface StartBackupJobInput {
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup will transition and expire backups automatically according to the
-   *          lifecycle that you define. </p>
+   *          it expires. Backup will transition and expire backups automatically according
+   *          to the lifecycle that you define. </p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
@@ -3949,10 +4937,11 @@ export interface StartBackupJobInput {
 
   /**
    * <p>Specifies the backup option for a selected resource. This option is only available for
-   *          Windows VSS backup jobs.</p>
-   *          <p>Valid values: Set to <code>"WindowsVSS”:“enabled"</code> to enable WindowsVSS backup
-   *          option and create a VSS Windows backup. Set to “WindowsVSS”:”disabled” to create a regular
-   *          backup. The WindowsVSS option is not enabled by default.</p>
+   *          Windows Volume Shadow Copy Service (VSS) backup jobs.</p>
+   *          <p>Valid values: Set to <code>"WindowsVSS":"enabled"</code> to enable the
+   *             <code>WindowsVSS</code> backup option and create a Windows VSS backup. Set to
+   *             <code>"WindowsVSS""disabled"</code> to create a regular backup. The
+   *             <code>WindowsVSS</code> option is not enabled by default.</p>
    */
   BackupOptions?: { [key: string]: string };
 }
@@ -3969,7 +4958,7 @@ export namespace StartBackupJobInput {
 
 export interface StartBackupJobOutput {
   /**
-   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
+   * <p>Uniquely identifies a request to Backup to back up a resource.</p>
    */
   BackupJobId?: string;
 
@@ -4007,8 +4996,8 @@ export interface StartCopyJobInput {
 
   /**
    * <p>The name of a logical source container where backups are stored. Backup vaults are
-   *          identified by names that are unique to the account used to create them and the AWS Region
-   *          where they are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created. They consist of lowercase letters, numbers,
+   *          and hyphens.</p>
    */
   SourceBackupVaultName: string | undefined;
 
@@ -4026,8 +5015,9 @@ export interface StartCopyJobInput {
   IamRoleArn: string | undefined;
 
   /**
-   * <p>A customer chosen string that can be used to distinguish between calls to
-   *             <code>StartCopyJob</code>.</p>
+   * <p>A customer-chosen string that you can use to distinguish between otherwise identical
+   *          calls to <code>StartCopyJob</code>. Retrying a successful request with the same idempotency
+   *          token results in a success message with no action taken.</p>
    */
   IdempotencyToken?: string;
 
@@ -4076,6 +5066,46 @@ export namespace StartCopyJobOutput {
   });
 }
 
+export interface StartReportJobInput {
+  /**
+   * <p>The unique name of a report plan.</p>
+   */
+  ReportPlanName: string | undefined;
+
+  /**
+   * <p>A customer-chosen string that you can use to distinguish between otherwise identical
+   *          calls to <code>StartReportJobInput</code>. Retrying a successful request with the same
+   *          idempotency token results in a success message with no action taken.</p>
+   */
+  IdempotencyToken?: string;
+}
+
+export namespace StartReportJobInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartReportJobInput): any => ({
+    ...obj,
+  });
+}
+
+export interface StartReportJobOutput {
+  /**
+   * <p>The identifier of the report job. A unique, randomly generated, Unicode, UTF-8 encoded
+   *          string that is at most 1,024 bytes long. The report job ID cannot be edited.</p>
+   */
+  ReportJobId?: string;
+}
+
+export namespace StartReportJobOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartReportJobOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface StartRestoreJobInput {
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
@@ -4091,13 +5121,13 @@ export interface StartRestoreJobInput {
    *          provided by <code>GetRecoveryPointRestoreMetadata</code> might be required to restore a
    *          resource. For example, you might need to provide a new resource name if the original
    *          already exists.</p>
-   *          <p>You need to specify specific metadata to restore an Amazon Elastic File System (Amazon
-   *          EFS) instance:</p>
+   *          <p>You need to specify specific metadata to restore an Amazon Elastic File System (Amazon EFS) instance:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>file-system-id</code>: The ID of the Amazon EFS file system that is backed
-   *                up by AWS Backup. Returned in <code>GetRecoveryPointRestoreMetadata</code>.</p>
+   *                   <code>file-system-id</code>: The ID of the Amazon EFS file system that is
+   *                backed up by Backup. Returned in
+   *                   <code>GetRecoveryPointRestoreMetadata</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4107,9 +5137,8 @@ export interface StartRestoreJobInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>KmsKeyId</code>: Specifies the AWS KMS key that is used to encrypt the
-   *                restored file system. You can specify a key from another AWS account provided that
-   *                key it is properly shared with your account via AWS KMS.</p>
+   *                   <code>KmsKeyId</code>: Specifies the Amazon Web Services KMS key that is used to
+   *                encrypt the restored file system. You can specify a key from another Amazon Web Services account provided that key it is properly shared with your account via Amazon Web Services KMS.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4128,7 +5157,7 @@ export interface StartRestoreJobInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ItemsToRestore </code>: An array of one to five strings where each string is
+   *                   <code>ItemsToRestore</code>: An array of one to five strings where each string is
    *                a file path. Use <code>ItemsToRestore</code> to restore specific files or directories
    *                rather than the entire file system. This parameter is optional. For example,
    *                   <code>"itemsToRestore":"[\"/my.test\"]"</code>.</p>
@@ -4138,14 +5167,16 @@ export interface StartRestoreJobInput {
   Metadata: { [key: string]: string } | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target
-   *          recovery point; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Backup uses to create
+   *          the target recovery point; for example,
+   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>A customer chosen string that can be used to distinguish between calls to
-   *             <code>StartRestoreJob</code>.</p>
+   * <p>A customer-chosen string that you can use to distinguish between otherwise identical
+   *          calls to <code>StartRestoreJob</code>. Retrying a successful request with the same
+   *          idempotency token results in a success message with no action taken.</p>
    */
   IdempotencyToken?: string;
 
@@ -4178,7 +5209,7 @@ export interface StartRestoreJobInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Storage Gateway</code> for AWS Storage Gateway</p>
+   *                   <code>Storage Gateway</code> for Storage Gateway</p>
    *             </li>
    *          </ul>
    */
@@ -4213,7 +5244,7 @@ export namespace StartRestoreJobOutput {
 
 export interface StopBackupJobInput {
   /**
-   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
+   * <p>Uniquely identifies a request to Backup to back up a resource.</p>
    */
   BackupJobId: string | undefined;
 }
@@ -4310,7 +5341,7 @@ export interface UpdateBackupPlanOutput {
   BackupPlanArn?: string;
 
   /**
-   * <p>The date and time a backup plan is updated, in Unix format and Coordinated Universal
+   * <p>The date and time a backup plan is created, in Unix format and Coordinated Universal
    *          Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For
    *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
    *          AM.</p>
@@ -4338,9 +5369,77 @@ export namespace UpdateBackupPlanOutput {
   });
 }
 
+export interface UpdateFrameworkInput {
+  /**
+   * <p>The unique name of a framework. This name is between 1 and 256 characters, starting with
+   *          a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</p>
+   */
+  FrameworkName: string | undefined;
+
+  /**
+   * <p>An optional description of the framework with a maximum 1,024 characters.</p>
+   */
+  FrameworkDescription?: string;
+
+  /**
+   * <p>A list of the controls that make up the framework. Each control in the list has a name,
+   *          input parameters, and scope.</p>
+   */
+  FrameworkControls?: FrameworkControl[];
+
+  /**
+   * <p>A customer-chosen string that you can use to distinguish between otherwise identical
+   *          calls to <code>UpdateFrameworkInput</code>. Retrying a successful request with the same
+   *          idempotency token results in a success message with no action taken.</p>
+   */
+  IdempotencyToken?: string;
+}
+
+export namespace UpdateFrameworkInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFrameworkInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFrameworkOutput {
+  /**
+   * <p>The unique name of a framework. This name is between 1 and 256 characters, starting with
+   *          a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</p>
+   */
+  FrameworkName?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the resource type.</p>
+   */
+  FrameworkArn?: string;
+
+  /**
+   * <p>The date and time that a framework is created, in Unix format and Coordinated Universal
+   *          Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For
+   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   */
+  CreationTime?: Date;
+}
+
+export namespace UpdateFrameworkOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFrameworkOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateGlobalSettingsInput {
   /**
-   * <p>A list of resources along with the opt-in preferences for the account.</p>
+   * <p>A value for <code>isCrossAccountBackupEnabled</code> and a Region. Example:
+   *             <code>update-global-settings --global-settings isCrossAccountBackupEnabled=false
+   *             --region us-west-2</code>.</p>
    */
   GlobalSettings?: { [key: string]: string };
 }
@@ -4357,8 +5456,9 @@ export namespace UpdateGlobalSettingsInput {
 export interface UpdateRecoveryPointLifecycleInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
 
@@ -4370,8 +5470,8 @@ export interface UpdateRecoveryPointLifecycleInput {
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define. </p>
+   *          it expires. Backup transitions and expires backups automatically according to
+   *          the lifecycle that you define. </p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
@@ -4404,8 +5504,8 @@ export interface UpdateRecoveryPointLifecycleOutput {
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define. </p>
+   *          it expires. Backup transitions and expires backups automatically according to
+   *          the lifecycle that you define. </p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
@@ -4442,6 +5542,81 @@ export namespace UpdateRegionSettingsInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateRegionSettingsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateReportPlanInput {
+  /**
+   * <p>The unique name of the report plan. This name is between 1 and 256 characters, starting
+   *          with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores
+   *          (_).</p>
+   */
+  ReportPlanName: string | undefined;
+
+  /**
+   * <p>An optional description of the report plan with a maximum 1,024 characters.</p>
+   */
+  ReportPlanDescription?: string;
+
+  /**
+   * <p>A structure that contains information about where to deliver your reports, specifically
+   *          your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.</p>
+   */
+  ReportDeliveryChannel?: ReportDeliveryChannel;
+
+  /**
+   * <p>Identifies the report template for the report. Reports are built using a report
+   *          template. The report templates are:</p>
+   *          <p>
+   *             <code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *          </p>
+   */
+  ReportSetting?: ReportSetting;
+
+  /**
+   * <p>A customer-chosen string that you can use to distinguish between otherwise identical
+   *          calls to <code>UpdateReportPlanInput</code>. Retrying a successful request with the same
+   *          idempotency token results in a success message with no action taken.</p>
+   */
+  IdempotencyToken?: string;
+}
+
+export namespace UpdateReportPlanInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateReportPlanInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateReportPlanOutput {
+  /**
+   * <p>The unique name of the report plan.</p>
+   */
+  ReportPlanName?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the resource type.</p>
+   */
+  ReportPlanArn?: string;
+
+  /**
+   * <p>The date and time that a report plan is created, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   */
+  CreationTime?: Date;
+}
+
+export namespace UpdateReportPlanOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateReportPlanOutput): any => ({
     ...obj,
   });
 }

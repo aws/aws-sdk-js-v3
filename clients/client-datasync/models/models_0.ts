@@ -74,7 +74,7 @@ export namespace CancelTaskExecutionResponse {
 }
 
 /**
- * <p>This exception is thrown when an error occurs in the AWS DataSync service.</p>
+ * <p>This exception is thrown when an error occurs in the DataSync service.</p>
  */
 export interface InternalException extends __SmithyException, $MetadataBearer {
   name: "InternalException";
@@ -119,12 +119,12 @@ export namespace InvalidRequestException {
  */
 export interface TagListEntry {
   /**
-   * <p>The key for an AWS resource tag.</p>
+   * <p>The key for an Amazon Web Services resource tag.</p>
    */
   Key: string | undefined;
 
   /**
-   * <p>The value for an AWS resource tag.</p>
+   * <p>The value for an Amazon Web Services resource tag.</p>
    */
   Value?: string;
 }
@@ -145,14 +145,14 @@ export interface CreateAgentRequest {
   /**
    * <p>Your agent activation key. You can get the activation key either by sending an HTTP GET
    *       request with redirects that enable you to get the agent IP address (port 80). Alternatively,
-   *       you can get it from the AWS DataSync console.</p>
+   *       you can get it from the DataSync console.</p>
    *          <p>The redirect URL returned in the response provides you the activation key for your
    *       agent in the query string parameter <code>activationKey</code>. It might also include other
    *       activation-related parameters; however, these are merely defaults. The arguments you pass to
    *       this API call determine the actual configuration of your agent.</p>
    *
    *
-   *          <p>For more information, see Activating an Agent in the <i>AWS DataSync
+   *          <p>For more information, see Activating an Agent in the <i>DataSync
    *         User Guide.</i>
    *          </p>
    */
@@ -214,7 +214,7 @@ export namespace CreateAgentRequest {
 export interface CreateAgentResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the agent. Use the <code>ListAgents</code> operation
-   *       to return a list of agents for your account and AWS Region.</p>
+   *       to return a list of agents for your account and Amazon Web Services Region.</p>
    */
   AgentArn?: string;
 }
@@ -264,7 +264,7 @@ export interface CreateLocationEfsRequest {
   /**
    * <p>A subdirectory in the location’s path. This subdirectory in the EFS file system is used
    *       to read data from the EFS source location or write data to the EFS destination. By default,
-   *       AWS DataSync uses the root directory.</p>
+   *       DataSync uses the root directory.</p>
    *          <note>
    *             <p>
    *                <code>Subdirectory</code> must be specified with forward slashes. For example,
@@ -511,7 +511,7 @@ export interface CreateLocationNfsRequest {
    *       want DataSync allow read access for all users. Doing either enables the agent to read the
    *       files. For the agent to access directories, you must additionally enable all execute
    *       access.</p>
-   *          <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p>
+   *          <p>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on Snowcone</a> for more information.</p>
    *
    *          <p>For information about NFS export configuration, see 18.7. The /etc/exports
    *       Configuration File in the Red Hat Enterprise Linux documentation.</p>
@@ -522,7 +522,7 @@ export interface CreateLocationNfsRequest {
    * <p>The name of the NFS server. This value is the IP address or Domain Name Service (DNS)
    *       name of the NFS server. An agent that is installed on-premises uses this host name to mount
    *       the NFS server in a network. </p>
-   *          <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p>
+   *          <p>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on Snowcone</a> for more information.</p>
    *          <note>
    *             <p>This name must either be DNS-compliant or must be an IP version 4 (IPv4)
    *         address.</p>
@@ -533,7 +533,7 @@ export interface CreateLocationNfsRequest {
   /**
    * <p>Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect to
    *       an NFS server. </p>
-   *          <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p>
+   *          <p>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on Snowcone</a> for more information.</p>
    */
   OnPremConfig: OnPremConfig | undefined;
 
@@ -679,11 +679,11 @@ export namespace CreateLocationObjectStorageResponse {
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+ * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role
  *       that is used to access an Amazon S3 bucket.</p>
  *
  *          <p>For detailed information about using such a role, see Creating a Location for
- *       Amazon S3 in the <i>AWS DataSync User Guide</i>.</p>
+ *       Amazon S3 in the <i>DataSync User Guide</i>.</p>
  */
 export interface S3Config {
   /**
@@ -724,15 +724,15 @@ export interface CreateLocationS3Request {
   Subdirectory?: string;
 
   /**
-   * <p>The ARN of the Amazon S3 bucket. If the bucket is on an AWS Outpost, this must be an
+   * <p>The ARN of the Amazon S3 bucket. If the bucket is on an Amazon Web Services Outpost, this must be an
    *       access point ARN.</p>
    */
   S3BucketArn: string | undefined;
 
   /**
    * <p>The Amazon S3 storage class that you want to store your files in when this location is
-   *       used as a task destination. For buckets in AWS Regions, the storage class defaults to Standard.
-   *       For buckets on AWS Outposts, the storage class defaults to AWS S3 Outposts.</p>
+   *       used as a task destination. For buckets in Amazon Web Services Regions, the storage class defaults to Standard.
+   *       For buckets on Outposts, the storage class defaults to Amazon Web Services S3 Outposts.</p>
    *
    *          <p>For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a>. Some storage classes have behaviors that
    *       can affect your S3 storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with S3 storage classes in DataSync</a>.</p>
@@ -740,18 +740,18 @@ export interface CreateLocationS3Request {
   S3StorageClass?: S3StorageClass | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role
    *       that is used to access an Amazon S3 bucket.</p>
    *
    *          <p>For detailed information about using such a role, see Creating a Location for
-   *       Amazon S3 in the <i>AWS DataSync User Guide</i>.</p>
+   *       Amazon S3 in the <i>DataSync User Guide</i>.</p>
    */
   S3Config: S3Config | undefined;
 
   /**
-   * <p>If you are using DataSync on an AWS Outpost, specify the Amazon Resource Names (ARNs) of
+   * <p>If you are using DataSync on an Amazon Web Services Outpost, specify the Amazon Resource Names (ARNs) of
    *       the DataSync agents deployed on your Outpost. For more information about launching a DataSync
-   *       agent on an AWS Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent on AWS Outposts</a>.</p>
+   *       agent on an Amazon Web Services Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent on Outposts</a>.</p>
    */
   AgentArns?: string[];
 
@@ -932,7 +932,7 @@ export enum FilterType {
  */
 export interface FilterRule {
   /**
-   * <p>The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule
+   * <p>The type of filter rule to apply. DataSync only supports the SIMPLE_PATTERN rule
    *       type.</p>
    */
   FilterType?: FilterType | string;
@@ -1064,7 +1064,7 @@ export interface Options {
    *       protect against overwriting those changes. </p>
    *          <p>Some storage classes have specific behaviors that can affect your S3 storage cost. For detailed information, see
    *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with Amazon S3 storage classes in DataSync </a>
-   *       in the <i>AWS DataSync
+   *       in the <i>DataSync
    *         User Guide</i>.</p>
    */
   OverwriteMode?: OverwriteMode | string;
@@ -1074,7 +1074,7 @@ export interface Options {
    *       file was read or written to). If you set <code>Atime</code> to BEST_EFFORT, DataSync
    *       attempts to preserve the original <code>Atime</code> attribute on all source files (that is,
    *       the version before the PREPARING phase). However, <code>Atime</code>'s behavior is not
-   *       fully standard across platforms, so AWS DataSync can only do this on a best-effort basis. </p>
+   *       fully standard across platforms, so DataSync can only do this on a best-effort basis. </p>
    *          <p>Default value: BEST_EFFORT.</p>
    *          <p>BEST_EFFORT: Attempt to preserve the per-file <code>Atime</code> value
    *       (recommended).</p>
@@ -1126,7 +1126,7 @@ export interface Options {
    * <p>A value that specifies whether files in the destination that don't exist in the source
    *       file system should be preserved. This option can affect your storage cost.
    *       If your task deletes objects, you might incur minimum storage duration charges for certain storage classes. For detailed
-   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with Amazon S3 storage classes in DataSync </a> in the <i>AWS DataSync User
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with Amazon S3 storage classes in DataSync </a> in the <i>DataSync User
    *         Guide</i>.</p>
    *          <p>Default value: PRESERVE.</p>
    *          <p>PRESERVE: Ignore such destination files (recommended). </p>
@@ -1135,12 +1135,12 @@ export interface Options {
   PreserveDeletedFiles?: PreserveDeletedFiles | string;
 
   /**
-   * <p>A value that determines whether AWS DataSync should preserve the metadata of block
+   * <p>A value that determines whether DataSync should preserve the metadata of block
    *       and character devices in the source file system, and re-create the files with that device name
    *       and metadata on the destination. DataSync does not copy the contents of such devices, only the
    *       name and metadata. </p>
    *          <note>
-   *             <p>AWS DataSync can't sync the actual contents of such devices, because they are
+   *             <p>DataSync can't sync the actual contents of such devices, because they are
    *         nonterminal and don't return an end-of-file (EOF) marker.</p>
    *          </note>
    *          <p>Default value: NONE.</p>
@@ -1159,14 +1159,14 @@ export interface Options {
    *          <p>PRESERVE: Preserve POSIX-style permissions (recommended).</p>
    *          <p>NONE: Ignore permissions. </p>
    *          <note>
-   *             <p>AWS DataSync can preserve extant permissions of a source location.</p>
+   *             <p>DataSync can preserve extant permissions of a source location.</p>
    *          </note>
    */
   PosixPermissions?: PosixPermissions | string;
 
   /**
-   * <p>A value that limits the bandwidth used by AWS DataSync. For example, if you want
-   *       AWS DataSync to use a maximum of 1 MB, set this value to <code>1048576</code>
+   * <p>A value that limits the bandwidth used by DataSync. For example, if you want
+   *       DataSync to use a maximum of 1 MB, set this value to <code>1048576</code>
    *         (<code>=1024*1024</code>).</p>
    */
   BytesPerSecond?: number;
@@ -1270,7 +1270,7 @@ export namespace Options {
  */
 export interface TaskSchedule {
   /**
-   * <p>A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a
+   * <p>A cron expression that specifies when DataSync initiates a scheduled transfer from a
    *       source to a destination location. </p>
    */
   ScheduleExpression: string | undefined;
@@ -1295,7 +1295,7 @@ export interface CreateTaskRequest {
   SourceLocationArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS storage resource's location. </p>
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services storage resource's location. </p>
    */
   DestinationLocationArn: string | undefined;
 
@@ -1342,6 +1342,14 @@ export interface CreateTaskRequest {
    *       value can be an empty string. </p>
    */
   Tags?: TagListEntry[];
+
+  /**
+   * <p>A list of filter rules that determines which files to include when running a task. The
+   *       pattern should contain a single filter string that consists of the patterns to include. The
+   *       patterns are delimited by "|" (that is, a pipe). For example:
+   *       <code>"/folder1|/folder2</code>"</p>
+   */
+  Includes?: FilterRule[];
 }
 
 export namespace CreateTaskRequest {
@@ -1378,7 +1386,7 @@ export namespace CreateTaskResponse {
 export interface DeleteAgentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the agent to delete. Use the <code>ListAgents</code>
-   *       operation to return a list of agents for your account and AWS Region.</p>
+   *       operation to return a list of agents for your account and Amazon Web Services Region.</p>
    */
   AgentArn: string | undefined;
 }
@@ -1875,18 +1883,18 @@ export interface DescribeLocationS3Response {
   S3StorageClass?: S3StorageClass | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role
    *       that is used to access an Amazon S3 bucket.</p>
    *
    *          <p>For detailed information about using such a role, see Creating a Location for
-   *       Amazon S3 in the <i>AWS DataSync User Guide</i>.</p>
+   *       Amazon S3 in the <i>DataSync User Guide</i>.</p>
    */
   S3Config?: S3Config;
 
   /**
-   * <p>If you are using DataSync on an AWS Outpost, the Amazon Resource Name (ARNs) of the EC2
+   * <p>If you are using DataSync on an Amazon Web Services Outpost, the Amazon Resource Name (ARNs) of the EC2
    *       agents deployed on your Outpost. For more information about launching a DataSync agent on an
-   *       AWS Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent on AWS Outposts</a>.</p>
+   *       Amazon Web Services Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent on Outposts</a>.</p>
    */
   AgentArns?: string[];
 
@@ -2016,7 +2024,7 @@ export interface DescribeTaskResponse {
    *
    *
    *          <p>For detailed information about task execution statuses, see Understanding
-   *       Task Statuses in the <i>AWS DataSync User Guide</i>.</p>
+   *       Task Statuses in the <i>DataSync User Guide</i>.</p>
    */
   Status?: TaskStatus | string;
 
@@ -2036,7 +2044,7 @@ export interface DescribeTaskResponse {
   SourceLocationArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS storage resource's location.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services storage resource's location.</p>
    */
   DestinationLocationArn?: string;
 
@@ -2088,7 +2096,7 @@ export interface DescribeTaskResponse {
   Schedule?: TaskSchedule;
 
   /**
-   * <p>Errors that AWS DataSync encountered during execution of the task. You can use this
+   * <p>Errors that DataSync encountered during execution of the task. You can use this
    *       error code to help troubleshoot issues.</p>
    */
   ErrorCode?: string;
@@ -2103,6 +2111,14 @@ export interface DescribeTaskResponse {
    * <p>The time that the task was created.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>A list of filter rules that determines which files to include when running a task. The
+   *       pattern should contain a single filter string that consists of the patterns to include. The
+   *       patterns are delimited by "|" (that is, a pipe). For example:
+   *       <code>"/folder1|/folder2</code>"</p>
+   */
+  Includes?: FilterRule[];
 }
 
 export namespace DescribeTaskResponse {
@@ -2146,7 +2162,7 @@ export enum PhaseStatus {
  */
 export interface TaskExecutionResultDetail {
   /**
-   * <p>The total time in milliseconds that AWS DataSync spent in the PREPARING phase.
+   * <p>The total time in milliseconds that DataSync spent in the PREPARING phase.
    *     </p>
    */
   PrepareDuration?: number;
@@ -2157,12 +2173,12 @@ export interface TaskExecutionResultDetail {
   PrepareStatus?: PhaseStatus | string;
 
   /**
-   * <p>The total time in milliseconds that AWS DataSync took to transfer the file from the source to the destination location.</p>
+   * <p>The total time in milliseconds that DataSync took to transfer the file from the source to the destination location.</p>
    */
   TotalDuration?: number;
 
   /**
-   * <p>The total time in milliseconds that AWS DataSync spent in the TRANSFERRING
+   * <p>The total time in milliseconds that DataSync spent in the TRANSFERRING
    *       phase.</p>
    */
   TransferDuration?: number;
@@ -2173,7 +2189,7 @@ export interface TaskExecutionResultDetail {
   TransferStatus?: PhaseStatus | string;
 
   /**
-   * <p>The total time in milliseconds that AWS DataSync spent in the VERIFYING
+   * <p>The total time in milliseconds that DataSync spent in the VERIFYING
    *       phase.</p>
    */
   VerifyDuration?: number;
@@ -2184,7 +2200,7 @@ export interface TaskExecutionResultDetail {
   VerifyStatus?: PhaseStatus | string;
 
   /**
-   * <p>Errors that AWS DataSync encountered during execution of the task. You can use this
+   * <p>Errors that DataSync encountered during execution of the task. You can use this
    *       error code to help troubleshoot issues.</p>
    */
   ErrorCode?: string;
@@ -2235,7 +2251,7 @@ export interface DescribeTaskExecutionResponse {
    *
    *
    *          <p>For detailed information about task execution statuses, see Understanding
-   *       Task Statuses in the <i>AWS DataSync User Guide.</i>
+   *       Task Statuses in the <i>DataSync User Guide.</i>
    *          </p>
    */
   Status?: TaskExecutionStatus | string;
@@ -2307,7 +2323,7 @@ export interface DescribeTaskExecutionResponse {
   FilesTransferred?: number;
 
   /**
-   * <p>The number of logical bytes written to the destination AWS storage resource.</p>
+   * <p>The number of logical bytes written to the destination Amazon Web Services storage resource.</p>
    */
   BytesWritten?: number;
 
@@ -2836,6 +2852,14 @@ export interface StartTaskExecutionRequest {
    *     </p>
    */
   Includes?: FilterRule[];
+
+  /**
+   * <p>A list of filter rules that determines which files to exclude from a task. The list
+   *       should contain a single filter string that consists of the patterns to exclude. The
+   *       patterns are delimited by "|" (that is, a pipe), for example,
+   *       <code>"/folder1|/folder2"</code>. </p>
+   */
+  Excludes?: FilterRule[];
 }
 
 export namespace StartTaskExecutionRequest {
@@ -2994,7 +3018,7 @@ export interface UpdateLocationNfsRequest {
    *       access have permissions that allow read access for all users. Doing either option enables the
    *       agent to read the files. For the agent to access directories, you must additionally enable all
    *       execute access.</p>
-   *          <p>If you are copying data to or from your AWS Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on AWS Snowcone</a> for more information.</p>
+   *          <p>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on Snowcone</a> for more information.</p>
    *
    *          <p>For information about NFS export configuration, see 18.7. The /etc/exports
    *       Configuration File in the Red Hat Enterprise Linux documentation.</p>
@@ -3240,6 +3264,14 @@ export interface UpdateTaskRequest {
    *       LogGroup.</p>
    */
   CloudWatchLogGroupArn?: string;
+
+  /**
+   * <p>A list of filter rules that determines which files to include when running a task. The
+   *       pattern should contain a single filter string that consists of the patterns to include. The
+   *       patterns are delimited by "|" (that is, a pipe). For example:
+   *       <code>"/folder1|/folder2</code>"</p>
+   */
+  Includes?: FilterRule[];
 }
 
 export namespace UpdateTaskRequest {

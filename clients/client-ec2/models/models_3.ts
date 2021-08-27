@@ -158,7 +158,7 @@ export interface DescribeInstanceEventWindowsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the
    *                event window. Use the tag key in the filter name and the tag value as the filter
    *                value. For example, to find all resources that have a tag with the key
    *                   <code>Owner</code> and the value <code>CMX</code>, specify <code>tag:Owner</code>
@@ -660,7 +660,7 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -912,6 +912,11 @@ export namespace LicenseConfiguration {
 
 export type InstanceMetadataEndpointState = "disabled" | "enabled";
 
+export enum InstanceMetadataProtocolState {
+  disabled = "disabled",
+  enabled = "enabled",
+}
+
 export enum HttpTokensState {
   optional = "optional",
   required = "required",
@@ -966,6 +971,11 @@ export interface InstanceMetadataOptionsResponse {
    *         </note>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
+
+  /**
+   * <p>Whether or not the IPv6 endpoint for the instance metadata service is enabled or disabled.</p>
+   */
+  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
 }
 
 export namespace InstanceMetadataOptionsResponse {
@@ -1078,11 +1088,11 @@ export namespace InstanceNetworkInterfaceAttachment {
 }
 
 /**
- * <p>Information about an IPv4 delegated prefix.</p>
+ * <p>Information about an IPv4 prefix.</p>
  */
 export interface InstanceIpv4Prefix {
   /**
-   * <p>One or more IPv4 delegated prefixes assigned to the network interface.</p>
+   * <p>One or more IPv4 prefixes assigned to the network interface.</p>
    */
   Ipv4Prefix?: string;
 }
@@ -1097,11 +1107,11 @@ export namespace InstanceIpv4Prefix {
 }
 
 /**
- * <p>Information about an IPv6 delegated prefix.</p>
+ * <p>Information about an IPv6 prefix.</p>
  */
 export interface InstanceIpv6Prefix {
   /**
-   * <p>One or more IPv6 delegated prefixes assigned to the network interface.</p>
+   * <p>One or more IPv6 prefixes assigned to the network interface.</p>
    */
   Ipv6Prefix?: string;
 }
@@ -2242,6 +2252,11 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance type
+   *      automatically encrypts in-transit traffic between instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per
    *      network interface.</p>
    *             </li>
@@ -2829,6 +2844,11 @@ export interface NetworkInfo {
    * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
    */
   EfaInfo?: EfaInfo;
+
+  /**
+   * <p>Indicates whether the instance type automatically encrypts in-transit traffic between instances.</p>
+   */
+  EncryptionInTransitSupported?: boolean;
 }
 
 export namespace NetworkInfo {
@@ -6008,7 +6028,7 @@ export interface DescribePlacementGroupsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -6637,7 +6657,7 @@ export interface DescribeReservedInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -9190,6 +9210,9 @@ export interface InstanceNetworkInterfaceSpecification {
    * <p>The index of the network card. Some instance types support multiple network cards.
    *             The primary network interface must be assigned to network card index 0.
    *             The default is network card index 0.</p>
+   *         <p>If you are using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a> to create Spot Instances, omit this parameter because
+   *             you can’t specify the network card index when using this API. To specify the network
+   *             card index, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    */
   NetworkCardIndex?: number;
 
@@ -10144,7 +10167,7 @@ export interface DescribeSpotInstanceRequestsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -11464,7 +11487,7 @@ export interface DescribeTransitGatewayAttachmentsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>resource-owner-id</code> - The ID of the AWS account that owns the resource.</p>
+   *                   <code>resource-owner-id</code> - The ID of the Amazon Web Services account that owns the resource.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -11486,7 +11509,7 @@ export interface DescribeTransitGatewayAttachmentsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>transit-gateway-owner-id</code> - The ID of the AWS account that owns the transit gateway.</p>
+   *                   <code>transit-gateway-owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
    *             </li>
    *          </ul>
    */
@@ -11559,12 +11582,12 @@ export interface TransitGatewayAttachment {
   TransitGatewayId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the transit gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
    */
   TransitGatewayOwnerId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the resource.</p>
+   * <p>The ID of the Amazon Web Services account that owns the resource.</p>
    */
   ResourceOwnerId?: string;
 
@@ -11882,11 +11905,11 @@ export interface DescribeTransitGatewayPeeringAttachmentsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>local-owner-id</code> - The ID of your AWS account.</p>
+   *                   <code>local-owner-id</code> - The ID of your Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>remote-owner-id</code> - The ID of the AWS account in the remote Region that owns the transit gateway.</p>
+   *                   <code>remote-owner-id</code> - The ID of the Amazon Web Services account in the remote Region that owns the transit gateway.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -12087,7 +12110,7 @@ export interface DescribeTransitGatewaysRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code> - The ID of the AWS account that owns the transit gateway.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -13053,5 +13076,3 @@ export namespace DescribeVolumeStatusResult {
     ...obj,
   });
 }
-
-export type VpcAttributeName = "enableDnsHostnames" | "enableDnsSupport";

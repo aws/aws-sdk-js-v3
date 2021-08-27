@@ -21,8 +21,8 @@ export interface ListRestoreJobsCommandInput extends ListRestoreJobsInput {}
 export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of jobs that AWS Backup initiated to restore a saved resource, including
- *          metadata about the recovery process.</p>
+ * <p>Returns a list of jobs that Backup initiated to restore a saved resource,
+ *          including details about the recovery process.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

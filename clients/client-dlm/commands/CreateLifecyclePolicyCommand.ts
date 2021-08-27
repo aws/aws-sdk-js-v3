@@ -21,7 +21,7 @@ export interface CreateLifecyclePolicyCommandInput extends CreateLifecyclePolicy
 export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a policy to manage the lifecycle of the specified AWS resources. You can
+ * <p>Creates a policy to manage the lifecycle of the specified Amazon Web Services resources. You can
  * 			create up to 100 lifecycle policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

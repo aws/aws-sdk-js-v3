@@ -2783,6 +2783,10 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 
 const serializeAws_json1_1Policy = (input: Policy, context: __SerdeContext): any => {
   return {
+    ...(input.DeleteUnusedFMManagedResources !== undefined &&
+      input.DeleteUnusedFMManagedResources !== null && {
+        DeleteUnusedFMManagedResources: input.DeleteUnusedFMManagedResources,
+      }),
     ...(input.ExcludeMap !== undefined &&
       input.ExcludeMap !== null && {
         ExcludeMap: serializeAws_json1_1CustomerPolicyScopeMap(input.ExcludeMap, context),
@@ -3893,6 +3897,7 @@ const deserializeAws_json1_1PartialMatches = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Policy => {
   return {
+    DeleteUnusedFMManagedResources: __expectBoolean(output.DeleteUnusedFMManagedResources),
     ExcludeMap:
       output.ExcludeMap !== undefined && output.ExcludeMap !== null
         ? deserializeAws_json1_1CustomerPolicyScopeMap(output.ExcludeMap, context)
@@ -3980,6 +3985,7 @@ const deserializeAws_json1_1PolicyComplianceStatusList = (
 
 const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
   return {
+    DeleteUnusedFMManagedResources: __expectBoolean(output.DeleteUnusedFMManagedResources),
     PolicyArn: __expectString(output.PolicyArn),
     PolicyId: __expectString(output.PolicyId),
     PolicyName: __expectString(output.PolicyName),

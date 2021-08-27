@@ -200,7 +200,7 @@ import {
   LabelSchema,
   ListTagsForResourceRequest,
   ListTagsForResourceResult,
-  LogitMetric,
+  LogOddsMetric,
   MetricDataPoint,
   Model,
   ModelEndpointDataBlob,
@@ -225,6 +225,7 @@ import {
   PutOutcomeRequest,
   PutOutcomeResult,
   ResourceNotFoundException,
+  ResourceUnavailableException,
   Rule,
   RuleDetail,
   RuleResult,
@@ -1225,6 +1226,14 @@ const deserializeAws_json1_1CancelBatchPredictionJobCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -1299,6 +1308,14 @@ const deserializeAws_json1_1CreateBatchPredictionJobCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1459,6 +1476,14 @@ const deserializeAws_json1_1CreateModelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -1533,6 +1558,14 @@ const deserializeAws_json1_1CreateModelVersionCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1767,6 +1800,14 @@ const deserializeAws_json1_1DeleteBatchPredictionJobCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2029,6 +2070,14 @@ const deserializeAws_json1_1DeleteEntityTypeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -2181,6 +2230,14 @@ const deserializeAws_json1_1DeleteEventTypeCommandError = async (
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2341,6 +2398,14 @@ const deserializeAws_json1_1DeleteLabelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -2419,6 +2484,14 @@ const deserializeAws_json1_1DeleteModelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -2493,6 +2566,14 @@ const deserializeAws_json1_1DeleteModelVersionCommandError = async (
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2919,6 +3000,14 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -2993,6 +3082,14 @@ const deserializeAws_json1_1GetBatchPredictionJobsCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3247,6 +3344,14 @@ const deserializeAws_json1_1GetEntityTypesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -3333,6 +3438,14 @@ const deserializeAws_json1_1GetEventPredictionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.frauddetector#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ThrottlingException":
     case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
@@ -3415,6 +3528,14 @@ const deserializeAws_json1_1GetEventTypesCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3583,6 +3704,14 @@ const deserializeAws_json1_1GetKMSEncryptionKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -3649,6 +3778,14 @@ const deserializeAws_json1_1GetLabelsCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3731,6 +3868,14 @@ const deserializeAws_json1_1GetModelsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -3805,6 +3950,14 @@ const deserializeAws_json1_1GetModelVersionCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4137,6 +4290,14 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -4195,6 +4356,14 @@ const deserializeAws_json1_1PutDetectorCommandError = async (
     case "com.amazonaws.frauddetector#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4277,10 +4446,26 @@ const deserializeAws_json1_1PutEntityTypeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4347,10 +4532,26 @@ const deserializeAws_json1_1PutEventTypeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4413,6 +4614,14 @@ const deserializeAws_json1_1PutExternalModelCommandError = async (
     case "com.amazonaws.frauddetector#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4495,6 +4704,14 @@ const deserializeAws_json1_1PutKMSEncryptionKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
@@ -4507,6 +4724,14 @@ const deserializeAws_json1_1PutKMSEncryptionKeyCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4573,10 +4798,26 @@ const deserializeAws_json1_1PutLabelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4639,6 +4880,14 @@ const deserializeAws_json1_1PutOutcomeCommandError = async (
     case "com.amazonaws.frauddetector#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4729,6 +4978,14 @@ const deserializeAws_json1_1TagResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -4799,6 +5056,14 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       response = {
@@ -4857,6 +5122,14 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
     case "com.amazonaws.frauddetector#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4947,6 +5220,14 @@ const deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
@@ -5021,6 +5302,14 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
     case "com.amazonaws.frauddetector#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5111,6 +5400,14 @@ const deserializeAws_json1_1UpdateModelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
@@ -5123,6 +5420,14 @@ const deserializeAws_json1_1UpdateModelCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5189,6 +5494,14 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
@@ -5201,6 +5514,14 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5267,6 +5588,14 @@ const deserializeAws_json1_1UpdateModelVersionStatusCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
@@ -5279,6 +5608,14 @@ const deserializeAws_json1_1UpdateModelVersionStatusCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5341,6 +5678,14 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
     case "com.amazonaws.frauddetector#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5431,6 +5776,14 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
@@ -5513,6 +5866,14 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
     case "com.amazonaws.frauddetector#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5619,6 +5980,21 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceUnavailableException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourceUnavailableException(body, context);
+  const contents: ResourceUnavailableException = {
+    name: "ResourceUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6110,7 +6486,7 @@ const serializeAws_json1_1labelMapper = (input: { [key: string]: string[] }, con
     }
     return {
       ...acc,
-      [key]: serializeAws_json1_1ListOfStrings(value, context),
+      [key]: serializeAws_json1_1NonEmptyListOfStrings(value, context),
     };
   }, {});
 };
@@ -7239,7 +7615,7 @@ const deserializeAws_json1_1labelMapper = (output: any, context: __SerdeContext)
     }
     return {
       ...acc,
-      [key]: deserializeAws_json1_1ListOfStrings(value, context),
+      [key]: deserializeAws_json1_1NonEmptyListOfStrings(value, context),
     };
   }, {});
 };
@@ -7253,14 +7629,14 @@ const deserializeAws_json1_1LabelSchema = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1ListOfLogitMetrics = (output: any, context: __SerdeContext): LogitMetric[] => {
+const deserializeAws_json1_1ListOfLogOddsMetrics = (output: any, context: __SerdeContext): LogOddsMetric[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LogitMetric(entry, context);
+      return deserializeAws_json1_1LogOddsMetric(entry, context);
     });
 };
 
@@ -7321,7 +7697,7 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
   } as any;
 };
 
-const deserializeAws_json1_1LogitMetric = (output: any, context: __SerdeContext): LogitMetric => {
+const deserializeAws_json1_1LogOddsMetric = (output: any, context: __SerdeContext): LogOddsMetric => {
   return {
     variableImportance: __limitedParseFloat(output.variableImportance),
     variableName: __expectString(output.variableName),
@@ -7539,6 +7915,15 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceUnavailableException = (
+  output: any,
+  context: __SerdeContext
+): ResourceUnavailableException => {
   return {
     message: __expectString(output.message),
   } as any;
@@ -7764,9 +8149,9 @@ const deserializeAws_json1_1VariableImportanceMetrics = (
   context: __SerdeContext
 ): VariableImportanceMetrics => {
   return {
-    LogitMetrics:
-      output.LogitMetrics !== undefined && output.LogitMetrics !== null
-        ? deserializeAws_json1_1ListOfLogitMetrics(output.LogitMetrics, context)
+    logOddsMetrics:
+      output.logOddsMetrics !== undefined && output.logOddsMetrics !== null
+        ? deserializeAws_json1_1ListOfLogOddsMetrics(output.logOddsMetrics, context)
         : undefined,
   } as any;
 };

@@ -1,9 +1,14 @@
 import { DeleteThingShadowCommandInput, DeleteThingShadowCommandOutput } from "../commands/DeleteThingShadowCommand";
+import { GetRetainedMessageCommandInput, GetRetainedMessageCommandOutput } from "../commands/GetRetainedMessageCommand";
 import { GetThingShadowCommandInput, GetThingShadowCommandOutput } from "../commands/GetThingShadowCommand";
 import {
   ListNamedShadowsForThingCommandInput,
   ListNamedShadowsForThingCommandOutput,
 } from "../commands/ListNamedShadowsForThingCommand";
+import {
+  ListRetainedMessagesCommandInput,
+  ListRetainedMessagesCommandOutput,
+} from "../commands/ListRetainedMessagesCommand";
 import { PublishCommandInput, PublishCommandOutput } from "../commands/PublishCommand";
 import { UpdateThingShadowCommandInput, UpdateThingShadowCommandOutput } from "../commands/UpdateThingShadowCommand";
 import {
@@ -13,6 +18,7 @@ import {
   MethodNotAllowedException,
   RequestEntityTooLargeException,
   ResourceNotFoundException,
+  RetainedMessageSummary,
   ServiceUnavailableException,
   ThrottlingException,
   UnauthorizedException,
@@ -61,6 +67,34 @@ export const serializeAws_restJson1DeleteThingShadowCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetRetainedMessageCommand = async (
+  input: GetRetainedMessageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/retainedMessage/{topic}";
+  if (input.topic !== undefined) {
+    const labelValue: string = input.topic;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: topic.");
+    }
+    resolvedPath = resolvedPath.replace("{topic}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: topic.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -133,6 +167,30 @@ export const serializeAws_restJson1ListNamedShadowsForThingCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListRetainedMessagesCommand = async (
+  input: ListRetainedMessagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/retainedMessage";
+  const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1PublishCommand = async (
   input: PublishCommandInput,
   context: __SerdeContext
@@ -153,6 +211,7 @@ export const serializeAws_restJson1PublishCommand = async (
   }
   const query: any = {
     ...(input.qos !== undefined && { qos: input.qos.toString() }),
+    ...(input.retain !== undefined && { retain: input.retain.toString() }),
   };
   let body: any;
   if (input.payload !== undefined) {
@@ -296,6 +355,121 @@ const deserializeAws_restJson1DeleteThingShadowCommandError = async (
     case "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException":
       response = {
         ...(await deserializeAws_restJson1UnsupportedDocumentEncodingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetRetainedMessageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRetainedMessageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetRetainedMessageCommandError(output, context);
+  }
+  const contents: GetRetainedMessageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    lastModifiedTime: undefined,
+    payload: undefined,
+    qos: undefined,
+    topic: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.lastModifiedTime !== undefined && data.lastModifiedTime !== null) {
+    contents.lastModifiedTime = __expectInt(data.lastModifiedTime);
+  }
+  if (data.payload !== undefined && data.payload !== null) {
+    contents.payload = context.base64Decoder(data.payload);
+  }
+  if (data.qos !== undefined && data.qos !== null) {
+    contents.qos = __expectInt(data.qos);
+  }
+  if (data.topic !== undefined && data.topic !== null) {
+    contents.topic = __expectString(data.topic);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetRetainedMessageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRetainedMessageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotdataplane#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotdataplane#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.iotdataplane#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotdataplane#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iotdataplane#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotdataplane#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.iotdataplane#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -492,6 +666,105 @@ const deserializeAws_restJson1ListNamedShadowsForThingCommandError = async (
     case "com.amazonaws.iotdataplane#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iotdataplane#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotdataplane#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.iotdataplane#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListRetainedMessagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRetainedMessagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRetainedMessagesCommandError(output, context);
+  }
+  const contents: ListRetainedMessagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    retainedTopics: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.retainedTopics !== undefined && data.retainedTopics !== null) {
+    contents.retainedTopics = deserializeAws_restJson1RetainedMessageList(data.retainedTopics, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListRetainedMessagesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRetainedMessagesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotdataplane#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotdataplane#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.iotdataplane#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -908,6 +1181,32 @@ const deserializeAws_restJson1NamedShadowList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restJson1RetainedMessageList = (
+  output: any,
+  context: __SerdeContext
+): RetainedMessageSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RetainedMessageSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RetainedMessageSummary = (
+  output: any,
+  context: __SerdeContext
+): RetainedMessageSummary => {
+  return {
+    lastModifiedTime: __expectInt(output.lastModifiedTime),
+    payloadSize: __expectInt(output.payloadSize),
+    qos: __expectInt(output.qos),
+    topic: __expectString(output.topic),
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

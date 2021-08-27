@@ -26,14 +26,14 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the projected utilization metrics of Amazon EC2 instance recommendations.</p>
+ * <p>Returns the projected utilization metrics of Amazon EC2 instance
+ *             recommendations.</p>
  *
  *         <note>
  *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
  *                 utilization metrics returned when you run this action. Additionally, the
  *                     <code>Memory</code> metric is returned only for resources that have the unified
- *                 CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory
- *                     Utilization with the CloudWatch Agent</a>.</p>
+ *                     CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p>
  *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
