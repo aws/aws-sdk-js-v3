@@ -19,7 +19,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
-    "typescript": "~4.3.2"
+    "typescript": "~4.4.2"
   },
   "dependencies": {
     "@aws-sdk/middleware-signing": "3.28.0",
