@@ -22,6 +22,7 @@ const sourceIds: string[] = [
   "SourceDBInstanceIdentifier",
   "ReplicationSourceIdentifier",
   "SourceDBClusterSnapshotIdentifier",
+  "SourceDBInstanceArn",
 ];
 
 const sourceIdToCommandKeyMap: { [key: string]: string } = {
@@ -29,6 +30,7 @@ const sourceIdToCommandKeyMap: { [key: string]: string } = {
   SourceDBInstanceIdentifier: "CreateDBInstanceReadReplica",
   ReplicationSourceIdentifier: "CreateDBCluster",
   SourceDBClusterSnapshotIdentifier: "CopyDBClusterSnapshot",
+  SourceDBInstanceArn: "StartDBInstanceAutomatedBackupsReplication",
 };
 
 const version = "2014-10-31";

@@ -119,6 +119,29 @@ describe("middleware-sdk-rds", () => {
     expect(presignedUrl).toMatch(/X-Amz-Signature=000000/);
   });
 
+  it("should build StartDBInstanceAutomatedBackupsReplication cross origin presigned url correctly ", async () => {
+    const params = {
+      SourceDBInstanceArn: arn,
+      KmsKeyId: "000-111",
+    };
+    await handler({ input: params });
+    expect(nextHandler.mock.calls.length).toBe(1);
+    const middlewareOutput = nextHandler.mock.calls[0][0];
+    expect(middlewareOutput.input.SourceDBInstanceArn).toEqual(params.SourceDBInstanceArn);
+    expect(middlewareOutput.input.KmsKeyId).toEqual(params.KmsKeyId);
+    const presignedUrl = middlewareOutput.input.PreSignedUrl;
+    expect(presignedUrl).toMatch(/https\:\/\/rds\.src\-region\.amazonaws\.com\/\?/);
+    expect(presignedUrl).toMatch(/Action\=StartDBInstanceAutomatedBackupsReplication/);
+    expect(presignedUrl).toMatch(/Version\=2014\-10\-31/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token\=session/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm\=AWS4\-HMAC\-SHA256/);
+    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders\=host/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Credential\=/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Date\=/);
+    expect(presignedUrl).toMatch(/X-Amz-Expires=([\d]+)/);
+    expect(presignedUrl).toMatch(/X-Amz-Signature=000000/);
+  });
+
   it("should not generate PreSignedUrl if source identifier is not ARN", async () => {
     const params = {
       SourceDBClusterSnapshotIdentifier: sourceIdentifier,
