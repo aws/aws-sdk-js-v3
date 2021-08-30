@@ -19,6 +19,11 @@ import {
   GreetingWithErrorsCommandInput,
   GreetingWithErrorsCommandOutput,
 } from "./commands/GreetingWithErrorsCommand";
+import {
+  HostWithPathOperationCommand,
+  HostWithPathOperationCommandInput,
+  HostWithPathOperationCommandOutput,
+} from "./commands/HostWithPathOperationCommand";
 import { JsonEnumsCommand, JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
 import { JsonUnionsCommand, JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
 import {
@@ -165,6 +170,35 @@ export class JsonProtocol extends JsonProtocolClient {
     cb?: (err: any, data?: GreetingWithErrorsCommandOutput) => void
   ): Promise<GreetingWithErrorsCommandOutput> | void {
     const command = new GreetingWithErrorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public hostWithPathOperation(
+    args: HostWithPathOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HostWithPathOperationCommandOutput>;
+  public hostWithPathOperation(
+    args: HostWithPathOperationCommandInput,
+    cb: (err: any, data?: HostWithPathOperationCommandOutput) => void
+  ): void;
+  public hostWithPathOperation(
+    args: HostWithPathOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HostWithPathOperationCommandOutput) => void
+  ): void;
+  public hostWithPathOperation(
+    args: HostWithPathOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HostWithPathOperationCommandOutput) => void),
+    cb?: (err: any, data?: HostWithPathOperationCommandOutput) => void
+  ): Promise<HostWithPathOperationCommandOutput> | void {
+    const command = new HostWithPathOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

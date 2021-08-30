@@ -4,6 +4,7 @@ export * from "./commands/EmptyInputAndEmptyOutputCommand";
 export * from "./commands/EndpointOperationCommand";
 export * from "./commands/EndpointWithHostLabelOperationCommand";
 export * from "./commands/GreetingWithErrorsCommand";
+export * from "./commands/HostWithPathOperationCommand";
 export * from "./commands/JsonUnionsCommand";
 export * from "./commands/NoInputAndNoOutputCommand";
 export * from "./commands/NoInputAndOutputCommand";

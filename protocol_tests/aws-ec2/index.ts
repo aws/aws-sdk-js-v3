@@ -4,6 +4,7 @@ export * from "./commands/EmptyInputAndEmptyOutputCommand";
 export * from "./commands/EndpointOperationCommand";
 export * from "./commands/EndpointWithHostLabelOperationCommand";
 export * from "./commands/GreetingWithErrorsCommand";
+export * from "./commands/HostWithPathOperationCommand";
 export * from "./commands/IgnoresWrappingXmlNameCommand";
 export * from "./commands/NestedStructuresCommand";
 export * from "./commands/NoInputAndOutputCommand";

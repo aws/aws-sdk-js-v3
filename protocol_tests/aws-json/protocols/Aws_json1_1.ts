@@ -5,6 +5,10 @@ import {
   EndpointWithHostLabelOperationCommandOutput,
 } from "../commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
+import {
+  HostWithPathOperationCommandInput,
+  HostWithPathOperationCommandOutput,
+} from "../commands/HostWithPathOperationCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "../commands/JsonEnumsCommand";
 import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "../commands/JsonUnionsCommand";
 import {
@@ -133,6 +137,18 @@ export const serializeAws_json1_1GreetingWithErrorsCommand = async (
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "JsonProtocol.GreetingWithErrors",
+  };
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1HostWithPathOperationCommand = async (
+  input: HostWithPathOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "JsonProtocol.HostWithPathOperation",
   };
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -411,6 +427,49 @@ const deserializeAws_json1_1GreetingWithErrorsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1HostWithPathOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HostWithPathOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1HostWithPathOperationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: HostWithPathOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1HostWithPathOperationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HostWithPathOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
