@@ -181,9 +181,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4619,7 +4620,7 @@ const deserializeAws_json1_1Destination = (output: any, context: __SerdeContext)
   return {
     accessPolicy: __expectString(output.accessPolicy),
     arn: __expectString(output.arn),
-    creationTime: __expectInt(output.creationTime),
+    creationTime: __expectLong(output.creationTime),
     destinationName: __expectString(output.destinationName),
     roleArn: __expectString(output.roleArn),
     targetArn: __expectString(output.targetArn),
@@ -4657,7 +4658,7 @@ const deserializeAws_json1_1ExportTask = (output: any, context: __SerdeContext):
       output.executionInfo !== undefined && output.executionInfo !== null
         ? deserializeAws_json1_1ExportTaskExecutionInfo(output.executionInfo, context)
         : undefined,
-    from: __expectInt(output.from),
+    from: __expectLong(output.from),
     logGroupName: __expectString(output.logGroupName),
     status:
       output.status !== undefined && output.status !== null
@@ -4665,7 +4666,7 @@ const deserializeAws_json1_1ExportTask = (output: any, context: __SerdeContext):
         : undefined,
     taskId: __expectString(output.taskId),
     taskName: __expectString(output.taskName),
-    to: __expectInt(output.to),
+    to: __expectLong(output.to),
   } as any;
 };
 
@@ -4674,8 +4675,8 @@ const deserializeAws_json1_1ExportTaskExecutionInfo = (
   context: __SerdeContext
 ): ExportTaskExecutionInfo => {
   return {
-    completionTime: __expectInt(output.completionTime),
-    creationTime: __expectInt(output.creationTime),
+    completionTime: __expectLong(output.completionTime),
+    creationTime: __expectLong(output.creationTime),
   } as any;
 };
 
@@ -4712,10 +4713,10 @@ const deserializeAws_json1_1ExtractedValues = (output: any, context: __SerdeCont
 const deserializeAws_json1_1FilteredLogEvent = (output: any, context: __SerdeContext): FilteredLogEvent => {
   return {
     eventId: __expectString(output.eventId),
-    ingestionTime: __expectInt(output.ingestionTime),
+    ingestionTime: __expectLong(output.ingestionTime),
     logStreamName: __expectString(output.logStreamName),
     message: __expectString(output.message),
-    timestamp: __expectInt(output.timestamp),
+    timestamp: __expectLong(output.timestamp),
   } as any;
 };
 
@@ -4843,19 +4844,19 @@ const deserializeAws_json1_1ListTagsLogGroupResponse = (
 const deserializeAws_json1_1LogGroup = (output: any, context: __SerdeContext): LogGroup => {
   return {
     arn: __expectString(output.arn),
-    creationTime: __expectInt(output.creationTime),
+    creationTime: __expectLong(output.creationTime),
     kmsKeyId: __expectString(output.kmsKeyId),
     logGroupName: __expectString(output.logGroupName),
-    metricFilterCount: __expectInt(output.metricFilterCount),
-    retentionInDays: __expectInt(output.retentionInDays),
-    storedBytes: __expectInt(output.storedBytes),
+    metricFilterCount: __expectInt32(output.metricFilterCount),
+    retentionInDays: __expectInt32(output.retentionInDays),
+    storedBytes: __expectLong(output.storedBytes),
   } as any;
 };
 
 const deserializeAws_json1_1LogGroupField = (output: any, context: __SerdeContext): LogGroupField => {
   return {
     name: __expectString(output.name),
-    percent: __expectInt(output.percent),
+    percent: __expectInt32(output.percent),
   } as any;
 };
 
@@ -4907,12 +4908,12 @@ const deserializeAws_json1_1LogRecord = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_1LogStream = (output: any, context: __SerdeContext): LogStream => {
   return {
     arn: __expectString(output.arn),
-    creationTime: __expectInt(output.creationTime),
-    firstEventTimestamp: __expectInt(output.firstEventTimestamp),
-    lastEventTimestamp: __expectInt(output.lastEventTimestamp),
-    lastIngestionTime: __expectInt(output.lastIngestionTime),
+    creationTime: __expectLong(output.creationTime),
+    firstEventTimestamp: __expectLong(output.firstEventTimestamp),
+    lastEventTimestamp: __expectLong(output.lastEventTimestamp),
+    lastIngestionTime: __expectLong(output.lastIngestionTime),
     logStreamName: __expectString(output.logStreamName),
-    storedBytes: __expectInt(output.storedBytes),
+    storedBytes: __expectLong(output.storedBytes),
     uploadSequenceToken: __expectString(output.uploadSequenceToken),
   } as any;
 };
@@ -4943,7 +4944,7 @@ const deserializeAws_json1_1MalformedQueryException = (
 
 const deserializeAws_json1_1MetricFilter = (output: any, context: __SerdeContext): MetricFilter => {
   return {
-    creationTime: __expectInt(output.creationTime),
+    creationTime: __expectLong(output.creationTime),
     filterName: __expectString(output.filterName),
     filterPattern: __expectString(output.filterPattern),
     logGroupName: __expectString(output.logGroupName),
@@ -4971,7 +4972,7 @@ const deserializeAws_json1_1MetricFilterMatchRecord = (
 ): MetricFilterMatchRecord => {
   return {
     eventMessage: __expectString(output.eventMessage),
-    eventNumber: __expectInt(output.eventNumber),
+    eventNumber: __expectLong(output.eventNumber),
     extractedValues:
       output.extractedValues !== undefined && output.extractedValues !== null
         ? deserializeAws_json1_1ExtractedValues(output.extractedValues, context)
@@ -4992,7 +4993,7 @@ const deserializeAws_json1_1MetricFilters = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1MetricTransformation = (output: any, context: __SerdeContext): MetricTransformation => {
   return {
-    defaultValue: __limitedParseFloat(output.defaultValue),
+    defaultValue: __limitedParseDouble(output.defaultValue),
     dimensions:
       output.dimensions !== undefined && output.dimensions !== null
         ? deserializeAws_json1_1Dimensions(output.dimensions, context)
@@ -5026,9 +5027,9 @@ const deserializeAws_json1_1OperationAbortedException = (
 
 const deserializeAws_json1_1OutputLogEvent = (output: any, context: __SerdeContext): OutputLogEvent => {
   return {
-    ingestionTime: __expectInt(output.ingestionTime),
+    ingestionTime: __expectLong(output.ingestionTime),
     message: __expectString(output.message),
-    timestamp: __expectInt(output.timestamp),
+    timestamp: __expectLong(output.timestamp),
   } as any;
 };
 
@@ -5098,14 +5099,14 @@ const deserializeAws_json1_1QueryCompileErrorLocation = (
   context: __SerdeContext
 ): QueryCompileErrorLocation => {
   return {
-    endCharOffset: __expectInt(output.endCharOffset),
-    startCharOffset: __expectInt(output.startCharOffset),
+    endCharOffset: __expectInt32(output.endCharOffset),
+    startCharOffset: __expectInt32(output.startCharOffset),
   } as any;
 };
 
 const deserializeAws_json1_1QueryDefinition = (output: any, context: __SerdeContext): QueryDefinition => {
   return {
-    lastModified: __expectInt(output.lastModified),
+    lastModified: __expectLong(output.lastModified),
     logGroupNames:
       output.logGroupNames !== undefined && output.logGroupNames !== null
         ? deserializeAws_json1_1LogGroupNames(output.logGroupNames, context)
@@ -5129,7 +5130,7 @@ const deserializeAws_json1_1QueryDefinitionList = (output: any, context: __Serde
 
 const deserializeAws_json1_1QueryInfo = (output: any, context: __SerdeContext): QueryInfo => {
   return {
-    createTime: __expectInt(output.createTime),
+    createTime: __expectLong(output.createTime),
     logGroupName: __expectString(output.logGroupName),
     queryId: __expectString(output.queryId),
     queryString: __expectString(output.queryString),
@@ -5161,17 +5162,17 @@ const deserializeAws_json1_1QueryResults = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1QueryStatistics = (output: any, context: __SerdeContext): QueryStatistics => {
   return {
-    bytesScanned: __limitedParseFloat(output.bytesScanned),
-    recordsMatched: __limitedParseFloat(output.recordsMatched),
-    recordsScanned: __limitedParseFloat(output.recordsScanned),
+    bytesScanned: __limitedParseDouble(output.bytesScanned),
+    recordsMatched: __limitedParseDouble(output.recordsMatched),
+    recordsScanned: __limitedParseDouble(output.recordsScanned),
   } as any;
 };
 
 const deserializeAws_json1_1RejectedLogEventsInfo = (output: any, context: __SerdeContext): RejectedLogEventsInfo => {
   return {
-    expiredLogEventEndIndex: __expectInt(output.expiredLogEventEndIndex),
-    tooNewLogEventStartIndex: __expectInt(output.tooNewLogEventStartIndex),
-    tooOldLogEventEndIndex: __expectInt(output.tooOldLogEventEndIndex),
+    expiredLogEventEndIndex: __expectInt32(output.expiredLogEventEndIndex),
+    tooNewLogEventStartIndex: __expectInt32(output.tooNewLogEventStartIndex),
+    tooOldLogEventEndIndex: __expectInt32(output.tooOldLogEventEndIndex),
   } as any;
 };
 
@@ -5206,7 +5207,7 @@ const deserializeAws_json1_1ResourcePolicies = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
   return {
-    lastUpdatedTime: __expectInt(output.lastUpdatedTime),
+    lastUpdatedTime: __expectLong(output.lastUpdatedTime),
     policyDocument: __expectString(output.policyDocument),
     policyName: __expectString(output.policyName),
   } as any;
@@ -5271,7 +5272,7 @@ const deserializeAws_json1_1StopQueryResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1SubscriptionFilter = (output: any, context: __SerdeContext): SubscriptionFilter => {
   return {
-    creationTime: __expectInt(output.creationTime),
+    creationTime: __expectLong(output.creationTime),
     destinationArn: __expectString(output.destinationArn),
     distribution: __expectString(output.distribution),
     filterName: __expectString(output.filterName),

@@ -113,10 +113,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  strictParseInt as __strictParseInt,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1078,7 +1078,7 @@ export const deserializeAws_restJson1CreateReplicationConfigurationTemplateComma
     contents.associateDefaultSecurityGroup = __expectBoolean(data.associateDefaultSecurityGroup);
   }
   if (data.bandwidthThrottling !== undefined && data.bandwidthThrottling !== null) {
-    contents.bandwidthThrottling = __expectInt(data.bandwidthThrottling);
+    contents.bandwidthThrottling = __expectLong(data.bandwidthThrottling);
   }
   if (data.createPublicIP !== undefined && data.createPublicIP !== null) {
     contents.createPublicIP = __expectBoolean(data.createPublicIP);
@@ -1979,7 +1979,7 @@ export const deserializeAws_restJson1GetReplicationConfigurationCommand = async 
     contents.associateDefaultSecurityGroup = __expectBoolean(data.associateDefaultSecurityGroup);
   }
   if (data.bandwidthThrottling !== undefined && data.bandwidthThrottling !== null) {
-    contents.bandwidthThrottling = __expectInt(data.bandwidthThrottling);
+    contents.bandwidthThrottling = __expectLong(data.bandwidthThrottling);
   }
   if (data.createPublicIP !== undefined && data.createPublicIP !== null) {
     contents.createPublicIP = __expectBoolean(data.createPublicIP);
@@ -2934,7 +2934,7 @@ export const deserializeAws_restJson1UpdateReplicationConfigurationCommand = asy
     contents.associateDefaultSecurityGroup = __expectBoolean(data.associateDefaultSecurityGroup);
   }
   if (data.bandwidthThrottling !== undefined && data.bandwidthThrottling !== null) {
-    contents.bandwidthThrottling = __expectInt(data.bandwidthThrottling);
+    contents.bandwidthThrottling = __expectLong(data.bandwidthThrottling);
   }
   if (data.createPublicIP !== undefined && data.createPublicIP !== null) {
     contents.createPublicIP = __expectBoolean(data.createPublicIP);
@@ -3086,7 +3086,7 @@ export const deserializeAws_restJson1UpdateReplicationConfigurationTemplateComma
     contents.associateDefaultSecurityGroup = __expectBoolean(data.associateDefaultSecurityGroup);
   }
   if (data.bandwidthThrottling !== undefined && data.bandwidthThrottling !== null) {
-    contents.bandwidthThrottling = __expectInt(data.bandwidthThrottling);
+    contents.bandwidthThrottling = __expectLong(data.bandwidthThrottling);
   }
   if (data.createPublicIP !== undefined && data.createPublicIP !== null) {
     contents.createPublicIP = __expectBoolean(data.createPublicIP);
@@ -3253,7 +3253,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     retryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
+    contents.retryAfterSeconds = __strictParseLong(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -3536,7 +3536,7 @@ const serializeAws_restJson1TerminateTargetInstancesRequestSourceServerIDs = (
 
 const deserializeAws_restJson1CPU = (output: any, context: __SerdeContext): CPU => {
   return {
-    cores: __expectInt(output.cores),
+    cores: __expectLong(output.cores),
     modelName: __expectString(output.modelName),
   } as any;
 };
@@ -3584,11 +3584,11 @@ const deserializeAws_restJson1DataReplicationInfoReplicatedDisk = (
   context: __SerdeContext
 ): DataReplicationInfoReplicatedDisk => {
   return {
-    backloggedStorageBytes: __expectInt(output.backloggedStorageBytes),
+    backloggedStorageBytes: __expectLong(output.backloggedStorageBytes),
     deviceName: __expectString(output.deviceName),
-    replicatedStorageBytes: __expectInt(output.replicatedStorageBytes),
-    rescannedStorageBytes: __expectInt(output.rescannedStorageBytes),
-    totalStorageBytes: __expectInt(output.totalStorageBytes),
+    replicatedStorageBytes: __expectLong(output.replicatedStorageBytes),
+    rescannedStorageBytes: __expectLong(output.rescannedStorageBytes),
+    totalStorageBytes: __expectLong(output.totalStorageBytes),
   } as any;
 };
 
@@ -3646,7 +3646,7 @@ const deserializeAws_restJson1DataReplicationInitiationSteps = (
 
 const deserializeAws_restJson1Disk = (output: any, context: __SerdeContext): Disk => {
   return {
-    bytes: __expectInt(output.bytes),
+    bytes: __expectLong(output.bytes),
     deviceName: __expectString(output.deviceName),
   } as any;
 };
@@ -3918,7 +3918,7 @@ const deserializeAws_restJson1ReplicationConfigurationReplicatedDisk = (
 ): ReplicationConfigurationReplicatedDisk => {
   return {
     deviceName: __expectString(output.deviceName),
-    iops: __expectInt(output.iops),
+    iops: __expectLong(output.iops),
     isBootDisk: __expectBoolean(output.isBootDisk),
     stagingDiskType: __expectString(output.stagingDiskType),
   } as any;
@@ -3945,7 +3945,7 @@ const deserializeAws_restJson1ReplicationConfigurationTemplate = (
   return {
     arn: __expectString(output.arn),
     associateDefaultSecurityGroup: __expectBoolean(output.associateDefaultSecurityGroup),
-    bandwidthThrottling: __expectInt(output.bandwidthThrottling),
+    bandwidthThrottling: __expectLong(output.bandwidthThrottling),
     createPublicIP: __expectBoolean(output.createPublicIP),
     dataPlaneRouting: __expectString(output.dataPlaneRouting),
     defaultLargeStagingDiskType: __expectString(output.defaultLargeStagingDiskType),
@@ -4021,7 +4021,7 @@ const deserializeAws_restJson1SourceProperties = (output: any, context: __SerdeC
         ? deserializeAws_restJson1NetworkInterfaces(output.networkInterfaces, context)
         : undefined,
     os: output.os !== undefined && output.os !== null ? deserializeAws_restJson1OS(output.os, context) : undefined,
-    ramBytes: __expectInt(output.ramBytes),
+    ramBytes: __expectLong(output.ramBytes),
     recommendedInstanceType: __expectString(output.recommendedInstanceType),
   } as any;
 };

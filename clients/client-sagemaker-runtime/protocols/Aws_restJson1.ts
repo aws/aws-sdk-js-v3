@@ -6,7 +6,7 @@ import { InvokeEndpointCommandInput, InvokeEndpointCommandOutput } from "../comm
 import { InternalFailure, ModelError, ServiceUnavailable, ValidationError } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -309,7 +309,7 @@ const deserializeAws_restJson1ModelErrorResponse = async (
     contents.OriginalMessage = __expectString(data.OriginalMessage);
   }
   if (data.OriginalStatusCode !== undefined && data.OriginalStatusCode !== null) {
-    contents.OriginalStatusCode = __expectInt(data.OriginalStatusCode);
+    contents.OriginalStatusCode = __expectInt32(data.OriginalStatusCode);
   }
   return contents;
 };

@@ -127,10 +127,11 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4527,7 +4528,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     retryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
+    contents.retryAfterSeconds = __strictParseInt32(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -4652,7 +4653,7 @@ const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeConte
         ? deserializeAws_restJson1AssetHashes(output.hashes, context)
         : undefined,
     name: __expectString(output.name),
-    size: __expectInt(output.size),
+    size: __expectLong(output.size),
   } as any;
 };
 
@@ -4670,7 +4671,7 @@ const deserializeAws_restJson1AssetSummaryList = (output: any, context: __SerdeC
 const deserializeAws_restJson1DomainDescription = (output: any, context: __SerdeContext): DomainDescription => {
   return {
     arn: __expectString(output.arn),
-    assetSizeBytes: __expectInt(output.assetSizeBytes),
+    assetSizeBytes: __expectLong(output.assetSizeBytes),
     createdTime:
       output.createdTime !== undefined && output.createdTime !== null
         ? new Date(Math.round(output.createdTime * 1000))
@@ -4678,7 +4679,7 @@ const deserializeAws_restJson1DomainDescription = (output: any, context: __Serde
     encryptionKey: __expectString(output.encryptionKey),
     name: __expectString(output.name),
     owner: __expectString(output.owner),
-    repositoryCount: __expectInt(output.repositoryCount),
+    repositoryCount: __expectInt32(output.repositoryCount),
     s3BucketArn: __expectString(output.s3BucketArn),
     status: __expectString(output.status),
   } as any;

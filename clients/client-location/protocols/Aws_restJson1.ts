@@ -171,10 +171,10 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -7453,16 +7453,16 @@ const deserializeAws_restJson1BoundingBox = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return __limitedParseFloat(entry) as any;
+      return __limitedParseDouble(entry) as any;
     });
 };
 
 const deserializeAws_restJson1CalculateRouteSummary = (output: any, context: __SerdeContext): CalculateRouteSummary => {
   return {
     DataSource: __expectString(output.DataSource),
-    Distance: __limitedParseFloat(output.Distance),
+    Distance: __limitedParseDouble(output.Distance),
     DistanceUnit: __expectString(output.DistanceUnit),
-    DurationSeconds: __limitedParseFloat(output.DurationSeconds),
+    DurationSeconds: __limitedParseDouble(output.DurationSeconds),
     RouteBBox:
       output.RouteBBox !== undefined && output.RouteBBox !== null
         ? deserializeAws_restJson1BoundingBox(output.RouteBBox, context)
@@ -7525,8 +7525,8 @@ const deserializeAws_restJson1GeofenceGeometry = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Leg = (output: any, context: __SerdeContext): Leg => {
   return {
-    Distance: __limitedParseFloat(output.Distance),
-    DurationSeconds: __limitedParseFloat(output.DurationSeconds),
+    Distance: __limitedParseDouble(output.Distance),
+    DurationSeconds: __limitedParseDouble(output.DurationSeconds),
     EndPosition:
       output.EndPosition !== undefined && output.EndPosition !== null
         ? deserializeAws_restJson1Position(output.EndPosition, context)
@@ -7834,7 +7834,7 @@ const deserializeAws_restJson1Position = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return __limitedParseFloat(entry) as any;
+      return __limitedParseDouble(entry) as any;
     });
 };
 
@@ -7893,7 +7893,7 @@ const deserializeAws_restJson1SearchPlaceIndexForPositionSummary = (
 ): SearchPlaceIndexForPositionSummary => {
   return {
     DataSource: __expectString(output.DataSource),
-    MaxResults: __expectInt(output.MaxResults),
+    MaxResults: __expectInt32(output.MaxResults),
     Position:
       output.Position !== undefined && output.Position !== null
         ? deserializeAws_restJson1Position(output.Position, context)
@@ -7919,7 +7919,7 @@ const deserializeAws_restJson1SearchPlaceIndexForTextSummary = (
       output.FilterCountries !== undefined && output.FilterCountries !== null
         ? deserializeAws_restJson1CountryCodeList(output.FilterCountries, context)
         : undefined,
-    MaxResults: __expectInt(output.MaxResults),
+    MaxResults: __expectInt32(output.MaxResults),
     ResultBBox:
       output.ResultBBox !== undefined && output.ResultBBox !== null
         ? deserializeAws_restJson1BoundingBox(output.ResultBBox, context)
@@ -7930,13 +7930,13 @@ const deserializeAws_restJson1SearchPlaceIndexForTextSummary = (
 
 const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Step => {
   return {
-    Distance: __limitedParseFloat(output.Distance),
-    DurationSeconds: __limitedParseFloat(output.DurationSeconds),
+    Distance: __limitedParseDouble(output.Distance),
+    DurationSeconds: __limitedParseDouble(output.DurationSeconds),
     EndPosition:
       output.EndPosition !== undefined && output.EndPosition !== null
         ? deserializeAws_restJson1Position(output.EndPosition, context)
         : undefined,
-    GeometryOffset: __expectInt(output.GeometryOffset),
+    GeometryOffset: __expectInt32(output.GeometryOffset),
     StartPosition:
       output.StartPosition !== undefined && output.StartPosition !== null
         ? deserializeAws_restJson1Position(output.StartPosition, context)

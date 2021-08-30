@@ -11,7 +11,7 @@ import {
   ResourceNotFoundException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectString as __expectString, limitedParseFloat as __limitedParseFloat } from "@aws-sdk/smithy-client";
+import { expectString as __expectString, limitedParseDouble as __limitedParseDouble } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -221,7 +221,7 @@ const serializeAws_json1_1QueryForecastRequest = (input: QueryForecastRequest, c
 const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): DataPoint => {
   return {
     Timestamp: __expectString(output.Timestamp),
-    Value: __limitedParseFloat(output.Value),
+    Value: __limitedParseDouble(output.Value),
   } as any;
 };
 

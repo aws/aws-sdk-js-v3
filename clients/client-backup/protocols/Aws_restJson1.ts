@@ -195,7 +195,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -3449,7 +3450,7 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
     contents.BackupOptions = deserializeAws_restJson1BackupOptions(data.BackupOptions, context);
   }
   if (data.BackupSizeInBytes !== undefined && data.BackupSizeInBytes !== null) {
-    contents.BackupSizeInBytes = __expectInt(data.BackupSizeInBytes);
+    contents.BackupSizeInBytes = __expectLong(data.BackupSizeInBytes);
   }
   if (data.BackupType !== undefined && data.BackupType !== null) {
     contents.BackupType = __expectString(data.BackupType);
@@ -3461,7 +3462,7 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
     contents.BackupVaultName = __expectString(data.BackupVaultName);
   }
   if (data.BytesTransferred !== undefined && data.BytesTransferred !== null) {
-    contents.BytesTransferred = __expectInt(data.BytesTransferred);
+    contents.BytesTransferred = __expectLong(data.BytesTransferred);
   }
   if (data.CompletionDate !== undefined && data.CompletionDate !== null) {
     contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
@@ -3604,7 +3605,7 @@ export const deserializeAws_restJson1DescribeBackupVaultCommand = async (
     contents.EncryptionKeyArn = __expectString(data.EncryptionKeyArn);
   }
   if (data.NumberOfRecoveryPoints !== undefined && data.NumberOfRecoveryPoints !== null) {
-    contents.NumberOfRecoveryPoints = __expectInt(data.NumberOfRecoveryPoints);
+    contents.NumberOfRecoveryPoints = __expectLong(data.NumberOfRecoveryPoints);
   }
   return Promise.resolve(contents);
 };
@@ -4041,7 +4042,7 @@ export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BackupSizeInBytes !== undefined && data.BackupSizeInBytes !== null) {
-    contents.BackupSizeInBytes = __expectInt(data.BackupSizeInBytes);
+    contents.BackupSizeInBytes = __expectLong(data.BackupSizeInBytes);
   }
   if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
     contents.BackupVaultArn = __expectString(data.BackupVaultArn);
@@ -4397,7 +4398,7 @@ export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
     contents.AccountId = __expectString(data.AccountId);
   }
   if (data.BackupSizeInBytes !== undefined && data.BackupSizeInBytes !== null) {
-    contents.BackupSizeInBytes = __expectInt(data.BackupSizeInBytes);
+    contents.BackupSizeInBytes = __expectLong(data.BackupSizeInBytes);
   }
   if (data.CompletionDate !== undefined && data.CompletionDate !== null) {
     contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
@@ -4409,7 +4410,7 @@ export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
     contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.ExpectedCompletionTimeMinutes !== undefined && data.ExpectedCompletionTimeMinutes !== null) {
-    contents.ExpectedCompletionTimeMinutes = __expectInt(data.ExpectedCompletionTimeMinutes);
+    contents.ExpectedCompletionTimeMinutes = __expectLong(data.ExpectedCompletionTimeMinutes);
   }
   if (data.IamRoleArn !== undefined && data.IamRoleArn !== null) {
     contents.IamRoleArn = __expectString(data.IamRoleArn);
@@ -8480,11 +8481,11 @@ const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext)
       output.BackupOptions !== undefined && output.BackupOptions !== null
         ? deserializeAws_restJson1BackupOptions(output.BackupOptions, context)
         : undefined,
-    BackupSizeInBytes: __expectInt(output.BackupSizeInBytes),
+    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
     BackupType: __expectString(output.BackupType),
     BackupVaultArn: __expectString(output.BackupVaultArn),
     BackupVaultName: __expectString(output.BackupVaultName),
-    BytesTransferred: __expectInt(output.BytesTransferred),
+    BytesTransferred: __expectLong(output.BytesTransferred),
     CompletionDate:
       output.CompletionDate !== undefined && output.CompletionDate !== null
         ? new Date(Math.round(output.CompletionDate * 1000))
@@ -8627,7 +8628,7 @@ const deserializeAws_restJson1BackupPlanVersionsList = (
 
 const deserializeAws_restJson1BackupRule = (output: any, context: __SerdeContext): BackupRule => {
   return {
-    CompletionWindowMinutes: __expectInt(output.CompletionWindowMinutes),
+    CompletionWindowMinutes: __expectLong(output.CompletionWindowMinutes),
     CopyActions:
       output.CopyActions !== undefined && output.CopyActions !== null
         ? deserializeAws_restJson1CopyActions(output.CopyActions, context)
@@ -8644,7 +8645,7 @@ const deserializeAws_restJson1BackupRule = (output: any, context: __SerdeContext
     RuleId: __expectString(output.RuleId),
     RuleName: __expectString(output.RuleName),
     ScheduleExpression: __expectString(output.ScheduleExpression),
-    StartWindowMinutes: __expectInt(output.StartWindowMinutes),
+    StartWindowMinutes: __expectLong(output.StartWindowMinutes),
     TargetBackupVaultName: __expectString(output.TargetBackupVaultName),
   } as any;
 };
@@ -8741,7 +8742,7 @@ const deserializeAws_restJson1BackupVaultListMember = (output: any, context: __S
         : undefined,
     CreatorRequestId: __expectString(output.CreatorRequestId),
     EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
-    NumberOfRecoveryPoints: __expectInt(output.NumberOfRecoveryPoints),
+    NumberOfRecoveryPoints: __expectLong(output.NumberOfRecoveryPoints),
   } as any;
 };
 
@@ -8839,7 +8840,7 @@ const deserializeAws_restJson1CopyActions = (output: any, context: __SerdeContex
 const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): CopyJob => {
   return {
     AccountId: __expectString(output.AccountId),
-    BackupSizeInBytes: __expectInt(output.BackupSizeInBytes),
+    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
     CompletionDate:
       output.CompletionDate !== undefined && output.CompletionDate !== null
         ? new Date(Math.round(output.CompletionDate * 1000))
@@ -8897,7 +8898,7 @@ const deserializeAws_restJson1Framework = (output: any, context: __SerdeContext)
     FrameworkArn: __expectString(output.FrameworkArn),
     FrameworkDescription: __expectString(output.FrameworkDescription),
     FrameworkName: __expectString(output.FrameworkName),
-    NumberOfControls: __expectInt(output.NumberOfControls),
+    NumberOfControls: __expectInt32(output.NumberOfControls),
   } as any;
 };
 
@@ -8951,8 +8952,8 @@ const deserializeAws_restJson1GlobalSettings = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Lifecycle = (output: any, context: __SerdeContext): Lifecycle => {
   return {
-    DeleteAfterDays: __expectInt(output.DeleteAfterDays),
-    MoveToColdStorageAfterDays: __expectInt(output.MoveToColdStorageAfterDays),
+    DeleteAfterDays: __expectLong(output.DeleteAfterDays),
+    MoveToColdStorageAfterDays: __expectLong(output.MoveToColdStorageAfterDays),
   } as any;
 };
 
@@ -9006,7 +9007,7 @@ const deserializeAws_restJson1RecoveryPointByBackupVault = (
   context: __SerdeContext
 ): RecoveryPointByBackupVault => {
   return {
-    BackupSizeInBytes: __expectInt(output.BackupSizeInBytes),
+    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
     BackupVaultArn: __expectString(output.BackupVaultArn),
     BackupVaultName: __expectString(output.BackupVaultName),
     CalculatedLifecycle:
@@ -9064,7 +9065,7 @@ const deserializeAws_restJson1RecoveryPointByResource = (
   context: __SerdeContext
 ): RecoveryPointByResource => {
   return {
-    BackupSizeBytes: __expectInt(output.BackupSizeBytes),
+    BackupSizeBytes: __expectLong(output.BackupSizeBytes),
     BackupVaultName: __expectString(output.BackupVaultName),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
@@ -9262,7 +9263,7 @@ const deserializeAws_restJson1RestoreJobsList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1RestoreJobsListMember = (output: any, context: __SerdeContext): RestoreJobsListMember => {
   return {
     AccountId: __expectString(output.AccountId),
-    BackupSizeInBytes: __expectInt(output.BackupSizeInBytes),
+    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
     CompletionDate:
       output.CompletionDate !== undefined && output.CompletionDate !== null
         ? new Date(Math.round(output.CompletionDate * 1000))
@@ -9272,7 +9273,7 @@ const deserializeAws_restJson1RestoreJobsListMember = (output: any, context: __S
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
         : undefined,
-    ExpectedCompletionTimeMinutes: __expectInt(output.ExpectedCompletionTimeMinutes),
+    ExpectedCompletionTimeMinutes: __expectLong(output.ExpectedCompletionTimeMinutes),
     IamRoleArn: __expectString(output.IamRoleArn),
     PercentDone: __expectString(output.PercentDone),
     RecoveryPointArn: __expectString(output.RecoveryPointArn),

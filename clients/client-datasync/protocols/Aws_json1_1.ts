@@ -161,7 +161,11 @@ import {
   UpdateTaskResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3669,7 +3673,7 @@ const deserializeAws_json1_1DescribeLocationObjectStorageResponse = (
         : undefined,
     LocationArn: __expectString(output.LocationArn),
     LocationUri: __expectString(output.LocationUri),
-    ServerPort: __expectInt(output.ServerPort),
+    ServerPort: __expectInt32(output.ServerPort),
     ServerProtocol: __expectString(output.ServerProtocol),
   } as any;
 };
@@ -3726,15 +3730,15 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
   context: __SerdeContext
 ): DescribeTaskExecutionResponse => {
   return {
-    BytesTransferred: __expectInt(output.BytesTransferred),
-    BytesWritten: __expectInt(output.BytesWritten),
-    EstimatedBytesToTransfer: __expectInt(output.EstimatedBytesToTransfer),
-    EstimatedFilesToTransfer: __expectInt(output.EstimatedFilesToTransfer),
+    BytesTransferred: __expectLong(output.BytesTransferred),
+    BytesWritten: __expectLong(output.BytesWritten),
+    EstimatedBytesToTransfer: __expectLong(output.EstimatedBytesToTransfer),
+    EstimatedFilesToTransfer: __expectLong(output.EstimatedFilesToTransfer),
     Excludes:
       output.Excludes !== undefined && output.Excludes !== null
         ? deserializeAws_json1_1FilterList(output.Excludes, context)
         : undefined,
-    FilesTransferred: __expectInt(output.FilesTransferred),
+    FilesTransferred: __expectLong(output.FilesTransferred),
     Includes:
       output.Includes !== undefined && output.Includes !== null
         ? deserializeAws_json1_1FilterList(output.Includes, context)
@@ -3957,7 +3961,7 @@ const deserializeAws_json1_1OnPremConfig = (output: any, context: __SerdeContext
 const deserializeAws_json1_1Options = (output: any, context: __SerdeContext): Options => {
   return {
     Atime: __expectString(output.Atime),
-    BytesPerSecond: __expectInt(output.BytesPerSecond),
+    BytesPerSecond: __expectLong(output.BytesPerSecond),
     Gid: __expectString(output.Gid),
     LogLevel: __expectString(output.LogLevel),
     Mtime: __expectString(output.Mtime),
@@ -4089,12 +4093,12 @@ const deserializeAws_json1_1TaskExecutionResultDetail = (
   return {
     ErrorCode: __expectString(output.ErrorCode),
     ErrorDetail: __expectString(output.ErrorDetail),
-    PrepareDuration: __expectInt(output.PrepareDuration),
+    PrepareDuration: __expectLong(output.PrepareDuration),
     PrepareStatus: __expectString(output.PrepareStatus),
-    TotalDuration: __expectInt(output.TotalDuration),
-    TransferDuration: __expectInt(output.TransferDuration),
+    TotalDuration: __expectLong(output.TotalDuration),
+    TransferDuration: __expectLong(output.TransferDuration),
     TransferStatus: __expectString(output.TransferStatus),
-    VerifyDuration: __expectInt(output.VerifyDuration),
+    VerifyDuration: __expectLong(output.VerifyDuration),
     VerifyStatus: __expectString(output.VerifyStatus),
   } as any;
 };

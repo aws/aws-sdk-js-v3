@@ -245,7 +245,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5563,10 +5563,10 @@ const deserializeAws_json1_1BatchDisassociateUserStackResult = (
 
 const deserializeAws_json1_1ComputeCapacityStatus = (output: any, context: __SerdeContext): ComputeCapacityStatus => {
   return {
-    Available: __expectInt(output.Available),
-    Desired: __expectInt(output.Desired),
-    InUse: __expectInt(output.InUse),
-    Running: __expectInt(output.Running),
+    Available: __expectInt32(output.Available),
+    Desired: __expectInt32(output.Desired),
+    InUse: __expectInt32(output.InUse),
+    Running: __expectInt32(output.Running),
   } as any;
 };
 
@@ -5938,7 +5938,7 @@ const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Flee
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
     Description: __expectString(output.Description),
-    DisconnectTimeoutInSeconds: __expectInt(output.DisconnectTimeoutInSeconds),
+    DisconnectTimeoutInSeconds: __expectInt32(output.DisconnectTimeoutInSeconds),
     DisplayName: __expectString(output.DisplayName),
     DomainJoinInfo:
       output.DomainJoinInfo !== undefined && output.DomainJoinInfo !== null
@@ -5951,11 +5951,11 @@ const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Flee
         : undefined,
     FleetType: __expectString(output.FleetType),
     IamRoleArn: __expectString(output.IamRoleArn),
-    IdleDisconnectTimeoutInSeconds: __expectInt(output.IdleDisconnectTimeoutInSeconds),
+    IdleDisconnectTimeoutInSeconds: __expectInt32(output.IdleDisconnectTimeoutInSeconds),
     ImageArn: __expectString(output.ImageArn),
     ImageName: __expectString(output.ImageName),
     InstanceType: __expectString(output.InstanceType),
-    MaxUserDurationInSeconds: __expectInt(output.MaxUserDurationInSeconds),
+    MaxUserDurationInSeconds: __expectInt32(output.MaxUserDurationInSeconds),
     Name: __expectString(output.Name),
     State: __expectString(output.State),
     StreamView: __expectString(output.StreamView),

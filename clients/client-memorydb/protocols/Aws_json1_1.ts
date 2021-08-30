@@ -219,9 +219,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5367,7 +5367,7 @@ const deserializeAws_json1_1APICallRateForCustomerExceededFault = (
 
 const deserializeAws_json1_1Authentication = (output: any, context: __SerdeContext): Authentication => {
   return {
-    PasswordCount: __expectInt(output.PasswordCount),
+    PasswordCount: __expectInt32(output.PasswordCount),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -5411,7 +5411,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
     MaintenanceWindow: __expectString(output.MaintenanceWindow),
     Name: __expectString(output.Name),
     NodeType: __expectString(output.NodeType),
-    NumberOfShards: __expectInt(output.NumberOfShards),
+    NumberOfShards: __expectInt32(output.NumberOfShards),
     ParameterGroupName: __expectString(output.ParameterGroupName),
     ParameterGroupStatus: __expectString(output.ParameterGroupStatus),
     PendingUpdates:
@@ -5426,7 +5426,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
       output.Shards !== undefined && output.Shards !== null
         ? deserializeAws_json1_1ShardList(output.Shards, context)
         : undefined,
-    SnapshotRetentionLimit: __expectInt(output.SnapshotRetentionLimit),
+    SnapshotRetentionLimit: __expectInt32(output.SnapshotRetentionLimit),
     SnapshotWindow: __expectString(output.SnapshotWindow),
     SnsTopicArn: __expectString(output.SnsTopicArn),
     SnsTopicStatus: __expectString(output.SnsTopicStatus),
@@ -5452,14 +5452,14 @@ const deserializeAws_json1_1ClusterConfiguration = (output: any, context: __Serd
     MaintenanceWindow: __expectString(output.MaintenanceWindow),
     Name: __expectString(output.Name),
     NodeType: __expectString(output.NodeType),
-    NumShards: __expectInt(output.NumShards),
+    NumShards: __expectInt32(output.NumShards),
     ParameterGroupName: __expectString(output.ParameterGroupName),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     Shards:
       output.Shards !== undefined && output.Shards !== null
         ? deserializeAws_json1_1ShardDetails(output.Shards, context)
         : undefined,
-    SnapshotRetentionLimit: __expectInt(output.SnapshotRetentionLimit),
+    SnapshotRetentionLimit: __expectInt32(output.SnapshotRetentionLimit),
     SnapshotWindow: __expectString(output.SnapshotWindow),
     SubnetGroupName: __expectString(output.SubnetGroupName),
     TopicArn: __expectString(output.TopicArn),
@@ -5765,7 +5765,7 @@ const deserializeAws_json1_1DuplicateUserNameFault = (output: any, context: __Se
 const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
     Address: __expectString(output.Address),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -6205,7 +6205,7 @@ const deserializeAws_json1_1Shard = (output: any, context: __SerdeContext): Shar
       output.Nodes !== undefined && output.Nodes !== null
         ? deserializeAws_json1_1NodeList(output.Nodes, context)
         : undefined,
-    NumberOfNodes: __expectInt(output.NumberOfNodes),
+    NumberOfNodes: __expectInt32(output.NumberOfNodes),
     Slots: __expectString(output.Slots),
     Status: __expectString(output.Status),
   } as any;
@@ -6213,7 +6213,7 @@ const deserializeAws_json1_1Shard = (output: any, context: __SerdeContext): Shar
 
 const deserializeAws_json1_1ShardConfiguration = (output: any, context: __SerdeContext): ShardConfiguration => {
   return {
-    ReplicaCount: __expectInt(output.ReplicaCount),
+    ReplicaCount: __expectInt32(output.ReplicaCount),
     Slots: __expectString(output.Slots),
   } as any;
 };
@@ -6272,7 +6272,7 @@ const deserializeAws_json1_1ShardsPerClusterQuotaExceededFault = (
 
 const deserializeAws_json1_1SlotMigration = (output: any, context: __SerdeContext): SlotMigration => {
   return {
-    ProgressPercentage: __limitedParseFloat(output.ProgressPercentage),
+    ProgressPercentage: __limitedParseDouble(output.ProgressPercentage),
   } as any;
 };
 

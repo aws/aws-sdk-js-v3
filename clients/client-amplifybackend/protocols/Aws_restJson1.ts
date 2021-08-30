@@ -80,7 +80,7 @@ import {
   expectBoolean as __expectBoolean,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4063,7 +4063,7 @@ const deserializeAws_restJson1BackendAPIAppSyncAuthSettings = (
   return {
     CognitoUserPoolId: __expectString(output.cognitoUserPoolId),
     Description: __expectString(output.description),
-    ExpirationTime: __limitedParseFloat(output.expirationTime),
+    ExpirationTime: __limitedParseDouble(output.expirationTime),
     OpenIDAuthTTL: __expectString(output.openIDAuthTTL),
     OpenIDClientId: __expectString(output.openIDClientId),
     OpenIDIatTTL: __expectString(output.openIDIatTTL),
@@ -4224,7 +4224,7 @@ const deserializeAws_restJson1CreateBackendAuthPasswordPolicyConfig = (
       output.additionalConstraints !== undefined && output.additionalConstraints !== null
         ? deserializeAws_restJson1ListOfAdditionalConstraintsElement(output.additionalConstraints, context)
         : undefined,
-    MinimumLength: __limitedParseFloat(output.minimumLength),
+    MinimumLength: __limitedParseDouble(output.minimumLength),
   } as any;
 };
 

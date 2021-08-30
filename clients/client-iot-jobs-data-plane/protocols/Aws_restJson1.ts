@@ -25,7 +25,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -725,20 +725,20 @@ const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
   return {
-    approximateSecondsBeforeTimedOut: __expectInt(output.approximateSecondsBeforeTimedOut),
-    executionNumber: __expectInt(output.executionNumber),
+    approximateSecondsBeforeTimedOut: __expectLong(output.approximateSecondsBeforeTimedOut),
+    executionNumber: __expectLong(output.executionNumber),
     jobDocument: __expectString(output.jobDocument),
     jobId: __expectString(output.jobId),
-    lastUpdatedAt: __expectInt(output.lastUpdatedAt),
-    queuedAt: __expectInt(output.queuedAt),
-    startedAt: __expectInt(output.startedAt),
+    lastUpdatedAt: __expectLong(output.lastUpdatedAt),
+    queuedAt: __expectLong(output.queuedAt),
+    startedAt: __expectLong(output.startedAt),
     status: __expectString(output.status),
     statusDetails:
       output.statusDetails !== undefined && output.statusDetails !== null
         ? deserializeAws_restJson1DetailsMap(output.statusDetails, context)
         : undefined,
     thingName: __expectString(output.thingName),
-    versionNumber: __expectInt(output.versionNumber),
+    versionNumber: __expectLong(output.versionNumber),
   } as any;
 };
 
@@ -749,18 +749,18 @@ const deserializeAws_restJson1JobExecutionState = (output: any, context: __Serde
       output.statusDetails !== undefined && output.statusDetails !== null
         ? deserializeAws_restJson1DetailsMap(output.statusDetails, context)
         : undefined,
-    versionNumber: __expectInt(output.versionNumber),
+    versionNumber: __expectLong(output.versionNumber),
   } as any;
 };
 
 const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
   return {
-    executionNumber: __expectInt(output.executionNumber),
+    executionNumber: __expectLong(output.executionNumber),
     jobId: __expectString(output.jobId),
-    lastUpdatedAt: __expectInt(output.lastUpdatedAt),
-    queuedAt: __expectInt(output.queuedAt),
-    startedAt: __expectInt(output.startedAt),
-    versionNumber: __expectInt(output.versionNumber),
+    lastUpdatedAt: __expectLong(output.lastUpdatedAt),
+    queuedAt: __expectLong(output.queuedAt),
+    startedAt: __expectLong(output.startedAt),
+    versionNumber: __expectLong(output.versionNumber),
   } as any;
 };
 

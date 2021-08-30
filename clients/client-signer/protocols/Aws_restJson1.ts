@@ -77,7 +77,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1018,7 +1018,7 @@ export const deserializeAws_restJson1GetSigningPlatformCommand = async (
     contents.displayName = __expectString(data.displayName);
   }
   if (data.maxSizeInMB !== undefined && data.maxSizeInMB !== null) {
-    contents.maxSizeInMB = __expectInt(data.maxSizeInMB);
+    contents.maxSizeInMB = __expectInt32(data.maxSizeInMB);
   }
   if (data.partner !== undefined && data.partner !== null) {
     contents.partner = __expectString(data.partner);
@@ -1258,7 +1258,7 @@ export const deserializeAws_restJson1ListProfilePermissionsCommand = async (
     contents.permissions = deserializeAws_restJson1Permissions(data.permissions, context);
   }
   if (data.policySizeBytes !== undefined && data.policySizeBytes !== null) {
-    contents.policySizeBytes = __expectInt(data.policySizeBytes);
+    contents.policySizeBytes = __expectInt32(data.policySizeBytes);
   }
   if (data.revisionId !== undefined && data.revisionId !== null) {
     contents.revisionId = __expectString(data.revisionId);
@@ -2663,7 +2663,7 @@ const deserializeAws_restJson1SignatureValidityPeriod = (
 ): SignatureValidityPeriod => {
   return {
     type: __expectString(output.type),
-    value: __expectInt(output.value),
+    value: __expectInt32(output.value),
   } as any;
 };
 
@@ -2790,7 +2790,7 @@ const deserializeAws_restJson1SigningPlatform = (output: any, context: __SerdeCo
   return {
     category: __expectString(output.category),
     displayName: __expectString(output.displayName),
-    maxSizeInMB: __expectInt(output.maxSizeInMB),
+    maxSizeInMB: __expectInt32(output.maxSizeInMB),
     partner: __expectString(output.partner),
     platformId: __expectString(output.platformId),
     revocationSupported: __expectBoolean(output.revocationSupported),

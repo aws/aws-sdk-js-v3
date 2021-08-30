@@ -145,15 +145,23 @@ import {
   LazyJsonString as __LazyJsonString,
   dateToUtcString as __dateToUtcString,
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectByte as __expectByte,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
+  expectShort as __expectShort,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   parseBoolean as __parseBoolean,
   serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
+  strictParseByte as __strictParseByte,
+  strictParseDouble as __strictParseDouble,
   strictParseFloat as __strictParseFloat,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+  strictParseShort as __strictParseShort,
 } from "@aws-sdk/smithy-client";
 import {
   DocumentType as __DocumentType,
@@ -2807,22 +2815,22 @@ export const deserializeAws_restJson1InputAndOutputWithHeadersCommand = async (
     contents.headerString = output.headers["x-string"];
   }
   if (output.headers["x-byte"] !== undefined) {
-    contents.headerByte = __strictParseInt(output.headers["x-byte"]);
+    contents.headerByte = __strictParseByte(output.headers["x-byte"]);
   }
   if (output.headers["x-short"] !== undefined) {
-    contents.headerShort = __strictParseInt(output.headers["x-short"]);
+    contents.headerShort = __strictParseShort(output.headers["x-short"]);
   }
   if (output.headers["x-integer"] !== undefined) {
-    contents.headerInteger = __strictParseInt(output.headers["x-integer"]);
+    contents.headerInteger = __strictParseInt32(output.headers["x-integer"]);
   }
   if (output.headers["x-long"] !== undefined) {
-    contents.headerLong = __strictParseInt(output.headers["x-long"]);
+    contents.headerLong = __strictParseLong(output.headers["x-long"]);
   }
   if (output.headers["x-float"] !== undefined) {
     contents.headerFloat = __strictParseFloat(output.headers["x-float"]);
   }
   if (output.headers["x-double"] !== undefined) {
-    contents.headerDouble = __strictParseFloat(output.headers["x-double"]);
+    contents.headerDouble = __strictParseDouble(output.headers["x-double"]);
   }
   if (output.headers["x-boolean1"] !== undefined) {
     contents.headerTrueBool = __parseBoolean(output.headers["x-boolean1"]);
@@ -2839,7 +2847,7 @@ export const deserializeAws_restJson1InputAndOutputWithHeadersCommand = async (
   if (output.headers["x-integerlist"] !== undefined) {
     contents.headerIntegerList = (output.headers["x-integerlist"] || "")
       .split(",")
-      .map((_entry) => __strictParseInt(_entry.trim()) as any);
+      .map((_entry) => __strictParseInt32(_entry.trim()) as any);
   }
   if (output.headers["x-booleanlist"] !== undefined) {
     contents.headerBooleanList = (output.headers["x-booleanlist"] || "")
@@ -3759,25 +3767,25 @@ export const deserializeAws_restJson1SimpleScalarPropertiesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   if (data.byteValue !== undefined && data.byteValue !== null) {
-    contents.byteValue = __expectInt(data.byteValue);
+    contents.byteValue = __expectByte(data.byteValue);
   }
   if (data.DoubleDribble !== undefined && data.DoubleDribble !== null) {
-    contents.doubleValue = __limitedParseFloat(data.DoubleDribble);
+    contents.doubleValue = __limitedParseDouble(data.DoubleDribble);
   }
   if (data.falseBooleanValue !== undefined && data.falseBooleanValue !== null) {
     contents.falseBooleanValue = __expectBoolean(data.falseBooleanValue);
   }
   if (data.floatValue !== undefined && data.floatValue !== null) {
-    contents.floatValue = __limitedParseFloat(data.floatValue);
+    contents.floatValue = __limitedParseFloat32(data.floatValue);
   }
   if (data.integerValue !== undefined && data.integerValue !== null) {
-    contents.integerValue = __expectInt(data.integerValue);
+    contents.integerValue = __expectInt32(data.integerValue);
   }
   if (data.longValue !== undefined && data.longValue !== null) {
-    contents.longValue = __expectInt(data.longValue);
+    contents.longValue = __expectLong(data.longValue);
   }
   if (data.shortValue !== undefined && data.shortValue !== null) {
-    contents.shortValue = __expectInt(data.shortValue);
+    contents.shortValue = __expectShort(data.shortValue);
   }
   if (data.stringValue !== undefined && data.stringValue !== null) {
     contents.stringValue = __expectString(data.stringValue);
@@ -4450,7 +4458,7 @@ const deserializeAws_restJson1DenseNumberMap = (output: any, context: __SerdeCon
     }
     return {
       ...acc,
-      [key]: __expectInt(value) as any,
+      [key]: __expectInt32(value) as any,
     };
   }, {});
 };
@@ -4520,8 +4528,8 @@ const deserializeAws_restJson1MyUnion = (output: any, context: __SerdeContext): 
       mapValue: deserializeAws_restJson1StringMap(output.mapValue, context),
     };
   }
-  if (__expectInt(output.numberValue) !== undefined) {
-    return { numberValue: __expectInt(output.numberValue) as any };
+  if (__expectInt32(output.numberValue) !== undefined) {
+    return { numberValue: __expectInt32(output.numberValue) as any };
   }
   if (output.renamedStructureValue !== undefined && output.renamedStructureValue !== null) {
     return {
@@ -4596,7 +4604,7 @@ const deserializeAws_restJson1SparseNumberMap = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: __expectInt(value) as any,
+      [key]: __expectInt32(value) as any,
     };
   }, {});
 };
@@ -4713,7 +4721,7 @@ const deserializeAws_restJson1IntegerList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return __expectInt(entry) as any;
+      return __expectInt32(entry) as any;
     });
 };
 

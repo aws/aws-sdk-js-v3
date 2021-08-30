@@ -66,7 +66,7 @@ import {
   VersionMismatchException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
+import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -2626,7 +2626,7 @@ const deserializeAws_restJson1SingleMasterConfiguration = (
   context: __SerdeContext
 ): SingleMasterConfiguration => {
   return {
-    MessageTtlSeconds: __expectInt(output.MessageTtlSeconds),
+    MessageTtlSeconds: __expectInt32(output.MessageTtlSeconds),
   } as any;
 };
 
@@ -2636,7 +2636,7 @@ const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DataRetentionInHours: __expectInt(output.DataRetentionInHours),
+    DataRetentionInHours: __expectInt32(output.DataRetentionInHours),
     DeviceName: __expectString(output.DeviceName),
     KmsKeyId: __expectString(output.KmsKeyId),
     MediaType: __expectString(output.MediaType),

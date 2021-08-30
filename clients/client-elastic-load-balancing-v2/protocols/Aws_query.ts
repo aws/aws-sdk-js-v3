@@ -219,7 +219,8 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5676,7 +5677,7 @@ const deserializeAws_queryAction = (output: any, context: __SerdeContext): Actio
     );
   }
   if (output["Order"] !== undefined) {
-    contents.Order = __strictParseInt(output["Order"]) as number;
+    contents.Order = __strictParseInt32(output["Order"]) as number;
   }
   if (output["RedirectConfig"] !== undefined) {
     contents.RedirectConfig = deserializeAws_queryRedirectActionConfig(output["RedirectConfig"], context);
@@ -5810,7 +5811,7 @@ const deserializeAws_queryAuthenticateCognitoActionConfig = (
     contents.Scope = __expectString(output["Scope"]);
   }
   if (output["SessionTimeout"] !== undefined) {
-    contents.SessionTimeout = __strictParseInt(output["SessionTimeout"]) as number;
+    contents.SessionTimeout = __strictParseLong(output["SessionTimeout"]) as number;
   }
   if (output.AuthenticationRequestExtraParams === "") {
     contents.AuthenticationRequestExtraParams = {};
@@ -5889,7 +5890,7 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
     contents.Scope = __expectString(output["Scope"]);
   }
   if (output["SessionTimeout"] !== undefined) {
-    contents.SessionTimeout = __strictParseInt(output["SessionTimeout"]) as number;
+    contents.SessionTimeout = __strictParseLong(output["SessionTimeout"]) as number;
   }
   if (output.AuthenticationRequestExtraParams === "") {
     contents.AuthenticationRequestExtraParams = {};
@@ -6012,7 +6013,7 @@ const deserializeAws_queryCipher = (output: any, context: __SerdeContext): Ciphe
     contents.Name = __expectString(output["Name"]);
   }
   if (output["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt(output["Priority"]) as number;
+    contents.Priority = __strictParseInt32(output["Priority"]) as number;
   }
   return contents;
 };
@@ -6622,7 +6623,7 @@ const deserializeAws_queryListener = (output: any, context: __SerdeContext): Lis
     contents.LoadBalancerArn = __expectString(output["LoadBalancerArn"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["Protocol"] !== undefined) {
     contents.Protocol = __expectString(output["Protocol"]);
@@ -7439,7 +7440,7 @@ const deserializeAws_queryTargetDescription = (output: any, context: __SerdeCont
     contents.Id = __expectString(output["Id"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["AvailabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
@@ -7477,7 +7478,7 @@ const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): 
     contents.Protocol = __expectString(output["Protocol"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["VpcId"] !== undefined) {
     contents.VpcId = __expectString(output["VpcId"]);
@@ -7492,16 +7493,16 @@ const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): 
     contents.HealthCheckEnabled = __parseBoolean(output["HealthCheckEnabled"]);
   }
   if (output["HealthCheckIntervalSeconds"] !== undefined) {
-    contents.HealthCheckIntervalSeconds = __strictParseInt(output["HealthCheckIntervalSeconds"]) as number;
+    contents.HealthCheckIntervalSeconds = __strictParseInt32(output["HealthCheckIntervalSeconds"]) as number;
   }
   if (output["HealthCheckTimeoutSeconds"] !== undefined) {
-    contents.HealthCheckTimeoutSeconds = __strictParseInt(output["HealthCheckTimeoutSeconds"]) as number;
+    contents.HealthCheckTimeoutSeconds = __strictParseInt32(output["HealthCheckTimeoutSeconds"]) as number;
   }
   if (output["HealthyThresholdCount"] !== undefined) {
-    contents.HealthyThresholdCount = __strictParseInt(output["HealthyThresholdCount"]) as number;
+    contents.HealthyThresholdCount = __strictParseInt32(output["HealthyThresholdCount"]) as number;
   }
   if (output["UnhealthyThresholdCount"] !== undefined) {
-    contents.UnhealthyThresholdCount = __strictParseInt(output["UnhealthyThresholdCount"]) as number;
+    contents.UnhealthyThresholdCount = __strictParseInt32(output["UnhealthyThresholdCount"]) as number;
   }
   if (output["HealthCheckPath"] !== undefined) {
     contents.HealthCheckPath = __expectString(output["HealthCheckPath"]);
@@ -7612,7 +7613,7 @@ const deserializeAws_queryTargetGroupStickinessConfig = (
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["DurationSeconds"] !== undefined) {
-    contents.DurationSeconds = __strictParseInt(output["DurationSeconds"]) as number;
+    contents.DurationSeconds = __strictParseInt32(output["DurationSeconds"]) as number;
   }
   return contents;
 };
@@ -7626,7 +7627,7 @@ const deserializeAws_queryTargetGroupTuple = (output: any, context: __SerdeConte
     contents.TargetGroupArn = __expectString(output["TargetGroupArn"]);
   }
   if (output["Weight"] !== undefined) {
-    contents.Weight = __strictParseInt(output["Weight"]) as number;
+    contents.Weight = __strictParseInt32(output["Weight"]) as number;
   }
   return contents;
 };

@@ -352,12 +352,13 @@ import {
 } from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
-  strictParseInt as __strictParseInt,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3680,7 +3681,7 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
     contents.PipelineDetails = deserializeAws_restJson1__listOfPipelineDetail(data.pipelineDetails, context);
   }
   if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
-    contents.PipelinesRunningCount = __expectInt(data.pipelinesRunningCount);
+    contents.PipelinesRunningCount = __expectInt32(data.pipelinesRunningCount);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.RoleArn = __expectString(data.roleArn);
@@ -4036,10 +4037,10 @@ export const deserializeAws_restJson1DeleteMultiplexCommand = async (
     contents.Name = __expectString(data.name);
   }
   if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
-    contents.PipelinesRunningCount = __expectInt(data.pipelinesRunningCount);
+    contents.PipelinesRunningCount = __expectInt32(data.pipelinesRunningCount);
   }
   if (data.programCount !== undefined && data.programCount !== null) {
-    contents.ProgramCount = __expectInt(data.programCount);
+    contents.ProgramCount = __expectInt32(data.programCount);
   }
   if (data.state !== undefined && data.state !== null) {
     contents.State = __expectString(data.state);
@@ -4312,13 +4313,13 @@ export const deserializeAws_restJson1DeleteReservationCommand = async (
     contents.Arn = __expectString(data.arn);
   }
   if (data.count !== undefined && data.count !== null) {
-    contents.Count = __expectInt(data.count);
+    contents.Count = __expectInt32(data.count);
   }
   if (data.currencyCode !== undefined && data.currencyCode !== null) {
     contents.CurrencyCode = __expectString(data.currencyCode);
   }
   if (data.duration !== undefined && data.duration !== null) {
-    contents.Duration = __expectInt(data.duration);
+    contents.Duration = __expectInt32(data.duration);
   }
   if (data.durationUnits !== undefined && data.durationUnits !== null) {
     contents.DurationUnits = __expectString(data.durationUnits);
@@ -4327,7 +4328,7 @@ export const deserializeAws_restJson1DeleteReservationCommand = async (
     contents.End = __expectString(data.end);
   }
   if (data.fixedPrice !== undefined && data.fixedPrice !== null) {
-    contents.FixedPrice = __limitedParseFloat(data.fixedPrice);
+    contents.FixedPrice = __limitedParseDouble(data.fixedPrice);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = __expectString(data.name);
@@ -4363,7 +4364,7 @@ export const deserializeAws_restJson1DeleteReservationCommand = async (
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.usagePrice !== undefined && data.usagePrice !== null) {
-    contents.UsagePrice = __limitedParseFloat(data.usagePrice);
+    contents.UsagePrice = __limitedParseDouble(data.usagePrice);
   }
   return Promise.resolve(contents);
 };
@@ -4700,7 +4701,7 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
     contents.PipelineDetails = deserializeAws_restJson1__listOfPipelineDetail(data.pipelineDetails, context);
   }
   if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
-    contents.PipelinesRunningCount = __expectInt(data.pipelinesRunningCount);
+    contents.PipelinesRunningCount = __expectInt32(data.pipelinesRunningCount);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.RoleArn = __expectString(data.roleArn);
@@ -5131,7 +5132,7 @@ export const deserializeAws_restJson1DescribeInputDeviceThumbnailCommand = async
     contents.ContentType = output.headers["content-type"];
   }
   if (output.headers["content-length"] !== undefined) {
-    contents.ContentLength = __strictParseInt(output.headers["content-length"]);
+    contents.ContentLength = __strictParseLong(output.headers["content-length"]);
   }
   if (output.headers["etag"] !== undefined) {
     contents.ETag = output.headers["etag"];
@@ -5392,10 +5393,10 @@ export const deserializeAws_restJson1DescribeMultiplexCommand = async (
     contents.Name = __expectString(data.name);
   }
   if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
-    contents.PipelinesRunningCount = __expectInt(data.pipelinesRunningCount);
+    contents.PipelinesRunningCount = __expectInt32(data.pipelinesRunningCount);
   }
   if (data.programCount !== undefined && data.programCount !== null) {
-    contents.ProgramCount = __expectInt(data.programCount);
+    contents.ProgramCount = __expectInt32(data.programCount);
   }
   if (data.state !== undefined && data.state !== null) {
     contents.State = __expectString(data.state);
@@ -5648,13 +5649,13 @@ export const deserializeAws_restJson1DescribeOfferingCommand = async (
     contents.CurrencyCode = __expectString(data.currencyCode);
   }
   if (data.duration !== undefined && data.duration !== null) {
-    contents.Duration = __expectInt(data.duration);
+    contents.Duration = __expectInt32(data.duration);
   }
   if (data.durationUnits !== undefined && data.durationUnits !== null) {
     contents.DurationUnits = __expectString(data.durationUnits);
   }
   if (data.fixedPrice !== undefined && data.fixedPrice !== null) {
-    contents.FixedPrice = __limitedParseFloat(data.fixedPrice);
+    contents.FixedPrice = __limitedParseDouble(data.fixedPrice);
   }
   if (data.offeringDescription !== undefined && data.offeringDescription !== null) {
     contents.OfferingDescription = __expectString(data.offeringDescription);
@@ -5675,7 +5676,7 @@ export const deserializeAws_restJson1DescribeOfferingCommand = async (
     );
   }
   if (data.usagePrice !== undefined && data.usagePrice !== null) {
-    contents.UsagePrice = __limitedParseFloat(data.usagePrice);
+    contents.UsagePrice = __limitedParseDouble(data.usagePrice);
   }
   return Promise.resolve(contents);
 };
@@ -5798,13 +5799,13 @@ export const deserializeAws_restJson1DescribeReservationCommand = async (
     contents.Arn = __expectString(data.arn);
   }
   if (data.count !== undefined && data.count !== null) {
-    contents.Count = __expectInt(data.count);
+    contents.Count = __expectInt32(data.count);
   }
   if (data.currencyCode !== undefined && data.currencyCode !== null) {
     contents.CurrencyCode = __expectString(data.currencyCode);
   }
   if (data.duration !== undefined && data.duration !== null) {
-    contents.Duration = __expectInt(data.duration);
+    contents.Duration = __expectInt32(data.duration);
   }
   if (data.durationUnits !== undefined && data.durationUnits !== null) {
     contents.DurationUnits = __expectString(data.durationUnits);
@@ -5813,7 +5814,7 @@ export const deserializeAws_restJson1DescribeReservationCommand = async (
     contents.End = __expectString(data.end);
   }
   if (data.fixedPrice !== undefined && data.fixedPrice !== null) {
-    contents.FixedPrice = __limitedParseFloat(data.fixedPrice);
+    contents.FixedPrice = __limitedParseDouble(data.fixedPrice);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = __expectString(data.name);
@@ -5849,7 +5850,7 @@ export const deserializeAws_restJson1DescribeReservationCommand = async (
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.usagePrice !== undefined && data.usagePrice !== null) {
-    contents.UsagePrice = __limitedParseFloat(data.usagePrice);
+    contents.UsagePrice = __limitedParseDouble(data.usagePrice);
   }
   return Promise.resolve(contents);
 };
@@ -7332,7 +7333,7 @@ export const deserializeAws_restJson1StartChannelCommand = async (
     contents.PipelineDetails = deserializeAws_restJson1__listOfPipelineDetail(data.pipelineDetails, context);
   }
   if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
-    contents.PipelinesRunningCount = __expectInt(data.pipelinesRunningCount);
+    contents.PipelinesRunningCount = __expectInt32(data.pipelinesRunningCount);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.RoleArn = __expectString(data.roleArn);
@@ -7482,10 +7483,10 @@ export const deserializeAws_restJson1StartMultiplexCommand = async (
     contents.Name = __expectString(data.name);
   }
   if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
-    contents.PipelinesRunningCount = __expectInt(data.pipelinesRunningCount);
+    contents.PipelinesRunningCount = __expectInt32(data.pipelinesRunningCount);
   }
   if (data.programCount !== undefined && data.programCount !== null) {
-    contents.ProgramCount = __expectInt(data.programCount);
+    contents.ProgramCount = __expectInt32(data.programCount);
   }
   if (data.state !== undefined && data.state !== null) {
     contents.State = __expectString(data.state);
@@ -7654,7 +7655,7 @@ export const deserializeAws_restJson1StopChannelCommand = async (
     contents.PipelineDetails = deserializeAws_restJson1__listOfPipelineDetail(data.pipelineDetails, context);
   }
   if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
-    contents.PipelinesRunningCount = __expectInt(data.pipelinesRunningCount);
+    contents.PipelinesRunningCount = __expectInt32(data.pipelinesRunningCount);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.RoleArn = __expectString(data.roleArn);
@@ -7804,10 +7805,10 @@ export const deserializeAws_restJson1StopMultiplexCommand = async (
     contents.Name = __expectString(data.name);
   }
   if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
-    contents.PipelinesRunningCount = __expectInt(data.pipelinesRunningCount);
+    contents.PipelinesRunningCount = __expectInt32(data.pipelinesRunningCount);
   }
   if (data.programCount !== undefined && data.programCount !== null) {
-    contents.ProgramCount = __expectInt(data.programCount);
+    contents.ProgramCount = __expectInt32(data.programCount);
   }
   if (data.state !== undefined && data.state !== null) {
     contents.State = __expectString(data.state);
@@ -12254,7 +12255,7 @@ const deserializeAws_restJson1__listOf__integer = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return __expectInt(entry) as any;
+      return __expectInt32(entry) as any;
     });
 };
 
@@ -12799,13 +12800,13 @@ const deserializeAws_restJson1__listOfVideoDescription = (output: any, context: 
 
 const deserializeAws_restJson1AacSettings = (output: any, context: __SerdeContext): AacSettings => {
   return {
-    Bitrate: __limitedParseFloat(output.bitrate),
+    Bitrate: __limitedParseDouble(output.bitrate),
     CodingMode: __expectString(output.codingMode),
     InputType: __expectString(output.inputType),
     Profile: __expectString(output.profile),
     RateControlMode: __expectString(output.rateControlMode),
     RawFormat: __expectString(output.rawFormat),
-    SampleRate: __limitedParseFloat(output.sampleRate),
+    SampleRate: __limitedParseDouble(output.sampleRate),
     Spec: __expectString(output.spec),
     VbrQuality: __expectString(output.vbrQuality),
   } as any;
@@ -12813,10 +12814,10 @@ const deserializeAws_restJson1AacSettings = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Ac3Settings = (output: any, context: __SerdeContext): Ac3Settings => {
   return {
-    Bitrate: __limitedParseFloat(output.bitrate),
+    Bitrate: __limitedParseDouble(output.bitrate),
     BitstreamMode: __expectString(output.bitstreamMode),
     CodingMode: __expectString(output.codingMode),
-    Dialnorm: __expectInt(output.dialnorm),
+    Dialnorm: __expectInt32(output.dialnorm),
     DrcProfile: __expectString(output.drcProfile),
     LfeFilter: __expectString(output.lfeFilter),
     MetadataControl: __expectString(output.metadataControl),
@@ -12828,7 +12829,7 @@ const deserializeAws_restJson1AncillarySourceSettings = (
   context: __SerdeContext
 ): AncillarySourceSettings => {
   return {
-    SourceAncillaryChannelNumber: __expectInt(output.sourceAncillaryChannelNumber),
+    SourceAncillaryChannelNumber: __expectInt32(output.sourceAncillaryChannelNumber),
   } as any;
 };
 
@@ -12867,7 +12868,7 @@ const deserializeAws_restJson1ArchiveGroupSettings = (output: any, context: __Se
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_restJson1OutputLocationRef(output.destination, context)
         : undefined,
-    RolloverInterval: __expectInt(output.rolloverInterval),
+    RolloverInterval: __expectInt32(output.rolloverInterval),
   } as any;
 };
 
@@ -12905,7 +12906,7 @@ const deserializeAws_restJson1AudioChannelMapping = (output: any, context: __Ser
       output.inputChannelLevels !== undefined && output.inputChannelLevels !== null
         ? deserializeAws_restJson1__listOfInputChannelLevel(output.inputChannelLevels, context)
         : undefined,
-    OutputChannel: __expectInt(output.outputChannel),
+    OutputChannel: __expectInt32(output.outputChannel),
   } as any;
 };
 
@@ -12989,7 +12990,7 @@ const deserializeAws_restJson1AudioNormalizationSettings = (
   return {
     Algorithm: __expectString(output.algorithm),
     AlgorithmControl: __expectString(output.algorithmControl),
-    TargetLkfs: __limitedParseFloat(output.targetLkfs),
+    TargetLkfs: __limitedParseDouble(output.targetLkfs),
   } as any;
 };
 
@@ -13007,7 +13008,7 @@ const deserializeAws_restJson1AudioOnlyHlsSettings = (output: any, context: __Se
 
 const deserializeAws_restJson1AudioPidSelection = (output: any, context: __SerdeContext): AudioPidSelection => {
   return {
-    Pid: __expectInt(output.pid),
+    Pid: __expectInt32(output.pid),
   } as any;
 };
 
@@ -13048,13 +13049,13 @@ const deserializeAws_restJson1AudioSilenceFailoverSettings = (
 ): AudioSilenceFailoverSettings => {
   return {
     AudioSelectorName: __expectString(output.audioSelectorName),
-    AudioSilenceThresholdMsec: __expectInt(output.audioSilenceThresholdMsec),
+    AudioSilenceThresholdMsec: __expectInt32(output.audioSilenceThresholdMsec),
   } as any;
 };
 
 const deserializeAws_restJson1AudioTrack = (output: any, context: __SerdeContext): AudioTrack => {
   return {
-    Track: __expectInt(output.track),
+    Track: __expectInt32(output.track),
   } as any;
 };
 
@@ -13072,7 +13073,7 @@ const deserializeAws_restJson1AutomaticInputFailoverSettings = (
   context: __SerdeContext
 ): AutomaticInputFailoverSettings => {
   return {
-    ErrorClearTimeMsec: __expectInt(output.errorClearTimeMsec),
+    ErrorClearTimeMsec: __expectInt32(output.errorClearTimeMsec),
     FailoverConditions:
       output.failoverConditions !== undefined && output.failoverConditions !== null
         ? deserializeAws_restJson1__listOfFailoverCondition(output.failoverConditions, context)
@@ -13184,24 +13185,24 @@ const deserializeAws_restJson1BurnInDestinationSettings = (
   return {
     Alignment: __expectString(output.alignment),
     BackgroundColor: __expectString(output.backgroundColor),
-    BackgroundOpacity: __expectInt(output.backgroundOpacity),
+    BackgroundOpacity: __expectInt32(output.backgroundOpacity),
     Font:
       output.font !== undefined && output.font !== null
         ? deserializeAws_restJson1InputLocation(output.font, context)
         : undefined,
     FontColor: __expectString(output.fontColor),
-    FontOpacity: __expectInt(output.fontOpacity),
-    FontResolution: __expectInt(output.fontResolution),
+    FontOpacity: __expectInt32(output.fontOpacity),
+    FontResolution: __expectInt32(output.fontResolution),
     FontSize: __expectString(output.fontSize),
     OutlineColor: __expectString(output.outlineColor),
-    OutlineSize: __expectInt(output.outlineSize),
+    OutlineSize: __expectInt32(output.outlineSize),
     ShadowColor: __expectString(output.shadowColor),
-    ShadowOpacity: __expectInt(output.shadowOpacity),
-    ShadowXOffset: __expectInt(output.shadowXOffset),
-    ShadowYOffset: __expectInt(output.shadowYOffset),
+    ShadowOpacity: __expectInt32(output.shadowOpacity),
+    ShadowXOffset: __expectInt32(output.shadowXOffset),
+    ShadowYOffset: __expectInt32(output.shadowYOffset),
     TeletextGridControl: __expectString(output.teletextGridControl),
-    XPosition: __expectInt(output.xPosition),
-    YPosition: __expectInt(output.yPosition),
+    XPosition: __expectInt32(output.xPosition),
+    YPosition: __expectInt32(output.yPosition),
   } as any;
 };
 
@@ -13291,7 +13292,7 @@ const deserializeAws_restJson1CaptionLanguageMapping = (
   context: __SerdeContext
 ): CaptionLanguageMapping => {
   return {
-    CaptionChannel: __expectInt(output.captionChannel),
+    CaptionChannel: __expectInt32(output.captionChannel),
     LanguageCode: __expectString(output.languageCode),
     LanguageDescription: __expectString(output.languageDescription),
   } as any;
@@ -13299,10 +13300,10 @@ const deserializeAws_restJson1CaptionLanguageMapping = (
 
 const deserializeAws_restJson1CaptionRectangle = (output: any, context: __SerdeContext): CaptionRectangle => {
   return {
-    Height: __limitedParseFloat(output.height),
-    LeftOffset: __limitedParseFloat(output.leftOffset),
-    TopOffset: __limitedParseFloat(output.topOffset),
-    Width: __limitedParseFloat(output.width),
+    Height: __limitedParseDouble(output.height),
+    LeftOffset: __limitedParseDouble(output.leftOffset),
+    TopOffset: __limitedParseDouble(output.topOffset),
+    Width: __limitedParseDouble(output.width),
   } as any;
 };
 
@@ -13394,7 +13395,7 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
       output.pipelineDetails !== undefined && output.pipelineDetails !== null
         ? deserializeAws_restJson1__listOfPipelineDetail(output.pipelineDetails, context)
         : undefined,
-    PipelinesRunningCount: __expectInt(output.pipelinesRunningCount),
+    PipelinesRunningCount: __expectInt32(output.pipelinesRunningCount),
     RoleArn: __expectString(output.roleArn),
     State: __expectString(output.state),
     Tags:
@@ -13441,7 +13442,7 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
         : undefined,
     LogLevel: __expectString(output.logLevel),
     Name: __expectString(output.name),
-    PipelinesRunningCount: __expectInt(output.pipelinesRunningCount),
+    PipelinesRunningCount: __expectInt32(output.pipelinesRunningCount),
     RoleArn: __expectString(output.roleArn),
     State: __expectString(output.state),
     Tags:
@@ -13464,16 +13465,16 @@ const deserializeAws_restJson1ColorSpacePassthroughSettings = (
 
 const deserializeAws_restJson1DvbNitSettings = (output: any, context: __SerdeContext): DvbNitSettings => {
   return {
-    NetworkId: __expectInt(output.networkId),
+    NetworkId: __expectInt32(output.networkId),
     NetworkName: __expectString(output.networkName),
-    RepInterval: __expectInt(output.repInterval),
+    RepInterval: __expectInt32(output.repInterval),
   } as any;
 };
 
 const deserializeAws_restJson1DvbSdtSettings = (output: any, context: __SerdeContext): DvbSdtSettings => {
   return {
     OutputSdt: __expectString(output.outputSdt),
-    RepInterval: __expectInt(output.repInterval),
+    RepInterval: __expectInt32(output.repInterval),
     ServiceName: __expectString(output.serviceName),
     ServiceProviderName: __expectString(output.serviceProviderName),
   } as any;
@@ -13486,56 +13487,56 @@ const deserializeAws_restJson1DvbSubDestinationSettings = (
   return {
     Alignment: __expectString(output.alignment),
     BackgroundColor: __expectString(output.backgroundColor),
-    BackgroundOpacity: __expectInt(output.backgroundOpacity),
+    BackgroundOpacity: __expectInt32(output.backgroundOpacity),
     Font:
       output.font !== undefined && output.font !== null
         ? deserializeAws_restJson1InputLocation(output.font, context)
         : undefined,
     FontColor: __expectString(output.fontColor),
-    FontOpacity: __expectInt(output.fontOpacity),
-    FontResolution: __expectInt(output.fontResolution),
+    FontOpacity: __expectInt32(output.fontOpacity),
+    FontResolution: __expectInt32(output.fontResolution),
     FontSize: __expectString(output.fontSize),
     OutlineColor: __expectString(output.outlineColor),
-    OutlineSize: __expectInt(output.outlineSize),
+    OutlineSize: __expectInt32(output.outlineSize),
     ShadowColor: __expectString(output.shadowColor),
-    ShadowOpacity: __expectInt(output.shadowOpacity),
-    ShadowXOffset: __expectInt(output.shadowXOffset),
-    ShadowYOffset: __expectInt(output.shadowYOffset),
+    ShadowOpacity: __expectInt32(output.shadowOpacity),
+    ShadowXOffset: __expectInt32(output.shadowXOffset),
+    ShadowYOffset: __expectInt32(output.shadowYOffset),
     TeletextGridControl: __expectString(output.teletextGridControl),
-    XPosition: __expectInt(output.xPosition),
-    YPosition: __expectInt(output.yPosition),
+    XPosition: __expectInt32(output.xPosition),
+    YPosition: __expectInt32(output.yPosition),
   } as any;
 };
 
 const deserializeAws_restJson1DvbSubSourceSettings = (output: any, context: __SerdeContext): DvbSubSourceSettings => {
   return {
     OcrLanguage: __expectString(output.ocrLanguage),
-    Pid: __expectInt(output.pid),
+    Pid: __expectInt32(output.pid),
   } as any;
 };
 
 const deserializeAws_restJson1DvbTdtSettings = (output: any, context: __SerdeContext): DvbTdtSettings => {
   return {
-    RepInterval: __expectInt(output.repInterval),
+    RepInterval: __expectInt32(output.repInterval),
   } as any;
 };
 
 const deserializeAws_restJson1Eac3Settings = (output: any, context: __SerdeContext): Eac3Settings => {
   return {
     AttenuationControl: __expectString(output.attenuationControl),
-    Bitrate: __limitedParseFloat(output.bitrate),
+    Bitrate: __limitedParseDouble(output.bitrate),
     BitstreamMode: __expectString(output.bitstreamMode),
     CodingMode: __expectString(output.codingMode),
     DcFilter: __expectString(output.dcFilter),
-    Dialnorm: __expectInt(output.dialnorm),
+    Dialnorm: __expectInt32(output.dialnorm),
     DrcLine: __expectString(output.drcLine),
     DrcRf: __expectString(output.drcRf),
     LfeControl: __expectString(output.lfeControl),
     LfeFilter: __expectString(output.lfeFilter),
-    LoRoCenterMixLevel: __limitedParseFloat(output.loRoCenterMixLevel),
-    LoRoSurroundMixLevel: __limitedParseFloat(output.loRoSurroundMixLevel),
-    LtRtCenterMixLevel: __limitedParseFloat(output.ltRtCenterMixLevel),
-    LtRtSurroundMixLevel: __limitedParseFloat(output.ltRtSurroundMixLevel),
+    LoRoCenterMixLevel: __limitedParseDouble(output.loRoCenterMixLevel),
+    LoRoSurroundMixLevel: __limitedParseDouble(output.loRoSurroundMixLevel),
+    LtRtCenterMixLevel: __limitedParseDouble(output.ltRtCenterMixLevel),
+    LtRtSurroundMixLevel: __limitedParseDouble(output.ltRtSurroundMixLevel),
     MetadataControl: __expectString(output.metadataControl),
     PassthroughControl: __expectString(output.passthroughControl),
     PhaseControl: __expectString(output.phaseControl),
@@ -13578,8 +13579,8 @@ const deserializeAws_restJson1EmbeddedSourceSettings = (
   return {
     Convert608To708: __expectString(output.convert608To708),
     Scte20Detection: __expectString(output.scte20Detection),
-    Source608ChannelNumber: __expectInt(output.source608ChannelNumber),
-    Source608TrackNumber: __expectInt(output.source608TrackNumber),
+    Source608ChannelNumber: __expectInt32(output.source608ChannelNumber),
+    Source608TrackNumber: __expectInt32(output.source608TrackNumber),
   } as any;
 };
 
@@ -13673,9 +13674,9 @@ const deserializeAws_restJson1FeatureActivations = (output: any, context: __Serd
 
 const deserializeAws_restJson1FecOutputSettings = (output: any, context: __SerdeContext): FecOutputSettings => {
   return {
-    ColumnDepth: __expectInt(output.columnDepth),
+    ColumnDepth: __expectInt32(output.columnDepth),
     IncludeFec: __expectString(output.includeFec),
-    RowLength: __expectInt(output.rowLength),
+    RowLength: __expectInt32(output.rowLength),
   } as any;
 };
 
@@ -13761,14 +13762,14 @@ const deserializeAws_restJson1FrameCaptureS3Settings = (
 
 const deserializeAws_restJson1FrameCaptureSettings = (output: any, context: __SerdeContext): FrameCaptureSettings => {
   return {
-    CaptureInterval: __expectInt(output.captureInterval),
+    CaptureInterval: __expectInt32(output.captureInterval),
     CaptureIntervalUnits: __expectString(output.captureIntervalUnits),
   } as any;
 };
 
 const deserializeAws_restJson1GlobalConfiguration = (output: any, context: __SerdeContext): GlobalConfiguration => {
   return {
-    InitialAudioGain: __expectInt(output.initialAudioGain),
+    InitialAudioGain: __expectInt32(output.initialAudioGain),
     InputEndAction: __expectString(output.inputEndAction),
     InputLossBehavior:
       output.inputLossBehavior !== undefined && output.inputLossBehavior !== null
@@ -13813,9 +13814,9 @@ const deserializeAws_restJson1H264Settings = (output: any, context: __SerdeConte
   return {
     AdaptiveQuantization: __expectString(output.adaptiveQuantization),
     AfdSignaling: __expectString(output.afdSignaling),
-    Bitrate: __expectInt(output.bitrate),
-    BufFillPct: __expectInt(output.bufFillPct),
-    BufSize: __expectInt(output.bufSize),
+    Bitrate: __expectInt32(output.bitrate),
+    BufFillPct: __expectInt32(output.bufFillPct),
+    BufSize: __expectInt32(output.bufSize),
     ColorMetadata: __expectString(output.colorMetadata),
     ColorSpaceSettings:
       output.colorSpaceSettings !== undefined && output.colorSpaceSettings !== null
@@ -13830,29 +13831,29 @@ const deserializeAws_restJson1H264Settings = (output: any, context: __SerdeConte
     FlickerAq: __expectString(output.flickerAq),
     ForceFieldPictures: __expectString(output.forceFieldPictures),
     FramerateControl: __expectString(output.framerateControl),
-    FramerateDenominator: __expectInt(output.framerateDenominator),
-    FramerateNumerator: __expectInt(output.framerateNumerator),
+    FramerateDenominator: __expectInt32(output.framerateDenominator),
+    FramerateNumerator: __expectInt32(output.framerateNumerator),
     GopBReference: __expectString(output.gopBReference),
-    GopClosedCadence: __expectInt(output.gopClosedCadence),
-    GopNumBFrames: __expectInt(output.gopNumBFrames),
-    GopSize: __limitedParseFloat(output.gopSize),
+    GopClosedCadence: __expectInt32(output.gopClosedCadence),
+    GopNumBFrames: __expectInt32(output.gopNumBFrames),
+    GopSize: __limitedParseDouble(output.gopSize),
     GopSizeUnits: __expectString(output.gopSizeUnits),
     Level: __expectString(output.level),
     LookAheadRateControl: __expectString(output.lookAheadRateControl),
-    MaxBitrate: __expectInt(output.maxBitrate),
-    MinIInterval: __expectInt(output.minIInterval),
-    NumRefFrames: __expectInt(output.numRefFrames),
+    MaxBitrate: __expectInt32(output.maxBitrate),
+    MinIInterval: __expectInt32(output.minIInterval),
+    NumRefFrames: __expectInt32(output.numRefFrames),
     ParControl: __expectString(output.parControl),
-    ParDenominator: __expectInt(output.parDenominator),
-    ParNumerator: __expectInt(output.parNumerator),
+    ParDenominator: __expectInt32(output.parDenominator),
+    ParNumerator: __expectInt32(output.parNumerator),
     Profile: __expectString(output.profile),
     QualityLevel: __expectString(output.qualityLevel),
-    QvbrQualityLevel: __expectInt(output.qvbrQualityLevel),
+    QvbrQualityLevel: __expectInt32(output.qvbrQualityLevel),
     RateControlMode: __expectString(output.rateControlMode),
     ScanType: __expectString(output.scanType),
     SceneChangeDetect: __expectString(output.sceneChangeDetect),
-    Slices: __expectInt(output.slices),
-    Softness: __expectInt(output.softness),
+    Slices: __expectInt32(output.slices),
+    Softness: __expectInt32(output.softness),
     SpatialAq: __expectString(output.spatialAq),
     SubgopLength: __expectString(output.subgopLength),
     Syntax: __expectString(output.syntax),
@@ -13899,8 +13900,8 @@ const deserializeAws_restJson1H265Settings = (output: any, context: __SerdeConte
     AdaptiveQuantization: __expectString(output.adaptiveQuantization),
     AfdSignaling: __expectString(output.afdSignaling),
     AlternativeTransferFunction: __expectString(output.alternativeTransferFunction),
-    Bitrate: __expectInt(output.bitrate),
-    BufSize: __expectInt(output.bufSize),
+    Bitrate: __expectInt32(output.bitrate),
+    BufSize: __expectInt32(output.bufSize),
     ColorMetadata: __expectString(output.colorMetadata),
     ColorSpaceSettings:
       output.colorSpaceSettings !== undefined && output.colorSpaceSettings !== null
@@ -13912,23 +13913,23 @@ const deserializeAws_restJson1H265Settings = (output: any, context: __SerdeConte
         : undefined,
     FixedAfd: __expectString(output.fixedAfd),
     FlickerAq: __expectString(output.flickerAq),
-    FramerateDenominator: __expectInt(output.framerateDenominator),
-    FramerateNumerator: __expectInt(output.framerateNumerator),
-    GopClosedCadence: __expectInt(output.gopClosedCadence),
-    GopSize: __limitedParseFloat(output.gopSize),
+    FramerateDenominator: __expectInt32(output.framerateDenominator),
+    FramerateNumerator: __expectInt32(output.framerateNumerator),
+    GopClosedCadence: __expectInt32(output.gopClosedCadence),
+    GopSize: __limitedParseDouble(output.gopSize),
     GopSizeUnits: __expectString(output.gopSizeUnits),
     Level: __expectString(output.level),
     LookAheadRateControl: __expectString(output.lookAheadRateControl),
-    MaxBitrate: __expectInt(output.maxBitrate),
-    MinIInterval: __expectInt(output.minIInterval),
-    ParDenominator: __expectInt(output.parDenominator),
-    ParNumerator: __expectInt(output.parNumerator),
+    MaxBitrate: __expectInt32(output.maxBitrate),
+    MinIInterval: __expectInt32(output.minIInterval),
+    ParDenominator: __expectInt32(output.parDenominator),
+    ParNumerator: __expectInt32(output.parNumerator),
     Profile: __expectString(output.profile),
-    QvbrQualityLevel: __expectInt(output.qvbrQualityLevel),
+    QvbrQualityLevel: __expectInt32(output.qvbrQualityLevel),
     RateControlMode: __expectString(output.rateControlMode),
     ScanType: __expectString(output.scanType),
     SceneChangeDetect: __expectString(output.sceneChangeDetect),
-    Slices: __expectInt(output.slices),
+    Slices: __expectInt32(output.slices),
     Tier: __expectString(output.tier),
     TimecodeInsertion: __expectString(output.timecodeInsertion),
   } as any;
@@ -13936,18 +13937,18 @@ const deserializeAws_restJson1H265Settings = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Hdr10Settings = (output: any, context: __SerdeContext): Hdr10Settings => {
   return {
-    MaxCll: __expectInt(output.maxCll),
-    MaxFall: __expectInt(output.maxFall),
+    MaxCll: __expectInt32(output.maxCll),
+    MaxFall: __expectInt32(output.maxFall),
   } as any;
 };
 
 const deserializeAws_restJson1HlsAkamaiSettings = (output: any, context: __SerdeContext): HlsAkamaiSettings => {
   return {
-    ConnectionRetryInterval: __expectInt(output.connectionRetryInterval),
-    FilecacheDuration: __expectInt(output.filecacheDuration),
+    ConnectionRetryInterval: __expectInt32(output.connectionRetryInterval),
+    FilecacheDuration: __expectInt32(output.filecacheDuration),
     HttpTransferMode: __expectString(output.httpTransferMode),
-    NumRetries: __expectInt(output.numRetries),
-    RestartDelay: __expectInt(output.restartDelay),
+    NumRetries: __expectInt32(output.numRetries),
+    RestartDelay: __expectInt32(output.restartDelay),
     Salt: __expectString(output.salt),
     Token: __expectString(output.token),
   } as any;
@@ -13955,10 +13956,10 @@ const deserializeAws_restJson1HlsAkamaiSettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1HlsBasicPutSettings = (output: any, context: __SerdeContext): HlsBasicPutSettings => {
   return {
-    ConnectionRetryInterval: __expectInt(output.connectionRetryInterval),
-    FilecacheDuration: __expectInt(output.filecacheDuration),
-    NumRetries: __expectInt(output.numRetries),
-    RestartDelay: __expectInt(output.restartDelay),
+    ConnectionRetryInterval: __expectInt32(output.connectionRetryInterval),
+    FilecacheDuration: __expectInt32(output.filecacheDuration),
+    NumRetries: __expectInt32(output.numRetries),
+    RestartDelay: __expectInt32(output.restartDelay),
   } as any;
 };
 
@@ -14019,11 +14020,11 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
     HlsId3SegmentTagging: __expectString(output.hlsId3SegmentTagging),
     IFrameOnlyPlaylists: __expectString(output.iFrameOnlyPlaylists),
     IncompleteSegmentBehavior: __expectString(output.incompleteSegmentBehavior),
-    IndexNSegments: __expectInt(output.indexNSegments),
+    IndexNSegments: __expectInt32(output.indexNSegments),
     InputLossAction: __expectString(output.inputLossAction),
     IvInManifest: __expectString(output.ivInManifest),
     IvSource: __expectString(output.ivSource),
-    KeepSegments: __expectInt(output.keepSegments),
+    KeepSegments: __expectInt32(output.keepSegments),
     KeyFormat: __expectString(output.keyFormat),
     KeyFormatVersions: __expectString(output.keyFormatVersions),
     KeyProviderSettings:
@@ -14032,19 +14033,19 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
         : undefined,
     ManifestCompression: __expectString(output.manifestCompression),
     ManifestDurationFormat: __expectString(output.manifestDurationFormat),
-    MinSegmentLength: __expectInt(output.minSegmentLength),
+    MinSegmentLength: __expectInt32(output.minSegmentLength),
     Mode: __expectString(output.mode),
     OutputSelection: __expectString(output.outputSelection),
     ProgramDateTime: __expectString(output.programDateTime),
-    ProgramDateTimePeriod: __expectInt(output.programDateTimePeriod),
+    ProgramDateTimePeriod: __expectInt32(output.programDateTimePeriod),
     RedundantManifest: __expectString(output.redundantManifest),
-    SegmentLength: __expectInt(output.segmentLength),
+    SegmentLength: __expectInt32(output.segmentLength),
     SegmentationMode: __expectString(output.segmentationMode),
-    SegmentsPerSubdirectory: __expectInt(output.segmentsPerSubdirectory),
+    SegmentsPerSubdirectory: __expectInt32(output.segmentsPerSubdirectory),
     StreamInfResolution: __expectString(output.streamInfResolution),
     TimedMetadataId3Frame: __expectString(output.timedMetadataId3Frame),
-    TimedMetadataId3Period: __expectInt(output.timedMetadataId3Period),
-    TimestampDeltaMilliseconds: __expectInt(output.timestampDeltaMilliseconds),
+    TimedMetadataId3Period: __expectInt32(output.timedMetadataId3Period),
+    TimestampDeltaMilliseconds: __expectInt32(output.timestampDeltaMilliseconds),
     TsFileMode: __expectString(output.tsFileMode),
   } as any;
 };
@@ -14060,21 +14061,21 @@ const deserializeAws_restJson1HlsId3SegmentTaggingScheduleActionSettings = (
 
 const deserializeAws_restJson1HlsInputSettings = (output: any, context: __SerdeContext): HlsInputSettings => {
   return {
-    Bandwidth: __expectInt(output.bandwidth),
-    BufferSegments: __expectInt(output.bufferSegments),
-    Retries: __expectInt(output.retries),
-    RetryInterval: __expectInt(output.retryInterval),
+    Bandwidth: __expectInt32(output.bandwidth),
+    BufferSegments: __expectInt32(output.bufferSegments),
+    Retries: __expectInt32(output.retries),
+    RetryInterval: __expectInt32(output.retryInterval),
     Scte35Source: __expectString(output.scte35Source),
   } as any;
 };
 
 const deserializeAws_restJson1HlsMediaStoreSettings = (output: any, context: __SerdeContext): HlsMediaStoreSettings => {
   return {
-    ConnectionRetryInterval: __expectInt(output.connectionRetryInterval),
-    FilecacheDuration: __expectInt(output.filecacheDuration),
+    ConnectionRetryInterval: __expectInt32(output.connectionRetryInterval),
+    FilecacheDuration: __expectInt32(output.filecacheDuration),
     MediaStoreStorageClass: __expectString(output.mediaStoreStorageClass),
-    NumRetries: __expectInt(output.numRetries),
-    RestartDelay: __expectInt(output.restartDelay),
+    NumRetries: __expectInt32(output.numRetries),
+    RestartDelay: __expectInt32(output.restartDelay),
   } as any;
 };
 
@@ -14128,11 +14129,11 @@ const deserializeAws_restJson1HlsTimedMetadataScheduleActionSettings = (
 
 const deserializeAws_restJson1HlsWebdavSettings = (output: any, context: __SerdeContext): HlsWebdavSettings => {
   return {
-    ConnectionRetryInterval: __expectInt(output.connectionRetryInterval),
-    FilecacheDuration: __expectInt(output.filecacheDuration),
+    ConnectionRetryInterval: __expectInt32(output.connectionRetryInterval),
+    FilecacheDuration: __expectInt32(output.filecacheDuration),
     HttpTransferMode: __expectString(output.httpTransferMode),
-    NumRetries: __expectInt(output.numRetries),
-    RestartDelay: __expectInt(output.restartDelay),
+    NumRetries: __expectInt32(output.numRetries),
+    RestartDelay: __expectInt32(output.restartDelay),
   } as any;
 };
 
@@ -14212,8 +14213,8 @@ const deserializeAws_restJson1InputAttachment = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1InputChannelLevel = (output: any, context: __SerdeContext): InputChannelLevel => {
   return {
-    Gain: __expectInt(output.gain),
-    InputChannel: __expectInt(output.inputChannel),
+    Gain: __expectInt32(output.gain),
+    InputChannel: __expectInt32(output.inputChannel),
   } as any;
 };
 
@@ -14255,11 +14256,11 @@ const deserializeAws_restJson1InputDeviceHdSettings = (output: any, context: __S
     ActiveInput: __expectString(output.activeInput),
     ConfiguredInput: __expectString(output.configuredInput),
     DeviceState: __expectString(output.deviceState),
-    Framerate: __limitedParseFloat(output.framerate),
-    Height: __expectInt(output.height),
-    MaxBitrate: __expectInt(output.maxBitrate),
+    Framerate: __limitedParseDouble(output.framerate),
+    Height: __expectInt32(output.height),
+    MaxBitrate: __expectInt32(output.maxBitrate),
     ScanType: __expectString(output.scanType),
-    Width: __expectInt(output.width),
+    Width: __expectInt32(output.width),
   } as any;
 };
 
@@ -14319,11 +14320,11 @@ const deserializeAws_restJson1InputDeviceUhdSettings = (
     ActiveInput: __expectString(output.activeInput),
     ConfiguredInput: __expectString(output.configuredInput),
     DeviceState: __expectString(output.deviceState),
-    Framerate: __limitedParseFloat(output.framerate),
-    Height: __expectInt(output.height),
-    MaxBitrate: __expectInt(output.maxBitrate),
+    Framerate: __limitedParseDouble(output.framerate),
+    Height: __expectInt32(output.height),
+    MaxBitrate: __expectInt32(output.maxBitrate),
     ScanType: __expectString(output.scanType),
-    Width: __expectInt(output.width),
+    Width: __expectInt32(output.width),
   } as any;
 };
 
@@ -14337,14 +14338,14 @@ const deserializeAws_restJson1InputLocation = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1InputLossBehavior = (output: any, context: __SerdeContext): InputLossBehavior => {
   return {
-    BlackFrameMsec: __expectInt(output.blackFrameMsec),
+    BlackFrameMsec: __expectInt32(output.blackFrameMsec),
     InputLossImageColor: __expectString(output.inputLossImageColor),
     InputLossImageSlate:
       output.inputLossImageSlate !== undefined && output.inputLossImageSlate !== null
         ? deserializeAws_restJson1InputLocation(output.inputLossImageSlate, context)
         : undefined,
     InputLossImageType: __expectString(output.inputLossImageType),
-    RepeatFrameMsec: __expectInt(output.repeatFrameMsec),
+    RepeatFrameMsec: __expectInt32(output.repeatFrameMsec),
   } as any;
 };
 
@@ -14353,7 +14354,7 @@ const deserializeAws_restJson1InputLossFailoverSettings = (
   context: __SerdeContext
 ): InputLossFailoverSettings => {
   return {
-    InputLossThresholdMsec: __expectInt(output.inputLossThresholdMsec),
+    InputLossThresholdMsec: __expectInt32(output.inputLossThresholdMsec),
   } as any;
 };
 
@@ -14406,7 +14407,7 @@ const deserializeAws_restJson1InputSettings = (output: any, context: __SerdeCont
         : undefined,
     DeblockFilter: __expectString(output.deblockFilter),
     DenoiseFilter: __expectString(output.denoiseFilter),
-    FilterStrength: __expectInt(output.filterStrength),
+    FilterStrength: __expectInt32(output.filterStrength),
     InputFilter: __expectString(output.inputFilter),
     NetworkInputSettings:
       output.networkInputSettings !== undefined && output.networkInputSettings !== null
@@ -14476,10 +14477,10 @@ const deserializeAws_restJson1M2tsSettings = (output: any, context: __SerdeConte
     AribCaptionsPid: __expectString(output.aribCaptionsPid),
     AribCaptionsPidControl: __expectString(output.aribCaptionsPidControl),
     AudioBufferModel: __expectString(output.audioBufferModel),
-    AudioFramesPerPes: __expectInt(output.audioFramesPerPes),
+    AudioFramesPerPes: __expectInt32(output.audioFramesPerPes),
     AudioPids: __expectString(output.audioPids),
     AudioStreamType: __expectString(output.audioStreamType),
-    Bitrate: __expectInt(output.bitrate),
+    Bitrate: __expectInt32(output.bitrate),
     BufferModel: __expectString(output.bufferModel),
     CcDescriptor: __expectString(output.ccDescriptor),
     DvbNitSettings:
@@ -14498,56 +14499,56 @@ const deserializeAws_restJson1M2tsSettings = (output: any, context: __SerdeConte
     DvbTeletextPid: __expectString(output.dvbTeletextPid),
     Ebif: __expectString(output.ebif),
     EbpAudioInterval: __expectString(output.ebpAudioInterval),
-    EbpLookaheadMs: __expectInt(output.ebpLookaheadMs),
+    EbpLookaheadMs: __expectInt32(output.ebpLookaheadMs),
     EbpPlacement: __expectString(output.ebpPlacement),
     EcmPid: __expectString(output.ecmPid),
     EsRateInPes: __expectString(output.esRateInPes),
     EtvPlatformPid: __expectString(output.etvPlatformPid),
     EtvSignalPid: __expectString(output.etvSignalPid),
-    FragmentTime: __limitedParseFloat(output.fragmentTime),
+    FragmentTime: __limitedParseDouble(output.fragmentTime),
     Klv: __expectString(output.klv),
     KlvDataPids: __expectString(output.klvDataPids),
     NielsenId3Behavior: __expectString(output.nielsenId3Behavior),
-    NullPacketBitrate: __limitedParseFloat(output.nullPacketBitrate),
-    PatInterval: __expectInt(output.patInterval),
+    NullPacketBitrate: __limitedParseDouble(output.nullPacketBitrate),
+    PatInterval: __expectInt32(output.patInterval),
     PcrControl: __expectString(output.pcrControl),
-    PcrPeriod: __expectInt(output.pcrPeriod),
+    PcrPeriod: __expectInt32(output.pcrPeriod),
     PcrPid: __expectString(output.pcrPid),
-    PmtInterval: __expectInt(output.pmtInterval),
+    PmtInterval: __expectInt32(output.pmtInterval),
     PmtPid: __expectString(output.pmtPid),
-    ProgramNum: __expectInt(output.programNum),
+    ProgramNum: __expectInt32(output.programNum),
     RateMode: __expectString(output.rateMode),
     Scte27Pids: __expectString(output.scte27Pids),
     Scte35Control: __expectString(output.scte35Control),
     Scte35Pid: __expectString(output.scte35Pid),
     SegmentationMarkers: __expectString(output.segmentationMarkers),
     SegmentationStyle: __expectString(output.segmentationStyle),
-    SegmentationTime: __limitedParseFloat(output.segmentationTime),
+    SegmentationTime: __limitedParseDouble(output.segmentationTime),
     TimedMetadataBehavior: __expectString(output.timedMetadataBehavior),
     TimedMetadataPid: __expectString(output.timedMetadataPid),
-    TransportStreamId: __expectInt(output.transportStreamId),
+    TransportStreamId: __expectInt32(output.transportStreamId),
     VideoPid: __expectString(output.videoPid),
   } as any;
 };
 
 const deserializeAws_restJson1M3u8Settings = (output: any, context: __SerdeContext): M3u8Settings => {
   return {
-    AudioFramesPerPes: __expectInt(output.audioFramesPerPes),
+    AudioFramesPerPes: __expectInt32(output.audioFramesPerPes),
     AudioPids: __expectString(output.audioPids),
     EcmPid: __expectString(output.ecmPid),
     NielsenId3Behavior: __expectString(output.nielsenId3Behavior),
-    PatInterval: __expectInt(output.patInterval),
+    PatInterval: __expectInt32(output.patInterval),
     PcrControl: __expectString(output.pcrControl),
-    PcrPeriod: __expectInt(output.pcrPeriod),
+    PcrPeriod: __expectInt32(output.pcrPeriod),
     PcrPid: __expectString(output.pcrPid),
-    PmtInterval: __expectInt(output.pmtInterval),
+    PmtInterval: __expectInt32(output.pmtInterval),
     PmtPid: __expectString(output.pmtPid),
-    ProgramNum: __expectInt(output.programNum),
+    ProgramNum: __expectInt32(output.programNum),
     Scte35Behavior: __expectString(output.scte35Behavior),
     Scte35Pid: __expectString(output.scte35Pid),
     TimedMetadataBehavior: __expectString(output.timedMetadataBehavior),
     TimedMetadataPid: __expectString(output.timedMetadataPid),
-    TransportStreamId: __expectInt(output.transportStreamId),
+    TransportStreamId: __expectInt32(output.transportStreamId),
     VideoPid: __expectString(output.videoPid),
   } as any;
 };
@@ -14591,7 +14592,7 @@ const deserializeAws_restJson1MotionGraphicsActivateScheduleActionSettings = (
   context: __SerdeContext
 ): MotionGraphicsActivateScheduleActionSettings => {
   return {
-    Duration: __expectInt(output.duration),
+    Duration: __expectLong(output.duration),
     PasswordParam: __expectString(output.passwordParam),
     Url: __expectString(output.url),
     Username: __expectString(output.username),
@@ -14632,9 +14633,9 @@ const deserializeAws_restJson1MotionGraphicsSettings = (
 
 const deserializeAws_restJson1Mp2Settings = (output: any, context: __SerdeContext): Mp2Settings => {
   return {
-    Bitrate: __limitedParseFloat(output.bitrate),
+    Bitrate: __limitedParseDouble(output.bitrate),
     CodingMode: __expectString(output.codingMode),
-    SampleRate: __limitedParseFloat(output.sampleRate),
+    SampleRate: __limitedParseDouble(output.sampleRate),
   } as any;
 };
 
@@ -14659,11 +14660,11 @@ const deserializeAws_restJson1Mpeg2Settings = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1Mpeg2FilterSettings(output.filterSettings, context)
         : undefined,
     FixedAfd: __expectString(output.fixedAfd),
-    FramerateDenominator: __expectInt(output.framerateDenominator),
-    FramerateNumerator: __expectInt(output.framerateNumerator),
-    GopClosedCadence: __expectInt(output.gopClosedCadence),
-    GopNumBFrames: __expectInt(output.gopNumBFrames),
-    GopSize: __limitedParseFloat(output.gopSize),
+    FramerateDenominator: __expectInt32(output.framerateDenominator),
+    FramerateNumerator: __expectInt32(output.framerateNumerator),
+    GopClosedCadence: __expectInt32(output.gopClosedCadence),
+    GopNumBFrames: __expectInt32(output.gopNumBFrames),
+    GopSize: __limitedParseDouble(output.gopSize),
     GopSizeUnits: __expectString(output.gopSizeUnits),
     ScanType: __expectString(output.scanType),
     SubgopLength: __expectString(output.subgopLength),
@@ -14676,7 +14677,7 @@ const deserializeAws_restJson1MsSmoothGroupSettings = (output: any, context: __S
     AcquisitionPointId: __expectString(output.acquisitionPointId),
     AudioOnlyTimecodeControl: __expectString(output.audioOnlyTimecodeControl),
     CertificateMode: __expectString(output.certificateMode),
-    ConnectionRetryInterval: __expectInt(output.connectionRetryInterval),
+    ConnectionRetryInterval: __expectInt32(output.connectionRetryInterval),
     Destination:
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_restJson1OutputLocationRef(output.destination, context)
@@ -14684,13 +14685,13 @@ const deserializeAws_restJson1MsSmoothGroupSettings = (output: any, context: __S
     EventId: __expectString(output.eventId),
     EventIdMode: __expectString(output.eventIdMode),
     EventStopBehavior: __expectString(output.eventStopBehavior),
-    FilecacheDuration: __expectInt(output.filecacheDuration),
-    FragmentLength: __expectInt(output.fragmentLength),
+    FilecacheDuration: __expectInt32(output.filecacheDuration),
+    FragmentLength: __expectInt32(output.fragmentLength),
     InputLossAction: __expectString(output.inputLossAction),
-    NumRetries: __expectInt(output.numRetries),
-    RestartDelay: __expectInt(output.restartDelay),
+    NumRetries: __expectInt32(output.numRetries),
+    RestartDelay: __expectInt32(output.restartDelay),
     SegmentationMode: __expectString(output.segmentationMode),
-    SendDelayMs: __expectInt(output.sendDelayMs),
+    SendDelayMs: __expectInt32(output.sendDelayMs),
     SparseTrackType: __expectString(output.sparseTrackType),
     StreamManifestBehavior: __expectString(output.streamManifestBehavior),
     TimestampOffset: __expectString(output.timestampOffset),
@@ -14725,8 +14726,8 @@ const deserializeAws_restJson1Multiplex = (output: any, context: __SerdeContext)
         ? deserializeAws_restJson1MultiplexSettings(output.multiplexSettings, context)
         : undefined,
     Name: __expectString(output.name),
-    PipelinesRunningCount: __expectInt(output.pipelinesRunningCount),
-    ProgramCount: __expectInt(output.programCount),
+    PipelinesRunningCount: __expectInt32(output.pipelinesRunningCount),
+    ProgramCount: __expectInt32(output.programCount),
     State: __expectString(output.state),
     Tags:
       output.tags !== undefined && output.tags !== null
@@ -14817,23 +14818,23 @@ const deserializeAws_restJson1MultiplexProgramPacketIdentifiersMap = (
       output.dvbSubPids !== undefined && output.dvbSubPids !== null
         ? deserializeAws_restJson1__listOf__integer(output.dvbSubPids, context)
         : undefined,
-    DvbTeletextPid: __expectInt(output.dvbTeletextPid),
-    EtvPlatformPid: __expectInt(output.etvPlatformPid),
-    EtvSignalPid: __expectInt(output.etvSignalPid),
+    DvbTeletextPid: __expectInt32(output.dvbTeletextPid),
+    EtvPlatformPid: __expectInt32(output.etvPlatformPid),
+    EtvSignalPid: __expectInt32(output.etvSignalPid),
     KlvDataPids:
       output.klvDataPids !== undefined && output.klvDataPids !== null
         ? deserializeAws_restJson1__listOf__integer(output.klvDataPids, context)
         : undefined,
-    PcrPid: __expectInt(output.pcrPid),
-    PmtPid: __expectInt(output.pmtPid),
-    PrivateMetadataPid: __expectInt(output.privateMetadataPid),
+    PcrPid: __expectInt32(output.pcrPid),
+    PmtPid: __expectInt32(output.pmtPid),
+    PrivateMetadataPid: __expectInt32(output.privateMetadataPid),
     Scte27Pids:
       output.scte27Pids !== undefined && output.scte27Pids !== null
         ? deserializeAws_restJson1__listOf__integer(output.scte27Pids, context)
         : undefined,
-    Scte35Pid: __expectInt(output.scte35Pid),
-    TimedMetadataPid: __expectInt(output.timedMetadataPid),
-    VideoPid: __expectInt(output.videoPid),
+    Scte35Pid: __expectInt32(output.scte35Pid),
+    TimedMetadataPid: __expectInt32(output.timedMetadataPid),
+    VideoPid: __expectInt32(output.videoPid),
   } as any;
 };
 
@@ -14863,7 +14864,7 @@ const deserializeAws_restJson1MultiplexProgramSettings = (
 ): MultiplexProgramSettings => {
   return {
     PreferredChannelPipeline: __expectString(output.preferredChannelPipeline),
-    ProgramNumber: __expectInt(output.programNumber),
+    ProgramNumber: __expectInt32(output.programNumber),
     ServiceDescriptor:
       output.serviceDescriptor !== undefined && output.serviceDescriptor !== null
         ? deserializeAws_restJson1MultiplexProgramServiceDescriptor(output.serviceDescriptor, context)
@@ -14887,10 +14888,10 @@ const deserializeAws_restJson1MultiplexProgramSummary = (
 
 const deserializeAws_restJson1MultiplexSettings = (output: any, context: __SerdeContext): MultiplexSettings => {
   return {
-    MaximumVideoBufferDelayMilliseconds: __expectInt(output.maximumVideoBufferDelayMilliseconds),
-    TransportStreamBitrate: __expectInt(output.transportStreamBitrate),
-    TransportStreamId: __expectInt(output.transportStreamId),
-    TransportStreamReservedBitrate: __expectInt(output.transportStreamReservedBitrate),
+    MaximumVideoBufferDelayMilliseconds: __expectInt32(output.maximumVideoBufferDelayMilliseconds),
+    TransportStreamBitrate: __expectInt32(output.transportStreamBitrate),
+    TransportStreamId: __expectInt32(output.transportStreamId),
+    TransportStreamReservedBitrate: __expectInt32(output.transportStreamReservedBitrate),
   } as any;
 };
 
@@ -14899,7 +14900,7 @@ const deserializeAws_restJson1MultiplexSettingsSummary = (
   context: __SerdeContext
 ): MultiplexSettingsSummary => {
   return {
-    TransportStreamBitrate: __expectInt(output.transportStreamBitrate),
+    TransportStreamBitrate: __expectInt32(output.transportStreamBitrate),
   } as any;
 };
 
@@ -14908,9 +14909,9 @@ const deserializeAws_restJson1MultiplexStatmuxVideoSettings = (
   context: __SerdeContext
 ): MultiplexStatmuxVideoSettings => {
   return {
-    MaximumBitrate: __expectInt(output.maximumBitrate),
-    MinimumBitrate: __expectInt(output.minimumBitrate),
-    Priority: __expectInt(output.priority),
+    MaximumBitrate: __expectInt32(output.maximumBitrate),
+    MinimumBitrate: __expectInt32(output.minimumBitrate),
+    Priority: __expectInt32(output.priority),
   } as any;
 };
 
@@ -14927,8 +14928,8 @@ const deserializeAws_restJson1MultiplexSummary = (output: any, context: __SerdeC
         ? deserializeAws_restJson1MultiplexSettingsSummary(output.multiplexSettings, context)
         : undefined,
     Name: __expectString(output.name),
-    PipelinesRunningCount: __expectInt(output.pipelinesRunningCount),
-    ProgramCount: __expectInt(output.programCount),
+    PipelinesRunningCount: __expectInt32(output.pipelinesRunningCount),
+    ProgramCount: __expectInt32(output.programCount),
     State: __expectString(output.state),
     Tags:
       output.tags !== undefined && output.tags !== null
@@ -14942,7 +14943,7 @@ const deserializeAws_restJson1MultiplexVideoSettings = (
   context: __SerdeContext
 ): MultiplexVideoSettings => {
   return {
-    ConstantBitrate: __expectInt(output.constantBitrate),
+    ConstantBitrate: __expectInt32(output.constantBitrate),
     StatmuxSettings:
       output.statmuxSettings !== undefined && output.statmuxSettings !== null
         ? deserializeAws_restJson1MultiplexStatmuxVideoSettings(output.statmuxSettings, context)
@@ -14971,9 +14972,9 @@ const deserializeAws_restJson1Offering = (output: any, context: __SerdeContext):
   return {
     Arn: __expectString(output.arn),
     CurrencyCode: __expectString(output.currencyCode),
-    Duration: __expectInt(output.duration),
+    Duration: __expectInt32(output.duration),
     DurationUnits: __expectString(output.durationUnits),
-    FixedPrice: __limitedParseFloat(output.fixedPrice),
+    FixedPrice: __limitedParseDouble(output.fixedPrice),
     OfferingDescription: __expectString(output.offeringDescription),
     OfferingId: __expectString(output.offeringId),
     OfferingType: __expectString(output.offeringType),
@@ -14982,7 +14983,7 @@ const deserializeAws_restJson1Offering = (output: any, context: __SerdeContext):
       output.resourceSpecification !== undefined && output.resourceSpecification !== null
         ? deserializeAws_restJson1ReservationResourceSpecification(output.resourceSpecification, context)
         : undefined,
-    UsagePrice: __limitedParseFloat(output.usagePrice),
+    UsagePrice: __limitedParseDouble(output.usagePrice),
   } as any;
 };
 
@@ -15182,20 +15183,20 @@ const deserializeAws_restJson1RemixSettings = (output: any, context: __SerdeCont
       output.channelMappings !== undefined && output.channelMappings !== null
         ? deserializeAws_restJson1__listOfAudioChannelMapping(output.channelMappings, context)
         : undefined,
-    ChannelsIn: __expectInt(output.channelsIn),
-    ChannelsOut: __expectInt(output.channelsOut),
+    ChannelsIn: __expectInt32(output.channelsIn),
+    ChannelsOut: __expectInt32(output.channelsOut),
   } as any;
 };
 
 const deserializeAws_restJson1Reservation = (output: any, context: __SerdeContext): Reservation => {
   return {
     Arn: __expectString(output.arn),
-    Count: __expectInt(output.count),
+    Count: __expectInt32(output.count),
     CurrencyCode: __expectString(output.currencyCode),
-    Duration: __expectInt(output.duration),
+    Duration: __expectInt32(output.duration),
     DurationUnits: __expectString(output.durationUnits),
     End: __expectString(output.end),
-    FixedPrice: __limitedParseFloat(output.fixedPrice),
+    FixedPrice: __limitedParseDouble(output.fixedPrice),
     Name: __expectString(output.name),
     OfferingDescription: __expectString(output.offeringDescription),
     OfferingId: __expectString(output.offeringId),
@@ -15212,7 +15213,7 @@ const deserializeAws_restJson1Reservation = (output: any, context: __SerdeContex
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    UsagePrice: __limitedParseFloat(output.usagePrice),
+    UsagePrice: __limitedParseDouble(output.usagePrice),
   } as any;
 };
 
@@ -15247,22 +15248,22 @@ const deserializeAws_restJson1RtmpGroupSettings = (output: any, context: __Serde
         : undefined,
     AuthenticationScheme: __expectString(output.authenticationScheme),
     CacheFullBehavior: __expectString(output.cacheFullBehavior),
-    CacheLength: __expectInt(output.cacheLength),
+    CacheLength: __expectInt32(output.cacheLength),
     CaptionData: __expectString(output.captionData),
     InputLossAction: __expectString(output.inputLossAction),
-    RestartDelay: __expectInt(output.restartDelay),
+    RestartDelay: __expectInt32(output.restartDelay),
   } as any;
 };
 
 const deserializeAws_restJson1RtmpOutputSettings = (output: any, context: __SerdeContext): RtmpOutputSettings => {
   return {
     CertificateMode: __expectString(output.certificateMode),
-    ConnectionRetryInterval: __expectInt(output.connectionRetryInterval),
+    ConnectionRetryInterval: __expectInt32(output.connectionRetryInterval),
     Destination:
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_restJson1OutputLocationRef(output.destination, context)
         : undefined,
-    NumRetries: __expectInt(output.numRetries),
+    NumRetries: __expectInt32(output.numRetries),
   } as any;
 };
 
@@ -15393,7 +15394,7 @@ const deserializeAws_restJson1Scte20PlusEmbeddedDestinationSettings = (
 const deserializeAws_restJson1Scte20SourceSettings = (output: any, context: __SerdeContext): Scte20SourceSettings => {
   return {
     Convert608To708: __expectString(output.convert608To708),
-    Source608ChannelNumber: __expectInt(output.source608ChannelNumber),
+    Source608ChannelNumber: __expectInt32(output.source608ChannelNumber),
   } as any;
 };
 
@@ -15407,7 +15408,7 @@ const deserializeAws_restJson1Scte27DestinationSettings = (
 const deserializeAws_restJson1Scte27SourceSettings = (output: any, context: __SerdeContext): Scte27SourceSettings => {
   return {
     OcrLanguage: __expectString(output.ocrLanguage),
-    Pid: __expectInt(output.pid),
+    Pid: __expectInt32(output.pid),
   } as any;
 };
 
@@ -15453,7 +15454,7 @@ const deserializeAws_restJson1Scte35ReturnToNetworkScheduleActionSettings = (
   context: __SerdeContext
 ): Scte35ReturnToNetworkScheduleActionSettings => {
   return {
-    SpliceEventId: __expectInt(output.spliceEventId),
+    SpliceEventId: __expectLong(output.spliceEventId),
   } as any;
 };
 
@@ -15466,22 +15467,22 @@ const deserializeAws_restJson1Scte35SegmentationDescriptor = (
       output.deliveryRestrictions !== undefined && output.deliveryRestrictions !== null
         ? deserializeAws_restJson1Scte35DeliveryRestrictions(output.deliveryRestrictions, context)
         : undefined,
-    SegmentNum: __expectInt(output.segmentNum),
+    SegmentNum: __expectInt32(output.segmentNum),
     SegmentationCancelIndicator: __expectString(output.segmentationCancelIndicator),
-    SegmentationDuration: __expectInt(output.segmentationDuration),
-    SegmentationEventId: __expectInt(output.segmentationEventId),
-    SegmentationTypeId: __expectInt(output.segmentationTypeId),
+    SegmentationDuration: __expectLong(output.segmentationDuration),
+    SegmentationEventId: __expectLong(output.segmentationEventId),
+    SegmentationTypeId: __expectInt32(output.segmentationTypeId),
     SegmentationUpid: __expectString(output.segmentationUpid),
-    SegmentationUpidType: __expectInt(output.segmentationUpidType),
-    SegmentsExpected: __expectInt(output.segmentsExpected),
-    SubSegmentNum: __expectInt(output.subSegmentNum),
-    SubSegmentsExpected: __expectInt(output.subSegmentsExpected),
+    SegmentationUpidType: __expectInt32(output.segmentationUpidType),
+    SegmentsExpected: __expectInt32(output.segmentsExpected),
+    SubSegmentNum: __expectInt32(output.subSegmentNum),
+    SubSegmentsExpected: __expectInt32(output.subSegmentsExpected),
   } as any;
 };
 
 const deserializeAws_restJson1Scte35SpliceInsert = (output: any, context: __SerdeContext): Scte35SpliceInsert => {
   return {
-    AdAvailOffset: __expectInt(output.adAvailOffset),
+    AdAvailOffset: __expectInt32(output.adAvailOffset),
     NoRegionalBlackoutFlag: __expectString(output.noRegionalBlackoutFlag),
     WebDeliveryAllowedFlag: __expectString(output.webDeliveryAllowedFlag),
   } as any;
@@ -15492,14 +15493,14 @@ const deserializeAws_restJson1Scte35SpliceInsertScheduleActionSettings = (
   context: __SerdeContext
 ): Scte35SpliceInsertScheduleActionSettings => {
   return {
-    Duration: __expectInt(output.duration),
-    SpliceEventId: __expectInt(output.spliceEventId),
+    Duration: __expectLong(output.duration),
+    SpliceEventId: __expectLong(output.spliceEventId),
   } as any;
 };
 
 const deserializeAws_restJson1Scte35TimeSignalApos = (output: any, context: __SerdeContext): Scte35TimeSignalApos => {
   return {
-    AdAvailOffset: __expectInt(output.adAvailOffset),
+    AdAvailOffset: __expectInt32(output.adAvailOffset),
     NoRegionalBlackoutFlag: __expectString(output.noRegionalBlackoutFlag),
     WebDeliveryAllowedFlag: __expectString(output.webDeliveryAllowedFlag),
   } as any;
@@ -15545,19 +15546,19 @@ const deserializeAws_restJson1StaticImageActivateScheduleActionSettings = (
   context: __SerdeContext
 ): StaticImageActivateScheduleActionSettings => {
   return {
-    Duration: __expectInt(output.duration),
-    FadeIn: __expectInt(output.fadeIn),
-    FadeOut: __expectInt(output.fadeOut),
-    Height: __expectInt(output.height),
+    Duration: __expectInt32(output.duration),
+    FadeIn: __expectInt32(output.fadeIn),
+    FadeOut: __expectInt32(output.fadeOut),
+    Height: __expectInt32(output.height),
     Image:
       output.image !== undefined && output.image !== null
         ? deserializeAws_restJson1InputLocation(output.image, context)
         : undefined,
-    ImageX: __expectInt(output.imageX),
-    ImageY: __expectInt(output.imageY),
-    Layer: __expectInt(output.layer),
-    Opacity: __expectInt(output.opacity),
-    Width: __expectInt(output.width),
+    ImageX: __expectInt32(output.imageX),
+    ImageY: __expectInt32(output.imageY),
+    Layer: __expectInt32(output.layer),
+    Opacity: __expectInt32(output.opacity),
+    Width: __expectInt32(output.width),
   } as any;
 };
 
@@ -15566,8 +15567,8 @@ const deserializeAws_restJson1StaticImageDeactivateScheduleActionSettings = (
   context: __SerdeContext
 ): StaticImageDeactivateScheduleActionSettings => {
   return {
-    FadeOut: __expectInt(output.fadeOut),
-    Layer: __expectInt(output.layer),
+    FadeOut: __expectInt32(output.fadeOut),
+    Layer: __expectInt32(output.layer),
   } as any;
 };
 
@@ -15633,7 +15634,7 @@ const deserializeAws_restJson1TemporalFilterSettings = (
 const deserializeAws_restJson1TimecodeConfig = (output: any, context: __SerdeContext): TimecodeConfig => {
   return {
     Source: __expectString(output.source),
-    SyncThreshold: __expectInt(output.syncThreshold),
+    SyncThreshold: __expectInt32(output.syncThreshold),
   } as any;
 };
 
@@ -15671,13 +15672,13 @@ const deserializeAws_restJson1UdpGroupSettings = (output: any, context: __SerdeC
   return {
     InputLossAction: __expectString(output.inputLossAction),
     TimedMetadataId3Frame: __expectString(output.timedMetadataId3Frame),
-    TimedMetadataId3Period: __expectInt(output.timedMetadataId3Period),
+    TimedMetadataId3Period: __expectInt32(output.timedMetadataId3Period),
   } as any;
 };
 
 const deserializeAws_restJson1UdpOutputSettings = (output: any, context: __SerdeContext): UdpOutputSettings => {
   return {
-    BufferMsec: __expectInt(output.bufferMsec),
+    BufferMsec: __expectInt32(output.bufferMsec),
     ContainerSettings:
       output.containerSettings !== undefined && output.containerSettings !== null
         ? deserializeAws_restJson1UdpContainerSettings(output.containerSettings, context)
@@ -15705,8 +15706,8 @@ const deserializeAws_restJson1VideoBlackFailoverSettings = (
   context: __SerdeContext
 ): VideoBlackFailoverSettings => {
   return {
-    BlackDetectThreshold: __limitedParseFloat(output.blackDetectThreshold),
-    VideoBlackThresholdMsec: __expectInt(output.videoBlackThresholdMsec),
+    BlackDetectThreshold: __limitedParseDouble(output.blackDetectThreshold),
+    VideoBlackThresholdMsec: __expectInt32(output.videoBlackThresholdMsec),
   } as any;
 };
 
@@ -15737,12 +15738,12 @@ const deserializeAws_restJson1VideoDescription = (output: any, context: __SerdeC
       output.codecSettings !== undefined && output.codecSettings !== null
         ? deserializeAws_restJson1VideoCodecSettings(output.codecSettings, context)
         : undefined,
-    Height: __expectInt(output.height),
+    Height: __expectInt32(output.height),
     Name: __expectString(output.name),
     RespondToAfd: __expectString(output.respondToAfd),
     ScalingBehavior: __expectString(output.scalingBehavior),
-    Sharpness: __expectInt(output.sharpness),
-    Width: __expectInt(output.width),
+    Sharpness: __expectInt32(output.sharpness),
+    Width: __expectInt32(output.width),
   } as any;
 };
 
@@ -15775,7 +15776,7 @@ const deserializeAws_restJson1VideoSelectorColorSpaceSettings = (
 
 const deserializeAws_restJson1VideoSelectorPid = (output: any, context: __SerdeContext): VideoSelectorPid => {
   return {
-    Pid: __expectInt(output.pid),
+    Pid: __expectInt32(output.pid),
   } as any;
 };
 
@@ -15784,7 +15785,7 @@ const deserializeAws_restJson1VideoSelectorProgramId = (
   context: __SerdeContext
 ): VideoSelectorProgramId => {
   return {
-    ProgramId: __expectInt(output.programId),
+    ProgramId: __expectInt32(output.programId),
   } as any;
 };
 
@@ -15827,9 +15828,9 @@ const deserializeAws_restJson1VpcOutputSettingsDescription = (
 
 const deserializeAws_restJson1WavSettings = (output: any, context: __SerdeContext): WavSettings => {
   return {
-    BitDepth: __limitedParseFloat(output.bitDepth),
+    BitDepth: __limitedParseDouble(output.bitDepth),
     CodingMode: __expectString(output.codingMode),
-    SampleRate: __limitedParseFloat(output.sampleRate),
+    SampleRate: __limitedParseDouble(output.sampleRate),
   } as any;
 };
 

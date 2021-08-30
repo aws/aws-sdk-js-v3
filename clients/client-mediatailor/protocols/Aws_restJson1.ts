@@ -99,7 +99,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -2260,7 +2261,7 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
     contents.Name = __expectString(data.Name);
   }
   if (data.PersonalizationThresholdSeconds !== undefined && data.PersonalizationThresholdSeconds !== null) {
-    contents.PersonalizationThresholdSeconds = __expectInt(data.PersonalizationThresholdSeconds);
+    contents.PersonalizationThresholdSeconds = __expectInt32(data.PersonalizationThresholdSeconds);
   }
   if (data.PlaybackConfigurationArn !== undefined && data.PlaybackConfigurationArn !== null) {
     contents.PlaybackConfigurationArn = __expectString(data.PlaybackConfigurationArn);
@@ -2737,7 +2738,7 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
     contents.Name = __expectString(data.Name);
   }
   if (data.PersonalizationThresholdSeconds !== undefined && data.PersonalizationThresholdSeconds !== null) {
-    contents.PersonalizationThresholdSeconds = __expectInt(data.PersonalizationThresholdSeconds);
+    contents.PersonalizationThresholdSeconds = __expectInt32(data.PersonalizationThresholdSeconds);
   }
   if (data.PlaybackConfigurationArn !== undefined && data.PlaybackConfigurationArn !== null) {
     contents.PlaybackConfigurationArn = __expectString(data.PlaybackConfigurationArn);
@@ -3619,7 +3620,7 @@ const deserializeAws_restJson1AccessConfiguration = (output: any, context: __Ser
 const deserializeAws_restJson1AdBreak = (output: any, context: __SerdeContext): AdBreak => {
   return {
     MessageType: __expectString(output.MessageType),
-    OffsetMillis: __expectInt(output.OffsetMillis),
+    OffsetMillis: __expectLong(output.OffsetMillis),
     Slate:
       output.Slate !== undefined && output.Slate !== null
         ? deserializeAws_restJson1SlateSource(output.Slate, context)
@@ -3727,10 +3728,10 @@ const deserializeAws_restJson1DashConfiguration = (output: any, context: __Serde
 
 const deserializeAws_restJson1DashPlaylistSettings = (output: any, context: __SerdeContext): DashPlaylistSettings => {
   return {
-    ManifestWindowSeconds: __expectInt(output.ManifestWindowSeconds),
-    MinBufferTimeSeconds: __expectInt(output.MinBufferTimeSeconds),
-    MinUpdatePeriodSeconds: __expectInt(output.MinUpdatePeriodSeconds),
-    SuggestedPresentationDelaySeconds: __expectInt(output.SuggestedPresentationDelaySeconds),
+    ManifestWindowSeconds: __expectInt32(output.ManifestWindowSeconds),
+    MinBufferTimeSeconds: __expectInt32(output.MinBufferTimeSeconds),
+    MinUpdatePeriodSeconds: __expectInt32(output.MinUpdatePeriodSeconds),
+    SuggestedPresentationDelaySeconds: __expectInt32(output.SuggestedPresentationDelaySeconds),
   } as any;
 };
 
@@ -3751,7 +3752,7 @@ const deserializeAws_restJson1HlsConfiguration = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1HlsPlaylistSettings = (output: any, context: __SerdeContext): HlsPlaylistSettings => {
   return {
-    ManifestWindowSeconds: __expectInt(output.ManifestWindowSeconds),
+    ManifestWindowSeconds: __expectInt32(output.ManifestWindowSeconds),
   } as any;
 };
 
@@ -3792,7 +3793,7 @@ const deserializeAws_restJson1LivePreRollConfiguration = (
 ): LivePreRollConfiguration => {
   return {
     AdDecisionServerUrl: __expectString(output.AdDecisionServerUrl),
-    MaxDurationSeconds: __expectInt(output.MaxDurationSeconds),
+    MaxDurationSeconds: __expectInt32(output.MaxDurationSeconds),
   } as any;
 };
 
@@ -3844,7 +3845,7 @@ const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __S
         ? deserializeAws_restJson1ManifestProcessingRules(output.ManifestProcessingRules, context)
         : undefined,
     Name: __expectString(output.Name),
-    PersonalizationThresholdSeconds: __expectInt(output.PersonalizationThresholdSeconds),
+    PersonalizationThresholdSeconds: __expectInt32(output.PersonalizationThresholdSeconds),
     PlaybackConfigurationArn: __expectString(output.PlaybackConfigurationArn),
     PlaybackEndpointPrefix: __expectString(output.PlaybackEndpointPrefix),
     SessionInitializationEndpointPrefix: __expectString(output.SessionInitializationEndpointPrefix),
@@ -3887,7 +3888,7 @@ const deserializeAws_restJson1ResponseOutputs = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak => {
   return {
-    ApproximateDurationSeconds: __expectInt(output.ApproximateDurationSeconds),
+    ApproximateDurationSeconds: __expectLong(output.ApproximateDurationSeconds),
     ApproximateStartTime:
       output.ApproximateStartTime !== undefined && output.ApproximateStartTime !== null
         ? new Date(Math.round(output.ApproximateStartTime * 1000))
@@ -3899,7 +3900,7 @@ const deserializeAws_restJson1ScheduleAdBreak = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry => {
   return {
-    ApproximateDurationSeconds: __expectInt(output.ApproximateDurationSeconds),
+    ApproximateDurationSeconds: __expectLong(output.ApproximateDurationSeconds),
     ApproximateStartTime:
       output.ApproximateStartTime !== undefined && output.ApproximateStartTime !== null
         ? new Date(Math.round(output.ApproximateStartTime * 1000))
@@ -3970,10 +3971,10 @@ const deserializeAws_restJson1SourceLocation = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1SpliceInsertMessage = (output: any, context: __SerdeContext): SpliceInsertMessage => {
   return {
-    AvailNum: __expectInt(output.AvailNum),
-    AvailsExpected: __expectInt(output.AvailsExpected),
-    SpliceEventId: __expectInt(output.SpliceEventId),
-    UniqueProgramId: __expectInt(output.UniqueProgramId),
+    AvailNum: __expectInt32(output.AvailNum),
+    AvailsExpected: __expectInt32(output.AvailsExpected),
+    SpliceEventId: __expectInt32(output.SpliceEventId),
+    UniqueProgramId: __expectInt32(output.UniqueProgramId),
   } as any;
 };
 

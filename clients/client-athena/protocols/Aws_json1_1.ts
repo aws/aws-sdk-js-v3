@@ -165,7 +165,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3428,8 +3429,8 @@ const deserializeAws_json1_1ColumnInfo = (output: any, context: __SerdeContext):
     Label: __expectString(output.Label),
     Name: __expectString(output.Name),
     Nullable: __expectString(output.Nullable),
-    Precision: __expectInt(output.Precision),
-    Scale: __expectInt(output.Scale),
+    Precision: __expectInt32(output.Precision),
+    Scale: __expectInt32(output.Scale),
     SchemaName: __expectString(output.SchemaName),
     TableName: __expectString(output.TableName),
     Type: __expectString(output.Type),
@@ -3659,7 +3660,7 @@ const deserializeAws_json1_1GetQueryResultsOutput = (output: any, context: __Ser
       output.ResultSet !== undefined && output.ResultSet !== null
         ? deserializeAws_json1_1ResultSet(output.ResultSet, context)
         : undefined,
-    UpdateCount: __expectInt(output.UpdateCount),
+    UpdateCount: __expectLong(output.UpdateCount),
   } as any;
 };
 
@@ -3960,12 +3961,12 @@ const deserializeAws_json1_1QueryExecutionStatistics = (
 ): QueryExecutionStatistics => {
   return {
     DataManifestLocation: __expectString(output.DataManifestLocation),
-    DataScannedInBytes: __expectInt(output.DataScannedInBytes),
-    EngineExecutionTimeInMillis: __expectInt(output.EngineExecutionTimeInMillis),
-    QueryPlanningTimeInMillis: __expectInt(output.QueryPlanningTimeInMillis),
-    QueryQueueTimeInMillis: __expectInt(output.QueryQueueTimeInMillis),
-    ServiceProcessingTimeInMillis: __expectInt(output.ServiceProcessingTimeInMillis),
-    TotalExecutionTimeInMillis: __expectInt(output.TotalExecutionTimeInMillis),
+    DataScannedInBytes: __expectLong(output.DataScannedInBytes),
+    EngineExecutionTimeInMillis: __expectLong(output.EngineExecutionTimeInMillis),
+    QueryPlanningTimeInMillis: __expectLong(output.QueryPlanningTimeInMillis),
+    QueryQueueTimeInMillis: __expectLong(output.QueryQueueTimeInMillis),
+    ServiceProcessingTimeInMillis: __expectLong(output.ServiceProcessingTimeInMillis),
+    TotalExecutionTimeInMillis: __expectLong(output.TotalExecutionTimeInMillis),
   } as any;
 };
 
@@ -4222,7 +4223,7 @@ const deserializeAws_json1_1WorkGroup = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1WorkGroupConfiguration = (output: any, context: __SerdeContext): WorkGroupConfiguration => {
   return {
-    BytesScannedCutoffPerQuery: __expectInt(output.BytesScannedCutoffPerQuery),
+    BytesScannedCutoffPerQuery: __expectLong(output.BytesScannedCutoffPerQuery),
     EnforceWorkGroupConfiguration: __expectBoolean(output.EnforceWorkGroupConfiguration),
     EngineVersion:
       output.EngineVersion !== undefined && output.EngineVersion !== null

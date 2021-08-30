@@ -141,7 +141,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -4060,7 +4060,7 @@ export const deserializeAws_restJson1DescribeUsersCommand = async (
     contents.Marker = __expectString(data.Marker);
   }
   if (data.TotalNumberOfUsers !== undefined && data.TotalNumberOfUsers !== null) {
-    contents.TotalNumberOfUsers = __expectInt(data.TotalNumberOfUsers);
+    contents.TotalNumberOfUsers = __expectLong(data.TotalNumberOfUsers);
   }
   if (data.Users !== undefined && data.Users !== null) {
     contents.Users = deserializeAws_restJson1OrganizationUserList(data.Users, context);
@@ -6266,7 +6266,7 @@ const deserializeAws_restJson1DocumentVersionMetadata = (
         : undefined,
     Name: __expectString(output.Name),
     Signature: __expectString(output.Signature),
-    Size: __expectInt(output.Size),
+    Size: __expectLong(output.Size),
     Source:
       output.Source !== undefined && output.Source !== null
         ? deserializeAws_restJson1DocumentSourceUrlMap(output.Source, context)
@@ -6316,7 +6316,7 @@ const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeCon
       output.Labels !== undefined && output.Labels !== null
         ? deserializeAws_restJson1SharedLabels(output.Labels, context)
         : undefined,
-    LatestVersionSize: __expectInt(output.LatestVersionSize),
+    LatestVersionSize: __expectLong(output.LatestVersionSize),
     ModifiedTimestamp:
       output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
         ? new Date(Math.round(output.ModifiedTimestamp * 1000))
@@ -6325,7 +6325,7 @@ const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeCon
     ParentFolderId: __expectString(output.ParentFolderId),
     ResourceState: __expectString(output.ResourceState),
     Signature: __expectString(output.Signature),
-    Size: __expectInt(output.Size),
+    Size: __expectLong(output.Size),
   } as any;
 };
 
@@ -6514,7 +6514,7 @@ const deserializeAws_restJson1SignedHeaderMap = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1StorageRuleType = (output: any, context: __SerdeContext): StorageRuleType => {
   return {
-    StorageAllocatedInBytes: __expectInt(output.StorageAllocatedInBytes),
+    StorageAllocatedInBytes: __expectLong(output.StorageAllocatedInBytes),
     StorageType: __expectString(output.StorageType),
   } as any;
 };
@@ -6615,7 +6615,7 @@ const deserializeAws_restJson1UserStorageMetadata = (output: any, context: __Ser
       output.StorageRule !== undefined && output.StorageRule !== null
         ? deserializeAws_restJson1StorageRuleType(output.StorageRule, context)
         : undefined,
-    StorageUtilizedInBytes: __expectInt(output.StorageUtilizedInBytes),
+    StorageUtilizedInBytes: __expectLong(output.StorageUtilizedInBytes),
   } as any;
 };
 

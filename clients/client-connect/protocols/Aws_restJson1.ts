@@ -406,10 +406,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -15027,7 +15027,7 @@ const deserializeAws_restJson1AgentStatus = (output: any, context: __SerdeContex
     AgentStatusARN: __expectString(output.AgentStatusARN),
     AgentStatusId: __expectString(output.AgentStatusId),
     Description: __expectString(output.Description),
-    DisplayOrder: __expectInt(output.DisplayOrder),
+    DisplayOrder: __expectInt32(output.DisplayOrder),
     Name: __expectString(output.Name),
     State: __expectString(output.State),
     Tags:
@@ -15151,7 +15151,7 @@ const deserializeAws_restJson1CurrentMetricData = (output: any, context: __Serde
       output.Metric !== undefined && output.Metric !== null
         ? deserializeAws_restJson1CurrentMetric(output.Metric, context)
         : undefined,
-    Value: __limitedParseFloat(output.Value),
+    Value: __limitedParseDouble(output.Value),
   } as any;
 };
 
@@ -15332,7 +15332,7 @@ const deserializeAws_restJson1HistoricalMetricData = (output: any, context: __Se
       output.Metric !== undefined && output.Metric !== null
         ? deserializeAws_restJson1HistoricalMetric(output.Metric, context)
         : undefined,
-    Value: __limitedParseFloat(output.Value),
+    Value: __limitedParseDouble(output.Value),
   } as any;
 };
 
@@ -15459,8 +15459,8 @@ const deserializeAws_restJson1HoursOfOperationTimeSlice = (
   context: __SerdeContext
 ): HoursOfOperationTimeSlice => {
   return {
-    Hours: __expectInt(output.Hours),
-    Minutes: __expectInt(output.Minutes),
+    Hours: __expectInt32(output.Hours),
+    Minutes: __expectInt32(output.Minutes),
   } as any;
 };
 
@@ -15608,7 +15608,7 @@ const deserializeAws_restJson1KinesisVideoStreamConfig = (
         ? deserializeAws_restJson1EncryptionConfig(output.EncryptionConfig, context)
         : undefined,
     Prefix: __expectString(output.Prefix),
-    RetentionPeriodHours: __expectInt(output.RetentionPeriodHours),
+    RetentionPeriodHours: __expectInt32(output.RetentionPeriodHours),
   } as any;
 };
 
@@ -15674,7 +15674,7 @@ const deserializeAws_restJson1MediaConcurrencies = (output: any, context: __Serd
 const deserializeAws_restJson1MediaConcurrency = (output: any, context: __SerdeContext): MediaConcurrency => {
   return {
     Channel: __expectString(output.Channel),
-    Concurrency: __expectInt(output.Concurrency),
+    Concurrency: __expectInt32(output.Concurrency),
   } as any;
 };
 
@@ -15767,7 +15767,7 @@ const deserializeAws_restJson1Queue = (output: any, context: __SerdeContext): Qu
   return {
     Description: __expectString(output.Description),
     HoursOfOperationId: __expectString(output.HoursOfOperationId),
-    MaxContacts: __expectInt(output.MaxContacts),
+    MaxContacts: __expectInt32(output.MaxContacts),
     Name: __expectString(output.Name),
     OutboundCallerConfig:
       output.OutboundCallerConfig !== undefined && output.OutboundCallerConfig !== null
@@ -15903,8 +15903,8 @@ const deserializeAws_restJson1RoutingProfileQueueConfigSummary = (
 ): RoutingProfileQueueConfigSummary => {
   return {
     Channel: __expectString(output.Channel),
-    Delay: __expectInt(output.Delay),
-    Priority: __expectInt(output.Priority),
+    Delay: __expectInt32(output.Delay),
+    Priority: __expectInt32(output.Priority),
     QueueArn: __expectString(output.QueueArn),
     QueueId: __expectString(output.QueueId),
     QueueName: __expectString(output.QueueName),
@@ -16031,7 +16031,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 const deserializeAws_restJson1Threshold = (output: any, context: __SerdeContext): Threshold => {
   return {
     Comparison: __expectString(output.Comparison),
-    ThresholdValue: __limitedParseFloat(output.ThresholdValue),
+    ThresholdValue: __limitedParseDouble(output.ThresholdValue),
   } as any;
 };
 
@@ -16091,7 +16091,7 @@ const deserializeAws_restJson1UserIdentityInfo = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1UserPhoneConfig = (output: any, context: __SerdeContext): UserPhoneConfig => {
   return {
-    AfterContactWorkTimeLimit: __expectInt(output.AfterContactWorkTimeLimit),
+    AfterContactWorkTimeLimit: __expectInt32(output.AfterContactWorkTimeLimit),
     AutoAccept: __expectBoolean(output.AutoAccept),
     DeskPhoneNumber: __expectString(output.DeskPhoneNumber),
     PhoneType: __expectString(output.PhoneType),

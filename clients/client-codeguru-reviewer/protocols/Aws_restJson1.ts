@@ -77,7 +77,8 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -2183,15 +2184,15 @@ const deserializeAws_restJson1KMSKeyDetails = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Metrics = (output: any, context: __SerdeContext): Metrics => {
   return {
-    FindingsCount: __expectInt(output.FindingsCount),
-    MeteredLinesOfCodeCount: __expectInt(output.MeteredLinesOfCodeCount),
+    FindingsCount: __expectLong(output.FindingsCount),
+    MeteredLinesOfCodeCount: __expectLong(output.MeteredLinesOfCodeCount),
   } as any;
 };
 
 const deserializeAws_restJson1MetricsSummary = (output: any, context: __SerdeContext): MetricsSummary => {
   return {
-    FindingsCount: __expectInt(output.FindingsCount),
-    MeteredLinesOfCodeCount: __expectInt(output.MeteredLinesOfCodeCount),
+    FindingsCount: __expectLong(output.FindingsCount),
+    MeteredLinesOfCodeCount: __expectLong(output.MeteredLinesOfCodeCount),
   } as any;
 };
 
@@ -2274,11 +2275,11 @@ const deserializeAws_restJson1RecommendationSummaries = (
 const deserializeAws_restJson1RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
   return {
     Description: __expectString(output.Description),
-    EndLine: __expectInt(output.EndLine),
+    EndLine: __expectInt32(output.EndLine),
     FilePath: __expectString(output.FilePath),
     RecommendationCategory: __expectString(output.RecommendationCategory),
     RecommendationId: __expectString(output.RecommendationId),
-    StartLine: __expectInt(output.StartLine),
+    StartLine: __expectInt32(output.StartLine),
   } as any;
 };
 

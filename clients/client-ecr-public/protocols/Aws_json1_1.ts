@@ -150,7 +150,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3289,7 +3289,7 @@ const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext)
       output.imagePushedAt !== undefined && output.imagePushedAt !== null
         ? new Date(Math.round(output.imagePushedAt * 1000))
         : undefined,
-    imageSizeInBytes: __expectInt(output.imageSizeInBytes),
+    imageSizeInBytes: __expectLong(output.imageSizeInBytes),
     imageTags:
       output.imageTags !== undefined && output.imageTags !== null
         ? deserializeAws_json1_1ImageTagList(output.imageTags, context)
@@ -3415,7 +3415,7 @@ const deserializeAws_json1_1InitiateLayerUploadResponse = (
   context: __SerdeContext
 ): InitiateLayerUploadResponse => {
   return {
-    partSize: __expectInt(output.partSize),
+    partSize: __expectLong(output.partSize),
     uploadId: __expectString(output.uploadId),
   } as any;
 };
@@ -3431,7 +3431,7 @@ const deserializeAws_json1_1InvalidLayerPartException = (
   context: __SerdeContext
 ): InvalidLayerPartException => {
   return {
-    lastValidByteReceived: __expectInt(output.lastValidByteReceived),
+    lastValidByteReceived: __expectLong(output.lastValidByteReceived),
     message: __expectString(output.message),
     registryId: __expectString(output.registryId),
     repositoryName: __expectString(output.repositoryName),
@@ -3461,7 +3461,7 @@ const deserializeAws_json1_1Layer = (output: any, context: __SerdeContext): Laye
   return {
     layerAvailability: __expectString(output.layerAvailability),
     layerDigest: __expectString(output.layerDigest),
-    layerSize: __expectInt(output.layerSize),
+    layerSize: __expectLong(output.layerSize),
     mediaType: __expectString(output.mediaType),
   } as any;
 };
@@ -3594,7 +3594,7 @@ const deserializeAws_json1_1ReferencedImageDetail = (output: any, context: __Ser
       output.imagePushedAt !== undefined && output.imagePushedAt !== null
         ? new Date(Math.round(output.imagePushedAt * 1000))
         : undefined,
-    imageSizeInBytes: __expectInt(output.imageSizeInBytes),
+    imageSizeInBytes: __expectLong(output.imageSizeInBytes),
   } as any;
 };
 
@@ -3807,7 +3807,7 @@ const deserializeAws_json1_1UploadLayerPartResponse = (
   context: __SerdeContext
 ): UploadLayerPartResponse => {
   return {
-    lastByteReceived: __expectInt(output.lastByteReceived),
+    lastByteReceived: __expectLong(output.lastByteReceived),
     registryId: __expectString(output.registryId),
     repositoryName: __expectString(output.repositoryName),
     uploadId: __expectString(output.uploadId),

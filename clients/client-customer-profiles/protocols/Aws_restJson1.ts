@@ -97,7 +97,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1362,7 +1363,7 @@ export const deserializeAws_restJson1CreateDomainCommand = async (
     contents.DefaultEncryptionKey = __expectString(data.DefaultEncryptionKey);
   }
   if (data.DefaultExpirationDays !== undefined && data.DefaultExpirationDays !== null) {
-    contents.DefaultExpirationDays = __expectInt(data.DefaultExpirationDays);
+    contents.DefaultExpirationDays = __expectInt32(data.DefaultExpirationDays);
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
     contents.DomainName = __expectString(data.DomainName);
@@ -2087,7 +2088,7 @@ export const deserializeAws_restJson1GetDomainCommand = async (
     contents.DefaultEncryptionKey = __expectString(data.DefaultEncryptionKey);
   }
   if (data.DefaultExpirationDays !== undefined && data.DefaultExpirationDays !== null) {
-    contents.DefaultExpirationDays = __expectInt(data.DefaultExpirationDays);
+    contents.DefaultExpirationDays = __expectInt32(data.DefaultExpirationDays);
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
     contents.DomainName = __expectString(data.DomainName);
@@ -2308,7 +2309,7 @@ export const deserializeAws_restJson1GetMatchesCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.PotentialMatches !== undefined && data.PotentialMatches !== null) {
-    contents.PotentialMatches = __expectInt(data.PotentialMatches);
+    contents.PotentialMatches = __expectInt32(data.PotentialMatches);
   }
   return Promise.resolve(contents);
 };
@@ -2417,7 +2418,7 @@ export const deserializeAws_restJson1GetProfileObjectTypeCommand = async (
     contents.EncryptionKey = __expectString(data.EncryptionKey);
   }
   if (data.ExpirationDays !== undefined && data.ExpirationDays !== null) {
-    contents.ExpirationDays = __expectInt(data.ExpirationDays);
+    contents.ExpirationDays = __expectInt32(data.ExpirationDays);
   }
   if (data.Fields !== undefined && data.Fields !== null) {
     contents.Fields = deserializeAws_restJson1FieldMap(data.Fields, context);
@@ -3541,7 +3542,7 @@ export const deserializeAws_restJson1PutProfileObjectTypeCommand = async (
     contents.EncryptionKey = __expectString(data.EncryptionKey);
   }
   if (data.ExpirationDays !== undefined && data.ExpirationDays !== null) {
-    contents.ExpirationDays = __expectInt(data.ExpirationDays);
+    contents.ExpirationDays = __expectInt32(data.ExpirationDays);
   }
   if (data.Fields !== undefined && data.Fields !== null) {
     contents.Fields = deserializeAws_restJson1FieldMap(data.Fields, context);
@@ -3887,7 +3888,7 @@ export const deserializeAws_restJson1UpdateDomainCommand = async (
     contents.DefaultEncryptionKey = __expectString(data.DefaultEncryptionKey);
   }
   if (data.DefaultExpirationDays !== undefined && data.DefaultExpirationDays !== null) {
-    contents.DefaultExpirationDays = __expectInt(data.DefaultExpirationDays);
+    contents.DefaultExpirationDays = __expectInt32(data.DefaultExpirationDays);
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
     contents.DomainName = __expectString(data.DomainName);
@@ -4635,10 +4636,10 @@ const deserializeAws_restJson1DomainList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1DomainStats = (output: any, context: __SerdeContext): DomainStats => {
   return {
-    MeteringProfileCount: __expectInt(output.MeteringProfileCount),
-    ObjectCount: __expectInt(output.ObjectCount),
-    ProfileCount: __expectInt(output.ProfileCount),
-    TotalSize: __expectInt(output.TotalSize),
+    MeteringProfileCount: __expectLong(output.MeteringProfileCount),
+    ObjectCount: __expectLong(output.ObjectCount),
+    ProfileCount: __expectLong(output.ProfileCount),
+    TotalSize: __expectLong(output.TotalSize),
   } as any;
 };
 

@@ -209,10 +209,11 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -8770,12 +8771,12 @@ const deserializeAws_restJson1AggregatedValues = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Aggregates = (output: any, context: __SerdeContext): Aggregates => {
   return {
-    average: __limitedParseFloat(output.average),
-    count: __limitedParseFloat(output.count),
-    maximum: __limitedParseFloat(output.maximum),
-    minimum: __limitedParseFloat(output.minimum),
-    standardDeviation: __limitedParseFloat(output.standardDeviation),
-    sum: __limitedParseFloat(output.sum),
+    average: __limitedParseDouble(output.average),
+    count: __limitedParseDouble(output.count),
+    maximum: __limitedParseDouble(output.maximum),
+    minimum: __limitedParseDouble(output.minimum),
+    standardDeviation: __limitedParseDouble(output.standardDeviation),
+    sum: __limitedParseDouble(output.sum),
   } as any;
 };
 
@@ -9746,8 +9747,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1TimeInNanos = (output: any, context: __SerdeContext): TimeInNanos => {
   return {
-    offsetInNanos: __expectInt(output.offsetInNanos),
-    timeInSeconds: __expectInt(output.timeInSeconds),
+    offsetInNanos: __expectInt32(output.offsetInNanos),
+    timeInSeconds: __expectLong(output.timeInSeconds),
   } as any;
 };
 
@@ -9812,8 +9813,8 @@ const deserializeAws_restJson1VariableValue = (output: any, context: __SerdeCont
 const deserializeAws_restJson1Variant = (output: any, context: __SerdeContext): Variant => {
   return {
     booleanValue: __expectBoolean(output.booleanValue),
-    doubleValue: __limitedParseFloat(output.doubleValue),
-    integerValue: __expectInt(output.integerValue),
+    doubleValue: __limitedParseDouble(output.doubleValue),
+    integerValue: __expectInt32(output.integerValue),
     stringValue: __expectString(output.stringValue),
   } as any;
 };

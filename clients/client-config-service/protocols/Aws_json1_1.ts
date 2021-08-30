@@ -610,7 +610,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -10711,9 +10712,9 @@ const deserializeAws_json1_1AggregateConformancePackCompliance = (
 ): AggregateConformancePackCompliance => {
   return {
     ComplianceType: __expectString(output.ComplianceType),
-    CompliantRuleCount: __expectInt(output.CompliantRuleCount),
-    NonCompliantRuleCount: __expectInt(output.NonCompliantRuleCount),
-    TotalRuleCount: __expectInt(output.TotalRuleCount),
+    CompliantRuleCount: __expectInt32(output.CompliantRuleCount),
+    NonCompliantRuleCount: __expectInt32(output.NonCompliantRuleCount),
+    TotalRuleCount: __expectInt32(output.TotalRuleCount),
   } as any;
 };
 
@@ -10722,8 +10723,8 @@ const deserializeAws_json1_1AggregateConformancePackComplianceCount = (
   context: __SerdeContext
 ): AggregateConformancePackComplianceCount => {
   return {
-    CompliantConformancePackCount: __expectInt(output.CompliantConformancePackCount),
-    NonCompliantConformancePackCount: __expectInt(output.NonCompliantConformancePackCount),
+    CompliantConformancePackCount: __expectInt32(output.CompliantConformancePackCount),
+    NonCompliantConformancePackCount: __expectInt32(output.NonCompliantConformancePackCount),
   } as any;
 };
 
@@ -11010,7 +11011,7 @@ const deserializeAws_json1_1ComplianceContributorCount = (
 ): ComplianceContributorCount => {
   return {
     CapExceeded: __expectBoolean(output.CapExceeded),
-    CappedCount: __expectInt(output.CappedCount),
+    CappedCount: __expectInt32(output.CappedCount),
   } as any;
 };
 
@@ -12247,7 +12248,7 @@ const deserializeAws_json1_1GetAggregateDiscoveredResourceCountsResponse = (
         ? deserializeAws_json1_1GroupedResourceCountList(output.GroupedResourceCounts, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    TotalDiscoveredResources: __expectInt(output.TotalDiscoveredResources),
+    TotalDiscoveredResources: __expectLong(output.TotalDiscoveredResources),
   } as any;
 };
 
@@ -12356,7 +12357,7 @@ const deserializeAws_json1_1GetDiscoveredResourceCountsResponse = (
       output.resourceCounts !== undefined && output.resourceCounts !== null
         ? deserializeAws_json1_1ResourceCounts(output.resourceCounts, context)
         : undefined,
-    totalDiscoveredResources: __expectInt(output.totalDiscoveredResources),
+    totalDiscoveredResources: __expectLong(output.totalDiscoveredResources),
   } as any;
 };
 
@@ -12418,7 +12419,7 @@ const deserializeAws_json1_1GetStoredQueryResponse = (output: any, context: __Se
 const deserializeAws_json1_1GroupedResourceCount = (output: any, context: __SerdeContext): GroupedResourceCount => {
   return {
     GroupName: __expectString(output.GroupName),
-    ResourceCount: __expectInt(output.ResourceCount),
+    ResourceCount: __expectLong(output.ResourceCount),
   } as any;
 };
 
@@ -13342,13 +13343,13 @@ const deserializeAws_json1_1RemediationConfiguration = (
       output.ExecutionControls !== undefined && output.ExecutionControls !== null
         ? deserializeAws_json1_1ExecutionControls(output.ExecutionControls, context)
         : undefined,
-    MaximumAutomaticAttempts: __expectInt(output.MaximumAutomaticAttempts),
+    MaximumAutomaticAttempts: __expectInt32(output.MaximumAutomaticAttempts),
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1RemediationParameters(output.Parameters, context)
         : undefined,
     ResourceType: __expectString(output.ResourceType),
-    RetryAttemptSeconds: __expectInt(output.RetryAttemptSeconds),
+    RetryAttemptSeconds: __expectLong(output.RetryAttemptSeconds),
     TargetId: __expectString(output.TargetId),
     TargetType: __expectString(output.TargetType),
     TargetVersion: __expectString(output.TargetVersion),
@@ -13543,7 +13544,7 @@ const deserializeAws_json1_1ResourceConcurrentModificationException = (
 
 const deserializeAws_json1_1ResourceCount = (output: any, context: __SerdeContext): ResourceCount => {
   return {
-    count: __expectInt(output.count),
+    count: __expectLong(output.count),
     resourceType: __expectString(output.resourceType),
   } as any;
 };
@@ -13666,7 +13667,7 @@ const deserializeAws_json1_1Results = (output: any, context: __SerdeContext): st
 const deserializeAws_json1_1RetentionConfiguration = (output: any, context: __SerdeContext): RetentionConfiguration => {
   return {
     Name: __expectString(output.Name),
-    RetentionPeriodInDays: __expectInt(output.RetentionPeriodInDays),
+    RetentionPeriodInDays: __expectInt32(output.RetentionPeriodInDays),
   } as any;
 };
 
@@ -13762,8 +13763,8 @@ const deserializeAws_json1_1SourceDetails = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1SsmControls = (output: any, context: __SerdeContext): SsmControls => {
   return {
-    ConcurrentExecutionRatePercentage: __expectInt(output.ConcurrentExecutionRatePercentage),
-    ErrorPercentage: __expectInt(output.ErrorPercentage),
+    ConcurrentExecutionRatePercentage: __expectInt32(output.ConcurrentExecutionRatePercentage),
+    ErrorPercentage: __expectInt32(output.ErrorPercentage),
   } as any;
 };
 

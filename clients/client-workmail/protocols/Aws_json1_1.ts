@@ -282,9 +282,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6956,7 +6956,7 @@ const deserializeAws_json1_1DescribeMailboxExportJobResponse = (
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
     EntityId: __expectString(output.EntityId),
     ErrorInfo: __expectString(output.ErrorInfo),
-    EstimatedProgress: __expectInt(output.EstimatedProgress),
+    EstimatedProgress: __expectInt32(output.EstimatedProgress),
     KmsKeyArn: __expectString(output.KmsKeyArn),
     RoleArn: __expectString(output.RoleArn),
     S3BucketName: __expectString(output.S3BucketName),
@@ -7156,7 +7156,7 @@ const deserializeAws_json1_1FolderConfiguration = (output: any, context: __Serde
   return {
     Action: __expectString(output.Action),
     Name: __expectString(output.Name),
-    Period: __expectInt(output.Period),
+    Period: __expectInt32(output.Period),
   } as any;
 };
 
@@ -7204,8 +7204,8 @@ const deserializeAws_json1_1GetMailboxDetailsResponse = (
   context: __SerdeContext
 ): GetMailboxDetailsResponse => {
   return {
-    MailboxQuota: __expectInt(output.MailboxQuota),
-    MailboxSize: __limitedParseFloat(output.MailboxSize),
+    MailboxQuota: __expectInt32(output.MailboxQuota),
+    MailboxSize: __limitedParseDouble(output.MailboxSize),
   } as any;
 };
 
@@ -7450,7 +7450,7 @@ const deserializeAws_json1_1MailboxExportJob = (output: any, context: __SerdeCon
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
     EntityId: __expectString(output.EntityId),
-    EstimatedProgress: __expectInt(output.EstimatedProgress),
+    EstimatedProgress: __expectInt32(output.EstimatedProgress),
     JobId: __expectString(output.JobId),
     S3BucketName: __expectString(output.S3BucketName),
     S3Path: __expectString(output.S3Path),

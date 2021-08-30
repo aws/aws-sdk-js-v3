@@ -29,7 +29,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -802,7 +802,7 @@ const deserializeAws_json1_0StreamRecord = (output: any, context: __SerdeContext
         ? deserializeAws_json1_0AttributeMap(output.OldImage, context)
         : undefined,
     SequenceNumber: __expectString(output.SequenceNumber),
-    SizeBytes: __expectInt(output.SizeBytes),
+    SizeBytes: __expectLong(output.SizeBytes),
     StreamViewType: __expectString(output.StreamViewType),
   } as any;
 };

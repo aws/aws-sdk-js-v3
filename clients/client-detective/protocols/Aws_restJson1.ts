@@ -35,10 +35,10 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1711,7 +1711,7 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     InvitedTime:
       output.InvitedTime !== undefined && output.InvitedTime !== null ? new Date(output.InvitedTime) : undefined,
     MasterId: __expectString(output.MasterId),
-    PercentOfGraphUtilization: __limitedParseFloat(output.PercentOfGraphUtilization),
+    PercentOfGraphUtilization: __limitedParseDouble(output.PercentOfGraphUtilization),
     PercentOfGraphUtilizationUpdatedTime:
       output.PercentOfGraphUtilizationUpdatedTime !== undefined && output.PercentOfGraphUtilizationUpdatedTime !== null
         ? new Date(output.PercentOfGraphUtilizationUpdatedTime)
@@ -1719,7 +1719,7 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     Status: __expectString(output.Status),
     UpdatedTime:
       output.UpdatedTime !== undefined && output.UpdatedTime !== null ? new Date(output.UpdatedTime) : undefined,
-    VolumeUsageInBytes: __expectInt(output.VolumeUsageInBytes),
+    VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
     VolumeUsageUpdatedTime:
       output.VolumeUsageUpdatedTime !== undefined && output.VolumeUsageUpdatedTime !== null
         ? new Date(output.VolumeUsageUpdatedTime)

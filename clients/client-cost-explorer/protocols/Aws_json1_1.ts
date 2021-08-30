@@ -250,9 +250,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3712,7 +3712,7 @@ const deserializeAws_json1_1Anomaly = (output: any, context: __SerdeContext): An
 const deserializeAws_json1_1AnomalyMonitor = (output: any, context: __SerdeContext): AnomalyMonitor => {
   return {
     CreationDate: __expectString(output.CreationDate),
-    DimensionalValueCount: __expectInt(output.DimensionalValueCount),
+    DimensionalValueCount: __expectInt32(output.DimensionalValueCount),
     LastEvaluatedDate: __expectString(output.LastEvaluatedDate),
     LastUpdatedDate: __expectString(output.LastUpdatedDate),
     MonitorArn: __expectString(output.MonitorArn),
@@ -3739,8 +3739,8 @@ const deserializeAws_json1_1AnomalyMonitors = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1AnomalyScore = (output: any, context: __SerdeContext): AnomalyScore => {
   return {
-    CurrentScore: __limitedParseFloat(output.CurrentScore),
-    MaxScore: __limitedParseFloat(output.MaxScore),
+    CurrentScore: __limitedParseDouble(output.CurrentScore),
+    MaxScore: __limitedParseDouble(output.MaxScore),
   } as any;
 };
 
@@ -3758,7 +3758,7 @@ const deserializeAws_json1_1AnomalySubscription = (output: any, context: __Serde
         : undefined,
     SubscriptionArn: __expectString(output.SubscriptionArn),
     SubscriptionName: __expectString(output.SubscriptionName),
-    Threshold: __limitedParseFloat(output.Threshold),
+    Threshold: __limitedParseDouble(output.Threshold),
   } as any;
 };
 
@@ -3869,7 +3869,7 @@ const deserializeAws_json1_1CostCategoryReference = (output: any, context: __Ser
     EffectiveEnd: __expectString(output.EffectiveEnd),
     EffectiveStart: __expectString(output.EffectiveStart),
     Name: __expectString(output.Name),
-    NumberOfRules: __expectInt(output.NumberOfRules),
+    NumberOfRules: __expectInt32(output.NumberOfRules),
     ProcessingStatus:
       output.ProcessingStatus !== undefined && output.ProcessingStatus !== null
         ? deserializeAws_json1_1CostCategoryProcessingStatusList(output.ProcessingStatus, context)
@@ -4516,8 +4516,8 @@ const deserializeAws_json1_1GetCostCategoriesResponse = (
         ? deserializeAws_json1_1CostCategoryValuesList(output.CostCategoryValues, context)
         : undefined,
     NextPageToken: __expectString(output.NextPageToken),
-    ReturnSize: __expectInt(output.ReturnSize),
-    TotalSize: __expectInt(output.TotalSize),
+    ReturnSize: __expectInt32(output.ReturnSize),
+    TotalSize: __expectInt32(output.TotalSize),
   } as any;
 };
 
@@ -4547,8 +4547,8 @@ const deserializeAws_json1_1GetDimensionValuesResponse = (
         ? deserializeAws_json1_1DimensionValuesWithAttributesList(output.DimensionValues, context)
         : undefined,
     NextPageToken: __expectString(output.NextPageToken),
-    ReturnSize: __expectInt(output.ReturnSize),
-    TotalSize: __expectInt(output.TotalSize),
+    ReturnSize: __expectInt32(output.ReturnSize),
+    TotalSize: __expectInt32(output.TotalSize),
   } as any;
 };
 
@@ -4698,12 +4698,12 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationResponse = (
 const deserializeAws_json1_1GetTagsResponse = (output: any, context: __SerdeContext): GetTagsResponse => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
-    ReturnSize: __expectInt(output.ReturnSize),
+    ReturnSize: __expectInt32(output.ReturnSize),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined,
-    TotalSize: __expectInt(output.TotalSize),
+    TotalSize: __expectInt32(output.TotalSize),
   } as any;
 };
 
@@ -4765,8 +4765,8 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Gro
 
 const deserializeAws_json1_1Impact = (output: any, context: __SerdeContext): Impact => {
   return {
-    MaxImpact: __limitedParseFloat(output.MaxImpact),
-    TotalImpact: __limitedParseFloat(output.TotalImpact),
+    MaxImpact: __limitedParseDouble(output.MaxImpact),
+    TotalImpact: __limitedParseDouble(output.TotalImpact),
   } as any;
 };
 

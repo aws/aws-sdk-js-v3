@@ -66,7 +66,7 @@ import {
   expectBoolean as __expectBoolean,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3041,7 +3041,7 @@ const deserializeAws_restJson1ServiceLimitExceededExceptionResponse = async (
     contents.LimitName = __expectString(data.LimitName);
   }
   if (data.LimitValue !== undefined && data.LimitValue !== null) {
-    contents.LimitValue = __limitedParseFloat(data.LimitValue);
+    contents.LimitValue = __limitedParseDouble(data.LimitValue);
   }
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
@@ -3481,7 +3481,7 @@ const deserializeAws_restJson1JobError = (output: any, context: __SerdeContext):
         ? deserializeAws_restJson1Details(output.Details, context)
         : undefined,
     LimitName: __expectString(output.LimitName),
-    LimitValue: __limitedParseFloat(output.LimitValue),
+    LimitValue: __limitedParseDouble(output.LimitValue),
     Message: __expectString(output.Message),
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
@@ -3651,7 +3651,7 @@ const deserializeAws_restJson1RevisionEntry = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1S3SnapshotAsset = (output: any, context: __SerdeContext): S3SnapshotAsset => {
   return {
-    Size: __limitedParseFloat(output.Size),
+    Size: __limitedParseDouble(output.Size),
   } as any;
 };
 

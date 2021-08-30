@@ -230,9 +230,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4713,7 +4714,7 @@ const deserializeAws_json1_1AssessmentRun = (output: any, context: __SerdeContex
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
     dataCollected: __expectBoolean(output.dataCollected),
-    durationInSeconds: __expectInt(output.durationInSeconds),
+    durationInSeconds: __expectInt32(output.durationInSeconds),
     findingCounts:
       output.findingCounts !== undefined && output.findingCounts !== null
         ? deserializeAws_json1_1AssessmentRunFindingCounts(output.findingCounts, context)
@@ -4783,7 +4784,7 @@ const deserializeAws_json1_1AssessmentRunFindingCounts = (
     }
     return {
       ...acc,
-      [key]: __expectInt(value) as any,
+      [key]: __expectInt32(value) as any,
     };
   }, {});
 };
@@ -4910,13 +4911,13 @@ const deserializeAws_json1_1AssessmentTargetList = (output: any, context: __Serd
 const deserializeAws_json1_1AssessmentTemplate = (output: any, context: __SerdeContext): AssessmentTemplate => {
   return {
     arn: __expectString(output.arn),
-    assessmentRunCount: __expectInt(output.assessmentRunCount),
+    assessmentRunCount: __expectInt32(output.assessmentRunCount),
     assessmentTargetArn: __expectString(output.assessmentTargetArn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    durationInSeconds: __expectInt(output.durationInSeconds),
+    durationInSeconds: __expectInt32(output.durationInSeconds),
     lastAssessmentRunArn: __expectString(output.lastAssessmentRunArn),
     name: __expectString(output.name),
     rulesPackageArns:
@@ -4969,7 +4970,7 @@ const deserializeAws_json1_1AssetAttributes = (output: any, context: __SerdeCont
       output.networkInterfaces !== undefined && output.networkInterfaces !== null
         ? deserializeAws_json1_1NetworkInterfaces(output.networkInterfaces, context)
         : undefined,
-    schemaVersion: __expectInt(output.schemaVersion),
+    schemaVersion: __expectInt32(output.schemaVersion),
     tags:
       output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
   } as any;
@@ -5266,7 +5267,7 @@ const deserializeAws_json1_1Finding = (output: any, context: __SerdeContext): Fi
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_json1_1AttributeList(output.attributes, context)
         : undefined,
-    confidence: __expectInt(output.confidence),
+    confidence: __expectInt32(output.confidence),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -5274,9 +5275,9 @@ const deserializeAws_json1_1Finding = (output: any, context: __SerdeContext): Fi
     description: __expectString(output.description),
     id: __expectString(output.id),
     indicatorOfCompromise: __expectBoolean(output.indicatorOfCompromise),
-    numericSeverity: __limitedParseFloat(output.numericSeverity),
+    numericSeverity: __limitedParseDouble(output.numericSeverity),
     recommendation: __expectString(output.recommendation),
-    schemaVersion: __expectInt(output.schemaVersion),
+    schemaVersion: __expectInt32(output.schemaVersion),
     service: __expectString(output.service),
     serviceAttributes:
       output.serviceAttributes !== undefined && output.serviceAttributes !== null
@@ -5349,7 +5350,7 @@ const deserializeAws_json1_1InspectorServiceAttributes = (
   return {
     assessmentRunArn: __expectString(output.assessmentRunArn),
     rulesPackageArn: __expectString(output.rulesPackageArn),
-    schemaVersion: __expectInt(output.schemaVersion),
+    schemaVersion: __expectInt32(output.schemaVersion),
   } as any;
 };
 
@@ -5794,8 +5795,8 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 
 const deserializeAws_json1_1TelemetryMetadata = (output: any, context: __SerdeContext): TelemetryMetadata => {
   return {
-    count: __expectInt(output.count),
-    dataSize: __expectInt(output.dataSize),
+    count: __expectLong(output.count),
+    dataSize: __expectLong(output.dataSize),
     messageType: __expectString(output.messageType),
   } as any;
 };

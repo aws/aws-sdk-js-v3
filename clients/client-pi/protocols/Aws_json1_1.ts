@@ -27,7 +27,7 @@ import {
   ResponseResourceMetricKey,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectString as __expectString, limitedParseFloat as __limitedParseFloat } from "@aws-sdk/smithy-client";
+import { expectString as __expectString, limitedParseDouble as __limitedParseDouble } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -465,7 +465,7 @@ const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): 
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value: __limitedParseFloat(output.Value),
+    Value: __limitedParseDouble(output.Value),
   } as any;
 };
 
@@ -518,7 +518,7 @@ const deserializeAws_json1_1DimensionKeyDescription = (
       output.Partitions !== undefined && output.Partitions !== null
         ? deserializeAws_json1_1MetricValuesList(output.Partitions, context)
         : undefined,
-    Total: __limitedParseFloat(output.Total),
+    Total: __limitedParseDouble(output.Total),
   } as any;
 };
 
@@ -647,7 +647,7 @@ const deserializeAws_json1_1MetricValuesList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return __limitedParseFloat(entry) as any;
+      return __limitedParseDouble(entry) as any;
     });
 };
 

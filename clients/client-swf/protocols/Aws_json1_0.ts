@@ -275,7 +275,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4250,7 +4251,7 @@ const deserializeAws_json1_0ActivityTask = (output: any, context: __SerdeContext
         ? deserializeAws_json1_0ActivityType(output.activityType, context)
         : undefined,
     input: __expectString(output.input),
-    startedEventId: __expectInt(output.startedEventId),
+    startedEventId: __expectLong(output.startedEventId),
     taskToken: __expectString(output.taskToken),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
@@ -4265,9 +4266,9 @@ const deserializeAws_json1_0ActivityTaskCanceledEventAttributes = (
 ): ActivityTaskCanceledEventAttributes => {
   return {
     details: __expectString(output.details),
-    latestCancelRequestedEventId: __expectInt(output.latestCancelRequestedEventId),
-    scheduledEventId: __expectInt(output.scheduledEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    latestCancelRequestedEventId: __expectLong(output.latestCancelRequestedEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
+    startedEventId: __expectLong(output.startedEventId),
   } as any;
 };
 
@@ -4277,7 +4278,7 @@ const deserializeAws_json1_0ActivityTaskCancelRequestedEventAttributes = (
 ): ActivityTaskCancelRequestedEventAttributes => {
   return {
     activityId: __expectString(output.activityId),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -4287,8 +4288,8 @@ const deserializeAws_json1_0ActivityTaskCompletedEventAttributes = (
 ): ActivityTaskCompletedEventAttributes => {
   return {
     result: __expectString(output.result),
-    scheduledEventId: __expectInt(output.scheduledEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
+    startedEventId: __expectLong(output.startedEventId),
   } as any;
 };
 
@@ -4299,8 +4300,8 @@ const deserializeAws_json1_0ActivityTaskFailedEventAttributes = (
   return {
     details: __expectString(output.details),
     reason: __expectString(output.reason),
-    scheduledEventId: __expectInt(output.scheduledEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
+    startedEventId: __expectLong(output.startedEventId),
   } as any;
 };
 
@@ -4315,7 +4316,7 @@ const deserializeAws_json1_0ActivityTaskScheduledEventAttributes = (
         ? deserializeAws_json1_0ActivityType(output.activityType, context)
         : undefined,
     control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     heartbeatTimeout: __expectString(output.heartbeatTimeout),
     input: __expectString(output.input),
     scheduleToCloseTimeout: __expectString(output.scheduleToCloseTimeout),
@@ -4335,7 +4336,7 @@ const deserializeAws_json1_0ActivityTaskStartedEventAttributes = (
 ): ActivityTaskStartedEventAttributes => {
   return {
     identity: __expectString(output.identity),
-    scheduledEventId: __expectInt(output.scheduledEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
   } as any;
 };
 
@@ -4351,8 +4352,8 @@ const deserializeAws_json1_0ActivityTaskTimedOutEventAttributes = (
 ): ActivityTaskTimedOutEventAttributes => {
   return {
     details: __expectString(output.details),
-    scheduledEventId: __expectInt(output.scheduledEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
+    startedEventId: __expectLong(output.startedEventId),
     timeoutType: __expectString(output.timeoutType),
   } as any;
 };
@@ -4440,7 +4441,7 @@ const deserializeAws_json1_0CancelTimerFailedEventAttributes = (
 ): CancelTimerFailedEventAttributes => {
   return {
     cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     timerId: __expectString(output.timerId),
   } as any;
 };
@@ -4451,7 +4452,7 @@ const deserializeAws_json1_0CancelWorkflowExecutionFailedEventAttributes = (
 ): CancelWorkflowExecutionFailedEventAttributes => {
   return {
     cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -4461,8 +4462,8 @@ const deserializeAws_json1_0ChildWorkflowExecutionCanceledEventAttributes = (
 ): ChildWorkflowExecutionCanceledEventAttributes => {
   return {
     details: __expectString(output.details),
-    initiatedEventId: __expectInt(output.initiatedEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
+    startedEventId: __expectLong(output.startedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4479,9 +4480,9 @@ const deserializeAws_json1_0ChildWorkflowExecutionCompletedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionCompletedEventAttributes => {
   return {
-    initiatedEventId: __expectInt(output.initiatedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
     result: __expectString(output.result),
-    startedEventId: __expectInt(output.startedEventId),
+    startedEventId: __expectLong(output.startedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4499,9 +4500,9 @@ const deserializeAws_json1_0ChildWorkflowExecutionFailedEventAttributes = (
 ): ChildWorkflowExecutionFailedEventAttributes => {
   return {
     details: __expectString(output.details),
-    initiatedEventId: __expectInt(output.initiatedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
     reason: __expectString(output.reason),
-    startedEventId: __expectInt(output.startedEventId),
+    startedEventId: __expectLong(output.startedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4518,7 +4519,7 @@ const deserializeAws_json1_0ChildWorkflowExecutionStartedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionStartedEventAttributes => {
   return {
-    initiatedEventId: __expectInt(output.initiatedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4535,8 +4536,8 @@ const deserializeAws_json1_0ChildWorkflowExecutionTerminatedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionTerminatedEventAttributes => {
   return {
-    initiatedEventId: __expectInt(output.initiatedEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
+    startedEventId: __expectLong(output.startedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4553,8 +4554,8 @@ const deserializeAws_json1_0ChildWorkflowExecutionTimedOutEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionTimedOutEventAttributes => {
   return {
-    initiatedEventId: __expectInt(output.initiatedEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
+    startedEventId: __expectLong(output.startedEventId),
     timeoutType: __expectString(output.timeoutType),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
@@ -4573,7 +4574,7 @@ const deserializeAws_json1_0CompleteWorkflowExecutionFailedEventAttributes = (
 ): CompleteWorkflowExecutionFailedEventAttributes => {
   return {
     cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -4583,7 +4584,7 @@ const deserializeAws_json1_0ContinueAsNewWorkflowExecutionFailedEventAttributes 
 ): ContinueAsNewWorkflowExecutionFailedEventAttributes => {
   return {
     cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -4594,8 +4595,8 @@ const deserializeAws_json1_0DecisionTask = (output: any, context: __SerdeContext
         ? deserializeAws_json1_0HistoryEventList(output.events, context)
         : undefined,
     nextPageToken: __expectString(output.nextPageToken),
-    previousStartedEventId: __expectInt(output.previousStartedEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    previousStartedEventId: __expectLong(output.previousStartedEventId),
+    startedEventId: __expectLong(output.startedEventId),
     taskToken: __expectString(output.taskToken),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
@@ -4614,8 +4615,8 @@ const deserializeAws_json1_0DecisionTaskCompletedEventAttributes = (
 ): DecisionTaskCompletedEventAttributes => {
   return {
     executionContext: __expectString(output.executionContext),
-    scheduledEventId: __expectInt(output.scheduledEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
+    startedEventId: __expectLong(output.startedEventId),
   } as any;
 };
 
@@ -4639,7 +4640,7 @@ const deserializeAws_json1_0DecisionTaskStartedEventAttributes = (
 ): DecisionTaskStartedEventAttributes => {
   return {
     identity: __expectString(output.identity),
-    scheduledEventId: __expectInt(output.scheduledEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
   } as any;
 };
 
@@ -4648,8 +4649,8 @@ const deserializeAws_json1_0DecisionTaskTimedOutEventAttributes = (
   context: __SerdeContext
 ): DecisionTaskTimedOutEventAttributes => {
   return {
-    scheduledEventId: __expectInt(output.scheduledEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
+    startedEventId: __expectLong(output.startedEventId),
     timeoutType: __expectString(output.timeoutType),
   } as any;
 };
@@ -4729,7 +4730,7 @@ const deserializeAws_json1_0ExternalWorkflowExecutionCancelRequestedEventAttribu
   context: __SerdeContext
 ): ExternalWorkflowExecutionCancelRequestedEventAttributes => {
   return {
-    initiatedEventId: __expectInt(output.initiatedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4742,7 +4743,7 @@ const deserializeAws_json1_0ExternalWorkflowExecutionSignaledEventAttributes = (
   context: __SerdeContext
 ): ExternalWorkflowExecutionSignaledEventAttributes => {
   return {
-    initiatedEventId: __expectInt(output.initiatedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4756,7 +4757,7 @@ const deserializeAws_json1_0FailWorkflowExecutionFailedEventAttributes = (
 ): FailWorkflowExecutionFailedEventAttributes => {
   return {
     cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -4908,7 +4909,7 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
       output.decisionTaskTimedOutEventAttributes !== undefined && output.decisionTaskTimedOutEventAttributes !== null
         ? deserializeAws_json1_0DecisionTaskTimedOutEventAttributes(output.decisionTaskTimedOutEventAttributes, context)
         : undefined,
-    eventId: __expectInt(output.eventId),
+    eventId: __expectLong(output.eventId),
     eventTimestamp:
       output.eventTimestamp !== undefined && output.eventTimestamp !== null
         ? new Date(Math.round(output.eventTimestamp * 1000))
@@ -5169,8 +5170,8 @@ const deserializeAws_json1_0LambdaFunctionCompletedEventAttributes = (
 ): LambdaFunctionCompletedEventAttributes => {
   return {
     result: __expectString(output.result),
-    scheduledEventId: __expectInt(output.scheduledEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
+    startedEventId: __expectLong(output.startedEventId),
   } as any;
 };
 
@@ -5181,8 +5182,8 @@ const deserializeAws_json1_0LambdaFunctionFailedEventAttributes = (
   return {
     details: __expectString(output.details),
     reason: __expectString(output.reason),
-    scheduledEventId: __expectInt(output.scheduledEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
+    startedEventId: __expectLong(output.startedEventId),
   } as any;
 };
 
@@ -5192,7 +5193,7 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventAttributes = (
 ): LambdaFunctionScheduledEventAttributes => {
   return {
     control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     id: __expectString(output.id),
     input: __expectString(output.input),
     name: __expectString(output.name),
@@ -5205,7 +5206,7 @@ const deserializeAws_json1_0LambdaFunctionStartedEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionStartedEventAttributes => {
   return {
-    scheduledEventId: __expectInt(output.scheduledEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
   } as any;
 };
 
@@ -5214,8 +5215,8 @@ const deserializeAws_json1_0LambdaFunctionTimedOutEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionTimedOutEventAttributes => {
   return {
-    scheduledEventId: __expectInt(output.scheduledEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
+    startedEventId: __expectLong(output.startedEventId),
     timeoutType: __expectString(output.timeoutType),
   } as any;
 };
@@ -5243,7 +5244,7 @@ const deserializeAws_json1_0MarkerRecordedEventAttributes = (
   context: __SerdeContext
 ): MarkerRecordedEventAttributes => {
   return {
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     details: __expectString(output.details),
     markerName: __expectString(output.markerName),
   } as any;
@@ -5260,7 +5261,7 @@ const deserializeAws_json1_0OperationNotPermittedFault = (
 
 const deserializeAws_json1_0PendingTaskCount = (output: any, context: __SerdeContext): PendingTaskCount => {
   return {
-    count: __expectInt(output.count),
+    count: __expectInt32(output.count),
     truncated: __expectBoolean(output.truncated),
   } as any;
 };
@@ -5271,7 +5272,7 @@ const deserializeAws_json1_0RecordMarkerFailedEventAttributes = (
 ): RecordMarkerFailedEventAttributes => {
   return {
     cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     markerName: __expectString(output.markerName),
   } as any;
 };
@@ -5283,7 +5284,7 @@ const deserializeAws_json1_0RequestCancelActivityTaskFailedEventAttributes = (
   return {
     activityId: __expectString(output.activityId),
     cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -5294,8 +5295,8 @@ const deserializeAws_json1_0RequestCancelExternalWorkflowExecutionFailedEventAtt
   return {
     cause: __expectString(output.cause),
     control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
-    initiatedEventId: __expectInt(output.initiatedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
     runId: __expectString(output.runId),
     workflowId: __expectString(output.workflowId),
   } as any;
@@ -5307,7 +5308,7 @@ const deserializeAws_json1_0RequestCancelExternalWorkflowExecutionInitiatedEvent
 ): RequestCancelExternalWorkflowExecutionInitiatedEventAttributes => {
   return {
     control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     runId: __expectString(output.runId),
     workflowId: __expectString(output.workflowId),
   } as any;
@@ -5348,7 +5349,7 @@ const deserializeAws_json1_0ScheduleActivityTaskFailedEventAttributes = (
         ? deserializeAws_json1_0ActivityType(output.activityType, context)
         : undefined,
     cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -5358,7 +5359,7 @@ const deserializeAws_json1_0ScheduleLambdaFunctionFailedEventAttributes = (
 ): ScheduleLambdaFunctionFailedEventAttributes => {
   return {
     cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     id: __expectString(output.id),
     name: __expectString(output.name),
   } as any;
@@ -5371,8 +5372,8 @@ const deserializeAws_json1_0SignalExternalWorkflowExecutionFailedEventAttributes
   return {
     cause: __expectString(output.cause),
     control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
-    initiatedEventId: __expectInt(output.initiatedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
     runId: __expectString(output.runId),
     workflowId: __expectString(output.workflowId),
   } as any;
@@ -5384,7 +5385,7 @@ const deserializeAws_json1_0SignalExternalWorkflowExecutionInitiatedEventAttribu
 ): SignalExternalWorkflowExecutionInitiatedEventAttributes => {
   return {
     control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     input: __expectString(output.input),
     runId: __expectString(output.runId),
     signalName: __expectString(output.signalName),
@@ -5399,8 +5400,8 @@ const deserializeAws_json1_0StartChildWorkflowExecutionFailedEventAttributes = (
   return {
     cause: __expectString(output.cause),
     control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
-    initiatedEventId: __expectInt(output.initiatedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
+    initiatedEventId: __expectLong(output.initiatedEventId),
     workflowId: __expectString(output.workflowId),
     workflowType:
       output.workflowType !== undefined && output.workflowType !== null
@@ -5416,7 +5417,7 @@ const deserializeAws_json1_0StartChildWorkflowExecutionInitiatedEventAttributes 
   return {
     childPolicy: __expectString(output.childPolicy),
     control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
     input: __expectString(output.input),
     lambdaRole: __expectString(output.lambdaRole),
@@ -5445,7 +5446,7 @@ const deserializeAws_json1_0StartLambdaFunctionFailedEventAttributes = (
   return {
     cause: __expectString(output.cause),
     message: __expectString(output.message),
-    scheduledEventId: __expectInt(output.scheduledEventId),
+    scheduledEventId: __expectLong(output.scheduledEventId),
   } as any;
 };
 
@@ -5455,7 +5456,7 @@ const deserializeAws_json1_0StartTimerFailedEventAttributes = (
 ): StartTimerFailedEventAttributes => {
   return {
     cause: __expectString(output.cause),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     timerId: __expectString(output.timerId),
   } as any;
 };
@@ -5482,8 +5483,8 @@ const deserializeAws_json1_0TimerCanceledEventAttributes = (
   context: __SerdeContext
 ): TimerCanceledEventAttributes => {
   return {
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
-    startedEventId: __expectInt(output.startedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
+    startedEventId: __expectLong(output.startedEventId),
     timerId: __expectString(output.timerId),
   } as any;
 };
@@ -5493,7 +5494,7 @@ const deserializeAws_json1_0TimerFiredEventAttributes = (
   context: __SerdeContext
 ): TimerFiredEventAttributes => {
   return {
-    startedEventId: __expectInt(output.startedEventId),
+    startedEventId: __expectLong(output.startedEventId),
     timerId: __expectString(output.timerId),
   } as any;
 };
@@ -5504,7 +5505,7 @@ const deserializeAws_json1_0TimerStartedEventAttributes = (
 ): TimerStartedEventAttributes => {
   return {
     control: __expectString(output.control),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     startToFireTimeout: __expectString(output.startToFireTimeout),
     timerId: __expectString(output.timerId),
   } as any;
@@ -5555,7 +5556,7 @@ const deserializeAws_json1_0WorkflowExecutionCanceledEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionCanceledEventAttributes => {
   return {
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     details: __expectString(output.details),
   } as any;
 };
@@ -5566,7 +5567,7 @@ const deserializeAws_json1_0WorkflowExecutionCancelRequestedEventAttributes = (
 ): WorkflowExecutionCancelRequestedEventAttributes => {
   return {
     cause: __expectString(output.cause),
-    externalInitiatedEventId: __expectInt(output.externalInitiatedEventId),
+    externalInitiatedEventId: __expectLong(output.externalInitiatedEventId),
     externalWorkflowExecution:
       output.externalWorkflowExecution !== undefined && output.externalWorkflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.externalWorkflowExecution, context)
@@ -5579,7 +5580,7 @@ const deserializeAws_json1_0WorkflowExecutionCompletedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionCompletedEventAttributes => {
   return {
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     result: __expectString(output.result),
   } as any;
 };
@@ -5607,7 +5608,7 @@ const deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes = (
 ): WorkflowExecutionContinuedAsNewEventAttributes => {
   return {
     childPolicy: __expectString(output.childPolicy),
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
     input: __expectString(output.input),
     lambdaRole: __expectString(output.lambdaRole),
@@ -5631,7 +5632,7 @@ const deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes = (
 
 const deserializeAws_json1_0WorkflowExecutionCount = (output: any, context: __SerdeContext): WorkflowExecutionCount => {
   return {
-    count: __expectInt(output.count),
+    count: __expectInt32(output.count),
     truncated: __expectBoolean(output.truncated),
   } as any;
 };
@@ -5666,7 +5667,7 @@ const deserializeAws_json1_0WorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionFailedEventAttributes => {
   return {
-    decisionTaskCompletedEventId: __expectInt(output.decisionTaskCompletedEventId),
+    decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     details: __expectString(output.details),
     reason: __expectString(output.reason),
   } as any;
@@ -5733,11 +5734,11 @@ const deserializeAws_json1_0WorkflowExecutionOpenCounts = (
   context: __SerdeContext
 ): WorkflowExecutionOpenCounts => {
   return {
-    openActivityTasks: __expectInt(output.openActivityTasks),
-    openChildWorkflowExecutions: __expectInt(output.openChildWorkflowExecutions),
-    openDecisionTasks: __expectInt(output.openDecisionTasks),
-    openLambdaFunctions: __expectInt(output.openLambdaFunctions),
-    openTimers: __expectInt(output.openTimers),
+    openActivityTasks: __expectInt32(output.openActivityTasks),
+    openChildWorkflowExecutions: __expectInt32(output.openChildWorkflowExecutions),
+    openDecisionTasks: __expectInt32(output.openDecisionTasks),
+    openLambdaFunctions: __expectInt32(output.openLambdaFunctions),
+    openTimers: __expectInt32(output.openTimers),
   } as any;
 };
 
@@ -5746,7 +5747,7 @@ const deserializeAws_json1_0WorkflowExecutionSignaledEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionSignaledEventAttributes => {
   return {
-    externalInitiatedEventId: __expectInt(output.externalInitiatedEventId),
+    externalInitiatedEventId: __expectLong(output.externalInitiatedEventId),
     externalWorkflowExecution:
       output.externalWorkflowExecution !== undefined && output.externalWorkflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.externalWorkflowExecution, context)
@@ -5766,7 +5767,7 @@ const deserializeAws_json1_0WorkflowExecutionStartedEventAttributes = (
     executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
     input: __expectString(output.input),
     lambdaRole: __expectString(output.lambdaRole),
-    parentInitiatedEventId: __expectInt(output.parentInitiatedEventId),
+    parentInitiatedEventId: __expectLong(output.parentInitiatedEventId),
     parentWorkflowExecution:
       output.parentWorkflowExecution !== undefined && output.parentWorkflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.parentWorkflowExecution, context)

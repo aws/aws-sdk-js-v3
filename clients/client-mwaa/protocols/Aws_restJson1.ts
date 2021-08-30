@@ -40,7 +40,7 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   serializeFloat as __serializeFloat,
@@ -1559,8 +1559,8 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
       output.LoggingConfiguration !== undefined && output.LoggingConfiguration !== null
         ? deserializeAws_restJson1LoggingConfiguration(output.LoggingConfiguration, context)
         : undefined,
-    MaxWorkers: __expectInt(output.MaxWorkers),
-    MinWorkers: __expectInt(output.MinWorkers),
+    MaxWorkers: __expectInt32(output.MaxWorkers),
+    MinWorkers: __expectInt32(output.MinWorkers),
     Name: __expectString(output.Name),
     NetworkConfiguration:
       output.NetworkConfiguration !== undefined && output.NetworkConfiguration !== null
@@ -1570,7 +1570,7 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
     PluginsS3Path: __expectString(output.PluginsS3Path),
     RequirementsS3ObjectVersion: __expectString(output.RequirementsS3ObjectVersion),
     RequirementsS3Path: __expectString(output.RequirementsS3Path),
-    Schedulers: __expectInt(output.Schedulers),
+    Schedulers: __expectInt32(output.Schedulers),
     ServiceRoleArn: __expectString(output.ServiceRoleArn),
     SourceBucketArn: __expectString(output.SourceBucketArn),
     Status: __expectString(output.Status),

@@ -164,7 +164,8 @@ import {
   parseBoolean as __parseBoolean,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4158,10 +4159,10 @@ const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext):
     contents.SearchInstanceType = __expectString(output["SearchInstanceType"]);
   }
   if (output["SearchPartitionCount"] !== undefined) {
-    contents.SearchPartitionCount = __strictParseInt(output["SearchPartitionCount"]) as number;
+    contents.SearchPartitionCount = __strictParseInt32(output["SearchPartitionCount"]) as number;
   }
   if (output["SearchInstanceCount"] !== undefined) {
-    contents.SearchInstanceCount = __strictParseInt(output["SearchInstanceCount"]) as number;
+    contents.SearchInstanceCount = __strictParseInt32(output["SearchInstanceCount"]) as number;
   }
   if (output["Limits"] !== undefined) {
     contents.Limits = deserializeAws_queryLimits(output["Limits"], context);
@@ -4394,7 +4395,7 @@ const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContex
     ReturnEnabled: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __strictParseInt(output["DefaultValue"]) as number;
+    contents.DefaultValue = __strictParseLong(output["DefaultValue"]) as number;
   }
   if (output["SourceFields"] !== undefined) {
     contents.SourceFields = __expectString(output["SourceFields"]);
@@ -4435,7 +4436,7 @@ const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): I
     SortEnabled: undefined,
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __strictParseInt(output["DefaultValue"]) as number;
+    contents.DefaultValue = __strictParseLong(output["DefaultValue"]) as number;
   }
   if (output["SourceField"] !== undefined) {
     contents.SourceField = __expectString(output["SourceField"]);
@@ -4519,10 +4520,10 @@ const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit
     MaximumPartitionCount: undefined,
   };
   if (output["MaximumReplicationCount"] !== undefined) {
-    contents.MaximumReplicationCount = __strictParseInt(output["MaximumReplicationCount"]) as number;
+    contents.MaximumReplicationCount = __strictParseInt32(output["MaximumReplicationCount"]) as number;
   }
   if (output["MaximumPartitionCount"] !== undefined) {
-    contents.MaximumPartitionCount = __strictParseInt(output["MaximumPartitionCount"]) as number;
+    contents.MaximumPartitionCount = __strictParseInt32(output["MaximumPartitionCount"]) as number;
   }
   return contents;
 };
@@ -4614,7 +4615,7 @@ const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext):
     contents.UpdateDate = new Date(output["UpdateDate"]);
   }
   if (output["UpdateVersion"] !== undefined) {
-    contents.UpdateVersion = __strictParseInt(output["UpdateVersion"]) as number;
+    contents.UpdateVersion = __strictParseInt32(output["UpdateVersion"]) as number;
   }
   if (output["State"] !== undefined) {
     contents.State = __expectString(output["State"]);
@@ -4669,10 +4670,10 @@ const deserializeAws_queryScalingParameters = (output: any, context: __SerdeCont
     contents.DesiredInstanceType = __expectString(output["DesiredInstanceType"]);
   }
   if (output["DesiredReplicationCount"] !== undefined) {
-    contents.DesiredReplicationCount = __strictParseInt(output["DesiredReplicationCount"]) as number;
+    contents.DesiredReplicationCount = __strictParseInt32(output["DesiredReplicationCount"]) as number;
   }
   if (output["DesiredPartitionCount"] !== undefined) {
-    contents.DesiredPartitionCount = __strictParseInt(output["DesiredPartitionCount"]) as number;
+    contents.DesiredPartitionCount = __strictParseInt32(output["DesiredPartitionCount"]) as number;
   }
   return contents;
 };

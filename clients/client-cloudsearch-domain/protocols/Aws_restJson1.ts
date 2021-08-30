@@ -17,10 +17,10 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -267,10 +267,10 @@ export const deserializeAws_restJson1UploadDocumentsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.adds !== undefined && data.adds !== null) {
-    contents.adds = __expectInt(data.adds);
+    contents.adds = __expectLong(data.adds);
   }
   if (data.deletes !== undefined && data.deletes !== null) {
-    contents.deletes = __expectInt(data.deletes);
+    contents.deletes = __expectLong(data.deletes);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -358,7 +358,7 @@ const deserializeAws_restJson1SearchExceptionResponse = async (
 
 const deserializeAws_restJson1Bucket = (output: any, context: __SerdeContext): Bucket => {
   return {
-    count: __expectInt(output.count),
+    count: __expectLong(output.count),
     value: __expectString(output.value),
   } as any;
 };
@@ -444,14 +444,14 @@ const deserializeAws_restJson1Fields = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1FieldStats = (output: any, context: __SerdeContext): FieldStats => {
   return {
-    count: __expectInt(output.count),
+    count: __expectLong(output.count),
     max: __expectString(output.max),
     mean: __expectString(output.mean),
     min: __expectString(output.min),
-    missing: __expectInt(output.missing),
-    stddev: __limitedParseFloat(output.stddev),
-    sum: __limitedParseFloat(output.sum),
-    sumOfSquares: __limitedParseFloat(output.sumOfSquares),
+    missing: __expectLong(output.missing),
+    stddev: __limitedParseDouble(output.stddev),
+    sum: __limitedParseDouble(output.sum),
+    sumOfSquares: __limitedParseDouble(output.sumOfSquares),
   } as any;
 };
 
@@ -510,19 +510,19 @@ const deserializeAws_restJson1HitList = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1Hits = (output: any, context: __SerdeContext): Hits => {
   return {
     cursor: __expectString(output.cursor),
-    found: __expectInt(output.found),
+    found: __expectLong(output.found),
     hit:
       output.hit !== undefined && output.hit !== null
         ? deserializeAws_restJson1HitList(output.hit, context)
         : undefined,
-    start: __expectInt(output.start),
+    start: __expectLong(output.start),
   } as any;
 };
 
 const deserializeAws_restJson1SearchStatus = (output: any, context: __SerdeContext): SearchStatus => {
   return {
     rid: __expectString(output.rid),
-    timems: __expectInt(output.timems),
+    timems: __expectLong(output.timems),
   } as any;
 };
 
@@ -541,7 +541,7 @@ const deserializeAws_restJson1Stats = (output: any, context: __SerdeContext): { 
 const deserializeAws_restJson1SuggestionMatch = (output: any, context: __SerdeContext): SuggestionMatch => {
   return {
     id: __expectString(output.id),
-    score: __expectInt(output.score),
+    score: __expectLong(output.score),
     suggestion: __expectString(output.suggestion),
   } as any;
 };
@@ -559,7 +559,7 @@ const deserializeAws_restJson1Suggestions = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1SuggestModel = (output: any, context: __SerdeContext): SuggestModel => {
   return {
-    found: __expectInt(output.found),
+    found: __expectLong(output.found),
     query: __expectString(output.query),
     suggestions:
       output.suggestions !== undefined && output.suggestions !== null
@@ -571,7 +571,7 @@ const deserializeAws_restJson1SuggestModel = (output: any, context: __SerdeConte
 const deserializeAws_restJson1SuggestStatus = (output: any, context: __SerdeContext): SuggestStatus => {
   return {
     rid: __expectString(output.rid),
-    timems: __expectInt(output.timems),
+    timems: __expectLong(output.timems),
   } as any;
 };
 

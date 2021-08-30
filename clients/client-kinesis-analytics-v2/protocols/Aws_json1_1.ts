@@ -297,7 +297,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5335,7 +5336,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse = (
 ): AddApplicationCloudWatchLoggingOptionResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     CloudWatchLoggingOptionDescriptions:
       output.CloudWatchLoggingOptionDescriptions !== undefined && output.CloudWatchLoggingOptionDescriptions !== null
         ? deserializeAws_json1_1CloudWatchLoggingOptionDescriptions(output.CloudWatchLoggingOptionDescriptions, context)
@@ -5349,7 +5350,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationResponse =
 ): AddApplicationInputProcessingConfigurationResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     InputId: __expectString(output.InputId),
     InputProcessingConfigurationDescription:
       output.InputProcessingConfigurationDescription !== undefined &&
@@ -5368,7 +5369,7 @@ const deserializeAws_json1_1AddApplicationInputResponse = (
 ): AddApplicationInputResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     InputDescriptions:
       output.InputDescriptions !== undefined && output.InputDescriptions !== null
         ? deserializeAws_json1_1InputDescriptions(output.InputDescriptions, context)
@@ -5382,7 +5383,7 @@ const deserializeAws_json1_1AddApplicationOutputResponse = (
 ): AddApplicationOutputResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     OutputDescriptions:
       output.OutputDescriptions !== undefined && output.OutputDescriptions !== null
         ? deserializeAws_json1_1OutputDescriptions(output.OutputDescriptions, context)
@@ -5396,7 +5397,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceResponse = (
 ): AddApplicationReferenceDataSourceResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     ReferenceDataSourceDescriptions:
       output.ReferenceDataSourceDescriptions !== undefined && output.ReferenceDataSourceDescriptions !== null
         ? deserializeAws_json1_1ReferenceDataSourceDescriptions(output.ReferenceDataSourceDescriptions, context)
@@ -5410,7 +5411,7 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationResponse = (
 ): AddApplicationVpcConfigurationResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     VpcConfigurationDescription:
       output.VpcConfigurationDescription !== undefined && output.VpcConfigurationDescription !== null
         ? deserializeAws_json1_1VpcConfigurationDescription(output.VpcConfigurationDescription, context)
@@ -5510,10 +5511,10 @@ const deserializeAws_json1_1ApplicationDetail = (output: any, context: __SerdeCo
     ApplicationMode: __expectString(output.ApplicationMode),
     ApplicationName: __expectString(output.ApplicationName),
     ApplicationStatus: __expectString(output.ApplicationStatus),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
-    ApplicationVersionRolledBackFrom: __expectInt(output.ApplicationVersionRolledBackFrom),
-    ApplicationVersionRolledBackTo: __expectInt(output.ApplicationVersionRolledBackTo),
-    ApplicationVersionUpdatedFrom: __expectInt(output.ApplicationVersionUpdatedFrom),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
+    ApplicationVersionRolledBackFrom: __expectLong(output.ApplicationVersionRolledBackFrom),
+    ApplicationVersionRolledBackTo: __expectLong(output.ApplicationVersionRolledBackTo),
+    ApplicationVersionUpdatedFrom: __expectLong(output.ApplicationVersionUpdatedFrom),
     CloudWatchLoggingOptionDescriptions:
       output.CloudWatchLoggingOptionDescriptions !== undefined && output.CloudWatchLoggingOptionDescriptions !== null
         ? deserializeAws_json1_1CloudWatchLoggingOptionDescriptions(output.CloudWatchLoggingOptionDescriptions, context)
@@ -5578,7 +5579,7 @@ const deserializeAws_json1_1ApplicationSummary = (output: any, context: __SerdeC
     ApplicationMode: __expectString(output.ApplicationMode),
     ApplicationName: __expectString(output.ApplicationName),
     ApplicationStatus: __expectString(output.ApplicationStatus),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     RuntimeEnvironment: __expectString(output.RuntimeEnvironment),
   } as any;
 };
@@ -5603,7 +5604,7 @@ const deserializeAws_json1_1ApplicationVersionSummary = (
 ): ApplicationVersionSummary => {
   return {
     ApplicationStatus: __expectString(output.ApplicationStatus),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
   } as any;
 };
 
@@ -5628,10 +5629,10 @@ const deserializeAws_json1_1CheckpointConfigurationDescription = (
   context: __SerdeContext
 ): CheckpointConfigurationDescription => {
   return {
-    CheckpointInterval: __expectInt(output.CheckpointInterval),
+    CheckpointInterval: __expectLong(output.CheckpointInterval),
     CheckpointingEnabled: __expectBoolean(output.CheckpointingEnabled),
     ConfigurationType: __expectString(output.ConfigurationType),
-    MinPauseBetweenCheckpoints: __expectInt(output.MinPauseBetweenCheckpoints),
+    MinPauseBetweenCheckpoints: __expectLong(output.MinPauseBetweenCheckpoints),
   } as any;
 };
 
@@ -5663,7 +5664,7 @@ const deserializeAws_json1_1CloudWatchLoggingOptionDescriptions = (
 const deserializeAws_json1_1CodeContentDescription = (output: any, context: __SerdeContext): CodeContentDescription => {
   return {
     CodeMD5: __expectString(output.CodeMD5),
-    CodeSize: __expectInt(output.CodeSize),
+    CodeSize: __expectLong(output.CodeSize),
     S3ApplicationCodeLocationDescription:
       output.S3ApplicationCodeLocationDescription !== undefined && output.S3ApplicationCodeLocationDescription !== null
         ? deserializeAws_json1_1S3ApplicationCodeLocationDescription(
@@ -5765,7 +5766,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionResponse = (
 ): DeleteApplicationCloudWatchLoggingOptionResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     CloudWatchLoggingOptionDescriptions:
       output.CloudWatchLoggingOptionDescriptions !== undefined && output.CloudWatchLoggingOptionDescriptions !== null
         ? deserializeAws_json1_1CloudWatchLoggingOptionDescriptions(output.CloudWatchLoggingOptionDescriptions, context)
@@ -5779,7 +5780,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationRespons
 ): DeleteApplicationInputProcessingConfigurationResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
   } as any;
 };
 
@@ -5789,7 +5790,7 @@ const deserializeAws_json1_1DeleteApplicationOutputResponse = (
 ): DeleteApplicationOutputResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
   } as any;
 };
 
@@ -5799,7 +5800,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceResponse = (
 ): DeleteApplicationReferenceDataSourceResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
   } as any;
 };
 
@@ -5823,7 +5824,7 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationResponse = (
 ): DeleteApplicationVpcConfigurationResponse => {
   return {
     ApplicationARN: __expectString(output.ApplicationARN),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
   } as any;
 };
 
@@ -6026,7 +6027,7 @@ const deserializeAws_json1_1InputLambdaProcessorDescription = (
 
 const deserializeAws_json1_1InputParallelism = (output: any, context: __SerdeContext): InputParallelism => {
   return {
-    Count: __expectInt(output.Count),
+    Count: __expectInt32(output.Count),
   } as any;
 };
 
@@ -6262,9 +6263,9 @@ const deserializeAws_json1_1ParallelismConfigurationDescription = (
   return {
     AutoScalingEnabled: __expectBoolean(output.AutoScalingEnabled),
     ConfigurationType: __expectString(output.ConfigurationType),
-    CurrentParallelism: __expectInt(output.CurrentParallelism),
-    Parallelism: __expectInt(output.Parallelism),
-    ParallelismPerKPU: __expectInt(output.ParallelismPerKPU),
+    CurrentParallelism: __expectInt32(output.CurrentParallelism),
+    Parallelism: __expectInt32(output.Parallelism),
+    ParallelismPerKPU: __expectInt32(output.ParallelismPerKPU),
   } as any;
 };
 
@@ -6524,7 +6525,7 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 
 const deserializeAws_json1_1SnapshotDetails = (output: any, context: __SerdeContext): SnapshotDetails => {
   return {
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     SnapshotCreationTimestamp:
       output.SnapshotCreationTimestamp !== undefined && output.SnapshotCreationTimestamp !== null
         ? new Date(Math.round(output.SnapshotCreationTimestamp * 1000))

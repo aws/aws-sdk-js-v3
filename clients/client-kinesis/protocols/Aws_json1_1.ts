@@ -143,7 +143,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3353,8 +3354,8 @@ const deserializeAws_json1_1ConsumerList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DescribeLimitsOutput = (output: any, context: __SerdeContext): DescribeLimitsOutput => {
   return {
-    OpenShardCount: __expectInt(output.OpenShardCount),
-    ShardLimit: __expectInt(output.ShardLimit),
+    OpenShardCount: __expectInt32(output.OpenShardCount),
+    ShardLimit: __expectInt32(output.ShardLimit),
   } as any;
 };
 
@@ -3452,7 +3453,7 @@ const deserializeAws_json1_1GetRecordsOutput = (output: any, context: __SerdeCon
       output.ChildShards !== undefined && output.ChildShards !== null
         ? deserializeAws_json1_1ChildShardList(output.ChildShards, context)
         : undefined,
-    MillisBehindLatest: __expectInt(output.MillisBehindLatest),
+    MillisBehindLatest: __expectLong(output.MillisBehindLatest),
     NextShardIterator: __expectString(output.NextShardIterator),
     Records:
       output.Records !== undefined && output.Records !== null
@@ -3617,7 +3618,7 @@ const deserializeAws_json1_1PutRecordOutput = (output: any, context: __SerdeCont
 const deserializeAws_json1_1PutRecordsOutput = (output: any, context: __SerdeContext): PutRecordsOutput => {
   return {
     EncryptionType: __expectString(output.EncryptionType),
-    FailedRecordCount: __expectInt(output.FailedRecordCount),
+    FailedRecordCount: __expectInt32(output.FailedRecordCount),
     Records:
       output.Records !== undefined && output.Records !== null
         ? deserializeAws_json1_1PutRecordsResultEntryList(output.Records, context)
@@ -3753,7 +3754,7 @@ const deserializeAws_json1_1StreamDescription = (output: any, context: __SerdeCo
         : undefined,
     HasMoreShards: __expectBoolean(output.HasMoreShards),
     KeyId: __expectString(output.KeyId),
-    RetentionPeriodHours: __expectInt(output.RetentionPeriodHours),
+    RetentionPeriodHours: __expectInt32(output.RetentionPeriodHours),
     Shards:
       output.Shards !== undefined && output.Shards !== null
         ? deserializeAws_json1_1ShardList(output.Shards, context)
@@ -3773,15 +3774,15 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
   context: __SerdeContext
 ): StreamDescriptionSummary => {
   return {
-    ConsumerCount: __expectInt(output.ConsumerCount),
+    ConsumerCount: __expectInt32(output.ConsumerCount),
     EncryptionType: __expectString(output.EncryptionType),
     EnhancedMonitoring:
       output.EnhancedMonitoring !== undefined && output.EnhancedMonitoring !== null
         ? deserializeAws_json1_1EnhancedMonitoringList(output.EnhancedMonitoring, context)
         : undefined,
     KeyId: __expectString(output.KeyId),
-    OpenShardCount: __expectInt(output.OpenShardCount),
-    RetentionPeriodHours: __expectInt(output.RetentionPeriodHours),
+    OpenShardCount: __expectInt32(output.OpenShardCount),
+    RetentionPeriodHours: __expectInt32(output.RetentionPeriodHours),
     StreamARN: __expectString(output.StreamARN),
     StreamCreationTimestamp:
       output.StreamCreationTimestamp !== undefined && output.StreamCreationTimestamp !== null
@@ -3810,7 +3811,7 @@ const deserializeAws_json1_1SubscribeToShardEvent = (output: any, context: __Ser
         ? deserializeAws_json1_1ChildShardList(output.ChildShards, context)
         : undefined,
     ContinuationSequenceNumber: __expectString(output.ContinuationSequenceNumber),
-    MillisBehindLatest: __expectInt(output.MillisBehindLatest),
+    MillisBehindLatest: __expectLong(output.MillisBehindLatest),
     Records:
       output.Records !== undefined && output.Records !== null
         ? deserializeAws_json1_1RecordList(output.Records, context)
@@ -3916,9 +3917,9 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1UpdateShardCountOutput = (output: any, context: __SerdeContext): UpdateShardCountOutput => {
   return {
-    CurrentShardCount: __expectInt(output.CurrentShardCount),
+    CurrentShardCount: __expectInt32(output.CurrentShardCount),
     StreamName: __expectString(output.StreamName),
-    TargetShardCount: __expectInt(output.TargetShardCount),
+    TargetShardCount: __expectInt32(output.TargetShardCount),
   } as any;
 };
 

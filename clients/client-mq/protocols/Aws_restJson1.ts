@@ -74,7 +74,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1646,7 +1646,7 @@ export const deserializeAws_restJson1DescribeBrokerEngineTypesCommand = async (
     contents.BrokerEngineTypes = deserializeAws_restJson1__listOfBrokerEngineType(data.brokerEngineTypes, context);
   }
   if (data.maxResults !== undefined && data.maxResults !== null) {
-    contents.MaxResults = __expectInt(data.maxResults);
+    contents.MaxResults = __expectInt32(data.maxResults);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -1728,7 +1728,7 @@ export const deserializeAws_restJson1DescribeBrokerInstanceOptionsCommand = asyn
     );
   }
   if (data.maxResults !== undefined && data.maxResults !== null) {
-    contents.MaxResults = __expectInt(data.maxResults);
+    contents.MaxResults = __expectInt32(data.maxResults);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -2184,7 +2184,7 @@ export const deserializeAws_restJson1ListConfigurationRevisionsCommand = async (
     contents.ConfigurationId = __expectString(data.configurationId);
   }
   if (data.maxResults !== undefined && data.maxResults !== null) {
-    contents.MaxResults = __expectInt(data.maxResults);
+    contents.MaxResults = __expectInt32(data.maxResults);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -2274,7 +2274,7 @@ export const deserializeAws_restJson1ListConfigurationsCommand = async (
     contents.Configurations = deserializeAws_restJson1__listOfConfiguration(data.configurations, context);
   }
   if (data.maxResults !== undefined && data.maxResults !== null) {
-    contents.MaxResults = __expectInt(data.maxResults);
+    contents.MaxResults = __expectInt32(data.maxResults);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -2433,7 +2433,7 @@ export const deserializeAws_restJson1ListUsersCommand = async (
     contents.BrokerId = __expectString(data.brokerId);
   }
   if (data.maxResults !== undefined && data.maxResults !== null) {
-    contents.MaxResults = __expectInt(data.maxResults);
+    contents.MaxResults = __expectInt32(data.maxResults);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -3373,7 +3373,7 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
 const deserializeAws_restJson1ConfigurationId = (output: any, context: __SerdeContext): ConfigurationId => {
   return {
     Id: __expectString(output.id),
-    Revision: __expectInt(output.revision),
+    Revision: __expectInt32(output.revision),
   } as any;
 };
 
@@ -3381,7 +3381,7 @@ const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __S
   return {
     Created: output.created !== undefined && output.created !== null ? new Date(output.created) : undefined,
     Description: __expectString(output.description),
-    Revision: __expectInt(output.revision),
+    Revision: __expectInt32(output.revision),
   } as any;
 };
 

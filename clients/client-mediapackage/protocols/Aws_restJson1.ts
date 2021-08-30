@@ -77,7 +77,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1128,13 +1128,13 @@ export const deserializeAws_restJson1CreateOriginEndpointCommand = async (
     contents.Origination = __expectString(data.origination);
   }
   if (data.startoverWindowSeconds !== undefined && data.startoverWindowSeconds !== null) {
-    contents.StartoverWindowSeconds = __expectInt(data.startoverWindowSeconds);
+    contents.StartoverWindowSeconds = __expectInt32(data.startoverWindowSeconds);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.timeDelaySeconds !== undefined && data.timeDelaySeconds !== null) {
-    contents.TimeDelaySeconds = __expectInt(data.timeDelaySeconds);
+    contents.TimeDelaySeconds = __expectInt32(data.timeDelaySeconds);
   }
   if (data.url !== undefined && data.url !== null) {
     contents.Url = __expectString(data.url);
@@ -1711,13 +1711,13 @@ export const deserializeAws_restJson1DescribeOriginEndpointCommand = async (
     contents.Origination = __expectString(data.origination);
   }
   if (data.startoverWindowSeconds !== undefined && data.startoverWindowSeconds !== null) {
-    contents.StartoverWindowSeconds = __expectInt(data.startoverWindowSeconds);
+    contents.StartoverWindowSeconds = __expectInt32(data.startoverWindowSeconds);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.timeDelaySeconds !== undefined && data.timeDelaySeconds !== null) {
-    contents.TimeDelaySeconds = __expectInt(data.timeDelaySeconds);
+    contents.TimeDelaySeconds = __expectInt32(data.timeDelaySeconds);
   }
   if (data.url !== undefined && data.url !== null) {
     contents.Url = __expectString(data.url);
@@ -2653,13 +2653,13 @@ export const deserializeAws_restJson1UpdateOriginEndpointCommand = async (
     contents.Origination = __expectString(data.origination);
   }
   if (data.startoverWindowSeconds !== undefined && data.startoverWindowSeconds !== null) {
-    contents.StartoverWindowSeconds = __expectInt(data.startoverWindowSeconds);
+    contents.StartoverWindowSeconds = __expectInt32(data.startoverWindowSeconds);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.timeDelaySeconds !== undefined && data.timeDelaySeconds !== null) {
-    contents.TimeDelaySeconds = __expectInt(data.timeDelaySeconds);
+    contents.TimeDelaySeconds = __expectInt32(data.timeDelaySeconds);
   }
   if (data.url !== undefined && data.url !== null) {
     contents.Url = __expectString(data.url);
@@ -3310,7 +3310,7 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1CmafEncryption = (output: any, context: __SerdeContext): CmafEncryption => {
   return {
     ConstantInitializationVector: __expectString(output.constantInitializationVector),
-    KeyRotationIntervalSeconds: __expectInt(output.keyRotationIntervalSeconds),
+    KeyRotationIntervalSeconds: __expectInt32(output.keyRotationIntervalSeconds),
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
         ? deserializeAws_restJson1SpekeKeyProvider(output.spekeKeyProvider, context)
@@ -3328,7 +3328,7 @@ const deserializeAws_restJson1CmafPackage = (output: any, context: __SerdeContex
       output.hlsManifests !== undefined && output.hlsManifests !== null
         ? deserializeAws_restJson1__listOfHlsManifest(output.hlsManifests, context)
         : undefined,
-    SegmentDurationSeconds: __expectInt(output.segmentDurationSeconds),
+    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
     SegmentPrefix: __expectString(output.segmentPrefix),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
@@ -3339,7 +3339,7 @@ const deserializeAws_restJson1CmafPackage = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DashEncryption = (output: any, context: __SerdeContext): DashEncryption => {
   return {
-    KeyRotationIntervalSeconds: __expectInt(output.keyRotationIntervalSeconds),
+    KeyRotationIntervalSeconds: __expectInt32(output.keyRotationIntervalSeconds),
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
         ? deserializeAws_restJson1SpekeKeyProvider(output.spekeKeyProvider, context)
@@ -3359,21 +3359,21 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
         ? deserializeAws_restJson1DashEncryption(output.encryption, context)
         : undefined,
     ManifestLayout: __expectString(output.manifestLayout),
-    ManifestWindowSeconds: __expectInt(output.manifestWindowSeconds),
-    MinBufferTimeSeconds: __expectInt(output.minBufferTimeSeconds),
-    MinUpdatePeriodSeconds: __expectInt(output.minUpdatePeriodSeconds),
+    ManifestWindowSeconds: __expectInt32(output.manifestWindowSeconds),
+    MinBufferTimeSeconds: __expectInt32(output.minBufferTimeSeconds),
+    MinUpdatePeriodSeconds: __expectInt32(output.minUpdatePeriodSeconds),
     PeriodTriggers:
       output.periodTriggers !== undefined && output.periodTriggers !== null
         ? deserializeAws_restJson1__listOf__PeriodTriggersElement(output.periodTriggers, context)
         : undefined,
     Profile: __expectString(output.profile),
-    SegmentDurationSeconds: __expectInt(output.segmentDurationSeconds),
+    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
     SegmentTemplateFormat: __expectString(output.segmentTemplateFormat),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
         ? deserializeAws_restJson1StreamSelection(output.streamSelection, context)
         : undefined,
-    SuggestedPresentationDelaySeconds: __expectInt(output.suggestedPresentationDelaySeconds),
+    SuggestedPresentationDelaySeconds: __expectInt32(output.suggestedPresentationDelaySeconds),
     UtcTiming: __expectString(output.utcTiming),
     UtcTimingUri: __expectString(output.utcTimingUri),
   } as any;
@@ -3416,7 +3416,7 @@ const deserializeAws_restJson1HlsEncryption = (output: any, context: __SerdeCont
   return {
     ConstantInitializationVector: __expectString(output.constantInitializationVector),
     EncryptionMethod: __expectString(output.encryptionMethod),
-    KeyRotationIntervalSeconds: __expectInt(output.keyRotationIntervalSeconds),
+    KeyRotationIntervalSeconds: __expectInt32(output.keyRotationIntervalSeconds),
     RepeatExtXKey: __expectBoolean(output.repeatExtXKey),
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
@@ -3441,8 +3441,8 @@ const deserializeAws_restJson1HlsManifest = (output: any, context: __SerdeContex
     IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
     ManifestName: __expectString(output.manifestName),
     PlaylistType: __expectString(output.playlistType),
-    PlaylistWindowSeconds: __expectInt(output.playlistWindowSeconds),
-    ProgramDateTimeIntervalSeconds: __expectInt(output.programDateTimeIntervalSeconds),
+    PlaylistWindowSeconds: __expectInt32(output.playlistWindowSeconds),
+    ProgramDateTimeIntervalSeconds: __expectInt32(output.programDateTimeIntervalSeconds),
     Url: __expectString(output.url),
   } as any;
 };
@@ -3461,9 +3461,9 @@ const deserializeAws_restJson1HlsPackage = (output: any, context: __SerdeContext
         : undefined,
     IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
     PlaylistType: __expectString(output.playlistType),
-    PlaylistWindowSeconds: __expectInt(output.playlistWindowSeconds),
-    ProgramDateTimeIntervalSeconds: __expectInt(output.programDateTimeIntervalSeconds),
-    SegmentDurationSeconds: __expectInt(output.segmentDurationSeconds),
+    PlaylistWindowSeconds: __expectInt32(output.playlistWindowSeconds),
+    ProgramDateTimeIntervalSeconds: __expectInt32(output.programDateTimeIntervalSeconds),
+    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
         ? deserializeAws_restJson1StreamSelection(output.streamSelection, context)
@@ -3502,8 +3502,8 @@ const deserializeAws_restJson1MssPackage = (output: any, context: __SerdeContext
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1MssEncryption(output.encryption, context)
         : undefined,
-    ManifestWindowSeconds: __expectInt(output.manifestWindowSeconds),
-    SegmentDurationSeconds: __expectInt(output.segmentDurationSeconds),
+    ManifestWindowSeconds: __expectInt32(output.manifestWindowSeconds),
+    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
         ? deserializeAws_restJson1StreamSelection(output.streamSelection, context)
@@ -3539,12 +3539,12 @@ const deserializeAws_restJson1OriginEndpoint = (output: any, context: __SerdeCon
         ? deserializeAws_restJson1MssPackage(output.mssPackage, context)
         : undefined,
     Origination: __expectString(output.origination),
-    StartoverWindowSeconds: __expectInt(output.startoverWindowSeconds),
+    StartoverWindowSeconds: __expectInt32(output.startoverWindowSeconds),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    TimeDelaySeconds: __expectInt(output.timeDelaySeconds),
+    TimeDelaySeconds: __expectInt32(output.timeDelaySeconds),
     Url: __expectString(output.url),
     Whitelist:
       output.whitelist !== undefined && output.whitelist !== null
@@ -3580,8 +3580,8 @@ const deserializeAws_restJson1SpekeKeyProvider = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1StreamSelection = (output: any, context: __SerdeContext): StreamSelection => {
   return {
-    MaxVideoBitsPerSecond: __expectInt(output.maxVideoBitsPerSecond),
-    MinVideoBitsPerSecond: __expectInt(output.minVideoBitsPerSecond),
+    MaxVideoBitsPerSecond: __expectInt32(output.maxVideoBitsPerSecond),
+    MinVideoBitsPerSecond: __expectInt32(output.minVideoBitsPerSecond),
     StreamOrder: __expectString(output.streamOrder),
   } as any;
 };

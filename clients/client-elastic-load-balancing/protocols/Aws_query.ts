@@ -214,7 +214,8 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3925,7 +3926,7 @@ const deserializeAws_queryAccessLog = (output: any, context: __SerdeContext): Ac
     contents.S3BucketName = __expectString(output["S3BucketName"]);
   }
   if (output["EmitInterval"] !== undefined) {
-    contents.EmitInterval = __strictParseInt(output["EmitInterval"]) as number;
+    contents.EmitInterval = __strictParseInt32(output["EmitInterval"]) as number;
   }
   if (output["S3BucketPrefix"] !== undefined) {
     contents.S3BucketPrefix = __expectString(output["S3BucketPrefix"]);
@@ -4081,7 +4082,7 @@ const deserializeAws_queryBackendServerDescription = (
     PolicyNames: undefined,
   };
   if (output["InstancePort"] !== undefined) {
-    contents.InstancePort = __strictParseInt(output["InstancePort"]) as number;
+    contents.InstancePort = __strictParseInt32(output["InstancePort"]) as number;
   }
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
@@ -4144,7 +4145,7 @@ const deserializeAws_queryConnectionDraining = (output: any, context: __SerdeCon
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Timeout"] !== undefined) {
-    contents.Timeout = __strictParseInt(output["Timeout"]) as number;
+    contents.Timeout = __strictParseInt32(output["Timeout"]) as number;
   }
   return contents;
 };
@@ -4154,7 +4155,7 @@ const deserializeAws_queryConnectionSettings = (output: any, context: __SerdeCon
     IdleTimeout: undefined,
   };
   if (output["IdleTimeout"] !== undefined) {
-    contents.IdleTimeout = __strictParseInt(output["IdleTimeout"]) as number;
+    contents.IdleTimeout = __strictParseInt32(output["IdleTimeout"]) as number;
   }
   return contents;
 };
@@ -4473,16 +4474,16 @@ const deserializeAws_queryHealthCheck = (output: any, context: __SerdeContext): 
     contents.Target = __expectString(output["Target"]);
   }
   if (output["Interval"] !== undefined) {
-    contents.Interval = __strictParseInt(output["Interval"]) as number;
+    contents.Interval = __strictParseInt32(output["Interval"]) as number;
   }
   if (output["Timeout"] !== undefined) {
-    contents.Timeout = __strictParseInt(output["Timeout"]) as number;
+    contents.Timeout = __strictParseInt32(output["Timeout"]) as number;
   }
   if (output["UnhealthyThreshold"] !== undefined) {
-    contents.UnhealthyThreshold = __strictParseInt(output["UnhealthyThreshold"]) as number;
+    contents.UnhealthyThreshold = __strictParseInt32(output["UnhealthyThreshold"]) as number;
   }
   if (output["HealthyThreshold"] !== undefined) {
-    contents.HealthyThreshold = __strictParseInt(output["HealthyThreshold"]) as number;
+    contents.HealthyThreshold = __strictParseInt32(output["HealthyThreshold"]) as number;
   }
   return contents;
 };
@@ -4626,7 +4627,7 @@ const deserializeAws_queryLBCookieStickinessPolicy = (
     contents.PolicyName = __expectString(output["PolicyName"]);
   }
   if (output["CookieExpirationPeriod"] !== undefined) {
-    contents.CookieExpirationPeriod = __strictParseInt(output["CookieExpirationPeriod"]) as number;
+    contents.CookieExpirationPeriod = __strictParseLong(output["CookieExpirationPeriod"]) as number;
   }
   return contents;
 };
@@ -4668,13 +4669,13 @@ const deserializeAws_queryListener = (output: any, context: __SerdeContext): Lis
     contents.Protocol = __expectString(output["Protocol"]);
   }
   if (output["LoadBalancerPort"] !== undefined) {
-    contents.LoadBalancerPort = __strictParseInt(output["LoadBalancerPort"]) as number;
+    contents.LoadBalancerPort = __strictParseInt32(output["LoadBalancerPort"]) as number;
   }
   if (output["InstanceProtocol"] !== undefined) {
     contents.InstanceProtocol = __expectString(output["InstanceProtocol"]);
   }
   if (output["InstancePort"] !== undefined) {
-    contents.InstancePort = __strictParseInt(output["InstancePort"]) as number;
+    contents.InstancePort = __strictParseInt32(output["InstancePort"]) as number;
   }
   if (output["SSLCertificateId"] !== undefined) {
     contents.SSLCertificateId = __expectString(output["SSLCertificateId"]);

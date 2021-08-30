@@ -30,7 +30,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -834,13 +834,13 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorSet = (
 const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
   return {
     key: __expectString(output.key),
-    value: __expectInt(output.value),
+    value: __expectInt32(output.value),
   } as any;
 };
 
 const deserializeAws_restJson1MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
   return {
-    sizeInMiB: __expectInt(output.sizeInMiB),
+    sizeInMiB: __expectInt32(output.sizeInMiB),
   } as any;
 };
 

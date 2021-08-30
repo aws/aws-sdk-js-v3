@@ -137,7 +137,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2954,10 +2955,10 @@ const deserializeAws_json1_1CreateReturnShippingLabelResult = (
 
 const deserializeAws_json1_1DataTransfer = (output: any, context: __SerdeContext): DataTransfer => {
   return {
-    BytesTransferred: __expectInt(output.BytesTransferred),
-    ObjectsTransferred: __expectInt(output.ObjectsTransferred),
-    TotalBytes: __expectInt(output.TotalBytes),
-    TotalObjects: __expectInt(output.TotalObjects),
+    BytesTransferred: __expectLong(output.BytesTransferred),
+    ObjectsTransferred: __expectLong(output.ObjectsTransferred),
+    TotalBytes: __expectLong(output.TotalBytes),
+    TotalObjects: __expectLong(output.TotalObjects),
   } as any;
 };
 
@@ -3088,8 +3089,8 @@ const deserializeAws_json1_1GetJobUnlockCodeResult = (output: any, context: __Se
 
 const deserializeAws_json1_1GetSnowballUsageResult = (output: any, context: __SerdeContext): GetSnowballUsageResult => {
   return {
-    SnowballLimit: __expectInt(output.SnowballLimit),
-    SnowballsInUse: __expectInt(output.SnowballsInUse),
+    SnowballLimit: __expectInt32(output.SnowballLimit),
+    SnowballsInUse: __expectInt32(output.SnowballsInUse),
   } as any;
 };
 
@@ -3431,7 +3432,7 @@ const deserializeAws_json1_1NFSOnDeviceServiceConfiguration = (
   context: __SerdeContext
 ): NFSOnDeviceServiceConfiguration => {
   return {
-    StorageLimit: __expectInt(output.StorageLimit),
+    StorageLimit: __expectInt32(output.StorageLimit),
     StorageUnit: __expectString(output.StorageUnit),
   } as any;
 };

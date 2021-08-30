@@ -48,9 +48,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1158,11 +1159,11 @@ const deserializeAws_json1_1ColumnMetadata = (output: any, context: __SerdeConte
     isCurrency: __expectBoolean(output.isCurrency),
     isSigned: __expectBoolean(output.isSigned),
     label: __expectString(output.label),
-    length: __expectInt(output.length),
+    length: __expectInt32(output.length),
     name: __expectString(output.name),
-    nullable: __expectInt(output.nullable),
-    precision: __expectInt(output.precision),
-    scale: __expectInt(output.scale),
+    nullable: __expectInt32(output.nullable),
+    precision: __expectInt32(output.precision),
+    scale: __expectInt32(output.scale),
     schemaName: __expectString(output.schemaName),
     tableName: __expectString(output.tableName),
     typeName: __expectString(output.typeName),
@@ -1203,7 +1204,7 @@ const deserializeAws_json1_1DescribeStatementResponse = (
         : undefined,
     Database: __expectString(output.Database),
     DbUser: __expectString(output.DbUser),
-    Duration: __expectInt(output.Duration),
+    Duration: __expectLong(output.Duration),
     Error: __expectString(output.Error),
     HasResultSet: __expectBoolean(output.HasResultSet),
     Id: __expectString(output.Id),
@@ -1212,10 +1213,10 @@ const deserializeAws_json1_1DescribeStatementResponse = (
         ? deserializeAws_json1_1SqlParametersList(output.QueryParameters, context)
         : undefined,
     QueryString: __expectString(output.QueryString),
-    RedshiftPid: __expectInt(output.RedshiftPid),
-    RedshiftQueryId: __expectInt(output.RedshiftQueryId),
-    ResultRows: __expectInt(output.ResultRows),
-    ResultSize: __expectInt(output.ResultSize),
+    RedshiftPid: __expectLong(output.RedshiftPid),
+    RedshiftQueryId: __expectLong(output.RedshiftQueryId),
+    ResultRows: __expectLong(output.ResultRows),
+    ResultSize: __expectLong(output.ResultSize),
     SecretArn: __expectString(output.SecretArn),
     Status: __expectString(output.Status),
     SubStatements:
@@ -1273,14 +1274,14 @@ const deserializeAws_json1_1Field = (output: any, context: __SerdeContext): Fiel
   if (__expectBoolean(output.booleanValue) !== undefined) {
     return { booleanValue: __expectBoolean(output.booleanValue) as any };
   }
-  if (__limitedParseFloat(output.doubleValue) !== undefined) {
-    return { doubleValue: __limitedParseFloat(output.doubleValue) as any };
+  if (__limitedParseDouble(output.doubleValue) !== undefined) {
+    return { doubleValue: __limitedParseDouble(output.doubleValue) as any };
   }
   if (__expectBoolean(output.isNull) !== undefined) {
     return { isNull: __expectBoolean(output.isNull) as any };
   }
-  if (__expectInt(output.longValue) !== undefined) {
-    return { longValue: __expectInt(output.longValue) as any };
+  if (__expectLong(output.longValue) !== undefined) {
+    return { longValue: __expectLong(output.longValue) as any };
   }
   if (__expectString(output.stringValue) !== undefined) {
     return { stringValue: __expectString(output.stringValue) as any };
@@ -1313,7 +1314,7 @@ const deserializeAws_json1_1GetStatementResultResponse = (
       output.Records !== undefined && output.Records !== null
         ? deserializeAws_json1_1SqlRecords(output.Records, context)
         : undefined,
-    TotalNumRows: __expectInt(output.TotalNumRows),
+    TotalNumRows: __expectLong(output.TotalNumRows),
   } as any;
 };
 
@@ -1471,14 +1472,14 @@ const deserializeAws_json1_1SubStatementData = (output: any, context: __SerdeCon
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Duration: __expectInt(output.Duration),
+    Duration: __expectLong(output.Duration),
     Error: __expectString(output.Error),
     HasResultSet: __expectBoolean(output.HasResultSet),
     Id: __expectString(output.Id),
     QueryString: __expectString(output.QueryString),
-    RedshiftQueryId: __expectInt(output.RedshiftQueryId),
-    ResultRows: __expectInt(output.ResultRows),
-    ResultSize: __expectInt(output.ResultSize),
+    RedshiftQueryId: __expectLong(output.RedshiftQueryId),
+    ResultRows: __expectLong(output.ResultRows),
+    ResultSize: __expectLong(output.ResultSize),
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null

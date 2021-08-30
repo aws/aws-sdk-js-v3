@@ -40,10 +40,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -478,7 +478,7 @@ export const deserializeAws_restJson1ClaimDevicesByClaimCodeCommand = async (
     contents.ClaimCode = __expectString(data.claimCode);
   }
   if (data.total !== undefined && data.total !== null) {
-    contents.Total = __expectInt(data.total);
+    contents.Total = __expectInt32(data.total);
   }
   return Promise.resolve(contents);
 };
@@ -1682,7 +1682,7 @@ const deserializeAws_restJson1DeviceDescription = (output: any, context: __Serde
         : undefined,
     DeviceId: __expectString(output.deviceId),
     Enabled: __expectBoolean(output.enabled),
-    RemainingLife: __limitedParseFloat(output.remainingLife),
+    RemainingLife: __limitedParseDouble(output.remainingLife),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1__mapOf__string(output.tags, context)

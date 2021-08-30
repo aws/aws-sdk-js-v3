@@ -242,9 +242,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4845,7 +4846,7 @@ const deserializeAws_json1_1BatchRestrictions = (output: any, context: __SerdeCo
       output.computeTypesAllowed !== undefined && output.computeTypesAllowed !== null
         ? deserializeAws_json1_1ComputeTypesAllowed(output.computeTypesAllowed, context)
         : undefined,
-    maximumBuildsAllowed: __expectInt(output.maximumBuildsAllowed),
+    maximumBuildsAllowed: __expectInt32(output.maximumBuildsAllowed),
   } as any;
 };
 
@@ -4858,7 +4859,7 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
         : undefined,
     buildBatchArn: __expectString(output.buildBatchArn),
     buildComplete: __expectBoolean(output.buildComplete),
-    buildNumber: __expectInt(output.buildNumber),
+    buildNumber: __expectLong(output.buildNumber),
     buildStatus: __expectString(output.buildStatus),
     cache:
       output.cache !== undefined && output.cache !== null
@@ -4899,7 +4900,7 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
         ? deserializeAws_json1_1BuildPhases(output.phases, context)
         : undefined,
     projectName: __expectString(output.projectName),
-    queuedTimeoutInMinutes: __expectInt(output.queuedTimeoutInMinutes),
+    queuedTimeoutInMinutes: __expectInt32(output.queuedTimeoutInMinutes),
     reportArns:
       output.reportArns !== undefined && output.reportArns !== null
         ? deserializeAws_json1_1BuildReportArns(output.reportArns, context)
@@ -4927,7 +4928,7 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    timeoutInMinutes: __expectInt(output.timeoutInMinutes),
+    timeoutInMinutes: __expectInt32(output.timeoutInMinutes),
     vpcConfig:
       output.vpcConfig !== undefined && output.vpcConfig !== null
         ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context)
@@ -4969,13 +4970,13 @@ const deserializeAws_json1_1BuildBatch = (output: any, context: __SerdeContext):
       output.buildBatchConfig !== undefined && output.buildBatchConfig !== null
         ? deserializeAws_json1_1ProjectBuildBatchConfig(output.buildBatchConfig, context)
         : undefined,
-    buildBatchNumber: __expectInt(output.buildBatchNumber),
+    buildBatchNumber: __expectLong(output.buildBatchNumber),
     buildBatchStatus: __expectString(output.buildBatchStatus),
     buildGroups:
       output.buildGroups !== undefined && output.buildGroups !== null
         ? deserializeAws_json1_1BuildGroups(output.buildGroups, context)
         : undefined,
-    buildTimeoutInMinutes: __expectInt(output.buildTimeoutInMinutes),
+    buildTimeoutInMinutes: __expectInt32(output.buildTimeoutInMinutes),
     cache:
       output.cache !== undefined && output.cache !== null
         ? deserializeAws_json1_1ProjectCache(output.cache, context)
@@ -5005,7 +5006,7 @@ const deserializeAws_json1_1BuildBatch = (output: any, context: __SerdeContext):
         ? deserializeAws_json1_1BuildBatchPhases(output.phases, context)
         : undefined,
     projectName: __expectString(output.projectName),
-    queuedTimeoutInMinutes: __expectInt(output.queuedTimeoutInMinutes),
+    queuedTimeoutInMinutes: __expectInt32(output.queuedTimeoutInMinutes),
     resolvedSourceVersion: __expectString(output.resolvedSourceVersion),
     secondaryArtifacts:
       output.secondaryArtifacts !== undefined && output.secondaryArtifacts !== null
@@ -5064,7 +5065,7 @@ const deserializeAws_json1_1BuildBatchPhase = (output: any, context: __SerdeCont
       output.contexts !== undefined && output.contexts !== null
         ? deserializeAws_json1_1PhaseContexts(output.contexts, context)
         : undefined,
-    durationInSeconds: __expectInt(output.durationInSeconds),
+    durationInSeconds: __expectLong(output.durationInSeconds),
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
     phaseStatus: __expectString(output.phaseStatus),
@@ -5141,7 +5142,7 @@ const deserializeAws_json1_1BuildPhase = (output: any, context: __SerdeContext):
       output.contexts !== undefined && output.contexts !== null
         ? deserializeAws_json1_1PhaseContexts(output.contexts, context)
         : undefined,
-    durationInSeconds: __expectInt(output.durationInSeconds),
+    durationInSeconds: __expectLong(output.durationInSeconds),
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
     phaseStatus: __expectString(output.phaseStatus),
@@ -5244,16 +5245,16 @@ const deserializeAws_json1_1CloudWatchLogsConfig = (output: any, context: __Serd
 
 const deserializeAws_json1_1CodeCoverage = (output: any, context: __SerdeContext): CodeCoverage => {
   return {
-    branchCoveragePercentage: __limitedParseFloat(output.branchCoveragePercentage),
-    branchesCovered: __expectInt(output.branchesCovered),
-    branchesMissed: __expectInt(output.branchesMissed),
+    branchCoveragePercentage: __limitedParseDouble(output.branchCoveragePercentage),
+    branchesCovered: __expectInt32(output.branchesCovered),
+    branchesMissed: __expectInt32(output.branchesMissed),
     expired:
       output.expired !== undefined && output.expired !== null ? new Date(Math.round(output.expired * 1000)) : undefined,
     filePath: __expectString(output.filePath),
     id: __expectString(output.id),
-    lineCoveragePercentage: __limitedParseFloat(output.lineCoveragePercentage),
-    linesCovered: __expectInt(output.linesCovered),
-    linesMissed: __expectInt(output.linesMissed),
+    lineCoveragePercentage: __limitedParseDouble(output.lineCoveragePercentage),
+    linesCovered: __expectInt32(output.linesCovered),
+    linesMissed: __expectInt32(output.linesMissed),
     reportARN: __expectString(output.reportARN),
   } as any;
 };
@@ -5263,12 +5264,12 @@ const deserializeAws_json1_1CodeCoverageReportSummary = (
   context: __SerdeContext
 ): CodeCoverageReportSummary => {
   return {
-    branchCoveragePercentage: __limitedParseFloat(output.branchCoveragePercentage),
-    branchesCovered: __expectInt(output.branchesCovered),
-    branchesMissed: __expectInt(output.branchesMissed),
-    lineCoveragePercentage: __limitedParseFloat(output.lineCoveragePercentage),
-    linesCovered: __expectInt(output.linesCovered),
-    linesMissed: __expectInt(output.linesMissed),
+    branchCoveragePercentage: __limitedParseDouble(output.branchCoveragePercentage),
+    branchesCovered: __expectInt32(output.branchesCovered),
+    branchesMissed: __expectInt32(output.branchesMissed),
+    lineCoveragePercentage: __limitedParseDouble(output.lineCoveragePercentage),
+    linesCovered: __expectInt32(output.linesCovered),
+    linesMissed: __expectInt32(output.linesMissed),
   } as any;
 };
 
@@ -5827,7 +5828,7 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
       output.cache !== undefined && output.cache !== null
         ? deserializeAws_json1_1ProjectCache(output.cache, context)
         : undefined,
-    concurrentBuildLimit: __expectInt(output.concurrentBuildLimit),
+    concurrentBuildLimit: __expectInt32(output.concurrentBuildLimit),
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     description: __expectString(output.description),
@@ -5851,7 +5852,7 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
     name: __expectString(output.name),
     projectVisibility: __expectString(output.projectVisibility),
     publicProjectAlias: __expectString(output.publicProjectAlias),
-    queuedTimeoutInMinutes: __expectInt(output.queuedTimeoutInMinutes),
+    queuedTimeoutInMinutes: __expectInt32(output.queuedTimeoutInMinutes),
     resourceAccessRole: __expectString(output.resourceAccessRole),
     secondaryArtifacts:
       output.secondaryArtifacts !== undefined && output.secondaryArtifacts !== null
@@ -5875,7 +5876,7 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
         : undefined,
-    timeoutInMinutes: __expectInt(output.timeoutInMinutes),
+    timeoutInMinutes: __expectInt32(output.timeoutInMinutes),
     vpcConfig:
       output.vpcConfig !== undefined && output.vpcConfig !== null
         ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context)
@@ -5942,7 +5943,7 @@ const deserializeAws_json1_1ProjectBuildBatchConfig = (
         ? deserializeAws_json1_1BatchRestrictions(output.restrictions, context)
         : undefined,
     serviceRole: __expectString(output.serviceRole),
-    timeoutInMins: __expectInt(output.timeoutInMins),
+    timeoutInMins: __expectInt32(output.timeoutInMins),
   } as any;
 };
 
@@ -6061,7 +6062,7 @@ const deserializeAws_json1_1ProjectSource = (output: any, context: __SerdeContex
         ? deserializeAws_json1_1BuildStatusConfig(output.buildStatusConfig, context)
         : undefined,
     buildspec: __expectString(output.buildspec),
-    gitCloneDepth: __expectInt(output.gitCloneDepth),
+    gitCloneDepth: __expectInt32(output.gitCloneDepth),
     gitSubmodulesConfig:
       output.gitSubmodulesConfig !== undefined && output.gitSubmodulesConfig !== null
         ? deserializeAws_json1_1GitSubmodulesConfig(output.gitSubmodulesConfig, context)
@@ -6242,7 +6243,7 @@ const deserializeAws_json1_1ReportStatusCounts = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: __expectInt(value) as any,
+      [key]: __expectInt32(value) as any,
     };
   }, {});
 };
@@ -6436,7 +6437,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TestCase = (output: any, context: __SerdeContext): TestCase => {
   return {
-    durationInNanoSeconds: __expectInt(output.durationInNanoSeconds),
+    durationInNanoSeconds: __expectLong(output.durationInNanoSeconds),
     expired:
       output.expired !== undefined && output.expired !== null ? new Date(Math.round(output.expired * 1000)) : undefined,
     message: __expectString(output.message),
@@ -6461,12 +6462,12 @@ const deserializeAws_json1_1TestCases = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1TestReportSummary = (output: any, context: __SerdeContext): TestReportSummary => {
   return {
-    durationInNanoSeconds: __expectInt(output.durationInNanoSeconds),
+    durationInNanoSeconds: __expectLong(output.durationInNanoSeconds),
     statusCounts:
       output.statusCounts !== undefined && output.statusCounts !== null
         ? deserializeAws_json1_1ReportStatusCounts(output.statusCounts, context)
         : undefined,
-    total: __expectInt(output.total),
+    total: __expectInt32(output.total),
   } as any;
 };
 

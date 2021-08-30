@@ -28,7 +28,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -681,7 +681,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
     contents.quantumTaskArn = __expectString(data.quantumTaskArn);
   }
   if (data.shots !== undefined && data.shots !== null) {
-    contents.shots = __expectInt(data.shots);
+    contents.shots = __expectLong(data.shots);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -1386,7 +1386,7 @@ const deserializeAws_restJson1QuantumTaskSummary = (output: any, context: __Serd
     outputS3Bucket: __expectString(output.outputS3Bucket),
     outputS3Directory: __expectString(output.outputS3Directory),
     quantumTaskArn: __expectString(output.quantumTaskArn),
-    shots: __expectInt(output.shots),
+    shots: __expectLong(output.shots),
     status: __expectString(output.status),
     tags:
       output.tags !== undefined && output.tags !== null

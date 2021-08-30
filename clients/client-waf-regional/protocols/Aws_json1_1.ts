@@ -426,7 +426,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -9874,7 +9875,7 @@ const deserializeAws_json1_1ActivatedRule = (output: any, context: __SerdeContex
       output.OverrideAction !== undefined && output.OverrideAction !== null
         ? deserializeAws_json1_1WafOverrideAction(output.OverrideAction, context)
         : undefined,
-    Priority: __expectInt(output.Priority),
+    Priority: __expectInt32(output.Priority),
     RuleId: __expectString(output.RuleId),
     Type: __expectString(output.Type),
   } as any;
@@ -10434,7 +10435,7 @@ const deserializeAws_json1_1GetSampledRequestsResponse = (
   context: __SerdeContext
 ): GetSampledRequestsResponse => {
   return {
-    PopulationSize: __expectInt(output.PopulationSize),
+    PopulationSize: __expectLong(output.PopulationSize),
     SampledRequests:
       output.SampledRequests !== undefined && output.SampledRequests !== null
         ? deserializeAws_json1_1SampledHTTPRequests(output.SampledRequests, context)
@@ -10881,7 +10882,7 @@ const deserializeAws_json1_1RateBasedRule = (output: any, context: __SerdeContex
     MetricName: __expectString(output.MetricName),
     Name: __expectString(output.Name),
     RateKey: __expectString(output.RateKey),
-    RateLimit: __expectInt(output.RateLimit),
+    RateLimit: __expectLong(output.RateLimit),
     RuleId: __expectString(output.RuleId),
   } as any;
 };
@@ -11070,7 +11071,7 @@ const deserializeAws_json1_1SampledHTTPRequest = (output: any, context: __SerdeC
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Weight: __expectInt(output.Weight),
+    Weight: __expectLong(output.Weight),
   } as any;
 };
 
@@ -11092,7 +11093,7 @@ const deserializeAws_json1_1SizeConstraint = (output: any, context: __SerdeConte
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
         ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
         : undefined,
-    Size: __expectInt(output.Size),
+    Size: __expectLong(output.Size),
     TextTransformation: __expectString(output.TextTransformation),
   } as any;
 };

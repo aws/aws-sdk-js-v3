@@ -48,7 +48,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1797,11 +1798,11 @@ const serializeAws_restJson1Unlock = (input: Unlock, context: __SerdeContext): a
 
 const deserializeAws_restJson1Capacity = (output: any, context: __SerdeContext): Capacity => {
   return {
-    available: __expectInt(output.available),
+    available: __expectLong(output.available),
     name: __expectString(output.name),
-    total: __expectInt(output.total),
+    total: __expectLong(output.total),
     unit: __expectString(output.unit),
-    used: __expectInt(output.used),
+    used: __expectLong(output.used),
   } as any;
 };
 
@@ -1818,8 +1819,8 @@ const deserializeAws_restJson1CapacityList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
   return {
-    coreCount: __expectInt(output.coreCount),
-    threadsPerCore: __expectInt(output.threadsPerCore),
+    coreCount: __expectInt32(output.coreCount),
+    threadsPerCore: __expectInt32(output.threadsPerCore),
   } as any;
 };
 
@@ -1883,7 +1884,7 @@ const deserializeAws_restJson1ExecutionSummaryList = (output: any, context: __Se
 
 const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext): Instance => {
   return {
-    amiLaunchIndex: __expectInt(output.amiLaunchIndex),
+    amiLaunchIndex: __expectInt32(output.amiLaunchIndex),
     blockDeviceMappings:
       output.blockDeviceMappings !== undefined && output.blockDeviceMappings !== null
         ? deserializeAws_restJson1InstanceBlockDeviceMappingList(output.blockDeviceMappings, context)
@@ -1946,7 +1947,7 @@ const deserializeAws_restJson1InstanceBlockDeviceMappingList = (
 
 const deserializeAws_restJson1InstanceState = (output: any, context: __SerdeContext): InstanceState => {
   return {
-    code: __expectInt(output.code),
+    code: __expectInt32(output.code),
     name: __expectString(output.name),
   } as any;
 };

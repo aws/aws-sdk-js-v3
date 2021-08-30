@@ -518,7 +518,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -10254,7 +10254,7 @@ const deserializeAws_json1_1ProductViewAggregationValue = (
   context: __SerdeContext
 ): ProductViewAggregationValue => {
   return {
-    ApproximateCount: __expectInt(output.ApproximateCount),
+    ApproximateCount: __expectInt32(output.ApproximateCount),
     Value: __expectString(output.Value),
   } as any;
 };
@@ -10969,7 +10969,7 @@ const deserializeAws_json1_1SearchProvisionedProductsOutput = (
       output.ProvisionedProducts !== undefined && output.ProvisionedProducts !== null
         ? deserializeAws_json1_1ProvisionedProductAttributes(output.ProvisionedProducts, context)
         : undefined,
-    TotalResultsCount: __expectInt(output.TotalResultsCount),
+    TotalResultsCount: __expectInt32(output.TotalResultsCount),
   } as any;
 };
 

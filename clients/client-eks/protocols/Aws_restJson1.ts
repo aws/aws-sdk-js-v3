@@ -131,7 +131,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -5212,7 +5212,7 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    diskSize: __expectInt(output.diskSize),
+    diskSize: __expectInt32(output.diskSize),
     health:
       output.health !== undefined && output.health !== null
         ? deserializeAws_restJson1NodegroupHealth(output.health, context)
@@ -5294,16 +5294,16 @@ const deserializeAws_restJson1NodegroupScalingConfig = (
   context: __SerdeContext
 ): NodegroupScalingConfig => {
   return {
-    desiredSize: __expectInt(output.desiredSize),
-    maxSize: __expectInt(output.maxSize),
-    minSize: __expectInt(output.minSize),
+    desiredSize: __expectInt32(output.desiredSize),
+    maxSize: __expectInt32(output.maxSize),
+    minSize: __expectInt32(output.minSize),
   } as any;
 };
 
 const deserializeAws_restJson1NodegroupUpdateConfig = (output: any, context: __SerdeContext): NodegroupUpdateConfig => {
   return {
-    maxUnavailable: __expectInt(output.maxUnavailable),
-    maxUnavailablePercentage: __expectInt(output.maxUnavailablePercentage),
+    maxUnavailable: __expectInt32(output.maxUnavailable),
+    maxUnavailablePercentage: __expectInt32(output.maxUnavailablePercentage),
   } as any;
 };
 

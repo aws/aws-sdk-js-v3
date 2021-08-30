@@ -914,7 +914,8 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   strictParseFloat as __strictParseFloat,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -20079,10 +20080,10 @@ const deserializeAws_queryAccountQuota = (output: any, context: __SerdeContext):
     contents.AccountQuotaName = __expectString(output["AccountQuotaName"]);
   }
   if (output["Used"] !== undefined) {
-    contents.Used = __strictParseInt(output["Used"]) as number;
+    contents.Used = __strictParseLong(output["Used"]) as number;
   }
   if (output["Max"] !== undefined) {
-    contents.Max = __strictParseInt(output["Max"]) as number;
+    contents.Max = __strictParseLong(output["Max"]) as number;
   }
   return contents;
 };
@@ -20421,13 +20422,13 @@ const deserializeAws_queryConnectionPoolConfigurationInfo = (
     InitQuery: undefined,
   };
   if (output["MaxConnectionsPercent"] !== undefined) {
-    contents.MaxConnectionsPercent = __strictParseInt(output["MaxConnectionsPercent"]) as number;
+    contents.MaxConnectionsPercent = __strictParseInt32(output["MaxConnectionsPercent"]) as number;
   }
   if (output["MaxIdleConnectionsPercent"] !== undefined) {
-    contents.MaxIdleConnectionsPercent = __strictParseInt(output["MaxIdleConnectionsPercent"]) as number;
+    contents.MaxIdleConnectionsPercent = __strictParseInt32(output["MaxIdleConnectionsPercent"]) as number;
   }
   if (output["ConnectionBorrowTimeout"] !== undefined) {
-    contents.ConnectionBorrowTimeout = __strictParseInt(output["ConnectionBorrowTimeout"]) as number;
+    contents.ConnectionBorrowTimeout = __strictParseInt32(output["ConnectionBorrowTimeout"]) as number;
   }
   if (output.SessionPinningFilters === "") {
     contents.SessionPinningFilters = [];
@@ -20854,7 +20855,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     PendingModifiedValues: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt(output["AllocatedStorage"]) as number;
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
   }
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
@@ -20866,7 +20867,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     );
   }
   if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt(output["BackupRetentionPeriod"]) as number;
+    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
   }
   if (output["CharacterSetName"] !== undefined) {
     contents.CharacterSetName = __expectString(output["CharacterSetName"]);
@@ -20923,7 +20924,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.LatestRestorableTime = new Date(output["LatestRestorableTime"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -21019,10 +21020,10 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.EarliestBacktrackTime = new Date(output["EarliestBacktrackTime"]);
   }
   if (output["BacktrackWindow"] !== undefined) {
-    contents.BacktrackWindow = __strictParseInt(output["BacktrackWindow"]) as number;
+    contents.BacktrackWindow = __strictParseLong(output["BacktrackWindow"]) as number;
   }
   if (output["BacktrackConsumedChangeRecords"] !== undefined) {
-    contents.BacktrackConsumedChangeRecords = __strictParseInt(output["BacktrackConsumedChangeRecords"]) as number;
+    contents.BacktrackConsumedChangeRecords = __strictParseLong(output["BacktrackConsumedChangeRecords"]) as number;
   }
   if (output.EnabledCloudwatchLogsExports === "") {
     contents.EnabledCloudwatchLogsExports = [];
@@ -21037,7 +21038,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     );
   }
   if (output["Capacity"] !== undefined) {
-    contents.Capacity = __strictParseInt(output["Capacity"]) as number;
+    contents.Capacity = __strictParseInt32(output["Capacity"]) as number;
   }
   if (output["EngineMode"] !== undefined) {
     contents.EngineMode = __expectString(output["EngineMode"]);
@@ -21207,13 +21208,13 @@ const deserializeAws_queryDBClusterCapacityInfo = (output: any, context: __Serde
     contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
   }
   if (output["PendingCapacity"] !== undefined) {
-    contents.PendingCapacity = __strictParseInt(output["PendingCapacity"]) as number;
+    contents.PendingCapacity = __strictParseInt32(output["PendingCapacity"]) as number;
   }
   if (output["CurrentCapacity"] !== undefined) {
-    contents.CurrentCapacity = __strictParseInt(output["CurrentCapacity"]) as number;
+    contents.CurrentCapacity = __strictParseInt32(output["CurrentCapacity"]) as number;
   }
   if (output["SecondsBeforeTimeout"] !== undefined) {
-    contents.SecondsBeforeTimeout = __strictParseInt(output["SecondsBeforeTimeout"]) as number;
+    contents.SecondsBeforeTimeout = __strictParseInt32(output["SecondsBeforeTimeout"]) as number;
   }
   if (output["TimeoutAction"] !== undefined) {
     contents.TimeoutAction = __expectString(output["TimeoutAction"]);
@@ -21383,7 +21384,7 @@ const deserializeAws_queryDBClusterMember = (output: any, context: __SerdeContex
     contents.DBClusterParameterGroupStatus = __expectString(output["DBClusterParameterGroupStatus"]);
   }
   if (output["PromotionTier"] !== undefined) {
-    contents.PromotionTier = __strictParseInt(output["PromotionTier"]) as number;
+    contents.PromotionTier = __strictParseInt32(output["PromotionTier"]) as number;
   }
   return contents;
 };
@@ -21702,13 +21703,13 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.EngineMode = __expectString(output["EngineMode"]);
   }
   if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt(output["AllocatedStorage"]) as number;
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["VpcId"] !== undefined) {
     contents.VpcId = __expectString(output["VpcId"]);
@@ -21729,7 +21730,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.SnapshotType = __expectString(output["SnapshotType"]);
   }
   if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = __strictParseInt(output["PercentProgress"]) as number;
+    contents.PercentProgress = __strictParseInt32(output["PercentProgress"]) as number;
   }
   if (output["StorageEncrypted"] !== undefined) {
     contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
@@ -22133,7 +22134,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.Endpoint = deserializeAws_queryEndpoint(output["Endpoint"], context);
   }
   if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt(output["AllocatedStorage"]) as number;
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
   }
   if (output["InstanceCreateTime"] !== undefined) {
     contents.InstanceCreateTime = new Date(output["InstanceCreateTime"]);
@@ -22142,7 +22143,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.PreferredBackupWindow = __expectString(output["PreferredBackupWindow"]);
   }
   if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt(output["BackupRetentionPeriod"]) as number;
+    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
   }
   if (output.DBSecurityGroups === "") {
     contents.DBSecurityGroups = [];
@@ -22235,7 +22236,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.LicenseModel = __expectString(output["LicenseModel"]);
   }
   if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt(output["Iops"]) as number;
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
   }
   if (output.OptionGroupMemberships === "") {
     contents.OptionGroupMemberships = [];
@@ -22277,7 +22278,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.TdeCredentialArn = __expectString(output["TdeCredentialArn"]);
   }
   if (output["DbInstancePort"] !== undefined) {
-    contents.DbInstancePort = __strictParseInt(output["DbInstancePort"]) as number;
+    contents.DbInstancePort = __strictParseInt32(output["DbInstancePort"]) as number;
   }
   if (output["DBClusterIdentifier"] !== undefined) {
     contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
@@ -22307,7 +22308,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.CopyTagsToSnapshot = __parseBoolean(output["CopyTagsToSnapshot"]);
   }
   if (output["MonitoringInterval"] !== undefined) {
-    contents.MonitoringInterval = __strictParseInt(output["MonitoringInterval"]) as number;
+    contents.MonitoringInterval = __strictParseInt32(output["MonitoringInterval"]) as number;
   }
   if (output["EnhancedMonitoringResourceArn"] !== undefined) {
     contents.EnhancedMonitoringResourceArn = __expectString(output["EnhancedMonitoringResourceArn"]);
@@ -22316,7 +22317,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.MonitoringRoleArn = __expectString(output["MonitoringRoleArn"]);
   }
   if (output["PromotionTier"] !== undefined) {
-    contents.PromotionTier = __strictParseInt(output["PromotionTier"]) as number;
+    contents.PromotionTier = __strictParseInt32(output["PromotionTier"]) as number;
   }
   if (output["DBInstanceArn"] !== undefined) {
     contents.DBInstanceArn = __expectString(output["DBInstanceArn"]);
@@ -22334,7 +22335,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.PerformanceInsightsKMSKeyId = __expectString(output["PerformanceInsightsKMSKeyId"]);
   }
   if (output["PerformanceInsightsRetentionPeriod"] !== undefined) {
-    contents.PerformanceInsightsRetentionPeriod = __strictParseInt(
+    contents.PerformanceInsightsRetentionPeriod = __strictParseInt32(
       output["PerformanceInsightsRetentionPeriod"]
     ) as number;
   }
@@ -22375,7 +22376,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.ListenerEndpoint = deserializeAws_queryEndpoint(output["ListenerEndpoint"], context);
   }
   if (output["MaxAllocatedStorage"] !== undefined) {
-    contents.MaxAllocatedStorage = __strictParseInt(output["MaxAllocatedStorage"]) as number;
+    contents.MaxAllocatedStorage = __strictParseInt32(output["MaxAllocatedStorage"]) as number;
   }
   if (output.TagList === "") {
     contents.TagList = [];
@@ -22482,13 +22483,13 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     contents.RestoreWindow = deserializeAws_queryRestoreWindow(output["RestoreWindow"], context);
   }
   if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt(output["AllocatedStorage"]) as number;
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["AvailabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
@@ -22512,7 +22513,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     contents.LicenseModel = __expectString(output["LicenseModel"]);
   }
   if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt(output["Iops"]) as number;
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
   }
   if (output["OptionGroupName"] !== undefined) {
     contents.OptionGroupName = __expectString(output["OptionGroupName"]);
@@ -22536,7 +22537,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
   }
   if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt(output["BackupRetentionPeriod"]) as number;
+    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
   }
   if (output["DBInstanceAutomatedBackupsArn"] !== undefined) {
     contents.DBInstanceAutomatedBackupsArn = __expectString(output["DBInstanceAutomatedBackupsArn"]);
@@ -23027,7 +23028,7 @@ const deserializeAws_queryDBProxy = (output: any, context: __SerdeContext): DBPr
     contents.RequireTLS = __parseBoolean(output["RequireTLS"]);
   }
   if (output["IdleClientTimeout"] !== undefined) {
-    contents.IdleClientTimeout = __strictParseInt(output["IdleClientTimeout"]) as number;
+    contents.IdleClientTimeout = __strictParseInt32(output["IdleClientTimeout"]) as number;
   }
   if (output["DebugLogging"] !== undefined) {
     contents.DebugLogging = __parseBoolean(output["DebugLogging"]);
@@ -23224,7 +23225,7 @@ const deserializeAws_queryDBProxyTarget = (output: any, context: __SerdeContext)
     contents.RdsResourceId = __expectString(output["RdsResourceId"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["Type"] !== undefined) {
     contents.Type = __expectString(output["Type"]);
@@ -23521,13 +23522,13 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     contents.Engine = __expectString(output["Engine"]);
   }
   if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt(output["AllocatedStorage"]) as number;
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["AvailabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
@@ -23551,13 +23552,13 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     contents.SnapshotType = __expectString(output["SnapshotType"]);
   }
   if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt(output["Iops"]) as number;
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
   }
   if (output["OptionGroupName"] !== undefined) {
     contents.OptionGroupName = __expectString(output["OptionGroupName"]);
   }
   if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = __strictParseInt(output["PercentProgress"]) as number;
+    contents.PercentProgress = __strictParseInt32(output["PercentProgress"]) as number;
   }
   if (output["SourceRegion"] !== undefined) {
     contents.SourceRegion = __expectString(output["SourceRegion"]);
@@ -24037,10 +24038,10 @@ const deserializeAws_queryDescribeDBLogFilesDetails = (
     contents.LogFileName = __expectString(output["LogFileName"]);
   }
   if (output["LastWritten"] !== undefined) {
-    contents.LastWritten = __strictParseInt(output["LastWritten"]) as number;
+    contents.LastWritten = __strictParseLong(output["LastWritten"]) as number;
   }
   if (output["Size"] !== undefined) {
-    contents.Size = __strictParseInt(output["Size"]) as number;
+    contents.Size = __strictParseLong(output["Size"]) as number;
   }
   return contents;
 };
@@ -24364,7 +24365,7 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
     contents.Address = __expectString(output["Address"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["HostedZoneId"] !== undefined) {
     contents.HostedZoneId = __expectString(output["HostedZoneId"]);
@@ -24698,10 +24699,10 @@ const deserializeAws_queryExportTask = (output: any, context: __SerdeContext): E
     contents.Status = __expectString(output["Status"]);
   }
   if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = __strictParseInt(output["PercentProgress"]) as number;
+    contents.PercentProgress = __strictParseInt32(output["PercentProgress"]) as number;
   }
   if (output["TotalExtractedDataInGB"] !== undefined) {
-    contents.TotalExtractedDataInGB = __strictParseInt(output["TotalExtractedDataInGB"]) as number;
+    contents.TotalExtractedDataInGB = __strictParseInt32(output["TotalExtractedDataInGB"]) as number;
   }
   if (output["FailureCause"] !== undefined) {
     contents.FailureCause = __expectString(output["FailureCause"]);
@@ -25747,7 +25748,7 @@ const deserializeAws_queryOption = (output: any, context: __SerdeContext): Optio
     contents.Permanent = __parseBoolean(output["Permanent"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["OptionVersion"] !== undefined) {
     contents.OptionVersion = __expectString(output["OptionVersion"]);
@@ -25921,7 +25922,7 @@ const deserializeAws_queryOptionGroupOption = (output: any, context: __SerdeCont
     contents.PortRequired = __parseBoolean(output["PortRequired"]);
   }
   if (output["DefaultPort"] !== undefined) {
-    contents.DefaultPort = __strictParseInt(output["DefaultPort"]) as number;
+    contents.DefaultPort = __strictParseInt32(output["DefaultPort"]) as number;
   }
   if (output.OptionsDependedOn === "") {
     contents.OptionsDependedOn = [];
@@ -26325,16 +26326,16 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     contents.SupportsPerformanceInsights = __parseBoolean(output["SupportsPerformanceInsights"]);
   }
   if (output["MinStorageSize"] !== undefined) {
-    contents.MinStorageSize = __strictParseInt(output["MinStorageSize"]) as number;
+    contents.MinStorageSize = __strictParseInt32(output["MinStorageSize"]) as number;
   }
   if (output["MaxStorageSize"] !== undefined) {
-    contents.MaxStorageSize = __strictParseInt(output["MaxStorageSize"]) as number;
+    contents.MaxStorageSize = __strictParseInt32(output["MaxStorageSize"]) as number;
   }
   if (output["MinIopsPerDbInstance"] !== undefined) {
-    contents.MinIopsPerDbInstance = __strictParseInt(output["MinIopsPerDbInstance"]) as number;
+    contents.MinIopsPerDbInstance = __strictParseInt32(output["MinIopsPerDbInstance"]) as number;
   }
   if (output["MaxIopsPerDbInstance"] !== undefined) {
-    contents.MaxIopsPerDbInstance = __strictParseInt(output["MaxIopsPerDbInstance"]) as number;
+    contents.MaxIopsPerDbInstance = __strictParseInt32(output["MaxIopsPerDbInstance"]) as number;
   }
   if (output["MinIopsPerGib"] !== undefined) {
     contents.MinIopsPerGib = __strictParseFloat(output["MinIopsPerGib"]) as number;
@@ -26646,16 +26647,16 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
   }
   if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt(output["AllocatedStorage"]) as number;
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
   }
   if (output["MasterUserPassword"] !== undefined) {
     contents.MasterUserPassword = __expectString(output["MasterUserPassword"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt(output["BackupRetentionPeriod"]) as number;
+    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
   }
   if (output["MultiAZ"] !== undefined) {
     contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
@@ -26667,7 +26668,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     contents.LicenseModel = __expectString(output["LicenseModel"]);
   }
   if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt(output["Iops"]) as number;
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
   }
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -26799,13 +26800,13 @@ const deserializeAws_queryRange = (output: any, context: __SerdeContext): Range 
     Step: undefined,
   };
   if (output["From"] !== undefined) {
-    contents.From = __strictParseInt(output["From"]) as number;
+    contents.From = __strictParseInt32(output["From"]) as number;
   }
   if (output["To"] !== undefined) {
-    contents.To = __strictParseInt(output["To"]) as number;
+    contents.To = __strictParseInt32(output["To"]) as number;
   }
   if (output["Step"] !== undefined) {
-    contents.Step = __strictParseInt(output["Step"]) as number;
+    contents.Step = __strictParseInt32(output["Step"]) as number;
   }
   return contents;
 };
@@ -26977,7 +26978,7 @@ const deserializeAws_queryReservedDBInstance = (output: any, context: __SerdeCon
     contents.StartTime = new Date(output["StartTime"]);
   }
   if (output["Duration"] !== undefined) {
-    contents.Duration = __strictParseInt(output["Duration"]) as number;
+    contents.Duration = __strictParseInt32(output["Duration"]) as number;
   }
   if (output["FixedPrice"] !== undefined) {
     contents.FixedPrice = __strictParseFloat(output["FixedPrice"]) as number;
@@ -26989,7 +26990,7 @@ const deserializeAws_queryReservedDBInstance = (output: any, context: __SerdeCon
     contents.CurrencyCode = __expectString(output["CurrencyCode"]);
   }
   if (output["DBInstanceCount"] !== undefined) {
-    contents.DBInstanceCount = __strictParseInt(output["DBInstanceCount"]) as number;
+    contents.DBInstanceCount = __strictParseInt32(output["DBInstanceCount"]) as number;
   }
   if (output["ProductDescription"] !== undefined) {
     contents.ProductDescription = __expectString(output["ProductDescription"]);
@@ -27120,7 +27121,7 @@ const deserializeAws_queryReservedDBInstancesOffering = (
     contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
   }
   if (output["Duration"] !== undefined) {
-    contents.Duration = __strictParseInt(output["Duration"]) as number;
+    contents.Duration = __strictParseInt32(output["Duration"]) as number;
   }
   if (output["FixedPrice"] !== undefined) {
     contents.FixedPrice = __strictParseFloat(output["FixedPrice"]) as number;
@@ -27358,16 +27359,16 @@ const deserializeAws_queryScalingConfigurationInfo = (
     TimeoutAction: undefined,
   };
   if (output["MinCapacity"] !== undefined) {
-    contents.MinCapacity = __strictParseInt(output["MinCapacity"]) as number;
+    contents.MinCapacity = __strictParseInt32(output["MinCapacity"]) as number;
   }
   if (output["MaxCapacity"] !== undefined) {
-    contents.MaxCapacity = __strictParseInt(output["MaxCapacity"]) as number;
+    contents.MaxCapacity = __strictParseInt32(output["MaxCapacity"]) as number;
   }
   if (output["AutoPause"] !== undefined) {
     contents.AutoPause = __parseBoolean(output["AutoPause"]);
   }
   if (output["SecondsUntilAutoPause"] !== undefined) {
-    contents.SecondsUntilAutoPause = __strictParseInt(output["SecondsUntilAutoPause"]) as number;
+    contents.SecondsUntilAutoPause = __strictParseInt32(output["SecondsUntilAutoPause"]) as number;
   }
   if (output["TimeoutAction"] !== undefined) {
     contents.TimeoutAction = __expectString(output["TimeoutAction"]);

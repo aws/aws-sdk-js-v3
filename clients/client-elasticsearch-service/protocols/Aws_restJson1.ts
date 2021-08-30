@@ -211,10 +211,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5687,7 +5688,7 @@ const deserializeAws_restJson1AutoTuneStatus = (output: any, context: __SerdeCon
       output.UpdateDate !== undefined && output.UpdateDate !== null
         ? new Date(Math.round(output.UpdateDate * 1000))
         : undefined,
-    UpdateVersion: __expectInt(output.UpdateVersion),
+    UpdateVersion: __expectInt32(output.UpdateVersion),
   } as any;
 };
 
@@ -5831,15 +5832,15 @@ const deserializeAws_restJson1DomainPackageDetailsList = (
 const deserializeAws_restJson1Duration = (output: any, context: __SerdeContext): Duration => {
   return {
     Unit: __expectString(output.Unit),
-    Value: __expectInt(output.Value),
+    Value: __expectLong(output.Value),
   } as any;
 };
 
 const deserializeAws_restJson1EBSOptions = (output: any, context: __SerdeContext): EBSOptions => {
   return {
     EBSEnabled: __expectBoolean(output.EBSEnabled),
-    Iops: __expectInt(output.Iops),
-    VolumeSize: __expectInt(output.VolumeSize),
+    Iops: __expectInt32(output.Iops),
+    VolumeSize: __expectInt32(output.VolumeSize),
     VolumeType: __expectString(output.VolumeType),
   } as any;
 };
@@ -5866,12 +5867,12 @@ const deserializeAws_restJson1ElasticsearchClusterConfig = (
       output.ColdStorageOptions !== undefined && output.ColdStorageOptions !== null
         ? deserializeAws_restJson1ColdStorageOptions(output.ColdStorageOptions, context)
         : undefined,
-    DedicatedMasterCount: __expectInt(output.DedicatedMasterCount),
+    DedicatedMasterCount: __expectInt32(output.DedicatedMasterCount),
     DedicatedMasterEnabled: __expectBoolean(output.DedicatedMasterEnabled),
     DedicatedMasterType: __expectString(output.DedicatedMasterType),
-    InstanceCount: __expectInt(output.InstanceCount),
+    InstanceCount: __expectInt32(output.InstanceCount),
     InstanceType: __expectString(output.InstanceType),
-    WarmCount: __expectInt(output.WarmCount),
+    WarmCount: __expectInt32(output.WarmCount),
     WarmEnabled: __expectBoolean(output.WarmEnabled),
     WarmType: __expectString(output.WarmType),
     ZoneAwarenessConfig:
@@ -6180,8 +6181,8 @@ const deserializeAws_restJson1InboundCrossClusterSearchConnectionStatus = (
 
 const deserializeAws_restJson1InstanceCountLimits = (output: any, context: __SerdeContext): InstanceCountLimits => {
   return {
-    MaximumInstanceCount: __expectInt(output.MaximumInstanceCount),
-    MinimumInstanceCount: __expectInt(output.MinimumInstanceCount),
+    MaximumInstanceCount: __expectInt32(output.MaximumInstanceCount),
+    MinimumInstanceCount: __expectInt32(output.MinimumInstanceCount),
   } as any;
 };
 
@@ -6323,7 +6324,7 @@ const deserializeAws_restJson1OptionStatus = (output: any, context: __SerdeConte
       output.UpdateDate !== undefined && output.UpdateDate !== null
         ? new Date(Math.round(output.UpdateDate * 1000))
         : undefined,
-    UpdateVersion: __expectInt(output.UpdateVersion),
+    UpdateVersion: __expectInt32(output.UpdateVersion),
   } as any;
 };
 
@@ -6434,7 +6435,7 @@ const deserializeAws_restJson1PackageVersionHistoryList = (
 
 const deserializeAws_restJson1RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   return {
-    RecurringChargeAmount: __limitedParseFloat(output.RecurringChargeAmount),
+    RecurringChargeAmount: __limitedParseDouble(output.RecurringChargeAmount),
     RecurringChargeFrequency: __expectString(output.RecurringChargeFrequency),
   } as any;
 };
@@ -6456,10 +6457,10 @@ const deserializeAws_restJson1ReservedElasticsearchInstance = (
 ): ReservedElasticsearchInstance => {
   return {
     CurrencyCode: __expectString(output.CurrencyCode),
-    Duration: __expectInt(output.Duration),
-    ElasticsearchInstanceCount: __expectInt(output.ElasticsearchInstanceCount),
+    Duration: __expectInt32(output.Duration),
+    ElasticsearchInstanceCount: __expectInt32(output.ElasticsearchInstanceCount),
     ElasticsearchInstanceType: __expectString(output.ElasticsearchInstanceType),
-    FixedPrice: __limitedParseFloat(output.FixedPrice),
+    FixedPrice: __limitedParseDouble(output.FixedPrice),
     PaymentOption: __expectString(output.PaymentOption),
     RecurringCharges:
       output.RecurringCharges !== undefined && output.RecurringCharges !== null
@@ -6473,7 +6474,7 @@ const deserializeAws_restJson1ReservedElasticsearchInstance = (
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
     State: __expectString(output.State),
-    UsagePrice: __limitedParseFloat(output.UsagePrice),
+    UsagePrice: __limitedParseDouble(output.UsagePrice),
   } as any;
 };
 
@@ -6497,16 +6498,16 @@ const deserializeAws_restJson1ReservedElasticsearchInstanceOffering = (
 ): ReservedElasticsearchInstanceOffering => {
   return {
     CurrencyCode: __expectString(output.CurrencyCode),
-    Duration: __expectInt(output.Duration),
+    Duration: __expectInt32(output.Duration),
     ElasticsearchInstanceType: __expectString(output.ElasticsearchInstanceType),
-    FixedPrice: __limitedParseFloat(output.FixedPrice),
+    FixedPrice: __limitedParseDouble(output.FixedPrice),
     PaymentOption: __expectString(output.PaymentOption),
     RecurringCharges:
       output.RecurringCharges !== undefined && output.RecurringCharges !== null
         ? deserializeAws_restJson1RecurringChargeList(output.RecurringCharges, context)
         : undefined,
     ReservedElasticsearchInstanceOfferingId: __expectString(output.ReservedElasticsearchInstanceOfferingId),
-    UsagePrice: __limitedParseFloat(output.UsagePrice),
+    UsagePrice: __limitedParseDouble(output.UsagePrice),
   } as any;
 };
 
@@ -6539,7 +6540,7 @@ const deserializeAws_restJson1SAMLOptionsOutput = (output: any, context: __Serde
         ? deserializeAws_restJson1SAMLIdp(output.Idp, context)
         : undefined,
     RolesKey: __expectString(output.RolesKey),
-    SessionTimeoutMinutes: __expectInt(output.SessionTimeoutMinutes),
+    SessionTimeoutMinutes: __expectInt32(output.SessionTimeoutMinutes),
     SubjectKey: __expectString(output.SubjectKey),
   } as any;
 };
@@ -6577,7 +6578,7 @@ const deserializeAws_restJson1ServiceSoftwareOptions = (
 
 const deserializeAws_restJson1SnapshotOptions = (output: any, context: __SerdeContext): SnapshotOptions => {
   return {
-    AutomatedSnapshotStartHour: __expectInt(output.AutomatedSnapshotStartHour),
+    AutomatedSnapshotStartHour: __expectInt32(output.AutomatedSnapshotStartHour),
   } as any;
 };
 
@@ -6698,7 +6699,7 @@ const deserializeAws_restJson1UpgradeStepItem = (output: any, context: __SerdeCo
       output.Issues !== undefined && output.Issues !== null
         ? deserializeAws_restJson1Issues(output.Issues, context)
         : undefined,
-    ProgressPercent: __limitedParseFloat(output.ProgressPercent),
+    ProgressPercent: __limitedParseDouble(output.ProgressPercent),
     UpgradeStep: __expectString(output.UpgradeStep),
     UpgradeStepStatus: __expectString(output.UpgradeStepStatus),
   } as any;
@@ -6748,7 +6749,7 @@ const deserializeAws_restJson1VPCDerivedInfoStatus = (output: any, context: __Se
 
 const deserializeAws_restJson1ZoneAwarenessConfig = (output: any, context: __SerdeContext): ZoneAwarenessConfig => {
   return {
-    AvailabilityZoneCount: __expectInt(output.AvailabilityZoneCount),
+    AvailabilityZoneCount: __expectInt32(output.AvailabilityZoneCount),
   } as any;
 };
 

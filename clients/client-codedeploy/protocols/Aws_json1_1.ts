@@ -405,9 +405,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -9049,7 +9050,7 @@ const deserializeAws_json1_1BlueInstanceTerminationOption = (
 ): BlueInstanceTerminationOption => {
   return {
     action: __expectString(output.action),
-    terminationWaitTimeInMinutes: __expectInt(output.terminationWaitTimeInMinutes),
+    terminationWaitTimeInMinutes: __expectInt32(output.terminationWaitTimeInMinutes),
   } as any;
 };
 
@@ -9076,7 +9077,7 @@ const deserializeAws_json1_1CloudFormationTarget = (output: any, context: __Serd
     resourceType: __expectString(output.resourceType),
     status: __expectString(output.status),
     targetId: __expectString(output.targetId),
-    targetVersionWeight: __limitedParseFloat(output.targetVersionWeight),
+    targetVersionWeight: __limitedParseDouble(output.targetVersionWeight),
   } as any;
 };
 
@@ -9482,19 +9483,19 @@ const deserializeAws_json1_1DeploymentNotStartedException = (
 
 const deserializeAws_json1_1DeploymentOverview = (output: any, context: __SerdeContext): DeploymentOverview => {
   return {
-    Failed: __expectInt(output.Failed),
-    InProgress: __expectInt(output.InProgress),
-    Pending: __expectInt(output.Pending),
-    Ready: __expectInt(output.Ready),
-    Skipped: __expectInt(output.Skipped),
-    Succeeded: __expectInt(output.Succeeded),
+    Failed: __expectLong(output.Failed),
+    InProgress: __expectLong(output.InProgress),
+    Pending: __expectLong(output.Pending),
+    Ready: __expectLong(output.Ready),
+    Skipped: __expectLong(output.Skipped),
+    Succeeded: __expectLong(output.Succeeded),
   } as any;
 };
 
 const deserializeAws_json1_1DeploymentReadyOption = (output: any, context: __SerdeContext): DeploymentReadyOption => {
   return {
     actionOnTimeout: __expectString(output.actionOnTimeout),
-    waitTimeInMinutes: __expectInt(output.waitTimeInMinutes),
+    waitTimeInMinutes: __expectInt32(output.waitTimeInMinutes),
   } as any;
 };
 
@@ -9705,17 +9706,17 @@ const deserializeAws_json1_1ECSTarget = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1ECSTaskSet = (output: any, context: __SerdeContext): ECSTaskSet => {
   return {
-    desiredCount: __expectInt(output.desiredCount),
+    desiredCount: __expectLong(output.desiredCount),
     identifer: __expectString(output.identifer),
-    pendingCount: __expectInt(output.pendingCount),
-    runningCount: __expectInt(output.runningCount),
+    pendingCount: __expectLong(output.pendingCount),
+    runningCount: __expectLong(output.runningCount),
     status: __expectString(output.status),
     targetGroup:
       output.targetGroup !== undefined && output.targetGroup !== null
         ? deserializeAws_json1_1TargetGroupInfo(output.targetGroup, context)
         : undefined,
     taskSetLabel: __expectString(output.taskSetLabel),
-    trafficWeight: __limitedParseFloat(output.trafficWeight),
+    trafficWeight: __limitedParseDouble(output.trafficWeight),
   } as any;
 };
 
@@ -10580,7 +10581,7 @@ const deserializeAws_json1_1LambdaFunctionInfo = (output: any, context: __SerdeC
     functionAlias: __expectString(output.functionAlias),
     functionName: __expectString(output.functionName),
     targetVersion: __expectString(output.targetVersion),
-    targetVersionWeight: __limitedParseFloat(output.targetVersionWeight),
+    targetVersionWeight: __limitedParseDouble(output.targetVersionWeight),
   } as any;
 };
 
@@ -10820,7 +10821,7 @@ const deserializeAws_json1_1LoadBalancerInfo = (output: any, context: __SerdeCon
 const deserializeAws_json1_1MinimumHealthyHosts = (output: any, context: __SerdeContext): MinimumHealthyHosts => {
   return {
     type: __expectString(output.type),
-    value: __expectInt(output.value),
+    value: __expectInt32(output.value),
   } as any;
 };
 
@@ -11159,15 +11160,15 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
 
 const deserializeAws_json1_1TimeBasedCanary = (output: any, context: __SerdeContext): TimeBasedCanary => {
   return {
-    canaryInterval: __expectInt(output.canaryInterval),
-    canaryPercentage: __expectInt(output.canaryPercentage),
+    canaryInterval: __expectInt32(output.canaryInterval),
+    canaryPercentage: __expectInt32(output.canaryPercentage),
   } as any;
 };
 
 const deserializeAws_json1_1TimeBasedLinear = (output: any, context: __SerdeContext): TimeBasedLinear => {
   return {
-    linearInterval: __expectInt(output.linearInterval),
-    linearPercentage: __expectInt(output.linearPercentage),
+    linearInterval: __expectInt32(output.linearInterval),
+    linearPercentage: __expectInt32(output.linearPercentage),
   } as any;
 };
 

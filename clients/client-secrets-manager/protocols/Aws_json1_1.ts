@@ -108,7 +108,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3131,7 +3131,7 @@ const deserializeAws_json1_1RotateSecretResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1RotationRulesType = (output: any, context: __SerdeContext): RotationRulesType => {
   return {
-    AutomaticallyAfterDays: __expectInt(output.AutomaticallyAfterDays),
+    AutomaticallyAfterDays: __expectLong(output.AutomaticallyAfterDays),
   } as any;
 };
 

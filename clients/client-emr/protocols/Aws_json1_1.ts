@@ -334,9 +334,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5745,7 +5746,7 @@ const deserializeAws_json1_1AutoScalingPolicyStatus = (
 
 const deserializeAws_json1_1AutoTerminationPolicy = (output: any, context: __SerdeContext): AutoTerminationPolicy => {
   return {
-    IdleTimeout: __expectInt(output.IdleTimeout),
+    IdleTimeout: __expectLong(output.IdleTimeout),
   } as any;
 };
 
@@ -5856,12 +5857,12 @@ const deserializeAws_json1_1CloudWatchAlarmDefinition = (
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1MetricDimensionList(output.Dimensions, context)
         : undefined,
-    EvaluationPeriods: __expectInt(output.EvaluationPeriods),
+    EvaluationPeriods: __expectInt32(output.EvaluationPeriods),
     MetricName: __expectString(output.MetricName),
     Namespace: __expectString(output.Namespace),
-    Period: __expectInt(output.Period),
+    Period: __expectInt32(output.Period),
     Statistic: __expectString(output.Statistic),
-    Threshold: __limitedParseFloat(output.Threshold),
+    Threshold: __limitedParseDouble(output.Threshold),
     Unit: __expectString(output.Unit),
   } as any;
 };
@@ -5880,7 +5881,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
         ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
         : undefined,
     CustomAmiId: __expectString(output.CustomAmiId),
-    EbsRootVolumeSize: __expectInt(output.EbsRootVolumeSize),
+    EbsRootVolumeSize: __expectInt32(output.EbsRootVolumeSize),
     Ec2InstanceAttributes:
       output.Ec2InstanceAttributes !== undefined && output.Ec2InstanceAttributes !== null
         ? deserializeAws_json1_1Ec2InstanceAttributes(output.Ec2InstanceAttributes, context)
@@ -5895,7 +5896,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
     LogUri: __expectString(output.LogUri),
     MasterPublicDnsName: __expectString(output.MasterPublicDnsName),
     Name: __expectString(output.Name),
-    NormalizedInstanceHours: __expectInt(output.NormalizedInstanceHours),
+    NormalizedInstanceHours: __expectInt32(output.NormalizedInstanceHours),
     OutpostArn: __expectString(output.OutpostArn),
     PlacementGroups:
       output.PlacementGroups !== undefined && output.PlacementGroups !== null
@@ -5912,7 +5913,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_json1_1ClusterStatus(output.Status, context)
         : undefined,
-    StepConcurrencyLevel: __expectInt(output.StepConcurrencyLevel),
+    StepConcurrencyLevel: __expectInt32(output.StepConcurrencyLevel),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -5951,7 +5952,7 @@ const deserializeAws_json1_1ClusterSummary = (output: any, context: __SerdeConte
     ClusterArn: __expectString(output.ClusterArn),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
-    NormalizedInstanceHours: __expectInt(output.NormalizedInstanceHours),
+    NormalizedInstanceHours: __expectInt32(output.NormalizedInstanceHours),
     OutpostArn: __expectString(output.OutpostArn),
     Status:
       output.Status !== undefined && output.Status !== null
@@ -6012,10 +6013,10 @@ const deserializeAws_json1_1CommandList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ComputeLimits = (output: any, context: __SerdeContext): ComputeLimits => {
   return {
-    MaximumCapacityUnits: __expectInt(output.MaximumCapacityUnits),
-    MaximumCoreCapacityUnits: __expectInt(output.MaximumCoreCapacityUnits),
-    MaximumOnDemandCapacityUnits: __expectInt(output.MaximumOnDemandCapacityUnits),
-    MinimumCapacityUnits: __expectInt(output.MinimumCapacityUnits),
+    MaximumCapacityUnits: __expectInt32(output.MaximumCapacityUnits),
+    MaximumCoreCapacityUnits: __expectInt32(output.MaximumCoreCapacityUnits),
+    MaximumOnDemandCapacityUnits: __expectInt32(output.MaximumOnDemandCapacityUnits),
+    MinimumCapacityUnits: __expectInt32(output.MinimumCapacityUnits),
     UnitType: __expectString(output.UnitType),
   } as any;
 };
@@ -6362,14 +6363,14 @@ const deserializeAws_json1_1InstanceFleet = (output: any, context: __SerdeContex
         ? deserializeAws_json1_1InstanceFleetProvisioningSpecifications(output.LaunchSpecifications, context)
         : undefined,
     Name: __expectString(output.Name),
-    ProvisionedOnDemandCapacity: __expectInt(output.ProvisionedOnDemandCapacity),
-    ProvisionedSpotCapacity: __expectInt(output.ProvisionedSpotCapacity),
+    ProvisionedOnDemandCapacity: __expectInt32(output.ProvisionedOnDemandCapacity),
+    ProvisionedSpotCapacity: __expectInt32(output.ProvisionedSpotCapacity),
     Status:
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_json1_1InstanceFleetStatus(output.Status, context)
         : undefined,
-    TargetOnDemandCapacity: __expectInt(output.TargetOnDemandCapacity),
-    TargetSpotCapacity: __expectInt(output.TargetSpotCapacity),
+    TargetOnDemandCapacity: __expectInt32(output.TargetOnDemandCapacity),
+    TargetSpotCapacity: __expectInt32(output.TargetSpotCapacity),
   } as any;
 };
 
@@ -6452,7 +6453,7 @@ const deserializeAws_json1_1InstanceGroup = (output: any, context: __SerdeContex
       output.Configurations !== undefined && output.Configurations !== null
         ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
         : undefined,
-    ConfigurationsVersion: __expectInt(output.ConfigurationsVersion),
+    ConfigurationsVersion: __expectLong(output.ConfigurationsVersion),
     CustomAmiId: __expectString(output.CustomAmiId),
     EbsBlockDevices:
       output.EbsBlockDevices !== undefined && output.EbsBlockDevices !== null
@@ -6467,11 +6468,11 @@ const deserializeAws_json1_1InstanceGroup = (output: any, context: __SerdeContex
       output.LastSuccessfullyAppliedConfigurations !== null
         ? deserializeAws_json1_1ConfigurationList(output.LastSuccessfullyAppliedConfigurations, context)
         : undefined,
-    LastSuccessfullyAppliedConfigurationsVersion: __expectInt(output.LastSuccessfullyAppliedConfigurationsVersion),
+    LastSuccessfullyAppliedConfigurationsVersion: __expectLong(output.LastSuccessfullyAppliedConfigurationsVersion),
     Market: __expectString(output.Market),
     Name: __expectString(output.Name),
-    RequestedInstanceCount: __expectInt(output.RequestedInstanceCount),
-    RunningInstanceCount: __expectInt(output.RunningInstanceCount),
+    RequestedInstanceCount: __expectInt32(output.RequestedInstanceCount),
+    RunningInstanceCount: __expectInt32(output.RunningInstanceCount),
     ShrinkPolicy:
       output.ShrinkPolicy !== undefined && output.ShrinkPolicy !== null
         ? deserializeAws_json1_1ShrinkPolicy(output.ShrinkPolicy, context)
@@ -6496,9 +6497,9 @@ const deserializeAws_json1_1InstanceGroupDetail = (output: any, context: __Serde
         ? new Date(Math.round(output.EndDateTime * 1000))
         : undefined,
     InstanceGroupId: __expectString(output.InstanceGroupId),
-    InstanceRequestCount: __expectInt(output.InstanceRequestCount),
+    InstanceRequestCount: __expectInt32(output.InstanceRequestCount),
     InstanceRole: __expectString(output.InstanceRole),
-    InstanceRunningCount: __expectInt(output.InstanceRunningCount),
+    InstanceRunningCount: __expectInt32(output.InstanceRunningCount),
     InstanceType: __expectString(output.InstanceType),
     LastStateChangeReason: __expectString(output.LastStateChangeReason),
     Market: __expectString(output.Market),
@@ -6602,7 +6603,7 @@ const deserializeAws_json1_1InstanceList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1InstanceResizePolicy = (output: any, context: __SerdeContext): InstanceResizePolicy => {
   return {
-    InstanceTerminationTimeout: __expectInt(output.InstanceTerminationTimeout),
+    InstanceTerminationTimeout: __expectInt32(output.InstanceTerminationTimeout),
     InstancesToProtect:
       output.InstancesToProtect !== undefined && output.InstancesToProtect !== null
         ? deserializeAws_json1_1EC2InstanceIdsList(output.InstancesToProtect, context)
@@ -6661,7 +6662,7 @@ const deserializeAws_json1_1InstanceTypeSpecification = (
 ): InstanceTypeSpecification => {
   return {
     BidPrice: __expectString(output.BidPrice),
-    BidPriceAsPercentageOfOnDemandPrice: __limitedParseFloat(output.BidPriceAsPercentageOfOnDemandPrice),
+    BidPriceAsPercentageOfOnDemandPrice: __limitedParseDouble(output.BidPriceAsPercentageOfOnDemandPrice),
     Configurations:
       output.Configurations !== undefined && output.Configurations !== null
         ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
@@ -6673,7 +6674,7 @@ const deserializeAws_json1_1InstanceTypeSpecification = (
         : undefined,
     EbsOptimized: __expectBoolean(output.EbsOptimized),
     InstanceType: __expectString(output.InstanceType),
-    WeightedCapacity: __expectInt(output.WeightedCapacity),
+    WeightedCapacity: __expectInt32(output.WeightedCapacity),
   } as any;
 };
 
@@ -6791,7 +6792,7 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (output: any, context: __Se
     Ec2KeyName: __expectString(output.Ec2KeyName),
     Ec2SubnetId: __expectString(output.Ec2SubnetId),
     HadoopVersion: __expectString(output.HadoopVersion),
-    InstanceCount: __expectInt(output.InstanceCount),
+    InstanceCount: __expectInt32(output.InstanceCount),
     InstanceGroups:
       output.InstanceGroups !== undefined && output.InstanceGroups !== null
         ? deserializeAws_json1_1InstanceGroupDetailList(output.InstanceGroups, context)
@@ -6800,7 +6801,7 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (output: any, context: __Se
     MasterInstanceId: __expectString(output.MasterInstanceId),
     MasterInstanceType: __expectString(output.MasterInstanceType),
     MasterPublicDnsName: __expectString(output.MasterPublicDnsName),
-    NormalizedInstanceHours: __expectInt(output.NormalizedInstanceHours),
+    NormalizedInstanceHours: __expectInt32(output.NormalizedInstanceHours),
     Placement:
       output.Placement !== undefined && output.Placement !== null
         ? deserializeAws_json1_1PlacementType(output.Placement, context)
@@ -6998,7 +6999,7 @@ const deserializeAws_json1_1MetricDimensionList = (output: any, context: __Serde
 
 const deserializeAws_json1_1ModifyClusterOutput = (output: any, context: __SerdeContext): ModifyClusterOutput => {
   return {
-    StepConcurrencyLevel: __expectInt(output.StepConcurrencyLevel),
+    StepConcurrencyLevel: __expectInt32(output.StepConcurrencyLevel),
   } as any;
 };
 
@@ -7119,8 +7120,8 @@ const deserializeAws_json1_1PlacementType = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
-    MaxRange: __expectInt(output.MaxRange),
-    MinRange: __expectInt(output.MinRange),
+    MaxRange: __expectInt32(output.MaxRange),
+    MinRange: __expectInt32(output.MinRange),
   } as any;
 };
 
@@ -7215,8 +7216,8 @@ const deserializeAws_json1_1ScalingAction = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ScalingConstraints = (output: any, context: __SerdeContext): ScalingConstraints => {
   return {
-    MaxCapacity: __expectInt(output.MaxCapacity),
-    MinCapacity: __expectInt(output.MinCapacity),
+    MaxCapacity: __expectInt32(output.MaxCapacity),
+    MinCapacity: __expectInt32(output.MinCapacity),
   } as any;
 };
 
@@ -7343,7 +7344,7 @@ const deserializeAws_json1_1SessionMappingSummaryList = (
 
 const deserializeAws_json1_1ShrinkPolicy = (output: any, context: __SerdeContext): ShrinkPolicy => {
   return {
-    DecommissionTimeout: __expectInt(output.DecommissionTimeout),
+    DecommissionTimeout: __expectInt32(output.DecommissionTimeout),
     InstanceResizePolicy:
       output.InstanceResizePolicy !== undefined && output.InstanceResizePolicy !== null
         ? deserializeAws_json1_1InstanceResizePolicy(output.InstanceResizePolicy, context)
@@ -7357,8 +7358,8 @@ const deserializeAws_json1_1SimpleScalingPolicyConfiguration = (
 ): SimpleScalingPolicyConfiguration => {
   return {
     AdjustmentType: __expectString(output.AdjustmentType),
-    CoolDown: __expectInt(output.CoolDown),
-    ScalingAdjustment: __expectInt(output.ScalingAdjustment),
+    CoolDown: __expectInt32(output.CoolDown),
+    ScalingAdjustment: __expectInt32(output.ScalingAdjustment),
   } as any;
 };
 
@@ -7389,9 +7390,9 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
 ): SpotProvisioningSpecification => {
   return {
     AllocationStrategy: __expectString(output.AllocationStrategy),
-    BlockDurationMinutes: __expectInt(output.BlockDurationMinutes),
+    BlockDurationMinutes: __expectInt32(output.BlockDurationMinutes),
     TimeoutAction: __expectString(output.TimeoutAction),
-    TimeoutDurationMinutes: __expectInt(output.TimeoutDurationMinutes),
+    TimeoutDurationMinutes: __expectInt32(output.TimeoutDurationMinutes),
   } as any;
 };
 
@@ -7676,8 +7677,8 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1VolumeSpecification = (output: any, context: __SerdeContext): VolumeSpecification => {
   return {
-    Iops: __expectInt(output.Iops),
-    SizeInGB: __expectInt(output.SizeInGB),
+    Iops: __expectInt32(output.Iops),
+    SizeInGB: __expectInt32(output.SizeInGB),
     VolumeType: __expectString(output.VolumeType),
   } as any;
 };

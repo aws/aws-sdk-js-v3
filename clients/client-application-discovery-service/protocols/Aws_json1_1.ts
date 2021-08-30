@@ -149,7 +149,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3620,25 +3621,25 @@ const deserializeAws_json1_1CreateTagsResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1CustomerAgentInfo = (output: any, context: __SerdeContext): CustomerAgentInfo => {
   return {
-    activeAgents: __expectInt(output.activeAgents),
-    blackListedAgents: __expectInt(output.blackListedAgents),
-    healthyAgents: __expectInt(output.healthyAgents),
-    shutdownAgents: __expectInt(output.shutdownAgents),
-    totalAgents: __expectInt(output.totalAgents),
-    unhealthyAgents: __expectInt(output.unhealthyAgents),
-    unknownAgents: __expectInt(output.unknownAgents),
+    activeAgents: __expectInt32(output.activeAgents),
+    blackListedAgents: __expectInt32(output.blackListedAgents),
+    healthyAgents: __expectInt32(output.healthyAgents),
+    shutdownAgents: __expectInt32(output.shutdownAgents),
+    totalAgents: __expectInt32(output.totalAgents),
+    unhealthyAgents: __expectInt32(output.unhealthyAgents),
+    unknownAgents: __expectInt32(output.unknownAgents),
   } as any;
 };
 
 const deserializeAws_json1_1CustomerConnectorInfo = (output: any, context: __SerdeContext): CustomerConnectorInfo => {
   return {
-    activeConnectors: __expectInt(output.activeConnectors),
-    blackListedConnectors: __expectInt(output.blackListedConnectors),
-    healthyConnectors: __expectInt(output.healthyConnectors),
-    shutdownConnectors: __expectInt(output.shutdownConnectors),
-    totalConnectors: __expectInt(output.totalConnectors),
-    unhealthyConnectors: __expectInt(output.unhealthyConnectors),
-    unknownConnectors: __expectInt(output.unknownConnectors),
+    activeConnectors: __expectInt32(output.activeConnectors),
+    blackListedConnectors: __expectInt32(output.blackListedConnectors),
+    healthyConnectors: __expectInt32(output.healthyConnectors),
+    shutdownConnectors: __expectInt32(output.shutdownConnectors),
+    totalConnectors: __expectInt32(output.totalConnectors),
+    unhealthyConnectors: __expectInt32(output.unhealthyConnectors),
+    unknownConnectors: __expectInt32(output.unknownConnectors),
   } as any;
 };
 
@@ -3824,14 +3825,14 @@ const deserializeAws_json1_1GetDiscoverySummaryResponse = (
       output.agentSummary !== undefined && output.agentSummary !== null
         ? deserializeAws_json1_1CustomerAgentInfo(output.agentSummary, context)
         : undefined,
-    applications: __expectInt(output.applications),
+    applications: __expectLong(output.applications),
     connectorSummary:
       output.connectorSummary !== undefined && output.connectorSummary !== null
         ? deserializeAws_json1_1CustomerConnectorInfo(output.connectorSummary, context)
         : undefined,
-    servers: __expectInt(output.servers),
-    serversMappedToApplications: __expectInt(output.serversMappedToApplications),
-    serversMappedtoTags: __expectInt(output.serversMappedtoTags),
+    servers: __expectLong(output.servers),
+    serversMappedToApplications: __expectLong(output.serversMappedToApplications),
+    serversMappedtoTags: __expectLong(output.serversMappedtoTags),
   } as any;
 };
 
@@ -3846,8 +3847,8 @@ const deserializeAws_json1_1HomeRegionNotSetException = (
 
 const deserializeAws_json1_1ImportTask = (output: any, context: __SerdeContext): ImportTask => {
   return {
-    applicationImportFailure: __expectInt(output.applicationImportFailure),
-    applicationImportSuccess: __expectInt(output.applicationImportSuccess),
+    applicationImportFailure: __expectInt32(output.applicationImportFailure),
+    applicationImportSuccess: __expectInt32(output.applicationImportSuccess),
     clientRequestToken: __expectString(output.clientRequestToken),
     errorsAndFailedEntriesZip: __expectString(output.errorsAndFailedEntriesZip),
     importCompletionTime:
@@ -3865,8 +3866,8 @@ const deserializeAws_json1_1ImportTask = (output: any, context: __SerdeContext):
     importTaskId: __expectString(output.importTaskId),
     importUrl: __expectString(output.importUrl),
     name: __expectString(output.name),
-    serverImportFailure: __expectInt(output.serverImportFailure),
-    serverImportSuccess: __expectInt(output.serverImportSuccess),
+    serverImportFailure: __expectInt32(output.serverImportFailure),
+    serverImportSuccess: __expectInt32(output.serverImportSuccess),
     status: __expectString(output.status),
   } as any;
 };
@@ -3918,7 +3919,7 @@ const deserializeAws_json1_1ListServerNeighborsResponse = (
   context: __SerdeContext
 ): ListServerNeighborsResponse => {
   return {
-    knownDependencyCount: __expectInt(output.knownDependencyCount),
+    knownDependencyCount: __expectLong(output.knownDependencyCount),
     neighbors:
       output.neighbors !== undefined && output.neighbors !== null
         ? deserializeAws_json1_1NeighborDetailsList(output.neighbors, context)
@@ -3932,8 +3933,8 @@ const deserializeAws_json1_1NeighborConnectionDetail = (
   context: __SerdeContext
 ): NeighborConnectionDetail => {
   return {
-    connectionsCount: __expectInt(output.connectionsCount),
-    destinationPort: __expectInt(output.destinationPort),
+    connectionsCount: __expectLong(output.connectionsCount),
+    destinationPort: __expectInt32(output.destinationPort),
     destinationServerId: __expectString(output.destinationServerId),
     sourceServerId: __expectString(output.sourceServerId),
     transportProtocol: __expectString(output.transportProtocol),

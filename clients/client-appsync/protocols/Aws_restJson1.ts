@@ -96,7 +96,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -5712,16 +5713,16 @@ const deserializeAws_restJson1ApiCache = (output: any, context: __SerdeContext):
     atRestEncryptionEnabled: __expectBoolean(output.atRestEncryptionEnabled),
     status: __expectString(output.status),
     transitEncryptionEnabled: __expectBoolean(output.transitEncryptionEnabled),
-    ttl: __expectInt(output.ttl),
+    ttl: __expectLong(output.ttl),
     type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_restJson1ApiKey = (output: any, context: __SerdeContext): ApiKey => {
   return {
-    deletes: __expectInt(output.deletes),
+    deletes: __expectLong(output.deletes),
     description: __expectString(output.description),
-    expires: __expectInt(output.expires),
+    expires: __expectLong(output.expires),
     id: __expectString(output.id),
   } as any;
 };
@@ -5760,7 +5761,7 @@ const deserializeAws_restJson1CachingConfig = (output: any, context: __SerdeCont
       output.cachingKeys !== undefined && output.cachingKeys !== null
         ? deserializeAws_restJson1CachingKeys(output.cachingKeys, context)
         : undefined,
-    ttl: __expectInt(output.ttl),
+    ttl: __expectLong(output.ttl),
   } as any;
 };
 
@@ -5826,9 +5827,9 @@ const deserializeAws_restJson1DataSources = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DeltaSyncConfig = (output: any, context: __SerdeContext): DeltaSyncConfig => {
   return {
-    baseTableTTL: __expectInt(output.baseTableTTL),
+    baseTableTTL: __expectLong(output.baseTableTTL),
     deltaSyncTableName: __expectString(output.deltaSyncTableName),
-    deltaSyncTableTTL: __expectInt(output.deltaSyncTableTTL),
+    deltaSyncTableTTL: __expectLong(output.deltaSyncTableTTL),
   } as any;
 };
 
@@ -5962,7 +5963,7 @@ const deserializeAws_restJson1LambdaAuthorizerConfig = (
   context: __SerdeContext
 ): LambdaAuthorizerConfig => {
   return {
-    authorizerResultTtlInSeconds: __expectInt(output.authorizerResultTtlInSeconds),
+    authorizerResultTtlInSeconds: __expectInt32(output.authorizerResultTtlInSeconds),
     authorizerUri: __expectString(output.authorizerUri),
     identityValidationExpression: __expectString(output.identityValidationExpression),
   } as any;
@@ -6011,9 +6012,9 @@ const deserializeAws_restJson1MapOfStringToString = (
 
 const deserializeAws_restJson1OpenIDConnectConfig = (output: any, context: __SerdeContext): OpenIDConnectConfig => {
   return {
-    authTTL: __expectInt(output.authTTL),
+    authTTL: __expectLong(output.authTTL),
     clientId: __expectString(output.clientId),
-    iatTTL: __expectInt(output.iatTTL),
+    iatTTL: __expectLong(output.iatTTL),
     issuer: __expectString(output.issuer),
   } as any;
 };

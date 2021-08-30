@@ -645,7 +645,7 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -28971,7 +28971,7 @@ const deserializeAws_restJson1ChannelRetentionSettings = (
   context: __SerdeContext
 ): ChannelRetentionSettings => {
   return {
-    RetentionDays: __expectInt(output.RetentionDays),
+    RetentionDays: __expectInt32(output.RetentionDays),
   } as any;
 };
 
@@ -29005,7 +29005,7 @@ const deserializeAws_restJson1ConversationRetentionSettings = (
   context: __SerdeContext
 ): ConversationRetentionSettings => {
   return {
-    RetentionDays: __expectInt(output.RetentionDays),
+    RetentionDays: __expectInt32(output.RetentionDays),
   } as any;
 };
 
@@ -29273,10 +29273,10 @@ const deserializeAws_restJson1Origination = (output: any, context: __SerdeContex
 const deserializeAws_restJson1OriginationRoute = (output: any, context: __SerdeContext): OriginationRoute => {
   return {
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
-    Priority: __expectInt(output.Priority),
+    Port: __expectInt32(output.Port),
+    Priority: __expectInt32(output.Priority),
     Protocol: __expectString(output.Protocol),
-    Weight: __expectInt(output.Weight),
+    Weight: __expectInt32(output.Weight),
   } as any;
 };
 
@@ -29485,7 +29485,7 @@ const deserializeAws_restJson1PhoneNumberTypeList = (
 
 const deserializeAws_restJson1Proxy = (output: any, context: __SerdeContext): Proxy => {
   return {
-    DefaultSessionExpiryMinutes: __expectInt(output.DefaultSessionExpiryMinutes),
+    DefaultSessionExpiryMinutes: __expectInt32(output.DefaultSessionExpiryMinutes),
     Disabled: __expectBoolean(output.Disabled),
     FallBackPhoneNumber: __expectString(output.FallBackPhoneNumber),
     PhoneNumberCountries:
@@ -29509,7 +29509,7 @@ const deserializeAws_restJson1ProxySession = (output: any, context: __SerdeConte
       output.EndedTimestamp !== undefined && output.EndedTimestamp !== null
         ? new Date(output.EndedTimestamp)
         : undefined,
-    ExpiryMinutes: __expectInt(output.ExpiryMinutes),
+    ExpiryMinutes: __expectInt32(output.ExpiryMinutes),
     GeoMatchLevel: __expectString(output.GeoMatchLevel),
     GeoMatchParams:
       output.GeoMatchParams !== undefined && output.GeoMatchParams !== null
@@ -29612,7 +29612,7 @@ const deserializeAws_restJson1RoomMembershipList = (output: any, context: __Serd
 
 const deserializeAws_restJson1RoomRetentionSettings = (output: any, context: __SerdeContext): RoomRetentionSettings => {
   return {
-    RetentionDays: __expectInt(output.RetentionDays),
+    RetentionDays: __expectInt32(output.RetentionDays),
   } as any;
 };
 
@@ -29761,7 +29761,7 @@ const deserializeAws_restJson1SipRuleTargetApplication = (
 ): SipRuleTargetApplication => {
   return {
     AwsRegion: __expectString(output.AwsRegion),
-    Priority: __expectInt(output.Priority),
+    Priority: __expectInt32(output.Priority),
     SipMediaApplicationId: __expectString(output.SipMediaApplicationId),
   } as any;
 };
@@ -29785,7 +29785,7 @@ const deserializeAws_restJson1StreamingConfiguration = (
   context: __SerdeContext
 ): StreamingConfiguration => {
   return {
-    DataRetentionInHours: __expectInt(output.DataRetentionInHours),
+    DataRetentionInHours: __expectInt32(output.DataRetentionInHours),
     Disabled: __expectBoolean(output.Disabled),
     StreamingNotificationTargets:
       output.StreamingNotificationTargets !== undefined && output.StreamingNotificationTargets !== null
@@ -29864,7 +29864,7 @@ const deserializeAws_restJson1Termination = (output: any, context: __SerdeContex
       output.CidrAllowedList !== undefined && output.CidrAllowedList !== null
         ? deserializeAws_restJson1StringList(output.CidrAllowedList, context)
         : undefined,
-    CpsLimit: __expectInt(output.CpsLimit),
+    CpsLimit: __expectInt32(output.CpsLimit),
     DefaultPhoneNumber: __expectString(output.DefaultPhoneNumber),
     Disabled: __expectBoolean(output.Disabled),
   } as any;
@@ -29991,7 +29991,7 @@ const deserializeAws_restJson1VoiceConnectorGroupList = (
 
 const deserializeAws_restJson1VoiceConnectorItem = (output: any, context: __SerdeContext): VoiceConnectorItem => {
   return {
-    Priority: __expectInt(output.Priority),
+    Priority: __expectInt32(output.Priority),
     VoiceConnectorId: __expectString(output.VoiceConnectorId),
   } as any;
 };

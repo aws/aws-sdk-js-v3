@@ -43,7 +43,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1738,8 +1738,8 @@ const deserializeAws_restJson1SuiteRunInformation = (output: any, context: __Ser
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
     endAt: output.endAt !== undefined && output.endAt !== null ? new Date(Math.round(output.endAt * 1000)) : undefined,
-    failed: __expectInt(output.failed),
-    passed: __expectInt(output.passed),
+    failed: __expectInt32(output.failed),
+    passed: __expectInt32(output.passed),
     startedAt:
       output.startedAt !== undefined && output.startedAt !== null
         ? new Date(Math.round(output.startedAt * 1000))
