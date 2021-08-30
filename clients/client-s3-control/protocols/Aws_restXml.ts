@@ -227,7 +227,8 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   strictParseFloat as __strictParseFloat,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4929,7 +4930,7 @@ export const deserializeAws_restXmlUpdateJobPriorityCommand = async (
     contents.JobId = __expectString(data["JobId"]);
   }
   if (data["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt(data["Priority"]) as number;
+    contents.Priority = __strictParseInt32(data["Priority"]) as number;
   }
   return Promise.resolve(contents);
 };
@@ -6609,7 +6610,7 @@ const deserializeAws_restXmlAbortIncompleteMultipartUpload = (
     DaysAfterInitiation: undefined,
   };
   if (output["DaysAfterInitiation"] !== undefined) {
-    contents.DaysAfterInitiation = __strictParseInt(output["DaysAfterInitiation"]) as number;
+    contents.DaysAfterInitiation = __strictParseInt32(output["DaysAfterInitiation"]) as number;
   }
   return contents;
 };
@@ -6815,7 +6816,7 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
     contents.Operation = deserializeAws_restXmlJobOperation(output["Operation"], context);
   }
   if (output["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt(output["Priority"]) as number;
+    contents.Priority = __strictParseInt32(output["Priority"]) as number;
   }
   if (output["ProgressSummary"] !== undefined) {
     contents.ProgressSummary = deserializeAws_restXmlJobProgressSummary(output["ProgressSummary"], context);
@@ -6899,7 +6900,7 @@ const deserializeAws_restXmlJobListDescriptor = (output: any, context: __SerdeCo
     contents.Operation = __expectString(output["Operation"]);
   }
   if (output["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt(output["Priority"]) as number;
+    contents.Priority = __strictParseInt32(output["Priority"]) as number;
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -7053,13 +7054,13 @@ const deserializeAws_restXmlJobProgressSummary = (output: any, context: __SerdeC
     NumberOfTasksFailed: undefined,
   };
   if (output["TotalNumberOfTasks"] !== undefined) {
-    contents.TotalNumberOfTasks = __strictParseInt(output["TotalNumberOfTasks"]) as number;
+    contents.TotalNumberOfTasks = __strictParseLong(output["TotalNumberOfTasks"]) as number;
   }
   if (output["NumberOfTasksSucceeded"] !== undefined) {
-    contents.NumberOfTasksSucceeded = __strictParseInt(output["NumberOfTasksSucceeded"]) as number;
+    contents.NumberOfTasksSucceeded = __strictParseLong(output["NumberOfTasksSucceeded"]) as number;
   }
   if (output["NumberOfTasksFailed"] !== undefined) {
-    contents.NumberOfTasksFailed = __strictParseInt(output["NumberOfTasksFailed"]) as number;
+    contents.NumberOfTasksFailed = __strictParseLong(output["NumberOfTasksFailed"]) as number;
   }
   return contents;
 };
@@ -7110,7 +7111,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
     contents.Date = new Date(output["Date"]);
   }
   if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt(output["Days"]) as number;
+    contents.Days = __strictParseInt32(output["Days"]) as number;
   }
   if (output["ExpiredObjectDeleteMarker"] !== undefined) {
     contents.ExpiredObjectDeleteMarker = __parseBoolean(output["ExpiredObjectDeleteMarker"]);
@@ -7259,7 +7260,7 @@ const deserializeAws_restXmlNoncurrentVersionExpiration = (
     NoncurrentDays: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
-    contents.NoncurrentDays = __strictParseInt(output["NoncurrentDays"]) as number;
+    contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
   }
   return contents;
 };
@@ -7273,7 +7274,7 @@ const deserializeAws_restXmlNoncurrentVersionTransition = (
     StorageClass: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
-    contents.NoncurrentDays = __strictParseInt(output["NoncurrentDays"]) as number;
+    contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);
@@ -7763,7 +7764,7 @@ const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (
     GlacierJobTier: undefined,
   };
   if (output["ExpirationInDays"] !== undefined) {
-    contents.ExpirationInDays = __strictParseInt(output["ExpirationInDays"]) as number;
+    contents.ExpirationInDays = __strictParseInt32(output["ExpirationInDays"]) as number;
   }
   if (output["GlacierJobTier"] !== undefined) {
     contents.GlacierJobTier = __expectString(output["GlacierJobTier"]);
@@ -7817,7 +7818,7 @@ const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeCon
     );
   }
   if (output["ContentLength"] !== undefined) {
-    contents.ContentLength = __strictParseInt(output["ContentLength"]) as number;
+    contents.ContentLength = __strictParseLong(output["ContentLength"]) as number;
   }
   if (output["ContentMD5"] !== undefined) {
     contents.ContentMD5 = __expectString(output["ContentMD5"]);
@@ -7971,7 +7972,7 @@ const deserializeAws_restXmlSelectionCriteria = (output: any, context: __SerdeCo
     contents.Delimiter = __expectString(output["Delimiter"]);
   }
   if (output["MaxDepth"] !== undefined) {
-    contents.MaxDepth = __strictParseInt(output["MaxDepth"]) as number;
+    contents.MaxDepth = __strictParseInt32(output["MaxDepth"]) as number;
   }
   if (output["MinStorageBytesPercentage"] !== undefined) {
     contents.MinStorageBytesPercentage = __strictParseFloat(output["MinStorageBytesPercentage"]) as number;
@@ -8121,7 +8122,7 @@ const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext):
     contents.Date = new Date(output["Date"]);
   }
   if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt(output["Days"]) as number;
+    contents.Days = __strictParseInt32(output["Days"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);

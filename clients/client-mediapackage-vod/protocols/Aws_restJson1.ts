@@ -76,7 +76,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -2801,7 +2801,7 @@ const deserializeAws_restJson1CmafPackage = (output: any, context: __SerdeContex
         ? deserializeAws_restJson1__listOfHlsManifest(output.hlsManifests, context)
         : undefined,
     IncludeEncoderConfigurationInSegments: __expectBoolean(output.includeEncoderConfigurationInSegments),
-    SegmentDurationSeconds: __expectInt(output.segmentDurationSeconds),
+    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
   } as any;
 };
 
@@ -2818,7 +2818,7 @@ const deserializeAws_restJson1DashManifest = (output: any, context: __SerdeConte
   return {
     ManifestLayout: __expectString(output.manifestLayout),
     ManifestName: __expectString(output.manifestName),
-    MinBufferTimeSeconds: __expectInt(output.minBufferTimeSeconds),
+    MinBufferTimeSeconds: __expectInt32(output.minBufferTimeSeconds),
     Profile: __expectString(output.profile),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
@@ -2842,7 +2842,7 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
       output.periodTriggers !== undefined && output.periodTriggers !== null
         ? deserializeAws_restJson1__listOf__PeriodTriggersElement(output.periodTriggers, context)
         : undefined,
-    SegmentDurationSeconds: __expectInt(output.segmentDurationSeconds),
+    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
     SegmentTemplateFormat: __expectString(output.segmentTemplateFormat),
   } as any;
 };
@@ -2876,7 +2876,7 @@ const deserializeAws_restJson1HlsManifest = (output: any, context: __SerdeContex
     AdMarkers: __expectString(output.adMarkers),
     IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
     ManifestName: __expectString(output.manifestName),
-    ProgramDateTimeIntervalSeconds: __expectInt(output.programDateTimeIntervalSeconds),
+    ProgramDateTimeIntervalSeconds: __expectInt32(output.programDateTimeIntervalSeconds),
     RepeatExtXKey: __expectBoolean(output.repeatExtXKey),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
@@ -2895,7 +2895,7 @@ const deserializeAws_restJson1HlsPackage = (output: any, context: __SerdeContext
       output.hlsManifests !== undefined && output.hlsManifests !== null
         ? deserializeAws_restJson1__listOfHlsManifest(output.hlsManifests, context)
         : undefined,
-    SegmentDurationSeconds: __expectInt(output.segmentDurationSeconds),
+    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
     UseAudioRenditionGroup: __expectBoolean(output.useAudioRenditionGroup),
   } as any;
 };
@@ -2929,7 +2929,7 @@ const deserializeAws_restJson1MssPackage = (output: any, context: __SerdeContext
       output.mssManifests !== undefined && output.mssManifests !== null
         ? deserializeAws_restJson1__listOfMssManifest(output.mssManifests, context)
         : undefined,
-    SegmentDurationSeconds: __expectInt(output.segmentDurationSeconds),
+    SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
   } as any;
 };
 
@@ -2997,8 +2997,8 @@ const deserializeAws_restJson1SpekeKeyProvider = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1StreamSelection = (output: any, context: __SerdeContext): StreamSelection => {
   return {
-    MaxVideoBitsPerSecond: __expectInt(output.maxVideoBitsPerSecond),
-    MinVideoBitsPerSecond: __expectInt(output.minVideoBitsPerSecond),
+    MaxVideoBitsPerSecond: __expectInt32(output.maxVideoBitsPerSecond),
+    MinVideoBitsPerSecond: __expectInt32(output.minVideoBitsPerSecond),
     StreamOrder: __expectString(output.streamOrder),
   } as any;
 };

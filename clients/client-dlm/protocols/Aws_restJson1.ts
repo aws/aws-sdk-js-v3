@@ -51,7 +51,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1413,7 +1413,7 @@ const deserializeAws_restJson1AvailabilityZoneList = (output: any, context: __Se
 const deserializeAws_restJson1CreateRule = (output: any, context: __SerdeContext): CreateRule => {
   return {
     CronExpression: __expectString(output.CronExpression),
-    Interval: __expectInt(output.Interval),
+    Interval: __expectInt32(output.Interval),
     IntervalUnit: __expectString(output.IntervalUnit),
     Location: __expectString(output.Location),
     Times:
@@ -1456,7 +1456,7 @@ const deserializeAws_restJson1CrossRegionCopyDeprecateRule = (
   context: __SerdeContext
 ): CrossRegionCopyDeprecateRule => {
   return {
-    Interval: __expectInt(output.Interval),
+    Interval: __expectInt32(output.Interval),
     IntervalUnit: __expectString(output.IntervalUnit),
   } as any;
 };
@@ -1466,7 +1466,7 @@ const deserializeAws_restJson1CrossRegionCopyRetainRule = (
   context: __SerdeContext
 ): CrossRegionCopyRetainRule => {
   return {
-    Interval: __expectInt(output.Interval),
+    Interval: __expectInt32(output.Interval),
     IntervalUnit: __expectString(output.IntervalUnit),
   } as any;
 };
@@ -1502,8 +1502,8 @@ const deserializeAws_restJson1CrossRegionCopyRules = (output: any, context: __Se
 
 const deserializeAws_restJson1DeprecateRule = (output: any, context: __SerdeContext): DeprecateRule => {
   return {
-    Count: __expectInt(output.Count),
-    Interval: __expectInt(output.Interval),
+    Count: __expectInt32(output.Count),
+    Interval: __expectInt32(output.Interval),
     IntervalUnit: __expectString(output.IntervalUnit),
   } as any;
 };
@@ -1545,8 +1545,8 @@ const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeCo
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_restJson1AvailabilityZoneList(output.AvailabilityZones, context)
         : undefined,
-    Count: __expectInt(output.Count),
-    Interval: __expectInt(output.Interval),
+    Count: __expectInt32(output.Count),
+    Interval: __expectInt32(output.Interval),
     IntervalUnit: __expectString(output.IntervalUnit),
   } as any;
 };
@@ -1701,8 +1701,8 @@ const deserializeAws_restJson1ResourceTypeValuesList = (
 
 const deserializeAws_restJson1RetainRule = (output: any, context: __SerdeContext): RetainRule => {
   return {
-    Count: __expectInt(output.Count),
-    Interval: __expectInt(output.Interval),
+    Count: __expectInt32(output.Count),
+    Interval: __expectInt32(output.Interval),
     IntervalUnit: __expectString(output.IntervalUnit),
   } as any;
 };
@@ -1763,7 +1763,7 @@ const deserializeAws_restJson1ShareRule = (output: any, context: __SerdeContext)
       output.TargetAccounts !== undefined && output.TargetAccounts !== null
         ? deserializeAws_restJson1ShareTargetAccountList(output.TargetAccounts, context)
         : undefined,
-    UnshareInterval: __expectInt(output.UnshareInterval),
+    UnshareInterval: __expectInt32(output.UnshareInterval),
     UnshareIntervalUnit: __expectString(output.UnshareIntervalUnit),
   } as any;
 };

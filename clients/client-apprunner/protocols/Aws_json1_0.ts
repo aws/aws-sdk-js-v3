@@ -119,7 +119,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2508,7 +2508,7 @@ const deserializeAws_json1_0AutoScalingConfiguration = (
   return {
     AutoScalingConfigurationArn: __expectString(output.AutoScalingConfigurationArn),
     AutoScalingConfigurationName: __expectString(output.AutoScalingConfigurationName),
-    AutoScalingConfigurationRevision: __expectInt(output.AutoScalingConfigurationRevision),
+    AutoScalingConfigurationRevision: __expectInt32(output.AutoScalingConfigurationRevision),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -2518,9 +2518,9 @@ const deserializeAws_json1_0AutoScalingConfiguration = (
         ? new Date(Math.round(output.DeletedAt * 1000))
         : undefined,
     Latest: __expectBoolean(output.Latest),
-    MaxConcurrency: __expectInt(output.MaxConcurrency),
-    MaxSize: __expectInt(output.MaxSize),
-    MinSize: __expectInt(output.MinSize),
+    MaxConcurrency: __expectInt32(output.MaxConcurrency),
+    MaxSize: __expectInt32(output.MaxSize),
+    MinSize: __expectInt32(output.MinSize),
     Status: __expectString(output.Status),
   } as any;
 };
@@ -2532,7 +2532,7 @@ const deserializeAws_json1_0AutoScalingConfigurationSummary = (
   return {
     AutoScalingConfigurationArn: __expectString(output.AutoScalingConfigurationArn),
     AutoScalingConfigurationName: __expectString(output.AutoScalingConfigurationName),
-    AutoScalingConfigurationRevision: __expectInt(output.AutoScalingConfigurationRevision),
+    AutoScalingConfigurationRevision: __expectInt32(output.AutoScalingConfigurationRevision),
   } as any;
 };
 
@@ -2811,12 +2811,12 @@ const deserializeAws_json1_0HealthCheckConfiguration = (
   context: __SerdeContext
 ): HealthCheckConfiguration => {
   return {
-    HealthyThreshold: __expectInt(output.HealthyThreshold),
-    Interval: __expectInt(output.Interval),
+    HealthyThreshold: __expectInt32(output.HealthyThreshold),
+    Interval: __expectInt32(output.Interval),
     Path: __expectString(output.Path),
     Protocol: __expectString(output.Protocol),
-    Timeout: __expectInt(output.Timeout),
-    UnhealthyThreshold: __expectInt(output.UnhealthyThreshold),
+    Timeout: __expectInt32(output.Timeout),
+    UnhealthyThreshold: __expectInt32(output.UnhealthyThreshold),
   } as any;
 };
 

@@ -68,7 +68,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -4607,7 +4607,7 @@ const deserializeAws_restJson1SchemaSummary = (output: any, context: __SerdeCont
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    VersionCount: __expectInt(output.VersionCount),
+    VersionCount: __expectLong(output.VersionCount),
   } as any;
 };
 

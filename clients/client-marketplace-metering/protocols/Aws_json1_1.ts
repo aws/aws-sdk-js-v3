@@ -34,7 +34,7 @@ import {
   UsageRecordResult,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
+import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1087,7 +1087,7 @@ const deserializeAws_json1_1TimestampOutOfBoundsException = (
 
 const deserializeAws_json1_1UsageAllocation = (output: any, context: __SerdeContext): UsageAllocation => {
   return {
-    AllocatedUsageQuantity: __expectInt(output.AllocatedUsageQuantity),
+    AllocatedUsageQuantity: __expectInt32(output.AllocatedUsageQuantity),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -1110,7 +1110,7 @@ const deserializeAws_json1_1UsageRecord = (output: any, context: __SerdeContext)
   return {
     CustomerIdentifier: __expectString(output.CustomerIdentifier),
     Dimension: __expectString(output.Dimension),
-    Quantity: __expectInt(output.Quantity),
+    Quantity: __expectInt32(output.Quantity),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))

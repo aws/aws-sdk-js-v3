@@ -453,9 +453,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8604,10 +8605,10 @@ const deserializeAws_json1_1AutomaticTapeCreationRule = (
   context: __SerdeContext
 ): AutomaticTapeCreationRule => {
   return {
-    MinimumNumTapes: __expectInt(output.MinimumNumTapes),
+    MinimumNumTapes: __expectInt32(output.MinimumNumTapes),
     PoolId: __expectString(output.PoolId),
     TapeBarcodePrefix: __expectString(output.TapeBarcodePrefix),
-    TapeSizeInBytes: __expectInt(output.TapeSizeInBytes),
+    TapeSizeInBytes: __expectLong(output.TapeSizeInBytes),
     Worm: __expectBoolean(output.Worm),
   } as any;
 };
@@ -8631,16 +8632,16 @@ const deserializeAws_json1_1BandwidthRateLimitInterval = (
   context: __SerdeContext
 ): BandwidthRateLimitInterval => {
   return {
-    AverageDownloadRateLimitInBitsPerSec: __expectInt(output.AverageDownloadRateLimitInBitsPerSec),
-    AverageUploadRateLimitInBitsPerSec: __expectInt(output.AverageUploadRateLimitInBitsPerSec),
+    AverageDownloadRateLimitInBitsPerSec: __expectLong(output.AverageDownloadRateLimitInBitsPerSec),
+    AverageUploadRateLimitInBitsPerSec: __expectLong(output.AverageUploadRateLimitInBitsPerSec),
     DaysOfWeek:
       output.DaysOfWeek !== undefined && output.DaysOfWeek !== null
         ? deserializeAws_json1_1DaysOfWeek(output.DaysOfWeek, context)
         : undefined,
-    EndHourOfDay: __expectInt(output.EndHourOfDay),
-    EndMinuteOfHour: __expectInt(output.EndMinuteOfHour),
-    StartHourOfDay: __expectInt(output.StartHourOfDay),
-    StartMinuteOfHour: __expectInt(output.StartMinuteOfHour),
+    EndHourOfDay: __expectInt32(output.EndHourOfDay),
+    EndMinuteOfHour: __expectInt32(output.EndMinuteOfHour),
+    StartHourOfDay: __expectInt32(output.StartHourOfDay),
+    StartMinuteOfHour: __expectInt32(output.StartMinuteOfHour),
   } as any;
 };
 
@@ -8660,7 +8661,7 @@ const deserializeAws_json1_1BandwidthRateLimitIntervals = (
 
 const deserializeAws_json1_1CacheAttributes = (output: any, context: __SerdeContext): CacheAttributes => {
   return {
-    CacheStaleTimeoutInSeconds: __expectInt(output.CacheStaleTimeoutInSeconds),
+    CacheStaleTimeoutInSeconds: __expectInt32(output.CacheStaleTimeoutInSeconds),
   } as any;
 };
 
@@ -8676,11 +8677,11 @@ const deserializeAws_json1_1CachediSCSIVolume = (output: any, context: __SerdeCo
     VolumeARN: __expectString(output.VolumeARN),
     VolumeAttachmentStatus: __expectString(output.VolumeAttachmentStatus),
     VolumeId: __expectString(output.VolumeId),
-    VolumeProgress: __limitedParseFloat(output.VolumeProgress),
-    VolumeSizeInBytes: __expectInt(output.VolumeSizeInBytes),
+    VolumeProgress: __limitedParseDouble(output.VolumeProgress),
+    VolumeSizeInBytes: __expectLong(output.VolumeSizeInBytes),
     VolumeStatus: __expectString(output.VolumeStatus),
     VolumeType: __expectString(output.VolumeType),
-    VolumeUsedInBytes: __expectInt(output.VolumeUsedInBytes),
+    VolumeUsedInBytes: __expectLong(output.VolumeUsedInBytes),
     VolumeiSCSIAttributes:
       output.VolumeiSCSIAttributes !== undefined && output.VolumeiSCSIAttributes !== null
         ? deserializeAws_json1_1VolumeiSCSIAttributes(output.VolumeiSCSIAttributes, context)
@@ -8784,7 +8785,7 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeOutput = (
   return {
     TargetARN: __expectString(output.TargetARN),
     VolumeARN: __expectString(output.VolumeARN),
-    VolumeSizeInBytes: __expectInt(output.VolumeSizeInBytes),
+    VolumeSizeInBytes: __expectLong(output.VolumeSizeInBytes),
   } as any;
 };
 
@@ -8819,7 +8820,7 @@ const deserializeAws_json1_1DaysOfWeek = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return __expectInt(entry) as any;
+      return __expectInt32(entry) as any;
     });
 };
 
@@ -8918,8 +8919,8 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitOutput = (
   context: __SerdeContext
 ): DescribeBandwidthRateLimitOutput => {
   return {
-    AverageDownloadRateLimitInBitsPerSec: __expectInt(output.AverageDownloadRateLimitInBitsPerSec),
-    AverageUploadRateLimitInBitsPerSec: __expectInt(output.AverageUploadRateLimitInBitsPerSec),
+    AverageDownloadRateLimitInBitsPerSec: __expectLong(output.AverageDownloadRateLimitInBitsPerSec),
+    AverageUploadRateLimitInBitsPerSec: __expectLong(output.AverageUploadRateLimitInBitsPerSec),
     GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
@@ -8951,11 +8952,11 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesOutput = (
 
 const deserializeAws_json1_1DescribeCacheOutput = (output: any, context: __SerdeContext): DescribeCacheOutput => {
   return {
-    CacheAllocatedInBytes: __expectInt(output.CacheAllocatedInBytes),
-    CacheDirtyPercentage: __limitedParseFloat(output.CacheDirtyPercentage),
-    CacheHitPercentage: __limitedParseFloat(output.CacheHitPercentage),
-    CacheMissPercentage: __limitedParseFloat(output.CacheMissPercentage),
-    CacheUsedPercentage: __limitedParseFloat(output.CacheUsedPercentage),
+    CacheAllocatedInBytes: __expectLong(output.CacheAllocatedInBytes),
+    CacheDirtyPercentage: __limitedParseDouble(output.CacheDirtyPercentage),
+    CacheHitPercentage: __limitedParseDouble(output.CacheHitPercentage),
+    CacheMissPercentage: __limitedParseDouble(output.CacheMissPercentage),
+    CacheUsedPercentage: __limitedParseDouble(output.CacheUsedPercentage),
     DiskIds:
       output.DiskIds !== undefined && output.DiskIds !== null
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
@@ -9028,11 +9029,11 @@ const deserializeAws_json1_1DescribeMaintenanceStartTimeOutput = (
   context: __SerdeContext
 ): DescribeMaintenanceStartTimeOutput => {
   return {
-    DayOfMonth: __expectInt(output.DayOfMonth),
-    DayOfWeek: __expectInt(output.DayOfWeek),
+    DayOfMonth: __expectInt32(output.DayOfMonth),
+    DayOfWeek: __expectInt32(output.DayOfWeek),
     GatewayARN: __expectString(output.GatewayARN),
-    HourOfDay: __expectInt(output.HourOfDay),
-    MinuteOfHour: __expectInt(output.MinuteOfHour),
+    HourOfDay: __expectInt32(output.HourOfDay),
+    MinuteOfHour: __expectInt32(output.MinuteOfHour),
     Timezone: __expectString(output.Timezone),
   } as any;
 };
@@ -9081,8 +9082,8 @@ const deserializeAws_json1_1DescribeSnapshotScheduleOutput = (
 ): DescribeSnapshotScheduleOutput => {
   return {
     Description: __expectString(output.Description),
-    RecurrenceInHours: __expectInt(output.RecurrenceInHours),
-    StartAt: __expectInt(output.StartAt),
+    RecurrenceInHours: __expectInt32(output.RecurrenceInHours),
+    StartAt: __expectInt32(output.StartAt),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     Timezone: __expectString(output.Timezone),
@@ -9149,8 +9150,8 @@ const deserializeAws_json1_1DescribeUploadBufferOutput = (
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
         : undefined,
     GatewayARN: __expectString(output.GatewayARN),
-    UploadBufferAllocatedInBytes: __expectInt(output.UploadBufferAllocatedInBytes),
-    UploadBufferUsedInBytes: __expectInt(output.UploadBufferUsedInBytes),
+    UploadBufferAllocatedInBytes: __expectLong(output.UploadBufferAllocatedInBytes),
+    UploadBufferUsedInBytes: __expectLong(output.UploadBufferUsedInBytes),
   } as any;
 };
 
@@ -9178,8 +9179,8 @@ const deserializeAws_json1_1DescribeWorkingStorageOutput = (
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
         : undefined,
     GatewayARN: __expectString(output.GatewayARN),
-    WorkingStorageAllocatedInBytes: __expectInt(output.WorkingStorageAllocatedInBytes),
-    WorkingStorageUsedInBytes: __expectInt(output.WorkingStorageUsedInBytes),
+    WorkingStorageAllocatedInBytes: __expectLong(output.WorkingStorageAllocatedInBytes),
+    WorkingStorageUsedInBytes: __expectLong(output.WorkingStorageUsedInBytes),
   } as any;
 };
 
@@ -9193,7 +9194,7 @@ const deserializeAws_json1_1DeviceiSCSIAttributes = (output: any, context: __Ser
   return {
     ChapEnabled: __expectBoolean(output.ChapEnabled),
     NetworkInterfaceId: __expectString(output.NetworkInterfaceId),
-    NetworkInterfacePort: __expectInt(output.NetworkInterfacePort),
+    NetworkInterfacePort: __expectInt32(output.NetworkInterfacePort),
     TargetARN: __expectString(output.TargetARN),
   } as any;
 };
@@ -9224,7 +9225,7 @@ const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk 
     DiskId: __expectString(output.DiskId),
     DiskNode: __expectString(output.DiskNode),
     DiskPath: __expectString(output.DiskPath),
-    DiskSizeInBytes: __expectInt(output.DiskSizeInBytes),
+    DiskSizeInBytes: __expectLong(output.DiskSizeInBytes),
     DiskStatus: __expectString(output.DiskStatus),
   } as any;
 };
@@ -9604,8 +9605,8 @@ const deserializeAws_json1_1NFSFileShareDefaults = (output: any, context: __Serd
   return {
     DirectoryMode: __expectString(output.DirectoryMode),
     FileMode: __expectString(output.FileMode),
-    GroupId: __expectInt(output.GroupId),
-    OwnerId: __expectInt(output.OwnerId),
+    GroupId: __expectLong(output.GroupId),
+    OwnerId: __expectLong(output.OwnerId),
   } as any;
 };
 
@@ -9673,7 +9674,7 @@ const deserializeAws_json1_1PoolInfo = (output: any, context: __SerdeContext): P
     PoolARN: __expectString(output.PoolARN),
     PoolName: __expectString(output.PoolName),
     PoolStatus: __expectString(output.PoolStatus),
-    RetentionLockTimeInDays: __expectInt(output.RetentionLockTimeInDays),
+    RetentionLockTimeInDays: __expectInt32(output.RetentionLockTimeInDays),
     RetentionLockType: __expectString(output.RetentionLockType),
     StorageClass: __expectString(output.StorageClass),
   } as any;
@@ -9864,11 +9865,11 @@ const deserializeAws_json1_1StorediSCSIVolume = (output: any, context: __SerdeCo
     VolumeAttachmentStatus: __expectString(output.VolumeAttachmentStatus),
     VolumeDiskId: __expectString(output.VolumeDiskId),
     VolumeId: __expectString(output.VolumeId),
-    VolumeProgress: __limitedParseFloat(output.VolumeProgress),
-    VolumeSizeInBytes: __expectInt(output.VolumeSizeInBytes),
+    VolumeProgress: __limitedParseDouble(output.VolumeProgress),
+    VolumeSizeInBytes: __expectLong(output.VolumeSizeInBytes),
     VolumeStatus: __expectString(output.VolumeStatus),
     VolumeType: __expectString(output.VolumeType),
-    VolumeUsedInBytes: __expectInt(output.VolumeUsedInBytes),
+    VolumeUsedInBytes: __expectLong(output.VolumeUsedInBytes),
     VolumeiSCSIAttributes:
       output.VolumeiSCSIAttributes !== undefined && output.VolumeiSCSIAttributes !== null
         ? deserializeAws_json1_1VolumeiSCSIAttributes(output.VolumeiSCSIAttributes, context)
@@ -9927,7 +9928,7 @@ const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape 
         ? new Date(Math.round(output.PoolEntryDate * 1000))
         : undefined,
     PoolId: __expectString(output.PoolId),
-    Progress: __limitedParseFloat(output.Progress),
+    Progress: __limitedParseDouble(output.Progress),
     RetentionStartDate:
       output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
         ? new Date(Math.round(output.RetentionStartDate * 1000))
@@ -9938,9 +9939,9 @@ const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape 
       output.TapeCreatedDate !== undefined && output.TapeCreatedDate !== null
         ? new Date(Math.round(output.TapeCreatedDate * 1000))
         : undefined,
-    TapeSizeInBytes: __expectInt(output.TapeSizeInBytes),
+    TapeSizeInBytes: __expectLong(output.TapeSizeInBytes),
     TapeStatus: __expectString(output.TapeStatus),
-    TapeUsedInBytes: __expectInt(output.TapeUsedInBytes),
+    TapeUsedInBytes: __expectLong(output.TapeUsedInBytes),
     VTLDevice: __expectString(output.VTLDevice),
     Worm: __expectBoolean(output.Worm),
   } as any;
@@ -9969,9 +9970,9 @@ const deserializeAws_json1_1TapeArchive = (output: any, context: __SerdeContext)
       output.TapeCreatedDate !== undefined && output.TapeCreatedDate !== null
         ? new Date(Math.round(output.TapeCreatedDate * 1000))
         : undefined,
-    TapeSizeInBytes: __expectInt(output.TapeSizeInBytes),
+    TapeSizeInBytes: __expectLong(output.TapeSizeInBytes),
     TapeStatus: __expectString(output.TapeStatus),
-    TapeUsedInBytes: __expectInt(output.TapeUsedInBytes),
+    TapeUsedInBytes: __expectLong(output.TapeUsedInBytes),
     Worm: __expectBoolean(output.Worm),
   } as any;
 };
@@ -10012,7 +10013,7 @@ const deserializeAws_json1_1TapeInfo = (output: any, context: __SerdeContext): T
         : undefined,
     TapeARN: __expectString(output.TapeARN),
     TapeBarcode: __expectString(output.TapeBarcode),
-    TapeSizeInBytes: __expectInt(output.TapeSizeInBytes),
+    TapeSizeInBytes: __expectLong(output.TapeSizeInBytes),
     TapeStatus: __expectString(output.TapeStatus),
   } as any;
 };
@@ -10035,7 +10036,7 @@ const deserializeAws_json1_1TapeRecoveryPointInfo = (output: any, context: __Ser
       output.TapeRecoveryPointTime !== undefined && output.TapeRecoveryPointTime !== null
         ? new Date(Math.round(output.TapeRecoveryPointTime * 1000))
         : undefined,
-    TapeSizeInBytes: __expectInt(output.TapeSizeInBytes),
+    TapeSizeInBytes: __expectLong(output.TapeSizeInBytes),
     TapeStatus: __expectString(output.TapeStatus),
   } as any;
 };
@@ -10211,7 +10212,7 @@ const deserializeAws_json1_1VolumeInfo = (output: any, context: __SerdeContext):
     VolumeARN: __expectString(output.VolumeARN),
     VolumeAttachmentStatus: __expectString(output.VolumeAttachmentStatus),
     VolumeId: __expectString(output.VolumeId),
-    VolumeSizeInBytes: __expectInt(output.VolumeSizeInBytes),
+    VolumeSizeInBytes: __expectLong(output.VolumeSizeInBytes),
     VolumeType: __expectString(output.VolumeType),
   } as any;
 };
@@ -10230,9 +10231,9 @@ const deserializeAws_json1_1VolumeInfos = (output: any, context: __SerdeContext)
 const deserializeAws_json1_1VolumeiSCSIAttributes = (output: any, context: __SerdeContext): VolumeiSCSIAttributes => {
   return {
     ChapEnabled: __expectBoolean(output.ChapEnabled),
-    LunNumber: __expectInt(output.LunNumber),
+    LunNumber: __expectInt32(output.LunNumber),
     NetworkInterfaceId: __expectString(output.NetworkInterfaceId),
-    NetworkInterfacePort: __expectInt(output.NetworkInterfacePort),
+    NetworkInterfacePort: __expectInt32(output.NetworkInterfacePort),
     TargetARN: __expectString(output.TargetARN),
   } as any;
 };
@@ -10244,8 +10245,8 @@ const deserializeAws_json1_1VolumeRecoveryPointInfo = (
   return {
     VolumeARN: __expectString(output.VolumeARN),
     VolumeRecoveryPointTime: __expectString(output.VolumeRecoveryPointTime),
-    VolumeSizeInBytes: __expectInt(output.VolumeSizeInBytes),
-    VolumeUsageInBytes: __expectInt(output.VolumeUsageInBytes),
+    VolumeSizeInBytes: __expectLong(output.VolumeSizeInBytes),
+    VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
   } as any;
 };
 

@@ -527,9 +527,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -11586,7 +11588,7 @@ const deserializeAws_json1_1AliasList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
-    N: __limitedParseFloat(output.N),
+    N: __limitedParseDouble(output.N),
     S: __expectString(output.S),
     SDM:
       output.SDM !== undefined && output.SDM !== null
@@ -11615,7 +11617,7 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
         : undefined,
     Name: __expectString(output.Name),
     OperatingSystem: __expectString(output.OperatingSystem),
-    SizeOnDisk: __expectInt(output.SizeOnDisk),
+    SizeOnDisk: __expectLong(output.SizeOnDisk),
     Status: __expectString(output.Status),
     Version: __expectString(output.Version),
   } as any;
@@ -12231,21 +12233,21 @@ const deserializeAws_json1_1DescribeVpcPeeringConnectionsOutput = (
 
 const deserializeAws_json1_1EC2InstanceCounts = (output: any, context: __SerdeContext): EC2InstanceCounts => {
   return {
-    ACTIVE: __expectInt(output.ACTIVE),
-    DESIRED: __expectInt(output.DESIRED),
-    IDLE: __expectInt(output.IDLE),
-    MAXIMUM: __expectInt(output.MAXIMUM),
-    MINIMUM: __expectInt(output.MINIMUM),
-    PENDING: __expectInt(output.PENDING),
-    TERMINATING: __expectInt(output.TERMINATING),
+    ACTIVE: __expectInt32(output.ACTIVE),
+    DESIRED: __expectInt32(output.DESIRED),
+    IDLE: __expectInt32(output.IDLE),
+    MAXIMUM: __expectInt32(output.MAXIMUM),
+    MINIMUM: __expectInt32(output.MINIMUM),
+    PENDING: __expectInt32(output.PENDING),
+    TERMINATING: __expectInt32(output.TERMINATING),
   } as any;
 };
 
 const deserializeAws_json1_1EC2InstanceLimit = (output: any, context: __SerdeContext): EC2InstanceLimit => {
   return {
-    CurrentInstances: __expectInt(output.CurrentInstances),
+    CurrentInstances: __expectInt32(output.CurrentInstances),
     EC2InstanceType: __expectString(output.EC2InstanceType),
-    InstanceLimit: __expectInt(output.InstanceLimit),
+    InstanceLimit: __expectInt32(output.InstanceLimit),
     Location: __expectString(output.Location),
   } as any;
 };
@@ -12412,13 +12414,13 @@ const deserializeAws_json1_1FleetIdList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1FleetUtilization = (output: any, context: __SerdeContext): FleetUtilization => {
   return {
-    ActiveGameSessionCount: __expectInt(output.ActiveGameSessionCount),
-    ActiveServerProcessCount: __expectInt(output.ActiveServerProcessCount),
-    CurrentPlayerSessionCount: __expectInt(output.CurrentPlayerSessionCount),
+    ActiveGameSessionCount: __expectInt32(output.ActiveGameSessionCount),
+    ActiveServerProcessCount: __expectInt32(output.ActiveServerProcessCount),
+    CurrentPlayerSessionCount: __expectInt32(output.CurrentPlayerSessionCount),
     FleetArn: __expectString(output.FleetArn),
     FleetId: __expectString(output.FleetId),
     Location: __expectString(output.Location),
-    MaximumPlayerSessionCount: __expectInt(output.MaximumPlayerSessionCount),
+    MaximumPlayerSessionCount: __expectInt32(output.MaximumPlayerSessionCount),
   } as any;
 };
 
@@ -12568,7 +12570,7 @@ const deserializeAws_json1_1GameSession = (output: any, context: __SerdeContext)
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     CreatorId: __expectString(output.CreatorId),
-    CurrentPlayerSessionCount: __expectInt(output.CurrentPlayerSessionCount),
+    CurrentPlayerSessionCount: __expectInt32(output.CurrentPlayerSessionCount),
     DnsName: __expectString(output.DnsName),
     FleetArn: __expectString(output.FleetArn),
     FleetId: __expectString(output.FleetId),
@@ -12581,10 +12583,10 @@ const deserializeAws_json1_1GameSession = (output: any, context: __SerdeContext)
     IpAddress: __expectString(output.IpAddress),
     Location: __expectString(output.Location),
     MatchmakerData: __expectString(output.MatchmakerData),
-    MaximumPlayerSessionCount: __expectInt(output.MaximumPlayerSessionCount),
+    MaximumPlayerSessionCount: __expectInt32(output.MaximumPlayerSessionCount),
     Name: __expectString(output.Name),
     PlayerSessionCreationPolicy: __expectString(output.PlayerSessionCreationPolicy),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     Status: __expectString(output.Status),
     StatusReason: __expectString(output.StatusReason),
     TerminationTime:
@@ -12606,7 +12608,7 @@ const deserializeAws_json1_1GameSessionConnectionInfo = (
       output.MatchedPlayerSessions !== undefined && output.MatchedPlayerSessions !== null
         ? deserializeAws_json1_1MatchedPlayerSessionList(output.MatchedPlayerSessions, context)
         : undefined,
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -12668,7 +12670,7 @@ const deserializeAws_json1_1GameSessionPlacement = (output: any, context: __Serd
     GameSessionRegion: __expectString(output.GameSessionRegion),
     IpAddress: __expectString(output.IpAddress),
     MatchmakerData: __expectString(output.MatchmakerData),
-    MaximumPlayerSessionCount: __expectInt(output.MaximumPlayerSessionCount),
+    MaximumPlayerSessionCount: __expectInt32(output.MaximumPlayerSessionCount),
     PlacedPlayerSessions:
       output.PlacedPlayerSessions !== undefined && output.PlacedPlayerSessions !== null
         ? deserializeAws_json1_1PlacedPlayerSessionList(output.PlacedPlayerSessions, context)
@@ -12678,7 +12680,7 @@ const deserializeAws_json1_1GameSessionPlacement = (output: any, context: __Serd
       output.PlayerLatencies !== undefined && output.PlayerLatencies !== null
         ? deserializeAws_json1_1PlayerLatencyList(output.PlayerLatencies, context)
         : undefined,
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
@@ -12709,7 +12711,7 @@ const deserializeAws_json1_1GameSessionQueue = (output: any, context: __SerdeCon
       output.PriorityConfiguration !== undefined && output.PriorityConfiguration !== null
         ? deserializeAws_json1_1PriorityConfiguration(output.PriorityConfiguration, context)
         : undefined,
-    TimeoutInSeconds: __expectInt(output.TimeoutInSeconds),
+    TimeoutInSeconds: __expectInt32(output.TimeoutInSeconds),
   } as any;
 };
 
@@ -12882,10 +12884,10 @@ const deserializeAws_json1_1InvalidRequestException = (
 
 const deserializeAws_json1_1IpPermission = (output: any, context: __SerdeContext): IpPermission => {
   return {
-    FromPort: __expectInt(output.FromPort),
+    FromPort: __expectInt32(output.FromPort),
     IpRange: __expectString(output.IpRange),
     Protocol: __expectString(output.Protocol),
-    ToPort: __expectInt(output.ToPort),
+    ToPort: __expectInt32(output.ToPort),
   } as any;
 };
 
@@ -12907,7 +12909,7 @@ const deserializeAws_json1_1LatencyMap = (output: any, context: __SerdeContext):
     }
     return {
       ...acc,
-      [key]: __expectInt(value) as any,
+      [key]: __expectInt32(value) as any,
     };
   }, {});
 };
@@ -13074,8 +13076,8 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
 ): MatchmakingConfiguration => {
   return {
     AcceptanceRequired: __expectBoolean(output.AcceptanceRequired),
-    AcceptanceTimeoutSeconds: __expectInt(output.AcceptanceTimeoutSeconds),
-    AdditionalPlayerCount: __expectInt(output.AdditionalPlayerCount),
+    AcceptanceTimeoutSeconds: __expectInt32(output.AcceptanceTimeoutSeconds),
+    AdditionalPlayerCount: __expectInt32(output.AdditionalPlayerCount),
     BackfillMode: __expectString(output.BackfillMode),
     ConfigurationArn: __expectString(output.ConfigurationArn),
     CreationTime:
@@ -13096,7 +13098,7 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
         : undefined,
     Name: __expectString(output.Name),
     NotificationTarget: __expectString(output.NotificationTarget),
-    RequestTimeoutSeconds: __expectInt(output.RequestTimeoutSeconds),
+    RequestTimeoutSeconds: __expectInt32(output.RequestTimeoutSeconds),
     RuleSetArn: __expectString(output.RuleSetArn),
     RuleSetName: __expectString(output.RuleSetName),
   } as any;
@@ -13145,7 +13147,7 @@ const deserializeAws_json1_1MatchmakingTicket = (output: any, context: __SerdeCo
     ConfigurationName: __expectString(output.ConfigurationName),
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
-    EstimatedWaitTime: __expectInt(output.EstimatedWaitTime),
+    EstimatedWaitTime: __expectInt32(output.EstimatedWaitTime),
     GameSessionConnectionInfo:
       output.GameSessionConnectionInfo !== undefined && output.GameSessionConnectionInfo !== null
         ? deserializeAws_json1_1GameSessionConnectionInfo(output.GameSessionConnectionInfo, context)
@@ -13249,7 +13251,7 @@ const deserializeAws_json1_1PlayerAttributeMap = (
 
 const deserializeAws_json1_1PlayerLatency = (output: any, context: __SerdeContext): PlayerLatency => {
   return {
-    LatencyInMilliseconds: __limitedParseFloat(output.LatencyInMilliseconds),
+    LatencyInMilliseconds: __limitedParseFloat32(output.LatencyInMilliseconds),
     PlayerId: __expectString(output.PlayerId),
     RegionIdentifier: __expectString(output.RegionIdentifier),
   } as any;
@@ -13268,8 +13270,8 @@ const deserializeAws_json1_1PlayerLatencyList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1PlayerLatencyPolicy = (output: any, context: __SerdeContext): PlayerLatencyPolicy => {
   return {
-    MaximumIndividualPlayerLatencyMilliseconds: __expectInt(output.MaximumIndividualPlayerLatencyMilliseconds),
-    PolicyDurationSeconds: __expectInt(output.PolicyDurationSeconds),
+    MaximumIndividualPlayerLatencyMilliseconds: __expectInt32(output.MaximumIndividualPlayerLatencyMilliseconds),
+    PolicyDurationSeconds: __expectInt32(output.PolicyDurationSeconds),
   } as any;
 };
 
@@ -13309,7 +13311,7 @@ const deserializeAws_json1_1PlayerSession = (output: any, context: __SerdeContex
     PlayerData: __expectString(output.PlayerData),
     PlayerId: __expectString(output.PlayerId),
     PlayerSessionId: __expectString(output.PlayerSessionId),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     Status: __expectString(output.Status),
     TerminationTime:
       output.TerminationTime !== undefined && output.TerminationTime !== null
@@ -13410,8 +13412,8 @@ const deserializeAws_json1_1ResourceCreationLimitPolicy = (
   context: __SerdeContext
 ): ResourceCreationLimitPolicy => {
   return {
-    NewGameSessionsPerCreator: __expectInt(output.NewGameSessionsPerCreator),
-    PolicyPeriodInMinutes: __expectInt(output.PolicyPeriodInMinutes),
+    NewGameSessionsPerCreator: __expectInt32(output.NewGameSessionsPerCreator),
+    PolicyPeriodInMinutes: __expectInt32(output.PolicyPeriodInMinutes),
   } as any;
 };
 
@@ -13437,8 +13439,8 @@ const deserializeAws_json1_1RoutingStrategy = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1RuntimeConfiguration = (output: any, context: __SerdeContext): RuntimeConfiguration => {
   return {
-    GameSessionActivationTimeoutSeconds: __expectInt(output.GameSessionActivationTimeoutSeconds),
-    MaxConcurrentGameSessionActivations: __expectInt(output.MaxConcurrentGameSessionActivations),
+    GameSessionActivationTimeoutSeconds: __expectInt32(output.GameSessionActivationTimeoutSeconds),
+    MaxConcurrentGameSessionActivations: __expectInt32(output.MaxConcurrentGameSessionActivations),
     ServerProcesses:
       output.ServerProcesses !== undefined && output.ServerProcesses !== null
         ? deserializeAws_json1_1ServerProcessList(output.ServerProcesses, context)
@@ -13458,21 +13460,21 @@ const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext):
 const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
   return {
     ComparisonOperator: __expectString(output.ComparisonOperator),
-    EvaluationPeriods: __expectInt(output.EvaluationPeriods),
+    EvaluationPeriods: __expectInt32(output.EvaluationPeriods),
     FleetArn: __expectString(output.FleetArn),
     FleetId: __expectString(output.FleetId),
     Location: __expectString(output.Location),
     MetricName: __expectString(output.MetricName),
     Name: __expectString(output.Name),
     PolicyType: __expectString(output.PolicyType),
-    ScalingAdjustment: __expectInt(output.ScalingAdjustment),
+    ScalingAdjustment: __expectInt32(output.ScalingAdjustment),
     ScalingAdjustmentType: __expectString(output.ScalingAdjustmentType),
     Status: __expectString(output.Status),
     TargetConfiguration:
       output.TargetConfiguration !== undefined && output.TargetConfiguration !== null
         ? deserializeAws_json1_1TargetConfiguration(output.TargetConfiguration, context)
         : undefined,
-    Threshold: __limitedParseFloat(output.Threshold),
+    Threshold: __limitedParseDouble(output.Threshold),
     UpdateStatus: __expectString(output.UpdateStatus),
   } as any;
 };
@@ -13497,7 +13499,7 @@ const deserializeAws_json1_1Script = (output: any, context: __SerdeContext): Scr
     Name: __expectString(output.Name),
     ScriptArn: __expectString(output.ScriptArn),
     ScriptId: __expectString(output.ScriptId),
-    SizeOnDisk: __expectInt(output.SizeOnDisk),
+    SizeOnDisk: __expectLong(output.SizeOnDisk),
     StorageLocation:
       output.StorageLocation !== undefined && output.StorageLocation !== null
         ? deserializeAws_json1_1S3Location(output.StorageLocation, context)
@@ -13532,7 +13534,7 @@ const deserializeAws_json1_1SearchGameSessionsOutput = (
 
 const deserializeAws_json1_1ServerProcess = (output: any, context: __SerdeContext): ServerProcess => {
   return {
-    ConcurrentExecutions: __expectInt(output.ConcurrentExecutions),
+    ConcurrentExecutions: __expectInt32(output.ConcurrentExecutions),
     LaunchPath: __expectString(output.LaunchPath),
     Parameters: __expectString(output.Parameters),
   } as any;
@@ -13622,7 +13624,7 @@ const deserializeAws_json1_1StringDoubleMap = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [key]: __limitedParseFloat(value) as any,
+      [key]: __limitedParseDouble(value) as any,
     };
   }, {});
 };
@@ -13680,7 +13682,7 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1TargetConfiguration = (output: any, context: __SerdeContext): TargetConfiguration => {
   return {
-    TargetValue: __limitedParseFloat(output.TargetValue),
+    TargetValue: __limitedParseDouble(output.TargetValue),
   } as any;
 };
 

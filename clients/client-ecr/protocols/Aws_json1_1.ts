@@ -215,7 +215,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4667,7 +4668,7 @@ const deserializeAws_json1_1FindingSeverityCounts = (
       }
       return {
         ...acc,
-        [key]: __expectInt(value) as any,
+        [key]: __expectInt32(value) as any,
       };
     },
     {}
@@ -4792,7 +4793,7 @@ const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext)
       output.imageScanStatus !== undefined && output.imageScanStatus !== null
         ? deserializeAws_json1_1ImageScanStatus(output.imageScanStatus, context)
         : undefined,
-    imageSizeInBytes: __expectInt(output.imageSizeInBytes),
+    imageSizeInBytes: __expectLong(output.imageSizeInBytes),
     imageTags:
       output.imageTags !== undefined && output.imageTags !== null
         ? deserializeAws_json1_1ImageTagList(output.imageTags, context)
@@ -4985,7 +4986,7 @@ const deserializeAws_json1_1InitiateLayerUploadResponse = (
   context: __SerdeContext
 ): InitiateLayerUploadResponse => {
   return {
-    partSize: __expectInt(output.partSize),
+    partSize: __expectLong(output.partSize),
     uploadId: __expectString(output.uploadId),
   } as any;
 };
@@ -5001,7 +5002,7 @@ const deserializeAws_json1_1InvalidLayerPartException = (
   context: __SerdeContext
 ): InvalidLayerPartException => {
   return {
-    lastValidByteReceived: __expectInt(output.lastValidByteReceived),
+    lastValidByteReceived: __expectLong(output.lastValidByteReceived),
     message: __expectString(output.message),
     registryId: __expectString(output.registryId),
     repositoryName: __expectString(output.repositoryName),
@@ -5038,7 +5039,7 @@ const deserializeAws_json1_1Layer = (output: any, context: __SerdeContext): Laye
   return {
     layerAvailability: __expectString(output.layerAvailability),
     layerDigest: __expectString(output.layerDigest),
-    layerSize: __expectInt(output.layerSize),
+    layerSize: __expectLong(output.layerSize),
     mediaType: __expectString(output.mediaType),
   } as any;
 };
@@ -5145,7 +5146,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewResult = (
       output.action !== undefined && output.action !== null
         ? deserializeAws_json1_1LifecyclePolicyRuleAction(output.action, context)
         : undefined,
-    appliedRulePriority: __expectInt(output.appliedRulePriority),
+    appliedRulePriority: __expectInt32(output.appliedRulePriority),
     imageDigest: __expectString(output.imageDigest),
     imagePushedAt:
       output.imagePushedAt !== undefined && output.imagePushedAt !== null
@@ -5177,7 +5178,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewSummary = (
   context: __SerdeContext
 ): LifecyclePolicyPreviewSummary => {
   return {
-    expiringImageTotalCount: __expectInt(output.expiringImageTotalCount),
+    expiringImageTotalCount: __expectInt32(output.expiringImageTotalCount),
   } as any;
 };
 
@@ -5521,7 +5522,7 @@ const deserializeAws_json1_1UploadLayerPartResponse = (
   context: __SerdeContext
 ): UploadLayerPartResponse => {
   return {
-    lastByteReceived: __expectInt(output.lastByteReceived),
+    lastByteReceived: __expectLong(output.lastByteReceived),
     registryId: __expectString(output.registryId),
     repositoryName: __expectString(output.repositoryName),
     uploadId: __expectString(output.uploadId),

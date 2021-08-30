@@ -104,10 +104,10 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4881,7 +4881,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     RetryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
+    contents.RetryAfterSeconds = __strictParseInt32(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -4960,7 +4960,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     RetryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
+    contents.RetryAfterSeconds = __strictParseInt32(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -5043,8 +5043,8 @@ const deserializeAws_restJson1AWSLocation = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Bandwidth = (output: any, context: __SerdeContext): Bandwidth => {
   return {
-    DownloadSpeed: __expectInt(output.DownloadSpeed),
-    UploadSpeed: __expectInt(output.UploadSpeed),
+    DownloadSpeed: __expectInt32(output.DownloadSpeed),
+    UploadSpeed: __expectInt32(output.UploadSpeed),
   } as any;
 };
 

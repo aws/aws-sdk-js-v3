@@ -185,7 +185,8 @@ import {
   parseBoolean as __parseBoolean,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4826,7 +4827,7 @@ const deserializeAws_queryDashboardEntry = (output: any, context: __SerdeContext
     contents.LastModified = new Date(output["LastModified"]);
   }
   if (output["Size"] !== undefined) {
-    contents.Size = __strictParseInt(output["Size"]) as number;
+    contents.Size = __strictParseLong(output["Size"]) as number;
   }
   return contents;
 };
@@ -5243,7 +5244,7 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
     contents.AggregateValue = __strictParseFloat(output["AggregateValue"]) as number;
   }
   if (output["ApproximateUniqueCount"] !== undefined) {
-    contents.ApproximateUniqueCount = __strictParseInt(output["ApproximateUniqueCount"]) as number;
+    contents.ApproximateUniqueCount = __strictParseLong(output["ApproximateUniqueCount"]) as number;
   }
   if (output.Contributors === "") {
     contents.Contributors = [];
@@ -5868,16 +5869,16 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
     );
   }
   if (output["Period"] !== undefined) {
-    contents.Period = __strictParseInt(output["Period"]) as number;
+    contents.Period = __strictParseInt32(output["Period"]) as number;
   }
   if (output["Unit"] !== undefined) {
     contents.Unit = __expectString(output["Unit"]);
   }
   if (output["EvaluationPeriods"] !== undefined) {
-    contents.EvaluationPeriods = __strictParseInt(output["EvaluationPeriods"]) as number;
+    contents.EvaluationPeriods = __strictParseInt32(output["EvaluationPeriods"]) as number;
   }
   if (output["DatapointsToAlarm"] !== undefined) {
-    contents.DatapointsToAlarm = __strictParseInt(output["DatapointsToAlarm"]) as number;
+    contents.DatapointsToAlarm = __strictParseInt32(output["DatapointsToAlarm"]) as number;
   }
   if (output["Threshold"] !== undefined) {
     contents.Threshold = __strictParseFloat(output["Threshold"]) as number;
@@ -5954,7 +5955,7 @@ const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContex
     contents.ReturnData = __parseBoolean(output["ReturnData"]);
   }
   if (output["Period"] !== undefined) {
-    contents.Period = __strictParseInt(output["Period"]) as number;
+    contents.Period = __strictParseInt32(output["Period"]) as number;
   }
   if (output["AccountId"] !== undefined) {
     contents.AccountId = __expectString(output["AccountId"]);
@@ -6051,7 +6052,7 @@ const deserializeAws_queryMetricStat = (output: any, context: __SerdeContext): M
     contents.Metric = deserializeAws_queryMetric(output["Metric"], context);
   }
   if (output["Period"] !== undefined) {
-    contents.Period = __strictParseInt(output["Period"]) as number;
+    contents.Period = __strictParseInt32(output["Period"]) as number;
   }
   if (output["Stat"] !== undefined) {
     contents.Stat = __expectString(output["Stat"]);

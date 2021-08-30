@@ -102,7 +102,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -2478,10 +2479,10 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     contents.LogSubscription = __expectString(data.LogSubscription);
   }
   if (data.MaxCapacity !== undefined && data.MaxCapacity !== null) {
-    contents.MaxCapacity = __expectInt(data.MaxCapacity);
+    contents.MaxCapacity = __expectInt32(data.MaxCapacity);
   }
   if (data.MaxRetries !== undefined && data.MaxRetries !== null) {
-    contents.MaxRetries = __expectInt(data.MaxRetries);
+    contents.MaxRetries = __expectInt32(data.MaxRetries);
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = __expectString(data.Name);
@@ -2508,7 +2509,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = __expectInt(data.Timeout);
+    contents.Timeout = __expectInt32(data.Timeout);
   }
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
@@ -2591,7 +2592,7 @@ export const deserializeAws_restJson1DescribeJobRunCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Attempt !== undefined && data.Attempt !== null) {
-    contents.Attempt = __expectInt(data.Attempt);
+    contents.Attempt = __expectInt32(data.Attempt);
   }
   if (data.CompletedOn !== undefined && data.CompletedOn !== null) {
     contents.CompletedOn = new Date(Math.round(data.CompletedOn * 1000));
@@ -2609,7 +2610,7 @@ export const deserializeAws_restJson1DescribeJobRunCommand = async (
     contents.ErrorMessage = __expectString(data.ErrorMessage);
   }
   if (data.ExecutionTime !== undefined && data.ExecutionTime !== null) {
-    contents.ExecutionTime = __expectInt(data.ExecutionTime);
+    contents.ExecutionTime = __expectInt32(data.ExecutionTime);
   }
   if (data.JobName !== undefined && data.JobName !== null) {
     contents.JobName = __expectString(data.JobName);
@@ -3591,7 +3592,7 @@ export const deserializeAws_restJson1SendProjectSessionActionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ActionId !== undefined && data.ActionId !== null) {
-    contents.ActionId = __expectInt(data.ActionId);
+    contents.ActionId = __expectInt32(data.ActionId);
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = __expectString(data.Name);
@@ -5373,7 +5374,7 @@ const deserializeAws_restJson1ExcelOptions = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1FilesLimit = (output: any, context: __SerdeContext): FilesLimit => {
   return {
-    MaxFiles: __expectInt(output.MaxFiles),
+    MaxFiles: __expectInt32(output.MaxFiles),
     Order: __expectString(output.Order),
     OrderedBy: __expectString(output.OrderedBy),
   } as any;
@@ -5452,8 +5453,8 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
     LogSubscription: __expectString(output.LogSubscription),
-    MaxCapacity: __expectInt(output.MaxCapacity),
-    MaxRetries: __expectInt(output.MaxRetries),
+    MaxCapacity: __expectInt32(output.MaxCapacity),
+    MaxRetries: __expectInt32(output.MaxRetries),
     Name: __expectString(output.Name),
     Outputs:
       output.Outputs !== undefined && output.Outputs !== null
@@ -5470,7 +5471,7 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
         : undefined,
-    Timeout: __expectInt(output.Timeout),
+    Timeout: __expectInt32(output.Timeout),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -5499,7 +5500,7 @@ const deserializeAws_restJson1JobNameList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): JobRun => {
   return {
-    Attempt: __expectInt(output.Attempt),
+    Attempt: __expectInt32(output.Attempt),
     CompletedOn:
       output.CompletedOn !== undefined && output.CompletedOn !== null
         ? new Date(Math.round(output.CompletedOn * 1000))
@@ -5514,7 +5515,7 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
         : undefined,
     DatasetName: __expectString(output.DatasetName),
     ErrorMessage: __expectString(output.ErrorMessage),
-    ExecutionTime: __expectInt(output.ExecutionTime),
+    ExecutionTime: __expectInt32(output.ExecutionTime),
     JobName: __expectString(output.JobName),
     JobSample:
       output.JobSample !== undefined && output.JobSample !== null
@@ -5554,7 +5555,7 @@ const deserializeAws_restJson1JobRunList = (output: any, context: __SerdeContext
 const deserializeAws_restJson1JobSample = (output: any, context: __SerdeContext): JobSample => {
   return {
     Mode: __expectString(output.Mode),
-    Size: __expectInt(output.Size),
+    Size: __expectLong(output.Size),
   } as any;
 };
 
@@ -5835,7 +5836,7 @@ const deserializeAws_restJson1S3TableOutputOptions = (output: any, context: __Se
 
 const deserializeAws_restJson1Sample = (output: any, context: __SerdeContext): Sample => {
   return {
-    Size: __expectInt(output.Size),
+    Size: __expectInt32(output.Size),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -5885,7 +5886,7 @@ const deserializeAws_restJson1SheetIndexList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return __expectInt(entry) as any;
+      return __expectInt32(entry) as any;
     });
 };
 

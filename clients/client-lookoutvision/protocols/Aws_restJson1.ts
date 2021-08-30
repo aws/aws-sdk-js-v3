@@ -52,11 +52,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
-  strictParseInt as __strictParseInt,
+  limitedParseFloat32 as __limitedParseFloat32,
+  strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2676,7 +2676,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     RetryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
+    contents.RetryAfterSeconds = __strictParseInt32(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -2757,7 +2757,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     ServiceCode: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
+    contents.RetryAfterSeconds = __strictParseInt32(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -2882,10 +2882,10 @@ const deserializeAws_restJson1DatasetEntryList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DatasetImageStats = (output: any, context: __SerdeContext): DatasetImageStats => {
   return {
-    Anomaly: __expectInt(output.Anomaly),
-    Labeled: __expectInt(output.Labeled),
-    Normal: __expectInt(output.Normal),
-    Total: __expectInt(output.Total),
+    Anomaly: __expectInt32(output.Anomaly),
+    Labeled: __expectInt32(output.Labeled),
+    Normal: __expectInt32(output.Normal),
+    Total: __expectInt32(output.Total),
   } as any;
 };
 
@@ -2914,7 +2914,7 @@ const deserializeAws_restJson1DatasetMetadataList = (output: any, context: __Ser
 
 const deserializeAws_restJson1DetectAnomalyResult = (output: any, context: __SerdeContext): DetectAnomalyResult => {
   return {
-    Confidence: __limitedParseFloat(output.Confidence),
+    Confidence: __limitedParseFloat32(output.Confidence),
     IsAnomalous: __expectBoolean(output.IsAnomalous),
     Source:
       output.Source !== undefined && output.Source !== null
@@ -2995,9 +2995,9 @@ const deserializeAws_restJson1ModelMetadataList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ModelPerformance = (output: any, context: __SerdeContext): ModelPerformance => {
   return {
-    F1Score: __limitedParseFloat(output.F1Score),
-    Precision: __limitedParseFloat(output.Precision),
-    Recall: __limitedParseFloat(output.Recall),
+    F1Score: __limitedParseFloat32(output.F1Score),
+    Precision: __limitedParseFloat32(output.Precision),
+    Recall: __limitedParseFloat32(output.Recall),
   } as any;
 };
 

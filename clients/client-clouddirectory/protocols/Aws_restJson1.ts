@@ -277,7 +277,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -10166,7 +10166,7 @@ const deserializeAws_restJson1BatchWriteExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Index !== undefined && data.Index !== null) {
-    contents.Index = __expectInt(data.Index);
+    contents.Index = __expectInt32(data.Index);
   }
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);

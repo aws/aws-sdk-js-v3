@@ -49,7 +49,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1169,7 +1170,7 @@ const deserializeAws_json1_1FailureInfo = (output: any, context: __SerdeContext)
   return {
     ErrorCode: __expectString(output.ErrorCode),
     ErrorMessage: __expectString(output.ErrorMessage),
-    StatusCode: __expectInt(output.StatusCode),
+    StatusCode: __expectInt32(output.StatusCode),
   } as any;
 };
 
@@ -1278,7 +1279,7 @@ const deserializeAws_json1_1StartReportCreationOutput = (
 const deserializeAws_json1_1Summary = (output: any, context: __SerdeContext): Summary => {
   return {
     LastUpdated: __expectString(output.LastUpdated),
-    NonCompliantResources: __expectInt(output.NonCompliantResources),
+    NonCompliantResources: __expectLong(output.NonCompliantResources),
     Region: __expectString(output.Region),
     ResourceType: __expectString(output.ResourceType),
     TargetId: __expectString(output.TargetId),

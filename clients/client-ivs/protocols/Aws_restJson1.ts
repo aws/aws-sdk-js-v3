@@ -76,7 +76,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -3167,7 +3167,7 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
     playbackUrl: __expectString(output.playbackUrl),
     startTime: output.startTime !== undefined && output.startTime !== null ? new Date(output.startTime) : undefined,
     state: __expectString(output.state),
-    viewerCount: __expectInt(output.viewerCount),
+    viewerCount: __expectLong(output.viewerCount),
   } as any;
 };
 
@@ -3233,7 +3233,7 @@ const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeCont
     health: __expectString(output.health),
     startTime: output.startTime !== undefined && output.startTime !== null ? new Date(output.startTime) : undefined,
     state: __expectString(output.state),
-    viewerCount: __expectInt(output.viewerCount),
+    viewerCount: __expectLong(output.viewerCount),
   } as any;
 };
 

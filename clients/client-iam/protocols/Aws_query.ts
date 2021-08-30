@@ -708,7 +708,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -17343,7 +17343,7 @@ const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext):
     contents.LastAuthenticatedTime = new Date(output["LastAuthenticatedTime"]);
   }
   if (output["TotalAuthenticatedEntities"] !== undefined) {
-    contents.TotalAuthenticatedEntities = __strictParseInt(output["TotalAuthenticatedEntities"]) as number;
+    contents.TotalAuthenticatedEntities = __strictParseInt32(output["TotalAuthenticatedEntities"]) as number;
   }
   return contents;
 };
@@ -18341,10 +18341,10 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
     contents.JobCompletionDate = new Date(output["JobCompletionDate"]);
   }
   if (output["NumberOfServicesAccessible"] !== undefined) {
-    contents.NumberOfServicesAccessible = __strictParseInt(output["NumberOfServicesAccessible"]) as number;
+    contents.NumberOfServicesAccessible = __strictParseInt32(output["NumberOfServicesAccessible"]) as number;
   }
   if (output["NumberOfServicesNotAccessed"] !== undefined) {
-    contents.NumberOfServicesNotAccessed = __strictParseInt(output["NumberOfServicesNotAccessed"]) as number;
+    contents.NumberOfServicesNotAccessed = __strictParseInt32(output["NumberOfServicesNotAccessed"]) as number;
   }
   if (output.AccessDetails === "") {
     contents.AccessDetails = [];
@@ -19817,10 +19817,10 @@ const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeCo
     contents.DefaultVersionId = __expectString(output["DefaultVersionId"]);
   }
   if (output["AttachmentCount"] !== undefined) {
-    contents.AttachmentCount = __strictParseInt(output["AttachmentCount"]) as number;
+    contents.AttachmentCount = __strictParseInt32(output["AttachmentCount"]) as number;
   }
   if (output["PermissionsBoundaryUsageCount"] !== undefined) {
-    contents.PermissionsBoundaryUsageCount = __strictParseInt(output["PermissionsBoundaryUsageCount"]) as number;
+    contents.PermissionsBoundaryUsageCount = __strictParseInt32(output["PermissionsBoundaryUsageCount"]) as number;
   }
   if (output["IsAttachable"] !== undefined) {
     contents.IsAttachable = __parseBoolean(output["IsAttachable"]);
@@ -19953,7 +19953,7 @@ const deserializeAws_queryPasswordPolicy = (output: any, context: __SerdeContext
     HardExpiry: undefined,
   };
   if (output["MinimumPasswordLength"] !== undefined) {
-    contents.MinimumPasswordLength = __strictParseInt(output["MinimumPasswordLength"]) as number;
+    contents.MinimumPasswordLength = __strictParseInt32(output["MinimumPasswordLength"]) as number;
   }
   if (output["RequireSymbols"] !== undefined) {
     contents.RequireSymbols = __parseBoolean(output["RequireSymbols"]);
@@ -19974,10 +19974,10 @@ const deserializeAws_queryPasswordPolicy = (output: any, context: __SerdeContext
     contents.ExpirePasswords = __parseBoolean(output["ExpirePasswords"]);
   }
   if (output["MaxPasswordAge"] !== undefined) {
-    contents.MaxPasswordAge = __strictParseInt(output["MaxPasswordAge"]) as number;
+    contents.MaxPasswordAge = __strictParseInt32(output["MaxPasswordAge"]) as number;
   }
   if (output["PasswordReusePrevention"] !== undefined) {
-    contents.PasswordReusePrevention = __strictParseInt(output["PasswordReusePrevention"]) as number;
+    contents.PasswordReusePrevention = __strictParseInt32(output["PasswordReusePrevention"]) as number;
   }
   if (output["HardExpiry"] !== undefined) {
     contents.HardExpiry = __parseBoolean(output["HardExpiry"]);
@@ -20042,10 +20042,10 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
     contents.DefaultVersionId = __expectString(output["DefaultVersionId"]);
   }
   if (output["AttachmentCount"] !== undefined) {
-    contents.AttachmentCount = __strictParseInt(output["AttachmentCount"]) as number;
+    contents.AttachmentCount = __strictParseInt32(output["AttachmentCount"]) as number;
   }
   if (output["PermissionsBoundaryUsageCount"] !== undefined) {
-    contents.PermissionsBoundaryUsageCount = __strictParseInt(output["PermissionsBoundaryUsageCount"]) as number;
+    contents.PermissionsBoundaryUsageCount = __strictParseInt32(output["PermissionsBoundaryUsageCount"]) as number;
   }
   if (output["IsAttachable"] !== undefined) {
     contents.IsAttachable = __parseBoolean(output["IsAttachable"]);
@@ -20298,10 +20298,10 @@ const deserializeAws_queryPosition = (output: any, context: __SerdeContext): Pos
     Column: undefined,
   };
   if (output["Line"] !== undefined) {
-    contents.Line = __strictParseInt(output["Line"]) as number;
+    contents.Line = __strictParseInt32(output["Line"]) as number;
   }
   if (output["Column"] !== undefined) {
-    contents.Column = __strictParseInt(output["Column"]) as number;
+    contents.Column = __strictParseInt32(output["Column"]) as number;
   }
   return contents;
 };
@@ -20436,7 +20436,7 @@ const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role =>
     contents.Description = __expectString(output["Description"]);
   }
   if (output["MaxSessionDuration"] !== undefined) {
-    contents.MaxSessionDuration = __strictParseInt(output["MaxSessionDuration"]) as number;
+    contents.MaxSessionDuration = __strictParseInt32(output["MaxSessionDuration"]) as number;
   }
   if (output["PermissionsBoundary"] !== undefined) {
     contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
@@ -20741,7 +20741,7 @@ const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeCo
     contents.LastAuthenticatedRegion = __expectString(output["LastAuthenticatedRegion"]);
   }
   if (output["TotalAuthenticatedEntities"] !== undefined) {
-    contents.TotalAuthenticatedEntities = __strictParseInt(output["TotalAuthenticatedEntities"]) as number;
+    contents.TotalAuthenticatedEntities = __strictParseInt32(output["TotalAuthenticatedEntities"]) as number;
   }
   if (output.TrackedActionsLastAccessed === "") {
     contents.TrackedActionsLastAccessed = [];
@@ -21019,7 +21019,7 @@ const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [pair["key"]]: __strictParseInt(pair["value"]) as number,
+      [pair["key"]]: __strictParseInt32(pair["value"]) as number,
     };
   }, {});
 };

@@ -160,7 +160,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3028,7 +3028,7 @@ const deserializeAws_json1_1BillingRecord = (output: any, context: __SerdeContex
     DomainName: __expectString(output.DomainName),
     InvoiceId: __expectString(output.InvoiceId),
     Operation: __expectString(output.Operation),
-    Price: __limitedParseFloat(output.Price),
+    Price: __limitedParseDouble(output.Price),
   } as any;
 };
 

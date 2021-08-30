@@ -347,9 +347,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -7998,9 +7999,9 @@ const deserializeAws_json1_1CapacityProviderStrategyItem = (
   context: __SerdeContext
 ): CapacityProviderStrategyItem => {
   return {
-    base: __expectInt(output.base),
+    base: __expectInt32(output.base),
     capacityProvider: __expectString(output.capacityProvider),
-    weight: __expectInt(output.weight),
+    weight: __expectInt32(output.weight),
   } as any;
 };
 
@@ -8012,7 +8013,7 @@ const deserializeAws_json1_1ClientException = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
-    activeServicesCount: __expectInt(output.activeServicesCount),
+    activeServicesCount: __expectInt32(output.activeServicesCount),
     attachments:
       output.attachments !== undefined && output.attachments !== null
         ? deserializeAws_json1_1Attachments(output.attachments, context)
@@ -8032,9 +8033,9 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
       output.defaultCapacityProviderStrategy !== undefined && output.defaultCapacityProviderStrategy !== null
         ? deserializeAws_json1_1CapacityProviderStrategy(output.defaultCapacityProviderStrategy, context)
         : undefined,
-    pendingTasksCount: __expectInt(output.pendingTasksCount),
-    registeredContainerInstancesCount: __expectInt(output.registeredContainerInstancesCount),
-    runningTasksCount: __expectInt(output.runningTasksCount),
+    pendingTasksCount: __expectInt32(output.pendingTasksCount),
+    registeredContainerInstancesCount: __expectInt32(output.registeredContainerInstancesCount),
+    runningTasksCount: __expectInt32(output.runningTasksCount),
     settings:
       output.settings !== undefined && output.settings !== null
         ? deserializeAws_json1_1ClusterSettings(output.settings, context)
@@ -8138,7 +8139,7 @@ const deserializeAws_json1_1Container = (output: any, context: __SerdeContext): 
   return {
     containerArn: __expectString(output.containerArn),
     cpu: __expectString(output.cpu),
-    exitCode: __expectInt(output.exitCode),
+    exitCode: __expectInt32(output.exitCode),
     gpuIds:
       output.gpuIds !== undefined && output.gpuIds !== null
         ? deserializeAws_json1_1GpuIds(output.gpuIds, context)
@@ -8174,7 +8175,7 @@ const deserializeAws_json1_1ContainerDefinition = (output: any, context: __Serde
       output.command !== undefined && output.command !== null
         ? deserializeAws_json1_1StringList(output.command, context)
         : undefined,
-    cpu: __expectInt(output.cpu),
+    cpu: __expectInt32(output.cpu),
     dependsOn:
       output.dependsOn !== undefined && output.dependsOn !== null
         ? deserializeAws_json1_1ContainerDependencies(output.dependsOn, context)
@@ -8236,8 +8237,8 @@ const deserializeAws_json1_1ContainerDefinition = (output: any, context: __Serde
       output.logConfiguration !== undefined && output.logConfiguration !== null
         ? deserializeAws_json1_1LogConfiguration(output.logConfiguration, context)
         : undefined,
-    memory: __expectInt(output.memory),
-    memoryReservation: __expectInt(output.memoryReservation),
+    memory: __expectInt32(output.memory),
+    memoryReservation: __expectInt32(output.memoryReservation),
     mountPoints:
       output.mountPoints !== undefined && output.mountPoints !== null
         ? deserializeAws_json1_1MountPointList(output.mountPoints, context)
@@ -8262,8 +8263,8 @@ const deserializeAws_json1_1ContainerDefinition = (output: any, context: __Serde
       output.secrets !== undefined && output.secrets !== null
         ? deserializeAws_json1_1SecretList(output.secrets, context)
         : undefined,
-    startTimeout: __expectInt(output.startTimeout),
-    stopTimeout: __expectInt(output.stopTimeout),
+    startTimeout: __expectInt32(output.startTimeout),
+    stopTimeout: __expectInt32(output.stopTimeout),
     systemControls:
       output.systemControls !== undefined && output.systemControls !== null
         ? deserializeAws_json1_1SystemControls(output.systemControls, context)
@@ -8325,7 +8326,7 @@ const deserializeAws_json1_1ContainerInstance = (output: any, context: __SerdeCo
     capacityProviderName: __expectString(output.capacityProviderName),
     containerInstanceArn: __expectString(output.containerInstanceArn),
     ec2InstanceId: __expectString(output.ec2InstanceId),
-    pendingTasksCount: __expectInt(output.pendingTasksCount),
+    pendingTasksCount: __expectInt32(output.pendingTasksCount),
     registeredAt:
       output.registeredAt !== undefined && output.registeredAt !== null
         ? new Date(Math.round(output.registeredAt * 1000))
@@ -8338,12 +8339,12 @@ const deserializeAws_json1_1ContainerInstance = (output: any, context: __SerdeCo
       output.remainingResources !== undefined && output.remainingResources !== null
         ? deserializeAws_json1_1Resources(output.remainingResources, context)
         : undefined,
-    runningTasksCount: __expectInt(output.runningTasksCount),
+    runningTasksCount: __expectInt32(output.runningTasksCount),
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
     tags:
       output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
-    version: __expectInt(output.version),
+    version: __expectLong(output.version),
     versionInfo:
       output.versionInfo !== undefined && output.versionInfo !== null
         ? deserializeAws_json1_1VersionInfo(output.versionInfo, context)
@@ -8368,7 +8369,7 @@ const deserializeAws_json1_1ContainerOverride = (output: any, context: __SerdeCo
       output.command !== undefined && output.command !== null
         ? deserializeAws_json1_1StringList(output.command, context)
         : undefined,
-    cpu: __expectInt(output.cpu),
+    cpu: __expectInt32(output.cpu),
     environment:
       output.environment !== undefined && output.environment !== null
         ? deserializeAws_json1_1EnvironmentVariables(output.environment, context)
@@ -8377,8 +8378,8 @@ const deserializeAws_json1_1ContainerOverride = (output: any, context: __SerdeCo
       output.environmentFiles !== undefined && output.environmentFiles !== null
         ? deserializeAws_json1_1EnvironmentFiles(output.environmentFiles, context)
         : undefined,
-    memory: __expectInt(output.memory),
-    memoryReservation: __expectInt(output.memoryReservation),
+    memory: __expectInt32(output.memory),
+    memoryReservation: __expectInt32(output.memoryReservation),
     name: __expectString(output.name),
     resourceRequirements:
       output.resourceRequirements !== undefined && output.resourceRequirements !== null
@@ -8521,19 +8522,19 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    desiredCount: __expectInt(output.desiredCount),
-    failedTasks: __expectInt(output.failedTasks),
+    desiredCount: __expectInt32(output.desiredCount),
+    failedTasks: __expectInt32(output.failedTasks),
     id: __expectString(output.id),
     launchType: __expectString(output.launchType),
     networkConfiguration:
       output.networkConfiguration !== undefined && output.networkConfiguration !== null
         ? deserializeAws_json1_1NetworkConfiguration(output.networkConfiguration, context)
         : undefined,
-    pendingCount: __expectInt(output.pendingCount),
+    pendingCount: __expectInt32(output.pendingCount),
     platformVersion: __expectString(output.platformVersion),
     rolloutState: __expectString(output.rolloutState),
     rolloutStateReason: __expectString(output.rolloutStateReason),
-    runningCount: __expectInt(output.runningCount),
+    runningCount: __expectInt32(output.runningCount),
     status: __expectString(output.status),
     taskDefinition: __expectString(output.taskDefinition),
     updatedAt:
@@ -8562,8 +8563,8 @@ const deserializeAws_json1_1DeploymentConfiguration = (
       output.deploymentCircuitBreaker !== undefined && output.deploymentCircuitBreaker !== null
         ? deserializeAws_json1_1DeploymentCircuitBreaker(output.deploymentCircuitBreaker, context)
         : undefined,
-    maximumPercent: __expectInt(output.maximumPercent),
-    minimumHealthyPercent: __expectInt(output.minimumHealthyPercent),
+    maximumPercent: __expectInt32(output.maximumPercent),
+    minimumHealthyPercent: __expectInt32(output.minimumHealthyPercent),
   } as any;
 };
 
@@ -8809,7 +8810,7 @@ const deserializeAws_json1_1EFSVolumeConfiguration = (output: any, context: __Se
     fileSystemId: __expectString(output.fileSystemId),
     rootDirectory: __expectString(output.rootDirectory),
     transitEncryption: __expectString(output.transitEncryption),
-    transitEncryptionPort: __expectInt(output.transitEncryptionPort),
+    transitEncryptionPort: __expectInt32(output.transitEncryptionPort),
   } as any;
 };
 
@@ -8844,7 +8845,7 @@ const deserializeAws_json1_1EnvironmentVariables = (output: any, context: __Serd
 
 const deserializeAws_json1_1EphemeralStorage = (output: any, context: __SerdeContext): EphemeralStorage => {
   return {
-    sizeInGiB: __expectInt(output.sizeInGiB),
+    sizeInGiB: __expectInt32(output.sizeInGiB),
   } as any;
 };
 
@@ -8974,10 +8975,10 @@ const deserializeAws_json1_1HealthCheck = (output: any, context: __SerdeContext)
       output.command !== undefined && output.command !== null
         ? deserializeAws_json1_1StringList(output.command, context)
         : undefined,
-    interval: __expectInt(output.interval),
-    retries: __expectInt(output.retries),
-    startPeriod: __expectInt(output.startPeriod),
-    timeout: __expectInt(output.timeout),
+    interval: __expectInt32(output.interval),
+    retries: __expectInt32(output.retries),
+    startPeriod: __expectInt32(output.startPeriod),
+    timeout: __expectInt32(output.timeout),
   } as any;
 };
 
@@ -9093,9 +9094,9 @@ const deserializeAws_json1_1LinuxParameters = (output: any, context: __SerdeCont
         ? deserializeAws_json1_1DevicesList(output.devices, context)
         : undefined,
     initProcessEnabled: __expectBoolean(output.initProcessEnabled),
-    maxSwap: __expectInt(output.maxSwap),
-    sharedMemorySize: __expectInt(output.sharedMemorySize),
-    swappiness: __expectInt(output.swappiness),
+    maxSwap: __expectInt32(output.maxSwap),
+    sharedMemorySize: __expectInt32(output.sharedMemorySize),
+    swappiness: __expectInt32(output.swappiness),
     tmpfs:
       output.tmpfs !== undefined && output.tmpfs !== null
         ? deserializeAws_json1_1TmpfsList(output.tmpfs, context)
@@ -9208,7 +9209,7 @@ const deserializeAws_json1_1ListTasksResponse = (output: any, context: __SerdeCo
 const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
   return {
     containerName: __expectString(output.containerName),
-    containerPort: __expectInt(output.containerPort),
+    containerPort: __expectInt32(output.containerPort),
     loadBalancerName: __expectString(output.loadBalancerName),
     targetGroupArn: __expectString(output.targetGroupArn),
   } as any;
@@ -9279,11 +9280,11 @@ const deserializeAws_json1_1ManagedAgents = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ManagedScaling = (output: any, context: __SerdeContext): ManagedScaling => {
   return {
-    instanceWarmupPeriod: __expectInt(output.instanceWarmupPeriod),
-    maximumScalingStepSize: __expectInt(output.maximumScalingStepSize),
-    minimumScalingStepSize: __expectInt(output.minimumScalingStepSize),
+    instanceWarmupPeriod: __expectInt32(output.instanceWarmupPeriod),
+    maximumScalingStepSize: __expectInt32(output.maximumScalingStepSize),
+    minimumScalingStepSize: __expectInt32(output.minimumScalingStepSize),
     status: __expectString(output.status),
-    targetCapacity: __expectInt(output.targetCapacity),
+    targetCapacity: __expectInt32(output.targetCapacity),
   } as any;
 };
 
@@ -9318,8 +9319,8 @@ const deserializeAws_json1_1MountPointList = (output: any, context: __SerdeConte
 const deserializeAws_json1_1NetworkBinding = (output: any, context: __SerdeContext): NetworkBinding => {
   return {
     bindIP: __expectString(output.bindIP),
-    containerPort: __expectInt(output.containerPort),
-    hostPort: __expectInt(output.hostPort),
+    containerPort: __expectInt32(output.containerPort),
+    hostPort: __expectInt32(output.hostPort),
     protocol: __expectString(output.protocol),
   } as any;
 };
@@ -9428,8 +9429,8 @@ const deserializeAws_json1_1PlatformUnknownException = (
 
 const deserializeAws_json1_1PortMapping = (output: any, context: __SerdeContext): PortMapping => {
   return {
-    containerPort: __expectInt(output.containerPort),
-    hostPort: __expectInt(output.hostPort),
+    containerPort: __expectInt32(output.containerPort),
+    hostPort: __expectInt32(output.hostPort),
     protocol: __expectString(output.protocol),
   } as any;
 };
@@ -9557,9 +9558,9 @@ const deserializeAws_json1_1RequiresAttributes = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    doubleValue: __limitedParseFloat(output.doubleValue),
-    integerValue: __expectInt(output.integerValue),
-    longValue: __expectInt(output.longValue),
+    doubleValue: __limitedParseDouble(output.doubleValue),
+    integerValue: __expectInt32(output.integerValue),
+    longValue: __expectLong(output.longValue),
     name: __expectString(output.name),
     stringSetValue:
       output.stringSetValue !== undefined && output.stringSetValue !== null
@@ -9629,7 +9630,7 @@ const deserializeAws_json1_1RunTaskResponse = (output: any, context: __SerdeCont
 const deserializeAws_json1_1Scale = (output: any, context: __SerdeContext): Scale => {
   return {
     unit: __expectString(output.unit),
-    value: __limitedParseFloat(output.value),
+    value: __limitedParseDouble(output.value),
   } as any;
 };
 
@@ -9681,14 +9682,14 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
       output.deployments !== undefined && output.deployments !== null
         ? deserializeAws_json1_1Deployments(output.deployments, context)
         : undefined,
-    desiredCount: __expectInt(output.desiredCount),
+    desiredCount: __expectInt32(output.desiredCount),
     enableECSManagedTags: __expectBoolean(output.enableECSManagedTags),
     enableExecuteCommand: __expectBoolean(output.enableExecuteCommand),
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_1ServiceEvents(output.events, context)
         : undefined,
-    healthCheckGracePeriodSeconds: __expectInt(output.healthCheckGracePeriodSeconds),
+    healthCheckGracePeriodSeconds: __expectInt32(output.healthCheckGracePeriodSeconds),
     launchType: __expectString(output.launchType),
     loadBalancers:
       output.loadBalancers !== undefined && output.loadBalancers !== null
@@ -9698,7 +9699,7 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
       output.networkConfiguration !== undefined && output.networkConfiguration !== null
         ? deserializeAws_json1_1NetworkConfiguration(output.networkConfiguration, context)
         : undefined,
-    pendingCount: __expectInt(output.pendingCount),
+    pendingCount: __expectInt32(output.pendingCount),
     placementConstraints:
       output.placementConstraints !== undefined && output.placementConstraints !== null
         ? deserializeAws_json1_1PlacementConstraints(output.placementConstraints, context)
@@ -9710,7 +9711,7 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
     platformVersion: __expectString(output.platformVersion),
     propagateTags: __expectString(output.propagateTags),
     roleArn: __expectString(output.roleArn),
-    runningCount: __expectInt(output.runningCount),
+    runningCount: __expectInt32(output.runningCount),
     schedulingStrategy: __expectString(output.schedulingStrategy),
     serviceArn: __expectString(output.serviceArn),
     serviceName: __expectString(output.serviceName),
@@ -9783,8 +9784,8 @@ const deserializeAws_json1_1ServiceRegistries = (output: any, context: __SerdeCo
 const deserializeAws_json1_1ServiceRegistry = (output: any, context: __SerdeContext): ServiceRegistry => {
   return {
     containerName: __expectString(output.containerName),
-    containerPort: __expectInt(output.containerPort),
-    port: __expectInt(output.port),
+    containerPort: __expectInt32(output.containerPort),
+    port: __expectInt32(output.port),
     registryArn: __expectString(output.registryArn),
   } as any;
 };
@@ -10045,7 +10046,7 @@ const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task 
       output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
     taskArn: __expectString(output.taskArn),
     taskDefinitionArn: __expectString(output.taskDefinitionArn),
-    version: __expectInt(output.version),
+    version: __expectLong(output.version),
   } as any;
 };
 
@@ -10099,7 +10100,7 @@ const deserializeAws_json1_1TaskDefinition = (output: any, context: __SerdeConte
       output.requiresCompatibilities !== undefined && output.requiresCompatibilities !== null
         ? deserializeAws_json1_1CompatibilityList(output.requiresCompatibilities, context)
         : undefined,
-    revision: __expectInt(output.revision),
+    revision: __expectInt32(output.revision),
     status: __expectString(output.status),
     taskDefinitionArn: __expectString(output.taskDefinitionArn),
     taskRoleArn: __expectString(output.taskRoleArn),
@@ -10173,7 +10174,7 @@ const deserializeAws_json1_1TaskSet = (output: any, context: __SerdeContext): Ta
         ? deserializeAws_json1_1CapacityProviderStrategy(output.capacityProviderStrategy, context)
         : undefined,
     clusterArn: __expectString(output.clusterArn),
-    computedDesiredCount: __expectInt(output.computedDesiredCount),
+    computedDesiredCount: __expectInt32(output.computedDesiredCount),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -10189,9 +10190,9 @@ const deserializeAws_json1_1TaskSet = (output: any, context: __SerdeContext): Ta
       output.networkConfiguration !== undefined && output.networkConfiguration !== null
         ? deserializeAws_json1_1NetworkConfiguration(output.networkConfiguration, context)
         : undefined,
-    pendingCount: __expectInt(output.pendingCount),
+    pendingCount: __expectInt32(output.pendingCount),
     platformVersion: __expectString(output.platformVersion),
-    runningCount: __expectInt(output.runningCount),
+    runningCount: __expectInt32(output.runningCount),
     scale:
       output.scale !== undefined && output.scale !== null
         ? deserializeAws_json1_1Scale(output.scale, context)
@@ -10246,7 +10247,7 @@ const deserializeAws_json1_1Tmpfs = (output: any, context: __SerdeContext): Tmpf
       output.mountOptions !== undefined && output.mountOptions !== null
         ? deserializeAws_json1_1StringList(output.mountOptions, context)
         : undefined,
-    size: __expectInt(output.size),
+    size: __expectInt32(output.size),
   } as any;
 };
 
@@ -10263,9 +10264,9 @@ const deserializeAws_json1_1TmpfsList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Ulimit = (output: any, context: __SerdeContext): Ulimit => {
   return {
-    hardLimit: __expectInt(output.hardLimit),
+    hardLimit: __expectInt32(output.hardLimit),
     name: __expectString(output.name),
-    softLimit: __expectInt(output.softLimit),
+    softLimit: __expectInt32(output.softLimit),
   } as any;
 };
 

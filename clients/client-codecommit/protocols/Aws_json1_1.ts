@@ -612,7 +612,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -18570,7 +18571,7 @@ const deserializeAws_json1_1ConflictMetadata = (output: any, context: __SerdeCon
       output.mergeOperations !== undefined && output.mergeOperations !== null
         ? deserializeAws_json1_1MergeOperations(output.mergeOperations, context)
         : undefined,
-    numberOfConflicts: __expectInt(output.numberOfConflicts),
+    numberOfConflicts: __expectInt32(output.numberOfConflicts),
     objectTypeConflict: __expectBoolean(output.objectTypeConflict),
     objectTypes:
       output.objectTypes !== undefined && output.objectTypes !== null
@@ -18987,9 +18988,9 @@ const deserializeAws_json1_1FilePathConflictsWithSubmodulePathException = (
 
 const deserializeAws_json1_1FileSizes = (output: any, context: __SerdeContext): FileSizes => {
   return {
-    base: __expectInt(output.base),
-    destination: __expectInt(output.destination),
-    source: __expectInt(output.source),
+    base: __expectLong(output.base),
+    destination: __expectLong(output.destination),
+    source: __expectLong(output.source),
   } as any;
 };
 
@@ -19152,7 +19153,7 @@ const deserializeAws_json1_1GetFileOutput = (output: any, context: __SerdeContex
         : undefined,
     fileMode: __expectString(output.fileMode),
     filePath: __expectString(output.filePath),
-    fileSize: __expectInt(output.fileSize),
+    fileSize: __expectLong(output.fileSize),
   } as any;
 };
 
@@ -19916,7 +19917,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): Location => {
   return {
     filePath: __expectString(output.filePath),
-    filePosition: __expectInt(output.filePosition),
+    filePosition: __expectLong(output.filePosition),
     relativeFileVersion: __expectString(output.relativeFileVersion),
   } as any;
 };
@@ -20070,9 +20071,9 @@ const deserializeAws_json1_1MergeHunk = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1MergeHunkDetail = (output: any, context: __SerdeContext): MergeHunkDetail => {
   return {
-    endLine: __expectInt(output.endLine),
+    endLine: __expectInt32(output.endLine),
     hunkContent: __expectString(output.hunkContent),
-    startLine: __expectInt(output.startLine),
+    startLine: __expectInt32(output.startLine),
   } as any;
 };
 
@@ -20613,7 +20614,7 @@ const deserializeAws_json1_1ReactionCountsMap = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: __expectInt(value) as any,
+      [key]: __expectInt32(value) as any,
     };
   }, {});
 };
@@ -20628,7 +20629,7 @@ const deserializeAws_json1_1ReactionForComment = (output: any, context: __SerdeC
       output.reactionUsers !== undefined && output.reactionUsers !== null
         ? deserializeAws_json1_1ReactionUsersList(output.reactionUsers, context)
         : undefined,
-    reactionsFromDeletedUsersCount: __expectInt(output.reactionsFromDeletedUsersCount),
+    reactionsFromDeletedUsersCount: __expectInt32(output.reactionsFromDeletedUsersCount),
   } as any;
 };
 

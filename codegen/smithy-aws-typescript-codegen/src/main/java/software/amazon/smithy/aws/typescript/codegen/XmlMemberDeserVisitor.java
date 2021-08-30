@@ -59,27 +59,26 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
     @Override
     public String byteShape(ByteShape shape) {
-        return deserializeInt();
+        getContext().getWriter().addImport("strictParseByte", "__strictParseByte", "@aws-sdk/smithy-client");
+        return "__strictParseByte(" + getDataSource() + ") as number";
     }
 
     @Override
     public String shortShape(ShortShape shape) {
-        return deserializeInt();
+        getContext().getWriter().addImport("strictParseShort", "__strictParseShort", "@aws-sdk/smithy-client");
+        return "__strictParseShort(" + getDataSource() + ") as number";
     }
 
     @Override
     public String integerShape(IntegerShape shape) {
-        return deserializeInt();
+        getContext().getWriter().addImport("strictParseInt32", "__strictParseInt32", "@aws-sdk/smithy-client");
+        return "__strictParseInt32(" + getDataSource() + ") as number";
     }
 
     @Override
     public String longShape(LongShape shape) {
-        return deserializeInt();
-    }
-
-    private String deserializeInt() {
-        getContext().getWriter().addImport("strictParseInt", "__strictParseInt", "@aws-sdk/smithy-client");
-        return "__strictParseInt(" + getDataSource() + ") as number";
+        getContext().getWriter().addImport("strictParseLong", "__strictParseLong", "@aws-sdk/smithy-client");
+        return "__strictParseLong(" + getDataSource() + ") as number";
     }
 
     @Override

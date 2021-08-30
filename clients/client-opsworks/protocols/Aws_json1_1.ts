@@ -311,9 +311,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -7134,12 +7134,12 @@ const deserializeAws_json1_1AutoScalingThresholds = (output: any, context: __Ser
       output.Alarms !== undefined && output.Alarms !== null
         ? deserializeAws_json1_1Strings(output.Alarms, context)
         : undefined,
-    CpuThreshold: __limitedParseFloat(output.CpuThreshold),
-    IgnoreMetricsTime: __expectInt(output.IgnoreMetricsTime),
-    InstanceCount: __expectInt(output.InstanceCount),
-    LoadThreshold: __limitedParseFloat(output.LoadThreshold),
-    MemoryThreshold: __limitedParseFloat(output.MemoryThreshold),
-    ThresholdsWaitTime: __expectInt(output.ThresholdsWaitTime),
+    CpuThreshold: __limitedParseDouble(output.CpuThreshold),
+    IgnoreMetricsTime: __expectInt32(output.IgnoreMetricsTime),
+    InstanceCount: __expectInt32(output.InstanceCount),
+    LoadThreshold: __limitedParseDouble(output.LoadThreshold),
+    MemoryThreshold: __limitedParseDouble(output.MemoryThreshold),
+    ThresholdsWaitTime: __expectInt32(output.ThresholdsWaitTime),
   } as any;
 };
 
@@ -7197,9 +7197,9 @@ const deserializeAws_json1_1CloudWatchLogsLogStream = (
   context: __SerdeContext
 ): CloudWatchLogsLogStream => {
   return {
-    BatchCount: __expectInt(output.BatchCount),
-    BatchSize: __expectInt(output.BatchSize),
-    BufferDuration: __expectInt(output.BufferDuration),
+    BatchCount: __expectInt32(output.BatchCount),
+    BatchSize: __expectInt32(output.BatchSize),
+    BufferDuration: __expectInt32(output.BufferDuration),
     DatetimeFormat: __expectString(output.DatetimeFormat),
     Encoding: __expectString(output.Encoding),
     File: __expectString(output.File),
@@ -7232,7 +7232,7 @@ const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Co
     CompletedAt: __expectString(output.CompletedAt),
     CreatedAt: __expectString(output.CreatedAt),
     DeploymentId: __expectString(output.DeploymentId),
-    ExitCode: __expectInt(output.ExitCode),
+    ExitCode: __expectInt32(output.ExitCode),
     InstanceId: __expectString(output.InstanceId),
     LogUrl: __expectString(output.LogUrl),
     Status: __expectString(output.Status),
@@ -7336,7 +7336,7 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
     CreatedAt: __expectString(output.CreatedAt),
     CustomJson: __expectString(output.CustomJson),
     DeploymentId: __expectString(output.DeploymentId),
-    Duration: __expectInt(output.Duration),
+    Duration: __expectInt32(output.Duration),
     IamUserArn: __expectString(output.IamUserArn),
     InstanceIds:
       output.InstanceIds !== undefined && output.InstanceIds !== null
@@ -7635,9 +7635,9 @@ const deserializeAws_json1_1DescribeVolumesResult = (output: any, context: __Ser
 const deserializeAws_json1_1EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice => {
   return {
     DeleteOnTermination: __expectBoolean(output.DeleteOnTermination),
-    Iops: __expectInt(output.Iops),
+    Iops: __expectInt32(output.Iops),
     SnapshotId: __expectString(output.SnapshotId),
-    VolumeSize: __expectInt(output.VolumeSize),
+    VolumeSize: __expectInt32(output.VolumeSize),
     VolumeType: __expectString(output.VolumeType),
   } as any;
 };
@@ -7826,26 +7826,26 @@ const deserializeAws_json1_1Instances = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1InstancesCount = (output: any, context: __SerdeContext): InstancesCount => {
   return {
-    Assigning: __expectInt(output.Assigning),
-    Booting: __expectInt(output.Booting),
-    ConnectionLost: __expectInt(output.ConnectionLost),
-    Deregistering: __expectInt(output.Deregistering),
-    Online: __expectInt(output.Online),
-    Pending: __expectInt(output.Pending),
-    Rebooting: __expectInt(output.Rebooting),
-    Registered: __expectInt(output.Registered),
-    Registering: __expectInt(output.Registering),
-    Requested: __expectInt(output.Requested),
-    RunningSetup: __expectInt(output.RunningSetup),
-    SetupFailed: __expectInt(output.SetupFailed),
-    ShuttingDown: __expectInt(output.ShuttingDown),
-    StartFailed: __expectInt(output.StartFailed),
-    StopFailed: __expectInt(output.StopFailed),
-    Stopped: __expectInt(output.Stopped),
-    Stopping: __expectInt(output.Stopping),
-    Terminated: __expectInt(output.Terminated),
-    Terminating: __expectInt(output.Terminating),
-    Unassigning: __expectInt(output.Unassigning),
+    Assigning: __expectInt32(output.Assigning),
+    Booting: __expectInt32(output.Booting),
+    ConnectionLost: __expectInt32(output.ConnectionLost),
+    Deregistering: __expectInt32(output.Deregistering),
+    Online: __expectInt32(output.Online),
+    Pending: __expectInt32(output.Pending),
+    Rebooting: __expectInt32(output.Rebooting),
+    Registered: __expectInt32(output.Registered),
+    Registering: __expectInt32(output.Registering),
+    Requested: __expectInt32(output.Requested),
+    RunningSetup: __expectInt32(output.RunningSetup),
+    SetupFailed: __expectInt32(output.SetupFailed),
+    ShuttingDown: __expectInt32(output.ShuttingDown),
+    StartFailed: __expectInt32(output.StartFailed),
+    StopFailed: __expectInt32(output.StopFailed),
+    Stopped: __expectInt32(output.Stopped),
+    Stopping: __expectInt32(output.Stopping),
+    Terminated: __expectInt32(output.Terminated),
+    Terminating: __expectInt32(output.Terminating),
+    Unassigning: __expectInt32(output.Unassigning),
   } as any;
 };
 
@@ -8071,13 +8071,13 @@ const deserializeAws_json1_1RaidArray = (output: any, context: __SerdeContext): 
     CreatedAt: __expectString(output.CreatedAt),
     Device: __expectString(output.Device),
     InstanceId: __expectString(output.InstanceId),
-    Iops: __expectInt(output.Iops),
+    Iops: __expectInt32(output.Iops),
     MountPoint: __expectString(output.MountPoint),
     Name: __expectString(output.Name),
-    NumberOfDisks: __expectInt(output.NumberOfDisks),
+    NumberOfDisks: __expectInt32(output.NumberOfDisks),
     RaidArrayId: __expectString(output.RaidArrayId),
-    RaidLevel: __expectInt(output.RaidLevel),
-    Size: __expectInt(output.Size),
+    RaidLevel: __expectInt32(output.RaidLevel),
+    Size: __expectInt32(output.Size),
     StackId: __expectString(output.StackId),
     VolumeType: __expectString(output.VolumeType),
   } as any;
@@ -8228,7 +8228,7 @@ const deserializeAws_json1_1ShutdownEventConfiguration = (
 ): ShutdownEventConfiguration => {
   return {
     DelayUntilElbConnectionsDrained: __expectBoolean(output.DelayUntilElbConnectionsDrained),
-    ExecutionTimeout: __expectInt(output.ExecutionTimeout),
+    ExecutionTimeout: __expectInt32(output.ExecutionTimeout),
   } as any;
 };
 
@@ -8328,13 +8328,13 @@ const deserializeAws_json1_1Stacks = (output: any, context: __SerdeContext): Sta
 
 const deserializeAws_json1_1StackSummary = (output: any, context: __SerdeContext): StackSummary => {
   return {
-    AppsCount: __expectInt(output.AppsCount),
+    AppsCount: __expectInt32(output.AppsCount),
     Arn: __expectString(output.Arn),
     InstancesCount:
       output.InstancesCount !== undefined && output.InstancesCount !== null
         ? deserializeAws_json1_1InstancesCount(output.InstancesCount, context)
         : undefined,
-    LayersCount: __expectInt(output.LayersCount),
+    LayersCount: __expectInt32(output.LayersCount),
     Name: __expectString(output.Name),
     StackId: __expectString(output.StackId),
   } as any;
@@ -8368,7 +8368,7 @@ const deserializeAws_json1_1TemporaryCredential = (output: any, context: __Serde
     InstanceId: __expectString(output.InstanceId),
     Password: __expectString(output.Password),
     Username: __expectString(output.Username),
-    ValidForInMinutes: __expectInt(output.ValidForInMinutes),
+    ValidForInMinutes: __expectInt32(output.ValidForInMinutes),
   } as any;
 };
 
@@ -8433,12 +8433,12 @@ const deserializeAws_json1_1Volume = (output: any, context: __SerdeContext): Vol
     Ec2VolumeId: __expectString(output.Ec2VolumeId),
     Encrypted: __expectBoolean(output.Encrypted),
     InstanceId: __expectString(output.InstanceId),
-    Iops: __expectInt(output.Iops),
+    Iops: __expectInt32(output.Iops),
     MountPoint: __expectString(output.MountPoint),
     Name: __expectString(output.Name),
     RaidArrayId: __expectString(output.RaidArrayId),
     Region: __expectString(output.Region),
-    Size: __expectInt(output.Size),
+    Size: __expectInt32(output.Size),
     Status: __expectString(output.Status),
     VolumeId: __expectString(output.VolumeId),
     VolumeType: __expectString(output.VolumeType),
@@ -8448,11 +8448,11 @@ const deserializeAws_json1_1Volume = (output: any, context: __SerdeContext): Vol
 const deserializeAws_json1_1VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
   return {
     Encrypted: __expectBoolean(output.Encrypted),
-    Iops: __expectInt(output.Iops),
+    Iops: __expectInt32(output.Iops),
     MountPoint: __expectString(output.MountPoint),
-    NumberOfDisks: __expectInt(output.NumberOfDisks),
-    RaidLevel: __expectInt(output.RaidLevel),
-    Size: __expectInt(output.Size),
+    NumberOfDisks: __expectInt32(output.NumberOfDisks),
+    RaidLevel: __expectInt32(output.RaidLevel),
+    Size: __expectInt32(output.Size),
     VolumeType: __expectString(output.VolumeType),
   } as any;
 };

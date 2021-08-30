@@ -26,7 +26,8 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -392,13 +393,13 @@ export const deserializeAws_restJson1GetRetainedMessageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.lastModifiedTime !== undefined && data.lastModifiedTime !== null) {
-    contents.lastModifiedTime = __expectInt(data.lastModifiedTime);
+    contents.lastModifiedTime = __expectLong(data.lastModifiedTime);
   }
   if (data.payload !== undefined && data.payload !== null) {
     contents.payload = context.base64Decoder(data.payload);
   }
   if (data.qos !== undefined && data.qos !== null) {
-    contents.qos = __expectInt(data.qos);
+    contents.qos = __expectInt32(data.qos);
   }
   if (data.topic !== undefined && data.topic !== null) {
     contents.topic = __expectString(data.topic);
@@ -621,7 +622,7 @@ export const deserializeAws_restJson1ListNamedShadowsForThingCommand = async (
     contents.results = deserializeAws_restJson1NamedShadowList(data.results, context);
   }
   if (data.timestamp !== undefined && data.timestamp !== null) {
-    contents.timestamp = __expectInt(data.timestamp);
+    contents.timestamp = __expectLong(data.timestamp);
   }
   return Promise.resolve(contents);
 };
@@ -1202,9 +1203,9 @@ const deserializeAws_restJson1RetainedMessageSummary = (
   context: __SerdeContext
 ): RetainedMessageSummary => {
   return {
-    lastModifiedTime: __expectInt(output.lastModifiedTime),
-    payloadSize: __expectInt(output.payloadSize),
-    qos: __expectInt(output.qos),
+    lastModifiedTime: __expectLong(output.lastModifiedTime),
+    payloadSize: __expectLong(output.payloadSize),
+    qos: __expectInt32(output.qos),
     topic: __expectString(output.topic),
   } as any;
 };

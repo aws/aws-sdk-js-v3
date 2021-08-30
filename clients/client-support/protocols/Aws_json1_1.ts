@@ -97,9 +97,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1969,7 +1969,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus = (
 ): TrustedAdvisorCheckRefreshStatus => {
   return {
     checkId: __expectString(output.checkId),
-    millisUntilNextRefreshable: __expectInt(output.millisUntilNextRefreshable),
+    millisUntilNextRefreshable: __expectLong(output.millisUntilNextRefreshable),
     status: __expectString(output.status),
   } as any;
 };
@@ -2050,8 +2050,8 @@ const deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary = (
   context: __SerdeContext
 ): TrustedAdvisorCostOptimizingSummary => {
   return {
-    estimatedMonthlySavings: __limitedParseFloat(output.estimatedMonthlySavings),
-    estimatedPercentMonthlySavings: __limitedParseFloat(output.estimatedPercentMonthlySavings),
+    estimatedMonthlySavings: __limitedParseDouble(output.estimatedMonthlySavings),
+    estimatedPercentMonthlySavings: __limitedParseDouble(output.estimatedPercentMonthlySavings),
   } as any;
 };
 
@@ -2090,10 +2090,10 @@ const deserializeAws_json1_1TrustedAdvisorResourcesSummary = (
   context: __SerdeContext
 ): TrustedAdvisorResourcesSummary => {
   return {
-    resourcesFlagged: __expectInt(output.resourcesFlagged),
-    resourcesIgnored: __expectInt(output.resourcesIgnored),
-    resourcesProcessed: __expectInt(output.resourcesProcessed),
-    resourcesSuppressed: __expectInt(output.resourcesSuppressed),
+    resourcesFlagged: __expectLong(output.resourcesFlagged),
+    resourcesIgnored: __expectLong(output.resourcesIgnored),
+    resourcesProcessed: __expectLong(output.resourcesProcessed),
+    resourcesSuppressed: __expectLong(output.resourcesSuppressed),
   } as any;
 };
 

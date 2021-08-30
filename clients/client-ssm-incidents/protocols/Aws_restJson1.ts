@@ -109,7 +109,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -4082,7 +4082,7 @@ const deserializeAws_restJson1IncidentRecord = (output: any, context: __SerdeCon
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
     dedupeString: __expectString(output.dedupeString),
-    impact: __expectInt(output.impact),
+    impact: __expectInt32(output.impact),
     incidentRecordSource:
       output.incidentRecordSource !== undefined && output.incidentRecordSource !== null
         ? deserializeAws_restJson1IncidentRecordSource(output.incidentRecordSource, context)
@@ -4122,7 +4122,7 @@ const deserializeAws_restJson1IncidentRecordSummary = (output: any, context: __S
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    impact: __expectInt(output.impact),
+    impact: __expectInt32(output.impact),
     incidentRecordSource:
       output.incidentRecordSource !== undefined && output.incidentRecordSource !== null
         ? deserializeAws_restJson1IncidentRecordSource(output.incidentRecordSource, context)
@@ -4153,7 +4153,7 @@ const deserializeAws_restJson1IncidentRecordSummaryList = (
 const deserializeAws_restJson1IncidentTemplate = (output: any, context: __SerdeContext): IncidentTemplate => {
   return {
     dedupeString: __expectString(output.dedupeString),
-    impact: __expectInt(output.impact),
+    impact: __expectInt32(output.impact),
     notificationTargets:
       output.notificationTargets !== undefined && output.notificationTargets !== null
         ? deserializeAws_restJson1NotificationTargetSet(output.notificationTargets, context)

@@ -141,7 +141,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3374,7 +3374,7 @@ const deserializeAws_json1_1CrlConfiguration = (output: any, context: __SerdeCon
   return {
     CustomCname: __expectString(output.CustomCname),
     Enabled: __expectBoolean(output.Enabled),
-    ExpirationInDays: __expectInt(output.ExpirationInDays),
+    ExpirationInDays: __expectInt32(output.ExpirationInDays),
     S3BucketName: __expectString(output.S3BucketName),
     S3ObjectAcl: __expectString(output.S3ObjectAcl),
   } as any;

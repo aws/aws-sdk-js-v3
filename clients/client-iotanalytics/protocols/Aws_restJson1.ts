@@ -147,10 +147,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5811,7 +5811,7 @@ const deserializeAws_restJson1DatastoreSummary = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DeltaTime = (output: any, context: __SerdeContext): DeltaTime => {
   return {
-    offsetSeconds: __expectInt(output.offsetSeconds),
+    offsetSeconds: __expectInt32(output.offsetSeconds),
     timeExpression: __expectString(output.timeExpression),
   } as any;
 };
@@ -5821,7 +5821,7 @@ const deserializeAws_restJson1DeltaTimeSessionWindowConfiguration = (
   context: __SerdeContext
 ): DeltaTimeSessionWindowConfiguration => {
   return {
-    timeoutInMinutes: __expectInt(output.timeoutInMinutes),
+    timeoutInMinutes: __expectInt32(output.timeoutInMinutes),
   } as any;
 };
 
@@ -5857,7 +5857,7 @@ const deserializeAws_restJson1EstimatedResourceSize = (output: any, context: __S
       output.estimatedOn !== undefined && output.estimatedOn !== null
         ? new Date(Math.round(output.estimatedOn * 1000))
         : undefined,
-    estimatedSizeInBytes: __limitedParseFloat(output.estimatedSizeInBytes),
+    estimatedSizeInBytes: __limitedParseDouble(output.estimatedSizeInBytes),
   } as any;
 };
 
@@ -5928,7 +5928,7 @@ const deserializeAws_restJson1JsonConfiguration = (output: any, context: __Serde
 
 const deserializeAws_restJson1LambdaActivity = (output: any, context: __SerdeContext): LambdaActivity => {
   return {
-    batchSize: __expectInt(output.batchSize),
+    batchSize: __expectInt32(output.batchSize),
     lambdaName: __expectString(output.lambdaName),
     name: __expectString(output.name),
     next: __expectString(output.next),
@@ -6198,13 +6198,13 @@ const deserializeAws_restJson1ReprocessingSummary = (output: any, context: __Ser
 const deserializeAws_restJson1ResourceConfiguration = (output: any, context: __SerdeContext): ResourceConfiguration => {
   return {
     computeType: __expectString(output.computeType),
-    volumeSizeInGB: __expectInt(output.volumeSizeInGB),
+    volumeSizeInGB: __expectInt32(output.volumeSizeInGB),
   } as any;
 };
 
 const deserializeAws_restJson1RetentionPeriod = (output: any, context: __SerdeContext): RetentionPeriod => {
   return {
-    numberOfDays: __expectInt(output.numberOfDays),
+    numberOfDays: __expectInt32(output.numberOfDays),
     unlimited: __expectBoolean(output.unlimited),
   } as any;
 };
@@ -6328,7 +6328,7 @@ const deserializeAws_restJson1Variable = (output: any, context: __SerdeContext):
       output.datasetContentVersionValue !== undefined && output.datasetContentVersionValue !== null
         ? deserializeAws_restJson1DatasetContentVersionValue(output.datasetContentVersionValue, context)
         : undefined,
-    doubleValue: __limitedParseFloat(output.doubleValue),
+    doubleValue: __limitedParseDouble(output.doubleValue),
     name: __expectString(output.name),
     outputFileUriValue:
       output.outputFileUriValue !== undefined && output.outputFileUriValue !== null
@@ -6354,7 +6354,7 @@ const deserializeAws_restJson1VersioningConfiguration = (
   context: __SerdeContext
 ): VersioningConfiguration => {
   return {
-    maxVersions: __expectInt(output.maxVersions),
+    maxVersions: __expectInt32(output.maxVersions),
     unlimited: __expectBoolean(output.unlimited),
   } as any;
 };

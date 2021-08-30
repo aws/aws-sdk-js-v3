@@ -160,7 +160,11 @@ import {
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
-import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3286,7 +3290,7 @@ const deserializeAws_json1_1DnsProperties = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1DnsRecord = (output: any, context: __SerdeContext): DnsRecord => {
   return {
-    TTL: __expectInt(output.TTL),
+    TTL: __expectLong(output.TTL),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -3360,7 +3364,7 @@ const deserializeAws_json1_1GetServiceResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1HealthCheckConfig = (output: any, context: __SerdeContext): HealthCheckConfig => {
   return {
-    FailureThreshold: __expectInt(output.FailureThreshold),
+    FailureThreshold: __expectInt32(output.FailureThreshold),
     ResourcePath: __expectString(output.ResourcePath),
     Type: __expectString(output.Type),
   } as any;
@@ -3371,7 +3375,7 @@ const deserializeAws_json1_1HealthCheckCustomConfig = (
   context: __SerdeContext
 ): HealthCheckCustomConfig => {
   return {
-    FailureThreshold: __expectInt(output.FailureThreshold),
+    FailureThreshold: __expectInt32(output.FailureThreshold),
   } as any;
 };
 
@@ -3531,7 +3535,7 @@ const deserializeAws_json1_1Namespace = (output: any, context: __SerdeContext): 
       output.Properties !== undefined && output.Properties !== null
         ? deserializeAws_json1_1NamespaceProperties(output.Properties, context)
         : undefined,
-    ServiceCount: __expectInt(output.ServiceCount),
+    ServiceCount: __expectInt32(output.ServiceCount),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -3588,7 +3592,7 @@ const deserializeAws_json1_1NamespaceSummary = (output: any, context: __SerdeCon
       output.Properties !== undefined && output.Properties !== null
         ? deserializeAws_json1_1NamespaceProperties(output.Properties, context)
         : undefined,
-    ServiceCount: __expectInt(output.ServiceCount),
+    ServiceCount: __expectInt32(output.ServiceCount),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -3712,7 +3716,7 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
         ? deserializeAws_json1_1HealthCheckCustomConfig(output.HealthCheckCustomConfig, context)
         : undefined,
     Id: __expectString(output.Id),
-    InstanceCount: __expectInt(output.InstanceCount),
+    InstanceCount: __expectInt32(output.InstanceCount),
     Name: __expectString(output.Name),
     NamespaceId: __expectString(output.NamespaceId),
     Type: __expectString(output.Type),
@@ -3765,7 +3769,7 @@ const deserializeAws_json1_1ServiceSummary = (output: any, context: __SerdeConte
         ? deserializeAws_json1_1HealthCheckCustomConfig(output.HealthCheckCustomConfig, context)
         : undefined,
     Id: __expectString(output.Id),
-    InstanceCount: __expectInt(output.InstanceCount),
+    InstanceCount: __expectInt32(output.InstanceCount),
     Name: __expectString(output.Name),
     Type: __expectString(output.Type),
   } as any;
@@ -3773,7 +3777,7 @@ const deserializeAws_json1_1ServiceSummary = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1SOA = (output: any, context: __SerdeContext): SOA => {
   return {
-    TTL: __expectInt(output.TTL),
+    TTL: __expectLong(output.TTL),
   } as any;
 };
 

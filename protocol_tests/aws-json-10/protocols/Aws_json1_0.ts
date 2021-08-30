@@ -36,9 +36,10 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -737,8 +738,8 @@ const deserializeAws_json1_0MyUnion = (output: any, context: __SerdeContext): My
       mapValue: deserializeAws_json1_0StringMap(output.mapValue, context),
     };
   }
-  if (__expectInt(output.numberValue) !== undefined) {
-    return { numberValue: __expectInt(output.numberValue) as any };
+  if (__expectInt32(output.numberValue) !== undefined) {
+    return { numberValue: __expectInt32(output.numberValue) as any };
   }
   if (__expectString(output.stringValue) !== undefined) {
     return { stringValue: __expectString(output.stringValue) as any };
@@ -765,8 +766,8 @@ const deserializeAws_json1_0SimpleScalarPropertiesInputOutput = (
   context: __SerdeContext
 ): SimpleScalarPropertiesInputOutput => {
   return {
-    doubleValue: __limitedParseFloat(output.doubleValue),
-    floatValue: __limitedParseFloat(output.floatValue),
+    doubleValue: __limitedParseDouble(output.doubleValue),
+    floatValue: __limitedParseFloat32(output.floatValue),
   } as any;
 };
 

@@ -129,11 +129,12 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
-  strictParseInt as __strictParseInt,
+  limitedParseDouble as __limitedParseDouble,
+  strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -847,16 +848,16 @@ export const deserializeAws_restJson1DescribeAccountHealthCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.MetricsAnalyzed !== undefined && data.MetricsAnalyzed !== null) {
-    contents.MetricsAnalyzed = __expectInt(data.MetricsAnalyzed);
+    contents.MetricsAnalyzed = __expectInt32(data.MetricsAnalyzed);
   }
   if (data.OpenProactiveInsights !== undefined && data.OpenProactiveInsights !== null) {
-    contents.OpenProactiveInsights = __expectInt(data.OpenProactiveInsights);
+    contents.OpenProactiveInsights = __expectInt32(data.OpenProactiveInsights);
   }
   if (data.OpenReactiveInsights !== undefined && data.OpenReactiveInsights !== null) {
-    contents.OpenReactiveInsights = __expectInt(data.OpenReactiveInsights);
+    contents.OpenReactiveInsights = __expectInt32(data.OpenReactiveInsights);
   }
   if (data.ResourceHours !== undefined && data.ResourceHours !== null) {
-    contents.ResourceHours = __expectInt(data.ResourceHours);
+    contents.ResourceHours = __expectLong(data.ResourceHours);
   }
   return Promise.resolve(contents);
 };
@@ -937,13 +938,13 @@ export const deserializeAws_restJson1DescribeAccountOverviewCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.MeanTimeToRecoverInMilliseconds !== undefined && data.MeanTimeToRecoverInMilliseconds !== null) {
-    contents.MeanTimeToRecoverInMilliseconds = __expectInt(data.MeanTimeToRecoverInMilliseconds);
+    contents.MeanTimeToRecoverInMilliseconds = __expectLong(data.MeanTimeToRecoverInMilliseconds);
   }
   if (data.ProactiveInsights !== undefined && data.ProactiveInsights !== null) {
-    contents.ProactiveInsights = __expectInt(data.ProactiveInsights);
+    contents.ProactiveInsights = __expectInt32(data.ProactiveInsights);
   }
   if (data.ReactiveInsights !== undefined && data.ReactiveInsights !== null) {
-    contents.ReactiveInsights = __expectInt(data.ReactiveInsights);
+    contents.ReactiveInsights = __expectInt32(data.ReactiveInsights);
   }
   return Promise.resolve(contents);
 };
@@ -1480,7 +1481,7 @@ export const deserializeAws_restJson1GetCostEstimationCommand = async (
     contents.TimeRange = deserializeAws_restJson1CostEstimationTimeRange(data.TimeRange, context);
   }
   if (data.TotalCost !== undefined && data.TotalCost !== null) {
-    contents.TotalCost = __limitedParseFloat(data.TotalCost);
+    contents.TotalCost = __limitedParseDouble(data.TotalCost);
   }
   return Promise.resolve(contents);
 };
@@ -2672,7 +2673,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
     RetryAfterSeconds: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
+    contents.RetryAfterSeconds = __strictParseInt32(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -2737,7 +2738,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     ServiceCode: undefined,
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.RetryAfterSeconds = __strictParseInt(parsedOutput.headers["retry-after"]);
+    contents.RetryAfterSeconds = __strictParseInt32(parsedOutput.headers["retry-after"]);
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -3187,7 +3188,7 @@ const deserializeAws_restJson1CloudWatchMetricsDetail = (
         : undefined,
     MetricName: __expectString(output.MetricName),
     Namespace: __expectString(output.Namespace),
-    Period: __expectInt(output.Period),
+    Period: __expectInt32(output.Period),
     Stat: __expectString(output.Stat),
     Unit: __expectString(output.Unit),
   } as any;
@@ -3326,9 +3327,9 @@ const deserializeAws_restJson1InsightFeedback = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1InsightHealth = (output: any, context: __SerdeContext): InsightHealth => {
   return {
-    MeanTimeToRecoverInMilliseconds: __expectInt(output.MeanTimeToRecoverInMilliseconds),
-    OpenProactiveInsights: __expectInt(output.OpenProactiveInsights),
-    OpenReactiveInsights: __expectInt(output.OpenReactiveInsights),
+    MeanTimeToRecoverInMilliseconds: __expectLong(output.MeanTimeToRecoverInMilliseconds),
+    OpenProactiveInsights: __expectInt32(output.OpenProactiveInsights),
+    OpenReactiveInsights: __expectInt32(output.OpenReactiveInsights),
   } as any;
 };
 
@@ -3408,7 +3409,7 @@ const deserializeAws_restJson1ProactiveAnomaly = (output: any, context: __SerdeC
         : undefined,
     AssociatedInsightId: __expectString(output.AssociatedInsightId),
     Id: __expectString(output.Id),
-    Limit: __limitedParseFloat(output.Limit),
+    Limit: __limitedParseDouble(output.Limit),
     PredictionTimeRange:
       output.PredictionTimeRange !== undefined && output.PredictionTimeRange !== null
         ? deserializeAws_restJson1PredictionTimeRange(output.PredictionTimeRange, context)
@@ -3445,7 +3446,7 @@ const deserializeAws_restJson1ProactiveAnomalySummary = (
         : undefined,
     AssociatedInsightId: __expectString(output.AssociatedInsightId),
     Id: __expectString(output.Id),
-    Limit: __limitedParseFloat(output.Limit),
+    Limit: __limitedParseDouble(output.Limit),
     PredictionTimeRange:
       output.PredictionTimeRange !== undefined && output.PredictionTimeRange !== null
         ? deserializeAws_restJson1PredictionTimeRange(output.PredictionTimeRange, context)
@@ -3881,8 +3882,8 @@ const deserializeAws_restJson1ServiceHealths = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1ServiceInsightHealth = (output: any, context: __SerdeContext): ServiceInsightHealth => {
   return {
-    OpenProactiveInsights: __expectInt(output.OpenProactiveInsights),
-    OpenReactiveInsights: __expectInt(output.OpenReactiveInsights),
+    OpenProactiveInsights: __expectInt32(output.OpenProactiveInsights),
+    OpenReactiveInsights: __expectInt32(output.OpenReactiveInsights),
   } as any;
 };
 
@@ -3911,11 +3912,11 @@ const deserializeAws_restJson1ServiceNames = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ServiceResourceCost = (output: any, context: __SerdeContext): ServiceResourceCost => {
   return {
-    Cost: __limitedParseFloat(output.Cost),
-    Count: __expectInt(output.Count),
+    Cost: __limitedParseDouble(output.Cost),
+    Count: __expectInt32(output.Count),
     State: __expectString(output.State),
     Type: __expectString(output.Type),
-    UnitCost: __limitedParseFloat(output.UnitCost),
+    UnitCost: __limitedParseDouble(output.UnitCost),
   } as any;
 };
 

@@ -127,9 +127,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3092,7 +3092,7 @@ const deserializeAws_json1_1QuotaExceededException = (output: any, context: __Se
 const deserializeAws_json1_1QuotaPeriod = (output: any, context: __SerdeContext): QuotaPeriod => {
   return {
     PeriodUnit: __expectString(output.PeriodUnit),
-    PeriodValue: __expectInt(output.PeriodValue),
+    PeriodValue: __expectInt32(output.PeriodValue),
   } as any;
 };
 
@@ -3104,7 +3104,7 @@ const deserializeAws_json1_1RequestedServiceQuotaChange = (
     CaseId: __expectString(output.CaseId),
     Created:
       output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
-    DesiredValue: __limitedParseFloat(output.DesiredValue),
+    DesiredValue: __limitedParseDouble(output.DesiredValue),
     GlobalQuota: __expectBoolean(output.GlobalQuota),
     Id: __expectString(output.Id),
     LastUpdated:
@@ -3203,7 +3203,7 @@ const deserializeAws_json1_1ServiceQuota = (output: any, context: __SerdeContext
       output.UsageMetric !== undefined && output.UsageMetric !== null
         ? deserializeAws_json1_1MetricInfo(output.UsageMetric, context)
         : undefined,
-    Value: __limitedParseFloat(output.Value),
+    Value: __limitedParseDouble(output.Value),
   } as any;
 };
 
@@ -3213,7 +3213,7 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate = (
 ): ServiceQuotaIncreaseRequestInTemplate => {
   return {
     AwsRegion: __expectString(output.AwsRegion),
-    DesiredValue: __limitedParseFloat(output.DesiredValue),
+    DesiredValue: __limitedParseDouble(output.DesiredValue),
     GlobalQuota: __expectBoolean(output.GlobalQuota),
     QuotaCode: __expectString(output.QuotaCode),
     QuotaName: __expectString(output.QuotaName),

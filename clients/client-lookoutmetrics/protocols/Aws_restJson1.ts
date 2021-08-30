@@ -105,10 +105,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1860,7 +1860,7 @@ export const deserializeAws_restJson1DescribeMetricSetCommand = async (
     contents.MetricSource = deserializeAws_restJson1MetricSource(data.MetricSource, context);
   }
   if (data.Offset !== undefined && data.Offset !== null) {
-    contents.Offset = __expectInt(data.Offset);
+    contents.Offset = __expectInt32(data.Offset);
   }
   if (data.TimestampColumn !== undefined && data.TimestampColumn !== null) {
     contents.TimestampColumn = deserializeAws_restJson1TimestampColumn(data.TimestampColumn, context);
@@ -3653,7 +3653,7 @@ const deserializeAws_restJson1Alert = (output: any, context: __SerdeContext): Al
     AlertArn: __expectString(output.AlertArn),
     AlertDescription: __expectString(output.AlertDescription),
     AlertName: __expectString(output.AlertName),
-    AlertSensitivityThreshold: __expectInt(output.AlertSensitivityThreshold),
+    AlertSensitivityThreshold: __expectInt32(output.AlertSensitivityThreshold),
     AlertStatus: __expectString(output.AlertStatus),
     AlertType: __expectString(output.AlertType),
     AnomalyDetectorArn: __expectString(output.AnomalyDetectorArn),
@@ -3672,7 +3672,7 @@ const deserializeAws_restJson1AlertSummary = (output: any, context: __SerdeConte
   return {
     AlertArn: __expectString(output.AlertArn),
     AlertName: __expectString(output.AlertName),
-    AlertSensitivityThreshold: __expectInt(output.AlertSensitivityThreshold),
+    AlertSensitivityThreshold: __expectInt32(output.AlertSensitivityThreshold),
     AlertStatus: __expectString(output.AlertStatus),
     AlertType: __expectString(output.AlertType),
     AnomalyDetectorArn: __expectString(output.AnomalyDetectorArn),
@@ -3752,7 +3752,7 @@ const deserializeAws_restJson1AnomalyDetectorSummaryList = (
 const deserializeAws_restJson1AnomalyGroup = (output: any, context: __SerdeContext): AnomalyGroup => {
   return {
     AnomalyGroupId: __expectString(output.AnomalyGroupId),
-    AnomalyGroupScore: __limitedParseFloat(output.AnomalyGroupScore),
+    AnomalyGroupScore: __limitedParseDouble(output.AnomalyGroupScore),
     EndTime: __expectString(output.EndTime),
     MetricLevelImpactList:
       output.MetricLevelImpactList !== undefined && output.MetricLevelImpactList !== null
@@ -3773,14 +3773,14 @@ const deserializeAws_restJson1AnomalyGroupStatistics = (
       output.ItemizedMetricStatsList !== undefined && output.ItemizedMetricStatsList !== null
         ? deserializeAws_restJson1ItemizedMetricStatsList(output.ItemizedMetricStatsList, context)
         : undefined,
-    TotalCount: __expectInt(output.TotalCount),
+    TotalCount: __expectInt32(output.TotalCount),
   } as any;
 };
 
 const deserializeAws_restJson1AnomalyGroupSummary = (output: any, context: __SerdeContext): AnomalyGroupSummary => {
   return {
     AnomalyGroupId: __expectString(output.AnomalyGroupId),
-    AnomalyGroupScore: __limitedParseFloat(output.AnomalyGroupScore),
+    AnomalyGroupScore: __limitedParseDouble(output.AnomalyGroupScore),
     EndTime: __expectString(output.EndTime),
     PrimaryMetricName: __expectString(output.PrimaryMetricName),
     StartTime: __expectString(output.StartTime),
@@ -3895,7 +3895,7 @@ const deserializeAws_restJson1DimensionValueContribution = (
   context: __SerdeContext
 ): DimensionValueContribution => {
   return {
-    ContributionScore: __limitedParseFloat(output.ContributionScore),
+    ContributionScore: __limitedParseDouble(output.ContributionScore),
     DimensionValue: __expectString(output.DimensionValue),
   } as any;
 };
@@ -3982,7 +3982,7 @@ const deserializeAws_restJson1HistoricalDataPathList = (output: any, context: __
 const deserializeAws_restJson1ItemizedMetricStats = (output: any, context: __SerdeContext): ItemizedMetricStats => {
   return {
     MetricName: __expectString(output.MetricName),
-    OccurrenceCount: __expectInt(output.OccurrenceCount),
+    OccurrenceCount: __expectInt32(output.OccurrenceCount),
   } as any;
 };
 
@@ -4029,7 +4029,7 @@ const deserializeAws_restJson1MetricLevelImpact = (output: any, context: __Serde
         ? deserializeAws_restJson1ContributionMatrix(output.ContributionMatrix, context)
         : undefined,
     MetricName: __expectString(output.MetricName),
-    NumTimeSeries: __expectInt(output.NumTimeSeries),
+    NumTimeSeries: __expectInt32(output.NumTimeSeries),
   } as any;
 };
 
@@ -4119,7 +4119,7 @@ const deserializeAws_restJson1MetricValueList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return __limitedParseFloat(entry) as any;
+      return __limitedParseDouble(entry) as any;
     });
 };
 
@@ -4128,7 +4128,7 @@ const deserializeAws_restJson1RDSSourceConfig = (output: any, context: __SerdeCo
     DBInstanceIdentifier: __expectString(output.DBInstanceIdentifier),
     DatabaseHost: __expectString(output.DatabaseHost),
     DatabaseName: __expectString(output.DatabaseName),
-    DatabasePort: __expectInt(output.DatabasePort),
+    DatabasePort: __expectInt32(output.DatabasePort),
     RoleArn: __expectString(output.RoleArn),
     SecretManagerArn: __expectString(output.SecretManagerArn),
     TableName: __expectString(output.TableName),
@@ -4144,7 +4144,7 @@ const deserializeAws_restJson1RedshiftSourceConfig = (output: any, context: __Se
     ClusterIdentifier: __expectString(output.ClusterIdentifier),
     DatabaseHost: __expectString(output.DatabaseHost),
     DatabaseName: __expectString(output.DatabaseName),
-    DatabasePort: __expectInt(output.DatabasePort),
+    DatabasePort: __expectInt32(output.DatabasePort),
     RoleArn: __expectString(output.RoleArn),
     SecretManagerArn: __expectString(output.SecretManagerArn),
     TableName: __expectString(output.TableName),

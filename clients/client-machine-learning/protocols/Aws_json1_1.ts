@@ -146,9 +146,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseFloat32 as __limitedParseFloat32,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3090,7 +3091,7 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
   return {
     BatchPredictionDataSourceId: __expectString(output.BatchPredictionDataSourceId),
     BatchPredictionId: __expectString(output.BatchPredictionId),
-    ComputeTime: __expectInt(output.ComputeTime),
+    ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -3101,7 +3102,7 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
         ? new Date(Math.round(output.FinishedAt * 1000))
         : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
-    InvalidRecordCount: __expectInt(output.InvalidRecordCount),
+    InvalidRecordCount: __expectLong(output.InvalidRecordCount),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
@@ -3115,7 +3116,7 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
         ? new Date(Math.round(output.StartedAt * 1000))
         : undefined,
     Status: __expectString(output.Status),
-    TotalRecordCount: __expectInt(output.TotalRecordCount),
+    TotalRecordCount: __expectLong(output.TotalRecordCount),
   } as any;
 };
 
@@ -3194,7 +3195,7 @@ const deserializeAws_json1_1CreateRealtimeEndpointOutput = (
 const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
     ComputeStatistics: __expectBoolean(output.ComputeStatistics),
-    ComputeTime: __expectInt(output.ComputeTime),
+    ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -3202,7 +3203,7 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     DataLocationS3: __expectString(output.DataLocationS3),
     DataRearrangement: __expectString(output.DataRearrangement),
-    DataSizeInBytes: __expectInt(output.DataSizeInBytes),
+    DataSizeInBytes: __expectLong(output.DataSizeInBytes),
     DataSourceId: __expectString(output.DataSourceId),
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
@@ -3214,7 +3215,7 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
         : undefined,
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
-    NumberOfFiles: __expectInt(output.NumberOfFiles),
+    NumberOfFiles: __expectLong(output.NumberOfFiles),
     RDSMetadata:
       output.RDSMetadata !== undefined && output.RDSMetadata !== null
         ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context)
@@ -3367,7 +3368,7 @@ const deserializeAws_json1_1DetailsMap = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext): Evaluation => {
   return {
-    ComputeTime: __expectInt(output.ComputeTime),
+    ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -3417,7 +3418,7 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
   return {
     BatchPredictionDataSourceId: __expectString(output.BatchPredictionDataSourceId),
     BatchPredictionId: __expectString(output.BatchPredictionId),
-    ComputeTime: __expectInt(output.ComputeTime),
+    ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -3428,7 +3429,7 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
         ? new Date(Math.round(output.FinishedAt * 1000))
         : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
-    InvalidRecordCount: __expectInt(output.InvalidRecordCount),
+    InvalidRecordCount: __expectLong(output.InvalidRecordCount),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
@@ -3443,14 +3444,14 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
         ? new Date(Math.round(output.StartedAt * 1000))
         : undefined,
     Status: __expectString(output.Status),
-    TotalRecordCount: __expectInt(output.TotalRecordCount),
+    TotalRecordCount: __expectLong(output.TotalRecordCount),
   } as any;
 };
 
 const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __SerdeContext): GetDataSourceOutput => {
   return {
     ComputeStatistics: __expectBoolean(output.ComputeStatistics),
-    ComputeTime: __expectInt(output.ComputeTime),
+    ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -3458,7 +3459,7 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     DataLocationS3: __expectString(output.DataLocationS3),
     DataRearrangement: __expectString(output.DataRearrangement),
-    DataSizeInBytes: __expectInt(output.DataSizeInBytes),
+    DataSizeInBytes: __expectLong(output.DataSizeInBytes),
     DataSourceId: __expectString(output.DataSourceId),
     DataSourceSchema: __expectString(output.DataSourceSchema),
     FinishedAt:
@@ -3472,7 +3473,7 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
     LogUri: __expectString(output.LogUri),
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
-    NumberOfFiles: __expectInt(output.NumberOfFiles),
+    NumberOfFiles: __expectLong(output.NumberOfFiles),
     RDSMetadata:
       output.RDSMetadata !== undefined && output.RDSMetadata !== null
         ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context)
@@ -3492,7 +3493,7 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
 
 const deserializeAws_json1_1GetEvaluationOutput = (output: any, context: __SerdeContext): GetEvaluationOutput => {
   return {
-    ComputeTime: __expectInt(output.ComputeTime),
+    ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -3527,7 +3528,7 @@ const deserializeAws_json1_1GetEvaluationOutput = (output: any, context: __Serde
 
 const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeContext): GetMLModelOutput => {
   return {
-    ComputeTime: __expectInt(output.ComputeTime),
+    ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -3553,12 +3554,12 @@ const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeCon
     Name: __expectString(output.Name),
     Recipe: __expectString(output.Recipe),
     Schema: __expectString(output.Schema),
-    ScoreThreshold: __limitedParseFloat(output.ScoreThreshold),
+    ScoreThreshold: __limitedParseFloat32(output.ScoreThreshold),
     ScoreThresholdLastUpdatedAt:
       output.ScoreThresholdLastUpdatedAt !== undefined && output.ScoreThresholdLastUpdatedAt !== null
         ? new Date(Math.round(output.ScoreThresholdLastUpdatedAt * 1000))
         : undefined,
-    SizeInBytes: __expectInt(output.SizeInBytes),
+    SizeInBytes: __expectLong(output.SizeInBytes),
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
         ? new Date(Math.round(output.StartedAt * 1000))
@@ -3577,7 +3578,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
   context: __SerdeContext
 ): IdempotentParameterMismatchException => {
   return {
-    code: __expectInt(output.code),
+    code: __expectInt32(output.code),
     message: __expectString(output.message),
   } as any;
 };
@@ -3587,14 +3588,14 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    code: __expectInt(output.code),
+    code: __expectInt32(output.code),
     message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    code: __expectInt(output.code),
+    code: __expectInt32(output.code),
     message: __expectString(output.message),
   } as any;
 };
@@ -3607,7 +3608,7 @@ const deserializeAws_json1_1InvalidTagException = (output: any, context: __Serde
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    code: __expectInt(output.code),
+    code: __expectInt32(output.code),
     message: __expectString(output.message),
   } as any;
 };
@@ -3615,7 +3616,7 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): MLModel => {
   return {
     Algorithm: __expectString(output.Algorithm),
-    ComputeTime: __expectInt(output.ComputeTime),
+    ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -3638,12 +3639,12 @@ const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): ML
     MLModelType: __expectString(output.MLModelType),
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
-    ScoreThreshold: __limitedParseFloat(output.ScoreThreshold),
+    ScoreThreshold: __limitedParseFloat32(output.ScoreThreshold),
     ScoreThresholdLastUpdatedAt:
       output.ScoreThresholdLastUpdatedAt !== undefined && output.ScoreThresholdLastUpdatedAt !== null
         ? new Date(Math.round(output.ScoreThresholdLastUpdatedAt * 1000))
         : undefined,
-    SizeInBytes: __expectInt(output.SizeInBytes),
+    SizeInBytes: __expectLong(output.SizeInBytes),
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
         ? new Date(Math.round(output.StartedAt * 1000))
@@ -3703,7 +3704,7 @@ const deserializeAws_json1_1Prediction = (output: any, context: __SerdeContext):
       output.predictedScores !== undefined && output.predictedScores !== null
         ? deserializeAws_json1_1ScoreValuePerLabelMap(output.predictedScores, context)
         : undefined,
-    predictedValue: __limitedParseFloat(output.predictedValue),
+    predictedValue: __limitedParseFloat32(output.predictedValue),
   } as any;
 };
 
@@ -3754,7 +3755,7 @@ const deserializeAws_json1_1RealtimeEndpointInfo = (output: any, context: __Serd
         : undefined,
     EndpointStatus: __expectString(output.EndpointStatus),
     EndpointUrl: __expectString(output.EndpointUrl),
-    PeakRequestsPerSecond: __expectInt(output.PeakRequestsPerSecond),
+    PeakRequestsPerSecond: __expectInt32(output.PeakRequestsPerSecond),
   } as any;
 };
 
@@ -3781,7 +3782,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    code: __expectInt(output.code),
+    code: __expectInt32(output.code),
     message: __expectString(output.message),
   } as any;
 };
@@ -3796,7 +3797,7 @@ const deserializeAws_json1_1ScoreValuePerLabelMap = (
     }
     return {
       ...acc,
-      [key]: __limitedParseFloat(value) as any,
+      [key]: __limitedParseFloat32(value) as any,
     };
   }, {});
 };

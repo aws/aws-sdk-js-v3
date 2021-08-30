@@ -297,7 +297,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -6554,7 +6555,7 @@ const deserializeAws_json1_1ByteMatchStatement = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1CheckCapacityResponse = (output: any, context: __SerdeContext): CheckCapacityResponse => {
   return {
-    Capacity: __expectInt(output.Capacity),
+    Capacity: __expectLong(output.Capacity),
   } as any;
 };
 
@@ -6674,7 +6675,7 @@ const deserializeAws_json1_1CustomRequestHandling = (output: any, context: __Ser
 const deserializeAws_json1_1CustomResponse = (output: any, context: __SerdeContext): CustomResponse => {
   return {
     CustomResponseBodyKey: __expectString(output.CustomResponseBodyKey),
-    ResponseCode: __expectInt(output.ResponseCode),
+    ResponseCode: __expectInt32(output.ResponseCode),
     ResponseHeaders:
       output.ResponseHeaders !== undefined && output.ResponseHeaders !== null
         ? deserializeAws_json1_1CustomHTTPHeaders(output.ResponseHeaders, context)
@@ -6771,7 +6772,7 @@ const deserializeAws_json1_1DescribeManagedRuleGroupResponse = (
       output.AvailableLabels !== undefined && output.AvailableLabels !== null
         ? deserializeAws_json1_1LabelSummaries(output.AvailableLabels, context)
         : undefined,
-    Capacity: __expectInt(output.Capacity),
+    Capacity: __expectLong(output.Capacity),
     ConsumedLabels:
       output.ConsumedLabels !== undefined && output.ConsumedLabels !== null
         ? deserializeAws_json1_1LabelSummaries(output.ConsumedLabels, context)
@@ -6881,7 +6882,7 @@ const deserializeAws_json1_1FirewallManagerRuleGroup = (
       output.OverrideAction !== undefined && output.OverrideAction !== null
         ? deserializeAws_json1_1OverrideAction(output.OverrideAction, context)
         : undefined,
-    Priority: __expectInt(output.Priority),
+    Priority: __expectInt32(output.Priority),
     VisibilityConfig:
       output.VisibilityConfig !== undefined && output.VisibilityConfig !== null
         ? deserializeAws_json1_1VisibilityConfig(output.VisibilityConfig, context)
@@ -7027,7 +7028,7 @@ const deserializeAws_json1_1GetSampledRequestsResponse = (
   context: __SerdeContext
 ): GetSampledRequestsResponse => {
   return {
-    PopulationSize: __expectInt(output.PopulationSize),
+    PopulationSize: __expectLong(output.PopulationSize),
     SampledRequests:
       output.SampledRequests !== undefined && output.SampledRequests !== null
         ? deserializeAws_json1_1SampledHTTPRequests(output.SampledRequests, context)
@@ -7524,12 +7525,12 @@ const deserializeAws_json1_1ManagedRuleSetSummary = (output: any, context: __Ser
 const deserializeAws_json1_1ManagedRuleSetVersion = (output: any, context: __SerdeContext): ManagedRuleSetVersion => {
   return {
     AssociatedRuleGroupArn: __expectString(output.AssociatedRuleGroupArn),
-    Capacity: __expectInt(output.Capacity),
+    Capacity: __expectLong(output.Capacity),
     ExpiryTimestamp:
       output.ExpiryTimestamp !== undefined && output.ExpiryTimestamp !== null
         ? new Date(Math.round(output.ExpiryTimestamp * 1000))
         : undefined,
-    ForecastedLifetime: __expectInt(output.ForecastedLifetime),
+    ForecastedLifetime: __expectInt32(output.ForecastedLifetime),
     LastUpdateTimestamp:
       output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
         ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
@@ -7634,7 +7635,7 @@ const deserializeAws_json1_1RateBasedStatement = (output: any, context: __SerdeC
       output.ForwardedIPConfig !== undefined && output.ForwardedIPConfig !== null
         ? deserializeAws_json1_1ForwardedIPConfig(output.ForwardedIPConfig, context)
         : undefined,
-    Limit: __expectInt(output.Limit),
+    Limit: __expectLong(output.Limit),
     ScopeDownStatement:
       output.ScopeDownStatement !== undefined && output.ScopeDownStatement !== null
         ? deserializeAws_json1_1Statement(output.ScopeDownStatement, context)
@@ -7759,7 +7760,7 @@ const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule 
       output.OverrideAction !== undefined && output.OverrideAction !== null
         ? deserializeAws_json1_1OverrideAction(output.OverrideAction, context)
         : undefined,
-    Priority: __expectInt(output.Priority),
+    Priority: __expectInt32(output.Priority),
     RuleLabels:
       output.RuleLabels !== undefined && output.RuleLabels !== null
         ? deserializeAws_json1_1Labels(output.RuleLabels, context)
@@ -7799,7 +7800,7 @@ const deserializeAws_json1_1RuleGroup = (output: any, context: __SerdeContext): 
       output.AvailableLabels !== undefined && output.AvailableLabels !== null
         ? deserializeAws_json1_1LabelSummaries(output.AvailableLabels, context)
         : undefined,
-    Capacity: __expectInt(output.Capacity),
+    Capacity: __expectLong(output.Capacity),
     ConsumedLabels:
       output.ConsumedLabels !== undefined && output.ConsumedLabels !== null
         ? deserializeAws_json1_1LabelSummaries(output.ConsumedLabels, context)
@@ -7904,13 +7905,13 @@ const deserializeAws_json1_1SampledHTTPRequest = (output: any, context: __SerdeC
       output.RequestHeadersInserted !== undefined && output.RequestHeadersInserted !== null
         ? deserializeAws_json1_1HTTPHeaders(output.RequestHeadersInserted, context)
         : undefined,
-    ResponseCodeSent: __expectInt(output.ResponseCodeSent),
+    ResponseCodeSent: __expectInt32(output.ResponseCodeSent),
     RuleNameWithinRuleGroup: __expectString(output.RuleNameWithinRuleGroup),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Weight: __expectInt(output.Weight),
+    Weight: __expectLong(output.Weight),
   } as any;
 };
 
@@ -7947,7 +7948,7 @@ const deserializeAws_json1_1SizeConstraintStatement = (
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
         ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
         : undefined,
-    Size: __expectInt(output.Size),
+    Size: __expectLong(output.Size),
     TextTransformations:
       output.TextTransformations !== undefined && output.TextTransformations !== null
         ? deserializeAws_json1_1TextTransformations(output.TextTransformations, context)
@@ -8074,7 +8075,7 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1TextTransformation = (output: any, context: __SerdeContext): TextTransformation => {
   return {
-    Priority: __expectInt(output.Priority),
+    Priority: __expectInt32(output.Priority),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -8311,7 +8312,7 @@ const deserializeAws_json1_1WAFUnavailableEntityException = (
 const deserializeAws_json1_1WebACL = (output: any, context: __SerdeContext): WebACL => {
   return {
     ARN: __expectString(output.ARN),
-    Capacity: __expectInt(output.Capacity),
+    Capacity: __expectLong(output.Capacity),
     CustomResponseBodies:
       output.CustomResponseBodies !== undefined && output.CustomResponseBodies !== null
         ? deserializeAws_json1_1CustomResponseBodies(output.CustomResponseBodies, context)

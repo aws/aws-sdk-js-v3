@@ -476,7 +476,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -8947,7 +8948,7 @@ const deserializeAws_json1_1BusinessReportScheduleList = (
 
 const deserializeAws_json1_1Category = (output: any, context: __SerdeContext): Category => {
   return {
-    CategoryId: __expectInt(output.CategoryId),
+    CategoryId: __expectLong(output.CategoryId),
     CategoryName: __expectString(output.CategoryName),
   } as any;
 };
@@ -9412,7 +9413,7 @@ const deserializeAws_json1_1EndOfMeetingReminderMinutesList = (output: any, cont
       if (entry === null) {
         return null as any;
       }
-      return __expectInt(entry) as any;
+      return __expectInt32(entry) as any;
     });
 };
 
@@ -9629,7 +9630,7 @@ const deserializeAws_json1_1GetSkillGroupResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1InstantBooking = (output: any, context: __SerdeContext): InstantBooking => {
   return {
-    DurationInMinutes: __expectInt(output.DurationInMinutes),
+    DurationInMinutes: __expectInt32(output.DurationInMinutes),
     Enabled: __expectBoolean(output.Enabled),
   } as any;
 };
@@ -9927,7 +9928,7 @@ const deserializeAws_json1_1Profile = (output: any, context: __SerdeContext): Pr
     DistanceUnit: __expectString(output.DistanceUnit),
     IsDefault: __expectBoolean(output.IsDefault),
     Locale: __expectString(output.Locale),
-    MaxVolumeLimit: __expectInt(output.MaxVolumeLimit),
+    MaxVolumeLimit: __expectInt32(output.MaxVolumeLimit),
     MeetingRoomConfiguration:
       output.MeetingRoomConfiguration !== undefined && output.MeetingRoomConfiguration !== null
         ? deserializeAws_json1_1MeetingRoomConfiguration(output.MeetingRoomConfiguration, context)
@@ -10020,7 +10021,7 @@ const deserializeAws_json1_1RejectSkillResponse = (output: any, context: __Serde
 const deserializeAws_json1_1RequireCheckIn = (output: any, context: __SerdeContext): RequireCheckIn => {
   return {
     Enabled: __expectBoolean(output.Enabled),
-    ReleaseAfterMinutes: __expectInt(output.ReleaseAfterMinutes),
+    ReleaseAfterMinutes: __expectInt32(output.ReleaseAfterMinutes),
   } as any;
 };
 
@@ -10141,7 +10142,7 @@ const deserializeAws_json1_1SearchAddressBooksResponse = (
         ? deserializeAws_json1_1AddressBookDataList(output.AddressBooks, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    TotalCount: __expectInt(output.TotalCount),
+    TotalCount: __expectInt32(output.TotalCount),
   } as any;
 };
 
@@ -10152,7 +10153,7 @@ const deserializeAws_json1_1SearchContactsResponse = (output: any, context: __Se
         ? deserializeAws_json1_1ContactDataList(output.Contacts, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    TotalCount: __expectInt(output.TotalCount),
+    TotalCount: __expectInt32(output.TotalCount),
   } as any;
 };
 
@@ -10163,7 +10164,7 @@ const deserializeAws_json1_1SearchDevicesResponse = (output: any, context: __Ser
         ? deserializeAws_json1_1DeviceDataList(output.Devices, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    TotalCount: __expectInt(output.TotalCount),
+    TotalCount: __expectInt32(output.TotalCount),
   } as any;
 };
 
@@ -10177,7 +10178,7 @@ const deserializeAws_json1_1SearchNetworkProfilesResponse = (
         ? deserializeAws_json1_1NetworkProfileDataList(output.NetworkProfiles, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    TotalCount: __expectInt(output.TotalCount),
+    TotalCount: __expectInt32(output.TotalCount),
   } as any;
 };
 
@@ -10188,7 +10189,7 @@ const deserializeAws_json1_1SearchProfilesResponse = (output: any, context: __Se
       output.Profiles !== undefined && output.Profiles !== null
         ? deserializeAws_json1_1ProfileDataList(output.Profiles, context)
         : undefined,
-    TotalCount: __expectInt(output.TotalCount),
+    TotalCount: __expectInt32(output.TotalCount),
   } as any;
 };
 
@@ -10199,7 +10200,7 @@ const deserializeAws_json1_1SearchRoomsResponse = (output: any, context: __Serde
       output.Rooms !== undefined && output.Rooms !== null
         ? deserializeAws_json1_1RoomDataList(output.Rooms, context)
         : undefined,
-    TotalCount: __expectInt(output.TotalCount),
+    TotalCount: __expectInt32(output.TotalCount),
   } as any;
 };
 
@@ -10213,14 +10214,14 @@ const deserializeAws_json1_1SearchSkillGroupsResponse = (
       output.SkillGroups !== undefined && output.SkillGroups !== null
         ? deserializeAws_json1_1SkillGroupDataList(output.SkillGroups, context)
         : undefined,
-    TotalCount: __expectInt(output.TotalCount),
+    TotalCount: __expectInt32(output.TotalCount),
   } as any;
 };
 
 const deserializeAws_json1_1SearchUsersResponse = (output: any, context: __SerdeContext): SearchUsersResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    TotalCount: __expectInt(output.TotalCount),
+    TotalCount: __expectInt32(output.TotalCount),
     Users:
       output.Users !== undefined && output.Users !== null
         ? deserializeAws_json1_1UserDataList(output.Users, context)

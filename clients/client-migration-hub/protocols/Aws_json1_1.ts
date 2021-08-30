@@ -118,7 +118,7 @@ import {
   UnauthorizedOperation,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
+import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2949,7 +2949,7 @@ const deserializeAws_json1_1MigrationTask = (output: any, context: __SerdeContex
 const deserializeAws_json1_1MigrationTaskSummary = (output: any, context: __SerdeContext): MigrationTaskSummary => {
   return {
     MigrationTaskName: __expectString(output.MigrationTaskName),
-    ProgressPercent: __expectInt(output.ProgressPercent),
+    ProgressPercent: __expectInt32(output.ProgressPercent),
     ProgressUpdateStream: __expectString(output.ProgressUpdateStream),
     Status: __expectString(output.Status),
     StatusDetail: __expectString(output.StatusDetail),
@@ -3051,7 +3051,7 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 
 const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task => {
   return {
-    ProgressPercent: __expectInt(output.ProgressPercent),
+    ProgressPercent: __expectInt32(output.ProgressPercent),
     Status: __expectString(output.Status),
     StatusDetail: __expectString(output.StatusDetail),
   } as any;
@@ -3060,7 +3060,7 @@ const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Message: __expectString(output.Message),
-    RetryAfterSeconds: __expectInt(output.RetryAfterSeconds),
+    RetryAfterSeconds: __expectInt32(output.RetryAfterSeconds),
   } as any;
 };
 

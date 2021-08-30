@@ -118,10 +118,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1684,7 +1684,7 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
     contents.failureReason = __expectString(data.failureReason);
   }
   if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = __expectInt(data.idleSessionTTLInSeconds);
+    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
   }
   if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
@@ -2936,7 +2936,7 @@ export const deserializeAws_restJson1GetBotCommand = async (
     contents.failureReason = __expectString(data.failureReason);
   }
   if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = __expectInt(data.idleSessionTTLInSeconds);
+    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
   }
   if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
@@ -2951,7 +2951,7 @@ export const deserializeAws_restJson1GetBotCommand = async (
     contents.name = __expectString(data.name);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __limitedParseFloat(data.nluIntentConfidenceThreshold);
+    contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -5009,7 +5009,7 @@ export const deserializeAws_restJson1PutBotCommand = async (
     contents.failureReason = __expectString(data.failureReason);
   }
   if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = __expectInt(data.idleSessionTTLInSeconds);
+    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
   }
   if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
@@ -5024,7 +5024,7 @@ export const deserializeAws_restJson1PutBotCommand = async (
     contents.name = __expectString(data.name);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __limitedParseFloat(data.nluIntentConfidenceThreshold);
+    contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -6746,7 +6746,7 @@ const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): 
   return {
     content: __expectString(output.content),
     contentType: __expectString(output.contentType),
-    groupNumber: __expectInt(output.groupNumber),
+    groupNumber: __expectInt32(output.groupNumber),
   } as any;
 };
 
@@ -6840,8 +6840,8 @@ const deserializeAws_restJson1MigrationSummaryList = (output: any, context: __Se
 const deserializeAws_restJson1OutputContext = (output: any, context: __SerdeContext): OutputContext => {
   return {
     name: __expectString(output.name),
-    timeToLiveInSeconds: __expectInt(output.timeToLiveInSeconds),
-    turnsToLive: __expectInt(output.turnsToLive),
+    timeToLiveInSeconds: __expectInt32(output.timeToLiveInSeconds),
+    turnsToLive: __expectInt32(output.turnsToLive),
   } as any;
 };
 
@@ -6858,7 +6858,7 @@ const deserializeAws_restJson1OutputContextList = (output: any, context: __Serde
 
 const deserializeAws_restJson1Prompt = (output: any, context: __SerdeContext): Prompt => {
   return {
-    maxAttempts: __expectInt(output.maxAttempts),
+    maxAttempts: __expectInt32(output.maxAttempts),
     messages:
       output.messages !== undefined && output.messages !== null
         ? deserializeAws_restJson1MessageList(output.messages, context)
@@ -6883,7 +6883,7 @@ const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slo
     description: __expectString(output.description),
     name: __expectString(output.name),
     obfuscationSetting: __expectString(output.obfuscationSetting),
-    priority: __expectInt(output.priority),
+    priority: __expectInt32(output.priority),
     responseCard: __expectString(output.responseCard),
     sampleUtterances:
       output.sampleUtterances !== undefined && output.sampleUtterances !== null
@@ -7058,8 +7058,8 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1UtteranceData = (output: any, context: __SerdeContext): UtteranceData => {
   return {
-    count: __expectInt(output.count),
-    distinctUsers: __expectInt(output.distinctUsers),
+    count: __expectInt32(output.count),
+    distinctUsers: __expectInt32(output.distinctUsers),
     firstUtteredDate:
       output.firstUtteredDate !== undefined && output.firstUtteredDate !== null
         ? new Date(Math.round(output.firstUtteredDate * 1000))

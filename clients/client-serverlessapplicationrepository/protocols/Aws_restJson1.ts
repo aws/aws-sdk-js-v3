@@ -58,7 +58,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -2432,10 +2432,10 @@ const deserializeAws_restJson1ParameterDefinition = (output: any, context: __Ser
     ConstraintDescription: __expectString(output.constraintDescription),
     DefaultValue: __expectString(output.defaultValue),
     Description: __expectString(output.description),
-    MaxLength: __expectInt(output.maxLength),
-    MaxValue: __expectInt(output.maxValue),
-    MinLength: __expectInt(output.minLength),
-    MinValue: __expectInt(output.minValue),
+    MaxLength: __expectInt32(output.maxLength),
+    MaxValue: __expectInt32(output.maxValue),
+    MinLength: __expectInt32(output.minLength),
+    MinValue: __expectInt32(output.minValue),
     Name: __expectString(output.name),
     NoEcho: __expectBoolean(output.noEcho),
     ReferencedByResources:

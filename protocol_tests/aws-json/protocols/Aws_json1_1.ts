@@ -55,9 +55,11 @@ import {
   LazyJsonString as __LazyJsonString,
   dateToUtcString as __dateToUtcString,
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1245,7 +1247,7 @@ const deserializeAws_json1_1ErrorWithMembers = (output: any, context: __SerdeCon
       output.ComplexData !== undefined && output.ComplexData !== null
         ? deserializeAws_json1_1KitchenSink(output.ComplexData, context)
         : undefined,
-    IntegerField: __expectInt(output.IntegerField),
+    IntegerField: __expectInt32(output.IntegerField),
     ListField:
       output.ListField !== undefined && output.ListField !== null
         ? deserializeAws_json1_1ListOfStrings(output.ListField, context)
@@ -1306,17 +1308,17 @@ const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext)
   return {
     Blob: output.Blob !== undefined && output.Blob !== null ? context.base64Decoder(output.Blob) : undefined,
     Boolean: __expectBoolean(output.Boolean),
-    Double: __limitedParseFloat(output.Double),
+    Double: __limitedParseDouble(output.Double),
     EmptyStruct:
       output.EmptyStruct !== undefined && output.EmptyStruct !== null
         ? deserializeAws_json1_1EmptyStruct(output.EmptyStruct, context)
         : undefined,
-    Float: __limitedParseFloat(output.Float),
+    Float: __limitedParseFloat32(output.Float),
     HttpdateTimestamp:
       output.HttpdateTimestamp !== undefined && output.HttpdateTimestamp !== null
         ? new Date(Math.round(output.HttpdateTimestamp * 1000))
         : undefined,
-    Integer: __expectInt(output.Integer),
+    Integer: __expectInt32(output.Integer),
     Iso8601Timestamp:
       output.Iso8601Timestamp !== undefined && output.Iso8601Timestamp !== null
         ? new Date(Math.round(output.Iso8601Timestamp * 1000))
@@ -1339,7 +1341,7 @@ const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext)
       output.ListOfStructs !== undefined && output.ListOfStructs !== null
         ? deserializeAws_json1_1ListOfStructs(output.ListOfStructs, context)
         : undefined,
-    Long: __expectInt(output.Long),
+    Long: __expectLong(output.Long),
     MapOfListsOfStrings:
       output.MapOfListsOfStrings !== undefined && output.MapOfListsOfStrings !== null
         ? deserializeAws_json1_1MapOfListsOfStrings(output.MapOfListsOfStrings, context)
@@ -1540,8 +1542,8 @@ const deserializeAws_json1_1MyUnion = (output: any, context: __SerdeContext): My
       mapValue: deserializeAws_json1_1StringMap(output.mapValue, context),
     };
   }
-  if (__expectInt(output.numberValue) !== undefined) {
-    return { numberValue: __expectInt(output.numberValue) as any };
+  if (__expectInt32(output.numberValue) !== undefined) {
+    return { numberValue: __expectInt32(output.numberValue) as any };
   }
   if (__expectString(output.stringValue) !== undefined) {
     return { stringValue: __expectString(output.stringValue) as any };
@@ -1593,8 +1595,8 @@ const deserializeAws_json1_1SimpleScalarPropertiesInputOutput = (
   context: __SerdeContext
 ): SimpleScalarPropertiesInputOutput => {
   return {
-    doubleValue: __limitedParseFloat(output.doubleValue),
-    floatValue: __limitedParseFloat(output.floatValue),
+    doubleValue: __limitedParseDouble(output.doubleValue),
+    floatValue: __limitedParseFloat32(output.floatValue),
   } as any;
 };
 

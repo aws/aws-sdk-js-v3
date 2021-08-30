@@ -144,7 +144,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3136,7 +3137,7 @@ const deserializeAws_json1_1AdministrativeAction = (output: any, context: __Serd
       output.FailureDetails !== undefined && output.FailureDetails !== null
         ? deserializeAws_json1_1AdministrativeActionFailureDetails(output.FailureDetails, context)
         : undefined,
-    ProgressPercent: __expectInt(output.ProgressPercent),
+    ProgressPercent: __expectInt32(output.ProgressPercent),
     RequestTime:
       output.RequestTime !== undefined && output.RequestTime !== null
         ? new Date(Math.round(output.RequestTime * 1000))
@@ -3221,7 +3222,7 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
     KmsKeyId: __expectString(output.KmsKeyId),
     Lifecycle: __expectString(output.Lifecycle),
     OwnerId: __expectString(output.OwnerId),
-    ProgressPercent: __expectInt(output.ProgressPercent),
+    ProgressPercent: __expectInt32(output.ProgressPercent),
     ResourceARN: __expectString(output.ResourceARN),
     SourceBackupId: __expectString(output.SourceBackupId),
     SourceBackupRegion: __expectString(output.SourceBackupRegion),
@@ -3365,7 +3366,7 @@ const deserializeAws_json1_1DataRepositoryConfiguration = (
         ? deserializeAws_json1_1DataRepositoryFailureDetails(output.FailureDetails, context)
         : undefined,
     ImportPath: __expectString(output.ImportPath),
-    ImportedFileChunkSize: __expectInt(output.ImportedFileChunkSize),
+    ImportedFileChunkSize: __expectInt32(output.ImportedFileChunkSize),
     Lifecycle: __expectString(output.Lifecycle),
   } as any;
 };
@@ -3480,13 +3481,13 @@ const deserializeAws_json1_1DataRepositoryTaskStatus = (
   context: __SerdeContext
 ): DataRepositoryTaskStatus => {
   return {
-    FailedCount: __expectInt(output.FailedCount),
+    FailedCount: __expectLong(output.FailedCount),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    SucceededCount: __expectInt(output.SucceededCount),
-    TotalCount: __expectInt(output.TotalCount),
+    SucceededCount: __expectLong(output.SucceededCount),
+    TotalCount: __expectLong(output.TotalCount),
   } as any;
 };
 
@@ -3645,7 +3646,7 @@ const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext):
         : undefined,
     OwnerId: __expectString(output.OwnerId),
     ResourceARN: __expectString(output.ResourceARN),
-    StorageCapacity: __expectInt(output.StorageCapacity),
+    StorageCapacity: __expectInt32(output.StorageCapacity),
     StorageType: __expectString(output.StorageType),
     SubnetIds:
       output.SubnetIds !== undefined && output.SubnetIds !== null
@@ -3792,7 +3793,7 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
   context: __SerdeContext
 ): LustreFileSystemConfiguration => {
   return {
-    AutomaticBackupRetentionDays: __expectInt(output.AutomaticBackupRetentionDays),
+    AutomaticBackupRetentionDays: __expectInt32(output.AutomaticBackupRetentionDays),
     CopyTagsToBackups: __expectBoolean(output.CopyTagsToBackups),
     DailyAutomaticBackupStartTime: __expectString(output.DailyAutomaticBackupStartTime),
     DataCompressionType: __expectString(output.DataCompressionType),
@@ -3803,7 +3804,7 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
     DeploymentType: __expectString(output.DeploymentType),
     DriveCacheType: __expectString(output.DriveCacheType),
     MountName: __expectString(output.MountName),
-    PerUnitStorageThroughput: __expectInt(output.PerUnitStorageThroughput),
+    PerUnitStorageThroughput: __expectInt32(output.PerUnitStorageThroughput),
     WeeklyMaintenanceStartTime: __expectString(output.WeeklyMaintenanceStartTime),
   } as any;
 };
@@ -3968,7 +3969,7 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
       output.AuditLogConfiguration !== undefined && output.AuditLogConfiguration !== null
         ? deserializeAws_json1_1WindowsAuditLogConfiguration(output.AuditLogConfiguration, context)
         : undefined,
-    AutomaticBackupRetentionDays: __expectInt(output.AutomaticBackupRetentionDays),
+    AutomaticBackupRetentionDays: __expectInt32(output.AutomaticBackupRetentionDays),
     CopyTagsToBackups: __expectBoolean(output.CopyTagsToBackups),
     DailyAutomaticBackupStartTime: __expectString(output.DailyAutomaticBackupStartTime),
     DeploymentType: __expectString(output.DeploymentType),
@@ -3987,7 +3988,7 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
             context
           )
         : undefined,
-    ThroughputCapacity: __expectInt(output.ThroughputCapacity),
+    ThroughputCapacity: __expectInt32(output.ThroughputCapacity),
     WeeklyMaintenanceStartTime: __expectString(output.WeeklyMaintenanceStartTime),
   } as any;
 };

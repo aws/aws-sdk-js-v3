@@ -98,8 +98,11 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   serializeFloat as __serializeFloat,
+  strictParseByte as __strictParseByte,
   strictParseFloat as __strictParseFloat,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+  strictParseShort as __strictParseShort,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2487,16 +2490,16 @@ const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
     contents.falseBooleanValue = __parseBoolean(output["falseBooleanValue"]);
   }
   if (output["byteValue"] !== undefined) {
-    contents.byteValue = __strictParseInt(output["byteValue"]) as number;
+    contents.byteValue = __strictParseByte(output["byteValue"]) as number;
   }
   if (output["shortValue"] !== undefined) {
-    contents.shortValue = __strictParseInt(output["shortValue"]) as number;
+    contents.shortValue = __strictParseShort(output["shortValue"]) as number;
   }
   if (output["integerValue"] !== undefined) {
-    contents.integerValue = __strictParseInt(output["integerValue"]) as number;
+    contents.integerValue = __strictParseInt32(output["integerValue"]) as number;
   }
   if (output["longValue"] !== undefined) {
-    contents.longValue = __strictParseInt(output["longValue"]) as number;
+    contents.longValue = __strictParseLong(output["longValue"]) as number;
   }
   if (output["floatValue"] !== undefined) {
     contents.floatValue = __strictParseFloat(output["floatValue"]) as number;
@@ -2904,7 +2907,7 @@ const deserializeAws_queryIntegerList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return __strictParseInt(entry) as number;
+      return __strictParseInt32(entry) as number;
     });
 };
 

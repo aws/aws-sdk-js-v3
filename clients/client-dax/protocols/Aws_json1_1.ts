@@ -131,7 +131,7 @@ import {
   UpdateSubnetGroupResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
+import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3125,7 +3125,7 @@ const serializeAws_json1_1UpdateSubnetGroupRequest = (
 
 const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
-    ActiveNodes: __expectInt(output.ActiveNodes),
+    ActiveNodes: __expectInt32(output.ActiveNodes),
     ClusterArn: __expectString(output.ClusterArn),
     ClusterDiscoveryEndpoint:
       output.ClusterDiscoveryEndpoint !== undefined && output.ClusterDiscoveryEndpoint !== null
@@ -3163,7 +3163,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
         : undefined,
     Status: __expectString(output.Status),
     SubnetGroup: __expectString(output.SubnetGroup),
-    TotalNodes: __expectInt(output.TotalNodes),
+    TotalNodes: __expectInt32(output.TotalNodes),
   } as any;
 };
 
@@ -3352,7 +3352,7 @@ const deserializeAws_json1_1DescribeSubnetGroupsResponse = (
 const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
     Address: __expectString(output.Address),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     URL: __expectString(output.URL),
   } as any;
 };

@@ -277,10 +277,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5299,7 +5300,7 @@ export const deserializeAws_restJson1CreateAuthorizerCommand = async (
     contents.authorizerCredentials = __expectString(data.authorizerCredentials);
   }
   if (data.authorizerResultTtlInSeconds !== undefined && data.authorizerResultTtlInSeconds !== null) {
-    contents.authorizerResultTtlInSeconds = __expectInt(data.authorizerResultTtlInSeconds);
+    contents.authorizerResultTtlInSeconds = __expectInt32(data.authorizerResultTtlInSeconds);
   }
   if (data.authorizerUri !== undefined && data.authorizerUri !== null) {
     contents.authorizerUri = __expectString(data.authorizerUri);
@@ -6355,7 +6356,7 @@ export const deserializeAws_restJson1CreateRestApiCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.minimumCompressionSize !== undefined && data.minimumCompressionSize !== null) {
-    contents.minimumCompressionSize = __expectInt(data.minimumCompressionSize);
+    contents.minimumCompressionSize = __expectInt32(data.minimumCompressionSize);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -9305,7 +9306,7 @@ export const deserializeAws_restJson1GetAuthorizerCommand = async (
     contents.authorizerCredentials = __expectString(data.authorizerCredentials);
   }
   if (data.authorizerResultTtlInSeconds !== undefined && data.authorizerResultTtlInSeconds !== null) {
-    contents.authorizerResultTtlInSeconds = __expectInt(data.authorizerResultTtlInSeconds);
+    contents.authorizerResultTtlInSeconds = __expectInt32(data.authorizerResultTtlInSeconds);
   }
   if (data.authorizerUri !== undefined && data.authorizerUri !== null) {
     contents.authorizerUri = __expectString(data.authorizerUri);
@@ -10920,7 +10921,7 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     contents.requestTemplates = deserializeAws_restJson1MapOfStringToString(data.requestTemplates, context);
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
-    contents.timeoutInMillis = __expectInt(data.timeoutInMillis);
+    contents.timeoutInMillis = __expectInt32(data.timeoutInMillis);
   }
   if (data.tlsConfig !== undefined && data.tlsConfig !== null) {
     contents.tlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
@@ -11927,7 +11928,7 @@ export const deserializeAws_restJson1GetRestApiCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.minimumCompressionSize !== undefined && data.minimumCompressionSize !== null) {
-    contents.minimumCompressionSize = __expectInt(data.minimumCompressionSize);
+    contents.minimumCompressionSize = __expectInt32(data.minimumCompressionSize);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -13587,7 +13588,7 @@ export const deserializeAws_restJson1ImportRestApiCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.minimumCompressionSize !== undefined && data.minimumCompressionSize !== null) {
-    contents.minimumCompressionSize = __expectInt(data.minimumCompressionSize);
+    contents.minimumCompressionSize = __expectInt32(data.minimumCompressionSize);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -13858,7 +13859,7 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
     contents.requestTemplates = deserializeAws_restJson1MapOfStringToString(data.requestTemplates, context);
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
-    contents.timeoutInMillis = __expectInt(data.timeoutInMillis);
+    contents.timeoutInMillis = __expectInt32(data.timeoutInMillis);
   }
   if (data.tlsConfig !== undefined && data.tlsConfig !== null) {
     contents.tlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
@@ -14344,7 +14345,7 @@ export const deserializeAws_restJson1PutRestApiCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.minimumCompressionSize !== undefined && data.minimumCompressionSize !== null) {
-    contents.minimumCompressionSize = __expectInt(data.minimumCompressionSize);
+    contents.minimumCompressionSize = __expectInt32(data.minimumCompressionSize);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -14557,10 +14558,10 @@ export const deserializeAws_restJson1TestInvokeAuthorizerCommand = async (
     contents.claims = deserializeAws_restJson1MapOfStringToString(data.claims, context);
   }
   if (data.clientStatus !== undefined && data.clientStatus !== null) {
-    contents.clientStatus = __expectInt(data.clientStatus);
+    contents.clientStatus = __expectInt32(data.clientStatus);
   }
   if (data.latency !== undefined && data.latency !== null) {
-    contents.latency = __expectInt(data.latency);
+    contents.latency = __expectLong(data.latency);
   }
   if (data.log !== undefined && data.log !== null) {
     contents.log = __expectString(data.log);
@@ -14659,7 +14660,7 @@ export const deserializeAws_restJson1TestInvokeMethodCommand = async (
     contents.headers = deserializeAws_restJson1MapOfStringToString(data.headers, context);
   }
   if (data.latency !== undefined && data.latency !== null) {
-    contents.latency = __expectInt(data.latency);
+    contents.latency = __expectLong(data.latency);
   }
   if (data.log !== undefined && data.log !== null) {
     contents.log = __expectString(data.log);
@@ -14668,7 +14669,7 @@ export const deserializeAws_restJson1TestInvokeMethodCommand = async (
     contents.multiValueHeaders = deserializeAws_restJson1MapOfStringToList(data.multiValueHeaders, context);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = __expectInt(data.status);
+    contents.status = __expectInt32(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -15091,7 +15092,7 @@ export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
     contents.authorizerCredentials = __expectString(data.authorizerCredentials);
   }
   if (data.authorizerResultTtlInSeconds !== undefined && data.authorizerResultTtlInSeconds !== null) {
-    contents.authorizerResultTtlInSeconds = __expectInt(data.authorizerResultTtlInSeconds);
+    contents.authorizerResultTtlInSeconds = __expectInt32(data.authorizerResultTtlInSeconds);
   }
   if (data.authorizerUri !== undefined && data.authorizerUri !== null) {
     contents.authorizerUri = __expectString(data.authorizerUri);
@@ -16069,7 +16070,7 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
     contents.requestTemplates = deserializeAws_restJson1MapOfStringToString(data.requestTemplates, context);
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
-    contents.timeoutInMillis = __expectInt(data.timeoutInMillis);
+    contents.timeoutInMillis = __expectInt32(data.timeoutInMillis);
   }
   if (data.tlsConfig !== undefined && data.tlsConfig !== null) {
     contents.tlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
@@ -16868,7 +16869,7 @@ export const deserializeAws_restJson1UpdateRestApiCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.minimumCompressionSize !== undefined && data.minimumCompressionSize !== null) {
-    contents.minimumCompressionSize = __expectInt(data.minimumCompressionSize);
+    contents.minimumCompressionSize = __expectInt32(data.minimumCompressionSize);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -17889,7 +17890,7 @@ const deserializeAws_restJson1Authorizer = (output: any, context: __SerdeContext
   return {
     authType: __expectString(output.authType),
     authorizerCredentials: __expectString(output.authorizerCredentials),
-    authorizerResultTtlInSeconds: __expectInt(output.authorizerResultTtlInSeconds),
+    authorizerResultTtlInSeconds: __expectInt32(output.authorizerResultTtlInSeconds),
     authorizerUri: __expectString(output.authorizerUri),
     id: __expectString(output.id),
     identitySource: __expectString(output.identitySource),
@@ -17914,7 +17915,7 @@ const deserializeAws_restJson1BasePathMapping = (output: any, context: __SerdeCo
 const deserializeAws_restJson1CanarySettings = (output: any, context: __SerdeContext): CanarySettings => {
   return {
     deploymentId: __expectString(output.deploymentId),
-    percentTraffic: __limitedParseFloat(output.percentTraffic),
+    percentTraffic: __limitedParseDouble(output.percentTraffic),
     stageVariableOverrides:
       output.stageVariableOverrides !== undefined && output.stageVariableOverrides !== null
         ? deserializeAws_restJson1MapOfStringToString(output.stageVariableOverrides, context)
@@ -18081,7 +18082,7 @@ const deserializeAws_restJson1Integration = (output: any, context: __SerdeContex
       output.requestTemplates !== undefined && output.requestTemplates !== null
         ? deserializeAws_restJson1MapOfStringToString(output.requestTemplates, context)
         : undefined,
-    timeoutInMillis: __expectInt(output.timeoutInMillis),
+    timeoutInMillis: __expectInt32(output.timeoutInMillis),
     tlsConfig:
       output.tlsConfig !== undefined && output.tlsConfig !== null
         ? deserializeAws_restJson1TlsConfig(output.tlsConfig, context)
@@ -18252,7 +18253,7 @@ const deserializeAws_restJson1ListOfLong = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return __expectInt(entry) as any;
+      return __expectLong(entry) as any;
     });
 };
 
@@ -18586,14 +18587,14 @@ const deserializeAws_restJson1MethodResponse = (output: any, context: __SerdeCon
 const deserializeAws_restJson1MethodSetting = (output: any, context: __SerdeContext): MethodSetting => {
   return {
     cacheDataEncrypted: __expectBoolean(output.cacheDataEncrypted),
-    cacheTtlInSeconds: __expectInt(output.cacheTtlInSeconds),
+    cacheTtlInSeconds: __expectInt32(output.cacheTtlInSeconds),
     cachingEnabled: __expectBoolean(output.cachingEnabled),
     dataTraceEnabled: __expectBoolean(output.dataTraceEnabled),
     loggingLevel: __expectString(output.loggingLevel),
     metricsEnabled: __expectBoolean(output.metricsEnabled),
     requireAuthorizationForCacheControl: __expectBoolean(output.requireAuthorizationForCacheControl),
-    throttlingBurstLimit: __expectInt(output.throttlingBurstLimit),
-    throttlingRateLimit: __limitedParseFloat(output.throttlingRateLimit),
+    throttlingBurstLimit: __expectInt32(output.throttlingBurstLimit),
+    throttlingRateLimit: __limitedParseDouble(output.throttlingRateLimit),
     unauthorizedCacheControlHeaderStrategy: __expectString(output.unauthorizedCacheControlHeaderStrategy),
   } as any;
 };
@@ -18649,8 +18650,8 @@ const deserializeAws_restJson1PathToMapOfMethodSnapshot = (
 
 const deserializeAws_restJson1QuotaSettings = (output: any, context: __SerdeContext): QuotaSettings => {
   return {
-    limit: __expectInt(output.limit),
-    offset: __expectInt(output.offset),
+    limit: __expectInt32(output.limit),
+    offset: __expectInt32(output.offset),
     period: __expectString(output.period),
   } as any;
 };
@@ -18695,7 +18696,7 @@ const deserializeAws_restJson1RestApi = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1EndpointConfiguration(output.endpointConfiguration, context)
         : undefined,
     id: __expectString(output.id),
-    minimumCompressionSize: __expectInt(output.minimumCompressionSize),
+    minimumCompressionSize: __expectInt32(output.minimumCompressionSize),
     name: __expectString(output.name),
     policy: __expectString(output.policy),
     tags:
@@ -18780,8 +18781,8 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
 
 const deserializeAws_restJson1ThrottleSettings = (output: any, context: __SerdeContext): ThrottleSettings => {
   return {
-    burstLimit: __expectInt(output.burstLimit),
-    rateLimit: __limitedParseFloat(output.rateLimit),
+    burstLimit: __expectInt32(output.burstLimit),
+    rateLimit: __limitedParseDouble(output.rateLimit),
   } as any;
 };
 

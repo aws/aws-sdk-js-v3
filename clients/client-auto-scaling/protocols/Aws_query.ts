@@ -351,7 +351,7 @@ import {
   parseBoolean as __parseBoolean,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7387,7 +7387,7 @@ const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Act
     contents.StatusMessage = __expectString(output["StatusMessage"]);
   }
   if (output["Progress"] !== undefined) {
-    contents.Progress = __strictParseInt(output["Progress"]) as number;
+    contents.Progress = __strictParseInt32(output["Progress"]) as number;
   }
   if (output["Details"] !== undefined) {
     contents.Details = __expectString(output["Details"]);
@@ -7533,19 +7533,19 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     contents.MixedInstancesPolicy = deserializeAws_queryMixedInstancesPolicy(output["MixedInstancesPolicy"], context);
   }
   if (output["MinSize"] !== undefined) {
-    contents.MinSize = __strictParseInt(output["MinSize"]) as number;
+    contents.MinSize = __strictParseInt32(output["MinSize"]) as number;
   }
   if (output["MaxSize"] !== undefined) {
-    contents.MaxSize = __strictParseInt(output["MaxSize"]) as number;
+    contents.MaxSize = __strictParseInt32(output["MaxSize"]) as number;
   }
   if (output["DesiredCapacity"] !== undefined) {
-    contents.DesiredCapacity = __strictParseInt(output["DesiredCapacity"]) as number;
+    contents.DesiredCapacity = __strictParseInt32(output["DesiredCapacity"]) as number;
   }
   if (output["PredictedCapacity"] !== undefined) {
-    contents.PredictedCapacity = __strictParseInt(output["PredictedCapacity"]) as number;
+    contents.PredictedCapacity = __strictParseInt32(output["PredictedCapacity"]) as number;
   }
   if (output["DefaultCooldown"] !== undefined) {
-    contents.DefaultCooldown = __strictParseInt(output["DefaultCooldown"]) as number;
+    contents.DefaultCooldown = __strictParseInt32(output["DefaultCooldown"]) as number;
   }
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
@@ -7578,7 +7578,7 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     contents.HealthCheckType = __expectString(output["HealthCheckType"]);
   }
   if (output["HealthCheckGracePeriod"] !== undefined) {
-    contents.HealthCheckGracePeriod = __strictParseInt(output["HealthCheckGracePeriod"]) as number;
+    contents.HealthCheckGracePeriod = __strictParseInt32(output["HealthCheckGracePeriod"]) as number;
   }
   if (output.Instances === "") {
     contents.Instances = [];
@@ -7638,7 +7638,7 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     contents.ServiceLinkedRoleARN = __expectString(output["ServiceLinkedRoleARN"]);
   }
   if (output["MaxInstanceLifetime"] !== undefined) {
-    contents.MaxInstanceLifetime = __strictParseInt(output["MaxInstanceLifetime"]) as number;
+    contents.MaxInstanceLifetime = __strictParseInt32(output["MaxInstanceLifetime"]) as number;
   }
   if (output["CapacityRebalance"] !== undefined) {
     contents.CapacityRebalance = __parseBoolean(output["CapacityRebalance"]);
@@ -7650,7 +7650,7 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     );
   }
   if (output["WarmPoolSize"] !== undefined) {
-    contents.WarmPoolSize = __strictParseInt(output["WarmPoolSize"]) as number;
+    contents.WarmPoolSize = __strictParseInt32(output["WarmPoolSize"]) as number;
   }
   if (output["Context"] !== undefined) {
     contents.Context = __expectString(output["Context"]);
@@ -7917,7 +7917,7 @@ const deserializeAws_queryCheckpointPercentages = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return __strictParseInt(entry) as number;
+      return __strictParseInt32(entry) as number;
     });
 };
 
@@ -7999,16 +7999,16 @@ const deserializeAws_queryDescribeAccountLimitsAnswer = (
     NumberOfLaunchConfigurations: undefined,
   };
   if (output["MaxNumberOfAutoScalingGroups"] !== undefined) {
-    contents.MaxNumberOfAutoScalingGroups = __strictParseInt(output["MaxNumberOfAutoScalingGroups"]) as number;
+    contents.MaxNumberOfAutoScalingGroups = __strictParseInt32(output["MaxNumberOfAutoScalingGroups"]) as number;
   }
   if (output["MaxNumberOfLaunchConfigurations"] !== undefined) {
-    contents.MaxNumberOfLaunchConfigurations = __strictParseInt(output["MaxNumberOfLaunchConfigurations"]) as number;
+    contents.MaxNumberOfLaunchConfigurations = __strictParseInt32(output["MaxNumberOfLaunchConfigurations"]) as number;
   }
   if (output["NumberOfAutoScalingGroups"] !== undefined) {
-    contents.NumberOfAutoScalingGroups = __strictParseInt(output["NumberOfAutoScalingGroups"]) as number;
+    contents.NumberOfAutoScalingGroups = __strictParseInt32(output["NumberOfAutoScalingGroups"]) as number;
   }
   if (output["NumberOfLaunchConfigurations"] !== undefined) {
-    contents.NumberOfLaunchConfigurations = __strictParseInt(output["NumberOfLaunchConfigurations"]) as number;
+    contents.NumberOfLaunchConfigurations = __strictParseInt32(output["NumberOfLaunchConfigurations"]) as number;
   }
   return contents;
 };
@@ -8319,7 +8319,7 @@ const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
     contents.SnapshotId = __expectString(output["SnapshotId"]);
   }
   if (output["VolumeSize"] !== undefined) {
-    contents.VolumeSize = __strictParseInt(output["VolumeSize"]) as number;
+    contents.VolumeSize = __strictParseInt32(output["VolumeSize"]) as number;
   }
   if (output["VolumeType"] !== undefined) {
     contents.VolumeType = __expectString(output["VolumeType"]);
@@ -8328,13 +8328,13 @@ const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
     contents.DeleteOnTermination = __parseBoolean(output["DeleteOnTermination"]);
   }
   if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt(output["Iops"]) as number;
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
   }
   if (output["Encrypted"] !== undefined) {
     contents.Encrypted = __parseBoolean(output["Encrypted"]);
   }
   if (output["Throughput"] !== undefined) {
-    contents.Throughput = __strictParseInt(output["Throughput"]) as number;
+    contents.Throughput = __strictParseInt32(output["Throughput"]) as number;
   }
   return contents;
 };
@@ -8510,7 +8510,7 @@ const deserializeAws_queryInstanceMetadataOptions = (output: any, context: __Ser
     contents.HttpTokens = __expectString(output["HttpTokens"]);
   }
   if (output["HttpPutResponseHopLimit"] !== undefined) {
-    contents.HttpPutResponseHopLimit = __strictParseInt(output["HttpPutResponseHopLimit"]) as number;
+    contents.HttpPutResponseHopLimit = __strictParseInt32(output["HttpPutResponseHopLimit"]) as number;
   }
   if (output["HttpEndpoint"] !== undefined) {
     contents.HttpEndpoint = __expectString(output["HttpEndpoint"]);
@@ -8561,10 +8561,10 @@ const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContex
     contents.EndTime = new Date(output["EndTime"]);
   }
   if (output["PercentageComplete"] !== undefined) {
-    contents.PercentageComplete = __strictParseInt(output["PercentageComplete"]) as number;
+    contents.PercentageComplete = __strictParseInt32(output["PercentageComplete"]) as number;
   }
   if (output["InstancesToUpdate"] !== undefined) {
-    contents.InstancesToUpdate = __strictParseInt(output["InstancesToUpdate"]) as number;
+    contents.InstancesToUpdate = __strictParseInt32(output["InstancesToUpdate"]) as number;
   }
   if (output["ProgressDetails"] !== undefined) {
     contents.ProgressDetails = deserializeAws_queryInstanceRefreshProgressDetails(output["ProgressDetails"], context);
@@ -8611,10 +8611,10 @@ const deserializeAws_queryInstanceRefreshLivePoolProgress = (
     InstancesToUpdate: undefined,
   };
   if (output["PercentageComplete"] !== undefined) {
-    contents.PercentageComplete = __strictParseInt(output["PercentageComplete"]) as number;
+    contents.PercentageComplete = __strictParseInt32(output["PercentageComplete"]) as number;
   }
   if (output["InstancesToUpdate"] !== undefined) {
-    contents.InstancesToUpdate = __strictParseInt(output["InstancesToUpdate"]) as number;
+    contents.InstancesToUpdate = __strictParseInt32(output["InstancesToUpdate"]) as number;
   }
   return contents;
 };
@@ -8651,10 +8651,10 @@ const deserializeAws_queryInstanceRefreshWarmPoolProgress = (
     InstancesToUpdate: undefined,
   };
   if (output["PercentageComplete"] !== undefined) {
-    contents.PercentageComplete = __strictParseInt(output["PercentageComplete"]) as number;
+    contents.PercentageComplete = __strictParseInt32(output["PercentageComplete"]) as number;
   }
   if (output["InstancesToUpdate"] !== undefined) {
-    contents.InstancesToUpdate = __strictParseInt(output["InstancesToUpdate"]) as number;
+    contents.InstancesToUpdate = __strictParseInt32(output["InstancesToUpdate"]) as number;
   }
   return contents;
 };
@@ -8683,10 +8683,10 @@ const deserializeAws_queryInstancesDistribution = (output: any, context: __Serde
     contents.OnDemandAllocationStrategy = __expectString(output["OnDemandAllocationStrategy"]);
   }
   if (output["OnDemandBaseCapacity"] !== undefined) {
-    contents.OnDemandBaseCapacity = __strictParseInt(output["OnDemandBaseCapacity"]) as number;
+    contents.OnDemandBaseCapacity = __strictParseInt32(output["OnDemandBaseCapacity"]) as number;
   }
   if (output["OnDemandPercentageAboveBaseCapacity"] !== undefined) {
-    contents.OnDemandPercentageAboveBaseCapacity = __strictParseInt(
+    contents.OnDemandPercentageAboveBaseCapacity = __strictParseInt32(
       output["OnDemandPercentageAboveBaseCapacity"]
     ) as number;
   }
@@ -8694,7 +8694,7 @@ const deserializeAws_queryInstancesDistribution = (output: any, context: __Serde
     contents.SpotAllocationStrategy = __expectString(output["SpotAllocationStrategy"]);
   }
   if (output["SpotInstancePools"] !== undefined) {
-    contents.SpotInstancePools = __strictParseInt(output["SpotInstancePools"]) as number;
+    contents.SpotInstancePools = __strictParseInt32(output["SpotInstancePools"]) as number;
   }
   if (output["SpotMaxPrice"] !== undefined) {
     contents.SpotMaxPrice = __expectString(output["SpotMaxPrice"]);
@@ -8946,10 +8946,10 @@ const deserializeAws_queryLifecycleHook = (output: any, context: __SerdeContext)
     contents.NotificationMetadata = __expectString(output["NotificationMetadata"]);
   }
   if (output["HeartbeatTimeout"] !== undefined) {
-    contents.HeartbeatTimeout = __strictParseInt(output["HeartbeatTimeout"]) as number;
+    contents.HeartbeatTimeout = __strictParseInt32(output["HeartbeatTimeout"]) as number;
   }
   if (output["GlobalTimeout"] !== undefined) {
-    contents.GlobalTimeout = __strictParseInt(output["GlobalTimeout"]) as number;
+    contents.GlobalTimeout = __strictParseInt32(output["GlobalTimeout"]) as number;
   }
   if (output["DefaultResult"] !== undefined) {
     contents.DefaultResult = __expectString(output["DefaultResult"]);
@@ -9297,13 +9297,13 @@ const deserializeAws_queryPredictiveScalingConfiguration = (
     contents.Mode = __expectString(output["Mode"]);
   }
   if (output["SchedulingBufferTime"] !== undefined) {
-    contents.SchedulingBufferTime = __strictParseInt(output["SchedulingBufferTime"]) as number;
+    contents.SchedulingBufferTime = __strictParseInt32(output["SchedulingBufferTime"]) as number;
   }
   if (output["MaxCapacityBreachBehavior"] !== undefined) {
     contents.MaxCapacityBreachBehavior = __expectString(output["MaxCapacityBreachBehavior"]);
   }
   if (output["MaxCapacityBuffer"] !== undefined) {
-    contents.MaxCapacityBuffer = __strictParseInt(output["MaxCapacityBuffer"]) as number;
+    contents.MaxCapacityBuffer = __strictParseInt32(output["MaxCapacityBuffer"]) as number;
   }
   return contents;
 };
@@ -9490,10 +9490,10 @@ const deserializeAws_queryRefreshPreferences = (output: any, context: __SerdeCon
     SkipMatching: undefined,
   };
   if (output["MinHealthyPercentage"] !== undefined) {
-    contents.MinHealthyPercentage = __strictParseInt(output["MinHealthyPercentage"]) as number;
+    contents.MinHealthyPercentage = __strictParseInt32(output["MinHealthyPercentage"]) as number;
   }
   if (output["InstanceWarmup"] !== undefined) {
-    contents.InstanceWarmup = __strictParseInt(output["InstanceWarmup"]) as number;
+    contents.InstanceWarmup = __strictParseInt32(output["InstanceWarmup"]) as number;
   }
   if (output.CheckpointPercentages === "") {
     contents.CheckpointPercentages = [];
@@ -9505,7 +9505,7 @@ const deserializeAws_queryRefreshPreferences = (output: any, context: __SerdeCon
     );
   }
   if (output["CheckpointDelay"] !== undefined) {
-    contents.CheckpointDelay = __strictParseInt(output["CheckpointDelay"]) as number;
+    contents.CheckpointDelay = __strictParseInt32(output["CheckpointDelay"]) as number;
   }
   if (output["SkipMatching"] !== undefined) {
     contents.SkipMatching = __parseBoolean(output["SkipMatching"]);
@@ -9592,16 +9592,16 @@ const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext)
     contents.AdjustmentType = __expectString(output["AdjustmentType"]);
   }
   if (output["MinAdjustmentStep"] !== undefined) {
-    contents.MinAdjustmentStep = __strictParseInt(output["MinAdjustmentStep"]) as number;
+    contents.MinAdjustmentStep = __strictParseInt32(output["MinAdjustmentStep"]) as number;
   }
   if (output["MinAdjustmentMagnitude"] !== undefined) {
-    contents.MinAdjustmentMagnitude = __strictParseInt(output["MinAdjustmentMagnitude"]) as number;
+    contents.MinAdjustmentMagnitude = __strictParseInt32(output["MinAdjustmentMagnitude"]) as number;
   }
   if (output["ScalingAdjustment"] !== undefined) {
-    contents.ScalingAdjustment = __strictParseInt(output["ScalingAdjustment"]) as number;
+    contents.ScalingAdjustment = __strictParseInt32(output["ScalingAdjustment"]) as number;
   }
   if (output["Cooldown"] !== undefined) {
-    contents.Cooldown = __strictParseInt(output["Cooldown"]) as number;
+    contents.Cooldown = __strictParseInt32(output["Cooldown"]) as number;
   }
   if (output.StepAdjustments === "") {
     contents.StepAdjustments = [];
@@ -9616,7 +9616,7 @@ const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext)
     contents.MetricAggregationType = __expectString(output["MetricAggregationType"]);
   }
   if (output["EstimatedInstanceWarmup"] !== undefined) {
-    contents.EstimatedInstanceWarmup = __strictParseInt(output["EstimatedInstanceWarmup"]) as number;
+    contents.EstimatedInstanceWarmup = __strictParseInt32(output["EstimatedInstanceWarmup"]) as number;
   }
   if (output.Alarms === "") {
     contents.Alarms = [];
@@ -9704,13 +9704,13 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
     contents.Recurrence = __expectString(output["Recurrence"]);
   }
   if (output["MinSize"] !== undefined) {
-    contents.MinSize = __strictParseInt(output["MinSize"]) as number;
+    contents.MinSize = __strictParseInt32(output["MinSize"]) as number;
   }
   if (output["MaxSize"] !== undefined) {
-    contents.MaxSize = __strictParseInt(output["MaxSize"]) as number;
+    contents.MaxSize = __strictParseInt32(output["MaxSize"]) as number;
   }
   if (output["DesiredCapacity"] !== undefined) {
-    contents.DesiredCapacity = __strictParseInt(output["DesiredCapacity"]) as number;
+    contents.DesiredCapacity = __strictParseInt32(output["DesiredCapacity"]) as number;
   }
   if (output["TimeZone"] !== undefined) {
     contents.TimeZone = __expectString(output["TimeZone"]);
@@ -9790,7 +9790,7 @@ const deserializeAws_queryStepAdjustment = (output: any, context: __SerdeContext
     contents.MetricIntervalUpperBound = __strictParseFloat(output["MetricIntervalUpperBound"]) as number;
   }
   if (output["ScalingAdjustment"] !== undefined) {
-    contents.ScalingAdjustment = __strictParseInt(output["ScalingAdjustment"]) as number;
+    contents.ScalingAdjustment = __strictParseInt32(output["ScalingAdjustment"]) as number;
   }
   return contents;
 };
@@ -9946,10 +9946,10 @@ const deserializeAws_queryWarmPoolConfiguration = (output: any, context: __Serde
     Status: undefined,
   };
   if (output["MaxGroupPreparedCapacity"] !== undefined) {
-    contents.MaxGroupPreparedCapacity = __strictParseInt(output["MaxGroupPreparedCapacity"]) as number;
+    contents.MaxGroupPreparedCapacity = __strictParseInt32(output["MaxGroupPreparedCapacity"]) as number;
   }
   if (output["MinSize"] !== undefined) {
-    contents.MinSize = __strictParseInt(output["MinSize"]) as number;
+    contents.MinSize = __strictParseInt32(output["MinSize"]) as number;
   }
   if (output["PoolState"] !== undefined) {
     contents.PoolState = __expectString(output["PoolState"]);

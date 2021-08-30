@@ -341,7 +341,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -8773,7 +8773,7 @@ const deserializeAws_json1_1DirectoryDescription = (output: any, context: __Serd
         ? deserializeAws_json1_1DirectoryConnectSettingsDescription(output.ConnectSettings, context)
         : undefined,
     Description: __expectString(output.Description),
-    DesiredNumberOfDomainControllers: __expectInt(output.DesiredNumberOfDomainControllers),
+    DesiredNumberOfDomainControllers: __expectInt32(output.DesiredNumberOfDomainControllers),
     DirectoryId: __expectString(output.DirectoryId),
     DnsIpAddrs:
       output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null
@@ -8851,14 +8851,14 @@ const deserializeAws_json1_1DirectoryLimitExceededException = (
 
 const deserializeAws_json1_1DirectoryLimits = (output: any, context: __SerdeContext): DirectoryLimits => {
   return {
-    CloudOnlyDirectoriesCurrentCount: __expectInt(output.CloudOnlyDirectoriesCurrentCount),
-    CloudOnlyDirectoriesLimit: __expectInt(output.CloudOnlyDirectoriesLimit),
+    CloudOnlyDirectoriesCurrentCount: __expectInt32(output.CloudOnlyDirectoriesCurrentCount),
+    CloudOnlyDirectoriesLimit: __expectInt32(output.CloudOnlyDirectoriesLimit),
     CloudOnlyDirectoriesLimitReached: __expectBoolean(output.CloudOnlyDirectoriesLimitReached),
-    CloudOnlyMicrosoftADCurrentCount: __expectInt(output.CloudOnlyMicrosoftADCurrentCount),
-    CloudOnlyMicrosoftADLimit: __expectInt(output.CloudOnlyMicrosoftADLimit),
+    CloudOnlyMicrosoftADCurrentCount: __expectInt32(output.CloudOnlyMicrosoftADCurrentCount),
+    CloudOnlyMicrosoftADLimit: __expectInt32(output.CloudOnlyMicrosoftADLimit),
     CloudOnlyMicrosoftADLimitReached: __expectBoolean(output.CloudOnlyMicrosoftADLimitReached),
-    ConnectedDirectoriesCurrentCount: __expectInt(output.ConnectedDirectoriesCurrentCount),
-    ConnectedDirectoriesLimit: __expectInt(output.ConnectedDirectoriesLimit),
+    ConnectedDirectoriesCurrentCount: __expectInt32(output.ConnectedDirectoriesCurrentCount),
+    ConnectedDirectoriesLimit: __expectInt32(output.ConnectedDirectoriesLimit),
     ConnectedDirectoriesLimitReached: __expectBoolean(output.ConnectedDirectoriesLimitReached),
   } as any;
 };
@@ -9338,13 +9338,13 @@ const deserializeAws_json1_1RadiusSettings = (output: any, context: __SerdeConte
   return {
     AuthenticationProtocol: __expectString(output.AuthenticationProtocol),
     DisplayLabel: __expectString(output.DisplayLabel),
-    RadiusPort: __expectInt(output.RadiusPort),
-    RadiusRetries: __expectInt(output.RadiusRetries),
+    RadiusPort: __expectInt32(output.RadiusPort),
+    RadiusRetries: __expectInt32(output.RadiusRetries),
     RadiusServers:
       output.RadiusServers !== undefined && output.RadiusServers !== null
         ? deserializeAws_json1_1Servers(output.RadiusServers, context)
         : undefined,
-    RadiusTimeout: __expectInt(output.RadiusTimeout),
+    RadiusTimeout: __expectInt32(output.RadiusTimeout),
     SharedSecret: __expectString(output.SharedSecret),
     UseSameUsername: __expectBoolean(output.UseSameUsername),
   } as any;
@@ -9352,7 +9352,7 @@ const deserializeAws_json1_1RadiusSettings = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1RegionDescription = (output: any, context: __SerdeContext): RegionDescription => {
   return {
-    DesiredNumberOfDomainControllers: __expectInt(output.DesiredNumberOfDomainControllers),
+    DesiredNumberOfDomainControllers: __expectInt32(output.DesiredNumberOfDomainControllers),
     DirectoryId: __expectString(output.DirectoryId),
     LastUpdatedDateTime:
       output.LastUpdatedDateTime !== undefined && output.LastUpdatedDateTime !== null
@@ -9581,8 +9581,8 @@ const deserializeAws_json1_1SnapshotLimitExceededException = (
 
 const deserializeAws_json1_1SnapshotLimits = (output: any, context: __SerdeContext): SnapshotLimits => {
   return {
-    ManualSnapshotsCurrentCount: __expectInt(output.ManualSnapshotsCurrentCount),
-    ManualSnapshotsLimit: __expectInt(output.ManualSnapshotsLimit),
+    ManualSnapshotsCurrentCount: __expectInt32(output.ManualSnapshotsCurrentCount),
+    ManualSnapshotsLimit: __expectInt32(output.ManualSnapshotsLimit),
     ManualSnapshotsLimitReached: __expectBoolean(output.ManualSnapshotsLimitReached),
   } as any;
 };

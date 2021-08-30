@@ -62,7 +62,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1362,7 +1362,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.associatedResourceCount !== undefined && data.associatedResourceCount !== null) {
-    contents.associatedResourceCount = __expectInt(data.associatedResourceCount);
+    contents.associatedResourceCount = __expectInt32(data.associatedResourceCount);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.creationTime = new Date(data.creationTime);

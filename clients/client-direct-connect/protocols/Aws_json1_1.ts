@@ -309,7 +309,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5973,7 +5974,7 @@ const deserializeAws_json1_1BGPPeer = (output: any, context: __SerdeContext): BG
   return {
     addressFamily: __expectString(output.addressFamily),
     amazonAddress: __expectString(output.amazonAddress),
-    asn: __expectInt(output.asn),
+    asn: __expectInt32(output.asn),
     authKey: __expectString(output.authKey),
     awsDeviceV2: __expectString(output.awsDeviceV2),
     awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
@@ -6074,7 +6075,7 @@ const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext):
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
         : undefined,
-    vlan: __expectInt(output.vlan),
+    vlan: __expectInt32(output.vlan),
   } as any;
 };
 
@@ -6320,7 +6321,7 @@ const deserializeAws_json1_1DirectConnectClientException = (
 
 const deserializeAws_json1_1DirectConnectGateway = (output: any, context: __SerdeContext): DirectConnectGateway => {
   return {
-    amazonSideAsn: __expectInt(output.amazonSideAsn),
+    amazonSideAsn: __expectLong(output.amazonSideAsn),
     directConnectGatewayId: __expectString(output.directConnectGatewayId),
     directConnectGatewayName: __expectString(output.directConnectGatewayName),
     directConnectGatewayState: __expectString(output.directConnectGatewayState),
@@ -6551,8 +6552,8 @@ const deserializeAws_json1_1Lag = (output: any, context: __SerdeContext): Lag =>
       output.macSecKeys !== undefined && output.macSecKeys !== null
         ? deserializeAws_json1_1MacSecKeyList(output.macSecKeys, context)
         : undefined,
-    minimumLinks: __expectInt(output.minimumLinks),
-    numberOfConnections: __expectInt(output.numberOfConnections),
+    minimumLinks: __expectInt32(output.minimumLinks),
+    numberOfConnections: __expectInt32(output.numberOfConnections),
     ownerAccount: __expectString(output.ownerAccount),
     providerName: __expectString(output.providerName),
     region: __expectString(output.region),
@@ -6814,8 +6815,8 @@ const deserializeAws_json1_1VirtualInterface = (output: any, context: __SerdeCon
   return {
     addressFamily: __expectString(output.addressFamily),
     amazonAddress: __expectString(output.amazonAddress),
-    amazonSideAsn: __expectInt(output.amazonSideAsn),
-    asn: __expectInt(output.asn),
+    amazonSideAsn: __expectLong(output.amazonSideAsn),
+    asn: __expectInt32(output.asn),
     authKey: __expectString(output.authKey),
     awsDeviceV2: __expectString(output.awsDeviceV2),
     awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
@@ -6829,7 +6830,7 @@ const deserializeAws_json1_1VirtualInterface = (output: any, context: __SerdeCon
     directConnectGatewayId: __expectString(output.directConnectGatewayId),
     jumboFrameCapable: __expectBoolean(output.jumboFrameCapable),
     location: __expectString(output.location),
-    mtu: __expectInt(output.mtu),
+    mtu: __expectInt32(output.mtu),
     ownerAccount: __expectString(output.ownerAccount),
     region: __expectString(output.region),
     routeFilterPrefixes:
@@ -6845,7 +6846,7 @@ const deserializeAws_json1_1VirtualInterface = (output: any, context: __SerdeCon
     virtualInterfaceName: __expectString(output.virtualInterfaceName),
     virtualInterfaceState: __expectString(output.virtualInterfaceState),
     virtualInterfaceType: __expectString(output.virtualInterfaceType),
-    vlan: __expectInt(output.vlan),
+    vlan: __expectInt32(output.vlan),
   } as any;
 };
 
@@ -6886,7 +6887,7 @@ const deserializeAws_json1_1VirtualInterfaceTestHistory = (
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
     status: __expectString(output.status),
-    testDurationInMinutes: __expectInt(output.testDurationInMinutes),
+    testDurationInMinutes: __expectInt32(output.testDurationInMinutes),
     testId: __expectString(output.testId),
     virtualInterfaceId: __expectString(output.virtualInterfaceId),
   } as any;

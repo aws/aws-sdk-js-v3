@@ -393,9 +393,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -8638,8 +8639,8 @@ const serializeAws_json1_1UpdateVPCEConfigurationRequest = (
 const deserializeAws_json1_1AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
   return {
     awsAccountNumber: __expectString(output.awsAccountNumber),
-    defaultJobTimeoutMinutes: __expectInt(output.defaultJobTimeoutMinutes),
-    maxJobTimeoutMinutes: __expectInt(output.maxJobTimeoutMinutes),
+    defaultJobTimeoutMinutes: __expectInt32(output.defaultJobTimeoutMinutes),
+    maxJobTimeoutMinutes: __expectInt32(output.maxJobTimeoutMinutes),
     maxSlots:
       output.maxSlots !== undefined && output.maxSlots !== null
         ? deserializeAws_json1_1MaxSlotMap(output.maxSlots, context)
@@ -8706,20 +8707,20 @@ const deserializeAws_json1_1CannotDeleteException = (output: any, context: __Ser
 
 const deserializeAws_json1_1Counters = (output: any, context: __SerdeContext): Counters => {
   return {
-    errored: __expectInt(output.errored),
-    failed: __expectInt(output.failed),
-    passed: __expectInt(output.passed),
-    skipped: __expectInt(output.skipped),
-    stopped: __expectInt(output.stopped),
-    total: __expectInt(output.total),
-    warned: __expectInt(output.warned),
+    errored: __expectInt32(output.errored),
+    failed: __expectInt32(output.failed),
+    passed: __expectInt32(output.passed),
+    skipped: __expectInt32(output.skipped),
+    stopped: __expectInt32(output.stopped),
+    total: __expectInt32(output.total),
+    warned: __expectInt32(output.warned),
   } as any;
 };
 
 const deserializeAws_json1_1CPU = (output: any, context: __SerdeContext): CPU => {
   return {
     architecture: __expectString(output.architecture),
-    clock: __limitedParseFloat(output.clock),
+    clock: __limitedParseDouble(output.clock),
     frequency: __expectString(output.frequency),
   } as any;
 };
@@ -8899,14 +8900,14 @@ const deserializeAws_json1_1Device = (output: any, context: __SerdeContext): Dev
     fleetName: __expectString(output.fleetName),
     fleetType: __expectString(output.fleetType),
     formFactor: __expectString(output.formFactor),
-    heapSize: __expectInt(output.heapSize),
+    heapSize: __expectLong(output.heapSize),
     image: __expectString(output.image),
     instances:
       output.instances !== undefined && output.instances !== null
         ? deserializeAws_json1_1DeviceInstances(output.instances, context)
         : undefined,
     manufacturer: __expectString(output.manufacturer),
-    memory: __expectInt(output.memory),
+    memory: __expectLong(output.memory),
     model: __expectString(output.model),
     modelId: __expectString(output.modelId),
     name: __expectString(output.name),
@@ -8996,9 +8997,9 @@ const deserializeAws_json1_1DeviceInstances = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1DeviceMinutes = (output: any, context: __SerdeContext): DeviceMinutes => {
   return {
-    metered: __limitedParseFloat(output.metered),
-    total: __limitedParseFloat(output.total),
-    unmetered: __limitedParseFloat(output.unmetered),
+    metered: __limitedParseDouble(output.metered),
+    total: __limitedParseDouble(output.total),
+    unmetered: __limitedParseDouble(output.unmetered),
   } as any;
 };
 
@@ -9006,7 +9007,7 @@ const deserializeAws_json1_1DevicePool = (output: any, context: __SerdeContext):
   return {
     arn: __expectString(output.arn),
     description: __expectString(output.description),
-    maxDevices: __expectInt(output.maxDevices),
+    maxDevices: __expectInt32(output.maxDevices),
     name: __expectString(output.name),
     rules:
       output.rules !== undefined && output.rules !== null
@@ -9075,8 +9076,8 @@ const deserializeAws_json1_1DeviceSelectionResult = (output: any, context: __Ser
       output.filters !== undefined && output.filters !== null
         ? deserializeAws_json1_1DeviceFilters(output.filters, context)
         : undefined,
-    matchedDevicesCount: __expectInt(output.matchedDevicesCount),
-    maxDevices: __expectInt(output.maxDevices),
+    matchedDevicesCount: __expectInt32(output.matchedDevicesCount),
+    maxDevices: __expectInt32(output.maxDevices),
   } as any;
 };
 
@@ -9702,8 +9703,8 @@ const deserializeAws_json1_1ListVPCEConfigurationsResult = (
 
 const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): Location => {
   return {
-    latitude: __limitedParseFloat(output.latitude),
-    longitude: __limitedParseFloat(output.longitude),
+    latitude: __limitedParseDouble(output.latitude),
+    longitude: __limitedParseDouble(output.longitude),
   } as any;
 };
 
@@ -9714,14 +9715,14 @@ const deserializeAws_json1_1MaxSlotMap = (output: any, context: __SerdeContext):
     }
     return {
       ...acc,
-      [key]: __expectInt(value) as any,
+      [key]: __expectInt32(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_json1_1MonetaryAmount = (output: any, context: __SerdeContext): MonetaryAmount => {
   return {
-    amount: __limitedParseFloat(output.amount),
+    amount: __limitedParseDouble(output.amount),
     currencyCode: __expectString(output.currencyCode),
   } as any;
 };
@@ -9730,16 +9731,16 @@ const deserializeAws_json1_1NetworkProfile = (output: any, context: __SerdeConte
   return {
     arn: __expectString(output.arn),
     description: __expectString(output.description),
-    downlinkBandwidthBits: __expectInt(output.downlinkBandwidthBits),
-    downlinkDelayMs: __expectInt(output.downlinkDelayMs),
-    downlinkJitterMs: __expectInt(output.downlinkJitterMs),
-    downlinkLossPercent: __expectInt(output.downlinkLossPercent),
+    downlinkBandwidthBits: __expectLong(output.downlinkBandwidthBits),
+    downlinkDelayMs: __expectLong(output.downlinkDelayMs),
+    downlinkJitterMs: __expectLong(output.downlinkJitterMs),
+    downlinkLossPercent: __expectInt32(output.downlinkLossPercent),
     name: __expectString(output.name),
     type: __expectString(output.type),
-    uplinkBandwidthBits: __expectInt(output.uplinkBandwidthBits),
-    uplinkDelayMs: __expectInt(output.uplinkDelayMs),
-    uplinkJitterMs: __expectInt(output.uplinkJitterMs),
-    uplinkLossPercent: __expectInt(output.uplinkLossPercent),
+    uplinkBandwidthBits: __expectLong(output.uplinkBandwidthBits),
+    uplinkDelayMs: __expectLong(output.uplinkDelayMs),
+    uplinkJitterMs: __expectLong(output.uplinkJitterMs),
+    uplinkLossPercent: __expectInt32(output.uplinkLossPercent),
   } as any;
 };
 
@@ -9818,7 +9819,7 @@ const deserializeAws_json1_1OfferingStatus = (output: any, context: __SerdeConte
       output.offering !== undefined && output.offering !== null
         ? deserializeAws_json1_1Offering(output.offering, context)
         : undefined,
-    quantity: __expectInt(output.quantity),
+    quantity: __expectInt32(output.quantity),
     type: __expectString(output.type),
   } as any;
 };
@@ -9929,7 +9930,7 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
     arn: __expectString(output.arn),
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
-    defaultJobTimeoutMinutes: __expectInt(output.defaultJobTimeoutMinutes),
+    defaultJobTimeoutMinutes: __expectInt32(output.defaultJobTimeoutMinutes),
     name: __expectString(output.name),
   } as any;
 };
@@ -9953,7 +9954,7 @@ const deserializeAws_json1_1PurchasedDevicesMap = (output: any, context: __Serde
       }
       return {
         ...acc,
-        [key]: __expectInt(value) as any,
+        [key]: __expectInt32(value) as any,
       };
     },
     {}
@@ -10056,8 +10057,8 @@ const deserializeAws_json1_1RenewOfferingResult = (output: any, context: __Serde
 
 const deserializeAws_json1_1Resolution = (output: any, context: __SerdeContext): Resolution => {
   return {
-    height: __expectInt(output.height),
-    width: __expectInt(output.width),
+    height: __expectInt32(output.height),
+    width: __expectInt32(output.width),
   } as any;
 };
 
@@ -10085,7 +10086,7 @@ const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run =>
     appUpload: __expectString(output.appUpload),
     arn: __expectString(output.arn),
     billingMethod: __expectString(output.billingMethod),
-    completedJobs: __expectInt(output.completedJobs),
+    completedJobs: __expectInt32(output.completedJobs),
     counters:
       output.counters !== undefined && output.counters !== null
         ? deserializeAws_json1_1Counters(output.counters, context)
@@ -10105,8 +10106,8 @@ const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run =>
       output.deviceSelectionResult !== undefined && output.deviceSelectionResult !== null
         ? deserializeAws_json1_1DeviceSelectionResult(output.deviceSelectionResult, context)
         : undefined,
-    eventCount: __expectInt(output.eventCount),
-    jobTimeoutMinutes: __expectInt(output.jobTimeoutMinutes),
+    eventCount: __expectInt32(output.eventCount),
+    jobTimeoutMinutes: __expectInt32(output.jobTimeoutMinutes),
     locale: __expectString(output.locale),
     location:
       output.location !== undefined && output.location !== null
@@ -10126,7 +10127,7 @@ const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run =>
         : undefined,
     result: __expectString(output.result),
     resultCode: __expectString(output.resultCode),
-    seed: __expectInt(output.seed),
+    seed: __expectInt32(output.seed),
     skipAppResign: __expectBoolean(output.skipAppResign),
     started:
       output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
@@ -10134,7 +10135,7 @@ const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run =>
     stopped:
       output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined,
     testSpecArn: __expectString(output.testSpecArn),
-    totalJobs: __expectInt(output.totalJobs),
+    totalJobs: __expectInt32(output.totalJobs),
     type: __expectString(output.type),
     webUrl: __expectString(output.webUrl),
   } as any;
@@ -10356,7 +10357,7 @@ const deserializeAws_json1_1TestGridProjects = (output: any, context: __SerdeCon
 const deserializeAws_json1_1TestGridSession = (output: any, context: __SerdeContext): TestGridSession => {
   return {
     arn: __expectString(output.arn),
-    billingMinutes: __limitedParseFloat(output.billingMinutes),
+    billingMinutes: __limitedParseDouble(output.billingMinutes),
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     ended: output.ended !== undefined && output.ended !== null ? new Date(Math.round(output.ended * 1000)) : undefined,
@@ -10368,7 +10369,7 @@ const deserializeAws_json1_1TestGridSession = (output: any, context: __SerdeCont
 const deserializeAws_json1_1TestGridSessionAction = (output: any, context: __SerdeContext): TestGridSessionAction => {
   return {
     action: __expectString(output.action),
-    duration: __expectInt(output.duration),
+    duration: __expectLong(output.duration),
     requestMethod: __expectString(output.requestMethod),
     started:
       output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
@@ -10460,8 +10461,8 @@ const deserializeAws_json1_1TooManyTagsException = (output: any, context: __Serd
 
 const deserializeAws_json1_1TrialMinutes = (output: any, context: __SerdeContext): TrialMinutes => {
   return {
-    remaining: __limitedParseFloat(output.remaining),
-    total: __limitedParseFloat(output.total),
+    remaining: __limitedParseDouble(output.remaining),
+    total: __limitedParseDouble(output.total),
   } as any;
 };
 

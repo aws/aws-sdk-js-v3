@@ -74,7 +74,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -3427,9 +3427,9 @@ const deserializeAws_restJson1ApprovalThresholdPolicy = (
   context: __SerdeContext
 ): ApprovalThresholdPolicy => {
   return {
-    ProposalDurationInHours: __expectInt(output.ProposalDurationInHours),
+    ProposalDurationInHours: __expectInt32(output.ProposalDurationInHours),
     ThresholdComparator: __expectString(output.ThresholdComparator),
-    ThresholdPercentage: __expectInt(output.ThresholdPercentage),
+    ThresholdPercentage: __expectInt32(output.ThresholdPercentage),
   } as any;
 };
 
@@ -3816,8 +3816,8 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
         ? new Date(output.ExpirationDate)
         : undefined,
     NetworkId: __expectString(output.NetworkId),
-    NoVoteCount: __expectInt(output.NoVoteCount),
-    OutstandingVoteCount: __expectInt(output.OutstandingVoteCount),
+    NoVoteCount: __expectInt32(output.NoVoteCount),
+    OutstandingVoteCount: __expectInt32(output.OutstandingVoteCount),
     ProposalId: __expectString(output.ProposalId),
     ProposedByMemberId: __expectString(output.ProposedByMemberId),
     ProposedByMemberName: __expectString(output.ProposedByMemberName),
@@ -3826,7 +3826,7 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1OutputTagMap(output.Tags, context)
         : undefined,
-    YesVoteCount: __expectInt(output.YesVoteCount),
+    YesVoteCount: __expectInt32(output.YesVoteCount),
   } as any;
 };
 

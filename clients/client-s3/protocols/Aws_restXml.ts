@@ -397,7 +397,8 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7120,13 +7121,13 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     contents.LastModified = new Date(output.headers["last-modified"]);
   }
   if (output.headers["content-length"] !== undefined) {
-    contents.ContentLength = __strictParseInt(output.headers["content-length"]);
+    contents.ContentLength = __strictParseLong(output.headers["content-length"]);
   }
   if (output.headers["etag"] !== undefined) {
     contents.ETag = output.headers["etag"];
   }
   if (output.headers["x-amz-missing-meta"] !== undefined) {
-    contents.MissingMeta = __strictParseInt(output.headers["x-amz-missing-meta"]);
+    contents.MissingMeta = __strictParseInt32(output.headers["x-amz-missing-meta"]);
   }
   if (output.headers["x-amz-version-id"] !== undefined) {
     contents.VersionId = output.headers["x-amz-version-id"];
@@ -7180,10 +7181,10 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     contents.ReplicationStatus = output.headers["x-amz-replication-status"];
   }
   if (output.headers["x-amz-mp-parts-count"] !== undefined) {
-    contents.PartsCount = __strictParseInt(output.headers["x-amz-mp-parts-count"]);
+    contents.PartsCount = __strictParseInt32(output.headers["x-amz-mp-parts-count"]);
   }
   if (output.headers["x-amz-tagging-count"] !== undefined) {
-    contents.TagCount = __strictParseInt(output.headers["x-amz-tagging-count"]);
+    contents.TagCount = __strictParseInt32(output.headers["x-amz-tagging-count"]);
   }
   if (output.headers["x-amz-object-lock-mode"] !== undefined) {
     contents.ObjectLockMode = output.headers["x-amz-object-lock-mode"];
@@ -7711,13 +7712,13 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
     contents.LastModified = new Date(output.headers["last-modified"]);
   }
   if (output.headers["content-length"] !== undefined) {
-    contents.ContentLength = __strictParseInt(output.headers["content-length"]);
+    contents.ContentLength = __strictParseLong(output.headers["content-length"]);
   }
   if (output.headers["etag"] !== undefined) {
     contents.ETag = output.headers["etag"];
   }
   if (output.headers["x-amz-missing-meta"] !== undefined) {
-    contents.MissingMeta = __strictParseInt(output.headers["x-amz-missing-meta"]);
+    contents.MissingMeta = __strictParseInt32(output.headers["x-amz-missing-meta"]);
   }
   if (output.headers["x-amz-version-id"] !== undefined) {
     contents.VersionId = output.headers["x-amz-version-id"];
@@ -7768,7 +7769,7 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
     contents.ReplicationStatus = output.headers["x-amz-replication-status"];
   }
   if (output.headers["x-amz-mp-parts-count"] !== undefined) {
-    contents.PartsCount = __strictParseInt(output.headers["x-amz-mp-parts-count"]);
+    contents.PartsCount = __strictParseInt32(output.headers["x-amz-mp-parts-count"]);
   }
   if (output.headers["x-amz-object-lock-mode"] !== undefined) {
     contents.ObjectLockMode = output.headers["x-amz-object-lock-mode"];
@@ -8190,7 +8191,7 @@ export const deserializeAws_restXmlListMultipartUploadsCommand = async (
     contents.KeyMarker = __expectString(data["KeyMarker"]);
   }
   if (data["MaxUploads"] !== undefined) {
-    contents.MaxUploads = __strictParseInt(data["MaxUploads"]) as number;
+    contents.MaxUploads = __strictParseInt32(data["MaxUploads"]) as number;
   }
   if (data["NextKeyMarker"] !== undefined) {
     contents.NextKeyMarker = __expectString(data["NextKeyMarker"]);
@@ -8291,7 +8292,7 @@ export const deserializeAws_restXmlListObjectsCommand = async (
     contents.Marker = __expectString(data["Marker"]);
   }
   if (data["MaxKeys"] !== undefined) {
-    contents.MaxKeys = __strictParseInt(data["MaxKeys"]) as number;
+    contents.MaxKeys = __strictParseInt32(data["MaxKeys"]) as number;
   }
   if (data["Name"] !== undefined) {
     contents.Name = __expectString(data["Name"]);
@@ -8393,10 +8394,10 @@ export const deserializeAws_restXmlListObjectsV2Command = async (
     contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["KeyCount"] !== undefined) {
-    contents.KeyCount = __strictParseInt(data["KeyCount"]) as number;
+    contents.KeyCount = __strictParseInt32(data["KeyCount"]) as number;
   }
   if (data["MaxKeys"] !== undefined) {
-    contents.MaxKeys = __strictParseInt(data["MaxKeys"]) as number;
+    contents.MaxKeys = __strictParseInt32(data["MaxKeys"]) as number;
   }
   if (data["Name"] !== undefined) {
     contents.Name = __expectString(data["Name"]);
@@ -8502,7 +8503,7 @@ export const deserializeAws_restXmlListObjectVersionsCommand = async (
     contents.KeyMarker = __expectString(data["KeyMarker"]);
   }
   if (data["MaxKeys"] !== undefined) {
-    contents.MaxKeys = __strictParseInt(data["MaxKeys"]) as number;
+    contents.MaxKeys = __strictParseInt32(data["MaxKeys"]) as number;
   }
   if (data["Name"] !== undefined) {
     contents.Name = __expectString(data["Name"]);
@@ -8604,7 +8605,7 @@ export const deserializeAws_restXmlListPartsCommand = async (
     contents.Key = __expectString(data["Key"]);
   }
   if (data["MaxParts"] !== undefined) {
-    contents.MaxParts = __strictParseInt(data["MaxParts"]) as number;
+    contents.MaxParts = __strictParseInt32(data["MaxParts"]) as number;
   }
   if (data["NextPartNumberMarker"] !== undefined) {
     contents.NextPartNumberMarker = __expectString(data["NextPartNumberMarker"]);
@@ -12536,7 +12537,7 @@ const deserializeAws_restXmlAbortIncompleteMultipartUpload = (
     DaysAfterInitiation: undefined,
   };
   if (output["DaysAfterInitiation"] !== undefined) {
-    contents.DaysAfterInitiation = __strictParseInt(output["DaysAfterInitiation"]) as number;
+    contents.DaysAfterInitiation = __strictParseInt32(output["DaysAfterInitiation"]) as number;
   }
   return contents;
 };
@@ -12838,7 +12839,7 @@ const deserializeAws_restXmlCORSRule = (output: any, context: __SerdeContext): C
     );
   }
   if (output["MaxAgeSeconds"] !== undefined) {
-    contents.MaxAgeSeconds = __strictParseInt(output["MaxAgeSeconds"]) as number;
+    contents.MaxAgeSeconds = __strictParseInt32(output["MaxAgeSeconds"]) as number;
   }
   return contents;
 };
@@ -12864,10 +12865,10 @@ const deserializeAws_restXmlDefaultRetention = (output: any, context: __SerdeCon
     contents.Mode = __expectString(output["Mode"]);
   }
   if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt(output["Days"]) as number;
+    contents.Days = __strictParseInt32(output["Days"]) as number;
   }
   if (output["Years"] !== undefined) {
-    contents.Years = __strictParseInt(output["Years"]) as number;
+    contents.Years = __strictParseInt32(output["Years"]) as number;
   }
   return contents;
 };
@@ -13470,7 +13471,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
     contents.Date = new Date(output["Date"]);
   }
   if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt(output["Days"]) as number;
+    contents.Days = __strictParseInt32(output["Days"]) as number;
   }
   if (output["ExpiredObjectDeleteMarker"] !== undefined) {
     contents.ExpiredObjectDeleteMarker = __parseBoolean(output["ExpiredObjectDeleteMarker"]);
@@ -13736,7 +13737,7 @@ const deserializeAws_restXmlNoncurrentVersionExpiration = (
     NoncurrentDays: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
-    contents.NoncurrentDays = __strictParseInt(output["NoncurrentDays"]) as number;
+    contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
   }
   return contents;
 };
@@ -13750,7 +13751,7 @@ const deserializeAws_restXmlNoncurrentVersionTransition = (
     StorageClass: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
-    contents.NoncurrentDays = __strictParseInt(output["NoncurrentDays"]) as number;
+    contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);
@@ -13804,7 +13805,7 @@ const deserializeAws_restXml_Object = (output: any, context: __SerdeContext): _O
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["Size"] !== undefined) {
-    contents.Size = __strictParseInt(output["Size"]) as number;
+    contents.Size = __strictParseInt32(output["Size"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);
@@ -13892,7 +13893,7 @@ const deserializeAws_restXmlObjectVersion = (output: any, context: __SerdeContex
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["Size"] !== undefined) {
-    contents.Size = __strictParseInt(output["Size"]) as number;
+    contents.Size = __strictParseInt32(output["Size"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);
@@ -13985,7 +13986,7 @@ const deserializeAws_restXmlPart = (output: any, context: __SerdeContext): Part 
     Size: undefined,
   };
   if (output["PartNumber"] !== undefined) {
-    contents.PartNumber = __strictParseInt(output["PartNumber"]) as number;
+    contents.PartNumber = __strictParseInt32(output["PartNumber"]) as number;
   }
   if (output["LastModified"] !== undefined) {
     contents.LastModified = new Date(output["LastModified"]);
@@ -13994,7 +13995,7 @@ const deserializeAws_restXmlPart = (output: any, context: __SerdeContext): Part 
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["Size"] !== undefined) {
-    contents.Size = __strictParseInt(output["Size"]) as number;
+    contents.Size = __strictParseInt32(output["Size"]) as number;
   }
   return contents;
 };
@@ -14027,13 +14028,13 @@ const deserializeAws_restXmlProgress = (output: any, context: __SerdeContext): P
     BytesReturned: undefined,
   };
   if (output["BytesScanned"] !== undefined) {
-    contents.BytesScanned = __strictParseInt(output["BytesScanned"]) as number;
+    contents.BytesScanned = __strictParseLong(output["BytesScanned"]) as number;
   }
   if (output["BytesProcessed"] !== undefined) {
-    contents.BytesProcessed = __strictParseInt(output["BytesProcessed"]) as number;
+    contents.BytesProcessed = __strictParseLong(output["BytesProcessed"]) as number;
   }
   if (output["BytesReturned"] !== undefined) {
-    contents.BytesReturned = __strictParseInt(output["BytesReturned"]) as number;
+    contents.BytesReturned = __strictParseLong(output["BytesReturned"]) as number;
   }
   return contents;
 };
@@ -14205,7 +14206,7 @@ const deserializeAws_restXmlReplicationRule = (output: any, context: __SerdeCont
     contents.ID = __expectString(output["ID"]);
   }
   if (output["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt(output["Priority"]) as number;
+    contents.Priority = __strictParseInt32(output["Priority"]) as number;
   }
   if (output["Prefix"] !== undefined) {
     contents.Prefix = __expectString(output["Prefix"]);
@@ -14309,7 +14310,7 @@ const deserializeAws_restXmlReplicationTimeValue = (output: any, context: __Serd
     Minutes: undefined,
   };
   if (output["Minutes"] !== undefined) {
-    contents.Minutes = __strictParseInt(output["Minutes"]) as number;
+    contents.Minutes = __strictParseInt32(output["Minutes"]) as number;
   }
   return contents;
 };
@@ -14503,13 +14504,13 @@ const deserializeAws_restXmlStats = (output: any, context: __SerdeContext): Stat
     BytesReturned: undefined,
   };
   if (output["BytesScanned"] !== undefined) {
-    contents.BytesScanned = __strictParseInt(output["BytesScanned"]) as number;
+    contents.BytesScanned = __strictParseLong(output["BytesScanned"]) as number;
   }
   if (output["BytesProcessed"] !== undefined) {
-    contents.BytesProcessed = __strictParseInt(output["BytesProcessed"]) as number;
+    contents.BytesProcessed = __strictParseLong(output["BytesProcessed"]) as number;
   }
   if (output["BytesReturned"] !== undefined) {
-    contents.BytesReturned = __strictParseInt(output["BytesReturned"]) as number;
+    contents.BytesReturned = __strictParseLong(output["BytesReturned"]) as number;
   }
   return contents;
 };
@@ -14607,7 +14608,7 @@ const deserializeAws_restXmlTiering = (output: any, context: __SerdeContext): Ti
     AccessTier: undefined,
   };
   if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt(output["Days"]) as number;
+    contents.Days = __strictParseInt32(output["Days"]) as number;
   }
   if (output["AccessTier"] !== undefined) {
     contents.AccessTier = __expectString(output["AccessTier"]);
@@ -14672,7 +14673,7 @@ const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext):
     contents.Date = new Date(output["Date"]);
   }
   if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt(output["Days"]) as number;
+    contents.Days = __strictParseInt32(output["Days"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);

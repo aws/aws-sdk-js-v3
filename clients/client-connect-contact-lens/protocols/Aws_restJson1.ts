@@ -17,7 +17,7 @@ import {
   Transcript,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
+import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -255,8 +255,8 @@ const deserializeAws_restJson1CategoryDetails = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1CharacterOffsets = (output: any, context: __SerdeContext): CharacterOffsets => {
   return {
-    BeginOffsetChar: __expectInt(output.BeginOffsetChar),
-    EndOffsetChar: __expectInt(output.EndOffsetChar),
+    BeginOffsetChar: __expectInt32(output.BeginOffsetChar),
+    EndOffsetChar: __expectInt32(output.EndOffsetChar),
   } as any;
 };
 
@@ -308,8 +308,8 @@ const deserializeAws_restJson1MatchedDetails = (
 
 const deserializeAws_restJson1PointOfInterest = (output: any, context: __SerdeContext): PointOfInterest => {
   return {
-    BeginOffsetMillis: __expectInt(output.BeginOffsetMillis),
-    EndOffsetMillis: __expectInt(output.EndOffsetMillis),
+    BeginOffsetMillis: __expectInt32(output.BeginOffsetMillis),
+    EndOffsetMillis: __expectInt32(output.EndOffsetMillis),
   } as any;
 };
 
@@ -356,9 +356,9 @@ const deserializeAws_restJson1RealtimeContactAnalysisSegments = (
 
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Transcript => {
   return {
-    BeginOffsetMillis: __expectInt(output.BeginOffsetMillis),
+    BeginOffsetMillis: __expectInt32(output.BeginOffsetMillis),
     Content: __expectString(output.Content),
-    EndOffsetMillis: __expectInt(output.EndOffsetMillis),
+    EndOffsetMillis: __expectInt32(output.EndOffsetMillis),
     Id: __expectString(output.Id),
     IssuesDetected:
       output.IssuesDetected !== undefined && output.IssuesDetected !== null

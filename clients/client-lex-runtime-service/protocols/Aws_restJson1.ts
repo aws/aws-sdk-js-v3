@@ -29,10 +29,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1407,8 +1407,8 @@ const deserializeAws_restJson1ActiveContextTimeToLive = (
   context: __SerdeContext
 ): ActiveContextTimeToLive => {
   return {
-    timeToLiveInSeconds: __expectInt(output.timeToLiveInSeconds),
-    turnsToLive: __expectInt(output.turnsToLive),
+    timeToLiveInSeconds: __expectInt32(output.timeToLiveInSeconds),
+    turnsToLive: __expectInt32(output.turnsToLive),
   } as any;
 };
 
@@ -1460,7 +1460,7 @@ const deserializeAws_restJson1genericAttachmentList = (output: any, context: __S
 
 const deserializeAws_restJson1IntentConfidence = (output: any, context: __SerdeContext): IntentConfidence => {
   return {
-    score: __limitedParseFloat(output.score),
+    score: __limitedParseDouble(output.score),
   } as any;
 };
 

@@ -77,9 +77,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1688,8 +1688,8 @@ const deserializeAws_json1_1ScalableTarget = (output: any, context: __SerdeConte
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    MaxCapacity: __expectInt(output.MaxCapacity),
-    MinCapacity: __expectInt(output.MinCapacity),
+    MaxCapacity: __expectInt32(output.MaxCapacity),
+    MinCapacity: __expectInt32(output.MinCapacity),
     ResourceId: __expectString(output.ResourceId),
     RoleARN: __expectString(output.RoleARN),
     ScalableDimension: __expectString(output.ScalableDimension),
@@ -1703,8 +1703,8 @@ const deserializeAws_json1_1ScalableTarget = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ScalableTargetAction = (output: any, context: __SerdeContext): ScalableTargetAction => {
   return {
-    MaxCapacity: __expectInt(output.MaxCapacity),
-    MinCapacity: __expectInt(output.MinCapacity),
+    MaxCapacity: __expectInt32(output.MaxCapacity),
+    MinCapacity: __expectInt32(output.MinCapacity),
   } as any;
 };
 
@@ -1831,9 +1831,9 @@ const deserializeAws_json1_1ScheduledActions = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1StepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
   return {
-    MetricIntervalLowerBound: __limitedParseFloat(output.MetricIntervalLowerBound),
-    MetricIntervalUpperBound: __limitedParseFloat(output.MetricIntervalUpperBound),
-    ScalingAdjustment: __expectInt(output.ScalingAdjustment),
+    MetricIntervalLowerBound: __limitedParseDouble(output.MetricIntervalLowerBound),
+    MetricIntervalUpperBound: __limitedParseDouble(output.MetricIntervalUpperBound),
+    ScalingAdjustment: __expectInt32(output.ScalingAdjustment),
   } as any;
 };
 
@@ -1854,9 +1854,9 @@ const deserializeAws_json1_1StepScalingPolicyConfiguration = (
 ): StepScalingPolicyConfiguration => {
   return {
     AdjustmentType: __expectString(output.AdjustmentType),
-    Cooldown: __expectInt(output.Cooldown),
+    Cooldown: __expectInt32(output.Cooldown),
     MetricAggregationType: __expectString(output.MetricAggregationType),
-    MinAdjustmentMagnitude: __expectInt(output.MinAdjustmentMagnitude),
+    MinAdjustmentMagnitude: __expectInt32(output.MinAdjustmentMagnitude),
     StepAdjustments:
       output.StepAdjustments !== undefined && output.StepAdjustments !== null
         ? deserializeAws_json1_1StepAdjustments(output.StepAdjustments, context)
@@ -1886,9 +1886,9 @@ const deserializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
       output.PredefinedMetricSpecification !== undefined && output.PredefinedMetricSpecification !== null
         ? deserializeAws_json1_1PredefinedMetricSpecification(output.PredefinedMetricSpecification, context)
         : undefined,
-    ScaleInCooldown: __expectInt(output.ScaleInCooldown),
-    ScaleOutCooldown: __expectInt(output.ScaleOutCooldown),
-    TargetValue: __limitedParseFloat(output.TargetValue),
+    ScaleInCooldown: __expectInt32(output.ScaleInCooldown),
+    ScaleOutCooldown: __expectInt32(output.ScaleOutCooldown),
+    TargetValue: __limitedParseDouble(output.TargetValue),
   } as any;
 };
 

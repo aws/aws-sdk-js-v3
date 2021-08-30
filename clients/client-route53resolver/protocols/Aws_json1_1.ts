@@ -363,7 +363,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -7902,7 +7902,7 @@ const deserializeAws_json1_1FirewallDomainList = (output: any, context: __SerdeC
     Arn: __expectString(output.Arn),
     CreationTime: __expectString(output.CreationTime),
     CreatorRequestId: __expectString(output.CreatorRequestId),
-    DomainCount: __expectInt(output.DomainCount),
+    DomainCount: __expectInt32(output.DomainCount),
     Id: __expectString(output.Id),
     ManagedOwnerName: __expectString(output.ManagedOwnerName),
     ModificationTime: __expectString(output.ModificationTime),
@@ -7955,7 +7955,7 @@ const deserializeAws_json1_1FirewallRule = (output: any, context: __SerdeContext
     Action: __expectString(output.Action),
     BlockOverrideDnsType: __expectString(output.BlockOverrideDnsType),
     BlockOverrideDomain: __expectString(output.BlockOverrideDomain),
-    BlockOverrideTtl: __expectInt(output.BlockOverrideTtl),
+    BlockOverrideTtl: __expectInt32(output.BlockOverrideTtl),
     BlockResponse: __expectString(output.BlockResponse),
     CreationTime: __expectString(output.CreationTime),
     CreatorRequestId: __expectString(output.CreatorRequestId),
@@ -7963,7 +7963,7 @@ const deserializeAws_json1_1FirewallRule = (output: any, context: __SerdeContext
     FirewallRuleGroupId: __expectString(output.FirewallRuleGroupId),
     ModificationTime: __expectString(output.ModificationTime),
     Name: __expectString(output.Name),
-    Priority: __expectInt(output.Priority),
+    Priority: __expectInt32(output.Priority),
   } as any;
 };
 
@@ -7976,7 +7976,7 @@ const deserializeAws_json1_1FirewallRuleGroup = (output: any, context: __SerdeCo
     ModificationTime: __expectString(output.ModificationTime),
     Name: __expectString(output.Name),
     OwnerId: __expectString(output.OwnerId),
-    RuleCount: __expectInt(output.RuleCount),
+    RuleCount: __expectInt32(output.RuleCount),
     ShareStatus: __expectString(output.ShareStatus),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
@@ -7997,7 +7997,7 @@ const deserializeAws_json1_1FirewallRuleGroupAssociation = (
     ModificationTime: __expectString(output.ModificationTime),
     MutationProtection: __expectString(output.MutationProtection),
     Name: __expectString(output.Name),
-    Priority: __expectInt(output.Priority),
+    Priority: __expectInt32(output.Priority),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
     VpcId: __expectString(output.VpcId),
@@ -8395,7 +8395,7 @@ const deserializeAws_json1_1ListResolverEndpointIpAddressesResponse = (
       output.IpAddresses !== undefined && output.IpAddresses !== null
         ? deserializeAws_json1_1IpAddressesResponse(output.IpAddresses, context)
         : undefined,
-    MaxResults: __expectInt(output.MaxResults),
+    MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -8405,7 +8405,7 @@ const deserializeAws_json1_1ListResolverEndpointsResponse = (
   context: __SerdeContext
 ): ListResolverEndpointsResponse => {
   return {
-    MaxResults: __expectInt(output.MaxResults),
+    MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
     ResolverEndpoints:
       output.ResolverEndpoints !== undefined && output.ResolverEndpoints !== null
@@ -8427,8 +8427,8 @@ const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsResponse = (
             context
           )
         : undefined,
-    TotalCount: __expectInt(output.TotalCount),
-    TotalFilteredCount: __expectInt(output.TotalFilteredCount),
+    TotalCount: __expectInt32(output.TotalCount),
+    TotalFilteredCount: __expectInt32(output.TotalFilteredCount),
   } as any;
 };
 
@@ -8442,8 +8442,8 @@ const deserializeAws_json1_1ListResolverQueryLogConfigsResponse = (
       output.ResolverQueryLogConfigs !== undefined && output.ResolverQueryLogConfigs !== null
         ? deserializeAws_json1_1ResolverQueryLogConfigList(output.ResolverQueryLogConfigs, context)
         : undefined,
-    TotalCount: __expectInt(output.TotalCount),
-    TotalFilteredCount: __expectInt(output.TotalFilteredCount),
+    TotalCount: __expectInt32(output.TotalCount),
+    TotalFilteredCount: __expectInt32(output.TotalFilteredCount),
   } as any;
 };
 
@@ -8452,7 +8452,7 @@ const deserializeAws_json1_1ListResolverRuleAssociationsResponse = (
   context: __SerdeContext
 ): ListResolverRuleAssociationsResponse => {
   return {
-    MaxResults: __expectInt(output.MaxResults),
+    MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
     ResolverRuleAssociations:
       output.ResolverRuleAssociations !== undefined && output.ResolverRuleAssociations !== null
@@ -8466,7 +8466,7 @@ const deserializeAws_json1_1ListResolverRulesResponse = (
   context: __SerdeContext
 ): ListResolverRulesResponse => {
   return {
-    MaxResults: __expectInt(output.MaxResults),
+    MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
     ResolverRules:
       output.ResolverRules !== undefined && output.ResolverRules !== null
@@ -8546,7 +8546,7 @@ const deserializeAws_json1_1ResolverEndpoint = (output: any, context: __SerdeCon
     Direction: __expectString(output.Direction),
     HostVPCId: __expectString(output.HostVPCId),
     Id: __expectString(output.Id),
-    IpAddressCount: __expectInt(output.IpAddressCount),
+    IpAddressCount: __expectInt32(output.IpAddressCount),
     ModificationTime: __expectString(output.ModificationTime),
     Name: __expectString(output.Name),
     SecurityGroupIds:
@@ -8572,7 +8572,7 @@ const deserializeAws_json1_1ResolverEndpoints = (output: any, context: __SerdeCo
 const deserializeAws_json1_1ResolverQueryLogConfig = (output: any, context: __SerdeContext): ResolverQueryLogConfig => {
   return {
     Arn: __expectString(output.Arn),
-    AssociationCount: __expectInt(output.AssociationCount),
+    AssociationCount: __expectInt32(output.AssociationCount),
     CreationTime: __expectString(output.CreationTime),
     CreatorRequestId: __expectString(output.CreatorRequestId),
     DestinationArn: __expectString(output.DestinationArn),
@@ -8761,7 +8761,7 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 const deserializeAws_json1_1TargetAddress = (output: any, context: __SerdeContext): TargetAddress => {
   return {
     Ip: __expectString(output.Ip),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 

@@ -74,9 +74,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
-  limitedParseFloat as __limitedParseFloat,
+  limitedParseFloat32 as __limitedParseFloat32,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1486,9 +1486,9 @@ const deserializeAws_json1_1BadDocumentException = (output: any, context: __Serd
 const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Block => {
   return {
     BlockType: __expectString(output.BlockType),
-    ColumnIndex: __expectInt(output.ColumnIndex),
-    ColumnSpan: __expectInt(output.ColumnSpan),
-    Confidence: __limitedParseFloat(output.Confidence),
+    ColumnIndex: __expectInt32(output.ColumnIndex),
+    ColumnSpan: __expectInt32(output.ColumnSpan),
+    Confidence: __limitedParseFloat32(output.Confidence),
     EntityTypes:
       output.EntityTypes !== undefined && output.EntityTypes !== null
         ? deserializeAws_json1_1EntityTypes(output.EntityTypes, context)
@@ -1498,13 +1498,13 @@ const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Bloc
         ? deserializeAws_json1_1Geometry(output.Geometry, context)
         : undefined,
     Id: __expectString(output.Id),
-    Page: __expectInt(output.Page),
+    Page: __expectInt32(output.Page),
     Relationships:
       output.Relationships !== undefined && output.Relationships !== null
         ? deserializeAws_json1_1RelationshipList(output.Relationships, context)
         : undefined,
-    RowIndex: __expectInt(output.RowIndex),
-    RowSpan: __expectInt(output.RowSpan),
+    RowIndex: __expectInt32(output.RowIndex),
+    RowSpan: __expectInt32(output.RowSpan),
     SelectionStatus: __expectString(output.SelectionStatus),
     Text: __expectString(output.Text),
     TextType: __expectString(output.TextType),
@@ -1524,10 +1524,10 @@ const deserializeAws_json1_1BlockList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
   return {
-    Height: __limitedParseFloat(output.Height),
-    Left: __limitedParseFloat(output.Left),
-    Top: __limitedParseFloat(output.Top),
-    Width: __limitedParseFloat(output.Width),
+    Height: __limitedParseFloat32(output.Height),
+    Left: __limitedParseFloat32(output.Left),
+    Top: __limitedParseFloat32(output.Top),
+    Width: __limitedParseFloat32(output.Width),
   } as any;
 };
 
@@ -1550,7 +1550,7 @@ const deserializeAws_json1_1DetectDocumentTextResponse = (
 
 const deserializeAws_json1_1DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
   return {
-    Pages: __expectInt(output.Pages),
+    Pages: __expectInt32(output.Pages),
   } as any;
 };
 
@@ -1577,7 +1577,7 @@ const deserializeAws_json1_1EntityTypes = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ExpenseDetection = (output: any, context: __SerdeContext): ExpenseDetection => {
   return {
-    Confidence: __limitedParseFloat(output.Confidence),
+    Confidence: __limitedParseFloat32(output.Confidence),
     Geometry:
       output.Geometry !== undefined && output.Geometry !== null
         ? deserializeAws_json1_1Geometry(output.Geometry, context)
@@ -1588,7 +1588,7 @@ const deserializeAws_json1_1ExpenseDetection = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ExpenseDocument = (output: any, context: __SerdeContext): ExpenseDocument => {
   return {
-    ExpenseIndex: __expectInt(output.ExpenseIndex),
+    ExpenseIndex: __expectInt32(output.ExpenseIndex),
     LineItemGroups:
       output.LineItemGroups !== undefined && output.LineItemGroups !== null
         ? deserializeAws_json1_1LineItemGroupList(output.LineItemGroups, context)
@@ -1617,7 +1617,7 @@ const deserializeAws_json1_1ExpenseField = (output: any, context: __SerdeContext
       output.LabelDetection !== undefined && output.LabelDetection !== null
         ? deserializeAws_json1_1ExpenseDetection(output.LabelDetection, context)
         : undefined,
-    PageNumber: __expectInt(output.PageNumber),
+    PageNumber: __expectInt32(output.PageNumber),
     Type:
       output.Type !== undefined && output.Type !== null
         ? deserializeAws_json1_1ExpenseType(output.Type, context)
@@ -1642,7 +1642,7 @@ const deserializeAws_json1_1ExpenseFieldList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ExpenseType = (output: any, context: __SerdeContext): ExpenseType => {
   return {
-    Confidence: __limitedParseFloat(output.Confidence),
+    Confidence: __limitedParseFloat32(output.Confidence),
     Text: __expectString(output.Text),
   } as any;
 };
@@ -1830,7 +1830,7 @@ const deserializeAws_json1_1LineItemFields = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1LineItemGroup = (output: any, context: __SerdeContext): LineItemGroup => {
   return {
-    LineItemGroupIndex: __expectInt(output.LineItemGroupIndex),
+    LineItemGroupIndex: __expectInt32(output.LineItemGroupIndex),
     LineItems:
       output.LineItems !== undefined && output.LineItems !== null
         ? deserializeAws_json1_1LineItemList(output.LineItems, context)
@@ -1867,14 +1867,14 @@ const deserializeAws_json1_1Pages = (output: any, context: __SerdeContext): numb
       if (entry === null) {
         return null as any;
       }
-      return __expectInt(entry) as any;
+      return __expectInt32(entry) as any;
     });
 };
 
 const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Point => {
   return {
-    X: __limitedParseFloat(output.X),
-    Y: __limitedParseFloat(output.Y),
+    X: __limitedParseFloat32(output.X),
+    Y: __limitedParseFloat32(output.Y),
   } as any;
 };
 

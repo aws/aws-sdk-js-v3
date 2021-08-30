@@ -186,7 +186,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -8254,7 +8254,7 @@ const deserializeAws_restJson1DistributionConfiguration = (
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
-    timeoutMinutes: __expectInt(output.timeoutMinutes),
+    timeoutMinutes: __expectInt32(output.timeoutMinutes),
   } as any;
 };
 
@@ -8311,10 +8311,10 @@ const deserializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
   return {
     deleteOnTermination: __expectBoolean(output.deleteOnTermination),
     encrypted: __expectBoolean(output.encrypted),
-    iops: __expectInt(output.iops),
+    iops: __expectInt32(output.iops),
     kmsKeyId: __expectString(output.kmsKeyId),
     snapshotId: __expectString(output.snapshotId),
-    volumeSize: __expectInt(output.volumeSize),
+    volumeSize: __expectInt32(output.volumeSize),
     volumeType: __expectString(output.volumeType),
   } as any;
 };
@@ -8532,7 +8532,7 @@ const deserializeAws_restJson1ImageTestsConfiguration = (
 ): ImageTestsConfiguration => {
   return {
     imageTestsEnabled: __expectBoolean(output.imageTestsEnabled),
-    timeoutMinutes: __expectInt(output.timeoutMinutes),
+    timeoutMinutes: __expectInt32(output.timeoutMinutes),
   } as any;
 };
 

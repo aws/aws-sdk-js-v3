@@ -189,7 +189,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4723,8 +4723,8 @@ const deserializeAws_json1_0PerObjectStatus = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_0PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
-    FromPort: __expectInt(output.FromPort),
-    ToPort: __expectInt(output.ToPort),
+    FromPort: __expectInt32(output.FromPort),
+    ToPort: __expectInt32(output.ToPort),
   } as any;
 };
 
@@ -4767,7 +4767,7 @@ const deserializeAws_json1_0ProtocolNumbers = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return __expectInt(entry) as any;
+      return __expectInt32(entry) as any;
     });
 };
 
@@ -4840,7 +4840,7 @@ const deserializeAws_json1_0RuleGroupMetadata = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupResponse => {
   return {
-    Capacity: __expectInt(output.Capacity),
+    Capacity: __expectInt32(output.Capacity),
     Description: __expectString(output.Description),
     RuleGroupArn: __expectString(output.RuleGroupArn),
     RuleGroupId: __expectString(output.RuleGroupId),
@@ -5014,7 +5014,7 @@ const deserializeAws_json1_0StatelessActions = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0StatelessRule = (output: any, context: __SerdeContext): StatelessRule => {
   return {
-    Priority: __expectInt(output.Priority),
+    Priority: __expectInt32(output.Priority),
     RuleDefinition:
       output.RuleDefinition !== undefined && output.RuleDefinition !== null
         ? deserializeAws_json1_0RuleDefinition(output.RuleDefinition, context)
@@ -5027,7 +5027,7 @@ const deserializeAws_json1_0StatelessRuleGroupReference = (
   context: __SerdeContext
 ): StatelessRuleGroupReference => {
   return {
-    Priority: __expectInt(output.Priority),
+    Priority: __expectInt32(output.Priority),
     ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };

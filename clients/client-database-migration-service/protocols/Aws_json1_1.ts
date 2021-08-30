@@ -364,7 +364,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -6804,8 +6805,8 @@ const deserializeAws_json1_1AccessDeniedFault = (output: any, context: __SerdeCo
 const deserializeAws_json1_1AccountQuota = (output: any, context: __SerdeContext): AccountQuota => {
   return {
     AccountQuotaName: __expectString(output.AccountQuotaName),
-    Max: __expectInt(output.Max),
-    Used: __expectInt(output.Used),
+    Max: __expectLong(output.Max),
+    Used: __expectLong(output.Used),
   } as any;
 };
 
@@ -6882,7 +6883,7 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
       output.CertificateWallet !== undefined && output.CertificateWallet !== null
         ? context.base64Decoder(output.CertificateWallet)
         : undefined,
-    KeyLength: __expectInt(output.KeyLength),
+    KeyLength: __expectInt32(output.KeyLength),
     SigningAlgorithm: __expectString(output.SigningAlgorithm),
     ValidFromDate:
       output.ValidFromDate !== undefined && output.ValidFromDate !== null
@@ -7370,12 +7371,12 @@ const deserializeAws_json1_1DmsTransferSettings = (output: any, context: __Serde
 const deserializeAws_json1_1DocDbSettings = (output: any, context: __SerdeContext): DocDbSettings => {
   return {
     DatabaseName: __expectString(output.DatabaseName),
-    DocsToInvestigate: __expectInt(output.DocsToInvestigate),
+    DocsToInvestigate: __expectInt32(output.DocsToInvestigate),
     ExtractDocId: __expectBoolean(output.ExtractDocId),
     KmsKeyId: __expectString(output.KmsKeyId),
     NestingLevel: __expectString(output.NestingLevel),
     Password: __expectString(output.Password),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     SecretsManagerAccessRoleArn: __expectString(output.SecretsManagerAccessRoleArn),
     SecretsManagerSecretId: __expectString(output.SecretsManagerSecretId),
     ServerName: __expectString(output.ServerName),
@@ -7392,8 +7393,8 @@ const deserializeAws_json1_1DynamoDbSettings = (output: any, context: __SerdeCon
 const deserializeAws_json1_1ElasticsearchSettings = (output: any, context: __SerdeContext): ElasticsearchSettings => {
   return {
     EndpointUri: __expectString(output.EndpointUri),
-    ErrorRetryDuration: __expectInt(output.ErrorRetryDuration),
-    FullLoadErrorPercentage: __expectInt(output.FullLoadErrorPercentage),
+    ErrorRetryDuration: __expectInt32(output.ErrorRetryDuration),
+    FullLoadErrorPercentage: __expectInt32(output.FullLoadErrorPercentage),
     ServiceAccessRoleArn: __expectString(output.ServiceAccessRoleArn),
   } as any;
 };
@@ -7459,7 +7460,7 @@ const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): E
       output.OracleSettings !== undefined && output.OracleSettings !== null
         ? deserializeAws_json1_1OracleSettings(output.OracleSettings, context)
         : undefined,
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     PostgreSQLSettings:
       output.PostgreSQLSettings !== undefined && output.PostgreSQLSettings !== null
         ? deserializeAws_json1_1PostgreSQLSettings(output.PostgreSQLSettings, context)
@@ -7507,8 +7508,8 @@ const deserializeAws_json1_1EndpointSetting = (output: any, context: __SerdeCont
       output.EnumValues !== undefined && output.EnumValues !== null
         ? deserializeAws_json1_1EndpointSettingEnumValues(output.EnumValues, context)
         : undefined,
-    IntValueMax: __expectInt(output.IntValueMax),
-    IntValueMin: __expectInt(output.IntValueMin),
+    IntValueMax: __expectInt32(output.IntValueMax),
+    IntValueMin: __expectInt32(output.IntValueMin),
     Name: __expectString(output.Name),
     Sensitive: __expectBoolean(output.Sensitive),
     Type: __expectString(output.Type),
@@ -7629,9 +7630,9 @@ const deserializeAws_json1_1IBMDb2Settings = (output: any, context: __SerdeConte
   return {
     CurrentLsn: __expectString(output.CurrentLsn),
     DatabaseName: __expectString(output.DatabaseName),
-    MaxKBytesPerRead: __expectInt(output.MaxKBytesPerRead),
+    MaxKBytesPerRead: __expectInt32(output.MaxKBytesPerRead),
     Password: __expectString(output.Password),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     SecretsManagerAccessRoleArn: __expectString(output.SecretsManagerAccessRoleArn),
     SecretsManagerSecretId: __expectString(output.SecretsManagerSecretId),
     ServerName: __expectString(output.ServerName),
@@ -7679,7 +7680,7 @@ const deserializeAws_json1_1IntegerList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return __expectInt(entry) as any;
+      return __expectInt32(entry) as any;
     });
 };
 
@@ -7716,7 +7717,7 @@ const deserializeAws_json1_1KafkaSettings = (output: any, context: __SerdeContex
     IncludeTableAlterOperations: __expectBoolean(output.IncludeTableAlterOperations),
     IncludeTransactionDetails: __expectBoolean(output.IncludeTransactionDetails),
     MessageFormat: __expectString(output.MessageFormat),
-    MessageMaxBytes: __expectInt(output.MessageMaxBytes),
+    MessageMaxBytes: __expectInt32(output.MessageMaxBytes),
     NoHexPrefix: __expectBoolean(output.NoHexPrefix),
     PartitionIncludeSchemaTable: __expectBoolean(output.PartitionIncludeSchemaTable),
     SaslPassword: __expectString(output.SaslPassword),
@@ -7807,11 +7808,11 @@ const deserializeAws_json1_1MicrosoftSQLServerSettings = (
   context: __SerdeContext
 ): MicrosoftSQLServerSettings => {
   return {
-    BcpPacketSize: __expectInt(output.BcpPacketSize),
+    BcpPacketSize: __expectInt32(output.BcpPacketSize),
     ControlTablesFileGroup: __expectString(output.ControlTablesFileGroup),
     DatabaseName: __expectString(output.DatabaseName),
     Password: __expectString(output.Password),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     QuerySingleAlwaysOnNode: __expectBoolean(output.QuerySingleAlwaysOnNode),
     ReadBackupOnly: __expectBoolean(output.ReadBackupOnly),
     SafeguardPolicy: __expectString(output.SafeguardPolicy),
@@ -7892,7 +7893,7 @@ const deserializeAws_json1_1MongoDbSettings = (output: any, context: __SerdeCont
     KmsKeyId: __expectString(output.KmsKeyId),
     NestingLevel: __expectString(output.NestingLevel),
     Password: __expectString(output.Password),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     SecretsManagerAccessRoleArn: __expectString(output.SecretsManagerAccessRoleArn),
     SecretsManagerSecretId: __expectString(output.SecretsManagerSecretId),
     ServerName: __expectString(output.ServerName),
@@ -7917,11 +7918,11 @@ const deserializeAws_json1_1MySQLSettings = (output: any, context: __SerdeContex
     AfterConnectScript: __expectString(output.AfterConnectScript),
     CleanSourceMetadataOnMismatch: __expectBoolean(output.CleanSourceMetadataOnMismatch),
     DatabaseName: __expectString(output.DatabaseName),
-    EventsPollInterval: __expectInt(output.EventsPollInterval),
-    MaxFileSize: __expectInt(output.MaxFileSize),
-    ParallelLoadThreads: __expectInt(output.ParallelLoadThreads),
+    EventsPollInterval: __expectInt32(output.EventsPollInterval),
+    MaxFileSize: __expectInt32(output.MaxFileSize),
+    ParallelLoadThreads: __expectInt32(output.ParallelLoadThreads),
     Password: __expectString(output.Password),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     SecretsManagerAccessRoleArn: __expectString(output.SecretsManagerAccessRoleArn),
     SecretsManagerSecretId: __expectString(output.SecretsManagerSecretId),
     ServerName: __expectString(output.ServerName),
@@ -7933,10 +7934,10 @@ const deserializeAws_json1_1MySQLSettings = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1NeptuneSettings = (output: any, context: __SerdeContext): NeptuneSettings => {
   return {
-    ErrorRetryDuration: __expectInt(output.ErrorRetryDuration),
+    ErrorRetryDuration: __expectInt32(output.ErrorRetryDuration),
     IamAuthEnabled: __expectBoolean(output.IamAuthEnabled),
-    MaxFileSize: __expectInt(output.MaxFileSize),
-    MaxRetryCount: __expectInt(output.MaxRetryCount),
+    MaxFileSize: __expectInt32(output.MaxFileSize),
+    MaxRetryCount: __expectInt32(output.MaxRetryCount),
     S3BucketFolder: __expectString(output.S3BucketFolder),
     S3BucketName: __expectString(output.S3BucketName),
     ServiceAccessRoleArn: __expectString(output.ServiceAccessRoleArn),
@@ -7947,9 +7948,9 @@ const deserializeAws_json1_1OracleSettings = (output: any, context: __SerdeConte
   return {
     AccessAlternateDirectly: __expectBoolean(output.AccessAlternateDirectly),
     AddSupplementalLogging: __expectBoolean(output.AddSupplementalLogging),
-    AdditionalArchivedLogDestId: __expectInt(output.AdditionalArchivedLogDestId),
+    AdditionalArchivedLogDestId: __expectInt32(output.AdditionalArchivedLogDestId),
     AllowSelectNestedTables: __expectBoolean(output.AllowSelectNestedTables),
-    ArchivedLogDestId: __expectInt(output.ArchivedLogDestId),
+    ArchivedLogDestId: __expectInt32(output.ArchivedLogDestId),
     ArchivedLogsOnly: __expectBoolean(output.ArchivedLogsOnly),
     AsmPassword: __expectString(output.AsmPassword),
     AsmServer: __expectString(output.AsmServer),
@@ -7964,15 +7965,15 @@ const deserializeAws_json1_1OracleSettings = (output: any, context: __SerdeConte
         ? deserializeAws_json1_1IntegerList(output.ExtraArchivedLogDestIds, context)
         : undefined,
     FailTasksOnLobTruncation: __expectBoolean(output.FailTasksOnLobTruncation),
-    NumberDatatypeScale: __expectInt(output.NumberDatatypeScale),
+    NumberDatatypeScale: __expectInt32(output.NumberDatatypeScale),
     OraclePathPrefix: __expectString(output.OraclePathPrefix),
-    ParallelAsmReadThreads: __expectInt(output.ParallelAsmReadThreads),
+    ParallelAsmReadThreads: __expectInt32(output.ParallelAsmReadThreads),
     Password: __expectString(output.Password),
-    Port: __expectInt(output.Port),
-    ReadAheadBlocks: __expectInt(output.ReadAheadBlocks),
+    Port: __expectInt32(output.Port),
+    ReadAheadBlocks: __expectInt32(output.ReadAheadBlocks),
     ReadTableSpaceName: __expectBoolean(output.ReadTableSpaceName),
     ReplacePathPrefix: __expectBoolean(output.ReplacePathPrefix),
-    RetryInterval: __expectInt(output.RetryInterval),
+    RetryInterval: __expectInt32(output.RetryInterval),
     SecretsManagerAccessRoleArn: __expectString(output.SecretsManagerAccessRoleArn),
     SecretsManagerOracleAsmAccessRoleArn: __expectString(output.SecretsManagerOracleAsmAccessRoleArn),
     SecretsManagerOracleAsmSecretId: __expectString(output.SecretsManagerOracleAsmSecretId),
@@ -7981,7 +7982,7 @@ const deserializeAws_json1_1OracleSettings = (output: any, context: __SerdeConte
     SecurityDbEncryptionName: __expectString(output.SecurityDbEncryptionName),
     ServerName: __expectString(output.ServerName),
     SpatialDataOptionToGeoJsonFunctionName: __expectString(output.SpatialDataOptionToGeoJsonFunctionName),
-    StandbyDelayTime: __expectInt(output.StandbyDelayTime),
+    StandbyDelayTime: __expectInt32(output.StandbyDelayTime),
     UseAlternateFolderForOnline: __expectBoolean(output.UseAlternateFolderForOnline),
     UseBFile: __expectBoolean(output.UseBFile),
     UseDirectPathFullLoad: __expectBoolean(output.UseDirectPathFullLoad),
@@ -8000,11 +8001,11 @@ const deserializeAws_json1_1OrderableReplicationInstance = (
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_json1_1AvailabilityZonesList(output.AvailabilityZones, context)
         : undefined,
-    DefaultAllocatedStorage: __expectInt(output.DefaultAllocatedStorage),
+    DefaultAllocatedStorage: __expectInt32(output.DefaultAllocatedStorage),
     EngineVersion: __expectString(output.EngineVersion),
-    IncludedAllocatedStorage: __expectInt(output.IncludedAllocatedStorage),
-    MaxAllocatedStorage: __expectInt(output.MaxAllocatedStorage),
-    MinAllocatedStorage: __expectInt(output.MinAllocatedStorage),
+    IncludedAllocatedStorage: __expectInt32(output.IncludedAllocatedStorage),
+    MaxAllocatedStorage: __expectInt32(output.MaxAllocatedStorage),
+    MinAllocatedStorage: __expectInt32(output.MinAllocatedStorage),
     ReleaseStatus: __expectString(output.ReleaseStatus),
     ReplicationInstanceClass: __expectString(output.ReplicationInstanceClass),
     StorageType: __expectString(output.StorageType),
@@ -8082,15 +8083,15 @@ const deserializeAws_json1_1PostgreSQLSettings = (output: any, context: __SerdeC
     CaptureDdls: __expectBoolean(output.CaptureDdls),
     DatabaseName: __expectString(output.DatabaseName),
     DdlArtifactsSchema: __expectString(output.DdlArtifactsSchema),
-    ExecuteTimeout: __expectInt(output.ExecuteTimeout),
+    ExecuteTimeout: __expectInt32(output.ExecuteTimeout),
     FailTasksOnLobTruncation: __expectBoolean(output.FailTasksOnLobTruncation),
     HeartbeatEnable: __expectBoolean(output.HeartbeatEnable),
-    HeartbeatFrequency: __expectInt(output.HeartbeatFrequency),
+    HeartbeatFrequency: __expectInt32(output.HeartbeatFrequency),
     HeartbeatSchema: __expectString(output.HeartbeatSchema),
-    MaxFileSize: __expectInt(output.MaxFileSize),
+    MaxFileSize: __expectInt32(output.MaxFileSize),
     Password: __expectString(output.Password),
     PluginName: __expectString(output.PluginName),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     SecretsManagerAccessRoleArn: __expectString(output.SecretsManagerAccessRoleArn),
     SecretsManagerSecretId: __expectString(output.SecretsManagerSecretId),
     ServerName: __expectString(output.ServerName),
@@ -8116,7 +8117,7 @@ const deserializeAws_json1_1RedisSettings = (output: any, context: __SerdeContex
     AuthPassword: __expectString(output.AuthPassword),
     AuthType: __expectString(output.AuthType),
     AuthUserName: __expectString(output.AuthUserName),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     ServerName: __expectString(output.ServerName),
     SslCaCertificateArn: __expectString(output.SslCaCertificateArn),
     SslSecurityProtocol: __expectString(output.SslSecurityProtocol),
@@ -8131,17 +8132,17 @@ const deserializeAws_json1_1RedshiftSettings = (output: any, context: __SerdeCon
     BucketName: __expectString(output.BucketName),
     CaseSensitiveNames: __expectBoolean(output.CaseSensitiveNames),
     CompUpdate: __expectBoolean(output.CompUpdate),
-    ConnectionTimeout: __expectInt(output.ConnectionTimeout),
+    ConnectionTimeout: __expectInt32(output.ConnectionTimeout),
     DatabaseName: __expectString(output.DatabaseName),
     DateFormat: __expectString(output.DateFormat),
     EmptyAsNull: __expectBoolean(output.EmptyAsNull),
     EncryptionMode: __expectString(output.EncryptionMode),
     ExplicitIds: __expectBoolean(output.ExplicitIds),
-    FileTransferUploadStreams: __expectInt(output.FileTransferUploadStreams),
-    LoadTimeout: __expectInt(output.LoadTimeout),
-    MaxFileSize: __expectInt(output.MaxFileSize),
+    FileTransferUploadStreams: __expectInt32(output.FileTransferUploadStreams),
+    LoadTimeout: __expectInt32(output.LoadTimeout),
+    MaxFileSize: __expectInt32(output.MaxFileSize),
     Password: __expectString(output.Password),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     RemoveQuotes: __expectBoolean(output.RemoveQuotes),
     ReplaceChars: __expectString(output.ReplaceChars),
     ReplaceInvalidChars: __expectString(output.ReplaceInvalidChars),
@@ -8154,7 +8155,7 @@ const deserializeAws_json1_1RedshiftSettings = (output: any, context: __SerdeCon
     TrimBlanks: __expectBoolean(output.TrimBlanks),
     TruncateColumns: __expectBoolean(output.TruncateColumns),
     Username: __expectString(output.Username),
-    WriteBufferSize: __expectInt(output.WriteBufferSize),
+    WriteBufferSize: __expectInt32(output.WriteBufferSize),
   } as any;
 };
 
@@ -8195,7 +8196,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceResponse = (
 
 const deserializeAws_json1_1ReplicationInstance = (output: any, context: __SerdeContext): ReplicationInstance => {
   return {
-    AllocatedStorage: __expectInt(output.AllocatedStorage),
+    AllocatedStorage: __expectInt32(output.AllocatedStorage),
     AutoMinorVersionUpgrade: __expectBoolean(output.AutoMinorVersionUpgrade),
     AvailabilityZone: __expectString(output.AvailabilityZone),
     DnsNameServers: __expectString(output.DnsNameServers),
@@ -8293,7 +8294,7 @@ const deserializeAws_json1_1ReplicationInstanceTaskLog = (
   context: __SerdeContext
 ): ReplicationInstanceTaskLog => {
   return {
-    ReplicationInstanceTaskLogSize: __expectInt(output.ReplicationInstanceTaskLogSize),
+    ReplicationInstanceTaskLogSize: __expectLong(output.ReplicationInstanceTaskLogSize),
     ReplicationTaskArn: __expectString(output.ReplicationTaskArn),
     ReplicationTaskName: __expectString(output.ReplicationTaskName),
   } as any;
@@ -8318,7 +8319,7 @@ const deserializeAws_json1_1ReplicationPendingModifiedValues = (
   context: __SerdeContext
 ): ReplicationPendingModifiedValues => {
   return {
-    AllocatedStorage: __expectInt(output.AllocatedStorage),
+    AllocatedStorage: __expectInt32(output.AllocatedStorage),
     EngineVersion: __expectString(output.EngineVersion),
     MultiAZ: __expectBoolean(output.MultiAZ),
     ReplicationInstanceClass: __expectString(output.ReplicationInstanceClass),
@@ -8472,8 +8473,8 @@ const deserializeAws_json1_1ReplicationTaskAssessmentRunProgress = (
   context: __SerdeContext
 ): ReplicationTaskAssessmentRunProgress => {
   return {
-    IndividualAssessmentCompletedCount: __expectInt(output.IndividualAssessmentCompletedCount),
-    IndividualAssessmentCount: __expectInt(output.IndividualAssessmentCount),
+    IndividualAssessmentCompletedCount: __expectInt32(output.IndividualAssessmentCompletedCount),
+    IndividualAssessmentCount: __expectInt32(output.IndividualAssessmentCount),
   } as any;
 };
 
@@ -8521,7 +8522,7 @@ const deserializeAws_json1_1ReplicationTaskList = (output: any, context: __Serde
 
 const deserializeAws_json1_1ReplicationTaskStats = (output: any, context: __SerdeContext): ReplicationTaskStats => {
   return {
-    ElapsedTimeMillis: __expectInt(output.ElapsedTimeMillis),
+    ElapsedTimeMillis: __expectLong(output.ElapsedTimeMillis),
     FreshStartDate:
       output.FreshStartDate !== undefined && output.FreshStartDate !== null
         ? new Date(Math.round(output.FreshStartDate * 1000))
@@ -8530,7 +8531,7 @@ const deserializeAws_json1_1ReplicationTaskStats = (output: any, context: __Serd
       output.FullLoadFinishDate !== undefined && output.FullLoadFinishDate !== null
         ? new Date(Math.round(output.FullLoadFinishDate * 1000))
         : undefined,
-    FullLoadProgressPercent: __expectInt(output.FullLoadProgressPercent),
+    FullLoadProgressPercent: __expectInt32(output.FullLoadProgressPercent),
     FullLoadStartDate:
       output.FullLoadStartDate !== undefined && output.FullLoadStartDate !== null
         ? new Date(Math.round(output.FullLoadStartDate * 1000))
@@ -8543,10 +8544,10 @@ const deserializeAws_json1_1ReplicationTaskStats = (output: any, context: __Serd
       output.StopDate !== undefined && output.StopDate !== null
         ? new Date(Math.round(output.StopDate * 1000))
         : undefined,
-    TablesErrored: __expectInt(output.TablesErrored),
-    TablesLoaded: __expectInt(output.TablesLoaded),
-    TablesLoading: __expectInt(output.TablesLoading),
-    TablesQueued: __expectInt(output.TablesQueued),
+    TablesErrored: __expectInt32(output.TablesErrored),
+    TablesLoaded: __expectInt32(output.TablesLoaded),
+    TablesLoading: __expectInt32(output.TablesLoading),
+    TablesQueued: __expectInt32(output.TablesQueued),
   } as any;
 };
 
@@ -8611,8 +8612,8 @@ const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext):
     CannedAclForObjects: __expectString(output.CannedAclForObjects),
     CdcInsertsAndUpdates: __expectBoolean(output.CdcInsertsAndUpdates),
     CdcInsertsOnly: __expectBoolean(output.CdcInsertsOnly),
-    CdcMaxBatchInterval: __expectInt(output.CdcMaxBatchInterval),
-    CdcMinFileSize: __expectInt(output.CdcMinFileSize),
+    CdcMaxBatchInterval: __expectInt32(output.CdcMaxBatchInterval),
+    CdcMinFileSize: __expectInt32(output.CdcMinFileSize),
     CdcPath: __expectString(output.CdcPath),
     CompressionType: __expectString(output.CompressionType),
     CsvDelimiter: __expectString(output.CsvDelimiter),
@@ -8620,23 +8621,23 @@ const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext):
     CsvNullValue: __expectString(output.CsvNullValue),
     CsvRowDelimiter: __expectString(output.CsvRowDelimiter),
     DataFormat: __expectString(output.DataFormat),
-    DataPageSize: __expectInt(output.DataPageSize),
+    DataPageSize: __expectInt32(output.DataPageSize),
     DatePartitionDelimiter: __expectString(output.DatePartitionDelimiter),
     DatePartitionEnabled: __expectBoolean(output.DatePartitionEnabled),
     DatePartitionSequence: __expectString(output.DatePartitionSequence),
-    DictPageSizeLimit: __expectInt(output.DictPageSizeLimit),
+    DictPageSizeLimit: __expectInt32(output.DictPageSizeLimit),
     EnableStatistics: __expectBoolean(output.EnableStatistics),
     EncodingType: __expectString(output.EncodingType),
     EncryptionMode: __expectString(output.EncryptionMode),
     ExternalTableDefinition: __expectString(output.ExternalTableDefinition),
-    IgnoreHeaderRows: __expectInt(output.IgnoreHeaderRows),
+    IgnoreHeaderRows: __expectInt32(output.IgnoreHeaderRows),
     IncludeOpForFullLoad: __expectBoolean(output.IncludeOpForFullLoad),
-    MaxFileSize: __expectInt(output.MaxFileSize),
+    MaxFileSize: __expectInt32(output.MaxFileSize),
     ParquetTimestampInMillisecond: __expectBoolean(output.ParquetTimestampInMillisecond),
     ParquetVersion: __expectString(output.ParquetVersion),
     PreserveTransactions: __expectBoolean(output.PreserveTransactions),
     Rfc4180: __expectBoolean(output.Rfc4180),
-    RowGroupLength: __expectInt(output.RowGroupLength),
+    RowGroupLength: __expectInt32(output.RowGroupLength),
     ServerSideEncryptionKmsKeyId: __expectString(output.ServerSideEncryptionKmsKeyId),
     ServiceAccessRoleArn: __expectString(output.ServiceAccessRoleArn),
     TimestampColumnName: __expectString(output.TimestampColumnName),
@@ -8794,7 +8795,7 @@ const deserializeAws_json1_1SybaseSettings = (output: any, context: __SerdeConte
   return {
     DatabaseName: __expectString(output.DatabaseName),
     Password: __expectString(output.Password),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
     SecretsManagerAccessRoleArn: __expectString(output.SecretsManagerAccessRoleArn),
     SecretsManagerSecretId: __expectString(output.SecretsManagerSecretId),
     ServerName: __expectString(output.ServerName),
@@ -8804,21 +8805,21 @@ const deserializeAws_json1_1SybaseSettings = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1TableStatistics = (output: any, context: __SerdeContext): TableStatistics => {
   return {
-    Ddls: __expectInt(output.Ddls),
-    Deletes: __expectInt(output.Deletes),
-    FullLoadCondtnlChkFailedRows: __expectInt(output.FullLoadCondtnlChkFailedRows),
+    Ddls: __expectLong(output.Ddls),
+    Deletes: __expectLong(output.Deletes),
+    FullLoadCondtnlChkFailedRows: __expectLong(output.FullLoadCondtnlChkFailedRows),
     FullLoadEndTime:
       output.FullLoadEndTime !== undefined && output.FullLoadEndTime !== null
         ? new Date(Math.round(output.FullLoadEndTime * 1000))
         : undefined,
-    FullLoadErrorRows: __expectInt(output.FullLoadErrorRows),
+    FullLoadErrorRows: __expectLong(output.FullLoadErrorRows),
     FullLoadReloaded: __expectBoolean(output.FullLoadReloaded),
-    FullLoadRows: __expectInt(output.FullLoadRows),
+    FullLoadRows: __expectLong(output.FullLoadRows),
     FullLoadStartTime:
       output.FullLoadStartTime !== undefined && output.FullLoadStartTime !== null
         ? new Date(Math.round(output.FullLoadStartTime * 1000))
         : undefined,
-    Inserts: __expectInt(output.Inserts),
+    Inserts: __expectLong(output.Inserts),
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
         ? new Date(Math.round(output.LastUpdateTime * 1000))
@@ -8826,12 +8827,12 @@ const deserializeAws_json1_1TableStatistics = (output: any, context: __SerdeCont
     SchemaName: __expectString(output.SchemaName),
     TableName: __expectString(output.TableName),
     TableState: __expectString(output.TableState),
-    Updates: __expectInt(output.Updates),
-    ValidationFailedRecords: __expectInt(output.ValidationFailedRecords),
-    ValidationPendingRecords: __expectInt(output.ValidationPendingRecords),
+    Updates: __expectLong(output.Updates),
+    ValidationFailedRecords: __expectLong(output.ValidationFailedRecords),
+    ValidationPendingRecords: __expectLong(output.ValidationPendingRecords),
     ValidationState: __expectString(output.ValidationState),
     ValidationStateDetails: __expectString(output.ValidationStateDetails),
-    ValidationSuspendedRecords: __expectInt(output.ValidationSuspendedRecords),
+    ValidationSuspendedRecords: __expectLong(output.ValidationSuspendedRecords),
   } as any;
 };
 

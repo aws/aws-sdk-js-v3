@@ -436,7 +436,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   strictParseFloat as __strictParseFloat,
-  strictParseInt as __strictParseInt,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -9888,16 +9888,16 @@ const deserializeAws_querySendDataPoint = (output: any, context: __SerdeContext)
     contents.Timestamp = new Date(output["Timestamp"]);
   }
   if (output["DeliveryAttempts"] !== undefined) {
-    contents.DeliveryAttempts = __strictParseInt(output["DeliveryAttempts"]) as number;
+    contents.DeliveryAttempts = __strictParseLong(output["DeliveryAttempts"]) as number;
   }
   if (output["Bounces"] !== undefined) {
-    contents.Bounces = __strictParseInt(output["Bounces"]) as number;
+    contents.Bounces = __strictParseLong(output["Bounces"]) as number;
   }
   if (output["Complaints"] !== undefined) {
-    contents.Complaints = __strictParseInt(output["Complaints"]) as number;
+    contents.Complaints = __strictParseLong(output["Complaints"]) as number;
   }
   if (output["Rejects"] !== undefined) {
-    contents.Rejects = __strictParseInt(output["Rejects"]) as number;
+    contents.Rejects = __strictParseLong(output["Rejects"]) as number;
   }
   return contents;
 };

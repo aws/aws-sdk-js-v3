@@ -115,7 +115,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -2351,7 +2351,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     contents.ArchiveSHA256TreeHash = __expectString(data.ArchiveSHA256TreeHash);
   }
   if (data.ArchiveSizeInBytes !== undefined && data.ArchiveSizeInBytes !== null) {
-    contents.ArchiveSizeInBytes = __expectInt(data.ArchiveSizeInBytes);
+    contents.ArchiveSizeInBytes = __expectLong(data.ArchiveSizeInBytes);
   }
   if (data.Completed !== undefined && data.Completed !== null) {
     contents.Completed = __expectBoolean(data.Completed);
@@ -2369,7 +2369,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     );
   }
   if (data.InventorySizeInBytes !== undefined && data.InventorySizeInBytes !== null) {
-    contents.InventorySizeInBytes = __expectInt(data.InventorySizeInBytes);
+    contents.InventorySizeInBytes = __expectLong(data.InventorySizeInBytes);
   }
   if (data.JobDescription !== undefined && data.JobDescription !== null) {
     contents.JobDescription = __expectString(data.JobDescription);
@@ -2495,10 +2495,10 @@ export const deserializeAws_restJson1DescribeVaultCommand = async (
     contents.LastInventoryDate = __expectString(data.LastInventoryDate);
   }
   if (data.NumberOfArchives !== undefined && data.NumberOfArchives !== null) {
-    contents.NumberOfArchives = __expectInt(data.NumberOfArchives);
+    contents.NumberOfArchives = __expectLong(data.NumberOfArchives);
   }
   if (data.SizeInBytes !== undefined && data.SizeInBytes !== null) {
-    contents.SizeInBytes = __expectInt(data.SizeInBytes);
+    contents.SizeInBytes = __expectLong(data.SizeInBytes);
   }
   if (data.VaultARN !== undefined && data.VaultARN !== null) {
     contents.VaultARN = __expectString(data.VaultARN);
@@ -3449,7 +3449,7 @@ export const deserializeAws_restJson1ListPartsCommand = async (
     contents.MultipartUploadId = __expectString(data.MultipartUploadId);
   }
   if (data.PartSizeInBytes !== undefined && data.PartSizeInBytes !== null) {
-    contents.PartSizeInBytes = __expectInt(data.PartSizeInBytes);
+    contents.PartSizeInBytes = __expectLong(data.PartSizeInBytes);
   }
   if (data.Parts !== undefined && data.Parts !== null) {
     contents.Parts = deserializeAws_restJson1PartList(data.Parts, context);
@@ -4808,7 +4808,7 @@ const deserializeAws_restJson1DataRetrievalPolicy = (output: any, context: __Ser
 
 const deserializeAws_restJson1DataRetrievalRule = (output: any, context: __SerdeContext): DataRetrievalRule => {
   return {
-    BytesPerHour: __expectInt(output.BytesPerHour),
+    BytesPerHour: __expectLong(output.BytesPerHour),
     Strategy: __expectString(output.Strategy),
   } as any;
 };
@@ -4828,8 +4828,8 @@ const deserializeAws_restJson1DescribeVaultOutput = (output: any, context: __Ser
   return {
     CreationDate: __expectString(output.CreationDate),
     LastInventoryDate: __expectString(output.LastInventoryDate),
-    NumberOfArchives: __expectInt(output.NumberOfArchives),
-    SizeInBytes: __expectInt(output.SizeInBytes),
+    NumberOfArchives: __expectLong(output.NumberOfArchives),
+    SizeInBytes: __expectLong(output.SizeInBytes),
     VaultARN: __expectString(output.VaultARN),
     VaultName: __expectString(output.VaultName),
   } as any;
@@ -4848,7 +4848,7 @@ const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __S
     Action: __expectString(output.Action),
     ArchiveId: __expectString(output.ArchiveId),
     ArchiveSHA256TreeHash: __expectString(output.ArchiveSHA256TreeHash),
-    ArchiveSizeInBytes: __expectInt(output.ArchiveSizeInBytes),
+    ArchiveSizeInBytes: __expectLong(output.ArchiveSizeInBytes),
     Completed: __expectBoolean(output.Completed),
     CompletionDate: __expectString(output.CompletionDate),
     CreationDate: __expectString(output.CreationDate),
@@ -4856,7 +4856,7 @@ const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __S
       output.InventoryRetrievalParameters !== undefined && output.InventoryRetrievalParameters !== null
         ? deserializeAws_restJson1InventoryRetrievalJobDescription(output.InventoryRetrievalParameters, context)
         : undefined,
-    InventorySizeInBytes: __expectInt(output.InventorySizeInBytes),
+    InventorySizeInBytes: __expectLong(output.InventorySizeInBytes),
     JobDescription: __expectString(output.JobDescription),
     JobId: __expectString(output.JobId),
     JobOutputPath: __expectString(output.JobOutputPath),
@@ -5072,7 +5072,7 @@ const deserializeAws_restJson1UploadListElement = (output: any, context: __Serde
     ArchiveDescription: __expectString(output.ArchiveDescription),
     CreationDate: __expectString(output.CreationDate),
     MultipartUploadId: __expectString(output.MultipartUploadId),
-    PartSizeInBytes: __expectInt(output.PartSizeInBytes),
+    PartSizeInBytes: __expectLong(output.PartSizeInBytes),
     VaultARN: __expectString(output.VaultARN),
   } as any;
 };

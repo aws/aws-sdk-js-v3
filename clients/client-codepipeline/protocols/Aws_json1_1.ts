@@ -275,7 +275,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5323,7 +5323,7 @@ const deserializeAws_json1_1ActionDeclaration = (output: any, context: __SerdeCo
         : undefined,
     region: __expectString(output.region),
     roleArn: __expectString(output.roleArn),
-    runOrder: __expectInt(output.runOrder),
+    runOrder: __expectInt32(output.runOrder),
   } as any;
 };
 
@@ -5341,7 +5341,7 @@ const deserializeAws_json1_1ActionExecution = (output: any, context: __SerdeCont
         ? new Date(Math.round(output.lastStatusChange * 1000))
         : undefined,
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
-    percentComplete: __expectInt(output.percentComplete),
+    percentComplete: __expectInt32(output.percentComplete),
     status: __expectString(output.status),
     summary: __expectString(output.summary),
     token: __expectString(output.token),
@@ -5365,7 +5365,7 @@ const deserializeAws_json1_1ActionExecutionDetail = (output: any, context: __Ser
         ? deserializeAws_json1_1ActionExecutionOutput(output.output, context)
         : undefined,
     pipelineExecutionId: __expectString(output.pipelineExecutionId),
-    pipelineVersion: __expectInt(output.pipelineVersion),
+    pipelineVersion: __expectInt32(output.pipelineVersion),
     stageName: __expectString(output.stageName),
     startTime:
       output.startTime !== undefined && output.startTime !== null
@@ -5513,8 +5513,8 @@ const deserializeAws_json1_1ActionTypeArtifactDetails = (
   context: __SerdeContext
 ): ActionTypeArtifactDetails => {
   return {
-    maximumCount: __expectInt(output.maximumCount),
-    minimumCount: __expectInt(output.minimumCount),
+    maximumCount: __expectInt32(output.maximumCount),
+    minimumCount: __expectInt32(output.minimumCount),
   } as any;
 };
 
@@ -5558,7 +5558,7 @@ const deserializeAws_json1_1ActionTypeExecutor = (output: any, context: __SerdeC
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_1ExecutorConfiguration(output.configuration, context)
         : undefined,
-    jobTimeout: __expectInt(output.jobTimeout),
+    jobTimeout: __expectInt32(output.jobTimeout),
     policyStatementsTemplate: __expectString(output.policyStatementsTemplate),
     type: __expectString(output.type),
   } as any;
@@ -5705,8 +5705,8 @@ const deserializeAws_json1_1ArtifactDetailList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ArtifactDetails = (output: any, context: __SerdeContext): ArtifactDetails => {
   return {
-    maximumCount: __expectInt(output.maximumCount),
-    minimumCount: __expectInt(output.minimumCount),
+    maximumCount: __expectInt32(output.maximumCount),
+    minimumCount: __expectInt32(output.minimumCount),
   } as any;
 };
 
@@ -5941,7 +5941,7 @@ const deserializeAws_json1_1GetPipelineStateOutput = (output: any, context: __Se
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     pipelineName: __expectString(output.pipelineName),
-    pipelineVersion: __expectInt(output.pipelineVersion),
+    pipelineVersion: __expectInt32(output.pipelineVersion),
     stageStates:
       output.stageStates !== undefined && output.stageStates !== null
         ? deserializeAws_json1_1StageStateList(output.stageStates, context)
@@ -6368,7 +6368,7 @@ const deserializeAws_json1_1PipelineDeclaration = (output: any, context: __Serde
       output.stages !== undefined && output.stages !== null
         ? deserializeAws_json1_1PipelineStageDeclarationList(output.stages, context)
         : undefined,
-    version: __expectInt(output.version),
+    version: __expectInt32(output.version),
   } as any;
 };
 
@@ -6380,7 +6380,7 @@ const deserializeAws_json1_1PipelineExecution = (output: any, context: __SerdeCo
         : undefined,
     pipelineExecutionId: __expectString(output.pipelineExecutionId),
     pipelineName: __expectString(output.pipelineName),
-    pipelineVersion: __expectInt(output.pipelineVersion),
+    pipelineVersion: __expectInt32(output.pipelineVersion),
     status: __expectString(output.status),
     statusSummary: __expectString(output.statusSummary),
   } as any;
@@ -6508,7 +6508,7 @@ const deserializeAws_json1_1PipelineSummary = (output: any, context: __SerdeCont
     name: __expectString(output.name),
     updated:
       output.updated !== undefined && output.updated !== null ? new Date(Math.round(output.updated * 1000)) : undefined,
-    version: __expectInt(output.version),
+    version: __expectInt32(output.version),
   } as any;
 };
 

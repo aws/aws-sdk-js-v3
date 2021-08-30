@@ -454,7 +454,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   strictParseFloat as __strictParseFloat,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -10783,7 +10783,7 @@ const deserializeAws_queryAuthentication = (output: any, context: __SerdeContext
     contents.Type = __expectString(output["Type"]);
   }
   if (output["PasswordCount"] !== undefined) {
-    contents.PasswordCount = __strictParseInt(output["PasswordCount"]) as number;
+    contents.PasswordCount = __strictParseInt32(output["PasswordCount"]) as number;
   }
   return contents;
 };
@@ -10903,7 +10903,7 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     contents.CacheClusterStatus = __expectString(output["CacheClusterStatus"]);
   }
   if (output["NumCacheNodes"] !== undefined) {
-    contents.NumCacheNodes = __strictParseInt(output["NumCacheNodes"]) as number;
+    contents.NumCacheNodes = __strictParseInt32(output["NumCacheNodes"]) as number;
   }
   if (output["PreferredAvailabilityZone"] !== undefined) {
     contents.PreferredAvailabilityZone = __expectString(output["PreferredAvailabilityZone"]);
@@ -10975,7 +10975,7 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
   if (output["SnapshotRetentionLimit"] !== undefined) {
-    contents.SnapshotRetentionLimit = __strictParseInt(output["SnapshotRetentionLimit"]) as number;
+    contents.SnapshotRetentionLimit = __strictParseInt32(output["SnapshotRetentionLimit"]) as number;
   }
   if (output["SnapshotWindow"] !== undefined) {
     contents.SnapshotWindow = __expectString(output["SnapshotWindow"]);
@@ -12224,7 +12224,7 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
     contents.Address = __expectString(output["Address"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   return contents;
 };
@@ -12920,7 +12920,7 @@ const deserializeAws_queryNodeGroupConfiguration = (output: any, context: __Serd
     contents.Slots = __expectString(output["Slots"]);
   }
   if (output["ReplicaCount"] !== undefined) {
-    contents.ReplicaCount = __strictParseInt(output["ReplicaCount"]) as number;
+    contents.ReplicaCount = __strictParseInt32(output["ReplicaCount"]) as number;
   }
   if (output["PrimaryAvailabilityZone"] !== undefined) {
     contents.PrimaryAvailabilityZone = __expectString(output["PrimaryAvailabilityZone"]);
@@ -13348,7 +13348,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     LogDeliveryConfigurations: undefined,
   };
   if (output["NumCacheNodes"] !== undefined) {
-    contents.NumCacheNodes = __strictParseInt(output["NumCacheNodes"]) as number;
+    contents.NumCacheNodes = __strictParseInt32(output["NumCacheNodes"]) as number;
   }
   if (output.CacheNodeIdsToRemove === "") {
     contents.CacheNodeIdsToRemove = [];
@@ -13566,7 +13566,7 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     contents.ConfigurationEndpoint = deserializeAws_queryEndpoint(output["ConfigurationEndpoint"], context);
   }
   if (output["SnapshotRetentionLimit"] !== undefined) {
-    contents.SnapshotRetentionLimit = __strictParseInt(output["SnapshotRetentionLimit"]) as number;
+    contents.SnapshotRetentionLimit = __strictParseInt32(output["SnapshotRetentionLimit"]) as number;
   }
   if (output["SnapshotWindow"] !== undefined) {
     contents.SnapshotWindow = __expectString(output["SnapshotWindow"]);
@@ -13799,7 +13799,7 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
     contents.StartTime = new Date(output["StartTime"]);
   }
   if (output["Duration"] !== undefined) {
-    contents.Duration = __strictParseInt(output["Duration"]) as number;
+    contents.Duration = __strictParseInt32(output["Duration"]) as number;
   }
   if (output["FixedPrice"] !== undefined) {
     contents.FixedPrice = __strictParseFloat(output["FixedPrice"]) as number;
@@ -13808,7 +13808,7 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
     contents.UsagePrice = __strictParseFloat(output["UsagePrice"]) as number;
   }
   if (output["CacheNodeCount"] !== undefined) {
-    contents.CacheNodeCount = __strictParseInt(output["CacheNodeCount"]) as number;
+    contents.CacheNodeCount = __strictParseInt32(output["CacheNodeCount"]) as number;
   }
   if (output["ProductDescription"] !== undefined) {
     contents.ProductDescription = __expectString(output["ProductDescription"]);
@@ -13928,7 +13928,7 @@ const deserializeAws_queryReservedCacheNodesOffering = (
     contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["Duration"] !== undefined) {
-    contents.Duration = __strictParseInt(output["Duration"]) as number;
+    contents.Duration = __strictParseInt32(output["Duration"]) as number;
   }
   if (output["FixedPrice"] !== undefined) {
     contents.FixedPrice = __strictParseFloat(output["FixedPrice"]) as number;
@@ -14237,7 +14237,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["NumCacheNodes"] !== undefined) {
-    contents.NumCacheNodes = __strictParseInt(output["NumCacheNodes"]) as number;
+    contents.NumCacheNodes = __strictParseInt32(output["NumCacheNodes"]) as number;
   }
   if (output["PreferredAvailabilityZone"] !== undefined) {
     contents.PreferredAvailabilityZone = __expectString(output["PreferredAvailabilityZone"]);
@@ -14255,7 +14255,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.TopicArn = __expectString(output["TopicArn"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   if (output["CacheParameterGroupName"] !== undefined) {
     contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
@@ -14270,13 +14270,13 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
   }
   if (output["SnapshotRetentionLimit"] !== undefined) {
-    contents.SnapshotRetentionLimit = __strictParseInt(output["SnapshotRetentionLimit"]) as number;
+    contents.SnapshotRetentionLimit = __strictParseInt32(output["SnapshotRetentionLimit"]) as number;
   }
   if (output["SnapshotWindow"] !== undefined) {
     contents.SnapshotWindow = __expectString(output["SnapshotWindow"]);
   }
   if (output["NumNodeGroups"] !== undefined) {
-    contents.NumNodeGroups = __strictParseInt(output["NumNodeGroups"]) as number;
+    contents.NumNodeGroups = __strictParseInt32(output["NumNodeGroups"]) as number;
   }
   if (output["AutomaticFailover"] !== undefined) {
     contents.AutomaticFailover = __expectString(output["AutomaticFailover"]);

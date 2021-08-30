@@ -176,7 +176,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -4114,7 +4115,7 @@ const deserializeAws_restJson1ErrorHandlingConfig = (output: any, context: __Ser
 const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
     executionMessage: __expectString(output.executionMessage),
-    putFailuresCount: __expectInt(output.putFailuresCount),
+    putFailuresCount: __expectLong(output.putFailuresCount),
   } as any;
 };
 
@@ -4175,13 +4176,13 @@ const deserializeAws_restJson1ExecutionRecord = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ExecutionResult = (output: any, context: __SerdeContext): ExecutionResult => {
   return {
-    bytesProcessed: __expectInt(output.bytesProcessed),
-    bytesWritten: __expectInt(output.bytesWritten),
+    bytesProcessed: __expectLong(output.bytesProcessed),
+    bytesWritten: __expectLong(output.bytesWritten),
     errorInfo:
       output.errorInfo !== undefined && output.errorInfo !== null
         ? deserializeAws_restJson1ErrorInfo(output.errorInfo, context)
         : undefined,
-    recordsProcessed: __expectInt(output.recordsProcessed),
+    recordsProcessed: __expectLong(output.recordsProcessed),
   } as any;
 };
 
@@ -4569,7 +4570,7 @@ const deserializeAws_restJson1SAPODataConnectorProfileProperties = (
       output.oAuthProperties !== undefined && output.oAuthProperties !== null
         ? deserializeAws_restJson1OAuthProperties(output.oAuthProperties, context)
         : undefined,
-    portNumber: __expectInt(output.portNumber),
+    portNumber: __expectInt32(output.portNumber),
     privateLinkServiceName: __expectString(output.privateLinkServiceName),
   } as any;
 };
@@ -4602,7 +4603,7 @@ const deserializeAws_restJson1ScheduledTriggerProperties = (
         ? new Date(Math.round(output.scheduleEndTime * 1000))
         : undefined,
     scheduleExpression: __expectString(output.scheduleExpression),
-    scheduleOffset: __expectInt(output.scheduleOffset),
+    scheduleOffset: __expectLong(output.scheduleOffset),
     scheduleStartTime:
       output.scheduleStartTime !== undefined && output.scheduleStartTime !== null
         ? new Date(Math.round(output.scheduleStartTime * 1000))

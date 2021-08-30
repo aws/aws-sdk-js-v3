@@ -63,7 +63,11 @@ import {
   _Record,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt as __expectInt, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2033,7 +2037,7 @@ const deserializeAws_json1_0Database = (output: any, context: __SerdeContext): D
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    TableCount: __expectInt(output.TableCount),
+    TableCount: __expectLong(output.TableCount),
   } as any;
 };
 
@@ -2084,7 +2088,7 @@ const deserializeAws_json1_0DescribeTableResponse = (output: any, context: __Ser
 const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
     Address: __expectString(output.Address),
-    CachePeriodInMinutes: __expectInt(output.CachePeriodInMinutes),
+    CachePeriodInMinutes: __expectLong(output.CachePeriodInMinutes),
   } as any;
 };
 
@@ -2151,9 +2155,9 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
 
 const deserializeAws_json1_0RejectedRecord = (output: any, context: __SerdeContext): RejectedRecord => {
   return {
-    ExistingVersion: __expectInt(output.ExistingVersion),
+    ExistingVersion: __expectLong(output.ExistingVersion),
     Reason: __expectString(output.Reason),
-    RecordIndex: __expectInt(output.RecordIndex),
+    RecordIndex: __expectInt32(output.RecordIndex),
   } as any;
 };
 
@@ -2192,8 +2196,8 @@ const deserializeAws_json1_0ResourceNotFoundException = (
 
 const deserializeAws_json1_0RetentionProperties = (output: any, context: __SerdeContext): RetentionProperties => {
   return {
-    MagneticStoreRetentionPeriodInDays: __expectInt(output.MagneticStoreRetentionPeriodInDays),
-    MemoryStoreRetentionPeriodInHours: __expectInt(output.MemoryStoreRetentionPeriodInHours),
+    MagneticStoreRetentionPeriodInDays: __expectLong(output.MagneticStoreRetentionPeriodInDays),
+    MemoryStoreRetentionPeriodInHours: __expectLong(output.MemoryStoreRetentionPeriodInHours),
   } as any;
 };
 

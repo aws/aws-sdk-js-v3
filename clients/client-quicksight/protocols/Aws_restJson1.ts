@@ -410,7 +410,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   serializeFloat as __serializeFloat,
@@ -6517,7 +6518,7 @@ export const deserializeAws_restJson1CreateFolderMembershipCommand = async (
     contents.RequestId = __expectString(data.RequestId);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = __expectInt(data.Status);
+    contents.Status = __expectInt32(data.Status);
   }
   return Promise.resolve(contents);
 };
@@ -8405,7 +8406,7 @@ export const deserializeAws_restJson1DeleteFolderMembershipCommand = async (
     contents.RequestId = __expectString(data.RequestId);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = __expectInt(data.Status);
+    contents.Status = __expectInt32(data.Status);
   }
   return Promise.resolve(contents);
 };
@@ -16282,7 +16283,7 @@ export const deserializeAws_restJson1UpdateDashboardCommand = async (
     contents.RequestId = __expectString(data.RequestId);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = __expectInt(data.Status);
+    contents.Status = __expectInt32(data.Status);
   }
   if (data.VersionArn !== undefined && data.VersionArn !== null) {
     contents.VersionArn = __expectString(data.VersionArn);
@@ -17201,7 +17202,7 @@ export const deserializeAws_restJson1UpdateFolderPermissionsCommand = async (
     contents.RequestId = __expectString(data.RequestId);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = __expectInt(data.Status);
+    contents.Status = __expectInt32(data.Status);
   }
   return Promise.resolve(contents);
 };
@@ -20215,7 +20216,7 @@ const deserializeAws_restJson1AuroraParameters = (output: any, context: __SerdeC
   return {
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -20226,7 +20227,7 @@ const deserializeAws_restJson1AuroraPostgreSqlParameters = (
   return {
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -20531,7 +20532,7 @@ const deserializeAws_restJson1DashboardSummary = (output: any, context: __SerdeC
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
     Name: __expectString(output.Name),
-    PublishedVersionNumber: __expectInt(output.PublishedVersionNumber),
+    PublishedVersionNumber: __expectLong(output.PublishedVersionNumber),
   } as any;
 };
 
@@ -20569,7 +20570,7 @@ const deserializeAws_restJson1DashboardVersion = (output: any, context: __SerdeC
     SourceEntityArn: __expectString(output.SourceEntityArn),
     Status: __expectString(output.Status),
     ThemeArn: __expectString(output.ThemeArn),
-    VersionNumber: __expectInt(output.VersionNumber),
+    VersionNumber: __expectLong(output.VersionNumber),
   } as any;
 };
 
@@ -20586,7 +20587,7 @@ const deserializeAws_restJson1DashboardVersionSummary = (
     Description: __expectString(output.Description),
     SourceEntityArn: __expectString(output.SourceEntityArn),
     Status: __expectString(output.Status),
-    VersionNumber: __expectInt(output.VersionNumber),
+    VersionNumber: __expectLong(output.VersionNumber),
   } as any;
 };
 
@@ -20629,7 +20630,7 @@ const deserializeAws_restJson1DataSet = (output: any, context: __SerdeContext): 
       output.ColumnLevelPermissionRules !== undefined && output.ColumnLevelPermissionRules !== null
         ? deserializeAws_restJson1ColumnLevelPermissionRuleList(output.ColumnLevelPermissionRules, context)
         : undefined,
-    ConsumedSpiceCapacityInBytes: __expectInt(output.ConsumedSpiceCapacityInBytes),
+    ConsumedSpiceCapacityInBytes: __expectLong(output.ConsumedSpiceCapacityInBytes),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -21177,9 +21178,9 @@ const deserializeAws_restJson1Ingestion = (output: any, context: __SerdeContext)
         ? deserializeAws_restJson1ErrorInfo(output.ErrorInfo, context)
         : undefined,
     IngestionId: __expectString(output.IngestionId),
-    IngestionSizeInBytes: __expectInt(output.IngestionSizeInBytes),
+    IngestionSizeInBytes: __expectLong(output.IngestionSizeInBytes),
     IngestionStatus: __expectString(output.IngestionStatus),
-    IngestionTimeInSeconds: __expectInt(output.IngestionTimeInSeconds),
+    IngestionTimeInSeconds: __expectLong(output.IngestionTimeInSeconds),
     QueueInfo:
       output.QueueInfo !== undefined && output.QueueInfo !== null
         ? deserializeAws_restJson1QueueInfo(output.QueueInfo, context)
@@ -21307,7 +21308,7 @@ const deserializeAws_restJson1MariaDbParameters = (output: any, context: __Serde
   return {
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -21322,7 +21323,7 @@ const deserializeAws_restJson1MySqlParameters = (output: any, context: __SerdeCo
   return {
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -21362,7 +21363,7 @@ const deserializeAws_restJson1OracleParameters = (output: any, context: __SerdeC
   return {
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -21434,7 +21435,7 @@ const deserializeAws_restJson1PostgreSqlParameters = (output: any, context: __Se
   return {
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -21442,7 +21443,7 @@ const deserializeAws_restJson1PrestoParameters = (output: any, context: __SerdeC
   return {
     Catalog: __expectString(output.Catalog),
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -21496,7 +21497,7 @@ const deserializeAws_restJson1RedshiftParameters = (output: any, context: __Serd
     ClusterId: __expectString(output.ClusterId),
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -21543,8 +21544,8 @@ const deserializeAws_restJson1ResourcePermissionList = (output: any, context: __
 
 const deserializeAws_restJson1RowInfo = (output: any, context: __SerdeContext): RowInfo => {
   return {
-    RowsDropped: __expectInt(output.RowsDropped),
-    RowsIngested: __expectInt(output.RowsIngested),
+    RowsDropped: __expectLong(output.RowsDropped),
+    RowsIngested: __expectLong(output.RowsIngested),
   } as any;
 };
 
@@ -21671,7 +21672,7 @@ const deserializeAws_restJson1SnowflakeParameters = (output: any, context: __Ser
 const deserializeAws_restJson1SparkParameters = (output: any, context: __SerdeContext): SparkParameters => {
   return {
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -21679,7 +21680,7 @@ const deserializeAws_restJson1SqlServerParameters = (output: any, context: __Ser
   return {
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -21741,7 +21742,7 @@ const deserializeAws_restJson1TemplateAlias = (output: any, context: __SerdeCont
   return {
     AliasName: __expectString(output.AliasName),
     Arn: __expectString(output.Arn),
-    TemplateVersionNumber: __expectInt(output.TemplateVersionNumber),
+    TemplateVersionNumber: __expectLong(output.TemplateVersionNumber),
   } as any;
 };
 
@@ -21785,7 +21786,7 @@ const deserializeAws_restJson1TemplateSummary = (output: any, context: __SerdeCo
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    LatestVersionNumber: __expectInt(output.LatestVersionNumber),
+    LatestVersionNumber: __expectLong(output.LatestVersionNumber),
     Name: __expectString(output.Name),
     TemplateId: __expectString(output.TemplateId),
   } as any;
@@ -21824,7 +21825,7 @@ const deserializeAws_restJson1TemplateVersion = (output: any, context: __SerdeCo
     SourceEntityArn: __expectString(output.SourceEntityArn),
     Status: __expectString(output.Status),
     ThemeArn: __expectString(output.ThemeArn),
-    VersionNumber: __expectInt(output.VersionNumber),
+    VersionNumber: __expectLong(output.VersionNumber),
   } as any;
 };
 
@@ -21840,7 +21841,7 @@ const deserializeAws_restJson1TemplateVersionSummary = (
         : undefined,
     Description: __expectString(output.Description),
     Status: __expectString(output.Status),
-    VersionNumber: __expectInt(output.VersionNumber),
+    VersionNumber: __expectLong(output.VersionNumber),
   } as any;
 };
 
@@ -21862,7 +21863,7 @@ const deserializeAws_restJson1TeradataParameters = (output: any, context: __Serd
   return {
     Database: __expectString(output.Database),
     Host: __expectString(output.Host),
-    Port: __expectInt(output.Port),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -21891,7 +21892,7 @@ const deserializeAws_restJson1ThemeAlias = (output: any, context: __SerdeContext
   return {
     AliasName: __expectString(output.AliasName),
     Arn: __expectString(output.Arn),
-    ThemeVersionNumber: __expectInt(output.ThemeVersionNumber),
+    ThemeVersionNumber: __expectLong(output.ThemeVersionNumber),
   } as any;
 };
 
@@ -21952,7 +21953,7 @@ const deserializeAws_restJson1ThemeSummary = (output: any, context: __SerdeConte
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    LatestVersionNumber: __expectInt(output.LatestVersionNumber),
+    LatestVersionNumber: __expectLong(output.LatestVersionNumber),
     Name: __expectString(output.Name),
     ThemeId: __expectString(output.ThemeId),
   } as any;
@@ -21987,7 +21988,7 @@ const deserializeAws_restJson1ThemeVersion = (output: any, context: __SerdeConte
         ? deserializeAws_restJson1ThemeErrorList(output.Errors, context)
         : undefined,
     Status: __expectString(output.Status),
-    VersionNumber: __expectInt(output.VersionNumber),
+    VersionNumber: __expectLong(output.VersionNumber),
   } as any;
 };
 
@@ -22000,7 +22001,7 @@ const deserializeAws_restJson1ThemeVersionSummary = (output: any, context: __Ser
         : undefined,
     Description: __expectString(output.Description),
     Status: __expectString(output.Status),
-    VersionNumber: __expectInt(output.VersionNumber),
+    VersionNumber: __expectLong(output.VersionNumber),
   } as any;
 };
 
@@ -22087,7 +22088,7 @@ const deserializeAws_restJson1TransformOperationList = (output: any, context: __
 
 const deserializeAws_restJson1TwitterParameters = (output: any, context: __SerdeContext): TwitterParameters => {
   return {
-    MaxRows: __expectInt(output.MaxRows),
+    MaxRows: __expectInt32(output.MaxRows),
     Query: __expectString(output.Query),
   } as any;
 };
@@ -22118,7 +22119,7 @@ const deserializeAws_restJson1UploadSettings = (output: any, context: __SerdeCon
     ContainsHeader: __expectBoolean(output.ContainsHeader),
     Delimiter: __expectString(output.Delimiter),
     Format: __expectString(output.Format),
-    StartFromRow: __expectInt(output.StartFromRow),
+    StartFromRow: __expectInt32(output.StartFromRow),
     TextQualifier: __expectString(output.TextQualifier),
   } as any;
 };

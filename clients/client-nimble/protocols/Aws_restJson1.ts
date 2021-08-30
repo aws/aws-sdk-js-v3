@@ -164,7 +164,7 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -7530,7 +7530,7 @@ const deserializeAws_restJson1StreamConfiguration = (output: any, context: __Ser
       output.ec2InstanceTypes !== undefined && output.ec2InstanceTypes !== null
         ? deserializeAws_restJson1StreamingInstanceTypeList(output.ec2InstanceTypes, context)
         : undefined,
-    maxSessionLengthInMinutes: __expectInt(output.maxSessionLengthInMinutes),
+    maxSessionLengthInMinutes: __expectInt32(output.maxSessionLengthInMinutes),
     streamingImageIds:
       output.streamingImageIds !== undefined && output.streamingImageIds !== null
         ? deserializeAws_restJson1StreamingImageIdList(output.streamingImageIds, context)

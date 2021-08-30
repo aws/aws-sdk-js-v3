@@ -319,7 +319,8 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   strictParseFloat as __strictParseFloat,
-  strictParseInt as __strictParseInt,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5572,10 +5573,10 @@ const deserializeAws_queryApplicationMetrics = (output: any, context: __SerdeCon
     Latency: undefined,
   };
   if (output["Duration"] !== undefined) {
-    contents.Duration = __strictParseInt(output["Duration"]) as number;
+    contents.Duration = __strictParseInt32(output["Duration"]) as number;
   }
   if (output["RequestCount"] !== undefined) {
-    contents.RequestCount = __strictParseInt(output["RequestCount"]) as number;
+    contents.RequestCount = __strictParseInt32(output["RequestCount"]) as number;
   }
   if (output["StatusCodes"] !== undefined) {
     contents.StatusCodes = deserializeAws_queryStatusCodes(output["StatusCodes"], context);
@@ -5915,13 +5916,13 @@ const deserializeAws_queryConfigurationOptionDescription = (
     );
   }
   if (output["MinValue"] !== undefined) {
-    contents.MinValue = __strictParseInt(output["MinValue"]) as number;
+    contents.MinValue = __strictParseInt32(output["MinValue"]) as number;
   }
   if (output["MaxValue"] !== undefined) {
-    contents.MaxValue = __strictParseInt(output["MaxValue"]) as number;
+    contents.MaxValue = __strictParseInt32(output["MaxValue"]) as number;
   }
   if (output["MaxLength"] !== undefined) {
-    contents.MaxLength = __strictParseInt(output["MaxLength"]) as number;
+    contents.MaxLength = __strictParseInt32(output["MaxLength"]) as number;
   }
   if (output["Regex"] !== undefined) {
     contents.Regex = deserializeAws_queryOptionRestrictionRegex(output["Regex"], context);
@@ -6255,7 +6256,7 @@ const deserializeAws_queryDeployment = (output: any, context: __SerdeContext): D
     contents.VersionLabel = __expectString(output["VersionLabel"]);
   }
   if (output["DeploymentId"] !== undefined) {
-    contents.DeploymentId = __strictParseInt(output["DeploymentId"]) as number;
+    contents.DeploymentId = __strictParseLong(output["DeploymentId"]) as number;
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -6851,28 +6852,28 @@ const deserializeAws_queryInstanceHealthSummary = (output: any, context: __Serde
     Severe: undefined,
   };
   if (output["NoData"] !== undefined) {
-    contents.NoData = __strictParseInt(output["NoData"]) as number;
+    contents.NoData = __strictParseInt32(output["NoData"]) as number;
   }
   if (output["Unknown"] !== undefined) {
-    contents.Unknown = __strictParseInt(output["Unknown"]) as number;
+    contents.Unknown = __strictParseInt32(output["Unknown"]) as number;
   }
   if (output["Pending"] !== undefined) {
-    contents.Pending = __strictParseInt(output["Pending"]) as number;
+    contents.Pending = __strictParseInt32(output["Pending"]) as number;
   }
   if (output["Ok"] !== undefined) {
-    contents.Ok = __strictParseInt(output["Ok"]) as number;
+    contents.Ok = __strictParseInt32(output["Ok"]) as number;
   }
   if (output["Info"] !== undefined) {
-    contents.Info = __strictParseInt(output["Info"]) as number;
+    contents.Info = __strictParseInt32(output["Info"]) as number;
   }
   if (output["Warning"] !== undefined) {
-    contents.Warning = __strictParseInt(output["Warning"]) as number;
+    contents.Warning = __strictParseInt32(output["Warning"]) as number;
   }
   if (output["Degraded"] !== undefined) {
-    contents.Degraded = __strictParseInt(output["Degraded"]) as number;
+    contents.Degraded = __strictParseInt32(output["Degraded"]) as number;
   }
   if (output["Severe"] !== undefined) {
-    contents.Severe = __strictParseInt(output["Severe"]) as number;
+    contents.Severe = __strictParseInt32(output["Severe"]) as number;
   }
   return contents;
 };
@@ -7029,7 +7030,7 @@ const deserializeAws_queryListener = (output: any, context: __SerdeContext): Lis
     contents.Protocol = __expectString(output["Protocol"]);
   }
   if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt(output["Port"]) as number;
+    contents.Port = __strictParseInt32(output["Port"]) as number;
   }
   return contents;
 };
@@ -7265,7 +7266,7 @@ const deserializeAws_queryMaxAgeRule = (output: any, context: __SerdeContext): M
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["MaxAgeInDays"] !== undefined) {
-    contents.MaxAgeInDays = __strictParseInt(output["MaxAgeInDays"]) as number;
+    contents.MaxAgeInDays = __strictParseInt32(output["MaxAgeInDays"]) as number;
   }
   if (output["DeleteSourceFromS3"] !== undefined) {
     contents.DeleteSourceFromS3 = __parseBoolean(output["DeleteSourceFromS3"]);
@@ -7283,7 +7284,7 @@ const deserializeAws_queryMaxCountRule = (output: any, context: __SerdeContext):
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["MaxCount"] !== undefined) {
-    contents.MaxCount = __strictParseInt(output["MaxCount"]) as number;
+    contents.MaxCount = __strictParseInt32(output["MaxCount"]) as number;
   }
   if (output["DeleteSourceFromS3"] !== undefined) {
     contents.DeleteSourceFromS3 = __parseBoolean(output["DeleteSourceFromS3"]);
@@ -7336,7 +7337,7 @@ const deserializeAws_queryPlatformBranchSummary = (output: any, context: __Serde
     contents.LifecycleState = __expectString(output["LifecycleState"]);
   }
   if (output["BranchOrder"] !== undefined) {
-    contents.BranchOrder = __strictParseInt(output["BranchOrder"]) as number;
+    contents.BranchOrder = __strictParseInt32(output["BranchOrder"]) as number;
   }
   if (output.SupportedTierList === "") {
     contents.SupportedTierList = [];
@@ -7673,7 +7674,7 @@ const deserializeAws_queryResourceQuota = (output: any, context: __SerdeContext)
     Maximum: undefined,
   };
   if (output["Maximum"] !== undefined) {
-    contents.Maximum = __strictParseInt(output["Maximum"]) as number;
+    contents.Maximum = __strictParseInt32(output["Maximum"]) as number;
   }
   return contents;
 };
@@ -7924,16 +7925,16 @@ const deserializeAws_queryStatusCodes = (output: any, context: __SerdeContext): 
     Status5xx: undefined,
   };
   if (output["Status2xx"] !== undefined) {
-    contents.Status2xx = __strictParseInt(output["Status2xx"]) as number;
+    contents.Status2xx = __strictParseInt32(output["Status2xx"]) as number;
   }
   if (output["Status3xx"] !== undefined) {
-    contents.Status3xx = __strictParseInt(output["Status3xx"]) as number;
+    contents.Status3xx = __strictParseInt32(output["Status3xx"]) as number;
   }
   if (output["Status4xx"] !== undefined) {
-    contents.Status4xx = __strictParseInt(output["Status4xx"]) as number;
+    contents.Status4xx = __strictParseInt32(output["Status4xx"]) as number;
   }
   if (output["Status5xx"] !== undefined) {
-    contents.Status5xx = __strictParseInt(output["Status5xx"]) as number;
+    contents.Status5xx = __strictParseInt32(output["Status5xx"]) as number;
   }
   return contents;
 };

@@ -164,7 +164,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3176,7 +3177,7 @@ const deserializeAws_json1_1ApplicationDetail = (output: any, context: __SerdeCo
     ApplicationDescription: __expectString(output.ApplicationDescription),
     ApplicationName: __expectString(output.ApplicationName),
     ApplicationStatus: __expectString(output.ApplicationStatus),
-    ApplicationVersionId: __expectInt(output.ApplicationVersionId),
+    ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     CloudWatchLoggingOptionDescriptions:
       output.CloudWatchLoggingOptionDescriptions !== undefined && output.CloudWatchLoggingOptionDescriptions !== null
         ? deserializeAws_json1_1CloudWatchLoggingOptionDescriptions(output.CloudWatchLoggingOptionDescriptions, context)
@@ -3435,7 +3436,7 @@ const deserializeAws_json1_1InputLambdaProcessorDescription = (
 
 const deserializeAws_json1_1InputParallelism = (output: any, context: __SerdeContext): InputParallelism => {
   return {
-    Count: __expectInt(output.Count),
+    Count: __expectInt32(output.Count),
   } as any;
 };
 

@@ -133,7 +133,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
-  expectInt as __expectInt,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1602,7 +1602,7 @@ export const deserializeAws_restJson1DescribeAlarmModelCommand = async (
     contents.roleArn = __expectString(data.roleArn);
   }
   if (data.severity !== undefined && data.severity !== null) {
-    contents.severity = __expectInt(data.severity);
+    contents.severity = __expectInt32(data.severity);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -5023,7 +5023,7 @@ const deserializeAws_restJson1RoutedResources = (output: any, context: __SerdeCo
 const deserializeAws_restJson1SetTimerAction = (output: any, context: __SerdeContext): SetTimerAction => {
   return {
     durationExpression: __expectString(output.durationExpression),
-    seconds: __expectInt(output.seconds),
+    seconds: __expectInt32(output.seconds),
     timerName: __expectString(output.timerName),
   } as any;
 };
