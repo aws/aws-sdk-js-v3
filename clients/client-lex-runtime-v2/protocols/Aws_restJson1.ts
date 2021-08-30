@@ -45,6 +45,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -462,7 +464,7 @@ export const deserializeAws_restJson1DeleteSessionCommand = async (
     localeId: undefined,
     sessionId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.botAliasId !== undefined && data.botAliasId !== null) {
     contents.botAliasId = __expectString(data.botAliasId);
   }
@@ -569,7 +571,7 @@ export const deserializeAws_restJson1GetSessionCommand = async (
     sessionId: undefined,
     sessionState: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.interpretations !== undefined && data.interpretations !== null) {
     contents.interpretations = deserializeAws_restJson1Interpretations(data.interpretations, context);
   }
@@ -798,7 +800,7 @@ export const deserializeAws_restJson1RecognizeTextCommand = async (
     sessionId: undefined,
     sessionState: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.interpretations !== undefined && data.interpretations !== null) {
     contents.interpretations = deserializeAws_restJson1Interpretations(data.interpretations, context);
   }

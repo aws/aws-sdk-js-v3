@@ -26,6 +26,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -215,7 +217,7 @@ export const deserializeAws_restJson1DescribeJobExecutionCommand = async (
     $metadata: deserializeMetadata(output),
     execution: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.execution !== undefined && data.execution !== null) {
     contents.execution = deserializeAws_restJson1JobExecution(data.execution, context);
   }
@@ -311,7 +313,7 @@ export const deserializeAws_restJson1GetPendingJobExecutionsCommand = async (
     inProgressJobs: undefined,
     queuedJobs: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.inProgressJobs !== undefined && data.inProgressJobs !== null) {
     contents.inProgressJobs = deserializeAws_restJson1JobExecutionSummaryList(data.inProgressJobs, context);
   }
@@ -401,7 +403,7 @@ export const deserializeAws_restJson1StartNextPendingJobExecutionCommand = async
     $metadata: deserializeMetadata(output),
     execution: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.execution !== undefined && data.execution !== null) {
     contents.execution = deserializeAws_restJson1JobExecution(data.execution, context);
   }
@@ -489,7 +491,7 @@ export const deserializeAws_restJson1UpdateJobExecutionCommand = async (
     executionState: undefined,
     jobDocument: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.executionState !== undefined && data.executionState !== null) {
     contents.executionState = deserializeAws_restJson1JobExecutionState(data.executionState, context);
   }

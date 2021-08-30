@@ -59,6 +59,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -615,7 +617,7 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
     VerifiedAuthorUrl: undefined,
     Version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = __expectString(data.applicationId);
   }
@@ -746,7 +748,7 @@ export const deserializeAws_restJson1CreateApplicationVersionCommand = async (
     SourceCodeUrl: undefined,
     TemplateUrl: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = __expectString(data.applicationId);
   }
@@ -863,7 +865,7 @@ export const deserializeAws_restJson1CreateCloudFormationChangeSetCommand = asyn
     SemanticVersion: undefined,
     StackId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = __expectString(data.applicationId);
   }
@@ -957,7 +959,7 @@ export const deserializeAws_restJson1CreateCloudFormationTemplateCommand = async
     TemplateId: undefined,
     TemplateUrl: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = __expectString(data.applicationId);
   }
@@ -1165,7 +1167,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     VerifiedAuthorUrl: undefined,
     Version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = __expectString(data.applicationId);
   }
@@ -1288,7 +1290,7 @@ export const deserializeAws_restJson1GetApplicationPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     Statements: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.statements !== undefined && data.statements !== null) {
     contents.Statements = deserializeAws_restJson1__listOfApplicationPolicyStatement(data.statements, context);
   }
@@ -1381,7 +1383,7 @@ export const deserializeAws_restJson1GetCloudFormationTemplateCommand = async (
     TemplateId: undefined,
     TemplateUrl: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = __expectString(data.applicationId);
   }
@@ -1487,7 +1489,7 @@ export const deserializeAws_restJson1ListApplicationDependenciesCommand = async 
     Dependencies: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dependencies !== undefined && data.dependencies !== null) {
     contents.Dependencies = deserializeAws_restJson1__listOfApplicationDependencySummary(data.dependencies, context);
   }
@@ -1578,7 +1580,7 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
     Applications: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applications !== undefined && data.applications !== null) {
     contents.Applications = deserializeAws_restJson1__listOfApplicationSummary(data.applications, context);
   }
@@ -1661,7 +1663,7 @@ export const deserializeAws_restJson1ListApplicationVersionsCommand = async (
     NextToken: undefined,
     Versions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = __expectString(data.nextToken);
   }
@@ -1751,7 +1753,7 @@ export const deserializeAws_restJson1PutApplicationPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     Statements: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.statements !== undefined && data.statements !== null) {
     contents.Statements = deserializeAws_restJson1__listOfApplicationPolicyStatement(data.statements, context);
   }
@@ -1933,7 +1935,7 @@ export const deserializeAws_restJson1UpdateApplicationCommand = async (
     VerifiedAuthorUrl: undefined,
     Version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationId !== undefined && data.applicationId !== null) {
     contents.ApplicationId = __expectString(data.applicationId);
   }

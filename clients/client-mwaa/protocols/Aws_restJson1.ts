@@ -41,6 +41,8 @@ import {
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   serializeFloat as __serializeFloat,
@@ -555,7 +557,7 @@ export const deserializeAws_restJson1CreateCliTokenCommand = async (
     CliToken: undefined,
     WebServerHostname: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CliToken !== undefined && data.CliToken !== null) {
     contents.CliToken = __expectString(data.CliToken);
   }
@@ -613,7 +615,7 @@ export const deserializeAws_restJson1CreateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -677,7 +679,7 @@ export const deserializeAws_restJson1CreateWebLoginTokenCommand = async (
     WebServerHostname: undefined,
     WebToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.WebServerHostname !== undefined && data.WebServerHostname !== null) {
     contents.WebServerHostname = __expectString(data.WebServerHostname);
   }
@@ -826,7 +828,7 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     Environment: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1Environment(data.Environment, context);
   }
@@ -898,7 +900,7 @@ export const deserializeAws_restJson1ListEnvironmentsCommand = async (
     Environments: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Environments !== undefined && data.Environments !== null) {
     contents.Environments = deserializeAws_restJson1EnvironmentList(data.Environments, context);
   }
@@ -964,7 +966,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
@@ -1228,7 +1230,7 @@ export const deserializeAws_restJson1UpdateEnvironmentCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }

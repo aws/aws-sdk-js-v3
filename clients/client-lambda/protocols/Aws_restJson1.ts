@@ -238,6 +238,8 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -2449,7 +2451,7 @@ export const deserializeAws_restJson1AddLayerVersionPermissionCommand = async (
     RevisionId: undefined,
     Statement: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
     contents.RevisionId = __expectString(data.RevisionId);
   }
@@ -2555,7 +2557,7 @@ export const deserializeAws_restJson1AddPermissionCommand = async (
     $metadata: deserializeMetadata(output),
     Statement: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Statement !== undefined && data.Statement !== null) {
     contents.Statement = __expectString(data.Statement);
   }
@@ -2663,7 +2665,7 @@ export const deserializeAws_restJson1CreateAliasCommand = async (
     RevisionId: undefined,
     RoutingConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AliasArn !== undefined && data.AliasArn !== null) {
     contents.AliasArn = __expectString(data.AliasArn);
   }
@@ -2765,7 +2767,7 @@ export const deserializeAws_restJson1CreateCodeSigningConfigCommand = async (
     $metadata: deserializeMetadata(output),
     CodeSigningConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSigningConfig !== undefined && data.CodeSigningConfig !== null) {
     contents.CodeSigningConfig = deserializeAws_restJson1CodeSigningConfig(data.CodeSigningConfig, context);
   }
@@ -2849,7 +2851,7 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     TumblingWindowInSeconds: undefined,
     UUID: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -3038,7 +3040,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     Version: undefined,
     VpcConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
@@ -3418,7 +3420,7 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     TumblingWindowInSeconds: undefined,
     UUID: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -4060,7 +4062,7 @@ export const deserializeAws_restJson1GetAccountSettingsCommand = async (
     AccountLimit: undefined,
     AccountUsage: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccountLimit !== undefined && data.AccountLimit !== null) {
     contents.AccountLimit = deserializeAws_restJson1AccountLimit(data.AccountLimit, context);
   }
@@ -4131,7 +4133,7 @@ export const deserializeAws_restJson1GetAliasCommand = async (
     RevisionId: undefined,
     RoutingConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AliasArn !== undefined && data.AliasArn !== null) {
     contents.AliasArn = __expectString(data.AliasArn);
   }
@@ -4225,7 +4227,7 @@ export const deserializeAws_restJson1GetCodeSigningConfigCommand = async (
     $metadata: deserializeMetadata(output),
     CodeSigningConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSigningConfig !== undefined && data.CodeSigningConfig !== null) {
     contents.CodeSigningConfig = deserializeAws_restJson1CodeSigningConfig(data.CodeSigningConfig, context);
   }
@@ -4317,7 +4319,7 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     TumblingWindowInSeconds: undefined,
     UUID: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -4471,7 +4473,7 @@ export const deserializeAws_restJson1GetFunctionCommand = async (
     Configuration: undefined,
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = deserializeAws_restJson1FunctionCodeLocation(data.Code, context);
   }
@@ -4560,7 +4562,7 @@ export const deserializeAws_restJson1GetFunctionCodeSigningConfigCommand = async
     CodeSigningConfigArn: undefined,
     FunctionName: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSigningConfigArn !== undefined && data.CodeSigningConfigArn !== null) {
     contents.CodeSigningConfigArn = __expectString(data.CodeSigningConfigArn);
   }
@@ -4642,7 +4644,7 @@ export const deserializeAws_restJson1GetFunctionConcurrencyCommand = async (
     $metadata: deserializeMetadata(output),
     ReservedConcurrentExecutions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ReservedConcurrentExecutions !== undefined && data.ReservedConcurrentExecutions !== null) {
     contents.ReservedConcurrentExecutions = __expectInt32(data.ReservedConcurrentExecutions);
   }
@@ -4751,7 +4753,7 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     Version: undefined,
     VpcConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
@@ -4924,7 +4926,7 @@ export const deserializeAws_restJson1GetFunctionEventInvokeConfigCommand = async
     MaximumEventAgeInSeconds: undefined,
     MaximumRetryAttempts: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
@@ -5022,7 +5024,7 @@ export const deserializeAws_restJson1GetLayerVersionCommand = async (
     LicenseInfo: undefined,
     Version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CompatibleRuntimes !== undefined && data.CompatibleRuntimes !== null) {
     contents.CompatibleRuntimes = deserializeAws_restJson1CompatibleRuntimes(data.CompatibleRuntimes, context);
   }
@@ -5129,7 +5131,7 @@ export const deserializeAws_restJson1GetLayerVersionByArnCommand = async (
     LicenseInfo: undefined,
     Version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CompatibleRuntimes !== undefined && data.CompatibleRuntimes !== null) {
     contents.CompatibleRuntimes = deserializeAws_restJson1CompatibleRuntimes(data.CompatibleRuntimes, context);
   }
@@ -5230,7 +5232,7 @@ export const deserializeAws_restJson1GetLayerVersionPolicyCommand = async (
     Policy: undefined,
     RevisionId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Policy !== undefined && data.Policy !== null) {
     contents.Policy = __expectString(data.Policy);
   }
@@ -5313,7 +5315,7 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
     Policy: undefined,
     RevisionId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Policy !== undefined && data.Policy !== null) {
     contents.Policy = __expectString(data.Policy);
   }
@@ -5400,7 +5402,7 @@ export const deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand = as
     Status: undefined,
     StatusReason: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (
     data.AllocatedProvisionedConcurrentExecutions !== undefined &&
     data.AllocatedProvisionedConcurrentExecutions !== null
@@ -5868,7 +5870,7 @@ export const deserializeAws_restJson1ListAliasesCommand = async (
     Aliases: undefined,
     NextMarker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Aliases !== undefined && data.Aliases !== null) {
     contents.Aliases = deserializeAws_restJson1AliasList(data.Aliases, context);
   }
@@ -5951,7 +5953,7 @@ export const deserializeAws_restJson1ListCodeSigningConfigsCommand = async (
     CodeSigningConfigs: undefined,
     NextMarker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSigningConfigs !== undefined && data.CodeSigningConfigs !== null) {
     contents.CodeSigningConfigs = deserializeAws_restJson1CodeSigningConfigList(data.CodeSigningConfigs, context);
   }
@@ -6018,7 +6020,7 @@ export const deserializeAws_restJson1ListEventSourceMappingsCommand = async (
     EventSourceMappings: undefined,
     NextMarker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EventSourceMappings !== undefined && data.EventSourceMappings !== null) {
     contents.EventSourceMappings = deserializeAws_restJson1EventSourceMappingsList(data.EventSourceMappings, context);
   }
@@ -6101,7 +6103,7 @@ export const deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand = asy
     FunctionEventInvokeConfigs: undefined,
     NextMarker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.FunctionEventInvokeConfigs !== undefined && data.FunctionEventInvokeConfigs !== null) {
     contents.FunctionEventInvokeConfigs = deserializeAws_restJson1FunctionEventInvokeConfigList(
       data.FunctionEventInvokeConfigs,
@@ -6187,7 +6189,7 @@ export const deserializeAws_restJson1ListFunctionsCommand = async (
     Functions: undefined,
     NextMarker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Functions !== undefined && data.Functions !== null) {
     contents.Functions = deserializeAws_restJson1FunctionList(data.Functions, context);
   }
@@ -6262,7 +6264,7 @@ export const deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = a
     FunctionArns: undefined,
     NextMarker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.FunctionArns !== undefined && data.FunctionArns !== null) {
     contents.FunctionArns = deserializeAws_restJson1FunctionArnList(data.FunctionArns, context);
   }
@@ -6337,7 +6339,7 @@ export const deserializeAws_restJson1ListLayersCommand = async (
     Layers: undefined,
     NextMarker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Layers !== undefined && data.Layers !== null) {
     contents.Layers = deserializeAws_restJson1LayersList(data.Layers, context);
   }
@@ -6412,7 +6414,7 @@ export const deserializeAws_restJson1ListLayerVersionsCommand = async (
     LayerVersions: undefined,
     NextMarker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LayerVersions !== undefined && data.LayerVersions !== null) {
     contents.LayerVersions = deserializeAws_restJson1LayerVersionsList(data.LayerVersions, context);
   }
@@ -6495,7 +6497,7 @@ export const deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = 
     NextMarker: undefined,
     ProvisionedConcurrencyConfigs: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
     contents.NextMarker = __expectString(data.NextMarker);
   }
@@ -6580,7 +6582,7 @@ export const deserializeAws_restJson1ListTagsCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
   }
@@ -6660,7 +6662,7 @@ export const deserializeAws_restJson1ListVersionsByFunctionCommand = async (
     NextMarker: undefined,
     Versions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
     contents.NextMarker = __expectString(data.NextMarker);
   }
@@ -6749,7 +6751,7 @@ export const deserializeAws_restJson1PublishLayerVersionCommand = async (
     LicenseInfo: undefined,
     Version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CompatibleRuntimes !== undefined && data.CompatibleRuntimes !== null) {
     contents.CompatibleRuntimes = deserializeAws_restJson1CompatibleRuntimes(data.CompatibleRuntimes, context);
   }
@@ -6887,7 +6889,7 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     Version: undefined,
     VpcConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
@@ -7081,7 +7083,7 @@ export const deserializeAws_restJson1PutFunctionCodeSigningConfigCommand = async
     CodeSigningConfigArn: undefined,
     FunctionName: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSigningConfigArn !== undefined && data.CodeSigningConfigArn !== null) {
     contents.CodeSigningConfigArn = __expectString(data.CodeSigningConfigArn);
   }
@@ -7179,7 +7181,7 @@ export const deserializeAws_restJson1PutFunctionConcurrencyCommand = async (
     $metadata: deserializeMetadata(output),
     ReservedConcurrentExecutions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ReservedConcurrentExecutions !== undefined && data.ReservedConcurrentExecutions !== null) {
     contents.ReservedConcurrentExecutions = __expectInt32(data.ReservedConcurrentExecutions);
   }
@@ -7270,7 +7272,7 @@ export const deserializeAws_restJson1PutFunctionEventInvokeConfigCommand = async
     MaximumEventAgeInSeconds: undefined,
     MaximumRetryAttempts: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
@@ -7374,7 +7376,7 @@ export const deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand = as
     Status: undefined,
     StatusReason: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (
     data.AllocatedProvisionedConcurrentExecutions !== undefined &&
     data.AllocatedProvisionedConcurrentExecutions !== null
@@ -7822,7 +7824,7 @@ export const deserializeAws_restJson1UpdateAliasCommand = async (
     RevisionId: undefined,
     RoutingConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AliasArn !== undefined && data.AliasArn !== null) {
     contents.AliasArn = __expectString(data.AliasArn);
   }
@@ -7932,7 +7934,7 @@ export const deserializeAws_restJson1UpdateCodeSigningConfigCommand = async (
     $metadata: deserializeMetadata(output),
     CodeSigningConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSigningConfig !== undefined && data.CodeSigningConfig !== null) {
     contents.CodeSigningConfig = deserializeAws_restJson1CodeSigningConfig(data.CodeSigningConfig, context);
   }
@@ -8024,7 +8026,7 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     TumblingWindowInSeconds: undefined,
     UUID: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
     contents.BatchSize = __expectInt32(data.BatchSize);
   }
@@ -8221,7 +8223,7 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     Version: undefined,
     VpcConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
@@ -8468,7 +8470,7 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     Version: undefined,
     VpcConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
@@ -8681,7 +8683,7 @@ export const deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = as
     MaximumEventAgeInSeconds: undefined,
     MaximumRetryAttempts: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }

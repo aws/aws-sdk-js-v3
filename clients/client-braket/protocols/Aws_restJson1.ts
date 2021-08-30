@@ -29,6 +29,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   LazyJsonString as __LazyJsonString,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -329,7 +331,7 @@ export const deserializeAws_restJson1CancelQuantumTaskCommand = async (
     cancellationStatus: undefined,
     quantumTaskArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.cancellationStatus !== undefined && data.cancellationStatus !== null) {
     contents.cancellationStatus = __expectString(data.cancellationStatus);
   }
@@ -427,7 +429,7 @@ export const deserializeAws_restJson1CreateQuantumTaskCommand = async (
     $metadata: deserializeMetadata(output),
     quantumTaskArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.quantumTaskArn !== undefined && data.quantumTaskArn !== null) {
     contents.quantumTaskArn = __expectString(data.quantumTaskArn);
   }
@@ -527,7 +529,7 @@ export const deserializeAws_restJson1GetDeviceCommand = async (
     deviceType: undefined,
     providerName: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.deviceArn !== undefined && data.deviceArn !== null) {
     contents.deviceArn = __expectString(data.deviceArn);
   }
@@ -655,7 +657,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
     status: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
     contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
@@ -772,7 +774,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
   }
@@ -844,7 +846,7 @@ export const deserializeAws_restJson1SearchDevicesCommand = async (
     devices: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.devices !== undefined && data.devices !== null) {
     contents.devices = deserializeAws_restJson1DeviceSummaryList(data.devices, context);
   }
@@ -927,7 +929,7 @@ export const deserializeAws_restJson1SearchQuantumTasksCommand = async (
     nextToken: undefined,
     quantumTasks: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }

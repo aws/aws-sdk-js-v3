@@ -131,6 +131,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -740,7 +742,7 @@ export const deserializeAws_restJson1AddNotificationChannelCommand = async (
     $metadata: deserializeMetadata(output),
     Id: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = __expectString(data.Id);
   }
@@ -846,7 +848,7 @@ export const deserializeAws_restJson1DescribeAccountHealthCommand = async (
     OpenReactiveInsights: undefined,
     ResourceHours: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MetricsAnalyzed !== undefined && data.MetricsAnalyzed !== null) {
     contents.MetricsAnalyzed = __expectInt32(data.MetricsAnalyzed);
   }
@@ -936,7 +938,7 @@ export const deserializeAws_restJson1DescribeAccountOverviewCommand = async (
     ProactiveInsights: undefined,
     ReactiveInsights: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MeanTimeToRecoverInMilliseconds !== undefined && data.MeanTimeToRecoverInMilliseconds !== null) {
     contents.MeanTimeToRecoverInMilliseconds = __expectLong(data.MeanTimeToRecoverInMilliseconds);
   }
@@ -1022,7 +1024,7 @@ export const deserializeAws_restJson1DescribeAnomalyCommand = async (
     ProactiveAnomaly: undefined,
     ReactiveAnomaly: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ProactiveAnomaly !== undefined && data.ProactiveAnomaly !== null) {
     contents.ProactiveAnomaly = deserializeAws_restJson1ProactiveAnomaly(data.ProactiveAnomaly, context);
   }
@@ -1112,7 +1114,7 @@ export const deserializeAws_restJson1DescribeFeedbackCommand = async (
     $metadata: deserializeMetadata(output),
     InsightFeedback: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InsightFeedback !== undefined && data.InsightFeedback !== null) {
     contents.InsightFeedback = deserializeAws_restJson1InsightFeedback(data.InsightFeedback, context);
   }
@@ -1200,7 +1202,7 @@ export const deserializeAws_restJson1DescribeInsightCommand = async (
     ProactiveInsight: undefined,
     ReactiveInsight: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ProactiveInsight !== undefined && data.ProactiveInsight !== null) {
     contents.ProactiveInsight = deserializeAws_restJson1ProactiveInsight(data.ProactiveInsight, context);
   }
@@ -1292,7 +1294,7 @@ export const deserializeAws_restJson1DescribeResourceCollectionHealthCommand = a
     NextToken: undefined,
     Service: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CloudFormation !== undefined && data.CloudFormation !== null) {
     contents.CloudFormation = deserializeAws_restJson1CloudFormationHealths(data.CloudFormation, context);
   }
@@ -1377,7 +1379,7 @@ export const deserializeAws_restJson1DescribeServiceIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
     ServiceIntegration: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ServiceIntegration !== undefined && data.ServiceIntegration !== null) {
     contents.ServiceIntegration = deserializeAws_restJson1ServiceIntegrationConfig(data.ServiceIntegration, context);
   }
@@ -1461,7 +1463,7 @@ export const deserializeAws_restJson1GetCostEstimationCommand = async (
     TimeRange: undefined,
     TotalCost: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Costs !== undefined && data.Costs !== null) {
     contents.Costs = deserializeAws_restJson1ServiceResourceCosts(data.Costs, context);
   }
@@ -1567,7 +1569,7 @@ export const deserializeAws_restJson1GetResourceCollectionCommand = async (
     NextToken: undefined,
     ResourceCollection: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1659,7 +1661,7 @@ export const deserializeAws_restJson1ListAnomaliesForInsightCommand = async (
     ProactiveAnomalies: undefined,
     ReactiveAnomalies: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1753,7 +1755,7 @@ export const deserializeAws_restJson1ListEventsCommand = async (
     Events: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Events !== undefined && data.Events !== null) {
     contents.Events = deserializeAws_restJson1Events(data.Events, context);
   }
@@ -1845,7 +1847,7 @@ export const deserializeAws_restJson1ListInsightsCommand = async (
     ProactiveInsights: undefined,
     ReactiveInsights: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1931,7 +1933,7 @@ export const deserializeAws_restJson1ListNotificationChannelsCommand = async (
     Channels: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Channels !== undefined && data.Channels !== null) {
     contents.Channels = deserializeAws_restJson1Channels(data.Channels, context);
   }
@@ -2014,7 +2016,7 @@ export const deserializeAws_restJson1ListRecommendationsCommand = async (
     NextToken: undefined,
     Recommendations: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -2288,7 +2290,7 @@ export const deserializeAws_restJson1SearchInsightsCommand = async (
     ProactiveInsights: undefined,
     ReactiveInsights: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }

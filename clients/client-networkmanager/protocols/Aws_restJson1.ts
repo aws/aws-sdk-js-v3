@@ -105,6 +105,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   strictParseInt32 as __strictParseInt32,
@@ -1458,7 +1460,7 @@ export const deserializeAws_restJson1AssociateCustomerGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     CustomerGatewayAssociation: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CustomerGatewayAssociation !== undefined && data.CustomerGatewayAssociation !== null) {
     contents.CustomerGatewayAssociation = deserializeAws_restJson1CustomerGatewayAssociation(
       data.CustomerGatewayAssociation,
@@ -1564,7 +1566,7 @@ export const deserializeAws_restJson1AssociateLinkCommand = async (
     $metadata: deserializeMetadata(output),
     LinkAssociation: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LinkAssociation !== undefined && data.LinkAssociation !== null) {
     contents.LinkAssociation = deserializeAws_restJson1LinkAssociation(data.LinkAssociation, context);
   }
@@ -1667,7 +1669,7 @@ export const deserializeAws_restJson1AssociateTransitGatewayConnectPeerCommand =
     $metadata: deserializeMetadata(output),
     TransitGatewayConnectPeerAssociation: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TransitGatewayConnectPeerAssociation !== undefined && data.TransitGatewayConnectPeerAssociation !== null) {
     contents.TransitGatewayConnectPeerAssociation = deserializeAws_restJson1TransitGatewayConnectPeerAssociation(
       data.TransitGatewayConnectPeerAssociation,
@@ -1773,7 +1775,7 @@ export const deserializeAws_restJson1CreateConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     Connection: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Connection !== undefined && data.Connection !== null) {
     contents.Connection = deserializeAws_restJson1Connection(data.Connection, context);
   }
@@ -1868,7 +1870,7 @@ export const deserializeAws_restJson1CreateDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     Device: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Device !== undefined && data.Device !== null) {
     contents.Device = deserializeAws_restJson1Device(data.Device, context);
   }
@@ -1971,7 +1973,7 @@ export const deserializeAws_restJson1CreateGlobalNetworkCommand = async (
     $metadata: deserializeMetadata(output),
     GlobalNetwork: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GlobalNetwork !== undefined && data.GlobalNetwork !== null) {
     contents.GlobalNetwork = deserializeAws_restJson1GlobalNetwork(data.GlobalNetwork, context);
   }
@@ -2066,7 +2068,7 @@ export const deserializeAws_restJson1CreateLinkCommand = async (
     $metadata: deserializeMetadata(output),
     Link: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Link !== undefined && data.Link !== null) {
     contents.Link = deserializeAws_restJson1Link(data.Link, context);
   }
@@ -2169,7 +2171,7 @@ export const deserializeAws_restJson1CreateSiteCommand = async (
     $metadata: deserializeMetadata(output),
     Site: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Site !== undefined && data.Site !== null) {
     contents.Site = deserializeAws_restJson1Site(data.Site, context);
   }
@@ -2272,7 +2274,7 @@ export const deserializeAws_restJson1DeleteConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     Connection: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Connection !== undefined && data.Connection !== null) {
     contents.Connection = deserializeAws_restJson1Connection(data.Connection, context);
   }
@@ -2367,7 +2369,7 @@ export const deserializeAws_restJson1DeleteDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     Device: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Device !== undefined && data.Device !== null) {
     contents.Device = deserializeAws_restJson1Device(data.Device, context);
   }
@@ -2462,7 +2464,7 @@ export const deserializeAws_restJson1DeleteGlobalNetworkCommand = async (
     $metadata: deserializeMetadata(output),
     GlobalNetwork: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GlobalNetwork !== undefined && data.GlobalNetwork !== null) {
     contents.GlobalNetwork = deserializeAws_restJson1GlobalNetwork(data.GlobalNetwork, context);
   }
@@ -2557,7 +2559,7 @@ export const deserializeAws_restJson1DeleteLinkCommand = async (
     $metadata: deserializeMetadata(output),
     Link: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Link !== undefined && data.Link !== null) {
     contents.Link = deserializeAws_restJson1Link(data.Link, context);
   }
@@ -2652,7 +2654,7 @@ export const deserializeAws_restJson1DeleteSiteCommand = async (
     $metadata: deserializeMetadata(output),
     Site: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Site !== undefined && data.Site !== null) {
     contents.Site = deserializeAws_restJson1Site(data.Site, context);
   }
@@ -2747,7 +2749,7 @@ export const deserializeAws_restJson1DeregisterTransitGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     TransitGatewayRegistration: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TransitGatewayRegistration !== undefined && data.TransitGatewayRegistration !== null) {
     contents.TransitGatewayRegistration = deserializeAws_restJson1TransitGatewayRegistration(
       data.TransitGatewayRegistration,
@@ -2846,7 +2848,7 @@ export const deserializeAws_restJson1DescribeGlobalNetworksCommand = async (
     GlobalNetworks: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GlobalNetworks !== undefined && data.GlobalNetworks !== null) {
     contents.GlobalNetworks = deserializeAws_restJson1GlobalNetworkList(data.GlobalNetworks, context);
   }
@@ -2936,7 +2938,7 @@ export const deserializeAws_restJson1DisassociateCustomerGatewayCommand = async 
     $metadata: deserializeMetadata(output),
     CustomerGatewayAssociation: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CustomerGatewayAssociation !== undefined && data.CustomerGatewayAssociation !== null) {
     contents.CustomerGatewayAssociation = deserializeAws_restJson1CustomerGatewayAssociation(
       data.CustomerGatewayAssociation,
@@ -3034,7 +3036,7 @@ export const deserializeAws_restJson1DisassociateLinkCommand = async (
     $metadata: deserializeMetadata(output),
     LinkAssociation: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LinkAssociation !== undefined && data.LinkAssociation !== null) {
     contents.LinkAssociation = deserializeAws_restJson1LinkAssociation(data.LinkAssociation, context);
   }
@@ -3129,7 +3131,7 @@ export const deserializeAws_restJson1DisassociateTransitGatewayConnectPeerComman
     $metadata: deserializeMetadata(output),
     TransitGatewayConnectPeerAssociation: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TransitGatewayConnectPeerAssociation !== undefined && data.TransitGatewayConnectPeerAssociation !== null) {
     contents.TransitGatewayConnectPeerAssociation = deserializeAws_restJson1TransitGatewayConnectPeerAssociation(
       data.TransitGatewayConnectPeerAssociation,
@@ -3228,7 +3230,7 @@ export const deserializeAws_restJson1GetConnectionsCommand = async (
     Connections: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Connections !== undefined && data.Connections !== null) {
     contents.Connections = deserializeAws_restJson1ConnectionList(data.Connections, context);
   }
@@ -3319,7 +3321,7 @@ export const deserializeAws_restJson1GetCustomerGatewayAssociationsCommand = asy
     CustomerGatewayAssociations: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CustomerGatewayAssociations !== undefined && data.CustomerGatewayAssociations !== null) {
     contents.CustomerGatewayAssociations = deserializeAws_restJson1CustomerGatewayAssociationList(
       data.CustomerGatewayAssociations,
@@ -3421,7 +3423,7 @@ export const deserializeAws_restJson1GetDevicesCommand = async (
     Devices: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Devices !== undefined && data.Devices !== null) {
     contents.Devices = deserializeAws_restJson1DeviceList(data.Devices, context);
   }
@@ -3512,7 +3514,7 @@ export const deserializeAws_restJson1GetLinkAssociationsCommand = async (
     LinkAssociations: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LinkAssociations !== undefined && data.LinkAssociations !== null) {
     contents.LinkAssociations = deserializeAws_restJson1LinkAssociationList(data.LinkAssociations, context);
   }
@@ -3603,7 +3605,7 @@ export const deserializeAws_restJson1GetLinksCommand = async (
     Links: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Links !== undefined && data.Links !== null) {
     contents.Links = deserializeAws_restJson1LinkList(data.Links, context);
   }
@@ -3694,7 +3696,7 @@ export const deserializeAws_restJson1GetSitesCommand = async (
     NextToken: undefined,
     Sites: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3785,7 +3787,7 @@ export const deserializeAws_restJson1GetTransitGatewayConnectPeerAssociationsCom
     NextToken: undefined,
     TransitGatewayConnectPeerAssociations: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3887,7 +3889,7 @@ export const deserializeAws_restJson1GetTransitGatewayRegistrationsCommand = asy
     NextToken: undefined,
     TransitGatewayRegistrations: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3980,7 +3982,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     TagList: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TagList !== undefined && data.TagList !== null) {
     contents.TagList = deserializeAws_restJson1TagList(data.TagList, context);
   }
@@ -4067,7 +4069,7 @@ export const deserializeAws_restJson1RegisterTransitGatewayCommand = async (
     $metadata: deserializeMetadata(output),
     TransitGatewayRegistration: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TransitGatewayRegistration !== undefined && data.TransitGatewayRegistration !== null) {
     contents.TransitGatewayRegistration = deserializeAws_restJson1TransitGatewayRegistration(
       data.TransitGatewayRegistration,
@@ -4355,7 +4357,7 @@ export const deserializeAws_restJson1UpdateConnectionCommand = async (
     $metadata: deserializeMetadata(output),
     Connection: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Connection !== undefined && data.Connection !== null) {
     contents.Connection = deserializeAws_restJson1Connection(data.Connection, context);
   }
@@ -4450,7 +4452,7 @@ export const deserializeAws_restJson1UpdateDeviceCommand = async (
     $metadata: deserializeMetadata(output),
     Device: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Device !== undefined && data.Device !== null) {
     contents.Device = deserializeAws_restJson1Device(data.Device, context);
   }
@@ -4545,7 +4547,7 @@ export const deserializeAws_restJson1UpdateGlobalNetworkCommand = async (
     $metadata: deserializeMetadata(output),
     GlobalNetwork: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GlobalNetwork !== undefined && data.GlobalNetwork !== null) {
     contents.GlobalNetwork = deserializeAws_restJson1GlobalNetwork(data.GlobalNetwork, context);
   }
@@ -4640,7 +4642,7 @@ export const deserializeAws_restJson1UpdateLinkCommand = async (
     $metadata: deserializeMetadata(output),
     Link: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Link !== undefined && data.Link !== null) {
     contents.Link = deserializeAws_restJson1Link(data.Link, context);
   }
@@ -4743,7 +4745,7 @@ export const deserializeAws_restJson1UpdateSiteCommand = async (
     $metadata: deserializeMetadata(output),
     Site: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Site !== undefined && data.Site !== null) {
     contents.Site = deserializeAws_restJson1Site(data.Site, context);
   }

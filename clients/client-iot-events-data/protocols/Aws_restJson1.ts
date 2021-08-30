@@ -58,6 +58,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -404,7 +406,7 @@ export const deserializeAws_restJson1BatchAcknowledgeAlarmCommand = async (
     $metadata: deserializeMetadata(output),
     errorEntries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errorEntries !== undefined && data.errorEntries !== null) {
     contents.errorEntries = deserializeAws_restJson1BatchAlarmActionErrorEntries(data.errorEntries, context);
   }
@@ -483,7 +485,7 @@ export const deserializeAws_restJson1BatchDisableAlarmCommand = async (
     $metadata: deserializeMetadata(output),
     errorEntries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errorEntries !== undefined && data.errorEntries !== null) {
     contents.errorEntries = deserializeAws_restJson1BatchAlarmActionErrorEntries(data.errorEntries, context);
   }
@@ -562,7 +564,7 @@ export const deserializeAws_restJson1BatchEnableAlarmCommand = async (
     $metadata: deserializeMetadata(output),
     errorEntries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errorEntries !== undefined && data.errorEntries !== null) {
     contents.errorEntries = deserializeAws_restJson1BatchAlarmActionErrorEntries(data.errorEntries, context);
   }
@@ -641,7 +643,7 @@ export const deserializeAws_restJson1BatchPutMessageCommand = async (
     $metadata: deserializeMetadata(output),
     BatchPutMessageErrorEntries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BatchPutMessageErrorEntries !== undefined && data.BatchPutMessageErrorEntries !== null) {
     contents.BatchPutMessageErrorEntries = deserializeAws_restJson1BatchPutMessageErrorEntries(
       data.BatchPutMessageErrorEntries,
@@ -723,7 +725,7 @@ export const deserializeAws_restJson1BatchResetAlarmCommand = async (
     $metadata: deserializeMetadata(output),
     errorEntries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errorEntries !== undefined && data.errorEntries !== null) {
     contents.errorEntries = deserializeAws_restJson1BatchAlarmActionErrorEntries(data.errorEntries, context);
   }
@@ -802,7 +804,7 @@ export const deserializeAws_restJson1BatchSnoozeAlarmCommand = async (
     $metadata: deserializeMetadata(output),
     errorEntries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errorEntries !== undefined && data.errorEntries !== null) {
     contents.errorEntries = deserializeAws_restJson1BatchAlarmActionErrorEntries(data.errorEntries, context);
   }
@@ -881,7 +883,7 @@ export const deserializeAws_restJson1BatchUpdateDetectorCommand = async (
     $metadata: deserializeMetadata(output),
     batchUpdateDetectorErrorEntries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.batchUpdateDetectorErrorEntries !== undefined && data.batchUpdateDetectorErrorEntries !== null) {
     contents.batchUpdateDetectorErrorEntries = deserializeAws_restJson1BatchUpdateDetectorErrorEntries(
       data.batchUpdateDetectorErrorEntries,
@@ -963,7 +965,7 @@ export const deserializeAws_restJson1DescribeAlarmCommand = async (
     $metadata: deserializeMetadata(output),
     alarm: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.alarm !== undefined && data.alarm !== null) {
     contents.alarm = deserializeAws_restJson1Alarm(data.alarm, context);
   }
@@ -1050,7 +1052,7 @@ export const deserializeAws_restJson1DescribeDetectorCommand = async (
     $metadata: deserializeMetadata(output),
     detector: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.detector !== undefined && data.detector !== null) {
     contents.detector = deserializeAws_restJson1Detector(data.detector, context);
   }
@@ -1138,7 +1140,7 @@ export const deserializeAws_restJson1ListAlarmsCommand = async (
     alarmSummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.alarmSummaries !== undefined && data.alarmSummaries !== null) {
     contents.alarmSummaries = deserializeAws_restJson1AlarmSummaries(data.alarmSummaries, context);
   }
@@ -1229,7 +1231,7 @@ export const deserializeAws_restJson1ListDetectorsCommand = async (
     detectorSummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.detectorSummaries !== undefined && data.detectorSummaries !== null) {
     contents.detectorSummaries = deserializeAws_restJson1DetectorSummaries(data.detectorSummaries, context);
   }

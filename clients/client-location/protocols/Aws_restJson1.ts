@@ -172,6 +172,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -2383,7 +2385,7 @@ export const deserializeAws_restJson1BatchDeleteDevicePositionHistoryCommand = a
     $metadata: deserializeMetadata(output),
     Errors: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Errors !== undefined && data.Errors !== null) {
     contents.Errors = deserializeAws_restJson1BatchDeleteDevicePositionHistoryErrorList(data.Errors, context);
   }
@@ -2470,7 +2472,7 @@ export const deserializeAws_restJson1BatchDeleteGeofenceCommand = async (
     $metadata: deserializeMetadata(output),
     Errors: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Errors !== undefined && data.Errors !== null) {
     contents.Errors = deserializeAws_restJson1BatchDeleteGeofenceErrorList(data.Errors, context);
   }
@@ -2557,7 +2559,7 @@ export const deserializeAws_restJson1BatchEvaluateGeofencesCommand = async (
     $metadata: deserializeMetadata(output),
     Errors: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Errors !== undefined && data.Errors !== null) {
     contents.Errors = deserializeAws_restJson1BatchEvaluateGeofencesErrorList(data.Errors, context);
   }
@@ -2645,7 +2647,7 @@ export const deserializeAws_restJson1BatchGetDevicePositionCommand = async (
     DevicePositions: undefined,
     Errors: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DevicePositions !== undefined && data.DevicePositions !== null) {
     contents.DevicePositions = deserializeAws_restJson1DevicePositionList(data.DevicePositions, context);
   }
@@ -2736,7 +2738,7 @@ export const deserializeAws_restJson1BatchPutGeofenceCommand = async (
     Errors: undefined,
     Successes: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Errors !== undefined && data.Errors !== null) {
     contents.Errors = deserializeAws_restJson1BatchPutGeofenceErrorList(data.Errors, context);
   }
@@ -2826,7 +2828,7 @@ export const deserializeAws_restJson1BatchUpdateDevicePositionCommand = async (
     $metadata: deserializeMetadata(output),
     Errors: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Errors !== undefined && data.Errors !== null) {
     contents.Errors = deserializeAws_restJson1BatchUpdateDevicePositionErrorList(data.Errors, context);
   }
@@ -2914,7 +2916,7 @@ export const deserializeAws_restJson1CalculateRouteCommand = async (
     Legs: undefined,
     Summary: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Legs !== undefined && data.Legs !== null) {
     contents.Legs = deserializeAws_restJson1LegList(data.Legs, context);
   }
@@ -3006,7 +3008,7 @@ export const deserializeAws_restJson1CreateGeofenceCollectionCommand = async (
     CollectionName: undefined,
     CreateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CollectionArn !== undefined && data.CollectionArn !== null) {
     contents.CollectionArn = __expectString(data.CollectionArn);
   }
@@ -3101,7 +3103,7 @@ export const deserializeAws_restJson1CreateMapCommand = async (
     MapArn: undefined,
     MapName: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime !== undefined && data.CreateTime !== null) {
     contents.CreateTime = new Date(data.CreateTime);
   }
@@ -3196,7 +3198,7 @@ export const deserializeAws_restJson1CreatePlaceIndexCommand = async (
     IndexArn: undefined,
     IndexName: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime !== undefined && data.CreateTime !== null) {
     contents.CreateTime = new Date(data.CreateTime);
   }
@@ -3291,7 +3293,7 @@ export const deserializeAws_restJson1CreateRouteCalculatorCommand = async (
     CalculatorName: undefined,
     CreateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CalculatorArn !== undefined && data.CalculatorArn !== null) {
     contents.CalculatorArn = __expectString(data.CalculatorArn);
   }
@@ -3386,7 +3388,7 @@ export const deserializeAws_restJson1CreateTrackerCommand = async (
     TrackerArn: undefined,
     TrackerName: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime !== undefined && data.CreateTime !== null) {
     contents.CreateTime = new Date(data.CreateTime);
   }
@@ -3902,7 +3904,7 @@ export const deserializeAws_restJson1DescribeGeofenceCollectionCommand = async (
     Tags: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CollectionArn !== undefined && data.CollectionArn !== null) {
     contents.CollectionArn = __expectString(data.CollectionArn);
   }
@@ -4021,7 +4023,7 @@ export const deserializeAws_restJson1DescribeMapCommand = async (
     Tags: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Configuration !== undefined && data.Configuration !== null) {
     contents.Configuration = deserializeAws_restJson1MapConfiguration(data.Configuration, context);
   }
@@ -4140,7 +4142,7 @@ export const deserializeAws_restJson1DescribePlaceIndexCommand = async (
     Tags: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime !== undefined && data.CreateTime !== null) {
     contents.CreateTime = new Date(data.CreateTime);
   }
@@ -4261,7 +4263,7 @@ export const deserializeAws_restJson1DescribeRouteCalculatorCommand = async (
     Tags: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CalculatorArn !== undefined && data.CalculatorArn !== null) {
     contents.CalculatorArn = __expectString(data.CalculatorArn);
   }
@@ -4377,7 +4379,7 @@ export const deserializeAws_restJson1DescribeTrackerCommand = async (
     TrackerName: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime !== undefined && data.CreateTime !== null) {
     contents.CreateTime = new Date(data.CreateTime);
   }
@@ -4574,7 +4576,7 @@ export const deserializeAws_restJson1GetDevicePositionCommand = async (
     ReceivedTime: undefined,
     SampleTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DeviceId !== undefined && data.DeviceId !== null) {
     contents.DeviceId = __expectString(data.DeviceId);
   }
@@ -4671,7 +4673,7 @@ export const deserializeAws_restJson1GetDevicePositionHistoryCommand = async (
     DevicePositions: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DevicePositions !== undefined && data.DevicePositions !== null) {
     contents.DevicePositions = deserializeAws_restJson1DevicePositionList(data.DevicePositions, context);
   }
@@ -4765,7 +4767,7 @@ export const deserializeAws_restJson1GetGeofenceCommand = async (
     Status: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime !== undefined && data.CreateTime !== null) {
     contents.CreateTime = new Date(data.CreateTime);
   }
@@ -5221,7 +5223,7 @@ export const deserializeAws_restJson1ListDevicePositionsCommand = async (
     Entries: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Entries !== undefined && data.Entries !== null) {
     contents.Entries = deserializeAws_restJson1ListDevicePositionsResponseEntryList(data.Entries, context);
   }
@@ -5304,7 +5306,7 @@ export const deserializeAws_restJson1ListGeofenceCollectionsCommand = async (
     Entries: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Entries !== undefined && data.Entries !== null) {
     contents.Entries = deserializeAws_restJson1ListGeofenceCollectionsResponseEntryList(data.Entries, context);
   }
@@ -5387,7 +5389,7 @@ export const deserializeAws_restJson1ListGeofencesCommand = async (
     Entries: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Entries !== undefined && data.Entries !== null) {
     contents.Entries = deserializeAws_restJson1ListGeofenceResponseEntryList(data.Entries, context);
   }
@@ -5478,7 +5480,7 @@ export const deserializeAws_restJson1ListMapsCommand = async (
     Entries: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Entries !== undefined && data.Entries !== null) {
     contents.Entries = deserializeAws_restJson1ListMapsResponseEntryList(data.Entries, context);
   }
@@ -5561,7 +5563,7 @@ export const deserializeAws_restJson1ListPlaceIndexesCommand = async (
     Entries: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Entries !== undefined && data.Entries !== null) {
     contents.Entries = deserializeAws_restJson1ListPlaceIndexesResponseEntryList(data.Entries, context);
   }
@@ -5644,7 +5646,7 @@ export const deserializeAws_restJson1ListRouteCalculatorsCommand = async (
     Entries: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Entries !== undefined && data.Entries !== null) {
     contents.Entries = deserializeAws_restJson1ListRouteCalculatorsResponseEntryList(data.Entries, context);
   }
@@ -5726,7 +5728,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
@@ -5814,7 +5816,7 @@ export const deserializeAws_restJson1ListTrackerConsumersCommand = async (
     ConsumerArns: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ConsumerArns !== undefined && data.ConsumerArns !== null) {
     contents.ConsumerArns = deserializeAws_restJson1ArnList(data.ConsumerArns, context);
   }
@@ -5905,7 +5907,7 @@ export const deserializeAws_restJson1ListTrackersCommand = async (
     Entries: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Entries !== undefined && data.Entries !== null) {
     contents.Entries = deserializeAws_restJson1ListTrackersResponseEntryList(data.Entries, context);
   }
@@ -5989,7 +5991,7 @@ export const deserializeAws_restJson1PutGeofenceCommand = async (
     GeofenceId: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreateTime !== undefined && data.CreateTime !== null) {
     contents.CreateTime = new Date(data.CreateTime);
   }
@@ -6091,7 +6093,7 @@ export const deserializeAws_restJson1SearchPlaceIndexForPositionCommand = async 
     Results: undefined,
     Summary: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Results !== undefined && data.Results !== null) {
     contents.Results = deserializeAws_restJson1SearchForPositionResultList(data.Results, context);
   }
@@ -6182,7 +6184,7 @@ export const deserializeAws_restJson1SearchPlaceIndexForTextCommand = async (
     Results: undefined,
     Summary: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Results !== undefined && data.Results !== null) {
     contents.Results = deserializeAws_restJson1SearchForTextResultList(data.Results, context);
   }
@@ -6440,7 +6442,7 @@ export const deserializeAws_restJson1UpdateGeofenceCollectionCommand = async (
     CollectionName: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CollectionArn !== undefined && data.CollectionArn !== null) {
     contents.CollectionArn = __expectString(data.CollectionArn);
   }
@@ -6535,7 +6537,7 @@ export const deserializeAws_restJson1UpdateMapCommand = async (
     MapName: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MapArn !== undefined && data.MapArn !== null) {
     contents.MapArn = __expectString(data.MapArn);
   }
@@ -6630,7 +6632,7 @@ export const deserializeAws_restJson1UpdatePlaceIndexCommand = async (
     IndexName: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IndexArn !== undefined && data.IndexArn !== null) {
     contents.IndexArn = __expectString(data.IndexArn);
   }
@@ -6725,7 +6727,7 @@ export const deserializeAws_restJson1UpdateRouteCalculatorCommand = async (
     CalculatorName: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CalculatorArn !== undefined && data.CalculatorArn !== null) {
     contents.CalculatorArn = __expectString(data.CalculatorArn);
   }
@@ -6820,7 +6822,7 @@ export const deserializeAws_restJson1UpdateTrackerCommand = async (
     TrackerName: undefined,
     UpdateTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TrackerArn !== undefined && data.TrackerArn !== null) {
     contents.TrackerArn = __expectString(data.TrackerArn);
   }

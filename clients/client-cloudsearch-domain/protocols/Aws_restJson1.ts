@@ -18,6 +18,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -139,7 +141,7 @@ export const deserializeAws_restJson1SearchCommand = async (
     stats: undefined,
     status: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.facets !== undefined && data.facets !== null) {
     contents.facets = deserializeAws_restJson1Facets(data.facets, context);
   }
@@ -204,7 +206,7 @@ export const deserializeAws_restJson1SuggestCommand = async (
     status: undefined,
     suggest: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.status !== undefined && data.status !== null) {
     contents.status = deserializeAws_restJson1SuggestStatus(data.status, context);
   }
@@ -265,7 +267,7 @@ export const deserializeAws_restJson1UploadDocumentsCommand = async (
     status: undefined,
     warnings: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.adds !== undefined && data.adds !== null) {
     contents.adds = __expectLong(data.adds);
   }

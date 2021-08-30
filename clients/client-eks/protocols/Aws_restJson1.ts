@@ -132,6 +132,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1393,7 +1395,7 @@ export const deserializeAws_restJson1AssociateEncryptionConfigCommand = async (
     $metadata: deserializeMetadata(output),
     update: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.update !== undefined && data.update !== null) {
     contents.update = deserializeAws_restJson1Update(data.update, context);
   }
@@ -1489,7 +1491,7 @@ export const deserializeAws_restJson1AssociateIdentityProviderConfigCommand = as
     tags: undefined,
     update: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -1587,7 +1589,7 @@ export const deserializeAws_restJson1CreateAddonCommand = async (
     $metadata: deserializeMetadata(output),
     addon: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.addon !== undefined && data.addon !== null) {
     contents.addon = deserializeAws_restJson1Addon(data.addon, context);
   }
@@ -1682,7 +1684,7 @@ export const deserializeAws_restJson1CreateClusterCommand = async (
     $metadata: deserializeMetadata(output),
     cluster: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.cluster !== undefined && data.cluster !== null) {
     contents.cluster = deserializeAws_restJson1Cluster(data.cluster, context);
   }
@@ -1785,7 +1787,7 @@ export const deserializeAws_restJson1CreateFargateProfileCommand = async (
     $metadata: deserializeMetadata(output),
     fargateProfile: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.fargateProfile !== undefined && data.fargateProfile !== null) {
     contents.fargateProfile = deserializeAws_restJson1FargateProfile(data.fargateProfile, context);
   }
@@ -1880,7 +1882,7 @@ export const deserializeAws_restJson1CreateNodegroupCommand = async (
     $metadata: deserializeMetadata(output),
     nodegroup: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nodegroup !== undefined && data.nodegroup !== null) {
     contents.nodegroup = deserializeAws_restJson1Nodegroup(data.nodegroup, context);
   }
@@ -1983,7 +1985,7 @@ export const deserializeAws_restJson1DeleteAddonCommand = async (
     $metadata: deserializeMetadata(output),
     addon: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.addon !== undefined && data.addon !== null) {
     contents.addon = deserializeAws_restJson1Addon(data.addon, context);
   }
@@ -2070,7 +2072,7 @@ export const deserializeAws_restJson1DeleteClusterCommand = async (
     $metadata: deserializeMetadata(output),
     cluster: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.cluster !== undefined && data.cluster !== null) {
     contents.cluster = deserializeAws_restJson1Cluster(data.cluster, context);
   }
@@ -2157,7 +2159,7 @@ export const deserializeAws_restJson1DeleteFargateProfileCommand = async (
     $metadata: deserializeMetadata(output),
     fargateProfile: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.fargateProfile !== undefined && data.fargateProfile !== null) {
     contents.fargateProfile = deserializeAws_restJson1FargateProfile(data.fargateProfile, context);
   }
@@ -2236,7 +2238,7 @@ export const deserializeAws_restJson1DeleteNodegroupCommand = async (
     $metadata: deserializeMetadata(output),
     nodegroup: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nodegroup !== undefined && data.nodegroup !== null) {
     contents.nodegroup = deserializeAws_restJson1Nodegroup(data.nodegroup, context);
   }
@@ -2331,7 +2333,7 @@ export const deserializeAws_restJson1DescribeAddonCommand = async (
     $metadata: deserializeMetadata(output),
     addon: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.addon !== undefined && data.addon !== null) {
     contents.addon = deserializeAws_restJson1Addon(data.addon, context);
   }
@@ -2419,7 +2421,7 @@ export const deserializeAws_restJson1DescribeAddonVersionsCommand = async (
     addons: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.addons !== undefined && data.addons !== null) {
     contents.addons = deserializeAws_restJson1Addons(data.addons, context);
   }
@@ -2493,7 +2495,7 @@ export const deserializeAws_restJson1DescribeClusterCommand = async (
     $metadata: deserializeMetadata(output),
     cluster: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.cluster !== undefined && data.cluster !== null) {
     contents.cluster = deserializeAws_restJson1Cluster(data.cluster, context);
   }
@@ -2572,7 +2574,7 @@ export const deserializeAws_restJson1DescribeFargateProfileCommand = async (
     $metadata: deserializeMetadata(output),
     fargateProfile: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.fargateProfile !== undefined && data.fargateProfile !== null) {
     contents.fargateProfile = deserializeAws_restJson1FargateProfile(data.fargateProfile, context);
   }
@@ -2651,7 +2653,7 @@ export const deserializeAws_restJson1DescribeIdentityProviderConfigCommand = asy
     $metadata: deserializeMetadata(output),
     identityProviderConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.identityProviderConfig !== undefined && data.identityProviderConfig !== null) {
     contents.identityProviderConfig = deserializeAws_restJson1IdentityProviderConfigResponse(
       data.identityProviderConfig,
@@ -2741,7 +2743,7 @@ export const deserializeAws_restJson1DescribeNodegroupCommand = async (
     $metadata: deserializeMetadata(output),
     nodegroup: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nodegroup !== undefined && data.nodegroup !== null) {
     contents.nodegroup = deserializeAws_restJson1Nodegroup(data.nodegroup, context);
   }
@@ -2828,7 +2830,7 @@ export const deserializeAws_restJson1DescribeUpdateCommand = async (
     $metadata: deserializeMetadata(output),
     update: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.update !== undefined && data.update !== null) {
     contents.update = deserializeAws_restJson1Update(data.update, context);
   }
@@ -2907,7 +2909,7 @@ export const deserializeAws_restJson1DisassociateIdentityProviderConfigCommand =
     $metadata: deserializeMetadata(output),
     update: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.update !== undefined && data.update !== null) {
     contents.update = deserializeAws_restJson1Update(data.update, context);
   }
@@ -3003,7 +3005,7 @@ export const deserializeAws_restJson1ListAddonsCommand = async (
     addons: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.addons !== undefined && data.addons !== null) {
     contents.addons = deserializeAws_restJson1StringList(data.addons, context);
   }
@@ -3094,7 +3096,7 @@ export const deserializeAws_restJson1ListClustersCommand = async (
     clusters: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clusters !== undefined && data.clusters !== null) {
     contents.clusters = deserializeAws_restJson1StringList(data.clusters, context);
   }
@@ -3177,7 +3179,7 @@ export const deserializeAws_restJson1ListFargateProfilesCommand = async (
     fargateProfileNames: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.fargateProfileNames !== undefined && data.fargateProfileNames !== null) {
     contents.fargateProfileNames = deserializeAws_restJson1StringList(data.fargateProfileNames, context);
   }
@@ -3260,7 +3262,7 @@ export const deserializeAws_restJson1ListIdentityProviderConfigsCommand = async 
     identityProviderConfigs: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.identityProviderConfigs !== undefined && data.identityProviderConfigs !== null) {
     contents.identityProviderConfigs = deserializeAws_restJson1IdentityProviderConfigs(
       data.identityProviderConfigs,
@@ -3354,7 +3356,7 @@ export const deserializeAws_restJson1ListNodegroupsCommand = async (
     nextToken: undefined,
     nodegroups: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3444,7 +3446,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -3508,7 +3510,7 @@ export const deserializeAws_restJson1ListUpdatesCommand = async (
     nextToken: undefined,
     updateIds: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3708,7 +3710,7 @@ export const deserializeAws_restJson1UpdateAddonCommand = async (
     $metadata: deserializeMetadata(output),
     update: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.update !== undefined && data.update !== null) {
     contents.update = deserializeAws_restJson1Update(data.update, context);
   }
@@ -3803,7 +3805,7 @@ export const deserializeAws_restJson1UpdateClusterConfigCommand = async (
     $metadata: deserializeMetadata(output),
     update: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.update !== undefined && data.update !== null) {
     contents.update = deserializeAws_restJson1Update(data.update, context);
   }
@@ -3898,7 +3900,7 @@ export const deserializeAws_restJson1UpdateClusterVersionCommand = async (
     $metadata: deserializeMetadata(output),
     update: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.update !== undefined && data.update !== null) {
     contents.update = deserializeAws_restJson1Update(data.update, context);
   }
@@ -3993,7 +3995,7 @@ export const deserializeAws_restJson1UpdateNodegroupConfigCommand = async (
     $metadata: deserializeMetadata(output),
     update: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.update !== undefined && data.update !== null) {
     contents.update = deserializeAws_restJson1Update(data.update, context);
   }
@@ -4088,7 +4090,7 @@ export const deserializeAws_restJson1UpdateNodegroupVersionCommand = async (
     $metadata: deserializeMetadata(output),
     update: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.update !== undefined && data.update !== null) {
     contents.update = deserializeAws_restJson1Update(data.update, context);
   }

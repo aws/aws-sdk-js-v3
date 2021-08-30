@@ -17,6 +17,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -130,7 +132,7 @@ export const deserializeAws_restJson1CreateChangesetCommand = async (
     $metadata: deserializeMetadata(output),
     changeset: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.changeset !== undefined && data.changeset !== null) {
     contents.changeset = deserializeAws_restJson1ChangesetInfo(data.changeset, context);
   }
@@ -218,7 +220,7 @@ export const deserializeAws_restJson1GetProgrammaticAccessCredentialsCommand = a
     credentials: undefined,
     durationInMinutes: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.credentials !== undefined && data.credentials !== null) {
     contents.credentials = deserializeAws_restJson1Credentials(data.credentials, context);
   }
@@ -294,7 +296,7 @@ export const deserializeAws_restJson1GetWorkingLocationCommand = async (
     s3Path: undefined,
     s3Uri: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.s3Bucket !== undefined && data.s3Bucket !== null) {
     contents.s3Bucket = __expectString(data.s3Bucket);
   }

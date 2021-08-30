@@ -100,6 +100,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -1404,7 +1406,7 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
     Id: undefined,
     Name: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
@@ -1479,7 +1481,7 @@ export const deserializeAws_restJson1CreateConfigurationProfileCommand = async (
     RetrievalRoleArn: undefined,
     Validators: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -1575,7 +1577,7 @@ export const deserializeAws_restJson1CreateDeploymentStrategyCommand = async (
     Name: undefined,
     ReplicateTo: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
     contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
   }
@@ -1664,7 +1666,7 @@ export const deserializeAws_restJson1CreateEnvironmentCommand = async (
     Name: undefined,
     State: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -2216,7 +2218,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     Id: undefined,
     Name: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
@@ -2376,7 +2378,7 @@ export const deserializeAws_restJson1GetConfigurationProfileCommand = async (
     RetrievalRoleArn: undefined,
     Validators: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -2482,7 +2484,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     StartedAt: undefined,
     State: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -2611,7 +2613,7 @@ export const deserializeAws_restJson1GetDeploymentStrategyCommand = async (
     Name: undefined,
     ReplicateTo: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
     contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
   }
@@ -2708,7 +2710,7 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
     Name: undefined,
     State: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -2884,7 +2886,7 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1ApplicationList(data.Items, context);
   }
@@ -2951,7 +2953,7 @@ export const deserializeAws_restJson1ListConfigurationProfilesCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1ConfigurationProfileSummaryList(data.Items, context);
   }
@@ -3026,7 +3028,7 @@ export const deserializeAws_restJson1ListDeploymentsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1DeploymentList(data.Items, context);
   }
@@ -3101,7 +3103,7 @@ export const deserializeAws_restJson1ListDeploymentStrategiesCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1DeploymentStrategyList(data.Items, context);
   }
@@ -3168,7 +3170,7 @@ export const deserializeAws_restJson1ListEnvironmentsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1EnvironmentList(data.Items, context);
   }
@@ -3243,7 +3245,7 @@ export const deserializeAws_restJson1ListHostedConfigurationVersionsCommand = as
     Items: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1HostedConfigurationVersionSummaryList(data.Items, context);
   }
@@ -3317,7 +3319,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
@@ -3405,7 +3407,7 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
     StartedAt: undefined,
     State: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -3552,7 +3554,7 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
     StartedAt: undefined,
     State: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -3810,7 +3812,7 @@ export const deserializeAws_restJson1UpdateApplicationCommand = async (
     Id: undefined,
     Name: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
@@ -3893,7 +3895,7 @@ export const deserializeAws_restJson1UpdateConfigurationProfileCommand = async (
     RetrievalRoleArn: undefined,
     Validators: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
@@ -3989,7 +3991,7 @@ export const deserializeAws_restJson1UpdateDeploymentStrategyCommand = async (
     Name: undefined,
     ReplicateTo: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DeploymentDurationInMinutes !== undefined && data.DeploymentDurationInMinutes !== null) {
     contents.DeploymentDurationInMinutes = __expectInt32(data.DeploymentDurationInMinutes);
   }
@@ -4086,7 +4088,7 @@ export const deserializeAws_restJson1UpdateEnvironmentCommand = async (
     Name: undefined,
     State: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApplicationId !== undefined && data.ApplicationId !== null) {
     contents.ApplicationId = __expectString(data.ApplicationId);
   }

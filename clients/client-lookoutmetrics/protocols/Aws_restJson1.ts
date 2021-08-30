@@ -106,6 +106,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -1041,7 +1043,7 @@ export const deserializeAws_restJson1CreateAlertCommand = async (
     $metadata: deserializeMetadata(output),
     AlertArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AlertArn !== undefined && data.AlertArn !== null) {
     contents.AlertArn = __expectString(data.AlertArn);
   }
@@ -1144,7 +1146,7 @@ export const deserializeAws_restJson1CreateAnomalyDetectorCommand = async (
     $metadata: deserializeMetadata(output),
     AnomalyDetectorArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnomalyDetectorArn !== undefined && data.AnomalyDetectorArn !== null) {
     contents.AnomalyDetectorArn = __expectString(data.AnomalyDetectorArn);
   }
@@ -1239,7 +1241,7 @@ export const deserializeAws_restJson1CreateMetricSetCommand = async (
     $metadata: deserializeMetadata(output),
     MetricSetArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MetricSetArn !== undefined && data.MetricSetArn !== null) {
     contents.MetricSetArn = __expectString(data.MetricSetArn);
   }
@@ -1516,7 +1518,7 @@ export const deserializeAws_restJson1DescribeAlertCommand = async (
     $metadata: deserializeMetadata(output),
     Alert: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Alert !== undefined && data.Alert !== null) {
     contents.Alert = deserializeAws_restJson1Alert(data.Alert, context);
   }
@@ -1604,7 +1606,7 @@ export const deserializeAws_restJson1DescribeAnomalyDetectionExecutionsCommand =
     ExecutionList: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ExecutionList !== undefined && data.ExecutionList !== null) {
     contents.ExecutionList = deserializeAws_restJson1ExecutionList(data.ExecutionList, context);
   }
@@ -1702,7 +1704,7 @@ export const deserializeAws_restJson1DescribeAnomalyDetectorCommand = async (
     LastModificationTime: undefined,
     Status: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnomalyDetectorArn !== undefined && data.AnomalyDetectorArn !== null) {
     contents.AnomalyDetectorArn = __expectString(data.AnomalyDetectorArn);
   }
@@ -1828,7 +1830,7 @@ export const deserializeAws_restJson1DescribeMetricSetCommand = async (
     TimestampColumn: undefined,
     Timezone: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnomalyDetectorArn !== undefined && data.AnomalyDetectorArn !== null) {
     contents.AnomalyDetectorArn = __expectString(data.AnomalyDetectorArn);
   }
@@ -1951,7 +1953,7 @@ export const deserializeAws_restJson1GetAnomalyGroupCommand = async (
     $metadata: deserializeMetadata(output),
     AnomalyGroup: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnomalyGroup !== undefined && data.AnomalyGroup !== null) {
     contents.AnomalyGroup = deserializeAws_restJson1AnomalyGroup(data.AnomalyGroup, context);
   }
@@ -2039,7 +2041,7 @@ export const deserializeAws_restJson1GetFeedbackCommand = async (
     AnomalyGroupTimeSeriesFeedback: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnomalyGroupTimeSeriesFeedback !== undefined && data.AnomalyGroupTimeSeriesFeedback !== null) {
     contents.AnomalyGroupTimeSeriesFeedback = deserializeAws_restJson1TimeSeriesFeedbackList(
       data.AnomalyGroupTimeSeriesFeedback,
@@ -2133,7 +2135,7 @@ export const deserializeAws_restJson1GetSampleDataCommand = async (
     HeaderValues: undefined,
     SampleRows: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HeaderValues !== undefined && data.HeaderValues !== null) {
     contents.HeaderValues = deserializeAws_restJson1HeaderValueList(data.HeaderValues, context);
   }
@@ -2224,7 +2226,7 @@ export const deserializeAws_restJson1ListAlertsCommand = async (
     AlertSummaryList: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AlertSummaryList !== undefined && data.AlertSummaryList !== null) {
     contents.AlertSummaryList = deserializeAws_restJson1AlertSummaryList(data.AlertSummaryList, context);
   }
@@ -2315,7 +2317,7 @@ export const deserializeAws_restJson1ListAnomalyDetectorsCommand = async (
     AnomalyDetectorSummaryList: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnomalyDetectorSummaryList !== undefined && data.AnomalyDetectorSummaryList !== null) {
     contents.AnomalyDetectorSummaryList = deserializeAws_restJson1AnomalyDetectorSummaryList(
       data.AnomalyDetectorSummaryList,
@@ -2410,7 +2412,7 @@ export const deserializeAws_restJson1ListAnomalyGroupSummariesCommand = async (
     AnomalyGroupSummaryList: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnomalyGroupStatistics !== undefined && data.AnomalyGroupStatistics !== null) {
     contents.AnomalyGroupStatistics = deserializeAws_restJson1AnomalyGroupStatistics(
       data.AnomalyGroupStatistics,
@@ -2513,7 +2515,7 @@ export const deserializeAws_restJson1ListAnomalyGroupTimeSeriesCommand = async (
     TimeSeriesList: undefined,
     TimestampList: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnomalyGroupId !== undefined && data.AnomalyGroupId !== null) {
     contents.AnomalyGroupId = __expectString(data.AnomalyGroupId);
   }
@@ -2613,7 +2615,7 @@ export const deserializeAws_restJson1ListMetricSetsCommand = async (
     MetricSetSummaryList: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MetricSetSummaryList !== undefined && data.MetricSetSummaryList !== null) {
     contents.MetricSetSummaryList = deserializeAws_restJson1MetricSetSummaryList(data.MetricSetSummaryList, context);
   }
@@ -2703,7 +2705,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
@@ -2991,7 +2993,7 @@ export const deserializeAws_restJson1UpdateAnomalyDetectorCommand = async (
     $metadata: deserializeMetadata(output),
     AnomalyDetectorArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnomalyDetectorArn !== undefined && data.AnomalyDetectorArn !== null) {
     contents.AnomalyDetectorArn = __expectString(data.AnomalyDetectorArn);
   }
@@ -3078,7 +3080,7 @@ export const deserializeAws_restJson1UpdateMetricSetCommand = async (
     $metadata: deserializeMetadata(output),
     MetricSetArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MetricSetArn !== undefined && data.MetricSetArn !== null) {
     contents.MetricSetArn = __expectString(data.MetricSetArn);
   }

@@ -187,6 +187,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1688,7 +1690,7 @@ export const deserializeAws_restJson1CancelImageCreationCommand = async (
     imageBuildVersionArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -1807,7 +1809,7 @@ export const deserializeAws_restJson1CreateComponentCommand = async (
     componentBuildVersionArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -1950,7 +1952,7 @@ export const deserializeAws_restJson1CreateContainerRecipeCommand = async (
     containerRecipeArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -2093,7 +2095,7 @@ export const deserializeAws_restJson1CreateDistributionConfigurationCommand = as
     distributionConfigurationArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -2236,7 +2238,7 @@ export const deserializeAws_restJson1CreateImageCommand = async (
     imageBuildVersionArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -2363,7 +2365,7 @@ export const deserializeAws_restJson1CreateImagePipelineCommand = async (
     imagePipelineArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -2498,7 +2500,7 @@ export const deserializeAws_restJson1CreateImageRecipeCommand = async (
     imageRecipeArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -2641,7 +2643,7 @@ export const deserializeAws_restJson1CreateInfrastructureConfigurationCommand = 
     infrastructureConfigurationArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -2775,7 +2777,7 @@ export const deserializeAws_restJson1DeleteComponentCommand = async (
     componentBuildVersionArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.componentBuildVersionArn !== undefined && data.componentBuildVersionArn !== null) {
     contents.componentBuildVersionArn = __expectString(data.componentBuildVersionArn);
   }
@@ -2882,7 +2884,7 @@ export const deserializeAws_restJson1DeleteContainerRecipeCommand = async (
     containerRecipeArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.containerRecipeArn !== undefined && data.containerRecipeArn !== null) {
     contents.containerRecipeArn = __expectString(data.containerRecipeArn);
   }
@@ -2989,7 +2991,7 @@ export const deserializeAws_restJson1DeleteDistributionConfigurationCommand = as
     distributionConfigurationArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.distributionConfigurationArn !== undefined && data.distributionConfigurationArn !== null) {
     contents.distributionConfigurationArn = __expectString(data.distributionConfigurationArn);
   }
@@ -3096,7 +3098,7 @@ export const deserializeAws_restJson1DeleteImageCommand = async (
     imageBuildVersionArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imageBuildVersionArn !== undefined && data.imageBuildVersionArn !== null) {
     contents.imageBuildVersionArn = __expectString(data.imageBuildVersionArn);
   }
@@ -3203,7 +3205,7 @@ export const deserializeAws_restJson1DeleteImagePipelineCommand = async (
     imagePipelineArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imagePipelineArn !== undefined && data.imagePipelineArn !== null) {
     contents.imagePipelineArn = __expectString(data.imagePipelineArn);
   }
@@ -3310,7 +3312,7 @@ export const deserializeAws_restJson1DeleteImageRecipeCommand = async (
     imageRecipeArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imageRecipeArn !== undefined && data.imageRecipeArn !== null) {
     contents.imageRecipeArn = __expectString(data.imageRecipeArn);
   }
@@ -3417,7 +3419,7 @@ export const deserializeAws_restJson1DeleteInfrastructureConfigurationCommand = 
     infrastructureConfigurationArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.infrastructureConfigurationArn !== undefined && data.infrastructureConfigurationArn !== null) {
     contents.infrastructureConfigurationArn = __expectString(data.infrastructureConfigurationArn);
   }
@@ -3524,7 +3526,7 @@ export const deserializeAws_restJson1GetComponentCommand = async (
     component: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.component !== undefined && data.component !== null) {
     contents.component = deserializeAws_restJson1Component(data.component, context);
   }
@@ -3623,7 +3625,7 @@ export const deserializeAws_restJson1GetComponentPolicyCommand = async (
     policy: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = __expectString(data.policy);
   }
@@ -3722,7 +3724,7 @@ export const deserializeAws_restJson1GetContainerRecipeCommand = async (
     containerRecipe: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.containerRecipe !== undefined && data.containerRecipe !== null) {
     contents.containerRecipe = deserializeAws_restJson1ContainerRecipe(data.containerRecipe, context);
   }
@@ -3821,7 +3823,7 @@ export const deserializeAws_restJson1GetContainerRecipePolicyCommand = async (
     policy: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = __expectString(data.policy);
   }
@@ -3920,7 +3922,7 @@ export const deserializeAws_restJson1GetDistributionConfigurationCommand = async
     distributionConfiguration: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.distributionConfiguration !== undefined && data.distributionConfiguration !== null) {
     contents.distributionConfiguration = deserializeAws_restJson1DistributionConfiguration(
       data.distributionConfiguration,
@@ -4022,7 +4024,7 @@ export const deserializeAws_restJson1GetImageCommand = async (
     image: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.image !== undefined && data.image !== null) {
     contents.image = deserializeAws_restJson1Image(data.image, context);
   }
@@ -4121,7 +4123,7 @@ export const deserializeAws_restJson1GetImagePipelineCommand = async (
     imagePipeline: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imagePipeline !== undefined && data.imagePipeline !== null) {
     contents.imagePipeline = deserializeAws_restJson1ImagePipeline(data.imagePipeline, context);
   }
@@ -4220,7 +4222,7 @@ export const deserializeAws_restJson1GetImagePolicyCommand = async (
     policy: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = __expectString(data.policy);
   }
@@ -4319,7 +4321,7 @@ export const deserializeAws_restJson1GetImageRecipeCommand = async (
     imageRecipe: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imageRecipe !== undefined && data.imageRecipe !== null) {
     contents.imageRecipe = deserializeAws_restJson1ImageRecipe(data.imageRecipe, context);
   }
@@ -4418,7 +4420,7 @@ export const deserializeAws_restJson1GetImageRecipePolicyCommand = async (
     policy: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = __expectString(data.policy);
   }
@@ -4517,7 +4519,7 @@ export const deserializeAws_restJson1GetInfrastructureConfigurationCommand = asy
     infrastructureConfiguration: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.infrastructureConfiguration !== undefined && data.infrastructureConfiguration !== null) {
     contents.infrastructureConfiguration = deserializeAws_restJson1InfrastructureConfiguration(
       data.infrastructureConfiguration,
@@ -4620,7 +4622,7 @@ export const deserializeAws_restJson1ImportComponentCommand = async (
     componentBuildVersionArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -4755,7 +4757,7 @@ export const deserializeAws_restJson1ListComponentBuildVersionsCommand = async (
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.componentSummaryList !== undefined && data.componentSummaryList !== null) {
     contents.componentSummaryList = deserializeAws_restJson1ComponentSummaryList(data.componentSummaryList, context);
   }
@@ -4866,7 +4868,7 @@ export const deserializeAws_restJson1ListComponentsCommand = async (
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.componentVersionList !== undefined && data.componentVersionList !== null) {
     contents.componentVersionList = deserializeAws_restJson1ComponentVersionList(data.componentVersionList, context);
   }
@@ -4977,7 +4979,7 @@ export const deserializeAws_restJson1ListContainerRecipesCommand = async (
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.containerRecipeSummaryList !== undefined && data.containerRecipeSummaryList !== null) {
     contents.containerRecipeSummaryList = deserializeAws_restJson1ContainerRecipeSummaryList(
       data.containerRecipeSummaryList,
@@ -5091,7 +5093,7 @@ export const deserializeAws_restJson1ListDistributionConfigurationsCommand = asy
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.distributionConfigurationSummaryList !== undefined && data.distributionConfigurationSummaryList !== null) {
     contents.distributionConfigurationSummaryList = deserializeAws_restJson1DistributionConfigurationSummaryList(
       data.distributionConfigurationSummaryList,
@@ -5205,7 +5207,7 @@ export const deserializeAws_restJson1ListImageBuildVersionsCommand = async (
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imageSummaryList !== undefined && data.imageSummaryList !== null) {
     contents.imageSummaryList = deserializeAws_restJson1ImageSummaryList(data.imageSummaryList, context);
   }
@@ -5316,7 +5318,7 @@ export const deserializeAws_restJson1ListImagePackagesCommand = async (
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imagePackageList !== undefined && data.imagePackageList !== null) {
     contents.imagePackageList = deserializeAws_restJson1ImagePackageList(data.imagePackageList, context);
   }
@@ -5435,7 +5437,7 @@ export const deserializeAws_restJson1ListImagePipelineImagesCommand = async (
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imageSummaryList !== undefined && data.imageSummaryList !== null) {
     contents.imageSummaryList = deserializeAws_restJson1ImageSummaryList(data.imageSummaryList, context);
   }
@@ -5554,7 +5556,7 @@ export const deserializeAws_restJson1ListImagePipelinesCommand = async (
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imagePipelineList !== undefined && data.imagePipelineList !== null) {
     contents.imagePipelineList = deserializeAws_restJson1ImagePipelineList(data.imagePipelineList, context);
   }
@@ -5665,7 +5667,7 @@ export const deserializeAws_restJson1ListImageRecipesCommand = async (
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imageRecipeSummaryList !== undefined && data.imageRecipeSummaryList !== null) {
     contents.imageRecipeSummaryList = deserializeAws_restJson1ImageRecipeSummaryList(
       data.imageRecipeSummaryList,
@@ -5779,7 +5781,7 @@ export const deserializeAws_restJson1ListImagesCommand = async (
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imageVersionList !== undefined && data.imageVersionList !== null) {
     contents.imageVersionList = deserializeAws_restJson1ImageVersionList(data.imageVersionList, context);
   }
@@ -5890,7 +5892,7 @@ export const deserializeAws_restJson1ListInfrastructureConfigurationsCommand = a
     nextToken: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (
     data.infrastructureConfigurationSummaryList !== undefined &&
     data.infrastructureConfigurationSummaryList !== null
@@ -6005,7 +6007,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -6077,7 +6079,7 @@ export const deserializeAws_restJson1PutComponentPolicyCommand = async (
     componentArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.componentArn !== undefined && data.componentArn !== null) {
     contents.componentArn = __expectString(data.componentArn);
   }
@@ -6192,7 +6194,7 @@ export const deserializeAws_restJson1PutContainerRecipePolicyCommand = async (
     containerRecipeArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.containerRecipeArn !== undefined && data.containerRecipeArn !== null) {
     contents.containerRecipeArn = __expectString(data.containerRecipeArn);
   }
@@ -6307,7 +6309,7 @@ export const deserializeAws_restJson1PutImagePolicyCommand = async (
     imageArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imageArn !== undefined && data.imageArn !== null) {
     contents.imageArn = __expectString(data.imageArn);
   }
@@ -6422,7 +6424,7 @@ export const deserializeAws_restJson1PutImageRecipePolicyCommand = async (
     imageRecipeArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.imageRecipeArn !== undefined && data.imageRecipeArn !== null) {
     contents.imageRecipeArn = __expectString(data.imageRecipeArn);
   }
@@ -6538,7 +6540,7 @@ export const deserializeAws_restJson1StartImagePipelineExecutionCommand = async 
     imageBuildVersionArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -6799,7 +6801,7 @@ export const deserializeAws_restJson1UpdateDistributionConfigurationCommand = as
     distributionConfigurationArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -6926,7 +6928,7 @@ export const deserializeAws_restJson1UpdateImagePipelineCommand = async (
     imagePipelineArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }
@@ -7045,7 +7047,7 @@ export const deserializeAws_restJson1UpdateInfrastructureConfigurationCommand = 
     infrastructureConfigurationArn: undefined,
     requestId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.clientToken !== undefined && data.clientToken !== null) {
     contents.clientToken = __expectString(data.clientToken);
   }

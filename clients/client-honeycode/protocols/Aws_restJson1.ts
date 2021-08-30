@@ -72,6 +72,8 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -657,7 +659,7 @@ export const deserializeAws_restJson1BatchCreateTableRowsCommand = async (
     failedBatchItems: undefined,
     workbookCursor: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdRows !== undefined && data.createdRows !== null) {
     contents.createdRows = deserializeAws_restJson1CreatedRowsMap(data.createdRows, context);
   }
@@ -775,7 +777,7 @@ export const deserializeAws_restJson1BatchDeleteTableRowsCommand = async (
     failedBatchItems: undefined,
     workbookCursor: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failedBatchItems !== undefined && data.failedBatchItems !== null) {
     contents.failedBatchItems = deserializeAws_restJson1FailedBatchItems(data.failedBatchItems, context);
   }
@@ -882,7 +884,7 @@ export const deserializeAws_restJson1BatchUpdateTableRowsCommand = async (
     failedBatchItems: undefined,
     workbookCursor: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failedBatchItems !== undefined && data.failedBatchItems !== null) {
     contents.failedBatchItems = deserializeAws_restJson1FailedBatchItems(data.failedBatchItems, context);
   }
@@ -990,7 +992,7 @@ export const deserializeAws_restJson1BatchUpsertTableRowsCommand = async (
     rows: undefined,
     workbookCursor: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failedBatchItems !== undefined && data.failedBatchItems !== null) {
     contents.failedBatchItems = deserializeAws_restJson1FailedBatchItems(data.failedBatchItems, context);
   }
@@ -1109,7 +1111,7 @@ export const deserializeAws_restJson1DescribeTableDataImportJobCommand = async (
     jobStatus: undefined,
     message: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobMetadata !== undefined && data.jobMetadata !== null) {
     contents.jobMetadata = deserializeAws_restJson1TableDataImportJobMetadata(data.jobMetadata, context);
   }
@@ -1212,7 +1214,7 @@ export const deserializeAws_restJson1GetScreenDataCommand = async (
     results: undefined,
     workbookCursor: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1321,7 +1323,7 @@ export const deserializeAws_restJson1InvokeScreenAutomationCommand = async (
     $metadata: deserializeMetadata(output),
     workbookCursor: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
     contents.workbookCursor = __expectLong(data.workbookCursor);
   }
@@ -1442,7 +1444,7 @@ export const deserializeAws_restJson1ListTableColumnsCommand = async (
     tableColumns: undefined,
     workbookCursor: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1555,7 +1557,7 @@ export const deserializeAws_restJson1ListTableRowsCommand = async (
     rows: undefined,
     workbookCursor: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.columnIds !== undefined && data.columnIds !== null) {
     contents.columnIds = deserializeAws_restJson1ResourceIds(data.columnIds, context);
   }
@@ -1672,7 +1674,7 @@ export const deserializeAws_restJson1ListTablesCommand = async (
     tables: undefined,
     workbookCursor: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1784,7 +1786,7 @@ export const deserializeAws_restJson1QueryTableRowsCommand = async (
     rows: undefined,
     workbookCursor: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.columnIds !== undefined && data.columnIds !== null) {
     contents.columnIds = deserializeAws_restJson1ResourceIds(data.columnIds, context);
   }
@@ -1897,7 +1899,7 @@ export const deserializeAws_restJson1StartTableDataImportJobCommand = async (
     jobId: undefined,
     jobStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobId !== undefined && data.jobId !== null) {
     contents.jobId = __expectString(data.jobId);
   }

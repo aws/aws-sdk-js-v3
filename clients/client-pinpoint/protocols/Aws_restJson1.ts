@@ -414,6 +414,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -4528,7 +4529,7 @@ export const deserializeAws_restJson1CreateAppCommand = async (
     $metadata: deserializeMetadata(output),
     ApplicationResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationResponse = deserializeAws_restJson1ApplicationResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -4629,7 +4630,7 @@ export const deserializeAws_restJson1CreateCampaignCommand = async (
     $metadata: deserializeMetadata(output),
     CampaignResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = deserializeAws_restJson1CampaignResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -4730,7 +4731,7 @@ export const deserializeAws_restJson1CreateEmailTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     CreateTemplateMessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = deserializeAws_restJson1CreateTemplateMessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -4815,7 +4816,7 @@ export const deserializeAws_restJson1CreateExportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ExportJobResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ExportJobResponse = deserializeAws_restJson1ExportJobResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -4916,7 +4917,7 @@ export const deserializeAws_restJson1CreateImportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ImportJobResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ImportJobResponse = deserializeAws_restJson1ImportJobResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -5017,7 +5018,7 @@ export const deserializeAws_restJson1CreateJourneyCommand = async (
     $metadata: deserializeMetadata(output),
     JourneyResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = deserializeAws_restJson1JourneyResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -5118,7 +5119,7 @@ export const deserializeAws_restJson1CreatePushTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     CreateTemplateMessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = deserializeAws_restJson1CreateTemplateMessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -5203,7 +5204,7 @@ export const deserializeAws_restJson1CreateRecommenderConfigurationCommand = asy
     $metadata: deserializeMetadata(output),
     RecommenderConfigurationResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -5304,7 +5305,7 @@ export const deserializeAws_restJson1CreateSegmentCommand = async (
     $metadata: deserializeMetadata(output),
     SegmentResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = deserializeAws_restJson1SegmentResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -5405,7 +5406,7 @@ export const deserializeAws_restJson1CreateSmsTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     CreateTemplateMessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = deserializeAws_restJson1CreateTemplateMessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -5490,7 +5491,7 @@ export const deserializeAws_restJson1CreateVoiceTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     CreateTemplateMessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = deserializeAws_restJson1CreateTemplateMessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -5575,7 +5576,7 @@ export const deserializeAws_restJson1DeleteAdmChannelCommand = async (
     $metadata: deserializeMetadata(output),
     ADMChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ADMChannelResponse = deserializeAws_restJson1ADMChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -5676,7 +5677,7 @@ export const deserializeAws_restJson1DeleteApnsChannelCommand = async (
     $metadata: deserializeMetadata(output),
     APNSChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSChannelResponse = deserializeAws_restJson1APNSChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -5777,7 +5778,7 @@ export const deserializeAws_restJson1DeleteApnsSandboxChannelCommand = async (
     $metadata: deserializeMetadata(output),
     APNSSandboxChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSSandboxChannelResponse = deserializeAws_restJson1APNSSandboxChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -5878,7 +5879,7 @@ export const deserializeAws_restJson1DeleteApnsVoipChannelCommand = async (
     $metadata: deserializeMetadata(output),
     APNSVoipChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipChannelResponse = deserializeAws_restJson1APNSVoipChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -5979,7 +5980,7 @@ export const deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommand = async
     $metadata: deserializeMetadata(output),
     APNSVoipSandboxChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipSandboxChannelResponse = deserializeAws_restJson1APNSVoipSandboxChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -6080,7 +6081,7 @@ export const deserializeAws_restJson1DeleteAppCommand = async (
     $metadata: deserializeMetadata(output),
     ApplicationResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationResponse = deserializeAws_restJson1ApplicationResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -6181,7 +6182,7 @@ export const deserializeAws_restJson1DeleteBaiduChannelCommand = async (
     $metadata: deserializeMetadata(output),
     BaiduChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.BaiduChannelResponse = deserializeAws_restJson1BaiduChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -6282,7 +6283,7 @@ export const deserializeAws_restJson1DeleteCampaignCommand = async (
     $metadata: deserializeMetadata(output),
     CampaignResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = deserializeAws_restJson1CampaignResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -6383,7 +6384,7 @@ export const deserializeAws_restJson1DeleteEmailChannelCommand = async (
     $metadata: deserializeMetadata(output),
     EmailChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EmailChannelResponse = deserializeAws_restJson1EmailChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -6484,7 +6485,7 @@ export const deserializeAws_restJson1DeleteEmailTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -6585,7 +6586,7 @@ export const deserializeAws_restJson1DeleteEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     EndpointResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EndpointResponse = deserializeAws_restJson1EndpointResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -6686,7 +6687,7 @@ export const deserializeAws_restJson1DeleteEventStreamCommand = async (
     $metadata: deserializeMetadata(output),
     EventStream: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EventStream = deserializeAws_restJson1EventStream(data, context);
   return Promise.resolve(contents);
 };
@@ -6787,7 +6788,7 @@ export const deserializeAws_restJson1DeleteGcmChannelCommand = async (
     $metadata: deserializeMetadata(output),
     GCMChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.GCMChannelResponse = deserializeAws_restJson1GCMChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -6888,7 +6889,7 @@ export const deserializeAws_restJson1DeleteJourneyCommand = async (
     $metadata: deserializeMetadata(output),
     JourneyResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = deserializeAws_restJson1JourneyResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -6989,7 +6990,7 @@ export const deserializeAws_restJson1DeletePushTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -7090,7 +7091,7 @@ export const deserializeAws_restJson1DeleteRecommenderConfigurationCommand = asy
     $metadata: deserializeMetadata(output),
     RecommenderConfigurationResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -7191,7 +7192,7 @@ export const deserializeAws_restJson1DeleteSegmentCommand = async (
     $metadata: deserializeMetadata(output),
     SegmentResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = deserializeAws_restJson1SegmentResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -7292,7 +7293,7 @@ export const deserializeAws_restJson1DeleteSmsChannelCommand = async (
     $metadata: deserializeMetadata(output),
     SMSChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SMSChannelResponse = deserializeAws_restJson1SMSChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -7393,7 +7394,7 @@ export const deserializeAws_restJson1DeleteSmsTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -7494,7 +7495,7 @@ export const deserializeAws_restJson1DeleteUserEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
     EndpointsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EndpointsResponse = deserializeAws_restJson1EndpointsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -7595,7 +7596,7 @@ export const deserializeAws_restJson1DeleteVoiceChannelCommand = async (
     $metadata: deserializeMetadata(output),
     VoiceChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.VoiceChannelResponse = deserializeAws_restJson1VoiceChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -7696,7 +7697,7 @@ export const deserializeAws_restJson1DeleteVoiceTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -7797,7 +7798,7 @@ export const deserializeAws_restJson1GetAdmChannelCommand = async (
     $metadata: deserializeMetadata(output),
     ADMChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ADMChannelResponse = deserializeAws_restJson1ADMChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -7898,7 +7899,7 @@ export const deserializeAws_restJson1GetApnsChannelCommand = async (
     $metadata: deserializeMetadata(output),
     APNSChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSChannelResponse = deserializeAws_restJson1APNSChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -7999,7 +8000,7 @@ export const deserializeAws_restJson1GetApnsSandboxChannelCommand = async (
     $metadata: deserializeMetadata(output),
     APNSSandboxChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSSandboxChannelResponse = deserializeAws_restJson1APNSSandboxChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -8100,7 +8101,7 @@ export const deserializeAws_restJson1GetApnsVoipChannelCommand = async (
     $metadata: deserializeMetadata(output),
     APNSVoipChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipChannelResponse = deserializeAws_restJson1APNSVoipChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -8201,7 +8202,7 @@ export const deserializeAws_restJson1GetApnsVoipSandboxChannelCommand = async (
     $metadata: deserializeMetadata(output),
     APNSVoipSandboxChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipSandboxChannelResponse = deserializeAws_restJson1APNSVoipSandboxChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -8302,7 +8303,7 @@ export const deserializeAws_restJson1GetAppCommand = async (
     $metadata: deserializeMetadata(output),
     ApplicationResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationResponse = deserializeAws_restJson1ApplicationResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -8403,7 +8404,7 @@ export const deserializeAws_restJson1GetApplicationDateRangeKpiCommand = async (
     $metadata: deserializeMetadata(output),
     ApplicationDateRangeKpiResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationDateRangeKpiResponse = deserializeAws_restJson1ApplicationDateRangeKpiResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -8504,7 +8505,7 @@ export const deserializeAws_restJson1GetApplicationSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     ApplicationSettingsResource: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationSettingsResource = deserializeAws_restJson1ApplicationSettingsResource(data, context);
   return Promise.resolve(contents);
 };
@@ -8605,7 +8606,7 @@ export const deserializeAws_restJson1GetAppsCommand = async (
     $metadata: deserializeMetadata(output),
     ApplicationsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationsResponse = deserializeAws_restJson1ApplicationsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -8706,7 +8707,7 @@ export const deserializeAws_restJson1GetBaiduChannelCommand = async (
     $metadata: deserializeMetadata(output),
     BaiduChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.BaiduChannelResponse = deserializeAws_restJson1BaiduChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -8807,7 +8808,7 @@ export const deserializeAws_restJson1GetCampaignCommand = async (
     $metadata: deserializeMetadata(output),
     CampaignResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = deserializeAws_restJson1CampaignResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -8908,7 +8909,7 @@ export const deserializeAws_restJson1GetCampaignActivitiesCommand = async (
     $metadata: deserializeMetadata(output),
     ActivitiesResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ActivitiesResponse = deserializeAws_restJson1ActivitiesResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -9009,7 +9010,7 @@ export const deserializeAws_restJson1GetCampaignDateRangeKpiCommand = async (
     $metadata: deserializeMetadata(output),
     CampaignDateRangeKpiResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignDateRangeKpiResponse = deserializeAws_restJson1CampaignDateRangeKpiResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -9110,7 +9111,7 @@ export const deserializeAws_restJson1GetCampaignsCommand = async (
     $metadata: deserializeMetadata(output),
     CampaignsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignsResponse = deserializeAws_restJson1CampaignsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -9211,7 +9212,7 @@ export const deserializeAws_restJson1GetCampaignVersionCommand = async (
     $metadata: deserializeMetadata(output),
     CampaignResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = deserializeAws_restJson1CampaignResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -9312,7 +9313,7 @@ export const deserializeAws_restJson1GetCampaignVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     CampaignsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignsResponse = deserializeAws_restJson1CampaignsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -9413,7 +9414,7 @@ export const deserializeAws_restJson1GetChannelsCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ChannelsResponse = deserializeAws_restJson1ChannelsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -9514,7 +9515,7 @@ export const deserializeAws_restJson1GetEmailChannelCommand = async (
     $metadata: deserializeMetadata(output),
     EmailChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EmailChannelResponse = deserializeAws_restJson1EmailChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -9615,7 +9616,7 @@ export const deserializeAws_restJson1GetEmailTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     EmailTemplateResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EmailTemplateResponse = deserializeAws_restJson1EmailTemplateResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -9716,7 +9717,7 @@ export const deserializeAws_restJson1GetEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     EndpointResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EndpointResponse = deserializeAws_restJson1EndpointResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -9817,7 +9818,7 @@ export const deserializeAws_restJson1GetEventStreamCommand = async (
     $metadata: deserializeMetadata(output),
     EventStream: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EventStream = deserializeAws_restJson1EventStream(data, context);
   return Promise.resolve(contents);
 };
@@ -9918,7 +9919,7 @@ export const deserializeAws_restJson1GetExportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ExportJobResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ExportJobResponse = deserializeAws_restJson1ExportJobResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -10019,7 +10020,7 @@ export const deserializeAws_restJson1GetExportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ExportJobsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ExportJobsResponse = deserializeAws_restJson1ExportJobsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -10120,7 +10121,7 @@ export const deserializeAws_restJson1GetGcmChannelCommand = async (
     $metadata: deserializeMetadata(output),
     GCMChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.GCMChannelResponse = deserializeAws_restJson1GCMChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -10221,7 +10222,7 @@ export const deserializeAws_restJson1GetImportJobCommand = async (
     $metadata: deserializeMetadata(output),
     ImportJobResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ImportJobResponse = deserializeAws_restJson1ImportJobResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -10322,7 +10323,7 @@ export const deserializeAws_restJson1GetImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ImportJobsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ImportJobsResponse = deserializeAws_restJson1ImportJobsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -10423,7 +10424,7 @@ export const deserializeAws_restJson1GetJourneyCommand = async (
     $metadata: deserializeMetadata(output),
     JourneyResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = deserializeAws_restJson1JourneyResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -10524,7 +10525,7 @@ export const deserializeAws_restJson1GetJourneyDateRangeKpiCommand = async (
     $metadata: deserializeMetadata(output),
     JourneyDateRangeKpiResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyDateRangeKpiResponse = deserializeAws_restJson1JourneyDateRangeKpiResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -10625,7 +10626,7 @@ export const deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommand =
     $metadata: deserializeMetadata(output),
     JourneyExecutionActivityMetricsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyExecutionActivityMetricsResponse = deserializeAws_restJson1JourneyExecutionActivityMetricsResponse(
     data,
     context
@@ -10729,7 +10730,7 @@ export const deserializeAws_restJson1GetJourneyExecutionMetricsCommand = async (
     $metadata: deserializeMetadata(output),
     JourneyExecutionMetricsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyExecutionMetricsResponse = deserializeAws_restJson1JourneyExecutionMetricsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -10830,7 +10831,7 @@ export const deserializeAws_restJson1GetPushTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     PushNotificationTemplateResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.PushNotificationTemplateResponse = deserializeAws_restJson1PushNotificationTemplateResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -10931,7 +10932,7 @@ export const deserializeAws_restJson1GetRecommenderConfigurationCommand = async 
     $metadata: deserializeMetadata(output),
     RecommenderConfigurationResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -11032,7 +11033,7 @@ export const deserializeAws_restJson1GetRecommenderConfigurationsCommand = async
     $metadata: deserializeMetadata(output),
     ListRecommenderConfigurationsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ListRecommenderConfigurationsResponse = deserializeAws_restJson1ListRecommenderConfigurationsResponse(
     data,
     context
@@ -11136,7 +11137,7 @@ export const deserializeAws_restJson1GetSegmentCommand = async (
     $metadata: deserializeMetadata(output),
     SegmentResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = deserializeAws_restJson1SegmentResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -11237,7 +11238,7 @@ export const deserializeAws_restJson1GetSegmentExportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ExportJobsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ExportJobsResponse = deserializeAws_restJson1ExportJobsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -11338,7 +11339,7 @@ export const deserializeAws_restJson1GetSegmentImportJobsCommand = async (
     $metadata: deserializeMetadata(output),
     ImportJobsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ImportJobsResponse = deserializeAws_restJson1ImportJobsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -11439,7 +11440,7 @@ export const deserializeAws_restJson1GetSegmentsCommand = async (
     $metadata: deserializeMetadata(output),
     SegmentsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentsResponse = deserializeAws_restJson1SegmentsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -11540,7 +11541,7 @@ export const deserializeAws_restJson1GetSegmentVersionCommand = async (
     $metadata: deserializeMetadata(output),
     SegmentResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = deserializeAws_restJson1SegmentResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -11641,7 +11642,7 @@ export const deserializeAws_restJson1GetSegmentVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     SegmentsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentsResponse = deserializeAws_restJson1SegmentsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -11742,7 +11743,7 @@ export const deserializeAws_restJson1GetSmsChannelCommand = async (
     $metadata: deserializeMetadata(output),
     SMSChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SMSChannelResponse = deserializeAws_restJson1SMSChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -11843,7 +11844,7 @@ export const deserializeAws_restJson1GetSmsTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     SMSTemplateResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SMSTemplateResponse = deserializeAws_restJson1SMSTemplateResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -11944,7 +11945,7 @@ export const deserializeAws_restJson1GetUserEndpointsCommand = async (
     $metadata: deserializeMetadata(output),
     EndpointsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EndpointsResponse = deserializeAws_restJson1EndpointsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -12045,7 +12046,7 @@ export const deserializeAws_restJson1GetVoiceChannelCommand = async (
     $metadata: deserializeMetadata(output),
     VoiceChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.VoiceChannelResponse = deserializeAws_restJson1VoiceChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -12146,7 +12147,7 @@ export const deserializeAws_restJson1GetVoiceTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     VoiceTemplateResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.VoiceTemplateResponse = deserializeAws_restJson1VoiceTemplateResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -12247,7 +12248,7 @@ export const deserializeAws_restJson1ListJourneysCommand = async (
     $metadata: deserializeMetadata(output),
     JourneysResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneysResponse = deserializeAws_restJson1JourneysResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -12348,7 +12349,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     TagsModel: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.TagsModel = deserializeAws_restJson1TagsModel(data, context);
   return Promise.resolve(contents);
 };
@@ -12393,7 +12394,7 @@ export const deserializeAws_restJson1ListTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
     TemplatesResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.TemplatesResponse = deserializeAws_restJson1TemplatesResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -12478,7 +12479,7 @@ export const deserializeAws_restJson1ListTemplateVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     TemplateVersionsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.TemplateVersionsResponse = deserializeAws_restJson1TemplateVersionsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -12579,7 +12580,7 @@ export const deserializeAws_restJson1PhoneNumberValidateCommand = async (
     $metadata: deserializeMetadata(output),
     NumberValidateResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.NumberValidateResponse = deserializeAws_restJson1NumberValidateResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -12680,7 +12681,7 @@ export const deserializeAws_restJson1PutEventsCommand = async (
     $metadata: deserializeMetadata(output),
     EventsResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EventsResponse = deserializeAws_restJson1EventsResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -12781,7 +12782,7 @@ export const deserializeAws_restJson1PutEventStreamCommand = async (
     $metadata: deserializeMetadata(output),
     EventStream: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EventStream = deserializeAws_restJson1EventStream(data, context);
   return Promise.resolve(contents);
 };
@@ -12882,7 +12883,7 @@ export const deserializeAws_restJson1RemoveAttributesCommand = async (
     $metadata: deserializeMetadata(output),
     AttributesResource: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.AttributesResource = deserializeAws_restJson1AttributesResource(data, context);
   return Promise.resolve(contents);
 };
@@ -12983,7 +12984,7 @@ export const deserializeAws_restJson1SendMessagesCommand = async (
     $metadata: deserializeMetadata(output),
     MessageResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageResponse = deserializeAws_restJson1MessageResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -13084,7 +13085,7 @@ export const deserializeAws_restJson1SendUsersMessagesCommand = async (
     $metadata: deserializeMetadata(output),
     SendUsersMessageResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SendUsersMessageResponse = deserializeAws_restJson1SendUsersMessageResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -13271,7 +13272,7 @@ export const deserializeAws_restJson1UpdateAdmChannelCommand = async (
     $metadata: deserializeMetadata(output),
     ADMChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ADMChannelResponse = deserializeAws_restJson1ADMChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -13372,7 +13373,7 @@ export const deserializeAws_restJson1UpdateApnsChannelCommand = async (
     $metadata: deserializeMetadata(output),
     APNSChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSChannelResponse = deserializeAws_restJson1APNSChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -13473,7 +13474,7 @@ export const deserializeAws_restJson1UpdateApnsSandboxChannelCommand = async (
     $metadata: deserializeMetadata(output),
     APNSSandboxChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSSandboxChannelResponse = deserializeAws_restJson1APNSSandboxChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -13574,7 +13575,7 @@ export const deserializeAws_restJson1UpdateApnsVoipChannelCommand = async (
     $metadata: deserializeMetadata(output),
     APNSVoipChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipChannelResponse = deserializeAws_restJson1APNSVoipChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -13675,7 +13676,7 @@ export const deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommand = async
     $metadata: deserializeMetadata(output),
     APNSVoipSandboxChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipSandboxChannelResponse = deserializeAws_restJson1APNSVoipSandboxChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -13776,7 +13777,7 @@ export const deserializeAws_restJson1UpdateApplicationSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     ApplicationSettingsResource: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationSettingsResource = deserializeAws_restJson1ApplicationSettingsResource(data, context);
   return Promise.resolve(contents);
 };
@@ -13877,7 +13878,7 @@ export const deserializeAws_restJson1UpdateBaiduChannelCommand = async (
     $metadata: deserializeMetadata(output),
     BaiduChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.BaiduChannelResponse = deserializeAws_restJson1BaiduChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -13978,7 +13979,7 @@ export const deserializeAws_restJson1UpdateCampaignCommand = async (
     $metadata: deserializeMetadata(output),
     CampaignResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = deserializeAws_restJson1CampaignResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -14079,7 +14080,7 @@ export const deserializeAws_restJson1UpdateEmailChannelCommand = async (
     $metadata: deserializeMetadata(output),
     EmailChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.EmailChannelResponse = deserializeAws_restJson1EmailChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -14180,7 +14181,7 @@ export const deserializeAws_restJson1UpdateEmailTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -14281,7 +14282,7 @@ export const deserializeAws_restJson1UpdateEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -14382,7 +14383,7 @@ export const deserializeAws_restJson1UpdateEndpointsBatchCommand = async (
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -14483,7 +14484,7 @@ export const deserializeAws_restJson1UpdateGcmChannelCommand = async (
     $metadata: deserializeMetadata(output),
     GCMChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.GCMChannelResponse = deserializeAws_restJson1GCMChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -14584,7 +14585,7 @@ export const deserializeAws_restJson1UpdateJourneyCommand = async (
     $metadata: deserializeMetadata(output),
     JourneyResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = deserializeAws_restJson1JourneyResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -14693,7 +14694,7 @@ export const deserializeAws_restJson1UpdateJourneyStateCommand = async (
     $metadata: deserializeMetadata(output),
     JourneyResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = deserializeAws_restJson1JourneyResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -14794,7 +14795,7 @@ export const deserializeAws_restJson1UpdatePushTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -14895,7 +14896,7 @@ export const deserializeAws_restJson1UpdateRecommenderConfigurationCommand = asy
     $metadata: deserializeMetadata(output),
     RecommenderConfigurationResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -14996,7 +14997,7 @@ export const deserializeAws_restJson1UpdateSegmentCommand = async (
     $metadata: deserializeMetadata(output),
     SegmentResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = deserializeAws_restJson1SegmentResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -15097,7 +15098,7 @@ export const deserializeAws_restJson1UpdateSmsChannelCommand = async (
     $metadata: deserializeMetadata(output),
     SMSChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.SMSChannelResponse = deserializeAws_restJson1SMSChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -15198,7 +15199,7 @@ export const deserializeAws_restJson1UpdateSmsTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -15299,7 +15300,7 @@ export const deserializeAws_restJson1UpdateTemplateActiveVersionCommand = async 
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };
@@ -15400,7 +15401,7 @@ export const deserializeAws_restJson1UpdateVoiceChannelCommand = async (
     $metadata: deserializeMetadata(output),
     VoiceChannelResponse: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.VoiceChannelResponse = deserializeAws_restJson1VoiceChannelResponse(data, context);
   return Promise.resolve(contents);
 };
@@ -15501,7 +15502,7 @@ export const deserializeAws_restJson1UpdateVoiceTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     MessageBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
   return Promise.resolve(contents);
 };

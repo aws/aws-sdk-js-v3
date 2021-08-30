@@ -107,6 +107,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1102,7 +1104,7 @@ export const deserializeAws_restJson1AssociateWebsiteAuthorizationProviderComman
     $metadata: deserializeMetadata(output),
     AuthorizationProviderId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AuthorizationProviderId !== undefined && data.AuthorizationProviderId !== null) {
     contents.AuthorizationProviderId = __expectString(data.AuthorizationProviderId);
   }
@@ -1197,7 +1199,7 @@ export const deserializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand
     $metadata: deserializeMetadata(output),
     WebsiteCaId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.WebsiteCaId !== undefined && data.WebsiteCaId !== null) {
     contents.WebsiteCaId = __expectString(data.WebsiteCaId);
   }
@@ -1292,7 +1294,7 @@ export const deserializeAws_restJson1CreateFleetCommand = async (
     $metadata: deserializeMetadata(output),
     FleetArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.FleetArn !== undefined && data.FleetArn !== null) {
     contents.FleetArn = __expectString(data.FleetArn);
   }
@@ -1470,7 +1472,7 @@ export const deserializeAws_restJson1DescribeAuditStreamConfigurationCommand = a
     $metadata: deserializeMetadata(output),
     AuditStreamArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AuditStreamArn !== undefined && data.AuditStreamArn !== null) {
     contents.AuditStreamArn = __expectString(data.AuditStreamArn);
   }
@@ -1559,7 +1561,7 @@ export const deserializeAws_restJson1DescribeCompanyNetworkConfigurationCommand 
     SubnetIds: undefined,
     VpcId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.SecurityGroupIds !== undefined && data.SecurityGroupIds !== null) {
     contents.SecurityGroupIds = deserializeAws_restJson1SecurityGroupIds(data.SecurityGroupIds, context);
   }
@@ -1660,7 +1662,7 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
     Status: undefined,
     Username: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.FirstAccessedTime !== undefined && data.FirstAccessedTime !== null) {
     contents.FirstAccessedTime = new Date(Math.round(data.FirstAccessedTime * 1000));
   }
@@ -1771,7 +1773,7 @@ export const deserializeAws_restJson1DescribeDevicePolicyConfigurationCommand = 
     $metadata: deserializeMetadata(output),
     DeviceCaCertificate: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DeviceCaCertificate !== undefined && data.DeviceCaCertificate !== null) {
     contents.DeviceCaCertificate = __expectString(data.DeviceCaCertificate);
   }
@@ -1862,7 +1864,7 @@ export const deserializeAws_restJson1DescribeDomainCommand = async (
     DomainName: undefined,
     DomainStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AcmCertificateArn !== undefined && data.AcmCertificateArn !== null) {
     contents.AcmCertificateArn = __expectString(data.AcmCertificateArn);
   }
@@ -1968,7 +1970,7 @@ export const deserializeAws_restJson1DescribeFleetMetadataCommand = async (
     OptimizeForEndUserLocation: undefined,
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CompanyCode !== undefined && data.CompanyCode !== null) {
     contents.CompanyCode = __expectString(data.CompanyCode);
   }
@@ -2078,7 +2080,7 @@ export const deserializeAws_restJson1DescribeIdentityProviderConfigurationComman
     IdentityProviderType: undefined,
     ServiceProviderSamlMetadata: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IdentityProviderSamlMetadata !== undefined && data.IdentityProviderSamlMetadata !== null) {
     contents.IdentityProviderSamlMetadata = __expectString(data.IdentityProviderSamlMetadata);
   }
@@ -2173,7 +2175,7 @@ export const deserializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand 
     CreatedTime: undefined,
     DisplayName: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Certificate !== undefined && data.Certificate !== null) {
     contents.Certificate = __expectString(data.Certificate);
   }
@@ -2524,7 +2526,7 @@ export const deserializeAws_restJson1ListDevicesCommand = async (
     Devices: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Devices !== undefined && data.Devices !== null) {
     contents.Devices = deserializeAws_restJson1DeviceSummaryList(data.Devices, context);
   }
@@ -2615,7 +2617,7 @@ export const deserializeAws_restJson1ListDomainsCommand = async (
     Domains: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Domains !== undefined && data.Domains !== null) {
     contents.Domains = deserializeAws_restJson1DomainSummaryList(data.Domains, context);
   }
@@ -2706,7 +2708,7 @@ export const deserializeAws_restJson1ListFleetsCommand = async (
     FleetSummaryList: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.FleetSummaryList !== undefined && data.FleetSummaryList !== null) {
     contents.FleetSummaryList = deserializeAws_restJson1FleetSummaryList(data.FleetSummaryList, context);
   }
@@ -2788,7 +2790,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
@@ -2844,7 +2846,7 @@ export const deserializeAws_restJson1ListWebsiteAuthorizationProvidersCommand = 
     NextToken: undefined,
     WebsiteAuthorizationProviders: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -2938,7 +2940,7 @@ export const deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand = 
     NextToken: undefined,
     WebsiteCertificateAuthorities: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }

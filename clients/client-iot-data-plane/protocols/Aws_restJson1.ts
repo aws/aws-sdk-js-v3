@@ -28,6 +28,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -391,7 +393,7 @@ export const deserializeAws_restJson1GetRetainedMessageCommand = async (
     qos: undefined,
     topic: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.lastModifiedTime !== undefined && data.lastModifiedTime !== null) {
     contents.lastModifiedTime = __expectLong(data.lastModifiedTime);
   }
@@ -614,7 +616,7 @@ export const deserializeAws_restJson1ListNamedShadowsForThingCommand = async (
     results: undefined,
     timestamp: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -724,7 +726,7 @@ export const deserializeAws_restJson1ListRetainedMessagesCommand = async (
     nextToken: undefined,
     retainedTopics: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }

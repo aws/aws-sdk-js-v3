@@ -178,6 +178,8 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -736,7 +738,7 @@ export const deserializeAws_restJson1CreateConnectorProfileCommand = async (
     $metadata: deserializeMetadata(output),
     connectorProfileArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectorProfileArn !== undefined && data.connectorProfileArn !== null) {
     contents.connectorProfileArn = __expectString(data.connectorProfileArn);
   }
@@ -824,7 +826,7 @@ export const deserializeAws_restJson1CreateFlowCommand = async (
     flowArn: undefined,
     flowStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flowArn !== undefined && data.flowArn !== null) {
     contents.flowArn = __expectString(data.flowArn);
   }
@@ -1064,7 +1066,7 @@ export const deserializeAws_restJson1DescribeConnectorEntityCommand = async (
     $metadata: deserializeMetadata(output),
     connectorEntityFields: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectorEntityFields !== undefined && data.connectorEntityFields !== null) {
     contents.connectorEntityFields = deserializeAws_restJson1ConnectorEntityFieldList(
       data.connectorEntityFields,
@@ -1155,7 +1157,7 @@ export const deserializeAws_restJson1DescribeConnectorProfilesCommand = async (
     connectorProfileDetails: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectorProfileDetails !== undefined && data.connectorProfileDetails !== null) {
     contents.connectorProfileDetails = deserializeAws_restJson1ConnectorProfileDetailList(
       data.connectorProfileDetails,
@@ -1225,7 +1227,7 @@ export const deserializeAws_restJson1DescribeConnectorsCommand = async (
     connectorConfigurations: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectorConfigurations !== undefined && data.connectorConfigurations !== null) {
     contents.connectorConfigurations = deserializeAws_restJson1ConnectorConfigurationsMap(
       data.connectorConfigurations,
@@ -1309,7 +1311,7 @@ export const deserializeAws_restJson1DescribeFlowCommand = async (
     tasks: undefined,
     triggerConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
     contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
@@ -1421,7 +1423,7 @@ export const deserializeAws_restJson1DescribeFlowExecutionRecordsCommand = async
     flowExecutions: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flowExecutions !== undefined && data.flowExecutions !== null) {
     contents.flowExecutions = deserializeAws_restJson1FlowExecutionList(data.flowExecutions, context);
   }
@@ -1495,7 +1497,7 @@ export const deserializeAws_restJson1ListConnectorEntitiesCommand = async (
     $metadata: deserializeMetadata(output),
     connectorEntityMap: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectorEntityMap !== undefined && data.connectorEntityMap !== null) {
     contents.connectorEntityMap = deserializeAws_restJson1ConnectorEntityMap(data.connectorEntityMap, context);
   }
@@ -1583,7 +1585,7 @@ export const deserializeAws_restJson1ListFlowsCommand = async (
     flows: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flows !== undefined && data.flows !== null) {
     contents.flows = deserializeAws_restJson1FlowList(data.flows, context);
   }
@@ -1649,7 +1651,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -1722,7 +1724,7 @@ export const deserializeAws_restJson1StartFlowCommand = async (
     flowArn: undefined,
     flowStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.executionId !== undefined && data.executionId !== null) {
     contents.executionId = __expectString(data.executionId);
   }
@@ -1808,7 +1810,7 @@ export const deserializeAws_restJson1StopFlowCommand = async (
     flowArn: undefined,
     flowStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flowArn !== undefined && data.flowArn !== null) {
     contents.flowArn = __expectString(data.flowArn);
   }
@@ -2024,7 +2026,7 @@ export const deserializeAws_restJson1UpdateConnectorProfileCommand = async (
     $metadata: deserializeMetadata(output),
     connectorProfileArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectorProfileArn !== undefined && data.connectorProfileArn !== null) {
     contents.connectorProfileArn = __expectString(data.connectorProfileArn);
   }
@@ -2111,7 +2113,7 @@ export const deserializeAws_restJson1UpdateFlowCommand = async (
     $metadata: deserializeMetadata(output),
     flowStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flowStatus !== undefined && data.flowStatus !== null) {
     contents.flowStatus = __expectString(data.flowStatus);
   }

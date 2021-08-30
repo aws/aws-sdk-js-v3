@@ -13,6 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   strictParseLong as __strictParseLong,
@@ -471,7 +473,7 @@ export const deserializeAws_restJson1ListItemsCommand = async (
     Items: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items !== undefined && data.Items !== null) {
     contents.Items = deserializeAws_restJson1ItemList(data.Items, context);
   }
@@ -539,7 +541,7 @@ export const deserializeAws_restJson1PutObjectCommand = async (
     ETag: undefined,
     StorageClass: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ContentSHA256 !== undefined && data.ContentSHA256 !== null) {
     contents.ContentSHA256 = __expectString(data.ContentSHA256);
   }

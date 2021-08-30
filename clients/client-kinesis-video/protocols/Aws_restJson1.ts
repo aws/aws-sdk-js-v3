@@ -66,7 +66,12 @@ import {
   VersionMismatchException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -619,7 +624,7 @@ export const deserializeAws_restJson1CreateSignalingChannelCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelARN: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelARN !== undefined && data.ChannelARN !== null) {
     contents.ChannelARN = __expectString(data.ChannelARN);
   }
@@ -714,7 +719,7 @@ export const deserializeAws_restJson1CreateStreamCommand = async (
     $metadata: deserializeMetadata(output),
     StreamARN: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.StreamARN !== undefined && data.StreamARN !== null) {
     contents.StreamARN = __expectString(data.StreamARN);
   }
@@ -999,7 +1004,7 @@ export const deserializeAws_restJson1DescribeSignalingChannelCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelInfo: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelInfo !== undefined && data.ChannelInfo !== null) {
     contents.ChannelInfo = deserializeAws_restJson1ChannelInfo(data.ChannelInfo, context);
   }
@@ -1078,7 +1083,7 @@ export const deserializeAws_restJson1DescribeStreamCommand = async (
     $metadata: deserializeMetadata(output),
     StreamInfo: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.StreamInfo !== undefined && data.StreamInfo !== null) {
     contents.StreamInfo = deserializeAws_restJson1StreamInfo(data.StreamInfo, context);
   }
@@ -1157,7 +1162,7 @@ export const deserializeAws_restJson1GetDataEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     DataEndpoint: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DataEndpoint !== undefined && data.DataEndpoint !== null) {
     contents.DataEndpoint = __expectString(data.DataEndpoint);
   }
@@ -1236,7 +1241,7 @@ export const deserializeAws_restJson1GetSignalingChannelEndpointCommand = async 
     $metadata: deserializeMetadata(output),
     ResourceEndpointList: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ResourceEndpointList !== undefined && data.ResourceEndpointList !== null) {
     contents.ResourceEndpointList = deserializeAws_restJson1ResourceEndpointList(data.ResourceEndpointList, context);
   }
@@ -1324,7 +1329,7 @@ export const deserializeAws_restJson1ListSignalingChannelsCommand = async (
     ChannelInfoList: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelInfoList !== undefined && data.ChannelInfoList !== null) {
     contents.ChannelInfoList = deserializeAws_restJson1ChannelInfoList(data.ChannelInfoList, context);
   }
@@ -1399,7 +1404,7 @@ export const deserializeAws_restJson1ListStreamsCommand = async (
     NextToken: undefined,
     StreamInfoList: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1466,7 +1471,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     NextToken: undefined,
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1549,7 +1554,7 @@ export const deserializeAws_restJson1ListTagsForStreamCommand = async (
     NextToken: undefined,
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
