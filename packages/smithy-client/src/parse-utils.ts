@@ -129,7 +129,7 @@ export const expectInt = expectLong;
  * @returns The value if it's an integer, undefined if it's null/undefined,
  *   otherwise an error is thrown.
  */
-export const expectInt32 = (value: any): number | undefined => expectSizedInt(value, Int32Array);
+export const expectInt32 = (value: any): number | undefined => expectSizedInt(value, 32);
 
 /**
  * Asserts a value is a 16-bit integer and returns it.
@@ -138,7 +138,7 @@ export const expectInt32 = (value: any): number | undefined => expectSizedInt(va
  * @returns The value if it's an integer, undefined if it's null/undefined,
  *   otherwise an error is thrown.
  */
-export const expectShort = (value: any): number | undefined => expectSizedInt(value, Int16Array);
+export const expectShort = (value: any): number | undefined => expectSizedInt(value, 16);
 
 /**
  * Asserts a value is an 8-bit integer and returns it.
@@ -147,16 +147,27 @@ export const expectShort = (value: any): number | undefined => expectSizedInt(va
  * @returns The value if it's an integer, undefined if it's null/undefined,
  *   otherwise an error is thrown.
  */
-export const expectByte = (value: any): number | undefined => expectSizedInt(value, Int8Array);
+export const expectByte = (value: any): number | undefined => expectSizedInt(value, 8);
 
-type SizedIntArray = Int32ArrayConstructor | Int16ArrayConstructor | Int8ArrayConstructor;
+type IntSize = 32 | 16 | 8;
 
-const expectSizedInt = (value: any, intArray: SizedIntArray): number | undefined => {
+const expectSizedInt = (value: any, size: IntSize): number | undefined => {
   const expected = expectLong(value);
-  if (expected !== undefined && intArray.of(expected)[0] !== expected) {
-    throw new TypeError(`Expected ${intArray.name.match(/\d+/)[0]}-bit integer, got ${value}`);
+  if (expected !== undefined && castInt(expected, size) !== expected) {
+    throw new TypeError(`Expected ${size}-bit integer, got ${value}`);
   }
   return expected;
+};
+
+const castInt = (value: number, size: IntSize) => {
+  switch (size) {
+    case 32:
+      return Int32Array.of(value)[0];
+    case 16:
+      return Int16Array.of(value)[0];
+    case 8:
+      return Int8Array.of(value)[0];
+  }
 };
 
 /**
