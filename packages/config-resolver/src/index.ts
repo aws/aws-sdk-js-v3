@@ -1,3 +1,3 @@
 export * from "./endpointsConfig";
-export * from "./RegionConfig";
+export * from "./regionConfig";
 export * from "./regionInfo";
