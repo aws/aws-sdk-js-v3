@@ -14,6 +14,7 @@
     "esModuleInterop": true,
     "declarationDir": "./dist/types",
     "outDir": "dist/cjs",
+    "useUnknownInCatchVariables": false,
     "types": ["mocha"]
   },
   "typedocOptions": {
