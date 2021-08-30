@@ -3,6 +3,8 @@ import {
   expectFloat32,
   expectInt32,
   expectLong,
+  expectNonNull,
+  expectObject,
   expectShort,
   limitedParseDouble,
   limitedParseFloat32,
@@ -13,8 +15,6 @@ import {
   strictParseInt32,
   strictParseLong,
   strictParseShort,
-  expectObject,
-  expectNonNull
 } from "./parse-utils";
 import { expectBoolean, expectNumber, expectString } from "./parse-utils";
 
