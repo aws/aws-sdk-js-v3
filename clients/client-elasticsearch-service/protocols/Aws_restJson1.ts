@@ -213,6 +213,8 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -1547,7 +1549,7 @@ export const deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCo
     $metadata: deserializeMetadata(output),
     CrossClusterSearchConnection: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CrossClusterSearchConnection !== undefined && data.CrossClusterSearchConnection !== null) {
     contents.CrossClusterSearchConnection = deserializeAws_restJson1InboundCrossClusterSearchConnection(
       data.CrossClusterSearchConnection,
@@ -1696,7 +1698,7 @@ export const deserializeAws_restJson1AssociatePackageCommand = async (
     $metadata: deserializeMetadata(output),
     DomainPackageDetails: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainPackageDetails !== undefined && data.DomainPackageDetails !== null) {
     contents.DomainPackageDetails = deserializeAws_restJson1DomainPackageDetails(data.DomainPackageDetails, context);
   }
@@ -1791,7 +1793,7 @@ export const deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCom
     $metadata: deserializeMetadata(output),
     ServiceSoftwareOptions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ServiceSoftwareOptions !== undefined && data.ServiceSoftwareOptions !== null) {
     contents.ServiceSoftwareOptions = deserializeAws_restJson1ServiceSoftwareOptions(
       data.ServiceSoftwareOptions,
@@ -1873,7 +1875,7 @@ export const deserializeAws_restJson1CreateElasticsearchDomainCommand = async (
     $metadata: deserializeMetadata(output),
     DomainStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainStatus !== undefined && data.DomainStatus !== null) {
     contents.DomainStatus = deserializeAws_restJson1ElasticsearchDomainStatus(data.DomainStatus, context);
   }
@@ -1980,7 +1982,7 @@ export const deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionC
     DestinationDomainInfo: undefined,
     SourceDomainInfo: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ConnectionAlias !== undefined && data.ConnectionAlias !== null) {
     contents.ConnectionAlias = __expectString(data.ConnectionAlias);
   }
@@ -2074,7 +2076,7 @@ export const deserializeAws_restJson1CreatePackageCommand = async (
     $metadata: deserializeMetadata(output),
     PackageDetails: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.PackageDetails !== undefined && data.PackageDetails !== null) {
     contents.PackageDetails = deserializeAws_restJson1PackageDetails(data.PackageDetails, context);
   }
@@ -2177,7 +2179,7 @@ export const deserializeAws_restJson1DeleteElasticsearchDomainCommand = async (
     $metadata: deserializeMetadata(output),
     DomainStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainStatus !== undefined && data.DomainStatus !== null) {
     contents.DomainStatus = deserializeAws_restJson1ElasticsearchDomainStatus(data.DomainStatus, context);
   }
@@ -2323,7 +2325,7 @@ export const deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCo
     $metadata: deserializeMetadata(output),
     CrossClusterSearchConnection: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CrossClusterSearchConnection !== undefined && data.CrossClusterSearchConnection !== null) {
     contents.CrossClusterSearchConnection = deserializeAws_restJson1InboundCrossClusterSearchConnection(
       data.CrossClusterSearchConnection,
@@ -2389,7 +2391,7 @@ export const deserializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionC
     $metadata: deserializeMetadata(output),
     CrossClusterSearchConnection: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CrossClusterSearchConnection !== undefined && data.CrossClusterSearchConnection !== null) {
     contents.CrossClusterSearchConnection = deserializeAws_restJson1OutboundCrossClusterSearchConnection(
       data.CrossClusterSearchConnection,
@@ -2455,7 +2457,7 @@ export const deserializeAws_restJson1DeletePackageCommand = async (
     $metadata: deserializeMetadata(output),
     PackageDetails: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.PackageDetails !== undefined && data.PackageDetails !== null) {
     contents.PackageDetails = deserializeAws_restJson1PackageDetails(data.PackageDetails, context);
   }
@@ -2551,7 +2553,7 @@ export const deserializeAws_restJson1DescribeDomainAutoTunesCommand = async (
     AutoTunes: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AutoTunes !== undefined && data.AutoTunes !== null) {
     contents.AutoTunes = deserializeAws_restJson1AutoTuneList(data.AutoTunes, context);
   }
@@ -2633,7 +2635,7 @@ export const deserializeAws_restJson1DescribeElasticsearchDomainCommand = async 
     $metadata: deserializeMetadata(output),
     DomainStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainStatus !== undefined && data.DomainStatus !== null) {
     contents.DomainStatus = deserializeAws_restJson1ElasticsearchDomainStatus(data.DomainStatus, context);
   }
@@ -2712,7 +2714,7 @@ export const deserializeAws_restJson1DescribeElasticsearchDomainConfigCommand = 
     $metadata: deserializeMetadata(output),
     DomainConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainConfig !== undefined && data.DomainConfig !== null) {
     contents.DomainConfig = deserializeAws_restJson1ElasticsearchDomainConfig(data.DomainConfig, context);
   }
@@ -2791,7 +2793,7 @@ export const deserializeAws_restJson1DescribeElasticsearchDomainsCommand = async
     $metadata: deserializeMetadata(output),
     DomainStatusList: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainStatusList !== undefined && data.DomainStatusList !== null) {
     contents.DomainStatusList = deserializeAws_restJson1ElasticsearchDomainStatusList(data.DomainStatusList, context);
   }
@@ -2862,7 +2864,7 @@ export const deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComm
     $metadata: deserializeMetadata(output),
     LimitsByRole: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LimitsByRole !== undefined && data.LimitsByRole !== null) {
     contents.LimitsByRole = deserializeAws_restJson1LimitsByRole(data.LimitsByRole, context);
   }
@@ -2958,7 +2960,7 @@ export const deserializeAws_restJson1DescribeInboundCrossClusterSearchConnection
     CrossClusterSearchConnections: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CrossClusterSearchConnections !== undefined && data.CrossClusterSearchConnections !== null) {
     contents.CrossClusterSearchConnections = deserializeAws_restJson1InboundCrossClusterSearchConnections(
       data.CrossClusterSearchConnections,
@@ -3028,7 +3030,7 @@ export const deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectio
     CrossClusterSearchConnections: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CrossClusterSearchConnections !== undefined && data.CrossClusterSearchConnections !== null) {
     contents.CrossClusterSearchConnections = deserializeAws_restJson1OutboundCrossClusterSearchConnections(
       data.CrossClusterSearchConnections,
@@ -3098,7 +3100,7 @@ export const deserializeAws_restJson1DescribePackagesCommand = async (
     NextToken: undefined,
     PackageDetailsList: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3189,7 +3191,7 @@ export const deserializeAws_restJson1DescribeReservedElasticsearchInstanceOfferi
     NextToken: undefined,
     ReservedElasticsearchInstanceOfferings: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3278,7 +3280,7 @@ export const deserializeAws_restJson1DescribeReservedElasticsearchInstancesComma
     NextToken: undefined,
     ReservedElasticsearchInstances: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3363,7 +3365,7 @@ export const deserializeAws_restJson1DissociatePackageCommand = async (
     $metadata: deserializeMetadata(output),
     DomainPackageDetails: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainPackageDetails !== undefined && data.DomainPackageDetails !== null) {
     contents.DomainPackageDetails = deserializeAws_restJson1DomainPackageDetails(data.DomainPackageDetails, context);
   }
@@ -3458,7 +3460,7 @@ export const deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand =
     $metadata: deserializeMetadata(output),
     CompatibleElasticsearchVersions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CompatibleElasticsearchVersions !== undefined && data.CompatibleElasticsearchVersions !== null) {
     contents.CompatibleElasticsearchVersions = deserializeAws_restJson1CompatibleElasticsearchVersionsList(
       data.CompatibleElasticsearchVersions,
@@ -3550,7 +3552,7 @@ export const deserializeAws_restJson1GetPackageVersionHistoryCommand = async (
     PackageID: undefined,
     PackageVersionHistoryList: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3647,7 +3649,7 @@ export const deserializeAws_restJson1GetUpgradeHistoryCommand = async (
     NextToken: undefined,
     UpgradeHistories: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -3739,7 +3741,7 @@ export const deserializeAws_restJson1GetUpgradeStatusCommand = async (
     UpgradeName: undefined,
     UpgradeStep: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.StepStatus !== undefined && data.StepStatus !== null) {
     contents.StepStatus = __expectString(data.StepStatus);
   }
@@ -3832,7 +3834,7 @@ export const deserializeAws_restJson1ListDomainNamesCommand = async (
     $metadata: deserializeMetadata(output),
     DomainNames: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainNames !== undefined && data.DomainNames !== null) {
     contents.DomainNames = deserializeAws_restJson1DomainInfoList(data.DomainNames, context);
   }
@@ -3896,7 +3898,7 @@ export const deserializeAws_restJson1ListDomainsForPackageCommand = async (
     DomainPackageDetailsList: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainPackageDetailsList !== undefined && data.DomainPackageDetailsList !== null) {
     contents.DomainPackageDetailsList = deserializeAws_restJson1DomainPackageDetailsList(
       data.DomainPackageDetailsList,
@@ -3990,7 +3992,7 @@ export const deserializeAws_restJson1ListElasticsearchInstanceTypesCommand = asy
     ElasticsearchInstanceTypes: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ElasticsearchInstanceTypes !== undefined && data.ElasticsearchInstanceTypes !== null) {
     contents.ElasticsearchInstanceTypes = deserializeAws_restJson1ElasticsearchInstanceTypeList(
       data.ElasticsearchInstanceTypes,
@@ -4076,7 +4078,7 @@ export const deserializeAws_restJson1ListElasticsearchVersionsCommand = async (
     ElasticsearchVersions: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ElasticsearchVersions !== undefined && data.ElasticsearchVersions !== null) {
     contents.ElasticsearchVersions = deserializeAws_restJson1ElasticsearchVersionList(
       data.ElasticsearchVersions,
@@ -4162,7 +4164,7 @@ export const deserializeAws_restJson1ListPackagesForDomainCommand = async (
     DomainPackageDetailsList: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainPackageDetailsList !== undefined && data.DomainPackageDetailsList !== null) {
     contents.DomainPackageDetailsList = deserializeAws_restJson1DomainPackageDetailsList(
       data.DomainPackageDetailsList,
@@ -4255,7 +4257,7 @@ export const deserializeAws_restJson1ListTagsCommand = async (
     $metadata: deserializeMetadata(output),
     TagList: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TagList !== undefined && data.TagList !== null) {
     contents.TagList = deserializeAws_restJson1TagList(data.TagList, context);
   }
@@ -4335,7 +4337,7 @@ export const deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferi
     ReservationName: undefined,
     ReservedElasticsearchInstanceId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ReservationName !== undefined && data.ReservationName !== null) {
     contents.ReservationName = __expectString(data.ReservationName);
   }
@@ -4433,7 +4435,7 @@ export const deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCo
     $metadata: deserializeMetadata(output),
     CrossClusterSearchConnection: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CrossClusterSearchConnection !== undefined && data.CrossClusterSearchConnection !== null) {
     contents.CrossClusterSearchConnection = deserializeAws_restJson1InboundCrossClusterSearchConnection(
       data.CrossClusterSearchConnection,
@@ -4566,7 +4568,7 @@ export const deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateComm
     $metadata: deserializeMetadata(output),
     ServiceSoftwareOptions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ServiceSoftwareOptions !== undefined && data.ServiceSoftwareOptions !== null) {
     contents.ServiceSoftwareOptions = deserializeAws_restJson1ServiceSoftwareOptions(
       data.ServiceSoftwareOptions,
@@ -4648,7 +4650,7 @@ export const deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand = as
     $metadata: deserializeMetadata(output),
     DomainConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainConfig !== undefined && data.DomainConfig !== null) {
     contents.DomainConfig = deserializeAws_restJson1ElasticsearchDomainConfig(data.DomainConfig, context);
   }
@@ -4743,7 +4745,7 @@ export const deserializeAws_restJson1UpdatePackageCommand = async (
     $metadata: deserializeMetadata(output),
     PackageDetails: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.PackageDetails !== undefined && data.PackageDetails !== null) {
     contents.PackageDetails = deserializeAws_restJson1PackageDetails(data.PackageDetails, context);
   }
@@ -4840,7 +4842,7 @@ export const deserializeAws_restJson1UpgradeElasticsearchDomainCommand = async (
     PerformCheckOnly: undefined,
     TargetVersion: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainName !== undefined && data.DomainName !== null) {
     contents.DomainName = __expectString(data.DomainName);
   }

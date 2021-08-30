@@ -18,6 +18,8 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -270,7 +272,7 @@ export const deserializeAws_restJson1DescribeHumanLoopCommand = async (
     HumanLoopOutput: undefined,
     HumanLoopStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
   }
@@ -371,7 +373,7 @@ export const deserializeAws_restJson1ListHumanLoopsCommand = async (
     HumanLoopSummaries: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HumanLoopSummaries !== undefined && data.HumanLoopSummaries !== null) {
     contents.HumanLoopSummaries = deserializeAws_restJson1HumanLoopSummaries(data.HumanLoopSummaries, context);
   }
@@ -453,7 +455,7 @@ export const deserializeAws_restJson1StartHumanLoopCommand = async (
     $metadata: deserializeMetadata(output),
     HumanLoopArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HumanLoopArn !== undefined && data.HumanLoopArn !== null) {
     contents.HumanLoopArn = __expectString(data.HumanLoopArn);
   }

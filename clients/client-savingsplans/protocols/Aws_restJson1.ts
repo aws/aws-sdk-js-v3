@@ -50,7 +50,12 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectLong as __expectLong, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -388,7 +393,7 @@ export const deserializeAws_restJson1CreateSavingsPlanCommand = async (
     $metadata: deserializeMetadata(output),
     savingsPlanId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.savingsPlanId !== undefined && data.savingsPlanId !== null) {
     contents.savingsPlanId = __expectString(data.savingsPlanId);
   }
@@ -544,7 +549,7 @@ export const deserializeAws_restJson1DescribeSavingsPlanRatesCommand = async (
     savingsPlanId: undefined,
     searchResults: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -614,7 +619,7 @@ export const deserializeAws_restJson1DescribeSavingsPlansCommand = async (
     nextToken: undefined,
     savingsPlans: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -681,7 +686,7 @@ export const deserializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand = 
     nextToken: undefined,
     searchResults: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -748,7 +753,7 @@ export const deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand = asyn
     nextToken: undefined,
     searchResults: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -814,7 +819,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }

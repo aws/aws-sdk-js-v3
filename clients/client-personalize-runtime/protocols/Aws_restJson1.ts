@@ -5,7 +5,12 @@ import {
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
 import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectString as __expectString, limitedParseDouble as __limitedParseDouble } from "@aws-sdk/smithy-client";
+import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -90,7 +95,7 @@ export const deserializeAws_restJson1GetPersonalizedRankingCommand = async (
     personalizedRanking: undefined,
     recommendationId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.personalizedRanking !== undefined && data.personalizedRanking !== null) {
     contents.personalizedRanking = deserializeAws_restJson1ItemList(data.personalizedRanking, context);
   }
@@ -157,7 +162,7 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
     itemList: undefined,
     recommendationId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.itemList !== undefined && data.itemList !== null) {
     contents.itemList = deserializeAws_restJson1ItemList(data.itemList, context);
   }

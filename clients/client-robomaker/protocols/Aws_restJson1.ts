@@ -235,6 +235,8 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -1850,7 +1852,7 @@ export const deserializeAws_restJson1BatchDeleteWorldsCommand = async (
     $metadata: deserializeMetadata(output),
     unprocessedWorlds: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.unprocessedWorlds !== undefined && data.unprocessedWorlds !== null) {
     contents.unprocessedWorlds = deserializeAws_restJson1Arns(data.unprocessedWorlds, context);
   }
@@ -1922,7 +1924,7 @@ export const deserializeAws_restJson1BatchDescribeSimulationJobCommand = async (
     jobs: undefined,
     unprocessedJobs: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobs !== undefined && data.jobs !== null) {
     contents.jobs = deserializeAws_restJson1SimulationJobs(data.jobs, context);
   }
@@ -2387,7 +2389,7 @@ export const deserializeAws_restJson1CreateDeploymentJobCommand = async (
     status: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -2520,7 +2522,7 @@ export const deserializeAws_restJson1CreateFleetCommand = async (
     name: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -2613,7 +2615,7 @@ export const deserializeAws_restJson1CreateRobotCommand = async (
     name: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.architecture !== undefined && data.architecture !== null) {
     contents.architecture = __expectString(data.architecture);
   }
@@ -2722,7 +2724,7 @@ export const deserializeAws_restJson1CreateRobotApplicationCommand = async (
     tags: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -2844,7 +2846,7 @@ export const deserializeAws_restJson1CreateRobotApplicationVersionCommand = asyn
     sources: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -2958,7 +2960,7 @@ export const deserializeAws_restJson1CreateSimulationApplicationCommand = async 
     tags: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -3091,7 +3093,7 @@ export const deserializeAws_restJson1CreateSimulationApplicationVersionCommand =
     sources: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -3222,7 +3224,7 @@ export const deserializeAws_restJson1CreateSimulationJobCommand = async (
     tags: undefined,
     vpcConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -3386,7 +3388,7 @@ export const deserializeAws_restJson1CreateWorldExportJobCommand = async (
     status: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -3510,7 +3512,7 @@ export const deserializeAws_restJson1CreateWorldGenerationJobCommand = async (
     worldCount: undefined,
     worldTags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -3641,7 +3643,7 @@ export const deserializeAws_restJson1CreateWorldTemplateCommand = async (
     name: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -4092,7 +4094,7 @@ export const deserializeAws_restJson1DeregisterRobotCommand = async (
     fleet: undefined,
     robot: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.fleet !== undefined && data.fleet !== null) {
     contents.fleet = __expectString(data.fleet);
   }
@@ -4183,7 +4185,7 @@ export const deserializeAws_restJson1DescribeDeploymentJobCommand = async (
     status: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -4302,7 +4304,7 @@ export const deserializeAws_restJson1DescribeFleetCommand = async (
     robots: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -4411,7 +4413,7 @@ export const deserializeAws_restJson1DescribeRobotCommand = async (
     status: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.architecture !== undefined && data.architecture !== null) {
     contents.architecture = __expectString(data.architecture);
   }
@@ -4524,7 +4526,7 @@ export const deserializeAws_restJson1DescribeRobotApplicationCommand = async (
     tags: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -4633,7 +4635,7 @@ export const deserializeAws_restJson1DescribeSimulationApplicationCommand = asyn
     tags: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -4762,7 +4764,7 @@ export const deserializeAws_restJson1DescribeSimulationJobCommand = async (
     tags: undefined,
     vpcConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -4915,7 +4917,7 @@ export const deserializeAws_restJson1DescribeSimulationJobBatchCommand = async (
     status: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -5024,7 +5026,7 @@ export const deserializeAws_restJson1DescribeWorldCommand = async (
     template: undefined,
     worldDescriptionBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -5127,7 +5129,7 @@ export const deserializeAws_restJson1DescribeWorldExportJobCommand = async (
     tags: undefined,
     worlds: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -5243,7 +5245,7 @@ export const deserializeAws_restJson1DescribeWorldGenerationJobCommand = async (
     worldCount: undefined,
     worldTags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -5358,7 +5360,7 @@ export const deserializeAws_restJson1DescribeWorldTemplateCommand = async (
     tags: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -5455,7 +5457,7 @@ export const deserializeAws_restJson1GetWorldTemplateBodyCommand = async (
     $metadata: deserializeMetadata(output),
     templateBody: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.templateBody !== undefined && data.templateBody !== null) {
     contents.templateBody = __expectString(data.templateBody);
   }
@@ -5535,7 +5537,7 @@ export const deserializeAws_restJson1ListDeploymentJobsCommand = async (
     deploymentJobs: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.deploymentJobs !== undefined && data.deploymentJobs !== null) {
     contents.deploymentJobs = deserializeAws_restJson1DeploymentJobs(data.deploymentJobs, context);
   }
@@ -5618,7 +5620,7 @@ export const deserializeAws_restJson1ListFleetsCommand = async (
     fleetDetails: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.fleetDetails !== undefined && data.fleetDetails !== null) {
     contents.fleetDetails = deserializeAws_restJson1Fleets(data.fleetDetails, context);
   }
@@ -5701,7 +5703,7 @@ export const deserializeAws_restJson1ListRobotApplicationsCommand = async (
     nextToken: undefined,
     robotApplicationSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -5779,7 +5781,7 @@ export const deserializeAws_restJson1ListRobotsCommand = async (
     nextToken: undefined,
     robots: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -5862,7 +5864,7 @@ export const deserializeAws_restJson1ListSimulationApplicationsCommand = async (
     nextToken: undefined,
     simulationApplicationSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -5940,7 +5942,7 @@ export const deserializeAws_restJson1ListSimulationJobBatchesCommand = async (
     nextToken: undefined,
     simulationJobBatchSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -6010,7 +6012,7 @@ export const deserializeAws_restJson1ListSimulationJobsCommand = async (
     nextToken: undefined,
     simulationJobSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -6087,7 +6089,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -6167,7 +6169,7 @@ export const deserializeAws_restJson1ListWorldExportJobsCommand = async (
     nextToken: undefined,
     worldExportJobSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -6245,7 +6247,7 @@ export const deserializeAws_restJson1ListWorldGenerationJobsCommand = async (
     nextToken: undefined,
     worldGenerationJobSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -6323,7 +6325,7 @@ export const deserializeAws_restJson1ListWorldsCommand = async (
     nextToken: undefined,
     worldSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -6398,7 +6400,7 @@ export const deserializeAws_restJson1ListWorldTemplatesCommand = async (
     nextToken: undefined,
     templateSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -6473,7 +6475,7 @@ export const deserializeAws_restJson1RegisterRobotCommand = async (
     fleet: undefined,
     robot: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.fleet !== undefined && data.fleet !== null) {
     contents.fleet = __expectString(data.fleet);
   }
@@ -6656,7 +6658,7 @@ export const deserializeAws_restJson1StartSimulationJobBatchCommand = async (
     status: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -6780,7 +6782,7 @@ export const deserializeAws_restJson1SyncDeploymentJobCommand = async (
     fleet: undefined,
     status: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -7063,7 +7065,7 @@ export const deserializeAws_restJson1UpdateRobotApplicationCommand = async (
     sources: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -7176,7 +7178,7 @@ export const deserializeAws_restJson1UpdateSimulationApplicationCommand = async 
     sources: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -7293,7 +7295,7 @@ export const deserializeAws_restJson1UpdateWorldTemplateCommand = async (
     lastUpdatedAt: undefined,
     name: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }

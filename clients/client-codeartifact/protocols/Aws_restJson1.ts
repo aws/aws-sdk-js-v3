@@ -129,6 +129,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   strictParseInt32 as __strictParseInt32,
@@ -1162,7 +1164,7 @@ export const deserializeAws_restJson1AssociateExternalConnectionCommand = async 
     $metadata: deserializeMetadata(output),
     repository: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.repository !== undefined && data.repository !== null) {
     contents.repository = deserializeAws_restJson1RepositoryDescription(data.repository, context);
   }
@@ -1266,7 +1268,7 @@ export const deserializeAws_restJson1CopyPackageVersionsCommand = async (
     failedVersions: undefined,
     successfulVersions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failedVersions !== undefined && data.failedVersions !== null) {
     contents.failedVersions = deserializeAws_restJson1PackageVersionErrorMap(data.failedVersions, context);
   }
@@ -1375,7 +1377,7 @@ export const deserializeAws_restJson1CreateDomainCommand = async (
     $metadata: deserializeMetadata(output),
     domain: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domain !== undefined && data.domain !== null) {
     contents.domain = deserializeAws_restJson1DomainDescription(data.domain, context);
   }
@@ -1478,7 +1480,7 @@ export const deserializeAws_restJson1CreateRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
     repository: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.repository !== undefined && data.repository !== null) {
     contents.repository = deserializeAws_restJson1RepositoryDescription(data.repository, context);
   }
@@ -1581,7 +1583,7 @@ export const deserializeAws_restJson1DeleteDomainCommand = async (
     $metadata: deserializeMetadata(output),
     domain: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domain !== undefined && data.domain !== null) {
     contents.domain = deserializeAws_restJson1DomainDescription(data.domain, context);
   }
@@ -1668,7 +1670,7 @@ export const deserializeAws_restJson1DeleteDomainPermissionsPolicyCommand = asyn
     $metadata: deserializeMetadata(output),
     policy: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = deserializeAws_restJson1ResourcePolicy(data.policy, context);
   }
@@ -1764,7 +1766,7 @@ export const deserializeAws_restJson1DeletePackageVersionsCommand = async (
     failedVersions: undefined,
     successfulVersions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failedVersions !== undefined && data.failedVersions !== null) {
     contents.failedVersions = deserializeAws_restJson1PackageVersionErrorMap(data.failedVersions, context);
   }
@@ -1865,7 +1867,7 @@ export const deserializeAws_restJson1DeleteRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
     repository: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.repository !== undefined && data.repository !== null) {
     contents.repository = deserializeAws_restJson1RepositoryDescription(data.repository, context);
   }
@@ -1960,7 +1962,7 @@ export const deserializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand = 
     $metadata: deserializeMetadata(output),
     policy: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = deserializeAws_restJson1ResourcePolicy(data.policy, context);
   }
@@ -2055,7 +2057,7 @@ export const deserializeAws_restJson1DescribeDomainCommand = async (
     $metadata: deserializeMetadata(output),
     domain: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domain !== undefined && data.domain !== null) {
     contents.domain = deserializeAws_restJson1DomainDescription(data.domain, context);
   }
@@ -2142,7 +2144,7 @@ export const deserializeAws_restJson1DescribePackageVersionCommand = async (
     $metadata: deserializeMetadata(output),
     packageVersion: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.packageVersion !== undefined && data.packageVersion !== null) {
     contents.packageVersion = deserializeAws_restJson1PackageVersionDescription(data.packageVersion, context);
   }
@@ -2237,7 +2239,7 @@ export const deserializeAws_restJson1DescribeRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
     repository: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.repository !== undefined && data.repository !== null) {
     contents.repository = deserializeAws_restJson1RepositoryDescription(data.repository, context);
   }
@@ -2324,7 +2326,7 @@ export const deserializeAws_restJson1DisassociateExternalConnectionCommand = asy
     $metadata: deserializeMetadata(output),
     repository: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.repository !== undefined && data.repository !== null) {
     contents.repository = deserializeAws_restJson1RepositoryDescription(data.repository, context);
   }
@@ -2428,7 +2430,7 @@ export const deserializeAws_restJson1DisposePackageVersionsCommand = async (
     failedVersions: undefined,
     successfulVersions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failedVersions !== undefined && data.failedVersions !== null) {
     contents.failedVersions = deserializeAws_restJson1PackageVersionErrorMap(data.failedVersions, context);
   }
@@ -2530,7 +2532,7 @@ export const deserializeAws_restJson1GetAuthorizationTokenCommand = async (
     authorizationToken: undefined,
     expiration: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.authorizationToken !== undefined && data.authorizationToken !== null) {
     contents.authorizationToken = __expectString(data.authorizationToken);
   }
@@ -2620,7 +2622,7 @@ export const deserializeAws_restJson1GetDomainPermissionsPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     policy: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = deserializeAws_restJson1ResourcePolicy(data.policy, context);
   }
@@ -2817,7 +2819,7 @@ export const deserializeAws_restJson1GetPackageVersionReadmeCommand = async (
     version: undefined,
     versionRevision: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.format !== undefined && data.format !== null) {
     contents.format = __expectString(data.format);
   }
@@ -2919,7 +2921,7 @@ export const deserializeAws_restJson1GetRepositoryEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     repositoryEndpoint: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.repositoryEndpoint !== undefined && data.repositoryEndpoint !== null) {
     contents.repositoryEndpoint = __expectString(data.repositoryEndpoint);
   }
@@ -3006,7 +3008,7 @@ export const deserializeAws_restJson1GetRepositoryPermissionsPolicyCommand = asy
     $metadata: deserializeMetadata(output),
     policy: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = deserializeAws_restJson1ResourcePolicy(data.policy, context);
   }
@@ -3094,7 +3096,7 @@ export const deserializeAws_restJson1ListDomainsCommand = async (
     domains: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.domains !== undefined && data.domains !== null) {
     contents.domains = deserializeAws_restJson1DomainSummaryList(data.domains, context);
   }
@@ -3177,7 +3179,7 @@ export const deserializeAws_restJson1ListPackagesCommand = async (
     nextToken: undefined,
     packages: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3273,7 +3275,7 @@ export const deserializeAws_restJson1ListPackageVersionAssetsCommand = async (
     version: undefined,
     versionRevision: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assets !== undefined && data.assets !== null) {
     contents.assets = deserializeAws_restJson1AssetSummaryList(data.assets, context);
   }
@@ -3384,7 +3386,7 @@ export const deserializeAws_restJson1ListPackageVersionDependenciesCommand = asy
     version: undefined,
     versionRevision: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dependencies !== undefined && data.dependencies !== null) {
     contents.dependencies = deserializeAws_restJson1PackageDependencyList(data.dependencies, context);
   }
@@ -3494,7 +3496,7 @@ export const deserializeAws_restJson1ListPackageVersionsCommand = async (
     package: undefined,
     versions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.defaultDisplayVersion !== undefined && data.defaultDisplayVersion !== null) {
     contents.defaultDisplayVersion = __expectString(data.defaultDisplayVersion);
   }
@@ -3597,7 +3599,7 @@ export const deserializeAws_restJson1ListRepositoriesCommand = async (
     nextToken: undefined,
     repositories: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3680,7 +3682,7 @@ export const deserializeAws_restJson1ListRepositoriesInDomainCommand = async (
     nextToken: undefined,
     repositories: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3770,7 +3772,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagList(data.tags, context);
   }
@@ -3849,7 +3851,7 @@ export const deserializeAws_restJson1PutDomainPermissionsPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     policy: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = deserializeAws_restJson1ResourcePolicy(data.policy, context);
   }
@@ -3952,7 +3954,7 @@ export const deserializeAws_restJson1PutRepositoryPermissionsPolicyCommand = asy
     $metadata: deserializeMetadata(output),
     policy: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policy !== undefined && data.policy !== null) {
     contents.policy = deserializeAws_restJson1ResourcePolicy(data.policy, context);
   }
@@ -4214,7 +4216,7 @@ export const deserializeAws_restJson1UpdatePackageVersionsStatusCommand = async 
     failedVersions: undefined,
     successfulVersions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failedVersions !== undefined && data.failedVersions !== null) {
     contents.failedVersions = deserializeAws_restJson1PackageVersionErrorMap(data.failedVersions, context);
   }
@@ -4315,7 +4317,7 @@ export const deserializeAws_restJson1UpdateRepositoryCommand = async (
     $metadata: deserializeMetadata(output),
     repository: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.repository !== undefined && data.repository !== null) {
     contents.repository = deserializeAws_restJson1RepositoryDescription(data.repository, context);
   }

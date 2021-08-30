@@ -114,6 +114,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   strictParseLong as __strictParseLong,
@@ -956,7 +958,7 @@ export const deserializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
     sourceServerID: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1070,7 +1072,7 @@ export const deserializeAws_restJson1CreateReplicationConfigurationTemplateComma
     tags: undefined,
     useDedicatedReplicationServer: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1388,7 +1390,7 @@ export const deserializeAws_restJson1DescribeJobLogItemsCommand = async (
     items: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.items = deserializeAws_restJson1JobLogs(data.items, context);
   }
@@ -1455,7 +1457,7 @@ export const deserializeAws_restJson1DescribeJobsCommand = async (
     items: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.items = deserializeAws_restJson1JobsList(data.items, context);
   }
@@ -1522,7 +1524,7 @@ export const deserializeAws_restJson1DescribeReplicationConfigurationTemplatesCo
     items: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.items = deserializeAws_restJson1ReplicationConfigurationTemplates(data.items, context);
   }
@@ -1597,7 +1599,7 @@ export const deserializeAws_restJson1DescribeSourceServersCommand = async (
     items: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items !== undefined && data.items !== null) {
     contents.items = deserializeAws_restJson1SourceServersList(data.items, context);
   }
@@ -1670,7 +1672,7 @@ export const deserializeAws_restJson1DisconnectFromServiceCommand = async (
     sourceServerID: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1769,7 +1771,7 @@ export const deserializeAws_restJson1FinalizeCutoverCommand = async (
     sourceServerID: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1876,7 +1878,7 @@ export const deserializeAws_restJson1GetLaunchConfigurationCommand = async (
     sourceServerID: undefined,
     targetInstanceTypeRightSizingMethod: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.copyPrivateIp !== undefined && data.copyPrivateIp !== null) {
     contents.copyPrivateIp = __expectBoolean(data.copyPrivateIp);
   }
@@ -1974,7 +1976,7 @@ export const deserializeAws_restJson1GetReplicationConfigurationCommand = async 
     stagingAreaTags: undefined,
     useDedicatedReplicationServer: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.associateDefaultSecurityGroup !== undefined && data.associateDefaultSecurityGroup !== null) {
     contents.associateDefaultSecurityGroup = __expectBoolean(data.associateDefaultSecurityGroup);
   }
@@ -2144,7 +2146,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
   }
@@ -2238,7 +2240,7 @@ export const deserializeAws_restJson1MarkAsArchivedCommand = async (
     sourceServerID: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -2337,7 +2339,7 @@ export const deserializeAws_restJson1RetryDataReplicationCommand = async (
     sourceServerID: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -2429,7 +2431,7 @@ export const deserializeAws_restJson1StartCutoverCommand = async (
     $metadata: deserializeMetadata(output),
     job: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.job !== undefined && data.job !== null) {
     contents.job = deserializeAws_restJson1Job(data.job, context);
   }
@@ -2500,7 +2502,7 @@ export const deserializeAws_restJson1StartTestCommand = async (
     $metadata: deserializeMetadata(output),
     job: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.job !== undefined && data.job !== null) {
     contents.job = deserializeAws_restJson1Job(data.job, context);
   }
@@ -2654,7 +2656,7 @@ export const deserializeAws_restJson1TerminateTargetInstancesCommand = async (
     $metadata: deserializeMetadata(output),
     job: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.job !== undefined && data.job !== null) {
     contents.job = deserializeAws_restJson1Job(data.job, context);
   }
@@ -2815,7 +2817,7 @@ export const deserializeAws_restJson1UpdateLaunchConfigurationCommand = async (
     sourceServerID: undefined,
     targetInstanceTypeRightSizingMethod: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.copyPrivateIp !== undefined && data.copyPrivateIp !== null) {
     contents.copyPrivateIp = __expectBoolean(data.copyPrivateIp);
   }
@@ -2929,7 +2931,7 @@ export const deserializeAws_restJson1UpdateReplicationConfigurationCommand = asy
     stagingAreaTags: undefined,
     useDedicatedReplicationServer: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.associateDefaultSecurityGroup !== undefined && data.associateDefaultSecurityGroup !== null) {
     contents.associateDefaultSecurityGroup = __expectBoolean(data.associateDefaultSecurityGroup);
   }
@@ -3078,7 +3080,7 @@ export const deserializeAws_restJson1UpdateReplicationConfigurationTemplateComma
     tags: undefined,
     useDedicatedReplicationServer: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }

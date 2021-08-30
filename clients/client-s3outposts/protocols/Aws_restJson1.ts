@@ -12,6 +12,8 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -115,7 +117,7 @@ export const deserializeAws_restJson1CreateEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     EndpointArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EndpointArn !== undefined && data.EndpointArn !== null) {
     contents.EndpointArn = __expectString(data.EndpointArn);
   }
@@ -278,7 +280,7 @@ export const deserializeAws_restJson1ListEndpointsCommand = async (
     Endpoints: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Endpoints !== undefined && data.Endpoints !== null) {
     contents.Endpoints = deserializeAws_restJson1Endpoints(data.Endpoints, context);
   }

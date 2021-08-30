@@ -34,6 +34,8 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -240,7 +242,7 @@ export const deserializeAws_restJson1DeleteReportDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
     reportId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.reportId !== undefined && data.reportId !== null) {
     contents.reportId = __expectString(data.reportId);
   }
@@ -325,7 +327,7 @@ export const deserializeAws_restJson1GetReportDefinitionCommand = async (
     reportFrequency: undefined,
     reportId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
     contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
@@ -422,7 +424,7 @@ export const deserializeAws_restJson1ImportApplicationUsageCommand = async (
     $metadata: deserializeMetadata(output),
     importId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.importId !== undefined && data.importId !== null) {
     contents.importId = __expectString(data.importId);
   }
@@ -502,7 +504,7 @@ export const deserializeAws_restJson1ListReportDefinitionsCommand = async (
     nextToken: undefined,
     reportDefinitions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -584,7 +586,7 @@ export const deserializeAws_restJson1PutReportDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
     reportId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.reportId !== undefined && data.reportId !== null) {
     contents.reportId = __expectString(data.reportId);
   }
@@ -671,7 +673,7 @@ export const deserializeAws_restJson1UpdateReportDefinitionCommand = async (
     $metadata: deserializeMetadata(output),
     reportId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.reportId !== undefined && data.reportId !== null) {
     contents.reportId = __expectString(data.reportId);
   }

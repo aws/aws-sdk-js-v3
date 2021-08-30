@@ -60,6 +60,8 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -631,7 +633,7 @@ export const deserializeAws_restJson1CancelJobRunCommand = async (
     id: undefined,
     virtualClusterId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.id !== undefined && data.id !== null) {
     contents.id = __expectString(data.id);
   }
@@ -700,7 +702,7 @@ export const deserializeAws_restJson1CreateManagedEndpointCommand = async (
     name: undefined,
     virtualClusterId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -782,7 +784,7 @@ export const deserializeAws_restJson1CreateVirtualClusterCommand = async (
     id: undefined,
     name: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -860,7 +862,7 @@ export const deserializeAws_restJson1DeleteManagedEndpointCommand = async (
     id: undefined,
     virtualClusterId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.id !== undefined && data.id !== null) {
     contents.id = __expectString(data.id);
   }
@@ -926,7 +928,7 @@ export const deserializeAws_restJson1DeleteVirtualClusterCommand = async (
     $metadata: deserializeMetadata(output),
     id: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.id !== undefined && data.id !== null) {
     contents.id = __expectString(data.id);
   }
@@ -989,7 +991,7 @@ export const deserializeAws_restJson1DescribeJobRunCommand = async (
     $metadata: deserializeMetadata(output),
     jobRun: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobRun !== undefined && data.jobRun !== null) {
     contents.jobRun = deserializeAws_restJson1JobRun(data.jobRun, context);
   }
@@ -1060,7 +1062,7 @@ export const deserializeAws_restJson1DescribeManagedEndpointCommand = async (
     $metadata: deserializeMetadata(output),
     endpoint: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.endpoint !== undefined && data.endpoint !== null) {
     contents.endpoint = deserializeAws_restJson1Endpoint(data.endpoint, context);
   }
@@ -1131,7 +1133,7 @@ export const deserializeAws_restJson1DescribeVirtualClusterCommand = async (
     $metadata: deserializeMetadata(output),
     virtualCluster: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.virtualCluster !== undefined && data.virtualCluster !== null) {
     contents.virtualCluster = deserializeAws_restJson1VirtualCluster(data.virtualCluster, context);
   }
@@ -1203,7 +1205,7 @@ export const deserializeAws_restJson1ListJobRunsCommand = async (
     jobRuns: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobRuns !== undefined && data.jobRuns !== null) {
     contents.jobRuns = deserializeAws_restJson1JobRuns(data.jobRuns, context);
   }
@@ -1270,7 +1272,7 @@ export const deserializeAws_restJson1ListManagedEndpointsCommand = async (
     endpoints: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.endpoints !== undefined && data.endpoints !== null) {
     contents.endpoints = deserializeAws_restJson1Endpoints(data.endpoints, context);
   }
@@ -1336,7 +1338,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -1408,7 +1410,7 @@ export const deserializeAws_restJson1ListVirtualClustersCommand = async (
     nextToken: undefined,
     virtualClusters: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1477,7 +1479,7 @@ export const deserializeAws_restJson1StartJobRunCommand = async (
     name: undefined,
     virtualClusterId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }

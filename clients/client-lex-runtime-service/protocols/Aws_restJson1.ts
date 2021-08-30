@@ -30,6 +30,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   LazyJsonString as __LazyJsonString,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -357,7 +359,7 @@ export const deserializeAws_restJson1DeleteSessionCommand = async (
     sessionId: undefined,
     userId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.botAlias !== undefined && data.botAlias !== null) {
     contents.botAlias = __expectString(data.botAlias);
   }
@@ -457,7 +459,7 @@ export const deserializeAws_restJson1GetSessionCommand = async (
     sessionAttributes: undefined,
     sessionId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.activeContexts !== undefined && data.activeContexts !== null) {
     contents.activeContexts = deserializeAws_restJson1ActiveContextsList(data.activeContexts, context);
   }
@@ -770,7 +772,7 @@ export const deserializeAws_restJson1PostTextCommand = async (
     slotToElicit: undefined,
     slots: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.activeContexts !== undefined && data.activeContexts !== null) {
     contents.activeContexts = deserializeAws_restJson1ActiveContextsList(data.activeContexts, context);
   }

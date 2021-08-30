@@ -35,6 +35,8 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -240,7 +242,7 @@ export const deserializeAws_restJson1BatchExecuteStatementCommand = async (
     $metadata: deserializeMetadata(output),
     updateResults: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.updateResults !== undefined && data.updateResults !== null) {
     contents.updateResults = deserializeAws_restJson1UpdateResults(data.updateResults, context);
   }
@@ -327,7 +329,7 @@ export const deserializeAws_restJson1BeginTransactionCommand = async (
     $metadata: deserializeMetadata(output),
     transactionId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.transactionId !== undefined && data.transactionId !== null) {
     contents.transactionId = __expectString(data.transactionId);
   }
@@ -414,7 +416,7 @@ export const deserializeAws_restJson1CommitTransactionCommand = async (
     $metadata: deserializeMetadata(output),
     transactionStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.transactionStatus !== undefined && data.transactionStatus !== null) {
     contents.transactionStatus = __expectString(data.transactionStatus);
   }
@@ -509,7 +511,7 @@ export const deserializeAws_restJson1ExecuteSqlCommand = async (
     $metadata: deserializeMetadata(output),
     sqlStatementResults: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.sqlStatementResults !== undefined && data.sqlStatementResults !== null) {
     contents.sqlStatementResults = deserializeAws_restJson1SqlStatementResults(data.sqlStatementResults, context);
   }
@@ -591,7 +593,7 @@ export const deserializeAws_restJson1ExecuteStatementCommand = async (
     numberOfRecordsUpdated: undefined,
     records: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.columnMetadata !== undefined && data.columnMetadata !== null) {
     contents.columnMetadata = deserializeAws_restJson1Metadata(data.columnMetadata, context);
   }
@@ -687,7 +689,7 @@ export const deserializeAws_restJson1RollbackTransactionCommand = async (
     $metadata: deserializeMetadata(output),
     transactionStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.transactionStatus !== undefined && data.transactionStatus !== null) {
     contents.transactionStatus = __expectString(data.transactionStatus);
   }

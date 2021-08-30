@@ -73,6 +73,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -609,7 +611,7 @@ export const deserializeAws_restJson1CreateAppInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     AppInstanceArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceArn !== undefined && data.AppInstanceArn !== null) {
     contents.AppInstanceArn = __expectString(data.AppInstanceArn);
   }
@@ -721,7 +723,7 @@ export const deserializeAws_restJson1CreateAppInstanceAdminCommand = async (
     AppInstanceAdmin: undefined,
     AppInstanceArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceAdmin !== undefined && data.AppInstanceAdmin !== null) {
     contents.AppInstanceAdmin = deserializeAws_restJson1Identity(data.AppInstanceAdmin, context);
   }
@@ -835,7 +837,7 @@ export const deserializeAws_restJson1CreateAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
     AppInstanceUserArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceUserArn !== undefined && data.AppInstanceUserArn !== null) {
     contents.AppInstanceUserArn = __expectString(data.AppInstanceUserArn);
   }
@@ -1259,7 +1261,7 @@ export const deserializeAws_restJson1DescribeAppInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     AppInstance: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstance !== undefined && data.AppInstance !== null) {
     contents.AppInstance = deserializeAws_restJson1AppInstance(data.AppInstance, context);
   }
@@ -1354,7 +1356,7 @@ export const deserializeAws_restJson1DescribeAppInstanceAdminCommand = async (
     $metadata: deserializeMetadata(output),
     AppInstanceAdmin: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceAdmin !== undefined && data.AppInstanceAdmin !== null) {
     contents.AppInstanceAdmin = deserializeAws_restJson1AppInstanceAdmin(data.AppInstanceAdmin, context);
   }
@@ -1449,7 +1451,7 @@ export const deserializeAws_restJson1DescribeAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
     AppInstanceUser: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceUser !== undefined && data.AppInstanceUser !== null) {
     contents.AppInstanceUser = deserializeAws_restJson1AppInstanceUser(data.AppInstanceUser, context);
   }
@@ -1545,7 +1547,7 @@ export const deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand = as
     AppInstanceRetentionSettings: undefined,
     InitiateDeletionTimestamp: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceRetentionSettings !== undefined && data.AppInstanceRetentionSettings !== null) {
     contents.AppInstanceRetentionSettings = deserializeAws_restJson1AppInstanceRetentionSettings(
       data.AppInstanceRetentionSettings,
@@ -1648,7 +1650,7 @@ export const deserializeAws_restJson1ListAppInstanceAdminsCommand = async (
     AppInstanceArn: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceAdmins !== undefined && data.AppInstanceAdmins !== null) {
     contents.AppInstanceAdmins = deserializeAws_restJson1AppInstanceAdminList(data.AppInstanceAdmins, context);
   }
@@ -1758,7 +1760,7 @@ export const deserializeAws_restJson1ListAppInstancesCommand = async (
     AppInstances: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstances !== undefined && data.AppInstances !== null) {
     contents.AppInstances = deserializeAws_restJson1AppInstanceList(data.AppInstances, context);
   }
@@ -1858,7 +1860,7 @@ export const deserializeAws_restJson1ListAppInstanceUsersCommand = async (
     AppInstanceUsers: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceArn !== undefined && data.AppInstanceArn !== null) {
     contents.AppInstanceArn = __expectString(data.AppInstanceArn);
   }
@@ -1960,7 +1962,7 @@ export const deserializeAws_restJson1PutAppInstanceRetentionSettingsCommand = as
     AppInstanceRetentionSettings: undefined,
     InitiateDeletionTimestamp: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceRetentionSettings !== undefined && data.AppInstanceRetentionSettings !== null) {
     contents.AppInstanceRetentionSettings = deserializeAws_restJson1AppInstanceRetentionSettings(
       data.AppInstanceRetentionSettings,
@@ -2061,7 +2063,7 @@ export const deserializeAws_restJson1UpdateAppInstanceCommand = async (
     $metadata: deserializeMetadata(output),
     AppInstanceArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceArn !== undefined && data.AppInstanceArn !== null) {
     contents.AppInstanceArn = __expectString(data.AppInstanceArn);
   }
@@ -2164,7 +2166,7 @@ export const deserializeAws_restJson1UpdateAppInstanceUserCommand = async (
     $metadata: deserializeMetadata(output),
     AppInstanceUserArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AppInstanceUserArn !== undefined && data.AppInstanceUserArn !== null) {
     contents.AppInstanceUserArn = __expectString(data.AppInstanceUserArn);
   }

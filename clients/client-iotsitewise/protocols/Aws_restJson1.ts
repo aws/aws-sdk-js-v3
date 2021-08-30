@@ -211,6 +211,8 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -2666,7 +2668,7 @@ export const deserializeAws_restJson1BatchAssociateProjectAssetsCommand = async 
     $metadata: deserializeMetadata(output),
     errors: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errors !== undefined && data.errors !== null) {
     contents.errors = deserializeAws_restJson1BatchAssociateProjectAssetsErrors(data.errors, context);
   }
@@ -2753,7 +2755,7 @@ export const deserializeAws_restJson1BatchDisassociateProjectAssetsCommand = asy
     $metadata: deserializeMetadata(output),
     errors: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errors !== undefined && data.errors !== null) {
     contents.errors = deserializeAws_restJson1BatchDisassociateProjectAssetsErrors(data.errors, context);
   }
@@ -2832,7 +2834,7 @@ export const deserializeAws_restJson1BatchPutAssetPropertyValueCommand = async (
     $metadata: deserializeMetadata(output),
     errorEntries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.errorEntries !== undefined && data.errorEntries !== null) {
     contents.errorEntries = deserializeAws_restJson1BatchPutAssetPropertyErrorEntries(data.errorEntries, context);
   }
@@ -2936,7 +2938,7 @@ export const deserializeAws_restJson1CreateAccessPolicyCommand = async (
     accessPolicyArn: undefined,
     accessPolicyId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessPolicyArn !== undefined && data.accessPolicyArn !== null) {
     contents.accessPolicyArn = __expectString(data.accessPolicyArn);
   }
@@ -3028,7 +3030,7 @@ export const deserializeAws_restJson1CreateAssetCommand = async (
     assetId: undefined,
     assetStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetArn !== undefined && data.assetArn !== null) {
     contents.assetArn = __expectString(data.assetArn);
   }
@@ -3139,7 +3141,7 @@ export const deserializeAws_restJson1CreateAssetModelCommand = async (
     assetModelId: undefined,
     assetModelStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetModelArn !== undefined && data.assetModelArn !== null) {
     contents.assetModelArn = __expectString(data.assetModelArn);
   }
@@ -3249,7 +3251,7 @@ export const deserializeAws_restJson1CreateDashboardCommand = async (
     dashboardArn: undefined,
     dashboardId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dashboardArn !== undefined && data.dashboardArn !== null) {
     contents.dashboardArn = __expectString(data.dashboardArn);
   }
@@ -3340,7 +3342,7 @@ export const deserializeAws_restJson1CreateGatewayCommand = async (
     gatewayArn: undefined,
     gatewayId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.gatewayArn !== undefined && data.gatewayArn !== null) {
     contents.gatewayArn = __expectString(data.gatewayArn);
   }
@@ -3434,7 +3436,7 @@ export const deserializeAws_restJson1CreatePortalCommand = async (
     portalStatus: undefined,
     ssoApplicationId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.portalArn !== undefined && data.portalArn !== null) {
     contents.portalArn = __expectString(data.portalArn);
   }
@@ -3534,7 +3536,7 @@ export const deserializeAws_restJson1CreateProjectCommand = async (
     projectArn: undefined,
     projectId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.projectArn !== undefined && data.projectArn !== null) {
     contents.projectArn = __expectString(data.projectArn);
   }
@@ -3699,7 +3701,7 @@ export const deserializeAws_restJson1DeleteAssetCommand = async (
     $metadata: deserializeMetadata(output),
     assetStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetStatus !== undefined && data.assetStatus !== null) {
     contents.assetStatus = deserializeAws_restJson1AssetStatus(data.assetStatus, context);
   }
@@ -3786,7 +3788,7 @@ export const deserializeAws_restJson1DeleteAssetModelCommand = async (
     $metadata: deserializeMetadata(output),
     assetModelStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetModelStatus !== undefined && data.assetModelStatus !== null) {
     contents.assetModelStatus = deserializeAws_restJson1AssetModelStatus(data.assetModelStatus, context);
   }
@@ -4023,7 +4025,7 @@ export const deserializeAws_restJson1DeletePortalCommand = async (
     $metadata: deserializeMetadata(output),
     portalStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.portalStatus !== undefined && data.portalStatus !== null) {
     contents.portalStatus = deserializeAws_restJson1PortalStatus(data.portalStatus, context);
   }
@@ -4191,7 +4193,7 @@ export const deserializeAws_restJson1DescribeAccessPolicyCommand = async (
     accessPolicyPermission: undefined,
     accessPolicyResource: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessPolicyArn !== undefined && data.accessPolicyArn !== null) {
     contents.accessPolicyArn = __expectString(data.accessPolicyArn);
   }
@@ -4297,7 +4299,7 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
     assetProperties: undefined,
     assetStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetArn !== undefined && data.assetArn !== null) {
     contents.assetArn = __expectString(data.assetArn);
   }
@@ -4412,7 +4414,7 @@ export const deserializeAws_restJson1DescribeAssetModelCommand = async (
     assetModelProperties: undefined,
     assetModelStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetModelArn !== undefined && data.assetModelArn !== null) {
     contents.assetModelArn = __expectString(data.assetModelArn);
   }
@@ -4525,7 +4527,7 @@ export const deserializeAws_restJson1DescribeAssetPropertyCommand = async (
     assetProperty: undefined,
     compositeModel: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetId !== undefined && data.assetId !== null) {
     contents.assetId = __expectString(data.assetId);
   }
@@ -4623,7 +4625,7 @@ export const deserializeAws_restJson1DescribeDashboardCommand = async (
     dashboardName: undefined,
     projectId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dashboardArn !== undefined && data.dashboardArn !== null) {
     contents.dashboardArn = __expectString(data.dashboardArn);
   }
@@ -4725,7 +4727,7 @@ export const deserializeAws_restJson1DescribeDefaultEncryptionConfigurationComma
     encryptionType: undefined,
     kmsKeyArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.configurationStatus !== undefined && data.configurationStatus !== null) {
     contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
   }
@@ -4808,7 +4810,7 @@ export const deserializeAws_restJson1DescribeGatewayCommand = async (
     gatewayPlatform: undefined,
     lastUpdateDate: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDate !== undefined && data.creationDate !== null) {
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
@@ -4911,7 +4913,7 @@ export const deserializeAws_restJson1DescribeGatewayCapabilityConfigurationComma
     capabilitySyncStatus: undefined,
     gatewayId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.capabilityConfiguration !== undefined && data.capabilityConfiguration !== null) {
     contents.capabilityConfiguration = __expectString(data.capabilityConfiguration);
   }
@@ -4999,7 +5001,7 @@ export const deserializeAws_restJson1DescribeLoggingOptionsCommand = async (
     $metadata: deserializeMetadata(output),
     loggingOptions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.loggingOptions !== undefined && data.loggingOptions !== null) {
     contents.loggingOptions = deserializeAws_restJson1LoggingOptions(data.loggingOptions, context);
   }
@@ -5092,7 +5094,7 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
     portalStatus: undefined,
     roleArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.alarms !== undefined && data.alarms !== null) {
     contents.alarms = deserializeAws_restJson1Alarms(data.alarms, context);
   }
@@ -5219,7 +5221,7 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
     projectLastUpdateDate: undefined,
     projectName: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.portalId !== undefined && data.portalId !== null) {
     contents.portalId = __expectString(data.portalId);
   }
@@ -5319,7 +5321,7 @@ export const deserializeAws_restJson1DescribeStorageConfigurationCommand = async
     multiLayerStorage: undefined,
     storageType: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.configurationStatus !== undefined && data.configurationStatus !== null) {
     contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
   }
@@ -5507,7 +5509,7 @@ export const deserializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
     aggregatedValues: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.aggregatedValues !== undefined && data.aggregatedValues !== null) {
     contents.aggregatedValues = deserializeAws_restJson1AggregatedValues(data.aggregatedValues, context);
   }
@@ -5597,7 +5599,7 @@ export const deserializeAws_restJson1GetAssetPropertyValueCommand = async (
     $metadata: deserializeMetadata(output),
     propertyValue: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.propertyValue !== undefined && data.propertyValue !== null) {
     contents.propertyValue = deserializeAws_restJson1AssetPropertyValue(data.propertyValue, context);
   }
@@ -5685,7 +5687,7 @@ export const deserializeAws_restJson1GetAssetPropertyValueHistoryCommand = async
     assetPropertyValueHistory: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetPropertyValueHistory !== undefined && data.assetPropertyValueHistory !== null) {
     contents.assetPropertyValueHistory = deserializeAws_restJson1AssetPropertyValueHistory(
       data.assetPropertyValueHistory,
@@ -5779,7 +5781,7 @@ export const deserializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand =
     interpolatedAssetPropertyValues: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.interpolatedAssetPropertyValues !== undefined && data.interpolatedAssetPropertyValues !== null) {
     contents.interpolatedAssetPropertyValues = deserializeAws_restJson1InterpolatedAssetPropertyValues(
       data.interpolatedAssetPropertyValues,
@@ -5873,7 +5875,7 @@ export const deserializeAws_restJson1ListAccessPoliciesCommand = async (
     accessPolicySummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessPolicySummaries !== undefined && data.accessPolicySummaries !== null) {
     contents.accessPolicySummaries = deserializeAws_restJson1AccessPolicySummaries(data.accessPolicySummaries, context);
   }
@@ -5948,7 +5950,7 @@ export const deserializeAws_restJson1ListAssetModelsCommand = async (
     assetModelSummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetModelSummaries !== undefined && data.assetModelSummaries !== null) {
     contents.assetModelSummaries = deserializeAws_restJson1AssetModelSummaries(data.assetModelSummaries, context);
   }
@@ -6023,7 +6025,7 @@ export const deserializeAws_restJson1ListAssetRelationshipsCommand = async (
     assetRelationshipSummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetRelationshipSummaries !== undefined && data.assetRelationshipSummaries !== null) {
     contents.assetRelationshipSummaries = deserializeAws_restJson1AssetRelationshipSummaries(
       data.assetRelationshipSummaries,
@@ -6109,7 +6111,7 @@ export const deserializeAws_restJson1ListAssetsCommand = async (
     assetSummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetSummaries !== undefined && data.assetSummaries !== null) {
     contents.assetSummaries = deserializeAws_restJson1AssetSummaries(data.assetSummaries, context);
   }
@@ -6192,7 +6194,7 @@ export const deserializeAws_restJson1ListAssociatedAssetsCommand = async (
     assetSummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetSummaries !== undefined && data.assetSummaries !== null) {
     contents.assetSummaries = deserializeAws_restJson1AssociatedAssetsSummaries(data.assetSummaries, context);
   }
@@ -6275,7 +6277,7 @@ export const deserializeAws_restJson1ListDashboardsCommand = async (
     dashboardSummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dashboardSummaries !== undefined && data.dashboardSummaries !== null) {
     contents.dashboardSummaries = deserializeAws_restJson1DashboardSummaries(data.dashboardSummaries, context);
   }
@@ -6350,7 +6352,7 @@ export const deserializeAws_restJson1ListGatewaysCommand = async (
     gatewaySummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.gatewaySummaries !== undefined && data.gatewaySummaries !== null) {
     contents.gatewaySummaries = deserializeAws_restJson1GatewaySummaries(data.gatewaySummaries, context);
   }
@@ -6425,7 +6427,7 @@ export const deserializeAws_restJson1ListPortalsCommand = async (
     nextToken: undefined,
     portalSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -6500,7 +6502,7 @@ export const deserializeAws_restJson1ListProjectAssetsCommand = async (
     assetIds: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetIds !== undefined && data.assetIds !== null) {
     contents.assetIds = deserializeAws_restJson1AssetIDs(data.assetIds, context);
   }
@@ -6575,7 +6577,7 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
     nextToken: undefined,
     projectSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -6649,7 +6651,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -6754,7 +6756,7 @@ export const deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand = 
     encryptionType: undefined,
     kmsKeyArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.configurationStatus !== undefined && data.configurationStatus !== null) {
     contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
   }
@@ -6932,7 +6934,7 @@ export const deserializeAws_restJson1PutStorageConfigurationCommand = async (
     multiLayerStorage: undefined,
     storageType: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.configurationStatus !== undefined && data.configurationStatus !== null) {
     contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
   }
@@ -7322,7 +7324,7 @@ export const deserializeAws_restJson1UpdateAssetCommand = async (
     $metadata: deserializeMetadata(output),
     assetStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetStatus !== undefined && data.assetStatus !== null) {
     contents.assetStatus = deserializeAws_restJson1AssetStatus(data.assetStatus, context);
   }
@@ -7417,7 +7419,7 @@ export const deserializeAws_restJson1UpdateAssetModelCommand = async (
     $metadata: deserializeMetadata(output),
     assetModelStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.assetModelStatus !== undefined && data.assetModelStatus !== null) {
     contents.assetModelStatus = deserializeAws_restJson1AssetModelStatus(data.assetModelStatus, context);
   }
@@ -7762,7 +7764,7 @@ export const deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand
     capabilityNamespace: undefined,
     capabilitySyncStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.capabilityNamespace !== undefined && data.capabilityNamespace !== null) {
     contents.capabilityNamespace = __expectString(data.capabilityNamespace);
   }
@@ -7860,7 +7862,7 @@ export const deserializeAws_restJson1UpdatePortalCommand = async (
     $metadata: deserializeMetadata(output),
     portalStatus: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.portalStatus !== undefined && data.portalStatus !== null) {
     contents.portalStatus = deserializeAws_restJson1PortalStatus(data.portalStatus, context);
   }

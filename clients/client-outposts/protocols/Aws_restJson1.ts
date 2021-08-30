@@ -27,6 +27,8 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -348,7 +350,7 @@ export const deserializeAws_restJson1CreateOutpostCommand = async (
     $metadata: deserializeMetadata(output),
     Outpost: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Outpost !== undefined && data.Outpost !== null) {
     contents.Outpost = deserializeAws_restJson1Outpost(data.Outpost, context);
   }
@@ -609,7 +611,7 @@ export const deserializeAws_restJson1GetOutpostCommand = async (
     $metadata: deserializeMetadata(output),
     Outpost: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Outpost !== undefined && data.Outpost !== null) {
     contents.Outpost = deserializeAws_restJson1Outpost(data.Outpost, context);
   }
@@ -691,7 +693,7 @@ export const deserializeAws_restJson1GetOutpostInstanceTypesCommand = async (
     OutpostArn: undefined,
     OutpostId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InstanceTypes !== undefined && data.InstanceTypes !== null) {
     contents.InstanceTypes = deserializeAws_restJson1InstanceTypeListDefinition(data.InstanceTypes, context);
   }
@@ -780,7 +782,7 @@ export const deserializeAws_restJson1ListOutpostsCommand = async (
     NextToken: undefined,
     Outposts: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -855,7 +857,7 @@ export const deserializeAws_restJson1ListSitesCommand = async (
     NextToken: undefined,
     Sites: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -929,7 +931,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }

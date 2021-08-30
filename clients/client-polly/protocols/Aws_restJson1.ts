@@ -50,6 +50,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   strictParseInt32 as __strictParseInt32,
@@ -408,7 +410,7 @@ export const deserializeAws_restJson1DescribeVoicesCommand = async (
     NextToken: undefined,
     Voices: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -475,7 +477,7 @@ export const deserializeAws_restJson1GetLexiconCommand = async (
     Lexicon: undefined,
     LexiconAttributes: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Lexicon !== undefined && data.Lexicon !== null) {
     contents.Lexicon = deserializeAws_restJson1Lexicon(data.Lexicon, context);
   }
@@ -541,7 +543,7 @@ export const deserializeAws_restJson1GetSpeechSynthesisTaskCommand = async (
     $metadata: deserializeMetadata(output),
     SynthesisTask: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.SynthesisTask !== undefined && data.SynthesisTask !== null) {
     contents.SynthesisTask = deserializeAws_restJson1SynthesisTask(data.SynthesisTask, context);
   }
@@ -613,7 +615,7 @@ export const deserializeAws_restJson1ListLexiconsCommand = async (
     Lexicons: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Lexicons !== undefined && data.Lexicons !== null) {
     contents.Lexicons = deserializeAws_restJson1LexiconDescriptionList(data.Lexicons, context);
   }
@@ -680,7 +682,7 @@ export const deserializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
     NextToken: undefined,
     SynthesisTasks: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -845,7 +847,7 @@ export const deserializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
     $metadata: deserializeMetadata(output),
     SynthesisTask: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.SynthesisTask !== undefined && data.SynthesisTask !== null) {
     contents.SynthesisTask = deserializeAws_restJson1SynthesisTask(data.SynthesisTask, context);
   }

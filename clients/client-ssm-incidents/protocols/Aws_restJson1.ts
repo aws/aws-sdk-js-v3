@@ -110,6 +110,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -959,7 +961,7 @@ export const deserializeAws_restJson1CreateReplicationSetCommand = async (
     $metadata: deserializeMetadata(output),
     arn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1054,7 +1056,7 @@ export const deserializeAws_restJson1CreateResponsePlanCommand = async (
     $metadata: deserializeMetadata(output),
     arn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1150,7 +1152,7 @@ export const deserializeAws_restJson1CreateTimelineEventCommand = async (
     eventId: undefined,
     incidentRecordArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.eventId !== undefined && data.eventId !== null) {
     contents.eventId = __expectString(data.eventId);
   }
@@ -1639,7 +1641,7 @@ export const deserializeAws_restJson1GetIncidentRecordCommand = async (
     $metadata: deserializeMetadata(output),
     incidentRecord: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.incidentRecord !== undefined && data.incidentRecord !== null) {
     contents.incidentRecord = deserializeAws_restJson1IncidentRecord(data.incidentRecord, context);
   }
@@ -1726,7 +1728,7 @@ export const deserializeAws_restJson1GetReplicationSetCommand = async (
     $metadata: deserializeMetadata(output),
     replicationSet: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.replicationSet !== undefined && data.replicationSet !== null) {
     contents.replicationSet = deserializeAws_restJson1ReplicationSet(data.replicationSet, context);
   }
@@ -1814,7 +1816,7 @@ export const deserializeAws_restJson1GetResourcePoliciesCommand = async (
     nextToken: undefined,
     resourcePolicies: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -1910,7 +1912,7 @@ export const deserializeAws_restJson1GetResponsePlanCommand = async (
     incidentTemplate: undefined,
     name: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.actions !== undefined && data.actions !== null) {
     contents.actions = deserializeAws_restJson1ActionsList(data.actions, context);
   }
@@ -2015,7 +2017,7 @@ export const deserializeAws_restJson1GetTimelineEventCommand = async (
     $metadata: deserializeMetadata(output),
     event: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.event !== undefined && data.event !== null) {
     contents.event = deserializeAws_restJson1TimelineEvent(data.event, context);
   }
@@ -2103,7 +2105,7 @@ export const deserializeAws_restJson1ListIncidentRecordsCommand = async (
     incidentRecordSummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.incidentRecordSummaries !== undefined && data.incidentRecordSummaries !== null) {
     contents.incidentRecordSummaries = deserializeAws_restJson1IncidentRecordSummaryList(
       data.incidentRecordSummaries,
@@ -2189,7 +2191,7 @@ export const deserializeAws_restJson1ListRelatedItemsCommand = async (
     nextToken: undefined,
     relatedItems: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2272,7 +2274,7 @@ export const deserializeAws_restJson1ListReplicationSetsCommand = async (
     nextToken: undefined,
     replicationSetArns: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2355,7 +2357,7 @@ export const deserializeAws_restJson1ListResponsePlansCommand = async (
     nextToken: undefined,
     responsePlanSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -2440,7 +2442,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
@@ -2528,7 +2530,7 @@ export const deserializeAws_restJson1ListTimelineEventsCommand = async (
     eventSummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.eventSummaries !== undefined && data.eventSummaries !== null) {
     contents.eventSummaries = deserializeAws_restJson1EventSummaryList(data.eventSummaries, context);
   }
@@ -2610,7 +2612,7 @@ export const deserializeAws_restJson1PutResourcePolicyCommand = async (
     $metadata: deserializeMetadata(output),
     policyId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.policyId !== undefined && data.policyId !== null) {
     contents.policyId = __expectString(data.policyId);
   }
@@ -2697,7 +2699,7 @@ export const deserializeAws_restJson1StartIncidentCommand = async (
     $metadata: deserializeMetadata(output),
     incidentRecordArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.incidentRecordArn !== undefined && data.incidentRecordArn !== null) {
     contents.incidentRecordArn = __expectString(data.incidentRecordArn);
   }

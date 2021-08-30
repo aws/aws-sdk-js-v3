@@ -148,6 +148,8 @@ import {
   expectByte as __expectByte,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
@@ -1803,7 +1805,7 @@ export const deserializeAws_restJson1DocumentTypeCommand = async (
     documentValue: undefined,
     stringValue: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.documentValue !== undefined && data.documentValue !== null) {
     contents.documentValue = deserializeAws_restJson1Document(data.documentValue, context);
   }
@@ -2142,7 +2144,7 @@ export const deserializeAws_restJson1HttpChecksumRequiredCommand = async (
     $metadata: deserializeMetadata(output),
     foo: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.foo !== undefined && data.foo !== null) {
     contents.foo = __expectString(data.foo);
   }
@@ -2332,7 +2334,7 @@ export const deserializeAws_restJson1HttpPayloadWithStructureCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: object | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restJson1NestedPayload(data, context);
   return Promise.resolve(contents);
 };
@@ -2749,7 +2751,7 @@ export const deserializeAws_restJson1IgnoreQueryParamsInResponseCommand = async 
     $metadata: deserializeMetadata(output),
     baz: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.baz !== undefined && data.baz !== null) {
     contents.baz = __expectString(data.baz);
   }
@@ -2909,7 +2911,7 @@ export const deserializeAws_restJson1JsonBlobsCommand = async (
     $metadata: deserializeMetadata(output),
     data: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.data !== undefined && data.data !== null) {
     contents.data = context.base64Decoder(data.data);
   }
@@ -2961,7 +2963,7 @@ export const deserializeAws_restJson1JsonEnumsCommand = async (
     fooEnumMap: undefined,
     fooEnumSet: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.fooEnum1 !== undefined && data.fooEnum1 !== null) {
     contents.fooEnum1 = __expectString(data.fooEnum1);
   }
@@ -3031,7 +3033,7 @@ export const deserializeAws_restJson1JsonListsCommand = async (
     structureList: undefined,
     timestampList: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.booleanList !== undefined && data.booleanList !== null) {
     contents.booleanList = deserializeAws_restJson1BooleanList(data.booleanList, context);
   }
@@ -3111,7 +3113,7 @@ export const deserializeAws_restJson1JsonMapsCommand = async (
     sparseStringMap: undefined,
     sparseStructMap: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.denseBooleanMap !== undefined && data.denseBooleanMap !== null) {
     contents.denseBooleanMap = deserializeAws_restJson1DenseBooleanMap(data.denseBooleanMap, context);
   }
@@ -3188,7 +3190,7 @@ export const deserializeAws_restJson1JsonTimestampsCommand = async (
     httpDate: undefined,
     normal: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dateTime !== undefined && data.dateTime !== null) {
     contents.dateTime = new Date(Math.round(data.dateTime * 1000));
   }
@@ -3244,7 +3246,7 @@ export const deserializeAws_restJson1JsonUnionsCommand = async (
     $metadata: deserializeMetadata(output),
     contents: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contents !== undefined && data.contents !== null) {
     contents.contents = deserializeAws_restJson1MyUnion(data.contents, context);
   }
@@ -3706,7 +3708,7 @@ export const deserializeAws_restJson1RecursiveShapesCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nested !== undefined && data.nested !== null) {
     contents.nested = deserializeAws_restJson1RecursiveShapesInputOutputNested1(data.nested, context);
   }
@@ -3765,7 +3767,7 @@ export const deserializeAws_restJson1SimpleScalarPropertiesCommand = async (
   if (output.headers["x-foo"] !== undefined) {
     contents.foo = output.headers["x-foo"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.byteValue !== undefined && data.byteValue !== null) {
     contents.byteValue = __expectByte(data.byteValue);
   }

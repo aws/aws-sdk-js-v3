@@ -42,6 +42,8 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -340,7 +342,7 @@ export const deserializeAws_restJson1CreateEventIntegrationCommand = async (
     $metadata: deserializeMetadata(output),
     EventIntegrationArn: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EventIntegrationArn !== undefined && data.EventIntegrationArn !== null) {
     contents.EventIntegrationArn = __expectString(data.EventIntegrationArn);
   }
@@ -523,7 +525,7 @@ export const deserializeAws_restJson1GetEventIntegrationCommand = async (
     Name: undefined,
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
@@ -626,7 +628,7 @@ export const deserializeAws_restJson1ListEventIntegrationAssociationsCommand = a
     EventIntegrationAssociations: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EventIntegrationAssociations !== undefined && data.EventIntegrationAssociations !== null) {
     contents.EventIntegrationAssociations = deserializeAws_restJson1EventIntegrationAssociationsList(
       data.EventIntegrationAssociations,
@@ -720,7 +722,7 @@ export const deserializeAws_restJson1ListEventIntegrationsCommand = async (
     EventIntegrations: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EventIntegrations !== undefined && data.EventIntegrations !== null) {
     contents.EventIntegrations = deserializeAws_restJson1EventIntegrationsList(data.EventIntegrations, context);
   }
@@ -802,7 +804,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }

@@ -117,6 +117,8 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   serializeFloat as __serializeFloat,
@@ -884,7 +886,7 @@ export const deserializeAws_restJson1BatchGetTracesCommand = async (
     Traces: undefined,
     UnprocessedTraceIds: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -953,7 +955,7 @@ export const deserializeAws_restJson1CreateGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Group: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1Group(data.Group, context);
   }
@@ -1016,7 +1018,7 @@ export const deserializeAws_restJson1CreateSamplingRuleCommand = async (
     $metadata: deserializeMetadata(output),
     SamplingRuleRecord: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.SamplingRuleRecord !== undefined && data.SamplingRuleRecord !== null) {
     contents.SamplingRuleRecord = deserializeAws_restJson1SamplingRuleRecord(data.SamplingRuleRecord, context);
   }
@@ -1146,7 +1148,7 @@ export const deserializeAws_restJson1DeleteSamplingRuleCommand = async (
     $metadata: deserializeMetadata(output),
     SamplingRuleRecord: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.SamplingRuleRecord !== undefined && data.SamplingRuleRecord !== null) {
     contents.SamplingRuleRecord = deserializeAws_restJson1SamplingRuleRecord(data.SamplingRuleRecord, context);
   }
@@ -1209,7 +1211,7 @@ export const deserializeAws_restJson1GetEncryptionConfigCommand = async (
     $metadata: deserializeMetadata(output),
     EncryptionConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EncryptionConfig !== undefined && data.EncryptionConfig !== null) {
     contents.EncryptionConfig = deserializeAws_restJson1EncryptionConfig(data.EncryptionConfig, context);
   }
@@ -1272,7 +1274,7 @@ export const deserializeAws_restJson1GetGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Group: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1Group(data.Group, context);
   }
@@ -1336,7 +1338,7 @@ export const deserializeAws_restJson1GetGroupsCommand = async (
     Groups: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Groups !== undefined && data.Groups !== null) {
     contents.Groups = deserializeAws_restJson1GroupSummaryList(data.Groups, context);
   }
@@ -1402,7 +1404,7 @@ export const deserializeAws_restJson1GetInsightCommand = async (
     $metadata: deserializeMetadata(output),
     Insight: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Insight !== undefined && data.Insight !== null) {
     contents.Insight = deserializeAws_restJson1Insight(data.Insight, context);
   }
@@ -1466,7 +1468,7 @@ export const deserializeAws_restJson1GetInsightEventsCommand = async (
     InsightEvents: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InsightEvents !== undefined && data.InsightEvents !== null) {
     contents.InsightEvents = deserializeAws_restJson1InsightEventList(data.InsightEvents, context);
   }
@@ -1538,7 +1540,7 @@ export const deserializeAws_restJson1GetInsightImpactGraphCommand = async (
     Services: undefined,
     StartTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EndTime !== undefined && data.EndTime !== null) {
     contents.EndTime = new Date(Math.round(data.EndTime * 1000));
   }
@@ -1620,7 +1622,7 @@ export const deserializeAws_restJson1GetInsightSummariesCommand = async (
     InsightSummaries: undefined,
     NextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InsightSummaries !== undefined && data.InsightSummaries !== null) {
     contents.InsightSummaries = deserializeAws_restJson1InsightSummaryList(data.InsightSummaries, context);
   }
@@ -1687,7 +1689,7 @@ export const deserializeAws_restJson1GetSamplingRulesCommand = async (
     NextToken: undefined,
     SamplingRuleRecords: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1754,7 +1756,7 @@ export const deserializeAws_restJson1GetSamplingStatisticSummariesCommand = asyn
     NextToken: undefined,
     SamplingStatisticSummaries: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -1825,7 +1827,7 @@ export const deserializeAws_restJson1GetSamplingTargetsCommand = async (
     SamplingTargetDocuments: undefined,
     UnprocessedStatistics: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LastRuleModification !== undefined && data.LastRuleModification !== null) {
     contents.LastRuleModification = new Date(Math.round(data.LastRuleModification * 1000));
   }
@@ -1904,7 +1906,7 @@ export const deserializeAws_restJson1GetServiceGraphCommand = async (
     Services: undefined,
     StartTime: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ContainsOldGroupVersions !== undefined && data.ContainsOldGroupVersions !== null) {
     contents.ContainsOldGroupVersions = __expectBoolean(data.ContainsOldGroupVersions);
   }
@@ -1981,7 +1983,7 @@ export const deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand = asy
     NextToken: undefined,
     TimeSeriesServiceStatistics: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ContainsOldGroupVersions !== undefined && data.ContainsOldGroupVersions !== null) {
     contents.ContainsOldGroupVersions = __expectBoolean(data.ContainsOldGroupVersions);
   }
@@ -2054,7 +2056,7 @@ export const deserializeAws_restJson1GetTraceGraphCommand = async (
     NextToken: undefined,
     Services: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -2123,7 +2125,7 @@ export const deserializeAws_restJson1GetTraceSummariesCommand = async (
     TraceSummaries: undefined,
     TracesProcessedCount: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApproximateTime !== undefined && data.ApproximateTime !== null) {
     contents.ApproximateTime = new Date(Math.round(data.ApproximateTime * 1000));
   }
@@ -2196,7 +2198,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     NextToken: undefined,
     Tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
   }
@@ -2270,7 +2272,7 @@ export const deserializeAws_restJson1PutEncryptionConfigCommand = async (
     $metadata: deserializeMetadata(output),
     EncryptionConfig: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EncryptionConfig !== undefined && data.EncryptionConfig !== null) {
     contents.EncryptionConfig = deserializeAws_restJson1EncryptionConfig(data.EncryptionConfig, context);
   }
@@ -2392,7 +2394,7 @@ export const deserializeAws_restJson1PutTraceSegmentsCommand = async (
     $metadata: deserializeMetadata(output),
     UnprocessedTraceSegments: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.UnprocessedTraceSegments !== undefined && data.UnprocessedTraceSegments !== null) {
     contents.UnprocessedTraceSegments = deserializeAws_restJson1UnprocessedTraceSegmentList(
       data.UnprocessedTraceSegments,
@@ -2600,7 +2602,7 @@ export const deserializeAws_restJson1UpdateGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Group: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Group !== undefined && data.Group !== null) {
     contents.Group = deserializeAws_restJson1Group(data.Group, context);
   }
@@ -2663,7 +2665,7 @@ export const deserializeAws_restJson1UpdateSamplingRuleCommand = async (
     $metadata: deserializeMetadata(output),
     SamplingRuleRecord: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.SamplingRuleRecord !== undefined && data.SamplingRuleRecord !== null) {
     contents.SamplingRuleRecord = deserializeAws_restJson1SamplingRuleRecord(data.SamplingRuleRecord, context);
   }

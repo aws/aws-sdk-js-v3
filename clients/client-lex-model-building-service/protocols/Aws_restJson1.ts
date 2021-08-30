@@ -119,6 +119,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
@@ -1655,7 +1657,7 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
     version: undefined,
     voiceId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.abortStatement !== undefined && data.abortStatement !== null) {
     contents.abortStatement = deserializeAws_restJson1Statement(data.abortStatement, context);
   }
@@ -1815,7 +1817,7 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
     slots: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = __expectString(data.checksum);
   }
@@ -1970,7 +1972,7 @@ export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
     valueSelectionStrategy: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = __expectString(data.checksum);
   }
@@ -2907,7 +2909,7 @@ export const deserializeAws_restJson1GetBotCommand = async (
     version: undefined,
     voiceId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.abortStatement !== undefined && data.abortStatement !== null) {
     contents.abortStatement = deserializeAws_restJson1Statement(data.abortStatement, context);
   }
@@ -3044,7 +3046,7 @@ export const deserializeAws_restJson1GetBotAliasCommand = async (
     lastUpdatedDate: undefined,
     name: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.botName !== undefined && data.botName !== null) {
     contents.botName = __expectString(data.botName);
   }
@@ -3145,7 +3147,7 @@ export const deserializeAws_restJson1GetBotAliasesCommand = async (
     BotAliases: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BotAliases !== undefined && data.BotAliases !== null) {
     contents.BotAliases = deserializeAws_restJson1BotAliasMetadataList(data.BotAliases, context);
   }
@@ -3227,7 +3229,7 @@ export const deserializeAws_restJson1GetBotChannelAssociationCommand = async (
     status: undefined,
     type: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.botAlias !== undefined && data.botAlias !== null) {
     contents.botAlias = __expectString(data.botAlias);
   }
@@ -3331,7 +3333,7 @@ export const deserializeAws_restJson1GetBotChannelAssociationsCommand = async (
     botChannelAssociations: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.botChannelAssociations !== undefined && data.botChannelAssociations !== null) {
     contents.botChannelAssociations = deserializeAws_restJson1BotChannelAssociationList(
       data.botChannelAssociations,
@@ -3409,7 +3411,7 @@ export const deserializeAws_restJson1GetBotsCommand = async (
     bots: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.bots !== undefined && data.bots !== null) {
     contents.bots = deserializeAws_restJson1BotMetadataList(data.bots, context);
   }
@@ -3492,7 +3494,7 @@ export const deserializeAws_restJson1GetBotVersionsCommand = async (
     bots: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.bots !== undefined && data.bots !== null) {
     contents.bots = deserializeAws_restJson1BotMetadataList(data.bots, context);
   }
@@ -3576,7 +3578,7 @@ export const deserializeAws_restJson1GetBuiltinIntentCommand = async (
     slots: undefined,
     supportedLocales: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.signature !== undefined && data.signature !== null) {
     contents.signature = __expectString(data.signature);
   }
@@ -3662,7 +3664,7 @@ export const deserializeAws_restJson1GetBuiltinIntentsCommand = async (
     intents: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1BuiltinIntentMetadataList(data.intents, context);
   }
@@ -3737,7 +3739,7 @@ export const deserializeAws_restJson1GetBuiltinSlotTypesCommand = async (
     nextToken: undefined,
     slotTypes: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -3817,7 +3819,7 @@ export const deserializeAws_restJson1GetExportCommand = async (
     url: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.exportStatus !== undefined && data.exportStatus !== null) {
     contents.exportStatus = __expectString(data.exportStatus);
   }
@@ -3920,7 +3922,7 @@ export const deserializeAws_restJson1GetImportCommand = async (
     name: undefined,
     resourceType: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
@@ -4034,7 +4036,7 @@ export const deserializeAws_restJson1GetIntentCommand = async (
     slots: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = __expectString(data.checksum);
   }
@@ -4165,7 +4167,7 @@ export const deserializeAws_restJson1GetIntentsCommand = async (
     intents: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1IntentMetadataList(data.intents, context);
   }
@@ -4248,7 +4250,7 @@ export const deserializeAws_restJson1GetIntentVersionsCommand = async (
     intents: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1IntentMetadataList(data.intents, context);
   }
@@ -4339,7 +4341,7 @@ export const deserializeAws_restJson1GetMigrationCommand = async (
     v2BotId: undefined,
     v2BotRole: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.alerts !== undefined && data.alerts !== null) {
     contents.alerts = deserializeAws_restJson1MigrationAlerts(data.alerts, context);
   }
@@ -4446,7 +4448,7 @@ export const deserializeAws_restJson1GetMigrationsCommand = async (
     migrationSummaries: undefined,
     nextToken: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.migrationSummaries !== undefined && data.migrationSummaries !== null) {
     contents.migrationSummaries = deserializeAws_restJson1MigrationSummaryList(data.migrationSummaries, context);
   }
@@ -4529,7 +4531,7 @@ export const deserializeAws_restJson1GetSlotTypeCommand = async (
     valueSelectionStrategy: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = __expectString(data.checksum);
   }
@@ -4639,7 +4641,7 @@ export const deserializeAws_restJson1GetSlotTypesCommand = async (
     nextToken: undefined,
     slotTypes: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -4722,7 +4724,7 @@ export const deserializeAws_restJson1GetSlotTypeVersionsCommand = async (
     nextToken: undefined,
     slotTypes: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
   }
@@ -4805,7 +4807,7 @@ export const deserializeAws_restJson1GetUtterancesViewCommand = async (
     botName: undefined,
     utterances: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.botName !== undefined && data.botName !== null) {
     contents.botName = __expectString(data.botName);
   }
@@ -4879,7 +4881,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagList(data.tags, context);
   }
@@ -4977,7 +4979,7 @@ export const deserializeAws_restJson1PutBotCommand = async (
     version: undefined,
     voiceId: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.abortStatement !== undefined && data.abortStatement !== null) {
     contents.abortStatement = deserializeAws_restJson1Statement(data.abortStatement, context);
   }
@@ -5129,7 +5131,7 @@ export const deserializeAws_restJson1PutBotAliasCommand = async (
     name: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.botName !== undefined && data.botName !== null) {
     contents.botName = __expectString(data.botName);
   }
@@ -5258,7 +5260,7 @@ export const deserializeAws_restJson1PutIntentCommand = async (
     slots: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = __expectString(data.checksum);
   }
@@ -5409,7 +5411,7 @@ export const deserializeAws_restJson1PutSlotTypeCommand = async (
     valueSelectionStrategy: undefined,
     version: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = __expectString(data.checksum);
   }
@@ -5535,7 +5537,7 @@ export const deserializeAws_restJson1StartImportCommand = async (
     resourceType: undefined,
     tags: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
@@ -5631,7 +5633,7 @@ export const deserializeAws_restJson1StartMigrationCommand = async (
     v2BotId: undefined,
     v2BotRole: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.migrationId !== undefined && data.migrationId !== null) {
     contents.migrationId = __expectString(data.migrationId);
   }

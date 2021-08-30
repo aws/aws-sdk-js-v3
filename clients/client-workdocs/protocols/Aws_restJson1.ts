@@ -142,6 +142,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
@@ -1750,7 +1752,7 @@ export const deserializeAws_restJson1ActivateUserCommand = async (
     $metadata: deserializeMetadata(output),
     User: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.User !== undefined && data.User !== null) {
     contents.User = deserializeAws_restJson1User(data.User, context);
   }
@@ -1837,7 +1839,7 @@ export const deserializeAws_restJson1AddResourcePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
     ShareResults: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ShareResults !== undefined && data.ShareResults !== null) {
     contents.ShareResults = deserializeAws_restJson1ShareResultsList(data.ShareResults, context);
   }
@@ -1916,7 +1918,7 @@ export const deserializeAws_restJson1CreateCommentCommand = async (
     $metadata: deserializeMetadata(output),
     Comment: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Comment !== undefined && data.Comment !== null) {
     contents.Comment = deserializeAws_restJson1Comment(data.Comment, context);
   }
@@ -2126,7 +2128,7 @@ export const deserializeAws_restJson1CreateFolderCommand = async (
     $metadata: deserializeMetadata(output),
     Metadata: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Metadata !== undefined && data.Metadata !== null) {
     contents.Metadata = deserializeAws_restJson1FolderMetadata(data.Metadata, context);
   }
@@ -2336,7 +2338,7 @@ export const deserializeAws_restJson1CreateNotificationSubscriptionCommand = asy
     $metadata: deserializeMetadata(output),
     Subscription: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Subscription !== undefined && data.Subscription !== null) {
     contents.Subscription = deserializeAws_restJson1Subscription(data.Subscription, context);
   }
@@ -2407,7 +2409,7 @@ export const deserializeAws_restJson1CreateUserCommand = async (
     $metadata: deserializeMetadata(output),
     User: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.User !== undefined && data.User !== null) {
     contents.User = deserializeAws_restJson1User(data.User, context);
   }
@@ -3322,7 +3324,7 @@ export const deserializeAws_restJson1DescribeActivitiesCommand = async (
     Marker: undefined,
     UserActivities: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = __expectString(data.Marker);
   }
@@ -3413,7 +3415,7 @@ export const deserializeAws_restJson1DescribeCommentsCommand = async (
     Comments: undefined,
     Marker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Comments !== undefined && data.Comments !== null) {
     contents.Comments = deserializeAws_restJson1CommentList(data.Comments, context);
   }
@@ -3512,7 +3514,7 @@ export const deserializeAws_restJson1DescribeDocumentVersionsCommand = async (
     DocumentVersions: undefined,
     Marker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DocumentVersions !== undefined && data.DocumentVersions !== null) {
     contents.DocumentVersions = deserializeAws_restJson1DocumentVersionMetadataList(data.DocumentVersions, context);
   }
@@ -3620,7 +3622,7 @@ export const deserializeAws_restJson1DescribeFolderContentsCommand = async (
     Folders: undefined,
     Marker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Documents !== undefined && data.Documents !== null) {
     contents.Documents = deserializeAws_restJson1DocumentMetadataList(data.Documents, context);
   }
@@ -3722,7 +3724,7 @@ export const deserializeAws_restJson1DescribeGroupsCommand = async (
     Groups: undefined,
     Marker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Groups !== undefined && data.Groups !== null) {
     contents.Groups = deserializeAws_restJson1GroupMetadataList(data.Groups, context);
   }
@@ -3805,7 +3807,7 @@ export const deserializeAws_restJson1DescribeNotificationSubscriptionsCommand = 
     Marker: undefined,
     Subscriptions: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = __expectString(data.Marker);
   }
@@ -3880,7 +3882,7 @@ export const deserializeAws_restJson1DescribeResourcePermissionsCommand = async 
     Marker: undefined,
     Principals: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = __expectString(data.Marker);
   }
@@ -3963,7 +3965,7 @@ export const deserializeAws_restJson1DescribeRootFoldersCommand = async (
     Folders: undefined,
     Marker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Folders !== undefined && data.Folders !== null) {
     contents.Folders = deserializeAws_restJson1FolderMetadataList(data.Folders, context);
   }
@@ -4055,7 +4057,7 @@ export const deserializeAws_restJson1DescribeUsersCommand = async (
     TotalNumberOfUsers: undefined,
     Users: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = __expectString(data.Marker);
   }
@@ -4164,7 +4166,7 @@ export const deserializeAws_restJson1GetCurrentUserCommand = async (
     $metadata: deserializeMetadata(output),
     User: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.User !== undefined && data.User !== null) {
     contents.User = deserializeAws_restJson1User(data.User, context);
   }
@@ -4252,7 +4254,7 @@ export const deserializeAws_restJson1GetDocumentCommand = async (
     CustomMetadata: undefined,
     Metadata: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CustomMetadata !== undefined && data.CustomMetadata !== null) {
     contents.CustomMetadata = deserializeAws_restJson1CustomMetadataMap(data.CustomMetadata, context);
   }
@@ -4358,7 +4360,7 @@ export const deserializeAws_restJson1GetDocumentPathCommand = async (
     $metadata: deserializeMetadata(output),
     Path: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Path !== undefined && data.Path !== null) {
     contents.Path = deserializeAws_restJson1ResourcePath(data.Path, context);
   }
@@ -4446,7 +4448,7 @@ export const deserializeAws_restJson1GetDocumentVersionCommand = async (
     CustomMetadata: undefined,
     Metadata: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CustomMetadata !== undefined && data.CustomMetadata !== null) {
     contents.CustomMetadata = deserializeAws_restJson1CustomMetadataMap(data.CustomMetadata, context);
   }
@@ -4553,7 +4555,7 @@ export const deserializeAws_restJson1GetFolderCommand = async (
     CustomMetadata: undefined,
     Metadata: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CustomMetadata !== undefined && data.CustomMetadata !== null) {
     contents.CustomMetadata = deserializeAws_restJson1CustomMetadataMap(data.CustomMetadata, context);
   }
@@ -4659,7 +4661,7 @@ export const deserializeAws_restJson1GetFolderPathCommand = async (
     $metadata: deserializeMetadata(output),
     Path: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Path !== undefined && data.Path !== null) {
     contents.Path = deserializeAws_restJson1ResourcePath(data.Path, context);
   }
@@ -4748,7 +4750,7 @@ export const deserializeAws_restJson1GetResourcesCommand = async (
     Folders: undefined,
     Marker: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Documents !== undefined && data.Documents !== null) {
     contents.Documents = deserializeAws_restJson1DocumentMetadataList(data.Documents, context);
   }
@@ -4842,7 +4844,7 @@ export const deserializeAws_restJson1InitiateDocumentVersionUploadCommand = asyn
     Metadata: undefined,
     UploadMetadata: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Metadata !== undefined && data.Metadata !== null) {
     contents.Metadata = deserializeAws_restJson1DocumentMetadata(data.Metadata, context);
   }
@@ -5483,7 +5485,7 @@ export const deserializeAws_restJson1UpdateUserCommand = async (
     $metadata: deserializeMetadata(output),
     User: undefined,
   };
-  const data: any = await parseBody(output.body, context);
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.User !== undefined && data.User !== null) {
     contents.User = deserializeAws_restJson1User(data.User, context);
   }
