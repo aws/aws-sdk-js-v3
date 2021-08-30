@@ -149,7 +149,9 @@ export const expectShort = (value: any): number | undefined => expectSizedInt(va
  */
 export const expectByte = (value: any): number | undefined => expectSizedInt(value, Int8Array);
 
-const expectSizedInt = (value: any, intArray: any): number | undefined => {
+type SizedIntArray = Int32ArrayConstructor | Int16ArrayConstructor | Int8ArrayConstructor;
+
+const expectSizedInt = (value: any, intArray: SizedIntArray): number | undefined => {
   const expected = expectLong(value);
   if (expected !== undefined && intArray.of(expected)[0] !== expected) {
     throw new TypeError(`Expected ${intArray.name.match(/\d+/)[0]}-bit integer, got ${value}`);
