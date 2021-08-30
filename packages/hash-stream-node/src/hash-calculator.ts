@@ -10,7 +10,7 @@ export class HashCalculator extends Writable {
     try {
       this.hash.update(chunk);
     } catch (err) {
-      return callback(err as Error);
+      return callback(err);
     }
     callback();
   }
