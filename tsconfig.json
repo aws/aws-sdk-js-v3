@@ -23,7 +23,8 @@
       "@aws-sdk/client-*": ["clients/client-*/"],
       "@aws-sdk/aws-*": ["protocol_tests/aws-*/"],
       "@aws-sdk/lib-*": ["lib/*"]
-    }
+    },
+    "useUnknownInCatchVariables": false
   },
   "include": ["packages/", "lib/"],
   "exclude": ["node_modules/", "**/*.spec.ts"],
