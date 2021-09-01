@@ -267,7 +267,7 @@ export const strictParseFloat32 = (value: string | number): number | undefined =
 // * Exponent indicated by a case-insensitive 'E' optionally followed by a
 //   positive/negative sign and some number of digits.
 // It also matches both positive and negative infinity as well and explicit NaN.
-const NUMBER_REGEX = /(-?((0(\.\d+)?)|(([1-9]\d*(\.\d)?)\d*)((e|E)(\+|-)?\d+)?))|(-?Infinity)|(NaN)/g;
+const NUMBER_REGEX = /(-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?)|(-?Infinity)|(NaN)/g;
 
 const parseNumber = (value: string): number => {
   const matches = value.match(NUMBER_REGEX);
