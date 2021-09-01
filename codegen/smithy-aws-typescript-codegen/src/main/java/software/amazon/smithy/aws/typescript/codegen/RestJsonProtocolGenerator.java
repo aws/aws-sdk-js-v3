@@ -287,7 +287,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
             writer.openBlock("if (data.$L !== undefined && data.$L !== null) {", "}", locationName, locationName,
                     () -> {
                 writer.write("contents.$L = $L;", memberName,
-                        target.accept(getMemberDeserVisitor(context, "data." + locationName)));
+                        target.accept(getMemberDeserVisitor(context, binding.getMember(), "data." + locationName)));
             });
         }
     }
@@ -338,12 +338,19 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         }
     }
 
-    private DocumentMemberDeserVisitor getMemberDeserVisitor(GenerationContext context, String dataSource) {
-        return new JsonMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());
+    private DocumentMemberDeserVisitor getMemberDeserVisitor(GenerationContext context,
+                                                             MemberShape memberShape,
+                                                             String dataSource) {
+        return new JsonMemberDeserVisitor(context, memberShape, dataSource, getDocumentTimestampFormat());
     }
 
     @Override
     public void generateProtocolTests(GenerationContext context) {
         AwsProtocolUtils.generateProtocolTests(this, context);
+    }
+
+    @Override
+    protected boolean requiresNumericEpochSecondsInPayload() {
+        return true;
     }
 }

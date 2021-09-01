@@ -355,4 +355,9 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     public void generateProtocolTests(GenerationContext context) {
         AwsProtocolUtils.generateProtocolTests(this, context);
     }
+
+    @Override
+    protected boolean requiresNumericEpochSecondsInPayload() {
+        return false;
+    }
 }

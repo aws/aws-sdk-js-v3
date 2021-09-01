@@ -24,6 +24,7 @@ import software.amazon.smithy.model.shapes.DoubleShape;
 import software.amazon.smithy.model.shapes.FloatShape;
 import software.amazon.smithy.model.shapes.IntegerShape;
 import software.amazon.smithy.model.shapes.LongShape;
+import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShortShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
@@ -47,8 +48,23 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
+    private final MemberShape memberShape;
+
     XmlMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+        this(context, null, dataSource, defaultTimestampFormat);
+    }
+
+    XmlMemberDeserVisitor(GenerationContext context,
+                          MemberShape memberShape,
+                          String dataSource,
+                          Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
+        this.memberShape = memberShape;
+    }
+
+    @Override
+    protected MemberShape getMemberShape() {
+        return memberShape;
     }
 
     @Override
