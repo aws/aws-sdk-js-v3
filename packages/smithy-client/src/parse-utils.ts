@@ -233,15 +233,8 @@ export const expectString = (value: any): string | undefined => {
  * @returns The value as a number, or undefined if it's null/undefined.
  */
 export const strictParseDouble = (value: string | number): number | undefined => {
-  if (value === "NaN") {
-    return NaN;
-  }
   if (typeof value == "string") {
-    const parsed: number = parseFloat(value);
-    if (Number.isNaN(parsed)) {
-      throw new TypeError(`Expected real number, got implicit NaN`);
-    }
-    return expectNumber(parsed);
+    return expectNumber(parseNumber(value));
   }
   return expectNumber(value);
 };
@@ -262,17 +255,26 @@ export const strictParseFloat = strictParseDouble;
  * @returns The value as a number, or undefined if it's null/undefined.
  */
 export const strictParseFloat32 = (value: string | number): number | undefined => {
-  if (value === "NaN") {
-    return NaN;
-  }
   if (typeof value == "string") {
-    const parsed: number = parseFloat(value);
-    if (Number.isNaN(parsed)) {
-      throw new TypeError(`Expected real number, got implicit NaN`);
-    }
-    return expectFloat32(parsed);
+    return expectFloat32(parseNumber(value));
   }
   return expectFloat32(value);
+};
+
+// This regex matches JSON-style numbers. In short:
+// * The integral may start with a negative sign, but not a positive one
+// * No leading 0 on the integral unless it's immediately followed by a '.'
+// * Exponent indicated by a case-insensitive 'E' optionally followed by a
+//   positive/negative sign and some number of digits.
+// It also matches both positive and negative infinity as well and explicit NaN.
+const NUMBER_REGEX = /(-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?)|(-?Infinity)|(NaN)/g;
+
+const parseNumber = (value: string): number => {
+  const matches = value.match(NUMBER_REGEX);
+  if (matches === null || matches[0].length !== value.length) {
+    throw new TypeError(`Expected real number, got implicit NaN`);
+  }
+  return parseFloat(value);
 };
 
 /**
@@ -346,7 +348,7 @@ export const strictParseLong = (value: string | number): number | undefined => {
   if (typeof value === "string") {
     // parseInt can't be used here, because it will silently discard any
     // existing decimals. We want to instead throw an error if there are any.
-    return expectLong(parseFloat(value));
+    return expectLong(parseNumber(value));
   }
   return expectLong(value);
 };
@@ -370,7 +372,7 @@ export const strictParseInt32 = (value: string | number): number | undefined => 
   if (typeof value === "string") {
     // parseInt can't be used here, because it will silently discard any
     // existing decimals. We want to instead throw an error if there are any.
-    return expectInt32(parseFloat(value));
+    return expectInt32(parseNumber(value));
   }
   return expectInt32(value);
 };
@@ -389,7 +391,7 @@ export const strictParseShort = (value: string | number): number | undefined => 
   if (typeof value === "string") {
     // parseInt can't be used here, because it will silently discard any
     // existing decimals. We want to instead throw an error if there are any.
-    return expectShort(parseFloat(value));
+    return expectShort(parseNumber(value));
   }
   return expectShort(value);
 };
@@ -408,7 +410,7 @@ export const strictParseByte = (value: string | number): number | undefined => {
   if (typeof value === "string") {
     // parseInt can't be used here, because it will silently discard any
     // existing decimals. We want to instead throw an error if there are any.
-    return expectByte(parseFloat(value));
+    return expectByte(parseNumber(value));
   }
   return expectByte(value);
 };

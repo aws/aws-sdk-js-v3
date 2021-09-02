@@ -320,13 +320,44 @@ describe("strictParseDouble", () => {
     expect(strictParseDouble("NaN")).toEqual(NaN);
   });
 
-  it("rejects implicit NaN", () => {
-    expect(() => strictParseDouble("foo")).toThrowError();
+  describe("rejects implicit NaN", () => {
+    it.each([
+      "foo",
+      "123ABC",
+      "ABC123",
+      "12AB3C",
+      "1.A",
+      "1.1A",
+      "1.1A1",
+      "0xFF",
+      "0XFF",
+      "0b1111",
+      "0B1111",
+      "0777",
+      "0o777",
+      "0O777",
+      "1n",
+      "1N",
+      "1_000",
+      "e",
+      "e1",
+      ".1",
+    ])("rejects %s", (value) => {
+      expect(() => strictParseDouble(value)).toThrowError();
+    });
   });
 
   it("accepts numeric strings", () => {
     expect(strictParseDouble("1")).toEqual(1);
+    expect(strictParseDouble("-1")).toEqual(-1);
     expect(strictParseDouble("1.1")).toEqual(1.1);
+    expect(strictParseDouble("1e1")).toEqual(10);
+    expect(strictParseDouble("-1e1")).toEqual(-10);
+    expect(strictParseDouble("1e+1")).toEqual(10);
+    expect(strictParseDouble("1e-1")).toEqual(0.1);
+    expect(strictParseDouble("1E1")).toEqual(10);
+    expect(strictParseDouble("1E+1")).toEqual(10);
+    expect(strictParseDouble("1E-1")).toEqual(0.1);
   });
 
   describe("accepts numbers", () => {
@@ -347,8 +378,31 @@ describe("strictParseFloat32", () => {
     expect(strictParseFloat32("NaN")).toEqual(NaN);
   });
 
-  it("rejects implicit NaN", () => {
-    expect(() => strictParseFloat32("foo")).toThrowError();
+  describe("rejects implicit NaN", () => {
+    it.each([
+      "foo",
+      "123ABC",
+      "ABC123",
+      "12AB3C",
+      "1.A",
+      "1.1A",
+      "1.1A1",
+      "0xFF",
+      "0XFF",
+      "0b1111",
+      "0B1111",
+      "0777",
+      "0o777",
+      "0O777",
+      "1n",
+      "1N",
+      "1_000",
+      "e",
+      "e1",
+      ".1",
+    ])("rejects %s", (value) => {
+      expect(() => strictParseFloat32(value)).toThrowError();
+    });
   });
 
   describe("rejects doubles", () => {
@@ -359,7 +413,15 @@ describe("strictParseFloat32", () => {
 
   it("accepts numeric strings", () => {
     expect(strictParseFloat32("1")).toEqual(1);
+    expect(strictParseFloat32("-1")).toEqual(-1);
     expect(strictParseFloat32("1.1")).toEqual(1.1);
+    expect(strictParseFloat32("1e1")).toEqual(10);
+    expect(strictParseFloat32("-1e1")).toEqual(-10);
+    expect(strictParseFloat32("1e+1")).toEqual(10);
+    expect(strictParseFloat32("1e-1")).toEqual(0.1);
+    expect(strictParseFloat32("1E1")).toEqual(10);
+    expect(strictParseFloat32("1E+1")).toEqual(10);
+    expect(strictParseFloat32("1E-1")).toEqual(0.1);
   });
 
   describe("accepts numbers", () => {
@@ -489,12 +551,26 @@ describe("strictParseLong", () => {
   });
 
   describe("rejects non-integers", () => {
-    it.each([1.1, "1.1", "NaN", "Infinity", "-Infinity", NaN, Infinity, -Infinity, true, false, [], {}])(
-      "rejects %s",
-      (value) => {
-        expect(() => strictParseLong(value as any)).toThrowError();
-      }
-    );
+    it.each([
+      1.1,
+      "1.1",
+      "NaN",
+      "Infinity",
+      "-Infinity",
+      NaN,
+      Infinity,
+      -Infinity,
+      true,
+      false,
+      [],
+      {},
+      "foo",
+      "123ABC",
+      "ABC123",
+      "12AB3C",
+    ])("rejects %s", (value) => {
+      expect(() => strictParseLong(value as any)).toThrowError();
+    });
   });
 });
 
@@ -530,6 +606,10 @@ describe("strictParseInt32", () => {
       -(2 ** 63 + 1),
       2 ** 31,
       -(2 ** 31 + 1),
+      "foo",
+      "123ABC",
+      "ABC123",
+      "12AB3C",
     ])("rejects %s", (value) => {
       expect(() => strictParseInt32(value as any)).toThrowError();
     });
@@ -570,6 +650,10 @@ describe("strictParseShort", () => {
       -(2 ** 31 + 1),
       2 ** 15,
       -(2 ** 15 + 1),
+      "foo",
+      "123ABC",
+      "ABC123",
+      "12AB3C",
     ])("rejects %s", (value) => {
       expect(() => strictParseShort(value as any)).toThrowError();
     });
@@ -612,6 +696,10 @@ describe("strictParseByte", () => {
       -(2 ** 15 + 1),
       128,
       -129,
+      "foo",
+      "123ABC",
+      "ABC123",
+      "12AB3C",
     ])("rejects %s", (value) => {
       expect(() => strictParseByte(value as any)).toThrowError();
     });
