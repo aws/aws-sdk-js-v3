@@ -6,6 +6,7 @@ import {
   expectNonNull,
   expectObject,
   expectShort,
+  expectUnion,
   limitedParseDouble,
   limitedParseFloat32,
   parseBoolean,
@@ -309,6 +310,27 @@ describe("expectString", () => {
   describe("rejects non-strings", () => {
     it.each([1, NaN, Infinity, -Infinity, true, false, [], {}])("rejects %s", (value) => {
       expect(() => expectString(value)).toThrowError();
+    });
+  });
+});
+
+describe("expectUnion", () => {
+  it.each([null, undefined])("accepts %s", (value) => {
+    expect(expectUnion(value)).toEqual(undefined);
+  });
+  describe("rejects non-objects", () => {
+    it.each([1, NaN, Infinity, -Infinity, true, false, [], "abc"])("%s", (value) => {
+      expect(() => expectUnion(value)).toThrowError();
+    });
+  });
+  describe("rejects malformed unions", () => {
+    it.each([{}, { a: null }, { a: undefined }, { a: 1, b: 2 }])("%s", (value) => {
+      expect(() => expectUnion(value)).toThrowError();
+    });
+  });
+  describe("accepts unions", () => {
+    it.each([{ a: 1 }, { a: 1, b: null }])("%s", (value) => {
+      expect(expectUnion(value)).toEqual(value);
     });
   });
 });
