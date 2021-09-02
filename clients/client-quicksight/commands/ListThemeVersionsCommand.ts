@@ -21,7 +21,7 @@ export interface ListThemeVersionsCommandInput extends ListThemeVersionsRequest 
 export interface ListThemeVersionsCommandOutput extends ListThemeVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the versions of the themes in the current Amazon Web Services account;.</p>
+ * <p>Lists all the versions of the themes in the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

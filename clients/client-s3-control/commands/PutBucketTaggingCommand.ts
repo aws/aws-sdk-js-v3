@@ -30,7 +30,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *          <p>Sets the tags for an S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this, sign up to get your
- *          account bill with tag key values included. Then, to see the cost of combined resources, organize your
+ *          Amazon Web Services account bill with tag key values included. Then, to see the cost of combined resources, organize your
  *          billing information according to resources with the same tag key values. For example, you can tag several
  *          resources with a specific application name, and then organize your billing information to see the total cost
  *          of that application across several services. For more information, see

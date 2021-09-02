@@ -2,6 +2,7 @@ import {
   AbortConfig,
   Action,
   ActiveViolation,
+  AggregationType,
   AlertTarget,
   AuditCheckConfiguration,
   AuditCheckDetails,
@@ -29,10 +30,10 @@ import {
   CustomMetricType,
   DayOfWeek,
   DimensionType,
+  FleetMetricUnit,
   JobExecutionsRolloutConfig,
   LogLevel,
   MetricToRetain,
-  MetricValue,
   MitigationActionParams,
   OTAUpdateFile,
   OTAUpdateStatus,
@@ -50,10 +51,144 @@ import {
   ThingTypeProperties,
   TimeoutConfig,
   TopicRuleDestination,
-  TopicRuleDestinationStatus,
-  ViolationEventAdditionalInfo,
 } from "./models_0";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+export interface DeleteStreamResponse {}
+
+export namespace DeleteStreamResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteStreamResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the DeleteThing operation.</p>
+ */
+export interface DeleteThingRequest {
+  /**
+   * <p>The name of the thing to delete.</p>
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The expected version of the thing record in the registry. If the version of the
+   * 			record in the registry does not match the expected version specified in the request, the
+   * 				<code>DeleteThing</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   */
+  expectedVersion?: number;
+}
+
+export namespace DeleteThingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteThingRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output of the DeleteThing operation.</p>
+ */
+export interface DeleteThingResponse {}
+
+export namespace DeleteThingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteThingResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteThingGroupRequest {
+  /**
+   * <p>The name of the thing group to delete.</p>
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   * <p>The expected version of the thing group to delete.</p>
+   */
+  expectedVersion?: number;
+}
+
+export namespace DeleteThingGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteThingGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteThingGroupResponse {}
+
+export namespace DeleteThingGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteThingGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the DeleteThingType operation.</p>
+ */
+export interface DeleteThingTypeRequest {
+  /**
+   * <p>The name of the thing type.</p>
+   */
+  thingTypeName: string | undefined;
+}
+
+export namespace DeleteThingTypeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteThingTypeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output for the DeleteThingType operation.</p>
+ */
+export interface DeleteThingTypeResponse {}
+
+export namespace DeleteThingTypeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteThingTypeResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the DeleteTopicRule operation.</p>
+ */
+export interface DeleteTopicRuleRequest {
+  /**
+   * <p>The name of the rule.</p>
+   */
+  ruleName: string | undefined;
+}
+
+export namespace DeleteTopicRuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTopicRuleRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DeleteTopicRuleDestinationRequest {
   /**
@@ -161,7 +296,7 @@ export namespace DescribeAccountAuditConfigurationRequest {
 
 export interface DescribeAccountAuditConfigurationResponse {
   /**
-   * <p>The ARN of the role that grants permission to AWS IoT to access information
+   * <p>The ARN of the role that grants permission to IoT to access information
    *             about your devices, policies, certificates, and other items as required when
    *             performing an audit.</p>
    *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
@@ -803,7 +938,7 @@ export enum CertificateStatus {
 }
 
 /**
- * <p>Data used to transfer a certificate to an AWS account.</p>
+ * <p>Data used to transfer a certificate to an Amazon Web Services account.</p>
  */
 export interface TransferData {
   /**
@@ -871,12 +1006,12 @@ export interface CertificateDescription {
   certificatePem?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the certificate.</p>
+   * <p>The ID of the Amazon Web Services account that owns the certificate.</p>
    */
   ownedBy?: string;
 
   /**
-   * <p>The ID of the AWS account of the previous owner of the certificate.</p>
+   * <p>The ID of the Amazon Web Services account of the previous owner of the certificate.</p>
    */
   previousOwnedBy?: string;
 
@@ -1473,14 +1608,14 @@ export interface DescribeEndpointRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>iot:CredentialProvider</code> - Returns an AWS IoT credentials provider API
+   *                   <code>iot:CredentialProvider</code> - Returns an IoT credentials provider API
    *                endpoint.</p>
    *             </li>
    *          </ul>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>iot:Jobs</code> - Returns an AWS IoT device management Jobs API
+   *                   <code>iot:Jobs</code> - Returns an IoT device management Jobs API
    *                endpoint.</p>
    *             </li>
    *          </ul>
@@ -1585,6 +1720,99 @@ export namespace DescribeEventConfigurationsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeEventConfigurationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetMetricRequest {
+  /**
+   * <p>The name of the fleet metric to describe.</p>
+   */
+  metricName: string | undefined;
+}
+
+export namespace DescribeFleetMetricRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetMetricRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFleetMetricResponse {
+  /**
+   * <p>The name of the fleet metric to describe.</p>
+   */
+  metricName?: string;
+
+  /**
+   * <p>The search query string.</p>
+   */
+  queryString?: string;
+
+  /**
+   * <p>The type of the aggregation query.</p>
+   */
+  aggregationType?: AggregationType;
+
+  /**
+   * <p>The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60.</p>
+   */
+  period?: number;
+
+  /**
+   * <p>The field to aggregate.</p>
+   */
+  aggregationField?: string;
+
+  /**
+   * <p>The fleet metric description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The query version.</p>
+   */
+  queryVersion?: string;
+
+  /**
+   * <p>The name of the index to search.</p>
+   */
+  indexName?: string;
+
+  /**
+   * <p>The date when the fleet metric is created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The date when the fleet metric is last modified.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
+   *       supported by <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
+   */
+  unit?: FleetMetricUnit | string;
+
+  /**
+   * <p>The version of the fleet metric.</p>
+   */
+  version?: number;
+
+  /**
+   * <p>The ARN of the fleet metric to describe.</p>
+   */
+  metricArn?: string;
+}
+
+export namespace DescribeFleetMetricResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFleetMetricResponse): any => ({
     ...obj,
   });
 }
@@ -1837,7 +2065,7 @@ export interface Job {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
+   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
    *         <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
@@ -2171,7 +2399,7 @@ export interface DescribeMitigationActionResponse {
   actionParams?: MitigationActionParams;
 
   /**
-   * <p>The date and time when the mitigation action was added to your AWS account.</p>
+   * <p>The date and time when the mitigation action was added to your Amazon Web Services accounts.</p>
    */
   creationDate?: Date;
 
@@ -2624,7 +2852,7 @@ export interface StreamInfo {
   lastUpdatedAt?: Date;
 
   /**
-   * <p>An IAM role AWS IoT assumes to access your S3 files.</p>
+   * <p>An IAM role IoT assumes to access your S3 files.</p>
    */
   roleArn?: string;
 }
@@ -2681,7 +2909,7 @@ export interface DescribeThingResponse {
    * <p>The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID.
    * 			Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or
    * 			shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.</p>
-   * 		       <p>This lets you better organize your AWS IoT fleet without removing the flexibility of the underlying device certificate model or shadows.</p>
+   * 		       <p>This lets you better organize your IoT fleet without removing the flexibility of the underlying device certificate model or shadows.</p>
    */
   defaultClientId?: string;
 
@@ -3336,6 +3564,130 @@ export namespace GetBehaviorModelTrainingSummariesResponse {
   });
 }
 
+/**
+ * <p>Performs an aggregation that will return a list of buckets. The list of buckets is a ranked list of the number of occurrences of an aggregation field value.</p>
+ */
+export interface TermsAggregation {
+  /**
+   * <p>The number of buckets to return in the response. Default to 10.</p>
+   */
+  maxBuckets?: number;
+}
+
+export namespace TermsAggregation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TermsAggregation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The type of bucketed aggregation performed.</p>
+ */
+export interface BucketsAggregationType {
+  /**
+   * <p>Performs an aggregation that will return a list of buckets. The list of buckets is a ranked list of the number of occurrences of an aggregation field value.</p>
+   */
+  termsAggregation?: TermsAggregation;
+}
+
+export namespace BucketsAggregationType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BucketsAggregationType): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBucketsAggregationRequest {
+  /**
+   * <p>The name of the index to search.</p>
+   */
+  indexName?: string;
+
+  /**
+   * <p>The search query string.</p>
+   */
+  queryString: string | undefined;
+
+  /**
+   * <p>The aggregation field.</p>
+   */
+  aggregationField: string | undefined;
+
+  /**
+   * <p>The version of the query.</p>
+   */
+  queryVersion?: string;
+
+  /**
+   * <p>The basic control of the response shape and the bucket aggregation type to perform. </p>
+   */
+  bucketsAggregationType: BucketsAggregationType | undefined;
+}
+
+export namespace GetBucketsAggregationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBucketsAggregationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A count of documents that meets a specific aggregation criteria.</p>
+ */
+export interface Bucket {
+  /**
+   * <p>The value counted for the particular bucket.</p>
+   */
+  keyValue?: string;
+
+  /**
+   * <p>The number of documents that have the value counted for the particular bucket.</p>
+   */
+  count?: number;
+}
+
+export namespace Bucket {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Bucket): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBucketsAggregationResponse {
+  /**
+   * <p>The total number of documents that fit the query string criteria and contain a value for
+   *       the Aggregation field targeted in the request.</p>
+   */
+  totalCount?: number;
+
+  /**
+   * <p>The main part of the response with a list of buckets. Each bucket contains a <code>keyValue</code> and a <code>count</code>.</p>
+   *          <p>
+   *             <code>keyValue</code>: The aggregation field value counted for the particular bucket.</p>
+   *          <p>
+   *             <code>count</code>: The number of documents that have that value.</p>
+   */
+  buckets?: Bucket[];
+}
+
+export namespace GetBucketsAggregationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBucketsAggregationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetCardinalityRequest {
   /**
    * <p>The name of the index to search.</p>
@@ -3343,7 +3695,7 @@ export interface GetCardinalityRequest {
   indexName?: string;
 
   /**
-   * <p>The search query.</p>
+   * <p>The search query string.</p>
    */
   queryString: string | undefined;
 
@@ -3379,45 +3731,6 @@ export namespace GetCardinalityResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetCardinalityResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The index is not ready.</p>
- */
-export interface IndexNotReadyException extends __SmithyException, $MetadataBearer {
-  name: "IndexNotReadyException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace IndexNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexNotReadyException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The aggregation is invalid.</p>
- */
-export interface InvalidAggregationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAggregationException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidAggregationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAggregationException): any => ({
     ...obj,
   });
 }
@@ -3520,7 +3833,7 @@ export interface Field {
   name?: string;
 
   /**
-   * <p>The datatype of the field.</p>
+   * <p>The data type of the field.</p>
    */
   type?: FieldType | string;
 }
@@ -3608,7 +3921,8 @@ export interface ThingIndexingConfiguration {
    *          <ul>
    *             <li>
    *                <p>STATUS – Your thing index contains connectivity status. To enable thing
-   *           connectivity indexing, thingIndexMode must not be set to OFF.</p>
+   *           connectivity indexing, <i>thingIndexMode</i> must not be set to
+   *           OFF.</p>
    *             </li>
    *             <li>
    *                <p>OFF - Thing connectivity status indexing is disabled.</p>
@@ -3840,12 +4154,12 @@ export interface OTAUpdateInfo {
   otaUpdateStatus?: OTAUpdateStatus | string;
 
   /**
-   * <p>The AWS IoT job ID associated with the OTA update.</p>
+   * <p>The IoT job ID associated with the OTA update.</p>
    */
   awsIotJobId?: string;
 
   /**
-   * <p>The AWS IoT job ARN associated with the OTA update.</p>
+   * <p>The IoT job ARN associated with the OTA update.</p>
    */
   awsIotJobArn?: string;
 
@@ -3892,7 +4206,7 @@ export interface GetPercentilesRequest {
   indexName?: string;
 
   /**
-   * <p>The query string.</p>
+   * <p>The search query string.</p>
    */
   queryString: string | undefined;
 
@@ -4148,7 +4462,7 @@ export interface GetStatisticsRequest {
 
   /**
    * <p>The query used to search. You can specify "*" for the query string to get the count of all
-   *       indexed things in your AWS account.</p>
+   *       indexed things in your Amazon Web Services account.</p>
    */
   queryString: string | undefined;
 
@@ -4387,7 +4701,7 @@ export namespace GetV2LoggingOptionsRequest {
 
 export interface GetV2LoggingOptionsResponse {
   /**
-   * <p>The IAM role ARN AWS IoT uses to write to your CloudWatch logs.</p>
+   * <p>The IAM role ARN IoT uses to write to your CloudWatch logs.</p>
    */
   roleArn?: string;
 
@@ -5067,7 +5381,7 @@ export namespace CACertificate {
  */
 export interface ListCACertificatesResponse {
   /**
-   * <p>The CA certificates registered in your AWS account.</p>
+   * <p>The CA certificates registered in your Amazon Web Services account.</p>
    */
   certificates?: CACertificate[];
 
@@ -5599,7 +5913,7 @@ export namespace ListDomainConfigurationsRequest {
 
 /**
  * <p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain.
- *          A domain configuration can be associated with an AWS-managed domain
+ *          A domain configuration can be associated with an Amazon Web Services-managed domain
  *          (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.</p>
  *          <ul>
  *             <li>
@@ -5656,6 +5970,74 @@ export namespace ListDomainConfigurationsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListDomainConfigurationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFleetMetricsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response;
+   *        otherwise <code>null</code> to receive the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListFleetMetricsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFleetMetricsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The name and ARN of a fleet metric.</p>
+ */
+export interface FleetMetricNameAndArn {
+  /**
+   * <p>The fleet metric name.</p>
+   */
+  metricName?: string;
+
+  /**
+   * <p>The fleet metric ARN.</p>
+   */
+  metricArn?: string;
+}
+
+export namespace FleetMetricNameAndArn {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FleetMetricNameAndArn): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFleetMetricsResponse {
+  /**
+   * <p>The list of fleet metrics objects.</p>
+   */
+  fleetMetrics?: FleetMetricNameAndArn[];
+
+  /**
+   * <p>The token for the next set of results. Will not be returned if the operation has returned
+   *       all results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListFleetMetricsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFleetMetricsResponse): any => ({
     ...obj,
   });
 }
@@ -5835,7 +6217,7 @@ export interface ListJobExecutionsForThingRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
+   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
    *         <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
@@ -5948,7 +6330,7 @@ export interface ListJobsRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
+   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
    *         <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
@@ -6322,7 +6704,7 @@ export interface OutgoingCertificate {
   certificateId?: string;
 
   /**
-   * <p>The AWS account to which the transfer was made.</p>
+   * <p>The Amazon Web Services account to which the transfer was made.</p>
    */
   transferredTo?: string;
 
@@ -7946,521 +8328,6 @@ export namespace ListThingTypesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListThingTypesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTopicRuleDestinationsRequest {
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   *          value from a previous response; otherwise <b>null</b> to receive
-   *          the first set of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListTopicRuleDestinationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTopicRuleDestinationsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about an HTTP URL destination.</p>
- */
-export interface HttpUrlDestinationSummary {
-  /**
-   * <p>The URL used to confirm ownership of or access to the HTTP topic rule destination
-   *          URL.</p>
-   */
-  confirmationUrl?: string;
-}
-
-export namespace HttpUrlDestinationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpUrlDestinationSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The summary of a virtual private cloud (VPC) destination.</p>
- */
-export interface VpcDestinationSummary {
-  /**
-   * <p>The subnet IDs of the VPC destination.</p>
-   */
-  subnetIds?: string[];
-
-  /**
-   * <p>The security groups of the VPC destination.</p>
-   */
-  securityGroups?: string[];
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  vpcId?: string;
-
-  /**
-   * <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
-   */
-  roleArn?: string;
-}
-
-export namespace VpcDestinationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcDestinationSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the topic rule destination.</p>
- */
-export interface TopicRuleDestinationSummary {
-  /**
-   * <p>The topic rule destination ARN.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The status of the topic rule destination. Valid values are:</p>
-   *          <dl>
-   *             <dt>IN_PROGRESS</dt>
-   *             <dd>
-   *                <p>A topic rule destination was created but has not been confirmed. You can set
-   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>. Calling
-   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
-   *                   be sent to your confirmation endpoint.</p>
-   *             </dd>
-   *             <dt>ENABLED</dt>
-   *             <dd>
-   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
-   *                   set <code>status</code> to <code>DISABLED</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>.</p>
-   *             </dd>
-   *             <dt>DISABLED</dt>
-   *             <dd>
-   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
-   *                   can set <code>status</code> to <code>ENABLED</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>.</p>
-   *             </dd>
-   *             <dt>ERROR</dt>
-   *             <dd>
-   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
-   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
-   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>. Calling
-   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
-   *                   be sent to your confirmation endpoint.</p>
-   *             </dd>
-   *          </dl>
-   */
-  status?: TopicRuleDestinationStatus | string;
-
-  /**
-   * <p>The date and time when the topic rule destination was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The date and time when the topic rule destination was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The reason the topic rule destination is in the current status.</p>
-   */
-  statusReason?: string;
-
-  /**
-   * <p>Information about the HTTP URL.</p>
-   */
-  httpUrlSummary?: HttpUrlDestinationSummary;
-
-  /**
-   * <p>Information about the virtual private cloud (VPC) connection.</p>
-   */
-  vpcDestinationSummary?: VpcDestinationSummary;
-}
-
-export namespace TopicRuleDestinationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TopicRuleDestinationSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTopicRuleDestinationsResponse {
-  /**
-   * <p>Information about a topic rule destination.</p>
-   */
-  destinationSummaries?: TopicRuleDestinationSummary[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListTopicRuleDestinationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTopicRuleDestinationsResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the ListTopicRules operation.</p>
- */
-export interface ListTopicRulesRequest {
-  /**
-   * <p>The topic.</p>
-   */
-  topic?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   *          value from a previous response; otherwise <b>null</b> to receive
-   *          the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>Specifies whether the rule is disabled.</p>
-   */
-  ruleDisabled?: boolean;
-}
-
-export namespace ListTopicRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTopicRulesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a rule.</p>
- */
-export interface TopicRuleListItem {
-  /**
-   * <p>The rule ARN.</p>
-   */
-  ruleArn?: string;
-
-  /**
-   * <p>The name of the rule.</p>
-   */
-  ruleName?: string;
-
-  /**
-   * <p>The pattern for the topic names that apply.</p>
-   */
-  topicPattern?: string;
-
-  /**
-   * <p>The date and time the rule was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>Specifies whether the rule is disabled.</p>
-   */
-  ruleDisabled?: boolean;
-}
-
-export namespace TopicRuleListItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TopicRuleListItem): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the ListTopicRules operation.</p>
- */
-export interface ListTopicRulesResponse {
-  /**
-   * <p>The rules.</p>
-   */
-  rules?: TopicRuleListItem[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListTopicRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTopicRulesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListV2LoggingLevelsRequest {
-  /**
-   * <p>The type of resource for which you are configuring logging. Must be
-   *             <code>THING_Group</code>.</p>
-   */
-  targetType?: LogTargetType | string;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   *          value from a previous response; otherwise <b>null</b> to receive
-   *          the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListV2LoggingLevelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListV2LoggingLevelsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A log target.</p>
- */
-export interface LogTarget {
-  /**
-   * <p>The target type.</p>
-   */
-  targetType: LogTargetType | string | undefined;
-
-  /**
-   * <p>The target name.</p>
-   */
-  targetName?: string;
-}
-
-export namespace LogTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogTarget): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The target configuration.</p>
- */
-export interface LogTargetConfiguration {
-  /**
-   * <p>A log target</p>
-   */
-  logTarget?: LogTarget;
-
-  /**
-   * <p>The logging level.</p>
-   */
-  logLevel?: LogLevel | string;
-}
-
-export namespace LogTargetConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogTargetConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export interface ListV2LoggingLevelsResponse {
-  /**
-   * <p>The logging configuration for a target.</p>
-   */
-  logTargetConfigurations?: LogTargetConfiguration[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListV2LoggingLevelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListV2LoggingLevelsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListViolationEventsRequest {
-  /**
-   * <p>The start time for the alerts to be listed.</p>
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>The end time for the alerts to be listed.</p>
-   */
-  endTime: Date | undefined;
-
-  /**
-   * <p>A filter to limit results to those alerts caused by the specified thing.</p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>A filter to limit results to those alerts generated by the specified security profile.</p>
-   */
-  securityProfileName?: string;
-
-  /**
-   * <p>
-   *       The criteria for a behavior.
-   *     </p>
-   */
-  behaviorCriteriaType?: BehaviorCriteriaType | string;
-
-  /**
-   * <p>
-   *       A list of all suppressed alerts.
-   *     </p>
-   */
-  listSuppressedAlerts?: boolean;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListViolationEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListViolationEventsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ViolationEventType {
-  ALARM_CLEARED = "alarm-cleared",
-  ALARM_INVALIDATED = "alarm-invalidated",
-  IN_ALARM = "in-alarm",
-}
-
-/**
- * <p>Information about a Device Defender security profile behavior violation.</p>
- */
-export interface ViolationEvent {
-  /**
-   * <p>The ID of the violation event.</p>
-   */
-  violationId?: string;
-
-  /**
-   * <p>The name of the thing responsible for the violation event.</p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>The name of the security profile whose behavior was violated.</p>
-   */
-  securityProfileName?: string;
-
-  /**
-   * <p>The behavior that was violated.</p>
-   */
-  behavior?: Behavior;
-
-  /**
-   * <p>The value of the metric (the measurement).</p>
-   */
-  metricValue?: MetricValue;
-
-  /**
-   * <p>
-   *             The details of a violation event.
-   *         </p>
-   */
-  violationEventAdditionalInfo?: ViolationEventAdditionalInfo;
-
-  /**
-   * <p>The type of violation event.</p>
-   */
-  violationEventType?: ViolationEventType | string;
-
-  /**
-   * <p>The time the violation event occurred.</p>
-   */
-  violationEventTime?: Date;
-}
-
-export namespace ViolationEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ViolationEvent): any => ({
-    ...obj,
-  });
-}
-
-export interface ListViolationEventsResponse {
-  /**
-   * <p>The security profile violation alerts issued for this account during the given time period,
-   *       potentially filtered by security profile, behavior violated, or thing (device) violating.</p>
-   */
-  violationEvents?: ViolationEvent[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListViolationEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListViolationEventsResponse): any => ({
     ...obj,
   });
 }

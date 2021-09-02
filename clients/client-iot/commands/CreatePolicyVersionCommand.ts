@@ -21,13 +21,14 @@ export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequ
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a
+ * <p>Creates a new version of the specified IoT policy. To update a policy, create a
  *          new policy version. A managed policy can have up to five versions. If the policy has five
  *          versions, you must use <a>DeletePolicyVersion</a> to delete an existing version
  *          before you create a new one.</p>
  *          <p>Optionally, you can set the new version as the policy's default version. The default
  *          version is the operative version (that is, the version that is in effect for the
  *          certificates to which the policy is attached).</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePolicyVersion</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -24,14 +24,14 @@ export interface GetDiscoveredResourceCountsCommandOutput
 
 /**
  * <p>Returns the resource types, the number of each resource type,
- * 			and the total number of resources that AWS Config is recording in
- * 			this region for your AWS account. </p>
+ * 			and the total number of resources that Config is recording in
+ * 			this region for your Amazon Web Services account. </p>
  * 		       <p class="title">
  *             <b>Example</b>
  *          </p>
  *          <ol>
  *             <li>
- * 				           <p>AWS Config is recording three resource types in the US
+ * 				           <p>Config is recording three resource types in the US
  * 					East (Ohio) Region for your account: 25 EC2 instances, 20
  * 					IAM users, and 15 S3 buckets.</p>
  * 			         </li>
@@ -41,7 +41,7 @@ export interface GetDiscoveredResourceCountsCommandOutput
  * 					specify that you want all resource types. </p>
  * 			         </li>
  *             <li>
- * 				           <p>AWS Config returns the following:</p>
+ * 				           <p>Config returns the following:</p>
  *
  * 				           <ul>
  *                   <li>
@@ -61,7 +61,7 @@ export interface GetDiscoveredResourceCountsCommandOutput
  * 			         </li>
  *          </ol>
  *
- * 		       <p>The response is paginated. By default, AWS Config lists 100
+ * 		       <p>The response is paginated. By default, Config lists 100
  * 				<a>ResourceCount</a> objects on each page. You can
  * 			customize this number with the <code>limit</code> parameter. The
  * 			response includes a <code>nextToken</code> string. To get the next
@@ -75,14 +75,14 @@ export interface GetDiscoveredResourceCountsCommandOutput
  *
  * 			         <ul>
  *                <li>
- * 					             <p>You are a new AWS Config customer.</p>
+ * 					             <p>You are a new Config customer.</p>
  * 				           </li>
  *                <li>
  * 					             <p>You just enabled resource recording.</p>
  * 				           </li>
  *             </ul>
  *
- * 			         <p>It might take a few minutes for AWS Config to record and
+ * 			         <p>It might take a few minutes for Config to record and
  * 				count your resources. Wait a few minutes and then retry the
  * 					<a>GetDiscoveredResourceCounts</a> action.
  * 			</p>

@@ -25,8 +25,9 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  *          public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a
  *          device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p>
  *          <p>
- *             <b>Note</b> This is the only time AWS IoT issues the private key
+ *             <b>Note</b> This is the only time IoT issues the private key
  *          for this certificate, so it is important to keep it in a secure location.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateKeysAndCertificate</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

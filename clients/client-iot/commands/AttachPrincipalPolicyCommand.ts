@@ -26,7 +26,8 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * <p>Attaches the specified policy to the specified principal (certificate or other
  *          credential).</p>
  *          <p>
- *             <b>Note:</b> This API is deprecated. Please use <a>AttachPolicy</a> instead.</p>
+ *             <b>Note:</b> This action is deprecated. Please use <a>AttachPolicy</a> instead.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -24,12 +24,12 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  * <p>Creates Amazon QuickSight customizations the current Amazon Web Services Region;. Currently, you can
  *             add a custom default theme by using the <code>CreateAccountCustomization</code> or
  *                 <code>UpdateAccountCustomization</code> API operation. To further customize
- *             QuickSight by removing QuickSight sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing QuickSight</a> in the <i>Amazon QuickSight User
+ *             Amazon QuickSight by removing Amazon QuickSight sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing Amazon QuickSight</a> in the <i>Amazon QuickSight User
  *                 Guide.</i>
  *          </p>
- *         <p>You can create customizations for your Amazon Web Services account; or, if you specify a namespace, for
- *             a QuickSight namespace instead. Customizations that apply to a namespace always override
- *             customizations that apply to an Amazon Web Services account;. To find out which customizations apply, use
+ *         <p>You can create customizations for your Amazon Web Services account or, if you specify a namespace, for
+ *             a Amazon QuickSight namespace instead. Customizations that apply to a namespace always override
+ *             customizations that apply to an Amazon Web Services account. To find out which customizations apply, use
  *             the <code>DescribeAccountCustomization</code> API operation.</p>
  *         <p>Before you use the <code>CreateAccountCustomization</code> API operation to add a theme
  *             as the namespace default, make sure that you first share the theme with the namespace.

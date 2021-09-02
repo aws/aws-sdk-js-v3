@@ -21,9 +21,9 @@ export interface PutEvaluationsCommandInput extends PutEvaluationsRequest {}
 export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __MetadataBearer {}
 
 /**
- * <p>Used by an AWS Lambda function to deliver evaluation results to
- * 			AWS Config. This action is required in every AWS Lambda function
- * 			that is invoked by an AWS Config rule.</p>
+ * <p>Used by an Lambda function to deliver evaluation results to
+ * 			Config. This action is required in every Lambda function
+ * 			that is invoked by an Config rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

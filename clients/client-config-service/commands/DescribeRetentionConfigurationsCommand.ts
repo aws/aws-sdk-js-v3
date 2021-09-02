@@ -28,7 +28,7 @@ export interface DescribeRetentionConfigurationsCommandOutput
  * 			returns the details for all the retention configurations for that
  * 			account.</p>
  * 		       <note>
- * 			         <p>Currently, AWS Config supports only one retention
+ * 			         <p>Currently, Config supports only one retention
  * 				configuration per region in your account.</p>
  * 		       </note>
  * @example

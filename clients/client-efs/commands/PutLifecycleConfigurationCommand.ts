@@ -24,7 +24,9 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * <p>Enables lifecycle management by creating a new <code>LifecycleConfiguration</code>
  *       object. A <code>LifecycleConfiguration</code> object defines when files in an Amazon EFS file
  *       system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class.
- *       A <code>LifecycleConfiguration</code> applies to all files in a file system.</p>
+ *       To enable EFS Intelligent Tiering, set the value of <code>TransitionToPrimaryStorageClass</code> to <code>AFTER_1_ACCESS</code>.
+ *       For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS Lifecycle Management</a>.</p>
+ *          <p>A <code>LifecycleConfiguration</code> applies to all files in a file system.</p>
  *          <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to all files in the file system. If a
  *         <code>LifecycleConfiguration</code> object already exists for the specified file system, a
  *         <code>PutLifecycleConfiguration</code> call modifies the existing configuration. A
@@ -48,7 +50,7 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *          <p>This operation requires permissions for the
  *         <code>elasticfilesystem:PutLifecycleConfiguration</code> operation.</p>
  *          <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you
- *       need the same AWS Key Management Service (AWS KMS) permissions as when you created the encrypted
+ *       need the same Key Management Service permissions as when you created the encrypted
  *       file system. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -117,6 +117,7 @@ import {
   LockoutPreventedException,
   MalformedCSRException,
   MalformedCertificateException,
+  OcspConfiguration,
   OtherName,
   Permission,
   PermissionAlreadyExistsException,
@@ -3058,6 +3059,14 @@ const serializeAws_json1_1ListTagsRequest = (input: ListTagsRequest, context: __
   };
 };
 
+const serializeAws_json1_1OcspConfiguration = (input: OcspConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.OcspCustomCname !== undefined &&
+      input.OcspCustomCname !== null && { OcspCustomCname: input.OcspCustomCname }),
+  };
+};
+
 const serializeAws_json1_1OtherName = (input: OtherName, context: __SerdeContext): any => {
   return {
     ...(input.TypeId !== undefined && input.TypeId !== null && { TypeId: input.TypeId }),
@@ -3123,6 +3132,10 @@ const serializeAws_json1_1RevocationConfiguration = (input: RevocationConfigurat
     ...(input.CrlConfiguration !== undefined &&
       input.CrlConfiguration !== null && {
         CrlConfiguration: serializeAws_json1_1CrlConfiguration(input.CrlConfiguration, context),
+      }),
+    ...(input.OcspConfiguration !== undefined &&
+      input.OcspConfiguration !== null && {
+        OcspConfiguration: serializeAws_json1_1OcspConfiguration(input.OcspConfiguration, context),
       }),
   };
 };
@@ -3618,6 +3631,13 @@ const deserializeAws_json1_1MalformedCSRException = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1OcspConfiguration = (output: any, context: __SerdeContext): OcspConfiguration => {
+  return {
+    Enabled: __expectBoolean(output.Enabled),
+    OcspCustomCname: __expectString(output.OcspCustomCname),
+  } as any;
+};
+
 const deserializeAws_json1_1OtherName = (output: any, context: __SerdeContext): OtherName => {
   return {
     TypeId: __expectString(output.TypeId),
@@ -3703,6 +3723,10 @@ const deserializeAws_json1_1RevocationConfiguration = (
     CrlConfiguration:
       output.CrlConfiguration !== undefined && output.CrlConfiguration !== null
         ? deserializeAws_json1_1CrlConfiguration(output.CrlConfiguration, context)
+        : undefined,
+    OcspConfiguration:
+      output.OcspConfiguration !== undefined && output.OcspConfiguration !== null
+        ? deserializeAws_json1_1OcspConfiguration(output.OcspConfiguration, context)
         : undefined,
   } as any;
 };

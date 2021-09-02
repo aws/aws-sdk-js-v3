@@ -21,7 +21,8 @@ export interface ListProvisioningTemplatesCommandInput extends ListProvisioningT
 export interface ListProvisioningTemplatesCommandOutput extends ListProvisioningTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the fleet provisioning templates in your AWS account.</p>
+ * <p>Lists the fleet provisioning templates in your Amazon Web Services account.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

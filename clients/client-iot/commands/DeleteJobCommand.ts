@@ -29,6 +29,7 @@ export interface DeleteJobCommandOutput extends __MetadataBearer {}
  *         is already "DELETION_IN_PROGRESS" will result in an error.</p>
  *          <p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
  *         a LimitExceededException will occur.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJob</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

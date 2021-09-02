@@ -21,27 +21,27 @@ export interface UpdateAliasCommandInput extends UpdateAliasRequest {}
 export interface UpdateAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates an existing AWS KMS alias with a different customer master key (CMK). Each alias
- *       is associated with only one CMK at a time, although a CMK can have multiple aliases. The alias
- *       and the CMK must be in the same AWS account and Region.</p>
+ * <p>Associates an existing KMS alias with a different KMS key. Each alias
+ *       is associated with only one KMS key at a time, although a KMS key can have multiple aliases. The alias
+ *       and the KMS key must be in the same Amazon Web Services account and Region.</p>
  *          <note>
- *             <p>Adding, deleting, or updating an alias can allow or deny permission to the CMK. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          </note>
- *          <p>The current and new CMK must be the same type (both symmetric or both asymmetric), and
+ *          <p>The current and new KMS key must be the same type (both symmetric or both asymmetric), and
  *       they must have the same key usage (<code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>).
  *       This restriction prevents errors in code that uses aliases. If you must assign an alias to a
- *       different type of CMK, use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to create a new alias.</p>
+ *       different type of KMS key, use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to create a new alias.</p>
  *          <p>You cannot use <code>UpdateAlias</code> to change an alias name. To change an alias name,
  *       use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to
  *       create a new alias.</p>
- *          <p>Because an alias is not a property of a CMK, you can create, update, and delete the
- *       aliases of a CMK without affecting the CMK. Also, aliases do not appear in the response from
- *       the <a>DescribeKey</a> operation. To get the aliases of all CMKs in the account,
+ *          <p>Because an alias is not a property of a KMS key, you can create, update, and delete the
+ *       aliases of a KMS key without affecting the KMS key. Also, aliases do not appear in the response from
+ *       the <a>DescribeKey</a> operation. To get the aliases of all KMS keys in the account,
  *       use the <a>ListAliases</a> operation. </p>
- *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>The KMS key that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account. </p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account. </p>
  *          <p>
  *             <b>Required permissions</b>
  *          </p>
@@ -52,14 +52,14 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UpdateAlias</a> on the current CMK (key policy).</p>
+ *                   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UpdateAlias</a> on the current KMS key (key policy).</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UpdateAlias</a> on the new CMK (key policy).</p>
+ *                   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UpdateAlias</a> on the new KMS key (key policy).</p>
  *             </li>
  *          </ul>
- *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling access to aliases</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling access to aliases</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>

@@ -26,8 +26,8 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  *          <ul>
  *             <li>
  *                <p>[Self-managed permissions] If you set the <code>CallAs</code> parameter to
- *                   <code>SELF</code> while signed in to your account,
- *                   <code>ListStackSets</code> returns all self-managed stack sets in your account.</p>
+ *                   <code>SELF</code> while signed in to your Amazon Web Services account,
+ *                   <code>ListStackSets</code> returns all self-managed stack sets in your Amazon Web Services account.</p>
  *             </li>
  *             <li>
  *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to

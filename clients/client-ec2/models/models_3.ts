@@ -91,6 +91,24 @@ import {
   VirtualizationType,
 } from "./models_2";
 
+export interface DescribeInstanceEventNotificationAttributesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeInstanceEventNotificationAttributesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstanceEventNotificationAttributesRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeInstanceEventNotificationAttributesResult {
   /**
    * <p>Information about the registered tag keys.</p>
@@ -13051,28 +13069,6 @@ export namespace VolumeStatusItem {
    * @internal
    */
   export const filterSensitiveLog = (obj: VolumeStatusItem): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVolumeStatusResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *       when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the status of the volumes.</p>
-   */
-  VolumeStatuses?: VolumeStatusItem[];
-}
-
-export namespace DescribeVolumeStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVolumeStatusResult): any => ({
     ...obj,
   });
 }

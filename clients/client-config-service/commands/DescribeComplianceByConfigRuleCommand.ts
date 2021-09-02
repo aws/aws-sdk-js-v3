@@ -23,34 +23,34 @@ export interface DescribeComplianceByConfigRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Indicates whether the specified AWS Config rules are compliant.
- * 			If a rule is noncompliant, this action returns the number of AWS
+ * <p>Indicates whether the specified Config rules are compliant.
+ * 			If a rule is noncompliant, this action returns the number of Amazon Web Services
  * 			resources that do not comply with the rule.</p>
  * 		       <p>A rule is compliant if all of the evaluated resources comply
  * 			with it. It is noncompliant if any of these resources do not
  * 			comply.</p>
- * 		       <p>If AWS Config has no current evaluation results for the rule,
+ * 		       <p>If Config has no current evaluation results for the rule,
  * 			it returns <code>INSUFFICIENT_DATA</code>. This result might
  * 			indicate one of the following conditions:</p>
  * 		       <ul>
  *             <li>
- * 				           <p>AWS Config has never invoked an evaluation for the
+ * 				           <p>Config has never invoked an evaluation for the
  * 					rule. To check whether it has, use the
  * 						<code>DescribeConfigRuleEvaluationStatus</code> action
  * 					to get the <code>LastSuccessfulInvocationTime</code> and
  * 						<code>LastFailedInvocationTime</code>.</p>
  * 			         </li>
  *             <li>
- * 				           <p>The rule's AWS Lambda function is failing to send
- * 					evaluation results to AWS Config. Verify that the role you
+ * 				           <p>The rule's Lambda function is failing to send
+ * 					evaluation results to Config. Verify that the role you
  * 					assigned to your configuration recorder includes the
  * 						<code>config:PutEvaluations</code> permission. If the
- * 					rule is a custom rule, verify that the AWS Lambda execution
+ * 					rule is a custom rule, verify that the Lambda execution
  * 					role includes the <code>config:PutEvaluations</code>
  * 					permission.</p>
  * 			         </li>
  *             <li>
- * 				           <p>The rule's AWS Lambda function has returned
+ * 				           <p>The rule's Lambda function has returned
  * 						<code>NOT_APPLICABLE</code> for all evaluation results.
  * 					This can occur if the resources were deleted or removed from
  * 					the rule's scope.</p>

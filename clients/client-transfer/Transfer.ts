@@ -11,6 +11,11 @@ import {
 } from "./commands/CreateServerCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  CreateWorkflowCommand,
+  CreateWorkflowCommandInput,
+  CreateWorkflowCommandOutput,
+} from "./commands/CreateWorkflowCommand";
+import {
   DeleteAccessCommand,
   DeleteAccessCommandInput,
   DeleteAccessCommandOutput,
@@ -27,10 +32,20 @@ import {
 } from "./commands/DeleteSshPublicKeyCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  DeleteWorkflowCommand,
+  DeleteWorkflowCommandInput,
+  DeleteWorkflowCommandOutput,
+} from "./commands/DeleteWorkflowCommand";
+import {
   DescribeAccessCommand,
   DescribeAccessCommandInput,
   DescribeAccessCommandOutput,
 } from "./commands/DescribeAccessCommand";
+import {
+  DescribeExecutionCommand,
+  DescribeExecutionCommandInput,
+  DescribeExecutionCommandOutput,
+} from "./commands/DescribeExecutionCommand";
 import {
   DescribeSecurityPolicyCommand,
   DescribeSecurityPolicyCommandInput,
@@ -47,6 +62,11 @@ import {
   DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand";
 import {
+  DescribeWorkflowCommand,
+  DescribeWorkflowCommandInput,
+  DescribeWorkflowCommandOutput,
+} from "./commands/DescribeWorkflowCommand";
+import {
   ImportSshPublicKeyCommand,
   ImportSshPublicKeyCommandInput,
   ImportSshPublicKeyCommandOutput,
@@ -56,6 +76,11 @@ import {
   ListAccessesCommandInput,
   ListAccessesCommandOutput,
 } from "./commands/ListAccessesCommand";
+import {
+  ListExecutionsCommand,
+  ListExecutionsCommandInput,
+  ListExecutionsCommandOutput,
+} from "./commands/ListExecutionsCommand";
 import {
   ListSecurityPoliciesCommand,
   ListSecurityPoliciesCommandInput,
@@ -68,6 +93,16 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import {
+  ListWorkflowsCommand,
+  ListWorkflowsCommandInput,
+  ListWorkflowsCommandOutput,
+} from "./commands/ListWorkflowsCommand";
+import {
+  SendWorkflowStepStateCommand,
+  SendWorkflowStepStateCommandInput,
+  SendWorkflowStepStateCommandOutput,
+} from "./commands/SendWorkflowStepStateCommand";
 import { StartServerCommand, StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
 import { StopServerCommand, StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -178,7 +213,7 @@ export class Transfer extends TransferClient {
    *         <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for
    *         <code>CreateUser</code>, you can specify the user name, set the home directory, store the
    *       user's public key, and assign the user's Amazon Web Services Identity and Access Management (IAM)
-   *       role. You can also optionally add a scope-down policy, and assign metadata with tags that can
+   *       role. You can also optionally add a session policy, and assign metadata with tags that can
    *       be used to group and search for users.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
@@ -194,6 +229,41 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Allows you to create a workflow with specified steps and step details the workflow invokes after file transfer completes.
+   *       After creating a workflow, you can associate the workflow created with any transfer servers by specifying the <code>workflow-details</code> field in <code>CreateServer</code> and <code>UpdateServer</code> operations.
+   *     </p>
+   */
+  public createWorkflow(
+    args: CreateWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkflowCommandOutput>;
+  public createWorkflow(
+    args: CreateWorkflowCommandInput,
+    cb: (err: any, data?: CreateWorkflowCommandOutput) => void
+  ): void;
+  public createWorkflow(
+    args: CreateWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkflowCommandOutput) => void
+  ): void;
+  public createWorkflow(
+    args: CreateWorkflowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkflowCommandOutput) => void),
+    cb?: (err: any, data?: CreateWorkflowCommandOutput) => void
+  ): Promise<CreateWorkflowCommandOutput> | void {
+    const command = new CreateWorkflowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -267,8 +337,6 @@ export class Transfer extends TransferClient {
 
   /**
    * <p>Deletes a user's Secure Shell (SSH) public key.</p>
-   *
-   *          <p>No response is returned from this operation.</p>
    */
   public deleteSshPublicKey(
     args: DeleteSshPublicKeyCommandInput,
@@ -332,6 +400,38 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Deletes the specified workflow.</p>
+   */
+  public deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkflowCommandOutput>;
+  public deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
+  public deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
+  public deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkflowCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): Promise<DeleteWorkflowCommandOutput> | void {
+    const command = new DeleteWorkflowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
    *       server, as identified by its <code>ServerId</code> property and its
    *       <code>ExternalID</code>.</p>
@@ -358,6 +458,38 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: DescribeAccessCommandOutput) => void
   ): Promise<DescribeAccessCommandOutput> | void {
     const command = new DescribeAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>You can use <code>DescribeExecution</code> to check the details of the execution of the specified workflow.</p>
+   */
+  public describeExecution(
+    args: DescribeExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExecutionCommandOutput>;
+  public describeExecution(
+    args: DescribeExecutionCommandInput,
+    cb: (err: any, data?: DescribeExecutionCommandOutput) => void
+  ): void;
+  public describeExecution(
+    args: DescribeExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExecutionCommandOutput) => void
+  ): void;
+  public describeExecution(
+    args: DescribeExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExecutionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeExecutionCommandOutput) => void
+  ): Promise<DescribeExecutionCommandOutput> | void {
+    const command = new DescribeExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -474,6 +606,38 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Describes the specified workflow.</p>
+   */
+  public describeWorkflow(
+    args: DescribeWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkflowCommandOutput>;
+  public describeWorkflow(
+    args: DescribeWorkflowCommandInput,
+    cb: (err: any, data?: DescribeWorkflowCommandOutput) => void
+  ): void;
+  public describeWorkflow(
+    args: DescribeWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkflowCommandOutput) => void
+  ): void;
+  public describeWorkflow(
+    args: DescribeWorkflowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkflowCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWorkflowCommandOutput) => void
+  ): Promise<DescribeWorkflowCommandOutput> | void {
+    const command = new DescribeWorkflowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
    *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
    *       identified by <code>ServerId</code>.</p>
@@ -529,6 +693,38 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: ListAccessesCommandOutput) => void
   ): Promise<ListAccessesCommandOutput> | void {
     const command = new ListAccessesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all executions for the specified workflow.</p>
+   */
+  public listExecutions(
+    args: ListExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExecutionsCommandOutput>;
+  public listExecutions(
+    args: ListExecutionsCommandInput,
+    cb: (err: any, data?: ListExecutionsCommandOutput) => void
+  ): void;
+  public listExecutions(
+    args: ListExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExecutionsCommandOutput) => void
+  ): void;
+  public listExecutions(
+    args: ListExecutionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: ListExecutionsCommandOutput) => void
+  ): Promise<ListExecutionsCommandOutput> | void {
+    const command = new ListExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -660,6 +856,74 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Lists all of your workflows.</p>
+   */
+  public listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowsCommandOutput>;
+  public listWorkflows(
+    args: ListWorkflowsCommandInput,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
+  public listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
+  public listWorkflows(
+    args: ListWorkflowsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkflowsCommandOutput) => void),
+    cb?: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): Promise<ListWorkflowsCommandOutput> | void {
+    const command = new ListWorkflowsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sends a callback for asynchronous custom steps.</p>
+   *          <p>
+   *       The <code>ExecutionId</code>, <code>WorkflowId</code>, and <code>Token</code> are passed to the target resource during execution of a custom step of a workflow.
+   *       You must include those with their callback as well as providing a status.
+   *     </p>
+   */
+  public sendWorkflowStepState(
+    args: SendWorkflowStepStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendWorkflowStepStateCommandOutput>;
+  public sendWorkflowStepState(
+    args: SendWorkflowStepStateCommandInput,
+    cb: (err: any, data?: SendWorkflowStepStateCommandOutput) => void
+  ): void;
+  public sendWorkflowStepState(
+    args: SendWorkflowStepStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendWorkflowStepStateCommandOutput) => void
+  ): void;
+  public sendWorkflowStepState(
+    args: SendWorkflowStepStateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendWorkflowStepStateCommandOutput) => void),
+    cb?: (err: any, data?: SendWorkflowStepStateCommandOutput) => void
+  ): Promise<SendWorkflowStepStateCommandOutput> | void {
+    const command = new SendWorkflowStepStateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
    *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
    *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
@@ -769,6 +1033,39 @@ export class Transfer extends TransferClient {
    *       authentication method as soon as you create your server. By doing so, you can troubleshoot
    *       issues with the identity provider integration to ensure that your users can successfully use
    *       the service.</p>
+   *          <p>
+   *       The <code>ServerId</code> and <code>UserName</code> parameters are required. The <code>ServerProtocol</code>, <code>SourceIp</code>, and <code>UserPassword</code> are all optional.
+   *     </p>
+   *          <note>
+   *             <p>
+   *         You cannot use <code>TestIdentityProvider</code> if the <code>IdentityProviderType</code> of your server is <code>SERVICE_MANAGED</code>.
+   *       </p>
+   *          </note>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *         If you provide any incorrect values for any parameters, the <code>Response</code> field is empty.
+   *       </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *         If you provide a server ID for a server that uses service-managed users, you get an error:
+   *       </p>
+   *                <p>
+   *                   <code>
+   *         An error occurred (InvalidRequestException) when calling the TestIdentityProvider operation: s-<i>server-ID</i> not configured for external auth
+   *       </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           If you enter a Server ID for the <code>--server-id</code> parameter that does not identify an actual Transfer server, you receive the following error:
+   *         </p>
+   *                <p>
+   *                   <code>An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider operation: Unknown server</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public testIdentityProvider(
     args: TestIdentityProviderCommandInput,

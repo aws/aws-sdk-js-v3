@@ -3,15 +3,15 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
 
 export interface PutResourceConfigRequest {
   /**
-   * <p>The type of the resource. The custom resource type must be registered with AWS CloudFormation. </p>
+   * <p>The type of the resource. The custom resource type must be registered with CloudFormation. </p>
    * 		       <note>
-   *             <p>You cannot use the organization names “aws”, “amzn”, “amazon”, “alexa”, “custom” with custom resource types. It is the first part of the ResourceType up to the first ::.</p>
+   *             <p>You cannot use the organization names “amzn”, “amazon”, “alexa”, “custom” with custom resource types. It is the first part of the ResourceType up to the first ::.</p>
    *          </note>
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>Version of the schema registered for the ResourceType in AWS CloudFormation.</p>
+   * <p>Version of the schema registered for the ResourceType in CloudFormation.</p>
    */
   SchemaVersionId: string | undefined;
 
@@ -26,7 +26,7 @@ export interface PutResourceConfigRequest {
   ResourceName?: string;
 
   /**
-   * <p>The configuration object of the resource in valid JSON format. It must match the schema registered with AWS CloudFormation.</p>
+   * <p>The configuration object of the resource in valid JSON format. It must match the schema registered with CloudFormation.</p>
    * 		       <note>
    *             <p>The configuration JSON must not exceed 64 KB.</p>
    *          </note>
@@ -50,7 +50,7 @@ export namespace PutResourceConfigRequest {
 
 export interface PutRetentionConfigurationRequest {
   /**
-   * <p>Number of days AWS Config stores your historical
+   * <p>Number of days Config stores your historical
    * 			information.</p>
    * 		       <note>
    * 			         <p>Currently, only applicable to the configuration item
@@ -203,7 +203,7 @@ export interface SelectAggregateResourceConfigRequest {
   Limit?: number;
 
   /**
-   * <p>The maximum number of query results returned on each page. AWS Config also allows the Limit request parameter.</p>
+   * <p>The maximum number of query results returned on each page. Config also allows the Limit request parameter.</p>
    */
   MaxResults?: number;
 
@@ -305,7 +305,7 @@ export namespace SelectResourceConfigResponse {
  */
 export interface StartConfigRulesEvaluationRequest {
   /**
-   * <p>The list of names of AWS Config rules that you want to run
+   * <p>The list of names of Config rules that you want to run
    * 			evaluations for.</p>
    */
   ConfigRuleNames?: string[];
@@ -321,8 +321,7 @@ export namespace StartConfigRulesEvaluationRequest {
 }
 
 /**
- * <p>The output when you start the evaluation for the specified AWS
- * 			Config rule.</p>
+ * <p>The output when you start the evaluation for the specified Config rule.</p>
  */
 export interface StartConfigRulesEvaluationResponse {}
 
@@ -358,7 +357,7 @@ export namespace StartConfigurationRecorderRequest {
 
 export interface StartRemediationExecutionRequest {
   /**
-   * <p>The list of names of AWS Config rules that you want to run remediation execution for.</p>
+   * <p>The list of names of Config rules that you want to run remediation execution for.</p>
    */
   ConfigRuleName: string | undefined;
 

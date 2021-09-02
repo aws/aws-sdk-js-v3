@@ -23,10 +23,11 @@ export interface ConfirmTopicRuleDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS
- *          IoT sends a confirmation message to the endpoint or base address you specify. The message
+ * <p>Confirms a topic rule destination. When you create a rule requiring a destination, IoT
+ *          sends a confirmation message to the endpoint or base address you specify. The message
  *          includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code>
  *          to confirm that you own or have access to the endpoint.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ConfirmTopicRuleDestination</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

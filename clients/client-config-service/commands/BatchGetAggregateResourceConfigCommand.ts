@@ -23,7 +23,7 @@ export interface BatchGetAggregateResourceConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the current configuration items for resources that are present in your AWS Config aggregator. The operation also returns a list of resources that are not processed in the current request.
+ * <p>Returns the current configuration items for resources that are present in your Config aggregator. The operation also returns a list of resources that are not processed in the current request.
  * 			If there are no unprocessed resources, the operation returns an empty <code>unprocessedResourceIdentifiers</code> list. </p>
  *
  * 		       <note>

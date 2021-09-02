@@ -21,24 +21,24 @@ export interface ListRetirableGrantsCommandInput extends ListRetirableGrantsRequ
 export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all grants in the AWS account and Region that have the specified
- *       retiring principal. For more information about grants, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a> in the
- *       <i>
- *                <i>AWS Key Management Service Developer Guide</i>
- *             </i>.</p>
- *          <p>You can specify any principal in your AWS account. The grants that are returned include
- *       grants for CMKs in your AWS account and other AWS accounts.</p>
- *          <p>You might use this operation to determine which grants you may retire. To retire a grant,
- *       use the <a>RetireGrant</a> operation.</p>
+ * <p>Returns information about all grants in the Amazon Web Services account and Region that have the specified
+ *       retiring principal. </p>
+ *          <p>You can specify any principal in your Amazon Web Services account. The grants that are returned include
+ *       grants for KMS keys in your Amazon Web Services account and other Amazon Web Services accounts. You might use this operation to
+ *       determine which grants you may retire. To retire a grant, use the <a>RetireGrant</a> operation.</p>
+ *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using grants</a> in the
+ *         <i>
+ *                <i>Key Management Service Developer Guide</i>
+ *             </i>. For examples of working with grants in several
+ *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>. </p>
  *          <p>
  *             <b>Cross-account use</b>: You must specify a principal in your
- *       AWS account. However, this operation can return grants in any AWS account. You do not need
- *         <code>kms:ListRetirableGrants</code> permission (or any other additional permission) in any
- *       AWS account other than your own.</p>
+ *       Amazon Web Services account. However, this operation can return grants in any Amazon Web Services account. You do not need
+ *       <code>kms:ListRetirableGrants</code> permission (or any other additional permission) in any
+ *       Amazon Web Services account other than your own.</p>
  *
  *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a> (IAM policy) in your AWS
- *       account.</p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a> (IAM policy) in your Amazon Web Services account.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>

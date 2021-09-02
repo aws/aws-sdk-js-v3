@@ -21,8 +21,8 @@ export interface CreateAccessPreviewCommandInput extends CreateAccessPreviewRequ
 export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an access preview that allows you to preview Access Analyzer findings for your resource
- *          before deploying resource permissions.</p>
+ * <p>Creates an access preview that allows you to preview IAM Access Analyzer findings for your
+ *          resource before deploying resource permissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,9 +21,10 @@ export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the certificates registered in your AWS account.</p>
+ * <p>Lists the certificates registered in your Amazon Web Services account.</p>
  *          <p>The results are paginated with a default page size of 25. You can use the returned
  *          marker to retrieve additional results.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificates</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -15,19 +15,20 @@ import {
   DashboardVersionSummary,
   DataSetImportMode,
   DataSetSummary,
+  DataSetUsageConfiguration,
   DataSource,
   DataSourceCredentials,
   DataSourceParameters,
   EmbeddingIdentityType,
   FieldFolder,
-  FolderSearchFilter,
-  FolderSummary,
+  FilterOperator,
+  FolderFilterAttribute,
+  FolderType,
   Group,
   GroupMember,
   IdentityType,
   Ingestion,
   LogicalTable,
-  MemberIdArnPair,
   NamespaceInfoV2,
   PhysicalTable,
   ResourcePermission,
@@ -48,6 +49,103 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+/**
+ * <p>An object that consists of the member Amazon Resource Name (ARN) and member ID.</p>
+ */
+export interface MemberIdArnPair {
+  /**
+   * <p>The ID of the member.</p>
+   */
+  MemberId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the member.</p>
+   */
+  MemberArn?: string;
+}
+
+export namespace MemberIdArnPair {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemberIdArnPair): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Searches a folder by a filter.</p>
+ */
+export interface FolderSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter. For example, <code>"Operator": "StringEquals"</code>.</p>
+   */
+  Operator?: FilterOperator | string;
+
+  /**
+   * <p>The name of the value that you want to use as a filter. For example, <code>"Name": "PARENT_FOLDER_ARN"</code>.</p>
+   */
+  Name?: FolderFilterAttribute | string;
+
+  /**
+   * <p>The value of the named item (in this example, <code>PARENT_FOLDER_ARN</code>), that you want to use as a filter. For example, <code>"Value": "arn:aws:quicksight:us-east-1:1:folder/folderId"</code>.</p>
+   */
+  Value?: string;
+}
+
+export namespace FolderSearchFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FolderSearchFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the folder. </p>
+ */
+export interface FolderSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN).</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId?: string;
+
+  /**
+   * <p>The display name of the folder.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of folder.</p>
+   */
+  FolderType?: FolderType | string;
+
+  /**
+   * <p>The time that the folder was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The time that the folder was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+export namespace FolderSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FolderSummary): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The key-value pair used for the row-level security tags feature.</p>
@@ -170,9 +268,9 @@ export namespace SessionLifetimeInMinutesInvalidException {
 
 /**
  * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
- * 			without the required pricing plan on your Amazon Web Services account;. Before you can use embedding
- * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to QuickSight. You
- * 		    can do this on the <b>Manage QuickSight</b> page. </p>
+ * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
+ * 			for anonymous users, a Amazon QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You
+ * 		    can do this on the <b>Manage Amazon QuickSight</b> page. </p>
  *         <p>After capacity pricing is added, you can use the
  *             <a>GetDashboardEmbedUrl</a> API operation with the
  *             <code>--identity-type ANONYMOUS</code> option.</p>
@@ -403,7 +501,7 @@ export namespace QuickSightUserNotFoundException {
 
 export interface GetDashboardEmbedUrlRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that contains the dashboard that you're embedding.</p>
+   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -438,9 +536,9 @@ export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>Adds persistence of state for the user session in an embedded dashboard. Persistence
    *             applies to the sheet and the parameter settings. These are control settings that the
-   *             dashboard subscriber (QuickSight reader) chooses while viewing the dashboard. If this is
+   *             dashboard subscriber (Amazon QuickSight reader) chooses while viewing the dashboard. If this is
    *             set to <code>TRUE</code>, the settings are the same when the subscriber reopens the same
-   *             dashboard URL. The state is stored in QuickSight, not in a browser cookie. If this is
+   *             dashboard URL. The state is stored in Amazon QuickSight, not in a browser cookie. If this is
    *             set to FALSE, the state of the user session is not persisted. The default is
    *                 <code>FALSE</code>.</p>
    */
@@ -458,17 +556,18 @@ export interface GetDashboardEmbedUrlRequest {
    * 				           <p>Invited nonfederated users</p>
    * 			         </li>
    *             <li>
-   * 				           <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using
-   * 					SAML, OpenID Connect, or IAM federation.</p>
+   * 				           <p>IAMusers and IAMrole-based sessions authenticated through Federated Single Sign-On using
+   * 					SAML, OpenID Connect, or IAMfederation.</p>
    * 			         </li>
    *          </ul>
-   *          <p>Omit this parameter for users in the third group – IAM users and IAM
+   *          <p>Omit this parameter for users in the third group – IAMusers and IAM
    *             role-based sessions.</p>
    */
   UserArn?: string;
 
   /**
-   * <p>The Amazon QuickSight namespace that the user virtually belongs to. If you are not using an Amazon QuickSight custom namespace, set this to <code>default</code>.</p>
+   * <p>The Amazon QuickSight namespace that contains the dashboard IDs in this request.
+   *     	   If you're not using a custom namespace, set <code>Namespace = default</code>.</p>
    */
   Namespace?: string;
 
@@ -476,7 +575,7 @@ export interface GetDashboardEmbedUrlRequest {
    * <p>A list of one or more dashboard IDs that you want to add to a session that includes
    *             anonymous users. The <code>IdentityType</code> parameter must be set to
    *                 <code>ANONYMOUS</code> for this to work, because other identity types authenticate
-   *             as QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1
+   *             as Amazon QuickSight or IAMusers. For example, if you set "<code>--dashboard-id dash_id1
    *                 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session
    *             can access all three dashboards. </p>
    */
@@ -550,7 +649,7 @@ export namespace IdentityTypeNotSupportedException {
 
 export interface GetSessionEmbedUrlRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; associated with your QuickSight subscription.</p>
+   * <p>The ID for the Amazon Web Services account associated with your Amazon QuickSight subscription.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -581,12 +680,12 @@ export interface GetSessionEmbedUrlRequest {
    *             <li>
    *                 <p>
    *                   <code>/dashboards/<i>DashboardId</i>
-   *                   </code> - where <code>DashboardId</code> is the actual ID key from the QuickSight console URL of the dashboard</p>
+   *                   </code> - where <code>DashboardId</code> is the actual ID key from the Amazon QuickSight console URL of the dashboard</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>/analyses/<i>AnalysisId</i>
-   *                   </code> - where <code>AnalysisId</code> is the actual ID key from the QuickSight console URL of the analysis</p>
+   *                   </code> - where <code>AnalysisId</code> is the actual ID key from the Amazon QuickSight console URL of the analysis</p>
    *             </li>
    *          </ul>
    */
@@ -632,7 +731,7 @@ export namespace GetSessionEmbedUrlRequest {
 export interface GetSessionEmbedUrlResponse {
   /**
    * <p>A single-use URL that you can put into your server-side web page to embed your
-   * 			QuickSight session. This URL is valid for 5 minutes. The API operation provides the URL with an
+   * 			Amazon QuickSight session. This URL is valid for 5 minutes. The API operation provides the URL with an
    * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
    * 			that is valid for 10 hours. </p>
    */
@@ -660,7 +759,7 @@ export namespace GetSessionEmbedUrlResponse {
 }
 
 /**
- * <p>IAM policy assignment summary.</p>
+ * <p>IAMpolicy assignment summary.</p>
  */
 export interface IAMPolicyAssignmentSummary {
   /**
@@ -685,7 +784,7 @@ export namespace IAMPolicyAssignmentSummary {
 
 export interface ListAnalysesRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the analyses.</p>
+   * <p>The ID of the Amazon Web Services account that contains the analyses.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -742,7 +841,7 @@ export namespace ListAnalysesResponse {
 
 export interface ListDashboardsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the dashboards that you're
+   * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
    *             listing.</p>
    */
   AwsAccountId: string | undefined;
@@ -769,7 +868,7 @@ export namespace ListDashboardsRequest {
 
 export interface ListDashboardsResponse {
   /**
-   * <p>A structure that contains all of the dashboards in your Amazon Web Services account;. This structure
+   * <p>A structure that contains all of the dashboards in your Amazon Web Services account. This structure
    *             provides basic information about the dashboards.</p>
    */
   DashboardSummaryList?: DashboardSummary[];
@@ -801,7 +900,7 @@ export namespace ListDashboardsResponse {
 
 export interface ListDashboardVersionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the dashboard that you're listing versions
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're listing versions
    *             for.</p>
    */
   AwsAccountId: string | undefined;
@@ -864,7 +963,7 @@ export namespace ListDashboardVersionsResponse {
 
 export interface ListDataSetsRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -921,7 +1020,7 @@ export namespace ListDataSetsResponse {
 
 export interface ListDataSourcesRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1115,8 +1214,8 @@ export interface ListGroupMembershipsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1168,8 +1267,8 @@ export namespace ListGroupMembershipsResponse {
 
 export interface ListGroupsRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1231,7 +1330,7 @@ export namespace ListGroupsResponse {
 
 export interface ListIAMPolicyAssignmentsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains these IAM policy assignments.</p>
+   * <p>The ID of the Amazon Web Services account that contains these IAMpolicy assignments.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1267,7 +1366,7 @@ export namespace ListIAMPolicyAssignmentsRequest {
 
 export interface ListIAMPolicyAssignmentsResponse {
   /**
-   * <p>Information describing the IAM policy assignments.</p>
+   * <p>Information describing the IAMpolicy assignments.</p>
    */
   IAMPolicyAssignments?: IAMPolicyAssignmentSummary[];
 
@@ -1298,7 +1397,7 @@ export namespace ListIAMPolicyAssignmentsResponse {
 
 export interface ListIAMPolicyAssignmentsForUserRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the assignments.</p>
+   * <p>The ID of the Amazon Web Services account that contains the assignments.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1375,7 +1474,7 @@ export interface ListIngestionsRequest {
   NextToken?: string;
 
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1427,7 +1526,7 @@ export namespace ListIngestionsResponse {
 
 export interface ListNamespacesRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that contains the QuickSight namespaces that you want to list.</p>
+   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespaces that you want to list.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1453,7 +1552,7 @@ export namespace ListNamespacesRequest {
 
 export interface ListNamespacesResponse {
   /**
-   * <p>The information about the namespaces in this Amazon Web Services account;. The response includes
+   * <p>The information about the namespaces in this Amazon Web Services account. The response includes
    *         the namespace ARN, name, Amazon Web Services Region;, notification email address, creation status, and
    *         identity store.</p>
    */
@@ -1529,7 +1628,7 @@ export namespace ListTagsForResourceResponse {
 
 export interface ListTemplateAliasesRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the template aliases that you're listing.</p>
+   * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1591,7 +1690,7 @@ export namespace ListTemplateAliasesResponse {
 
 export interface ListTemplatesRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the templates that you're listing.</p>
+   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1625,7 +1724,7 @@ export interface TemplateSummary {
   Arn?: string;
 
   /**
-   * <p>The ID of the template. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the template. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   TemplateId?: string;
 
@@ -1692,7 +1791,7 @@ export namespace ListTemplatesResponse {
 
 export interface ListTemplateVersionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the templates that you're listing.</p>
+   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1793,7 +1892,7 @@ export namespace ListTemplateVersionsResponse {
 
 export interface ListThemeAliasesRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the theme aliases that you're listing.</p>
+   * <p>The ID of the Amazon Web Services account that contains the theme aliases that you're listing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1855,7 +1954,7 @@ export namespace ListThemeAliasesResponse {
 
 export interface ListThemesRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the themes that you're listing.</p>
+   * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1913,7 +2012,7 @@ export interface ThemeSummary {
   Name?: string;
 
   /**
-   * <p>The ID of the theme. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the theme. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   ThemeId?: string;
 
@@ -1975,7 +2074,7 @@ export namespace ListThemesResponse {
 
 export interface ListThemeVersionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the themes that you're listing.</p>
+   * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -2081,7 +2180,7 @@ export interface ListUserGroupsRequest {
   UserName: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account; ID that the user is in. Currently, you use the ID for the Amazon Web Services account;
+   * <p>The Amazon Web Services account ID that the user is in. Currently, you use the ID for the Amazon Web Services account
    * 			that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
@@ -2144,8 +2243,8 @@ export namespace ListUserGroupsResponse {
 
 export interface ListUsersRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -2212,7 +2311,7 @@ export interface RegisterUserRequest {
    * 		       <ul>
    *             <li>
    * 				           <p>
-   *                   <code>IAM</code>: A user whose identity maps to an existing IAM user or role.
+   *                   <code>IAM</code>: A user whose identity maps to an existing IAMuser or role.
    * 				</p>
    * 			         </li>
    *             <li>
@@ -2262,16 +2361,16 @@ export interface RegisterUserRequest {
   UserRole: UserRole | string | undefined;
 
   /**
-   * <p>The ARN of the IAM user or role that you are registering with Amazon QuickSight. </p>
+   * <p>The ARN of the IAMuser or role that you are registering with Amazon QuickSight. </p>
    */
   IamArn?: string;
 
   /**
    * <p>You need to use this parameter only when you register one or more users using an assumed
-   * 			IAM role. You don't need to provide the session name for other scenarios, for example when
-   * 			you are registering an IAM user or an Amazon QuickSight user. You can register multiple
-   * 			users using the same IAM role if each user has a different session name. For more
-   * 			information on assuming IAM roles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
+   * 			IAMrole. You don't need to provide the session name for other scenarios, for example when
+   * 			you are registering an IAMuser or an Amazon QuickSight user. You can register multiple
+   * 			users using the same IAMrole if each user has a different session name. For more
+   * 			information on assuming IAMroles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
    *                <code>assume-role</code>
    *             </a> in the <i>AWS CLI Reference.</i>
    *          </p>
@@ -2279,8 +2378,8 @@ export interface RegisterUserRequest {
   SessionName?: string;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -2317,18 +2416,18 @@ export interface RegisterUserRequest {
    *                <a>UpdateUser</a>
    *             </code> instead.</p>
    *         <p>A set of custom permissions includes any combination of these restrictions. Currently,
-   *             you need to create the profile names for custom permission sets by using the QuickSight
+   *             you need to create the profile names for custom permission sets by using the Amazon QuickSight
    *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
-   *             permissions to a QuickSight user. </p>
-   *         <p>QuickSight custom permissions are applied through IAM policies. Therefore, they
-   *             override the permissions typically granted by assigning QuickSight users to one of the
-   *             default security cohorts in QuickSight (admin, author, reader).</p>
-   *         <p>This feature is available only to QuickSight Enterprise edition subscriptions.</p>
+   *             permissions to a Amazon QuickSight user. </p>
+   *         <p>Amazon QuickSight custom permissions are applied through IAMpolicies. Therefore, they
+   *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
+   *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>
+   *         <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
    */
   CustomPermissionsName?: string;
 
   /**
-   * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated AWS Identity and Access Management (IAM) role. The type of supported external login provider can be one of the following.</p>
+   * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2344,7 +2443,7 @@ export interface RegisterUserRequest {
 
   /**
    * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
-   *          into QuickSight with an associated AWS Identity and Access Management (IAM) role. This parameter should
+   *          into Amazon QuickSight with an associated Identity and Access Management(IAM) role. This parameter should
    *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
    */
   CustomFederationProviderUrl?: string;
@@ -2398,7 +2497,7 @@ export namespace RegisterUserResponse {
 
 export interface RestoreAnalysisRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the analysis.</p>
+   * <p>The ID of the Amazon Web Services account that contains the analysis.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -2451,7 +2550,7 @@ export namespace RestoreAnalysisResponse {
 
 export interface SearchAnalysesRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the analyses that you're searching
+   * <p>The ID of the Amazon Web Services account that contains the analyses that you're searching
    *             for.</p>
    */
   AwsAccountId: string | undefined;
@@ -2515,7 +2614,7 @@ export namespace SearchAnalysesResponse {
 
 export interface SearchDashboardsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the user whose dashboards you're searching
+   * <p>The ID of the Amazon Web Services account that contains the user whose dashboards you're searching
    *             for. </p>
    */
   AwsAccountId: string | undefined;
@@ -2728,18 +2827,18 @@ export namespace UntagResourceResponse {
 
 export interface UpdateAccountCustomizationRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that you want to update QuickSight customizations
+   * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
    *             for.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace that you want to update QuickSight customizations for.</p>
+   * <p>The namespace that you want to update Amazon QuickSight customizations for.</p>
    */
   Namespace?: string;
 
   /**
-   * <p>The QuickSight customizations you're updating in the current Amazon Web Services Region;. </p>
+   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region;. </p>
    */
   AccountCustomization: AccountCustomization | undefined;
 }
@@ -2755,12 +2854,12 @@ export namespace UpdateAccountCustomizationRequest {
 
 export interface UpdateAccountCustomizationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the updated customization for this Amazon Web Services account;.</p>
+   * <p>The Amazon Resource Name (ARN) for the updated customization for this Amazon Web Services account.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that you want to update QuickSight customizations
+   * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
    *             for.</p>
    */
   AwsAccountId?: string;
@@ -2771,7 +2870,7 @@ export interface UpdateAccountCustomizationResponse {
   Namespace?: string;
 
   /**
-   * <p>The QuickSight customizations you're updating in the current Amazon Web Services Region;. </p>
+   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region;. </p>
    */
   AccountCustomization?: AccountCustomization;
 
@@ -2797,22 +2896,22 @@ export namespace UpdateAccountCustomizationResponse {
 
 export interface UpdateAccountSettingsRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that contains the QuickSight settings that you want to
+   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight settings that you want to
    *             list.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The default namespace for this Amazon Web Services account;. Currently, the default is
+   * <p>The default namespace for this Amazon Web Services account. Currently, the default is
    *                 <code>default</code>. Identity and Access Management (IAM) users that register
-   *             for the first time with QuickSight provide an email that becomes associated with the
+   *             for the first time with Amazon QuickSight provide an email that becomes associated with the
    *             default namespace.</p>
    */
   DefaultNamespace: string | undefined;
 
   /**
-   * <p>The email address that you want QuickSight to send notifications to regarding your
-   *             Amazon Web Services account; or QuickSight subscription.</p>
+   * <p>The email address that you want Amazon QuickSight to send notifications to regarding your
+   *             Amazon Web Services account or Amazon QuickSight subscription.</p>
    */
   NotificationEmail?: string;
 }
@@ -2849,7 +2948,7 @@ export namespace UpdateAccountSettingsResponse {
 
 export interface UpdateAnalysisRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the analysis that you're updating.</p>
+   * <p>The ID of the Amazon Web Services account that contains the analysis that you're updating.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -2861,7 +2960,7 @@ export interface UpdateAnalysisRequest {
 
   /**
    * <p>A descriptive name for the analysis that you're updating. This name displays for the
-   *             analysis in the QuickSight console.</p>
+   *             analysis in the Amazon QuickSight console.</p>
    */
   Name: string | undefined;
 
@@ -2879,7 +2978,7 @@ export interface UpdateAnalysisRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're
-   *             creating. To see the theme in the QuickSight console, make sure that you have access to
+   *             creating. To see the theme in the Amazon QuickSight console, make sure that you have access to
    *             it.</p>
    */
   ThemeArn?: string;
@@ -2932,8 +3031,8 @@ export namespace UpdateAnalysisResponse {
 
 export interface UpdateAnalysisPermissionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the analysis whose permissions you're
-   *             updating. You must be using the Amazon Web Services account; that the analysis is in.</p>
+   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
+   *             updating. You must be using the Amazon Web Services account that the analysis is in.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -3004,7 +3103,7 @@ export namespace UpdateAnalysisPermissionsResponse {
 
 export interface UpdateDashboardRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the dashboard that you're
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
    *             updating.</p>
    */
   AwsAccountId: string | undefined;
@@ -3026,8 +3125,8 @@ export interface UpdateDashboardRequest {
    *             entity. If you need to update a dashboard from an analysis, first convert the analysis
    *             to a template by using the <a>CreateTemplate</a> API operation. For
    *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
-   *             template. The <code>SourceTemplate</code> ARN can contain any Amazon Web Services account; and any
-   *             QuickSight-supported Amazon Web Services Region;. </p>
+   *             template. The <code>SourceTemplate</code> ARN can contain any Amazon Web Services account and any
+   *             Amazon QuickSight-supported Amazon Web Services Region;. </p>
    *         <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
    *             list the replacement datasets for the placeholders listed in the original. The schema in
    *             each dataset must match its placeholder. </p>
@@ -3053,7 +3152,7 @@ export interface UpdateDashboardRequest {
    *                 <p>
    *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
    *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, QuickSight disables the left filter pane on the
+   *                     set to <code>DISABLED</code>, Amazon QuickSight disables the left filter pane on the
    *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
    *                     option is <code>ENABLED</code> by default. </p>
    *             </li>
@@ -3077,7 +3176,7 @@ export interface UpdateDashboardRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
    *             you add a value for this field, it overrides the value that was originally associated
-   *             with the entity. The theme ARN must exist in the same Amazon Web Services account; where you create the
+   *             with the entity. The theme ARN must exist in the same Amazon Web Services account where you create the
    *             dashboard.</p>
    */
   ThemeArn?: string;
@@ -3135,7 +3234,7 @@ export namespace UpdateDashboardResponse {
 
 export interface UpdateDashboardPermissionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the dashboard whose permissions you're
+   * <p>The ID of the Amazon Web Services account that contains the dashboard whose permissions you're
    *             updating.</p>
    */
   AwsAccountId: string | undefined;
@@ -3203,7 +3302,7 @@ export namespace UpdateDashboardPermissionsResponse {
 
 export interface UpdateDashboardPublishedVersionRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the dashboard that you're
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
    *             updating.</p>
    */
   AwsAccountId: string | undefined;
@@ -3261,13 +3360,13 @@ export namespace UpdateDashboardPublishedVersionResponse {
 
 export interface UpdateDataSetRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
    * <p>The ID for the dataset that you want to update. This ID is unique per Amazon Web Services Region; for each
-   * 			Amazon Web Services account;.</p>
+   * 			Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
 
@@ -3292,7 +3391,7 @@ export interface UpdateDataSetRequest {
   ImportMode: DataSetImportMode | string | undefined;
 
   /**
-   * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+   * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    */
   ColumnGroups?: ColumnGroup[];
 
@@ -3317,6 +3416,11 @@ export interface UpdateDataSetRequest {
    *             </code>.</p>
    */
   ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
+
+  /**
+   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+   */
+  DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
 export namespace UpdateDataSetRequest {
@@ -3358,7 +3462,7 @@ export interface UpdateDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSetId?: string;
 
@@ -3396,13 +3500,13 @@ export namespace UpdateDataSetResponse {
 
 export interface UpdateDataSetPermissionsRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
    * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
-   * 			Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * 			Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
 
@@ -3434,7 +3538,7 @@ export interface UpdateDataSetPermissionsResponse {
 
   /**
    * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
-   * 			Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * 			Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSetId?: string;
 
@@ -3460,12 +3564,12 @@ export namespace UpdateDataSetPermissionsResponse {
 
 export interface UpdateDataSourceRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;. </p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account. </p>
    */
   DataSourceId: string | undefined;
 
@@ -3475,24 +3579,24 @@ export interface UpdateDataSourceRequest {
   Name: string | undefined;
 
   /**
-   * <p>The parameters that QuickSight uses to connect to your underlying source.</p>
+   * <p>The parameters that Amazon QuickSight uses to connect to your underlying source.</p>
    */
   DataSourceParameters?: DataSourceParameters;
 
   /**
-   * <p>The credentials that QuickSight that uses to connect to your underlying source. Currently,
+   * <p>The credentials that Amazon QuickSight that uses to connect to your underlying source. Currently,
    * 			only credentials based on user name and password are supported.</p>
    */
   Credentials?: DataSourceCredentials;
 
   /**
-   * <p>Use this parameter only when you want QuickSight to use a VPC connection when connecting to
+   * <p>Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to
    * 			your underlying source.</p>
    */
   VpcConnectionProperties?: VpcConnectionProperties;
 
   /**
-   * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying
+   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying
    * 			source.</p>
    */
   SslProperties?: SslProperties;
@@ -3518,7 +3622,7 @@ export interface UpdateDataSourceResponse {
   Arn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSourceId?: string;
 
@@ -3549,12 +3653,12 @@ export namespace UpdateDataSourceResponse {
 
 export interface UpdateDataSourcePermissionsRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;. </p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account. </p>
    */
   DataSourceId: string | undefined;
 
@@ -3585,7 +3689,7 @@ export interface UpdateDataSourcePermissionsResponse {
   DataSourceArn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSourceId?: string;
 
@@ -3745,8 +3849,8 @@ export interface UpdateGroupRequest {
   Description?: string;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -3793,12 +3897,12 @@ export namespace UpdateGroupResponse {
 
 export interface UpdateIAMPolicyAssignmentRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the IAM policy assignment. </p>
+   * <p>The ID of the Amazon Web Services account that contains the IAMpolicy assignment. </p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The name of the assignment, also called a rule. This name must be unique within an Amazon Web Services account;.</p>
+   * <p>The name of the assignment, also called a rule. This name must be unique within an Amazon Web Services account.</p>
    */
   AssignmentName: string | undefined;
 
@@ -3829,13 +3933,13 @@ export interface UpdateIAMPolicyAssignmentRequest {
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
-   * <p>The ARN for the IAM policy to apply to the QuickSight users and groups
+   * <p>The ARN for the IAMpolicy to apply to the Amazon QuickSight users and groups
    * 			specified in this assignment.</p>
    */
   PolicyArn?: string;
 
   /**
-   * <p>The QuickSight users, groups, or both that you want to assign the policy to.</p>
+   * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy to.</p>
    */
   Identities?: { [key: string]: string[] };
 }
@@ -3861,13 +3965,13 @@ export interface UpdateIAMPolicyAssignmentResponse {
   AssignmentId?: string;
 
   /**
-   * <p>The ARN for the IAM policy applied to the QuickSight users and groups specified in this
+   * <p>The ARN for the IAMpolicy applied to the Amazon QuickSight users and groups specified in this
    * 			assignment.</p>
    */
   PolicyArn?: string;
 
   /**
-   * <p>The QuickSight users, groups, or both that the IAM policy is assigned to.</p>
+   * <p>The Amazon QuickSight users, groups, or both that the IAMpolicy is assigned to.</p>
    */
   Identities?: { [key: string]: string[] };
 
@@ -3914,7 +4018,7 @@ export namespace UpdateIAMPolicyAssignmentResponse {
 
 export interface UpdateTemplateRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the template that you're updating.</p>
+   * <p>The ID of the Amazon Web Services account that contains the template that you're updating.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -3930,7 +4034,7 @@ export interface UpdateTemplateRequest {
    * 			analysis. Both of these require an Amazon Resource Name (ARN). For
    * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
    * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any Amazon Web Services account; and any QuickSight-supported Amazon Web Services Region;. </p>
+   * 			ARN can contain any Amazon Web Services account and any Amazon QuickSight-supported Amazon Web Services Region;. </p>
    * 		       <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
    * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
    * 			in the original. The schema in each dataset must match its placeholder. </p>
@@ -4003,7 +4107,7 @@ export namespace UpdateTemplateResponse {
 
 export interface UpdateTemplateAliasRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the template alias that you're updating.</p>
+   * <p>The ID of the Amazon Web Services account that contains the template alias that you're updating.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4063,7 +4167,7 @@ export namespace UpdateTemplateAliasResponse {
 
 export interface UpdateTemplatePermissionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the template.</p>
+   * <p>The ID of the Amazon Web Services account that contains the template.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4130,7 +4234,7 @@ export namespace UpdateTemplatePermissionsResponse {
 
 export interface UpdateThemeRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the theme that you're updating.</p>
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're updating.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4215,7 +4319,7 @@ export namespace UpdateThemeResponse {
 
 export interface UpdateThemeAliasRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the theme alias that you're updating.</p>
+   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're updating.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4272,7 +4376,7 @@ export namespace UpdateThemeAliasResponse {
 
 export interface UpdateThemePermissionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the theme.</p>
+   * <p>The ID of the Amazon Web Services account that contains the theme.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4344,8 +4448,8 @@ export interface UpdateUserRequest {
   UserName: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4378,7 +4482,7 @@ export interface UpdateUserRequest {
    * 					settings.</p>
    * 			         </li>
    *          </ul>
-   * 	        <p>The name of the QuickSight role is invisible to the user except for the console
+   * 	        <p>The name of the Amazon QuickSight role is invisible to the user except for the console
    * 	        screens dealing with permissions.</p>
    */
   Role: UserRole | string | undefined;
@@ -4402,13 +4506,13 @@ export interface UpdateUserRequest {
    *             </li>
    *          </ul>
    *         <p>A set of custom permissions includes any combination of these restrictions. Currently,
-   *             you need to create the profile names for custom permission sets by using the QuickSight
+   *             you need to create the profile names for custom permission sets by using the Amazon QuickSight
    *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
-   *             permissions to a QuickSight user. </p>
-   *         <p>QuickSight custom permissions are applied through IAM policies. Therefore, they
-   *             override the permissions typically granted by assigning QuickSight users to one of the
-   *             default security cohorts in QuickSight (admin, author, reader).</p>
-   *         <p>This feature is available only to QuickSight Enterprise edition subscriptions.</p>
+   *             permissions to a Amazon QuickSight user. </p>
+   *         <p>Amazon QuickSight custom permissions are applied through IAMpolicies. Therefore, they
+   *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
+   *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>
+   *         <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
    */
   CustomPermissionsName?: string;
 
@@ -4421,7 +4525,7 @@ export interface UpdateUserRequest {
   UnapplyCustomPermissions?: boolean;
 
   /**
-   * <p>The type of supported external login provider that provides identity to let a user federate into QuickSight with an associated AWS Identity and Access Management (IAM) role. The type of supported external login provider can be one of the following.</p>
+   * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4443,7 +4547,7 @@ export interface UpdateUserRequest {
 
   /**
    * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
-   *          into QuickSight with an associated AWS Identity and Access Management (IAM) role. This parameter should
+   *          into Amazon QuickSight with an associated Identity and Access Management(IAM) role. This parameter should
    *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
    */
   CustomFederationProviderUrl?: string;

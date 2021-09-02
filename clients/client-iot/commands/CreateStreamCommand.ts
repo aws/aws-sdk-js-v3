@@ -24,6 +24,7 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  * <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data
  *             bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files
  *             associated with a stream.</p>
+ *     	    <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateStream</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

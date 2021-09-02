@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteThingGroupRequest, DeleteThingGroupResponse } from "../models/models_0";
+import { DeleteThingGroupRequest, DeleteThingGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteThingGroupCommand,
   serializeAws_restJson1DeleteThingGroupCommand,
@@ -22,6 +22,7 @@ export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse,
 
 /**
  * <p>Deletes a thing group.</p>
+ * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingGroup</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

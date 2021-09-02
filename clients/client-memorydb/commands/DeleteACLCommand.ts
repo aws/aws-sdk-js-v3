@@ -18,7 +18,7 @@ export interface DeleteACLCommandInput extends DeleteACLRequest {}
 export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Access Control List. The ACL must first be disassociated from the cluster before it can be deleted. For more information, see <a href="https://docs.aws.amazon.com/AmazonMemoryDB/latest/devguide/Clusters.ACLs.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
+ * <p>Deletes an Access Control List. The ACL must first be disassociated from the cluster before it can be deleted. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,9 +21,9 @@ export interface GetKeyPolicyCommandInput extends GetKeyPolicyRequest {}
 export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a key policy attached to the specified customer master key (CMK).</p>
+ * <p>Gets a key policy attached to the specified KMS key.</p>
  *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetKeyPolicy</a> (key policy)</p>

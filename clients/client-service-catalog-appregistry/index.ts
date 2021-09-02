@@ -9,6 +9,7 @@ export * from "./commands/DeleteAttributeGroupCommand";
 export * from "./commands/DisassociateAttributeGroupCommand";
 export * from "./commands/DisassociateResourceCommand";
 export * from "./commands/GetApplicationCommand";
+export * from "./commands/GetAssociatedResourceCommand";
 export * from "./commands/GetAttributeGroupCommand";
 export * from "./commands/ListApplicationsCommand";
 export * from "./pagination/ListApplicationsPaginator";

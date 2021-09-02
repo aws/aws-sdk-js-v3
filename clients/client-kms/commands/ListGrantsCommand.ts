@@ -21,18 +21,23 @@ export interface ListGrantsCommandInput extends ListGrantsRequest {}
 export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of all grants for the specified customer master key (CMK). </p>
- *          <p>You must specify the CMK in all requests. You can filter the grant list by grant ID
+ * <p>Gets a list of all grants for the specified KMS key. </p>
+ *          <p>You must specify the KMS key in all requests. You can filter the grant list by grant ID
  *       or grantee principal.</p>
+ *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using grants</a> in the
+ *         <i>
+ *                <i>Key Management Service Developer Guide</i>
+ *             </i>. For examples of working with grants in several
+ *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>. </p>
  *          <note>
  *             <p>The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually contains the
  *         user or role designated as the grantee principal in the grant. However, when the grantee
- *         principal in the grant is an AWS service, the <code>GranteePrincipal</code> field contains
+ *         principal in the grant is an Amazon Web Services service, the <code>GranteePrincipal</code> field contains
  *         the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
  *           principal</a>, which might represent several different grantee principals.</p>
  *          </note>
  *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different AWS account, specify the key
+ *             <b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different Amazon Web Services account, specify the key
  *   ARN in the value of the <code>KeyId</code> parameter.</p>
  *
  *          <p>

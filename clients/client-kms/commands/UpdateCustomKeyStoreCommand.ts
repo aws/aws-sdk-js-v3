@@ -38,30 +38,30 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *                <p> </p>
  *             </li>
  *             <li>
- *                <p>Use the <b>KeyStorePassword</b> parameter tell AWS KMS the
+ *                <p>Use the <b>KeyStorePassword</b> parameter tell KMS the
  *           current password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser">
  *                      <code>kmsuser</code> crypto
- *             user (CU)</a> in the associated AWS CloudHSM cluster. You can use this parameter to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-password">fix
- *             connection failures</a> that occur when AWS KMS cannot log into the associated cluster
+ *             user (CU)</a> in the associated CloudHSM cluster. You can use this parameter to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-password">fix
+ *             connection failures</a> that occur when KMS cannot log into the associated cluster
  *           because the <code>kmsuser</code> password has changed. This value does not change the
- *           password in the AWS CloudHSM cluster.</p>
+ *           password in the CloudHSM cluster.</p>
  *                <p> </p>
  *             </li>
  *             <li>
  *                <p>Use the <b>CloudHsmClusterId</b> parameter to associate the
- *           custom key store with a different, but related, AWS CloudHSM cluster. You can use this parameter
- *           to repair a custom key store if its AWS CloudHSM cluster becomes corrupted or is deleted, or when
+ *           custom key store with a different, but related, CloudHSM cluster. You can use this parameter
+ *           to repair a custom key store if its CloudHSM cluster becomes corrupted or is deleted, or when
  *           you need to create or restore a cluster from a backup. </p>
  *             </li>
  *          </ul>
  *          <p>If the operation succeeds, it returns a JSON object with no
  * properties.</p>
- *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which
- * combines the convenience and extensive integration of AWS KMS with the isolation and control of a
+ *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in KMS, which
+ * combines the convenience and extensive integration of KMS with the isolation and control of a
  * single-tenant key store.</p>
  *
  *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different AWS account. </p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account. </p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UpdateCustomKeyStore</a> (IAM policy)</p>
  *          <p>

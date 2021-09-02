@@ -21,9 +21,10 @@ export interface TestAuthorizationCommandInput extends TestAuthorizationRequest 
 export interface TestAuthorizationCommandOutput extends TestAuthorizationResponse, __MetadataBearer {}
 
 /**
- * <p>Tests if a specified principal is authorized to perform an AWS IoT action on a
+ * <p>Tests if a specified principal is authorized to perform an IoT action on a
  *          specified resource. Use this to test and debug the authorization behavior of devices that
- *          connect to the AWS IoT device gateway.</p>
+ *          connect to the IoT device gateway.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TestAuthorization</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

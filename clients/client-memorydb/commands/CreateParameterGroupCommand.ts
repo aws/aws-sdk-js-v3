@@ -22,7 +22,7 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
 
 /**
  * <p>Creates a new MemoryDB parameter group. A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster. For
- *          more information, see <a href="https://docs.aws.amazon.com/AmazonMemoryDB/latest/devguide/ParameterGroups.html">Configuring engine parameters using parameter groups</a>.
+ *          more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html">Configuring engine parameters using parameter groups</a>.
  *
  *          </p>
  * @example

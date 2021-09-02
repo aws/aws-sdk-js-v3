@@ -21,7 +21,9 @@ export interface ListDomainConfigurationsCommandInput extends ListDomainConfigur
 export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
+ * <p>Gets a list of domain configurations for the user. This list is sorted
+ *          alphabetically by domain configuration name.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDomainConfigurations</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

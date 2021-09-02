@@ -23,16 +23,16 @@ export interface PutRemediationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Adds or updates the remediation configuration with a specific AWS Config rule with the
+ * <p>Adds or updates the remediation configuration with a specific Config rule with the
  * 			selected target or action.
- * 			The API creates the <code>RemediationConfiguration</code> object for the AWS Config rule.
- * 		The AWS Config rule must already exist for you to add a remediation configuration.
+ * 			The API creates the <code>RemediationConfiguration</code> object for the Config rule.
+ * 		The Config rule must already exist for you to add a remediation configuration.
  * 		The target (SSM document) must exist and have permissions to use the target. </p>
  * 		       <note>
  *             <p>If you make backward incompatible changes to the SSM document,
  * 			you must call this again to ensure the remediations can run.</p>
- * 			         <p>This API does not support adding remediation configurations for service-linked AWS Config Rules such as Organization Config rules,
- * 				the rules deployed by conformance packs, and rules deployed by AWS Security Hub.</p>
+ * 			         <p>This API does not support adding remediation configurations for service-linked Config Rules such as Organization Config rules,
+ * 				the rules deployed by conformance packs, and rules deployed by Amazon Web Services Security Hub.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

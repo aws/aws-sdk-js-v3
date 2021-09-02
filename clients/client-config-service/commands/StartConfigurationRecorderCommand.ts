@@ -21,8 +21,8 @@ export interface StartConfigurationRecorderCommandInput extends StartConfigurati
 export interface StartConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Starts recording configurations of the AWS resources you have
- * 			selected to record in your AWS account.</p>
+ * <p>Starts recording configurations of the Amazon Web Services resources you have
+ * 			selected to record in your Amazon Web Services account.</p>
  * 		       <p>You must have created at least one delivery channel to
  * 			successfully start the configuration recorder.</p>
  * @example

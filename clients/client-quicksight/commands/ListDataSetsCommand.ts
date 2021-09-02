@@ -21,7 +21,7 @@ export interface ListDataSetsCommandInput extends ListDataSetsRequest {}
 export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all of the datasets belonging to the current Amazon Web Services account; in an Amazon Web Services Region;.</p>
+ * <p>Lists all of the datasets belonging to the current Amazon Web Services account in an Amazon Web Services Region;.</p>
  * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

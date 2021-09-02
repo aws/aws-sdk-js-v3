@@ -22,9 +22,9 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
 
 /**
  * <p>A remediation exception is when a specific resource is no longer considered for auto-remediation.
- * 			This API adds a new exception or updates an existing exception for a specific resource with a specific AWS Config rule. </p>
+ * 			This API adds a new exception or updates an existing exception for a specific resource with a specific Config rule. </p>
  * 		       <note>
- *             <p>AWS Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
+ *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
  * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
  *          </note>
  * @example

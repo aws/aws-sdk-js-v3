@@ -22,6 +22,11 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Detaches a policy from the specified target.</p>
+ *          <note>
+ *             <p>Because of the distributed nature of Amazon Web Services, it can take up to five minutes after
+ *          a policy is detached before it's ready to be deleted.</p>
+ *          </note>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPolicy</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

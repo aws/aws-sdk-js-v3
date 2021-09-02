@@ -21,7 +21,7 @@ export interface ListDashboardVersionsCommandInput extends ListDashboardVersions
 export interface ListDashboardVersionsCommandOutput extends ListDashboardVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the versions of the dashboards in the QuickSight subscription.</p>
+ * <p>Lists all the versions of the dashboards in the Amazon QuickSight subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

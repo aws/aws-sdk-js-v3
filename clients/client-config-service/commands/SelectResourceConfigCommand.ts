@@ -25,7 +25,7 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  * 		       <p>For more information about query components, see the
  * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html">
  *                <b>Query Components</b>
- *             </a> section in the AWS Config Developer Guide.</p>
+ *             </a> section in the Config Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

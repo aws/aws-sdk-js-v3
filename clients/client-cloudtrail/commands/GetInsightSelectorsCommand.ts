@@ -27,7 +27,7 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  *          <code>InsightNotEnabledException</code>
  *          </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights Events for Trails
- *       </a> in the <i>AWS CloudTrail User Guide</i>.</p>
+ *       </a> in the <i>CloudTrail User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

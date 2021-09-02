@@ -28,7 +28,7 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
 
 /**
  * <p>Returns a list of compliant and noncompliant rules with the
- * 			number of resources for compliant and noncompliant rules.
+ * 			number of resources for compliant and noncompliant rules. Does not display rules that do not have compliance results.
  * 			</p>
  * 		       <note>
  * 			         <p>The results can return an empty result page, but if you

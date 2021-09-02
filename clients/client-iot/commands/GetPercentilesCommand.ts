@@ -30,6 +30,7 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  *         that occurs in approximately five percent of the values that match the query, and so on.
  *         The result is an approximation, the more values that match the query, the more accurate
  *         the percentile values.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPercentiles</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

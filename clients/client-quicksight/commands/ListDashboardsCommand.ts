@@ -21,7 +21,7 @@ export interface ListDashboardsCommandInput extends ListDashboardsRequest {}
 export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists dashboards in an Amazon Web Services account;.</p>
+ * <p>Lists dashboards in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

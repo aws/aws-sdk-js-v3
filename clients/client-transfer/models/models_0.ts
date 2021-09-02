@@ -20,7 +20,7 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>This exception is thrown when the <code>UpdatServer</code> is called for a file transfer
+ * <p>This exception is thrown when the <code>UpdateServer</code> is called for a file transfer
  *       protocol-enabled server that has VPC as the endpoint type and the server's
  *         <code>VpcEndpointID</code> is not in the available state.</p>
  */
@@ -35,6 +35,123 @@ export namespace ConflictException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the details for the file location for the file being used in the workflow. Only applicable if you are using Amazon EFS for storage.</p>
+ *          <p>
+ *      You need to provide the file system ID and the pathname.
+ *       The pathname can represent either a path or a file.
+ *       This is determined by whether or not you end the path value with the forward slash (/) character.
+ *       If the final character is "/", then your file is copied to the folder, and its name does not change.
+ *       If, rather, the final character is alphanumeric, your uploaded file is renamed to the path value. In this case, if a file with that name already exists, it is overwritten.
+ *     </p>
+ *          <p>For example, if your path is <code>shared-files/bob/</code>, your uploaded files are copied to the <code>shared-files/bob/</code>, folder.
+ *       If your path is <code>shared-files/today</code>, each uploaded file is copied to the <code>shared-files</code> folder and named <code>today</code>:
+ *       each upload overwrites the previous version of the <code>bob</code> file.</p>
+ */
+export interface EfsFileLocation {
+  /**
+   * <p>The ID of the file system, assigned by Amazon EFS.</p>
+   */
+  FileSystemId?: string;
+
+  /**
+   * <p>The pathname for the folder being used by a workflow.</p>
+   */
+  Path?: string;
+}
+
+export namespace EfsFileLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EfsFileLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the details for the S3 file being copied.</p>
+ */
+export interface S3InputFileLocation {
+  /**
+   * <p>Specifies the S3 bucket that contains the file being copied.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The name assigned to the file when it was created in S3. You use the object key to retrieve the object.</p>
+   */
+  Key?: string;
+}
+
+export namespace S3InputFileLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3InputFileLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.</p>
+ */
+export interface InputFileLocation {
+  /**
+   * <p>Specifies the details for the S3 file being copied.</p>
+   */
+  S3FileLocation?: S3InputFileLocation;
+
+  /**
+   * <p>Specifies the details for the Amazon EFS file being copied.</p>
+   */
+  EfsFileLocation?: EfsFileLocation;
+}
+
+export namespace InputFileLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InputFileLocation): any => ({
+    ...obj,
+  });
+}
+
+export enum OverwriteExisting {
+  FALSE = "FALSE",
+  TRUE = "TRUE",
+}
+
+/**
+ * <p>Each step type has its own <code>StepDetails</code> structure.</p>
+ */
+export interface CopyStepDetails {
+  /**
+   * <p>The name of the step, used as an identifier.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.</p>
+   */
+  DestinationFileLocation?: InputFileLocation;
+
+  /**
+   * <p>A flag that indicates whether or not to overwrite an existing file of the same name.
+   *       The default is <code>FALSE</code>.</p>
+   */
+  OverwriteExisting?: OverwriteExisting | string;
+}
+
+export namespace CopyStepDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CopyStepDetails): any => ({
     ...obj,
   });
 }
@@ -125,7 +242,7 @@ export interface CreateAccessRequest {
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server.
    *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients.
-   *     If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
+   *     If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
    *     S3 or EFS paths visible to your users.</p>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
@@ -143,7 +260,7 @@ export interface CreateAccessRequest {
    *          <p>
    *             <code>[ { "Entry": "your-personal-report.pdf", "Target": "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
    *          </p>
-   *          <p>In most cases, you can use this value instead of the scope-down policy to lock down your
+   *          <p>In most cases, you can use this value instead of the session policy to lock down your
    *       user to the designated home directory ("<code>chroot</code>"). To do this, you can set
    *         <code>Entry</code> to <code>/</code> and set <code>Target</code> to the
    *         <code>HomeDirectory</code> parameter value.</p>
@@ -164,16 +281,17 @@ export interface CreateAccessRequest {
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
-   * <p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
+   * <p>A session policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
    *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
    *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
    *
    *          <note>
-   *             <p>This only applies when domain of <code>ServerId</code> is S3.
-   *       Amazon EFS does not use scope-down policies.</p>
-   *             <p>For scope-down policies, Amazon Web Services Transfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p>
-   *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example
-   *           scope-down policy</a>.</p>
+   *             <p>This only applies when the domain of <code>ServerId</code> is S3. EFS does not use session policies.</p>
+   *             <p>For session policies, Amazon Web Services Transfer Family stores the policy as a JSON blob, instead
+   *         of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass
+   *         it in the <code>Policy</code> argument.</p>
+   *             <p>For an example of a session policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html">Example
+   *           session policy</a>.</p>
    *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web Services Security Token Service API
    *           Reference</i>.</p>
    *          </note>
@@ -519,6 +637,51 @@ export namespace Tag {
   });
 }
 
+/**
+ * <p>Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow.</p>
+ */
+export interface WorkflowDetail {
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+
+  /**
+   * <p>Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can
+   *       assume, so that all workflow steps can operate on the required resources</p>
+   */
+  ExecutionRole: string | undefined;
+}
+
+export namespace WorkflowDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkflowDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Container for the <code>WorkflowDetail</code> data type.
+ *       It is used by actions that trigger a workflow to begin execution.</p>
+ */
+export interface WorkflowDetails {
+  /**
+   * <p>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</p>
+   */
+  OnUpload: WorkflowDetail[] | undefined;
+}
+
+export namespace WorkflowDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkflowDetails): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateServerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager (ACM) certificate. Required
@@ -701,6 +864,11 @@ export interface CreateServerRequest {
    * <p>Key-value pairs that can be used to group and search for servers.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow.</p>
+   */
+  WorkflowDetails?: WorkflowDetails;
 }
 
 export namespace CreateServerRequest {
@@ -759,7 +927,7 @@ export interface CreateUserRequest {
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server.
    *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients.
-   *     If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
+   *     If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
    *     S3 or EFS paths visible to your users.</p>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
@@ -781,7 +949,7 @@ export interface CreateUserRequest {
    *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
    *          </p>
    *
-   *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
+   *          <p>In most cases, you can use this value instead of the session policy to lock your user
    *       down to the designated home directory ("<code>chroot</code>"). To do this, you can set
    *         <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory
    *       parameter value.</p>
@@ -802,19 +970,19 @@ export interface CreateUserRequest {
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
-   * <p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
+   * <p>A session policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
    *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
    *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
    *
    *          <note>
-   *             <p>This only applies when domain of ServerId is S3. EFS does not use scope down policy.</p>
-   *             <p>For scope-down policies, Amazon Web Services Transfer Family stores the policy as a JSON blob, instead
+   *             <p>This only applies when the domain of <code>ServerId</code> is S3. EFS does not use session policies.</p>
+   *             <p>For session policies, Amazon Web Services Transfer Family stores the policy as a JSON blob, instead
    *         of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass
    *         it in the <code>Policy</code> argument.</p>
    *
    *
    *
-   *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example scope-down
+   *             <p>For an example of a session policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html">Example session
    *         policy</a>.</p>
    *
    *
@@ -861,8 +1029,7 @@ export interface CreateUserRequest {
   Tags?: Tag[];
 
   /**
-   * <p>A unique string that identifies a user and is associated with a as specified by the
-   *         <code>ServerId</code>. This user name must be a minimum of 3 and a maximum of 100 characters
+   * <p>A unique string that identifies a user and is associated with a <code>ServerId</code>. This user name must be a minimum of 3 and a maximum of 100 characters
    *       long. The following are valid characters: a-z, A-Z, 0-9, underscore '_', hyphen
    *       '-', period '.', and at sign '@'. The user name can't start
    *       with a hyphen, period, or at sign.</p>
@@ -898,6 +1065,265 @@ export namespace CreateUserResponse {
   export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>Each step type has its own <code>StepDetails</code> structure.</p>
+ */
+export interface CustomStepDetails {
+  /**
+   * <p>The name of the step, used as an identifier.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN for the lambda function that is being called.</p>
+   */
+  Target?: string;
+
+  /**
+   * <p>Timeout, in seconds, for the step.</p>
+   */
+  TimeoutSeconds?: number;
+}
+
+export namespace CustomStepDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomStepDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The name of the step, used to identify the step that is being deleted.</p>
+ */
+export interface DeleteStepDetails {
+  /**
+   * <p>The name of the step, used as an identifier.</p>
+   */
+  Name?: string;
+}
+
+export namespace DeleteStepDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteStepDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.</p>
+ */
+export interface S3Tag {
+  /**
+   * <p>The name assigned to the tag that you create.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value that corresponds to the key.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace S3Tag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Tag): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Each step type has its own <code>StepDetails</code> structure.</p>
+ *          <p>The key/value pairs used to tag a file during the execution of a workflow step.</p>
+ */
+export interface TagStepDetails {
+  /**
+   * <p>The name of the step, used as an identifier.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Array that contains from 1 to 10 key/value pairs.</p>
+   */
+  Tags?: S3Tag[];
+}
+
+export namespace TagStepDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagStepDetails): any => ({
+    ...obj,
+  });
+}
+
+export enum WorkflowStepType {
+  COPY = "COPY",
+  CUSTOM = "CUSTOM",
+  DELETE = "DELETE",
+  TAG = "TAG",
+}
+
+/**
+ * <p>The basic building block of a workflow.</p>
+ */
+export interface WorkflowStep {
+  /**
+   * <p>
+   *         Currently, the following step types are supported.
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>Copy</i>: copy the file to another location</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Custom</i>: custom step with a lambda target</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Delete</i>: delete the file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Tag</i>: add a tag to the file</p>
+   *             </li>
+   *          </ul>
+   */
+  Type?: WorkflowStepType | string;
+
+  /**
+   * <p>Details for a step that performs a file copy.</p>
+   *          <p>
+   *         Consists of the following values:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>A description</p>
+   *             </li>
+   *             <li>
+   *                <p>An S3 or EFS location for the destination of the file copy.</p>
+   *             </li>
+   *             <li>
+   *                <p>A flag that indicates whether or not to overwrite an existing file of the same name.
+   *         The default is <code>FALSE</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  CopyStepDetails?: CopyStepDetails;
+
+  /**
+   * <p>Details for a step that invokes a lambda function.</p>
+   *          <p>
+   *         Consists of the lambda function name, target, and timeout (in seconds).
+   *       </p>
+   */
+  CustomStepDetails?: CustomStepDetails;
+
+  /**
+   * <p>You need to specify the name of the file to be deleted.</p>
+   */
+  DeleteStepDetails?: DeleteStepDetails;
+
+  /**
+   * <p>Details for a step that creates one or more tags.</p>
+   *          <p>You specify one or more tags: each tag contains a key/value pair.</p>
+   */
+  TagStepDetails?: TagStepDetails;
+}
+
+export namespace WorkflowStep {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkflowStep): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateWorkflowRequest {
+  /**
+   * <p>A textual description for the workflow.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies the details for the steps that are in the specified workflow.</p>
+   *          <p>
+   *       The <code>TYPE</code> specifies which of the following actions is being taken for this step.
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>Copy</i>: copy the file to another location</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Custom</i>: custom step with a lambda target</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Delete</i>: delete the file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Tag</i>: add a tag to the file</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *       For file location, you specify either the S3 bucket and key, or the EFS filesystem ID and path.
+   *     </p>
+   */
+  Steps: WorkflowStep[] | undefined;
+
+  /**
+   * <p>Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.</p>
+   */
+  OnExceptionSteps?: WorkflowStep[];
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for workflows. Tags are metadata attached
+   *       to workflows for any purpose.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateWorkflowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateWorkflowResponse {
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+}
+
+export namespace CreateWorkflowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateWorkflowResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum CustomStepStatus {
+  FAILURE = "FAILURE",
+  SUCCESS = "SUCCESS",
 }
 
 export interface DeleteAccessRequest {
@@ -998,6 +1424,22 @@ export namespace DeleteUserRequest {
   });
 }
 
+export interface DeleteWorkflowRequest {
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+}
+
+export namespace DeleteWorkflowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteWorkflowRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeAccessRequest {
   /**
    * <p>A system-assigned unique identifier for a server that has this access assigned.</p>
@@ -1051,7 +1493,7 @@ export interface DescribedAccess {
    *       can only be set when <code>HomeDirectoryType</code> is set to
    *       <i>LOGICAL</i>.</p>
    *
-   *          <p>In most cases, you can use this value instead of the scope-down policy to lock down the
+   *          <p>In most cases, you can use this value instead of the session policy to lock down the
    *       associated access to the designated home directory ("<code>chroot</code>"). To do this, you
    *       can set <code>Entry</code> to '/' and set <code>Target</code> to the
    *         <code>HomeDirectory</code> parameter value.</p>
@@ -1061,13 +1503,13 @@ export interface DescribedAccess {
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server.
    *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients.
-   *     If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
+   *     If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
    *     S3 or EFS paths visible to your users.</p>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
   /**
-   * <p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
+   * <p>A session policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
    *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
    *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
    */
@@ -1134,6 +1576,317 @@ export namespace DescribeAccessResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeAccessResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the details for the file location for the file being used in the workflow. Only applicable if you are using S3 storage.</p>
+ *          <p>
+ *       You need to provide the bucket and key.
+ *       The key can represent either a path or a file.
+ *       This is determined by whether or not you end the key value with the forward slash (/) character.
+ *       If the final character is "/", then your file is copied to the folder, and its name does not change.
+ *       If, rather, the final character is alphanumeric, your uploaded file is renamed to the path value. In this case, if a file with that name already exists, it is overwritten.
+ *     </p>
+ *          <p>For example, if your path is <code>shared-files/bob/</code>, your uploaded files are copied to the <code>shared-files/bob/</code>, folder.
+ *       If your path is <code>shared-files/today</code>, each uploaded file is copied to the <code>shared-files</code> folder and named <code>today</code>:
+ *       each upload overwrites the previous version of the <i>bob</i> file.</p>
+ */
+export interface S3FileLocation {
+  /**
+   * <p>Specifies the S3 bucket that contains the file being used.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The name assigned to the file when it was created in S3. You use the object key to retrieve the object.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>Specifies the file version.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>The entity tag is a hash of the object. The ETag reflects changes only to the contents of an object, not its metadata.</p>
+   */
+  Etag?: string;
+}
+
+export namespace S3FileLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3FileLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the Amazon S3 or EFS file details to be used in the step.</p>
+ */
+export interface FileLocation {
+  /**
+   * <p>Specifies the S3 details for the file being used, such as bucket, Etag, and so forth.</p>
+   */
+  S3FileLocation?: S3FileLocation;
+
+  /**
+   * <p>Specifies the Amazon EFS ID and the path for the file being used.</p>
+   */
+  EfsFileLocation?: EfsFileLocation;
+}
+
+export namespace FileLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FileLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Consists of the logging role and the log group name.</p>
+ */
+export interface LoggingConfiguration {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in
+   *       your CloudWatch logs.</p>
+   */
+  LoggingRole?: string;
+
+  /**
+   * <p>The name of the CloudWatch logging group for the Amazon Web Services Transfer server to which this workflow belongs.</p>
+   */
+  LogGroupName?: string;
+}
+
+export namespace LoggingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ExecutionErrorType {
+  PERMISSION_DENIED = "PERMISSION_DENIED",
+}
+
+/**
+ * <p>Specifies the error message and type, for an error that occurs during the execution of the workflow.</p>
+ */
+export interface ExecutionError {
+  /**
+   * <p>Specifies the error type: currently, the only valid value is <code>PERMISSION_DENIED</code>, which occurs
+   *     if your policy does not contain the correct permissions to complete one or more of the steps in the workflow.</p>
+   */
+  Type: ExecutionErrorType | string | undefined;
+
+  /**
+   * <p>Specifies the descriptive message that corresponds to the <code>ErrorType</code>.</p>
+   */
+  Message: string | undefined;
+}
+
+export namespace ExecutionError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExecutionError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the following details for the step: error (if any), outputs (if any), and the step type.</p>
+ */
+export interface ExecutionStepResult {
+  /**
+   * <p>One of the available step types.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>Copy</i>: copy the file to another location</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Custom</i>: custom step with a lambda target</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Delete</i>: delete the file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Tag</i>: add a tag to the file</p>
+   *             </li>
+   *          </ul>
+   */
+  StepType?: WorkflowStepType | string;
+
+  /**
+   * <p>The values for the key/value pair applied as a tag to the file. Only applicable if the step type is <code>TAG</code>.</p>
+   */
+  Outputs?: string;
+
+  /**
+   * <p>Specifies the details for an error, if it occurred during execution of the specified workfow step.</p>
+   */
+  Error?: ExecutionError;
+}
+
+export namespace ExecutionStepResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExecutionStepResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the steps in the workflow, as well as the steps to execute in case of any errors during workflow execution.</p>
+ */
+export interface ExecutionResults {
+  /**
+   * <p>Specifies the details for the steps that are in the specified workflow.</p>
+   */
+  Steps?: ExecutionStepResult[];
+
+  /**
+   * <p>Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.</p>
+   */
+  OnExceptionSteps?: ExecutionStepResult[];
+}
+
+export namespace ExecutionResults {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExecutionResults): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the user name, server ID, and session ID for a workflow.</p>
+ */
+export interface UserDetails {
+  /**
+   * <p>A unique string that identifies a user account associated with a server.</p>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The system-assigned unique identifier for a Transfer server instance. </p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>The system-assigned unique identifier for a session that corresponds to the workflow.</p>
+   */
+  SessionId?: string;
+}
+
+export namespace UserDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A container object for the session details associated with a workflow.</p>
+ */
+export interface ServiceMetadata {
+  /**
+   * <p>The Server ID (<code>ServerId</code>), Session ID (<code>SessionId</code>) and user (<code>UserName</code>) make up the <code>UserDetails</code>.</p>
+   */
+  UserDetails: UserDetails | undefined;
+}
+
+export namespace ServiceMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceMetadata): any => ({
+    ...obj,
+  });
+}
+
+export enum ExecutionStatus {
+  COMPLETED = "COMPLETED",
+  EXCEPTION = "EXCEPTION",
+  HANDLING_EXCEPTION = "HANDLING_EXCEPTION",
+  IN_PROGRESS = "IN_PROGRESS",
+}
+
+/**
+ * <p>The details for an execution object.</p>
+ */
+export interface DescribedExecution {
+  /**
+   * <p>A unique identifier for the execution of a workflow.</p>
+   */
+  ExecutionId?: string;
+
+  /**
+   * <p>A structure that describes the Amazon S3 or EFS file location.
+   *       This is the file location when the execution begins: if the file is being copied,
+   *     this is the initial (as opposed to destination) file location.</p>
+   */
+  InitialFileLocation?: FileLocation;
+
+  /**
+   * <p>A container object for the session details associated with a workflow.</p>
+   */
+  ServiceMetadata?: ServiceMetadata;
+
+  /**
+   * <p>The IAM role associated with the execution.</p>
+   */
+  ExecutionRole?: string;
+
+  /**
+   * <p>The IAM logging role associated with the execution.</p>
+   */
+  LoggingConfiguration?: LoggingConfiguration;
+
+  /**
+   * <p>The full POSIX identity, including user ID (<code>Uid</code>), group ID
+   *       (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls
+   *       your users' access to your Amazon EFS file systems. The POSIX permissions that are set on
+   *       files and directories in your file system determine the level of access your users get when
+   *       transferring files into and out of your Amazon EFS file systems.</p>
+   */
+  PosixProfile?: PosixProfile;
+
+  /**
+   * <p>The status is one of the execution. Can be in progress, completed, exception encountered, or handling the exception.
+   *       </p>
+   */
+  Status?: ExecutionStatus | string;
+
+  /**
+   * <p>A structure that describes the execution results. This includes a list of the steps along with the details of each step,
+   *     error type and message (if any), and the <code>OnExceptionSteps</code> structure.</p>
+   */
+  Results?: ExecutionResults;
+}
+
+export namespace DescribedExecution {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribedExecution): any => ({
     ...obj,
   });
 }
@@ -1214,6 +1967,11 @@ export interface ProtocolDetails {
    *          <p>Replace <code>
    *                <i>0.0.0.0</i>
    *             </code> in the example above with the actual IP address you want to use.</p>
+   *          <note>
+   *             <p>
+   *         If you change the <code>PassiveIp</code> value, you must stop and then restart your Transfer server for the change to take effect. For details on using Passive IP (PASV) in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring your FTPS server behind a firewall or NAT with Amazon Web Services Transfer Family</a>.
+   *       </p>
+   *          </note>
    */
   PassiveIp?: string;
 }
@@ -1375,6 +2133,11 @@ export interface DescribedServer {
    *         <code>ServerId</code>.</p>
    */
   UserCount?: number;
+
+  /**
+   * <p>Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow.</p>
+   */
+  WorkflowDetails?: WorkflowDetails;
 }
 
 export namespace DescribedServer {
@@ -1447,7 +2210,7 @@ export interface DescribedUser {
    *       can only be set when <code>HomeDirectoryType</code> is set to
    *       <i>LOGICAL</i>.</p>
    *
-   *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
+   *          <p>In most cases, you can use this value instead of the session policy to lock your user
    *       down to the designated home directory ("<code>chroot</code>"). To do this, you can set
    *         <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory
    *       parameter value.</p>
@@ -1457,13 +2220,13 @@ export interface DescribedUser {
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server.
    *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients.
-   *     If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
+   *     If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
    *     S3 or EFS paths visible to your users.</p>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
   /**
-   * <p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
+   * <p>A session policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
    *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
    *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
    */
@@ -1512,6 +2275,92 @@ export namespace DescribedUser {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribedUser): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the properties of the specified workflow</p>
+ */
+export interface DescribedWorkflow {
+  /**
+   * <p>Specifies the unique Amazon Resource Name (ARN) for the workflow.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Specifies the text description for the workflow.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies the details for the steps that are in the specified workflow.</p>
+   */
+  Steps?: WorkflowStep[];
+
+  /**
+   * <p>Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.</p>
+   */
+  OnExceptionSteps?: WorkflowStep[];
+
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId?: string;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace DescribedWorkflow {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribedWorkflow): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeExecutionRequest {
+  /**
+   * <p>A unique identifier for the execution of a workflow.</p>
+   */
+  ExecutionId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+}
+
+export namespace DescribeExecutionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeExecutionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeExecutionResponse {
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+
+  /**
+   * <p>The structure that contains the details of the workflow' execution.</p>
+   */
+  Execution: DescribedExecution | undefined;
+}
+
+export namespace DescribeExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeExecutionResponse): any => ({
     ...obj,
   });
 }
@@ -1621,6 +2470,38 @@ export namespace DescribeUserResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeWorkflowRequest {
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+}
+
+export namespace DescribeWorkflowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeWorkflowRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeWorkflowResponse {
+  /**
+   * <p>The structure that contains the details of the workflow.</p>
+   */
+  Workflow: DescribedWorkflow | undefined;
+}
+
+export namespace DescribeWorkflowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeWorkflowResponse): any => ({
     ...obj,
   });
 }
@@ -1742,7 +2623,7 @@ export interface ListedAccess {
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server.
    *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients.
-   *     If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
+   *     If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
    *     S3 or EFS paths visible to your users.</p>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
@@ -1808,6 +2689,42 @@ export namespace ListAccessesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListAccessesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns properties of the execution that is specified.</p>
+ */
+export interface ListedExecution {
+  /**
+   * <p>A unique identifier for the execution of a workflow.</p>
+   */
+  ExecutionId?: string;
+
+  /**
+   * <p>A structure that describes the Amazon S3 or EFS file location.
+   *       This is the file location when the execution begins: if the file is being copied,
+   *       this is the initial (as opposed to destination) file location.</p>
+   */
+  InitialFileLocation?: FileLocation;
+
+  /**
+   * <p>A container object for the session details associated with a workflow.</p>
+   */
+  ServiceMetadata?: ServiceMetadata;
+
+  /**
+   * <p>The status is one of the execution. Can be in progress, completed, exception encountered, or handling the exception.</p>
+   */
+  Status?: ExecutionStatus | string;
+}
+
+export namespace ListedExecution {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListedExecution): any => ({
     ...obj,
   });
 }
@@ -1906,7 +2823,7 @@ export interface ListedUser {
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server.
    *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients.
-   *     If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
+   *     If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
    *     S3 or EFS paths visible to your users.</p>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
@@ -1944,6 +2861,133 @@ export namespace ListedUser {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListedUser): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the ID, text description, and Amazon Resource Name (ARN) for the workflow.</p>
+ */
+export interface ListedWorkflow {
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId?: string;
+
+  /**
+   * <p>Specifies the text description for the workflow.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies the unique Amazon Resource Name (ARN) for the workflow.</p>
+   */
+  Arn?: string;
+}
+
+export namespace ListedWorkflow {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListedWorkflow): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExecutionsRequest {
+  /**
+   * <p>Specifies the aximum number of executions to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   *             <code>ListExecutions</code> returns the <code>NextToken</code> parameter in the output.
+   *       You can then pass the <code>NextToken</code> parameter in a subsequent command to
+   *       continue listing additional executions.</p>
+   *          <p>
+   *       This is useful for pagination, for instance.
+   *       If you have 100 executions for a workflow, you might only want to list first 10. If so, callthe API by specifing the <code>max-results</code>:
+   *     </p>
+   *          <p>
+   *             <code>aws transfer list-executions --max-results 10</code>
+   *          </p>
+   *          <p>
+   *       This returns details for the first 10 executions, as well as the pointer (<code>NextToken</code>) to the eleventh execution.
+   *       You can now call the API again, suppling the <code>NextToken</code> value you received:
+   *     </p>
+   *          <p>
+   *             <code>aws transfer list-executions --max-results 10 --next-token $somePointerReturnedFromPreviousListResult</code>
+   *          </p>
+   *          <p>
+   *       This call returns the next 10 executions, the 11th through the 20th. You can then repeat the call until the details
+   *       for all 100 executions have been returned.
+   *     </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+}
+
+export namespace ListExecutionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExecutionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExecutionsResponse {
+  /**
+   * <p>
+   *             <code>ListExecutions</code> returns the <code>NextToken</code> parameter in the output.
+   *       You can then pass the <code>NextToken</code> parameter in a subsequent command to
+   *       continue listing additional executions.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+
+  /**
+   * <p>Returns the details for each execution.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>NextToken</b>: returned from a call to several APIs,
+   *       you can use pass it to a subsequent command to continue listing additional executions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>StartTime</b>: timestamp indicating when the execution began.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Executions</b>: details of the execution, including the execution ID, initial file location,
+   *       and Service metadata.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Status</b>: one of the following values:
+   *         <code>IN_PROGRESS</code>, <code>COMPLETED</code>, <code>EXCEPTION</code>, <code>HANDLING_EXEPTION</code>.
+   *       </p>
+   *             </li>
+   *          </ul>
+   */
+  Executions: ListedExecution[] | undefined;
+}
+
+export namespace ListExecutionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExecutionsResponse): any => ({
     ...obj,
   });
 }
@@ -2164,6 +3208,96 @@ export namespace ListUsersResponse {
   });
 }
 
+export interface ListWorkflowsRequest {
+  /**
+   * <p>Specifies the maximum number of workflows to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   *             <code>ListWorkflows</code> returns the <code>NextToken</code> parameter in the output.
+   *       You can then pass the <code>NextToken</code> parameter in a subsequent command to
+   *       continue listing additional workflows.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListWorkflowsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListWorkflowsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListWorkflowsResponse {
+  /**
+   * <p>
+   *             <code>ListWorkflows</code> returns the <code>NextToken</code> parameter in the output.
+   *       You can then pass the <code>NextToken</code> parameter in a subsequent command to
+   *       continue listing additional workflows.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns the <code>Arn</code>, <code>WorkflowId</code>, and <code>Description</code> for each workflow.</p>
+   */
+  Workflows: ListedWorkflow[] | undefined;
+}
+
+export namespace ListWorkflowsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListWorkflowsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SendWorkflowStepStateRequest {
+  /**
+   * <p>A unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the execution of a workflow.</p>
+   */
+  ExecutionId: string | undefined;
+
+  /**
+   * <p>Used to distinguish between multiple callbacks for multiple Lambda steps within the same execution.</p>
+   */
+  Token: string | undefined;
+
+  /**
+   * <p>Indicates whether the specified step succeeded or failed.</p>
+   */
+  Status: CustomStepStatus | string | undefined;
+}
+
+export namespace SendWorkflowStepStateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendWorkflowStepStateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SendWorkflowStepStateResponse {}
+
+export namespace SendWorkflowStepStateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendWorkflowStepStateResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface StartServerRequest {
   /**
    * <p>A system-assigned unique identifier for a server that you start.</p>
@@ -2335,7 +3469,7 @@ export interface UpdateAccessRequest {
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server.
    *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients.
-   *     If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
+   *     If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
    *     S3 or EFS paths visible to your users.</p>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
@@ -2353,7 +3487,7 @@ export interface UpdateAccessRequest {
    *          <p>
    *             <code>[ { "Entry": "your-personal-report.pdf", "Target": "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
    *          </p>
-   *          <p>In most cases, you can use this value instead of the scope-down policy to lock down your
+   *          <p>In most cases, you can use this value instead of the session policy to lock down your
    *         user to the designated home directory ("<code>chroot</code>"). To do this, you can set
    *         <code>Entry</code> to <code>/</code> and set <code>Target</code> to the
    *         <code>HomeDirectory</code> parameter value.</p>
@@ -2374,16 +3508,18 @@ export interface UpdateAccessRequest {
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
-   * <p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
+   * <p>A session policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
    *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
    *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
    *
+   *
    *          <note>
-   *             <p>This only applies when domain of <code>ServerId</code> is S3. Amazon EFS does not use scope
-   *       down policy.</p>
-   *             <p>For scope-down policies, Amazon Web ServicesTransfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p>
-   *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example
-   *         scope-down policy</a>.</p>
+   *             <p>This only applies when the domain of <code>ServerId</code> is S3. EFS does not use session policies.</p>
+   *             <p>For session policies, Amazon Web Services Transfer Family stores the policy as a JSON blob, instead
+   *         of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass
+   *         it in the <code>Policy</code> argument.</p>
+   *             <p>For an example of a session policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html">Example
+   *         session policy</a>.</p>
    *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web ServicesSecurity Token Service API
    *           Reference</i>.</p>
    *          </note>
@@ -2623,6 +3759,11 @@ export interface UpdateServerRequest {
    *       assigned to.</p>
    */
   ServerId: string | undefined;
+
+  /**
+   * <p>Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow.</p>
+   */
+  WorkflowDetails?: WorkflowDetails;
 }
 
 export namespace UpdateServerRequest {
@@ -2662,7 +3803,7 @@ export interface UpdateUserRequest {
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when they log into the server.
    *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol clients.
-   *     If you set it <code>LOGICAL</code>, you will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
+   *     If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make Amazon
    *     S3 or EFS paths visible to your users.</p>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
@@ -2683,7 +3824,7 @@ export interface UpdateUserRequest {
    *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
    *          </p>
    *
-   *          <p>In most cases, you can use this value instead of the scope-down policy to lock down your
+   *          <p>In most cases, you can use this value instead of the session policy to lock down your
    *       user to the designated home directory ("<code>chroot</code>"). To do this, you can set
    *         <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory
    *       parameter value.</p>
@@ -2705,20 +3846,19 @@ export interface UpdateUserRequest {
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
-   * <p>A scope-down policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
+   * <p>A session policy for your user so that you can use the same IAM role across multiple users. This policy scopes down user
    *      access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include <code>${Transfer:UserName}</code>,
    *      <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
    *
    *          <note>
-   *             <p>This only applies when domain of <code>ServerId</code> is S3.
-   *       Amazon EFS does not use scope-down policies.</p>
-   *
-   *             <p>For scope-down policies, Amazon Web ServicesTransfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy.
-   *         You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p>
-   *
+   *             <p>This only applies when the domain of <code>ServerId</code> is S3. EFS does not use session policies.</p>
+   *             <p>For session policies, Amazon Web Services Transfer Family stores the policy as a JSON blob, instead
+   *         of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass
+   *         it in the <code>Policy</code> argument.</p>
    *
    *
-   *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/users.html#users-policies-scope-down">Creating a scope-down
+   *
+   *             <p>For an example of a session policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/session-policy">Creating a session
    *           policy</a>.</p>
    *
    *

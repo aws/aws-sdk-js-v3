@@ -21,7 +21,7 @@ export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBeare
 /**
  * <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">
  *          Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>If you are using an identity other than the root user of the account
+ *          <p>If you are using an identity other than the root user of the Amazon Web Services account
  *          that owns the Outposts bucket, the calling identity must have the
  *          <code>s3-outposts:GetBucket</code> permissions on the specified Outposts bucket and
  *          belong to the Outposts bucket owner's account in order to use this action. Only

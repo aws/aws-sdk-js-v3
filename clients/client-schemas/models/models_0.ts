@@ -28,6 +28,11 @@ export interface DiscovererSummary {
   State?: DiscovererState | string;
 
   /**
+   * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
+   */
+  CrossAccount?: boolean;
+
+  /**
    * <p>Tags associated with the resource.</p>
    */
   Tags?: { [key: string]: string };
@@ -264,6 +269,11 @@ export interface CreateDiscovererRequest {
   SourceArn: string | undefined;
 
   /**
+   * <p>Support discovery of schemas in events sent to the bus from another account. (default: true).</p>
+   */
+  CrossAccount?: boolean;
+
+  /**
    * <p>Tags associated with the resource.</p>
    */
   Tags?: { [key: string]: string };
@@ -303,6 +313,11 @@ export interface CreateDiscovererResponse {
    * <p>The state of the discoverer.</p>
    */
   State?: DiscovererState | string;
+
+  /**
+   * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
+   */
+  CrossAccount?: boolean;
 
   /**
    * <p>Tags associated with the resource.</p>
@@ -804,6 +819,11 @@ export interface DescribeDiscovererResponse {
    * <p>The state of the discoverer.</p>
    */
   State?: DiscovererState | string;
+
+  /**
+   * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
+   */
+  CrossAccount?: boolean;
 
   /**
    * <p>Tags associated with the resource.</p>
@@ -1671,6 +1691,11 @@ export interface UpdateDiscovererRequest {
    * <p>The ID of the discoverer.</p>
    */
   DiscovererId: string | undefined;
+
+  /**
+   * <p>Support discovery of schemas in events sent to the bus from another account. (default: true)</p>
+   */
+  CrossAccount?: boolean;
 }
 
 export namespace UpdateDiscovererRequest {
@@ -1707,6 +1732,11 @@ export interface UpdateDiscovererResponse {
    * <p>The state of the discoverer.</p>
    */
   State?: DiscovererState | string;
+
+  /**
+   * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
+   */
+  CrossAccount?: boolean;
 
   /**
    * <p>Tags associated with the resource.</p>

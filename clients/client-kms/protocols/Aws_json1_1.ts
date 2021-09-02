@@ -6076,6 +6076,7 @@ const serializeAws_json1_1CreateKeyRequest = (input: CreateKeyRequest, context: 
     ...(input.CustomerMasterKeySpec !== undefined &&
       input.CustomerMasterKeySpec !== null && { CustomerMasterKeySpec: input.CustomerMasterKeySpec }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.KeySpec !== undefined && input.KeySpec !== null && { KeySpec: input.KeySpec }),
     ...(input.KeyUsage !== undefined && input.KeyUsage !== null && { KeyUsage: input.KeyUsage }),
     ...(input.MultiRegion !== undefined && input.MultiRegion !== null && { MultiRegion: input.MultiRegion }),
     ...(input.Origin !== undefined && input.Origin !== null && { Origin: input.Origin }),
@@ -7035,6 +7036,7 @@ const deserializeAws_json1_1GetPublicKeyResponse = (output: any, context: __Serd
         ? deserializeAws_json1_1EncryptionAlgorithmSpecList(output.EncryptionAlgorithms, context)
         : undefined,
     KeyId: __expectString(output.KeyId),
+    KeySpec: __expectString(output.KeySpec),
     KeyUsage: __expectString(output.KeyUsage),
     PublicKey:
       output.PublicKey !== undefined && output.PublicKey !== null ? context.base64Decoder(output.PublicKey) : undefined,
@@ -7245,6 +7247,7 @@ const deserializeAws_json1_1KeyMetadata = (output: any, context: __SerdeContext)
     ExpirationModel: __expectString(output.ExpirationModel),
     KeyId: __expectString(output.KeyId),
     KeyManager: __expectString(output.KeyManager),
+    KeySpec: __expectString(output.KeySpec),
     KeyState: __expectString(output.KeyState),
     KeyUsage: __expectString(output.KeyUsage),
     MultiRegion: __expectBoolean(output.MultiRegion),

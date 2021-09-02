@@ -1886,7 +1886,6 @@ import {
   CreditSpecification,
   CreditSpecificationRequest,
   DeleteCarrierGatewayRequest,
-  DeleteCarrierGatewayResult,
   DnsEntry,
   ElasticGpuSpecification,
   ElasticGpuSpecificationResponse,
@@ -2045,6 +2044,7 @@ import {
   CoipPool,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteCarrierGatewayResult,
   DeleteClientVpnEndpointRequest,
   DeleteClientVpnEndpointResult,
   DeleteClientVpnRouteRequest,
@@ -2236,7 +2236,6 @@ import {
   DescribeInstanceAttributeRequest,
   DescribeInstanceCreditSpecificationsRequest,
   DescribeInstanceCreditSpecificationsResult,
-  DescribeInstanceEventNotificationAttributesRequest,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -2312,6 +2311,7 @@ import {
   ClassicLoadBalancersConfig,
   CpuOptions,
   CreateVolumePermission,
+  DescribeInstanceEventNotificationAttributesRequest,
   DescribeInstanceEventNotificationAttributesResult,
   DescribeInstanceEventWindowsRequest,
   DescribeInstanceEventWindowsResult,
@@ -2446,7 +2446,6 @@ import {
   DescribeVolumeAttributeRequest,
   DescribeVolumeAttributeResult,
   DescribeVolumeStatusRequest,
-  DescribeVolumeStatusResult,
   DescribeVolumesModificationsRequest,
   DescribeVolumesModificationsResult,
   DescribeVolumesRequest,
@@ -2572,6 +2571,7 @@ import {
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DescribeVolumeStatusResult,
   DescribeVpcAttributeRequest,
   DescribeVpcAttributeResult,
   DescribeVpcClassicLinkDnsSupportRequest,
@@ -2822,7 +2822,6 @@ import {
   ModifyVpcEndpointServiceConfigurationResult,
   ModifyVpcEndpointServicePermissionsRequest,
   ModifyVpcEndpointServicePermissionsResult,
-  ModifyVpcPeeringConnectionOptionsRequest,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptionsRequest,
   PrefixListAssociation,
@@ -2866,6 +2865,7 @@ import {
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcPeeringConnectionOptionsRequest,
   ModifyVpcPeeringConnectionOptionsResult,
   ModifyVpcTenancyRequest,
   ModifyVpcTenancyResult,
@@ -35308,9 +35308,6 @@ const serializeAws_ec2CreateVpcPeeringConnectionRequest = (
 
 const serializeAws_ec2CreateVpcRequest = (input: CreateVpcRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CidrBlock !== undefined && input.CidrBlock !== null) {
-    entries["CidrBlock"] = input.CidrBlock;
-  }
   if (input.AmazonProvidedIpv6CidrBlock !== undefined && input.AmazonProvidedIpv6CidrBlock !== null) {
     entries["AmazonProvidedIpv6CidrBlock"] = input.AmazonProvidedIpv6CidrBlock;
   }
@@ -35335,6 +35332,9 @@ const serializeAws_ec2CreateVpcRequest = (input: CreateVpcRequest, context: __Se
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.CidrBlock !== undefined && input.CidrBlock !== null) {
+    entries["CidrBlock"] = input.CidrBlock;
   }
   return entries;
 };
@@ -43211,6 +43211,9 @@ const serializeAws_ec2LaunchTemplateInstanceMetadataOptionsRequest = (
   }
   if (input.HttpEndpoint !== undefined && input.HttpEndpoint !== null) {
     entries["HttpEndpoint"] = input.HttpEndpoint;
+  }
+  if (input.HttpProtocolIpv6 !== undefined && input.HttpProtocolIpv6 !== null) {
+    entries["HttpProtocolIpv6"] = input.HttpProtocolIpv6;
   }
   return entries;
 };
@@ -64116,6 +64119,7 @@ const deserializeAws_ec2LaunchTemplateInstanceMetadataOptions = (
     HttpTokens: undefined,
     HttpPutResponseHopLimit: undefined,
     HttpEndpoint: undefined,
+    HttpProtocolIpv6: undefined,
   };
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -64128,6 +64132,9 @@ const deserializeAws_ec2LaunchTemplateInstanceMetadataOptions = (
   }
   if (output["httpEndpoint"] !== undefined) {
     contents.HttpEndpoint = __expectString(output["httpEndpoint"]);
+  }
+  if (output["httpProtocolIpv6"] !== undefined) {
+    contents.HttpProtocolIpv6 = __expectString(output["httpProtocolIpv6"]);
   }
   return contents;
 };

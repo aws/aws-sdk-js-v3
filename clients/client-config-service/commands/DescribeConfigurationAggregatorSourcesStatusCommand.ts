@@ -28,7 +28,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
 
 /**
  * <p>Returns status information for sources within an aggregator.
- * 			The status includes information about the last time AWS Config verified authorization between the source account and an aggregator account. In case of a failure, the status contains the related error code or message. </p>
+ * 			The status includes information about the last time Config verified authorization between the source account and an aggregator account. In case of a failure, the status contains the related error code or message. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

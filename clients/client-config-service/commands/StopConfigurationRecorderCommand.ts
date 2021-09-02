@@ -21,7 +21,7 @@ export interface StopConfigurationRecorderCommandInput extends StopConfiguration
 export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops recording configurations of the AWS resources you have selected to record in your AWS account.</p>
+ * <p>Stops recording configurations of the Amazon Web Services resources you have selected to record in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

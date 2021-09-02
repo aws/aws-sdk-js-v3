@@ -1,5 +1,6 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVolumeStatusRequest, DescribeVolumeStatusResult } from "../models/models_3";
+import { DescribeVolumeStatusRequest } from "../models/models_3";
+import { DescribeVolumeStatusResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeVolumeStatusCommand,
   serializeAws_ec2DescribeVolumeStatusCommand,

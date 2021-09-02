@@ -115,6 +115,11 @@ import {
   CreateDynamicThingGroupCommandInput,
   CreateDynamicThingGroupCommandOutput,
 } from "./commands/CreateDynamicThingGroupCommand";
+import {
+  CreateFleetMetricCommand,
+  CreateFleetMetricCommandInput,
+  CreateFleetMetricCommandOutput,
+} from "./commands/CreateFleetMetricCommand";
 import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreateJobTemplateCommand,
@@ -252,6 +257,11 @@ import {
   DeleteDynamicThingGroupCommandInput,
   DeleteDynamicThingGroupCommandOutput,
 } from "./commands/DeleteDynamicThingGroupCommand";
+import {
+  DeleteFleetMetricCommand,
+  DeleteFleetMetricCommandInput,
+  DeleteFleetMetricCommandOutput,
+} from "./commands/DeleteFleetMetricCommand";
 import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteJobExecutionCommand,
@@ -430,6 +440,11 @@ import {
   DescribeEventConfigurationsCommandOutput,
 } from "./commands/DescribeEventConfigurationsCommand";
 import {
+  DescribeFleetMetricCommand,
+  DescribeFleetMetricCommandInput,
+  DescribeFleetMetricCommandOutput,
+} from "./commands/DescribeFleetMetricCommand";
+import {
   DescribeIndexCommand,
   DescribeIndexCommandInput,
   DescribeIndexCommandOutput,
@@ -535,6 +550,11 @@ import {
   GetBehaviorModelTrainingSummariesCommandInput,
   GetBehaviorModelTrainingSummariesCommandOutput,
 } from "./commands/GetBehaviorModelTrainingSummariesCommand";
+import {
+  GetBucketsAggregationCommand,
+  GetBucketsAggregationCommandInput,
+  GetBucketsAggregationCommandOutput,
+} from "./commands/GetBucketsAggregationCommand";
 import {
   GetCardinalityCommand,
   GetCardinalityCommandInput,
@@ -686,6 +706,11 @@ import {
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput,
 } from "./commands/ListDomainConfigurationsCommand";
+import {
+  ListFleetMetricsCommand,
+  ListFleetMetricsCommandInput,
+  ListFleetMetricsCommandOutput,
+} from "./commands/ListFleetMetricsCommand";
 import { ListIndicesCommand, ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import {
   ListJobExecutionsForJobCommand,
@@ -1018,6 +1043,11 @@ import {
   UpdateEventConfigurationsCommandOutput,
 } from "./commands/UpdateEventConfigurationsCommand";
 import {
+  UpdateFleetMetricCommand,
+  UpdateFleetMetricCommandInput,
+  UpdateFleetMetricCommandOutput,
+} from "./commands/UpdateFleetMetricCommand";
+import {
   UpdateIndexingConfigurationCommand,
   UpdateIndexingConfigurationCommandInput,
   UpdateIndexingConfigurationCommandOutput,
@@ -1077,22 +1107,22 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <fullname>AWS IoT</fullname>
- *         <p>AWS IoT provides secure, bi-directional communication between Internet-connected
- *             devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS
+ * <fullname>IoT</fullname>
+ *         <p>IoT provides secure, bi-directional communication between Internet-connected
+ *             devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services
  *             cloud. You can discover your custom IoT-Data endpoint to communicate with, configure
  *             rules for data processing and integration with other services, organize resources
  *             associated with each device (Registry), configure logging, and create and manage
  *             policies and credentials to authenticate devices.</p>
  *         <p>The service endpoints that expose this API are listed in
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">AWS IoT Core Endpoints and Quotas</a>.
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>.
  *             You must use the endpoint for the region that has the resources you want to access.</p>
- *         <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">AWS
+ *         <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services
  *                 Signature Version 4</a> to sign the request is:
  *             <i>execute-api</i>.</p>
- *         <p>For more information about how AWS IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
+ *         <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
  *             Guide</a>.</p>
- *         <p>For information about how to use the credentials provider for AWS IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to AWS Services</a>.</p>
+ *         <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>
  */
 export class IoT extends IoTClient {
   /**
@@ -1100,6 +1130,7 @@ export class IoT extends IoTClient {
    *          INACTIVE.</p>
    *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
    *          to enumerate your certificates.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AcceptCertificateTransfer</a> action.</p>
    */
   public acceptCertificateTransfer(
     args: AcceptCertificateTransferCommandInput,
@@ -1132,6 +1163,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Adds a thing to a billing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToBillingGroup</a> action.</p>
    */
   public addThingToBillingGroup(
     args: AddThingToBillingGroupCommandInput,
@@ -1164,6 +1196,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Adds a thing to a thing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToThingGroup</a> action.</p>
    */
   public addThingToThingGroup(
     args: AddThingToThingGroupCommandInput,
@@ -1208,6 +1241,7 @@ export class IoT extends IoTClient {
    *                 <p>The total number of targets associated with a job must not exceed 100.</p>
    *             </li>
    *          </ul>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateTargetsWithJob</a> action.</p>
    */
   public associateTargetsWithJob(
     args: AssociateTargetsWithJobCommandInput,
@@ -1241,6 +1275,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Attaches the specified policy to the specified principal (certificate or other
    *          credential).</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPolicy</a> action.</p>
    */
   public attachPolicy(
     args: AttachPolicyCommandInput,
@@ -1274,7 +1309,8 @@ export class IoT extends IoTClient {
    * <p>Attaches the specified policy to the specified principal (certificate or other
    *          credential).</p>
    *          <p>
-   *             <b>Note:</b> This API is deprecated. Please use <a>AttachPolicy</a> instead.</p>
+   *             <b>Note:</b> This action is deprecated. Please use <a>AttachPolicy</a> instead.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
    */
   public attachPrincipalPolicy(
     args: AttachPrincipalPolicyCommandInput,
@@ -1308,6 +1344,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Associates a Device Defender security profile with a thing group or this account. Each
    *         thing group or account can have up to five security profiles associated with it.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachSecurityProfile</a> action.</p>
    */
   public attachSecurityProfile(
     args: AttachSecurityProfileCommandInput,
@@ -1342,6 +1379,7 @@ export class IoT extends IoTClient {
    * <p>Attaches the specified principal to the specified thing. A principal can be X.509
    * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
    * 			identities.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachThingPrincipal</a> action.</p>
    */
   public attachThingPrincipal(
     args: AttachThingPrincipalCommandInput,
@@ -1376,6 +1414,7 @@ export class IoT extends IoTClient {
    * <p>Cancels a mitigation action task that is in progress. If the task
    *       is not
    *       in progress, an InvalidRequestException occurs.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditMitigationActionsTask</a> action.</p>
    */
   public cancelAuditMitigationActionsTask(
     args: CancelAuditMitigationActionsTaskCommandInput,
@@ -1408,6 +1447,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditTask</a> action.</p>
    */
   public cancelAuditTask(
     args: CancelAuditTaskCommandInput,
@@ -1442,11 +1482,12 @@ export class IoT extends IoTClient {
    * <p>Cancels a pending transfer for the specified certificate.</p>
    *          <p>
    *             <b>Note</b> Only the transfer source account can use this
-   *          operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the
+   *          operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, IoT returns the
    *          certificate to the source account in the INACTIVE state. After the destination account has
    *          accepted the transfer, the transfer cannot be cancelled.</p>
    *          <p>After a certificate transfer is cancelled, the status of the certificate changes from
    *          PENDING_TRANSFER to INACTIVE.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelCertificateTransfer</a> action.</p>
    */
   public cancelCertificateTransfer(
     args: CancelCertificateTransferCommandInput,
@@ -1481,6 +1522,7 @@ export class IoT extends IoTClient {
    * <p>
    *         Cancels a Device Defender ML Detect mitigation action.
    *       </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelDetectMitigationActionsTask</a> action.</p>
    */
   public cancelDetectMitigationActionsTask(
     args: CancelDetectMitigationActionsTaskCommandInput,
@@ -1513,6 +1555,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Cancels a job.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJob</a> action.</p>
    */
   public cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
   public cancelJob(args: CancelJobCommandInput, cb: (err: any, data?: CancelJobCommandOutput) => void): void;
@@ -1539,6 +1582,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Cancels the execution of a job for a given thing.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJobExecution</a> action.</p>
    */
   public cancelJobExecution(
     args: CancelJobExecutionCommandInput,
@@ -1571,6 +1615,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Clears the default authorizer.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ClearDefaultAuthorizer</a> action.</p>
    */
   public clearDefaultAuthorizer(
     args: ClearDefaultAuthorizerCommandInput,
@@ -1602,10 +1647,11 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS
-   *          IoT sends a confirmation message to the endpoint or base address you specify. The message
+   * <p>Confirms a topic rule destination. When you create a rule requiring a destination, IoT
+   *          sends a confirmation message to the endpoint or base address you specify. The message
    *          includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code>
    *          to confirm that you own or have access to the endpoint.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ConfirmTopicRuleDestination</a> action.</p>
    */
   public confirmTopicRuleDestination(
     args: ConfirmTopicRuleDestinationCommandInput,
@@ -1640,6 +1686,7 @@ export class IoT extends IoTClient {
    * <p>
    *       Creates a Device Defender audit suppression.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuditSuppression</a> action.</p>
    */
   public createAuditSuppression(
     args: CreateAuditSuppressionCommandInput,
@@ -1672,6 +1719,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates an authorizer.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuthorizer</a> action.</p>
    */
   public createAuthorizer(
     args: CreateAuthorizerCommandInput,
@@ -1704,6 +1752,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a billing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateBillingGroup</a> action.</p>
    */
   public createBillingGroup(
     args: CreateBillingGroupCommandInput,
@@ -1744,6 +1793,8 @@ export class IoT extends IoTClient {
    *          <p>
    *             <b>Note:</b> Reusing the same certificate signing request (CSR)
    *          results in a distinct certificate.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.</p>
+   *
    *          <p>You can create multiple certificates in a batch by creating a directory, copying
    *          multiple .csr files into that directory, and then specifying that directory on the command
    *          line. The following commands show how to create a batch of certificates given a batch of
@@ -1756,7 +1807,7 @@ export class IoT extends IoTClient {
    *          <p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
    *          --certificate-signing-request file://my-csr-directory/{}</p>
    *          <p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name
-   *          to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the
+   *          to the aws iot create-certificate-from-csr Amazon Web Services CLI command to create a certificate for the
    *          corresponding CSR.</p>
    *          <p>The aws iot create-certificate-from-csr part of the command can also be run in
    *          parallel to speed up the certificate creation process:</p>
@@ -1805,6 +1856,7 @@ export class IoT extends IoTClient {
    *       Custom
    *       Metric
    *       published by your devices to Device Defender. </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCustomMetric</a> action.</p>
    */
   public createCustomMetric(
     args: CreateCustomMetricCommandInput,
@@ -1836,7 +1888,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for AWS IoT Device Defender. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+   * <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender.
+   *       For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDimension</a> action.</p>
    */
   public createDimension(
     args: CreateDimensionCommandInput,
@@ -1869,6 +1923,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a domain configuration.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDomainConfiguration</a> action.</p>
    */
   public createDomainConfiguration(
     args: CreateDomainConfigurationCommandInput,
@@ -1901,6 +1956,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a dynamic thing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDynamicThingGroup</a> action.</p>
    */
   public createDynamicThingGroup(
     args: CreateDynamicThingGroupCommandInput,
@@ -1932,7 +1988,41 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Creates a fleet metric.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateFleetMetric</a> action.</p>
+   */
+  public createFleetMetric(
+    args: CreateFleetMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFleetMetricCommandOutput>;
+  public createFleetMetric(
+    args: CreateFleetMetricCommandInput,
+    cb: (err: any, data?: CreateFleetMetricCommandOutput) => void
+  ): void;
+  public createFleetMetric(
+    args: CreateFleetMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFleetMetricCommandOutput) => void
+  ): void;
+  public createFleetMetric(
+    args: CreateFleetMetricCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetMetricCommandOutput) => void),
+    cb?: (err: any, data?: CreateFleetMetricCommandOutput) => void
+  ): Promise<CreateFleetMetricCommandOutput> | void {
+    const command = new CreateFleetMetricCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a job.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJob</a> action.</p>
    */
   public createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
   public createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
@@ -1959,6 +2049,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a job template.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJobTemplate</a> action.</p>
    */
   public createJobTemplate(
     args: CreateJobTemplateCommandInput,
@@ -1994,8 +2085,9 @@ export class IoT extends IoTClient {
    *          public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a
    *          device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p>
    *          <p>
-   *             <b>Note</b> This is the only time AWS IoT issues the private key
+   *             <b>Note</b> This is the only time IoT issues the private key
    *          for this certificate, so it is important to keep it in a secure location.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateKeysAndCertificate</a> action.</p>
    */
   public createKeysAndCertificate(
     args: CreateKeysAndCertificateCommandInput,
@@ -2027,7 +2119,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html">Mitigation actions</a>. Each mitigation action can apply only one type of change.</p>
+   * <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names.
+   *       For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html">Mitigation actions</a>. Each mitigation action can apply only one type of change.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateMitigationAction</a> action.</p>
    */
   public createMitigationAction(
     args: CreateMitigationActionCommandInput,
@@ -2059,7 +2153,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
+   * <p>Creates an IoT OTA update on a target group of things or groups.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateOTAUpdate</a> action.</p>
    */
   public createOTAUpdate(
     args: CreateOTAUpdateCommandInput,
@@ -2091,10 +2186,11 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Creates an AWS IoT policy.</p>
+   * <p>Creates an IoT policy.</p>
    *          <p>The created policy is the default version for the policy. This operation creates a
    *          policy version with a version identifier of <b>1</b> and sets
    *             <b>1</b> as the policy's default version.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePolicy</a> action.</p>
    */
   public createPolicy(
     args: CreatePolicyCommandInput,
@@ -2123,13 +2219,14 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a
+   * <p>Creates a new version of the specified IoT policy. To update a policy, create a
    *          new policy version. A managed policy can have up to five versions. If the policy has five
    *          versions, you must use <a>DeletePolicyVersion</a> to delete an existing version
    *          before you create a new one.</p>
    *          <p>Optionally, you can set the new version as the policy's default version. The default
    *          version is the operative version (that is, the version that is in effect for the
    *          certificates to which the policy is attached).</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePolicyVersion</a> action.</p>
    */
   public createPolicyVersion(
     args: CreatePolicyVersionCommandInput,
@@ -2162,6 +2259,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a provisioning claim.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningClaim</a> action.</p>
    */
   public createProvisioningClaim(
     args: CreateProvisioningClaimCommandInput,
@@ -2194,6 +2292,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a fleet provisioning template.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
    */
   public createProvisioningTemplate(
     args: CreateProvisioningTemplateCommandInput,
@@ -2226,6 +2325,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a new version of a fleet provisioning template.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a> action.</p>
    */
   public createProvisioningTemplateVersion(
     args: CreateProvisioningTemplateVersionCommandInput,
@@ -2258,6 +2358,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a role alias.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateRoleAlias</a> action.</p>
    */
   public createRoleAlias(
     args: CreateRoleAliasCommandInput,
@@ -2291,6 +2392,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Creates a scheduled audit that is run at a specified
    *           time interval.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateScheduledAudit</a> action.</p>
    */
   public createScheduledAudit(
     args: CreateScheduledAuditCommandInput,
@@ -2323,6 +2425,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a Device Defender security profile.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSecurityProfile</a> action.</p>
    */
   public createSecurityProfile(
     args: CreateSecurityProfileCommandInput,
@@ -2357,6 +2460,7 @@ export class IoT extends IoTClient {
    * <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data
    *             bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files
    *             associated with a stream.</p>
+   *     	    <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateStream</a> action.</p>
    */
   public createStream(
     args: CreateStreamCommandInput,
@@ -2393,6 +2497,7 @@ export class IoT extends IoTClient {
    * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for
    * 				information about authorizing control plane actions.</p>
    * 		       </note>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThing</a> action.</p>
    */
   public createThing(args: CreateThingCommandInput, options?: __HttpHandlerOptions): Promise<CreateThingCommandOutput>;
   public createThing(args: CreateThingCommandInput, cb: (err: any, data?: CreateThingCommandOutput) => void): void;
@@ -2423,6 +2528,7 @@ export class IoT extends IoTClient {
    * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for
    * 				information about authorizing control plane actions.</p>
    * 		       </note>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingGroup</a> action.</p>
    */
   public createThingGroup(
     args: CreateThingGroupCommandInput,
@@ -2455,6 +2561,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a new thing type.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingType</a> action.</p>
    */
   public createThingType(
     args: CreateThingTypeCommandInput,
@@ -2488,6 +2595,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Creates a rule. Creating rules is an administrator-level action. Any user who has
    *          permission to create rules will be able to access data processed by the rule.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRule</a> action.</p>
    */
   public createTopicRule(
     args: CreateTopicRuleCommandInput,
@@ -2520,6 +2628,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRuleDestination</a> action.</p>
    */
   public createTopicRuleDestination(
     args: CreateTopicRuleDestinationCommandInput,
@@ -2554,6 +2663,7 @@ export class IoT extends IoTClient {
    * <p>Restores the default settings for Device Defender audits for this account. Any
    *           configuration data you entered is deleted and all audit checks are reset to
    *           disabled.  </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAccountAuditConfiguration</a> action.</p>
    */
   public deleteAccountAuditConfiguration(
     args: DeleteAccountAuditConfigurationCommandInput,
@@ -2588,6 +2698,7 @@ export class IoT extends IoTClient {
    * <p>
    *       Deletes a Device Defender audit suppression.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAuditSuppression</a> action.</p>
    */
   public deleteAuditSuppression(
     args: DeleteAuditSuppressionCommandInput,
@@ -2620,6 +2731,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes an authorizer.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAuthorizer</a> action.</p>
    */
   public deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
@@ -2652,6 +2764,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes the billing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteBillingGroup</a> action.</p>
    */
   public deleteBillingGroup(
     args: DeleteBillingGroupCommandInput,
@@ -2684,6 +2797,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a registered CA certificate.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCACertificate</a> action.</p>
    */
   public deleteCACertificate(
     args: DeleteCACertificateCommandInput,
@@ -2717,8 +2831,9 @@ export class IoT extends IoTClient {
   /**
    * <p>Deletes the specified certificate.</p>
    *          <p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if
-   *          its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE
+   *          its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPolicy</a> action to detach all policies. Next, use the <a>UpdateCertificate</a> action to set the certificate to the INACTIVE
    *          status.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCertificate</a> action.</p>
    */
   public deleteCertificate(
     args: DeleteCertificateCommandInput,
@@ -2750,17 +2865,18 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <note>
-   *             <p>Before you can delete a custom metric, you must first remove the custom metric from all
-   *         security profiles it's a part of.
-   *         The
-   *         security
-   *         profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a>
-   *         API with <code>metricName</code> set to your custom metric name.</p>
-   *          </note>
-   *          <p>
+   * <p>
    *       Deletes a Device Defender detect custom metric.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCustomMetric</a> action.</p>
+   *          <note>
+   *             <p>Before you can delete a custom metric, you must first remove the custom metric from all
+   *       security profiles it's a part of.
+   *       The
+   *       security
+   *       profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a>
+   *       API with <code>metricName</code> set to your custom metric name.</p>
+   *          </note>
    */
   public deleteCustomMetric(
     args: DeleteCustomMetricCommandInput,
@@ -2792,7 +2908,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Removes the specified dimension from your AWS account.</p>
+   * <p>Removes the specified dimension from your Amazon Web Services accounts.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDimension</a> action.</p>
    */
   public deleteDimension(
     args: DeleteDimensionCommandInput,
@@ -2825,6 +2942,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes the specified domain configuration.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDomainConfiguration</a> action.</p>
    */
   public deleteDomainConfiguration(
     args: DeleteDomainConfigurationCommandInput,
@@ -2857,6 +2975,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a dynamic thing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDynamicThingGroup</a> action.</p>
    */
   public deleteDynamicThingGroup(
     args: DeleteDynamicThingGroupCommandInput,
@@ -2888,6 +3007,40 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Deletes the specified fleet metric.
+   *         Returns successfully with no error if the deletion is successful or you specify a fleet metric that doesn't exist.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteFleetMetric</a> action.</p>
+   */
+  public deleteFleetMetric(
+    args: DeleteFleetMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFleetMetricCommandOutput>;
+  public deleteFleetMetric(
+    args: DeleteFleetMetricCommandInput,
+    cb: (err: any, data?: DeleteFleetMetricCommandOutput) => void
+  ): void;
+  public deleteFleetMetric(
+    args: DeleteFleetMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFleetMetricCommandOutput) => void
+  ): void;
+  public deleteFleetMetric(
+    args: DeleteFleetMetricCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetMetricCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFleetMetricCommandOutput) => void
+  ): Promise<DeleteFleetMetricCommandOutput> | void {
+    const command = new DeleteFleetMetricCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a job and its related job executions.</p>
    *          <p>Deleting a job may take time, depending on the number of job
    *         executions created for the job and various other factors. While the job
@@ -2896,6 +3049,7 @@ export class IoT extends IoTClient {
    *         is already "DELETION_IN_PROGRESS" will result in an error.</p>
    *          <p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
    *         a LimitExceededException will occur.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJob</a> action.</p>
    */
   public deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
   public deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
@@ -2922,6 +3076,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a job execution.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJobExecution</a> action.</p>
    */
   public deleteJobExecution(
     args: DeleteJobExecutionCommandInput,
@@ -2985,7 +3140,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Deletes a defined mitigation action from your AWS account.</p>
+   * <p>Deletes a defined mitigation action from your Amazon Web Services accounts.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteMitigationAction</a> action.</p>
    */
   public deleteMitigationAction(
     args: DeleteMitigationActionCommandInput,
@@ -3018,6 +3174,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Delete an OTA update.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteOTAUpdate</a> action.</p>
    */
   public deleteOTAUpdate(
     args: DeleteOTAUpdateCommandInput,
@@ -3052,11 +3209,16 @@ export class IoT extends IoTClient {
    * <p>Deletes the specified policy.</p>
    *          <p>A policy cannot be deleted if it has non-default versions or it is attached to any
    *          certificate.</p>
-   *          <p>To delete a policy, use the DeletePolicyVersion API to delete all non-default
-   *          versions of the policy; use the DetachPrincipalPolicy API to detach the policy from any
-   *          certificate; and then use the DeletePolicy API to delete the policy.</p>
+   *          <p>To delete a policy, use the <a>DeletePolicyVersion</a> action to delete all non-default
+   *          versions of the policy; use the <a>DetachPolicy</a> action to detach the policy from any
+   *          certificate; and then use the DeletePolicy action to delete the policy.</p>
    *          <p>When a policy is deleted using DeletePolicy, its default version is deleted with
    *          it.</p>
+   *          <note>
+   *             <p>Because of the distributed nature of Amazon Web Services, it can take up to five minutes after
+   *          a policy is detached before it's ready to be deleted.</p>
+   *          </note>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeletePolicy</a> action.</p>
    */
   public deletePolicy(
     args: DeletePolicyCommandInput,
@@ -3086,8 +3248,9 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes the specified version of the specified policy. You cannot delete the default
-   *          version of a policy using this API. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default
+   *          version of a policy using this action. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default
    *          version, use ListPolicyVersions.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeletePolicyVersion</a> action.</p>
    */
   public deletePolicyVersion(
     args: DeletePolicyVersionCommandInput,
@@ -3120,6 +3283,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a fleet provisioning template.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplate</a> action.</p>
    */
   public deleteProvisioningTemplate(
     args: DeleteProvisioningTemplateCommandInput,
@@ -3152,6 +3316,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a fleet provisioning template version.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
    */
   public deleteProvisioningTemplateVersion(
     args: DeleteProvisioningTemplateVersionCommandInput,
@@ -3184,6 +3349,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a CA certificate registration code.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRegistrationCode</a> action.</p>
    */
   public deleteRegistrationCode(
     args: DeleteRegistrationCodeCommandInput,
@@ -3216,6 +3382,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a role alias</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRoleAlias</a> action.</p>
    */
   public deleteRoleAlias(
     args: DeleteRoleAliasCommandInput,
@@ -3248,6 +3415,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a scheduled audit.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteScheduledAudit</a> action.</p>
    */
   public deleteScheduledAudit(
     args: DeleteScheduledAuditCommandInput,
@@ -3280,6 +3448,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a Device Defender security profile.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSecurityProfile</a> action.</p>
    */
   public deleteSecurityProfile(
     args: DeleteSecurityProfileCommandInput,
@@ -3312,6 +3481,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a stream.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteStream</a> action.</p>
    */
   public deleteStream(
     args: DeleteStreamCommandInput,
@@ -3342,6 +3512,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Deletes the specified thing. Returns successfully with no error if the deletion is
    * 			successful or you specify a thing that doesn't exist.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThing</a> action.</p>
    */
   public deleteThing(args: DeleteThingCommandInput, options?: __HttpHandlerOptions): Promise<DeleteThingCommandOutput>;
   public deleteThing(args: DeleteThingCommandInput, cb: (err: any, data?: DeleteThingCommandOutput) => void): void;
@@ -3368,6 +3539,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a thing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingGroup</a> action.</p>
    */
   public deleteThingGroup(
     args: DeleteThingGroupCommandInput,
@@ -3402,6 +3574,7 @@ export class IoT extends IoTClient {
    * <p>Deletes the specified thing type. You cannot delete a thing type if it has things
    * 			associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and
    * 			finally use <a>DeleteThingType</a> to delete the thing type.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingType</a> action.</p>
    */
   public deleteThingType(
     args: DeleteThingTypeCommandInput,
@@ -3434,6 +3607,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes the rule.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRule</a> action.</p>
    */
   public deleteTopicRule(
     args: DeleteTopicRuleCommandInput,
@@ -3466,6 +3640,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a topic rule destination.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRuleDestination</a> action.</p>
    */
   public deleteTopicRuleDestination(
     args: DeleteTopicRuleDestinationCommandInput,
@@ -3498,6 +3673,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes a logging level.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteV2LoggingLevel</a> action.</p>
    */
   public deleteV2LoggingLevel(
     args: DeleteV2LoggingLevelCommandInput,
@@ -3531,6 +3707,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Deprecates a thing type. You can not associate new things with deprecated thing
    * 			type.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeprecateThingType</a> action.</p>
    */
   public deprecateThingType(
     args: DeprecateThingTypeCommandInput,
@@ -3565,6 +3742,7 @@ export class IoT extends IoTClient {
    * <p>Gets information about the Device Defender audit settings for this account.
    *           Settings include how audit notifications are sent and which audit checks are
    *           enabled or disabled.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAccountAuditConfiguration</a> action.</p>
    */
   public describeAccountAuditConfiguration(
     args: DescribeAccountAuditConfigurationCommandInput,
@@ -3601,6 +3779,7 @@ export class IoT extends IoTClient {
    *       and the start time
    *       when the audit that returned the
    *       finding.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuditFinding</a> action.</p>
    */
   public describeAuditFinding(
     args: DescribeAuditFindingCommandInput,
@@ -3699,6 +3878,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about a Device Defender audit.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuditTask</a> action.</p>
    */
   public describeAuditTask(
     args: DescribeAuditTaskCommandInput,
@@ -3731,6 +3911,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Describes an authorizer.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuthorizer</a> action.</p>
    */
   public describeAuthorizer(
     args: DescribeAuthorizerCommandInput,
@@ -3763,6 +3944,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Returns information about a billing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeBillingGroup</a> action.</p>
    */
   public describeBillingGroup(
     args: DescribeBillingGroupCommandInput,
@@ -3795,6 +3977,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Describes a registered CA certificate.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCACertificate</a> action.</p>
    */
   public describeCACertificate(
     args: DescribeCACertificateCommandInput,
@@ -3827,6 +4010,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about the specified certificate.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCertificate</a> action.</p>
    */
   public describeCertificate(
     args: DescribeCertificateCommandInput,
@@ -3861,6 +4045,7 @@ export class IoT extends IoTClient {
    * <p>
    *       Gets information about a Device Defender detect custom metric.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCustomMetric</a> action.</p>
    */
   public describeCustomMetric(
     args: DescribeCustomMetricCommandInput,
@@ -3893,6 +4078,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Describes the default authorizer.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDefaultAuthorizer</a> action.</p>
    */
   public describeDefaultAuthorizer(
     args: DescribeDefaultAuthorizerCommandInput,
@@ -3927,6 +4113,7 @@ export class IoT extends IoTClient {
    * <p>
    *       Gets information about a Device Defender ML Detect mitigation action.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDetectMitigationActionsTask</a> action.</p>
    */
   public describeDetectMitigationActionsTask(
     args: DescribeDetectMitigationActionsTaskCommandInput,
@@ -3958,7 +4145,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Provides details about a dimension that is defined in your AWS account.</p>
+   * <p>Provides details about a dimension that is defined in your Amazon Web Services accounts.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDimension</a> action.</p>
    */
   public describeDimension(
     args: DescribeDimensionCommandInput,
@@ -3991,6 +4179,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets summary information about a domain configuration.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDomainConfiguration</a> action.</p>
    */
   public describeDomainConfiguration(
     args: DescribeDomainConfigurationCommandInput,
@@ -4022,7 +4211,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Returns a unique endpoint specific to the AWS account making the call.</p>
+   * <p>Returns a unique endpoint specific to the Amazon Web Services account making the call.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a> action.</p>
    */
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
@@ -4055,6 +4245,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Describes event configurations.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEventConfigurations</a> action.</p>
    */
   public describeEventConfigurations(
     args: DescribeEventConfigurationsCommandInput,
@@ -4086,7 +4277,41 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Gets information about the specified fleet metric.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeFleetMetric</a> action.</p>
+   */
+  public describeFleetMetric(
+    args: DescribeFleetMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFleetMetricCommandOutput>;
+  public describeFleetMetric(
+    args: DescribeFleetMetricCommandInput,
+    cb: (err: any, data?: DescribeFleetMetricCommandOutput) => void
+  ): void;
+  public describeFleetMetric(
+    args: DescribeFleetMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFleetMetricCommandOutput) => void
+  ): void;
+  public describeFleetMetric(
+    args: DescribeFleetMetricCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetMetricCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFleetMetricCommandOutput) => void
+  ): Promise<DescribeFleetMetricCommandOutput> | void {
+    const command = new DescribeFleetMetricCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes a search index.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeIndex</a> action.</p>
    */
   public describeIndex(
     args: DescribeIndexCommandInput,
@@ -4119,6 +4344,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Describes a job.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJob</a> action.</p>
    */
   public describeJob(args: DescribeJobCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobCommandOutput>;
   public describeJob(args: DescribeJobCommandInput, cb: (err: any, data?: DescribeJobCommandOutput) => void): void;
@@ -4145,6 +4371,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Describes a job execution.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJobExecution</a> action.</p>
    */
   public describeJobExecution(
     args: DescribeJobExecutionCommandInput,
@@ -4209,6 +4436,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about a mitigation action.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeMitigationAction</a> action.</p>
    */
   public describeMitigationAction(
     args: DescribeMitigationActionCommandInput,
@@ -4241,6 +4469,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Returns information about a fleet provisioning template.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplate</a> action.</p>
    */
   public describeProvisioningTemplate(
     args: DescribeProvisioningTemplateCommandInput,
@@ -4273,6 +4502,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Returns information about a fleet provisioning template version.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a> action.</p>
    */
   public describeProvisioningTemplateVersion(
     args: DescribeProvisioningTemplateVersionCommandInput,
@@ -4305,6 +4535,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Describes a role alias.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeRoleAlias</a> action.</p>
    */
   public describeRoleAlias(
     args: DescribeRoleAliasCommandInput,
@@ -4337,6 +4568,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about a scheduled audit.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeScheduledAudit</a> action.</p>
    */
   public describeScheduledAudit(
     args: DescribeScheduledAuditCommandInput,
@@ -4369,6 +4601,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about a Device Defender security profile.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeSecurityProfile</a> action.</p>
    */
   public describeSecurityProfile(
     args: DescribeSecurityProfileCommandInput,
@@ -4401,6 +4634,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about a stream.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeStream</a> action.</p>
    */
   public describeStream(
     args: DescribeStreamCommandInput,
@@ -4433,6 +4667,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about the specified thing.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThing</a> action.</p>
    */
   public describeThing(
     args: DescribeThingCommandInput,
@@ -4465,6 +4700,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Describe a thing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingGroup</a> action.</p>
    */
   public describeThingGroup(
     args: DescribeThingGroupCommandInput,
@@ -4497,6 +4733,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Describes a bulk thing provisioning task.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingRegistrationTask</a> action.</p>
    */
   public describeThingRegistrationTask(
     args: DescribeThingRegistrationTaskCommandInput,
@@ -4529,6 +4766,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about the specified thing type.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingType</a> action.</p>
    */
   public describeThingType(
     args: DescribeThingTypeCommandInput,
@@ -4561,6 +4799,11 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Detaches a policy from the specified target.</p>
+   *          <note>
+   *             <p>Because of the distributed nature of Amazon Web Services, it can take up to five minutes after
+   *          a policy is detached before it's ready to be deleted.</p>
+   *          </note>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPolicy</a> action.</p>
    */
   public detachPolicy(
     args: DetachPolicyCommandInput,
@@ -4592,8 +4835,10 @@ export class IoT extends IoTClient {
    * @deprecated
    *
    * <p>Removes the specified policy from the specified certificate.</p>
-   *          <p>
-   *             <b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>
+   *          <note>
+   *             <p>This action is deprecated. Please use <a>DetachPolicy</a> instead.</p>
+   *          </note>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPrincipalPolicy</a> action.</p>
    */
   public detachPrincipalPolicy(
     args: DetachPrincipalPolicyCommandInput,
@@ -4626,6 +4871,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachSecurityProfile</a> action.</p>
    */
   public detachSecurityProfile(
     args: DetachSecurityProfileCommandInput,
@@ -4664,6 +4910,7 @@ export class IoT extends IoTClient {
    * 			         <p>This call is asynchronous. It might take several seconds for the detachment to
    * 				propagate.</p>
    * 		       </note>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachThingPrincipal</a> action.</p>
    */
   public detachThingPrincipal(
     args: DetachThingPrincipalCommandInput,
@@ -4696,6 +4943,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Disables the rule.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DisableTopicRule</a> action.</p>
    */
   public disableTopicRule(
     args: DisableTopicRuleCommandInput,
@@ -4728,6 +4976,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Enables the rule.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">EnableTopicRule</a> action.</p>
    */
   public enableTopicRule(
     args: EnableTopicRuleCommandInput,
@@ -4762,6 +5011,7 @@ export class IoT extends IoTClient {
    * <p>
    *       Returns a Device Defender's ML Detect Security Profile training model's status.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBehaviorModelTrainingSummaries</a> action.</p>
    */
   public getBehaviorModelTrainingSummaries(
     args: GetBehaviorModelTrainingSummariesCommandInput,
@@ -4793,7 +5043,41 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Aggregates on indexed data with search queries pertaining to particular fields. </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBucketsAggregation</a> action.</p>
+   */
+  public getBucketsAggregation(
+    args: GetBucketsAggregationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketsAggregationCommandOutput>;
+  public getBucketsAggregation(
+    args: GetBucketsAggregationCommandInput,
+    cb: (err: any, data?: GetBucketsAggregationCommandOutput) => void
+  ): void;
+  public getBucketsAggregation(
+    args: GetBucketsAggregationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketsAggregationCommandOutput) => void
+  ): void;
+  public getBucketsAggregation(
+    args: GetBucketsAggregationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketsAggregationCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketsAggregationCommandOutput) => void
+  ): Promise<GetBucketsAggregationCommandOutput> | void {
+    const command = new GetBucketsAggregationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the approximate count of unique values that match the query.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetCardinality</a> action.</p>
    */
   public getCardinality(
     args: GetCardinalityCommandInput,
@@ -4826,7 +5110,8 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets a list of the policies that have an effect on the authorization behavior of the
-   *          specified device when it connects to the AWS IoT device gateway.</p>
+   *          specified device when it connects to the IoT device gateway.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetEffectivePolicies</a> action.</p>
    */
   public getEffectivePolicies(
     args: GetEffectivePoliciesCommandInput,
@@ -4859,6 +5144,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets the indexing configuration.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a> action.</p>
    */
   public getIndexingConfiguration(
     args: GetIndexingConfigurationCommandInput,
@@ -4891,6 +5177,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets a job document.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetJobDocument</a> action.</p>
    */
   public getJobDocument(
     args: GetJobDocumentCommandInput,
@@ -4925,6 +5212,7 @@ export class IoT extends IoTClient {
    * <p>Gets the logging options.</p>
    *          <p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code>
    *          instead.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetLoggingOptions</a> action.</p>
    */
   public getLoggingOptions(
     args: GetLoggingOptionsCommandInput,
@@ -4957,6 +5245,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets an OTA update.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetOTAUpdate</a> action.</p>
    */
   public getOTAUpdate(
     args: GetOTAUpdateCommandInput,
@@ -4994,6 +5283,7 @@ export class IoT extends IoTClient {
    *         that occurs in approximately five percent of the values that match the query, and so on.
    *         The result is an approximation, the more values that match the query, the more accurate
    *         the percentile values.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPercentiles</a> action.</p>
    */
   public getPercentiles(
     args: GetPercentilesCommandInput,
@@ -5027,6 +5317,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Gets information about the specified policy with the policy document of the default
    *          version.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPolicy</a> action.</p>
    */
   public getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
   public getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
@@ -5053,6 +5344,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about the specified policy version.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPolicyVersion</a> action.</p>
    */
   public getPolicyVersion(
     args: GetPolicyVersionCommandInput,
@@ -5084,7 +5376,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>
+   * <p>Gets a registration code used to register a CA certificate with IoT.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetRegistrationCode</a> action.</p>
    */
   public getRegistrationCode(
     args: GetRegistrationCodeCommandInput,
@@ -5119,6 +5412,7 @@ export class IoT extends IoTClient {
    * <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance,
    *       and standard deviation for the specified aggregated field. If the aggregation field is of type
    *       <code>String</code>, only the count statistic is returned.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetStatistics</a> action.</p>
    */
   public getStatistics(
     args: GetStatisticsCommandInput,
@@ -5151,6 +5445,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about the rule.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRule</a> action.</p>
    */
   public getTopicRule(
     args: GetTopicRuleCommandInput,
@@ -5180,6 +5475,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets information about a topic rule destination.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRuleDestination</a> action.</p>
    */
   public getTopicRuleDestination(
     args: GetTopicRuleDestinationCommandInput,
@@ -5212,6 +5508,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets the fine grained logging options.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetV2LoggingOptions</a> action.</p>
    */
   public getV2LoggingOptions(
     args: GetV2LoggingOptionsCommandInput,
@@ -5244,6 +5541,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the active violations for a given Device Defender security profile.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListActiveViolations</a> action.</p>
    */
   public listActiveViolations(
     args: ListActiveViolationsCommandInput,
@@ -5276,6 +5574,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the policies attached to the specified thing group.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAttachedPolicies</a> action.</p>
    */
   public listAttachedPolicies(
     args: ListAttachedPoliciesCommandInput,
@@ -5309,6 +5608,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Lists the findings (results) of a Device Defender audit or of the audits
    *         performed during a specified time period. (Findings are retained for 90 days.)</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditFindings</a> action.</p>
    */
   public listAuditFindings(
     args: ListAuditFindingsCommandInput,
@@ -5342,6 +5642,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Gets the status of audit mitigation action tasks that were
    *       executed.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditMitigationActionsExecutions</a> action.</p>
    */
   public listAuditMitigationActionsExecutions(
     args: ListAuditMitigationActionsExecutionsCommandInput,
@@ -5374,6 +5675,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditMitigationActionsTasks</a> action.</p>
    */
   public listAuditMitigationActionsTasks(
     args: ListAuditMitigationActionsTasksCommandInput,
@@ -5408,6 +5710,7 @@ export class IoT extends IoTClient {
    * <p>
    *       Lists your Device Defender audit listings.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditSuppressions</a> action.</p>
    */
   public listAuditSuppressions(
     args: ListAuditSuppressionsCommandInput,
@@ -5441,6 +5744,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Lists the Device Defender audits that have been performed during a given
    *           time period.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditTasks</a> action.</p>
    */
   public listAuditTasks(
     args: ListAuditTasksCommandInput,
@@ -5473,6 +5777,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the authorizers registered in your account.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuthorizers</a> action.</p>
    */
   public listAuthorizers(
     args: ListAuthorizersCommandInput,
@@ -5505,6 +5810,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the billing groups you have created.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListBillingGroups</a> action.</p>
    */
   public listBillingGroups(
     args: ListBillingGroupsCommandInput,
@@ -5536,9 +5842,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Lists the CA certificates registered for your AWS account.</p>
+   * <p>Lists the CA certificates registered for your Amazon Web Services account.</p>
    *          <p>The results are paginated with a default page size of 25. You can use the returned
    *          marker to retrieve additional results.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCACertificates</a> action.</p>
    */
   public listCACertificates(
     args: ListCACertificatesCommandInput,
@@ -5570,9 +5877,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Lists the certificates registered in your AWS account.</p>
+   * <p>Lists the certificates registered in your Amazon Web Services account.</p>
    *          <p>The results are paginated with a default page size of 25. You can use the returned
    *          marker to retrieve additional results.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificates</a> action.</p>
    */
   public listCertificates(
     args: ListCertificatesCommandInput,
@@ -5605,6 +5913,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>List the device certificates signed by the specified CA certificate.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificatesByCA</a> action.</p>
    */
   public listCertificatesByCA(
     args: ListCertificatesByCACommandInput,
@@ -5639,6 +5948,7 @@ export class IoT extends IoTClient {
    * <p>
    *       Lists your Device Defender detect custom metrics.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCustomMetrics</a> action.</p>
    */
   public listCustomMetrics(
     args: ListCustomMetricsCommandInput,
@@ -5673,6 +5983,7 @@ export class IoT extends IoTClient {
    * <p>
    *       Lists mitigation actions executions for a Device Defender ML Detect Security Profile.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDetectMitigationActionsExecutions</a> action.</p>
    */
   public listDetectMitigationActionsExecutions(
     args: ListDetectMitigationActionsExecutionsCommandInput,
@@ -5709,6 +6020,7 @@ export class IoT extends IoTClient {
    * <p>
    *       List of Device Defender ML Detect mitigation actions tasks.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDetectMitigationActionsTasks</a> action.</p>
    */
   public listDetectMitigationActionsTasks(
     args: ListDetectMitigationActionsTasksCommandInput,
@@ -5740,7 +6052,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>List the set of dimensions that are defined for your AWS account.</p>
+   * <p>List the set of dimensions that are defined for your Amazon Web Services accounts.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDimensions</a> action.</p>
    */
   public listDimensions(
     args: ListDimensionsCommandInput,
@@ -5772,7 +6085,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
+   * <p>Gets a list of domain configurations for the user. This list is sorted
+   *          alphabetically by domain configuration name.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDomainConfigurations</a> action.</p>
    */
   public listDomainConfigurations(
     args: ListDomainConfigurationsCommandInput,
@@ -5804,7 +6119,41 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Lists all your fleet metrics. </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListFleetMetrics</a> action.</p>
+   */
+  public listFleetMetrics(
+    args: ListFleetMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFleetMetricsCommandOutput>;
+  public listFleetMetrics(
+    args: ListFleetMetricsCommandInput,
+    cb: (err: any, data?: ListFleetMetricsCommandOutput) => void
+  ): void;
+  public listFleetMetrics(
+    args: ListFleetMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFleetMetricsCommandOutput) => void
+  ): void;
+  public listFleetMetrics(
+    args: ListFleetMetricsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFleetMetricsCommandOutput) => void),
+    cb?: (err: any, data?: ListFleetMetricsCommandOutput) => void
+  ): Promise<ListFleetMetricsCommandOutput> | void {
+    const command = new ListFleetMetricsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the search indices.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListIndices</a> action.</p>
    */
   public listIndices(args: ListIndicesCommandInput, options?: __HttpHandlerOptions): Promise<ListIndicesCommandOutput>;
   public listIndices(args: ListIndicesCommandInput, cb: (err: any, data?: ListIndicesCommandOutput) => void): void;
@@ -5831,6 +6180,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the job executions for a job.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobExecutionsForJob</a> action.</p>
    */
   public listJobExecutionsForJob(
     args: ListJobExecutionsForJobCommandInput,
@@ -5863,6 +6213,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the job executions for the specified thing.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobExecutionsForThing</a> action.</p>
    */
   public listJobExecutionsForThing(
     args: ListJobExecutionsForThingCommandInput,
@@ -5895,6 +6246,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists jobs.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobs</a> action.</p>
    */
   public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   public listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
@@ -5921,6 +6273,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Returns a list of job templates.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobTemplates</a> action.</p>
    */
   public listJobTemplates(
     args: ListJobTemplatesCommandInput,
@@ -5953,6 +6306,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListMitigationActions</a> action.</p>
    */
   public listMitigationActions(
     args: ListMitigationActionsCommandInput,
@@ -5985,6 +6339,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists OTA updates.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOTAUpdates</a> action.</p>
    */
   public listOTAUpdates(
     args: ListOTAUpdatesCommandInput,
@@ -6017,6 +6372,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists certificates that are being transferred but not yet accepted.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOutgoingCertificates</a> action.</p>
    */
   public listOutgoingCertificates(
     args: ListOutgoingCertificatesCommandInput,
@@ -6049,6 +6405,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists your policies.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicies</a> action.</p>
    */
   public listPolicies(
     args: ListPoliciesCommandInput,
@@ -6081,7 +6438,8 @@ export class IoT extends IoTClient {
    *
    * <p>Lists the principals associated with the specified policy.</p>
    *          <p>
-   *             <b>Note:</b> This API is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p>
+   *             <b>Note:</b> This action is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyPrincipals</a> action.</p>
    */
   public listPolicyPrincipals(
     args: ListPolicyPrincipalsCommandInput,
@@ -6115,6 +6473,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Lists the versions of the specified policy and identifies the default
    *          version.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyVersions</a> action.</p>
    */
   public listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
@@ -6151,7 +6510,8 @@ export class IoT extends IoTClient {
    * <p>Lists the policies attached to the specified principal. If you use an Cognito
    *          identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p>
    *          <p>
-   *             <b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
+   *             <b>Note:</b> This action is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalPolicies</a> action.</p>
    */
   public listPrincipalPolicies(
     args: ListPrincipalPoliciesCommandInput,
@@ -6186,6 +6546,7 @@ export class IoT extends IoTClient {
    * <p>Lists the things associated with the specified principal. A principal can be X.509
    * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
    * 			identities. </p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalThings</a> action.</p>
    */
   public listPrincipalThings(
     args: ListPrincipalThingsCommandInput,
@@ -6217,7 +6578,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Lists the fleet provisioning templates in your AWS account.</p>
+   * <p>Lists the fleet provisioning templates in your Amazon Web Services account.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
    */
   public listProvisioningTemplates(
     args: ListProvisioningTemplatesCommandInput,
@@ -6250,6 +6612,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>A list of fleet provisioning template versions.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplateVersions</a> action.</p>
    */
   public listProvisioningTemplateVersions(
     args: ListProvisioningTemplateVersionsCommandInput,
@@ -6282,6 +6645,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the role aliases registered in your account.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListRoleAliases</a> action.</p>
    */
   public listRoleAliases(
     args: ListRoleAliasesCommandInput,
@@ -6314,6 +6678,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists all of your scheduled audits.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListScheduledAudits</a> action.</p>
    */
   public listScheduledAudits(
     args: ListScheduledAuditsCommandInput,
@@ -6348,6 +6713,7 @@ export class IoT extends IoTClient {
    * <p>Lists the Device Defender security profiles
    *       you've
    *       created. You can filter security profiles by dimension or custom metric.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSecurityProfiles</a> action.</p>
    *          <note>
    *             <p>
    *                <code>dimensionName</code> and <code>metricName</code> cannot be used in the same request.</p>
@@ -6384,6 +6750,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSecurityProfilesForTarget</a> action.</p>
    */
   public listSecurityProfilesForTarget(
     args: ListSecurityProfilesForTargetCommandInput,
@@ -6415,7 +6782,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Lists all of the streams in your AWS account.</p>
+   * <p>Lists all of the streams in your Amazon Web Services account.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListStreams</a> action.</p>
    */
   public listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
   public listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
@@ -6442,6 +6810,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the tags (metadata) you have assigned to the resource.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTagsForResource</a> action.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -6474,6 +6843,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>List targets for the specified policy.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForPolicy</a> action.</p>
    */
   public listTargetsForPolicy(
     args: ListTargetsForPolicyCommandInput,
@@ -6506,6 +6876,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForSecurityProfile</a> action.</p>
    */
   public listTargetsForSecurityProfile(
     args: ListTargetsForSecurityProfileCommandInput,
@@ -6538,6 +6909,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>List the thing groups in your account.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingGroups</a> action.</p>
    */
   public listThingGroups(
     args: ListThingGroupsCommandInput,
@@ -6570,6 +6942,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>List the thing groups to which the specified thing belongs.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingGroupsForThing</a> action.</p>
    */
   public listThingGroupsForThing(
     args: ListThingGroupsForThingCommandInput,
@@ -6604,6 +6977,7 @@ export class IoT extends IoTClient {
    * <p>Lists the principals associated with the specified thing. A principal can be X.509
    * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
    * 			identities.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingPrincipals</a> action.</p>
    */
   public listThingPrincipals(
     args: ListThingPrincipalsCommandInput,
@@ -6668,6 +7042,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>List bulk thing provisioning tasks.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingRegistrationTasks</a> action.</p>
    */
   public listThingRegistrationTasks(
     args: ListThingRegistrationTasksCommandInput,
@@ -6704,6 +7079,8 @@ export class IoT extends IoTClient {
    * 			For example, calling <code>ListThings</code> with attributeName=Color and
    * 			attributeValue=Red retrieves all things in the registry that contain an attribute
    * 				<b>Color</b> with the value <b>Red</b>. </p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThings</a> action.</p>
+   *
    * 		       <note>
    * 			         <p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p>
    * 		       </note>
@@ -6733,6 +7110,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the things you have added to the given billing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInBillingGroup</a> action.</p>
    */
   public listThingsInBillingGroup(
     args: ListThingsInBillingGroupCommandInput,
@@ -6765,6 +7143,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the things in the specified group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInThingGroup</a> action.</p>
    */
   public listThingsInThingGroup(
     args: ListThingsInThingGroupCommandInput,
@@ -6797,6 +7176,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the existing thing types.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingTypes</a> action.</p>
    */
   public listThingTypes(
     args: ListThingTypesCommandInput,
@@ -6828,7 +7208,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Lists all the topic rule destinations in your AWS account.</p>
+   * <p>Lists all the topic rule destinations in your Amazon Web Services account.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRuleDestinations</a> action.</p>
    */
   public listTopicRuleDestinations(
     args: ListTopicRuleDestinationsCommandInput,
@@ -6861,6 +7242,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the rules for the specific topic.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRules</a> action.</p>
    */
   public listTopicRules(
     args: ListTopicRulesCommandInput,
@@ -6893,6 +7275,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists logging levels.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListV2LoggingLevels</a> action.</p>
    */
   public listV2LoggingLevels(
     args: ListV2LoggingLevelsCommandInput,
@@ -6927,6 +7310,7 @@ export class IoT extends IoTClient {
    * <p>Lists the Device Defender security profile violations discovered during the given time period.
    *       You can use filters to limit the results to those alerts issued for a particular security profile,
    *       behavior, or thing (device).</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListViolationEvents</a> action.</p>
    */
   public listViolationEvents(
     args: ListViolationEventsCommandInput,
@@ -6958,12 +7342,13 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign
-   *          device certificates, which can be then registered with AWS IoT. You can register up to 10
-   *          CA certificates per AWS account that have the same subject field. This enables you to have
+   * <p>Registers a CA certificate with IoT. This CA certificate can then be used to sign
+   *          device certificates, which can be then registered with IoT. You can register up to 10
+   *          CA certificates per Amazon Web Services account that have the same subject field. This enables you to have
    *          up to 10 certificate authorities sign your device certificates. If you have more than one
    *          CA certificate registered, make sure you pass the CA certificate when you register your
-   *          device certificates with the RegisterCertificate API.</p>
+   *          device certificates with the <a>RegisterCertificate</a> action.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterCACertificate</a> action.</p>
    */
   public registerCACertificate(
     args: RegisterCACertificateCommandInput,
@@ -6995,9 +7380,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Registers a device certificate with AWS IoT. If you have more than one CA certificate
+   * <p>Registers a device certificate with IoT. If you have more than one CA certificate
    *          that has the same subject field, you must specify the CA certificate that was used to sign
    *          the device certificate being registered.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterCertificate</a> action.</p>
    */
   public registerCertificate(
     args: RegisterCertificateCommandInput,
@@ -7061,10 +7447,11 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control
+   * <p>Provisions a thing in the device registry. RegisterThing calls other IoT control
    *          plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot">
-   *             AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise
+   *             IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Customer Support</a> to raise
    *          your throttling limits if necessary.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterThing</a> action.</p>
    */
   public registerThing(
     args: RegisterThingCommandInput,
@@ -7096,13 +7483,14 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer,
+   * <p>Rejects a pending certificate transfer. After IoT rejects a certificate transfer,
    *          the certificate status changes from <b>PENDING_TRANSFER</b> to
    *             <b>INACTIVE</b>.</p>
    *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
    *          to enumerate your certificates.</p>
    *          <p>This operation can only be called by the transfer destination. After it is called,
    *          the certificate will be returned to the source's account in the INACTIVE state.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RejectCertificateTransfer</a> action.</p>
    */
   public rejectCertificateTransfer(
     args: RejectCertificateTransferCommandInput,
@@ -7135,6 +7523,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Removes the given thing from the billing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p>
    */
   public removeThingFromBillingGroup(
     args: RemoveThingFromBillingGroupCommandInput,
@@ -7172,6 +7561,7 @@ export class IoT extends IoTClient {
    * 			either a <code>thingArn</code> or a <code>thingName</code> to
    * 			identify the thing to remove from the thing group.
    * 		</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromThingGroup</a> action.</p>
    */
   public removeThingFromThingGroup(
     args: RemoveThingFromThingGroupCommandInput,
@@ -7206,6 +7596,7 @@ export class IoT extends IoTClient {
    * <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules
    *          is an administrator-level action. Any user who has permission to create rules will be able
    *          to access data processed by the rule.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ReplaceTopicRule</a> action.</p>
    */
   public replaceTopicRule(
     args: ReplaceTopicRuleCommandInput,
@@ -7238,6 +7629,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>The query search index.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SearchIndex</a> action.</p>
    */
   public searchIndex(args: SearchIndexCommandInput, options?: __HttpHandlerOptions): Promise<SearchIndexCommandOutput>;
   public searchIndex(args: SearchIndexCommandInput, cb: (err: any, data?: SearchIndexCommandOutput) => void): void;
@@ -7265,6 +7657,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Sets the default authorizer. This will be used if a websocket connection is made
    *          without specifying an authorizer.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetDefaultAuthorizer</a> action.</p>
    */
   public setDefaultAuthorizer(
     args: SetDefaultAuthorizerCommandInput,
@@ -7298,8 +7691,9 @@ export class IoT extends IoTClient {
   /**
    * <p>Sets the specified version of the specified policy as the policy's default
    *          (operative) version. This action affects all certificates to which the policy is attached.
-   *          To list the principals the policy is attached to, use the ListPrincipalPolicy
-   *          API.</p>
+   *          To list the principals the policy is attached to, use the <a>ListPrincipalPolicies</a>
+   *          action.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetDefaultPolicyVersion</a> action.</p>
    */
   public setDefaultPolicyVersion(
     args: SetDefaultPolicyVersionCommandInput,
@@ -7334,6 +7728,7 @@ export class IoT extends IoTClient {
    * <p>Sets the logging options.</p>
    *          <p>NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code>
    *          instead.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetLoggingOptions</a> action.</p>
    */
   public setLoggingOptions(
     args: SetLoggingOptionsCommandInput,
@@ -7366,6 +7761,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Sets the logging level.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetV2LoggingLevel</a> action.</p>
    */
   public setV2LoggingLevel(
     args: SetV2LoggingLevelCommandInput,
@@ -7398,6 +7794,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Sets the logging options for the V2 logging service.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetV2LoggingOptions</a> action.</p>
    */
   public setV2LoggingOptions(
     args: SetV2LoggingOptionsCommandInput,
@@ -7430,6 +7827,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartAuditMitigationActionsTask</a> action.</p>
    */
   public startAuditMitigationActionsTask(
     args: StartAuditMitigationActionsTaskCommandInput,
@@ -7464,6 +7862,7 @@ export class IoT extends IoTClient {
    * <p>
    *       Starts a Device Defender ML Detect mitigation actions task.
    *     </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartDetectMitigationActionsTask</a> action.</p>
    */
   public startDetectMitigationActionsTask(
     args: StartDetectMitigationActionsTaskCommandInput,
@@ -7496,6 +7895,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Starts an on-demand Device Defender audit.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartOnDemandAuditTask</a> action.</p>
    */
   public startOnDemandAuditTask(
     args: StartOnDemandAuditTaskCommandInput,
@@ -7528,6 +7928,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a bulk thing provisioning task.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartThingRegistrationTask</a> action.</p>
    */
   public startThingRegistrationTask(
     args: StartThingRegistrationTaskCommandInput,
@@ -7560,6 +7961,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Cancels a bulk thing provisioning task.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopThingRegistrationTask</a> action.</p>
    */
   public stopThingRegistrationTask(
     args: StopThingRegistrationTaskCommandInput,
@@ -7593,6 +7995,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Adds to or modifies the tags of the given resource. Tags are metadata which can be
    * 			used to manage a resource.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TagResource</a> action.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -7618,9 +8021,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Tests if a specified principal is authorized to perform an AWS IoT action on a
+   * <p>Tests if a specified principal is authorized to perform an IoT action on a
    *          specified resource. Use this to test and debug the authorization behavior of devices that
-   *          connect to the AWS IoT device gateway.</p>
+   *          connect to the IoT device gateway.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TestAuthorization</a> action.</p>
    */
   public testAuthorization(
     args: TestAuthorizationCommandInput,
@@ -7653,8 +8057,9 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use
-   *          this to test and debug the custom authorization behavior of devices that connect to the AWS
-   *          IoT device gateway.</p>
+   *          this to test and debug the custom authorization behavior of devices that connect to the IoT
+   *          device gateway.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TestInvokeAuthorizer</a> action.</p>
    */
   public testInvokeAuthorizer(
     args: TestInvokeAuthorizerCommandInput,
@@ -7686,14 +8091,16 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Transfers the specified certificate to the specified AWS account.</p>
+   * <p>Transfers the specified certificate to the specified Amazon Web Services account.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TransferCertificate</a> action.</p>
+   *
    *          <p>You can cancel the transfer until it is acknowledged by the recipient.</p>
    *          <p>No notification is sent to the transfer destination's account. It is up to the caller
    *          to notify the transfer target.</p>
    *          <p>The certificate being transferred must not be in the ACTIVE state. You can use the
-   *          UpdateCertificate API to deactivate it.</p>
+   *          <a>UpdateCertificate</a> action to deactivate it.</p>
    *          <p>The certificate must not have any policies attached to it. You can use the
-   *          DetachPrincipalPolicy API to detach them.</p>
+   *          <a>DetachPolicy</a> action to detach them.</p>
    */
   public transferCertificate(
     args: TransferCertificateCommandInput,
@@ -7726,6 +8133,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Removes the given tags (metadata) from the resource.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UntagResource</a> action.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -7760,6 +8168,7 @@ export class IoT extends IoTClient {
    * <p>Configures or reconfigures the Device Defender audit settings for this account.
    *           Settings include how audit notifications are sent and which audit checks are
    *           enabled or disabled.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateAccountAuditConfiguration</a> action.</p>
    */
   public updateAccountAuditConfiguration(
     args: UpdateAccountAuditConfigurationCommandInput,
@@ -7826,6 +8235,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates an authorizer.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateAuthorizer</a> action.</p>
    */
   public updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
@@ -7858,6 +8268,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates information about the billing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateBillingGroup</a> action.</p>
    */
   public updateBillingGroup(
     args: UpdateBillingGroupCommandInput,
@@ -7890,6 +8301,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates a registered CA certificate.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCACertificate</a> action.</p>
    */
   public updateCACertificate(
     args: UpdateCACertificateCommandInput,
@@ -7923,10 +8335,12 @@ export class IoT extends IoTClient {
   /**
    * <p>Updates the status of the specified certificate. This operation is
    *          idempotent.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificate</a> action.</p>
+   *
    *          <p>Certificates must be in the ACTIVE state to authenticate devices that use
-   *          a certificate to connect to AWS IoT.</p>
+   *          a certificate to connect to IoT.</p>
    *          <p>Within a few minutes of updating a certificate from the ACTIVE state to any other
-   *          state, AWS IoT disconnects all devices that used that certificate to connect. Devices cannot
+   *          state, IoT disconnects all devices that used that certificate to connect. Devices cannot
    *          use a certificate that is not in the ACTIVE state to reconnect.</p>
    */
   public updateCertificate(
@@ -7961,6 +8375,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Updates a
    *       Device Defender detect custom metric. </p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCustomMetric</a> action.</p>
    */
   public updateCustomMetric(
     args: UpdateCustomMetricCommandInput,
@@ -7998,6 +8413,7 @@ export class IoT extends IoTClient {
    *       it is created (you can delete it and
    *       recreate
    *       it).</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDimension</a> action.</p>
    */
   public updateDimension(
     args: UpdateDimensionCommandInput,
@@ -8029,7 +8445,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p>
+   * <p>Updates values stored in the domain configuration. Domain configurations for default
+   *          endpoints can't be updated.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDomainConfiguration</a> action.</p>
    */
   public updateDomainConfiguration(
     args: UpdateDomainConfigurationCommandInput,
@@ -8062,6 +8480,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates a dynamic thing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDynamicThingGroup</a> action.</p>
    */
   public updateDynamicThingGroup(
     args: UpdateDynamicThingGroupCommandInput,
@@ -8094,6 +8513,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates the event configurations.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateEventConfigurations</a> action.</p>
    */
   public updateEventConfigurations(
     args: UpdateEventConfigurationsCommandInput,
@@ -8125,7 +8545,41 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Updates the data for a fleet metric.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateFleetMetric</a> action.</p>
+   */
+  public updateFleetMetric(
+    args: UpdateFleetMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFleetMetricCommandOutput>;
+  public updateFleetMetric(
+    args: UpdateFleetMetricCommandInput,
+    cb: (err: any, data?: UpdateFleetMetricCommandOutput) => void
+  ): void;
+  public updateFleetMetric(
+    args: UpdateFleetMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFleetMetricCommandOutput) => void
+  ): void;
+  public updateFleetMetric(
+    args: UpdateFleetMetricCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFleetMetricCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFleetMetricCommandOutput) => void
+  ): Promise<UpdateFleetMetricCommandOutput> | void {
+    const command = new UpdateFleetMetricCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the search configuration.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateIndexingConfiguration</a> action.</p>
    */
   public updateIndexingConfiguration(
     args: UpdateIndexingConfigurationCommandInput,
@@ -8158,6 +8612,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates supported fields of the specified job.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateJob</a> action.</p>
    */
   public updateJob(args: UpdateJobCommandInput, options?: __HttpHandlerOptions): Promise<UpdateJobCommandOutput>;
   public updateJob(args: UpdateJobCommandInput, cb: (err: any, data?: UpdateJobCommandOutput) => void): void;
@@ -8184,6 +8639,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates the definition for the specified mitigation action.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateMitigationAction</a> action.</p>
    */
   public updateMitigationAction(
     args: UpdateMitigationActionCommandInput,
@@ -8216,6 +8672,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates a fleet provisioning template.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
    */
   public updateProvisioningTemplate(
     args: UpdateProvisioningTemplateCommandInput,
@@ -8248,6 +8705,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates a role alias.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateRoleAlias</a> action.</p>
    */
   public updateRoleAlias(
     args: UpdateRoleAliasCommandInput,
@@ -8281,6 +8739,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Updates a scheduled audit, including which checks are performed and
    *           how often the audit takes place.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateScheduledAudit</a> action.</p>
    */
   public updateScheduledAudit(
     args: UpdateScheduledAuditCommandInput,
@@ -8313,6 +8772,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates a Device Defender security profile.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateSecurityProfile</a> action.</p>
    */
   public updateSecurityProfile(
     args: UpdateSecurityProfileCommandInput,
@@ -8345,6 +8805,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates an existing stream. The stream version will be incremented by one.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateStream</a> action.</p>
    */
   public updateStream(
     args: UpdateStreamCommandInput,
@@ -8374,6 +8835,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates the data for a thing.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThing</a> action.</p>
    */
   public updateThing(args: UpdateThingCommandInput, options?: __HttpHandlerOptions): Promise<UpdateThingCommandOutput>;
   public updateThing(args: UpdateThingCommandInput, cb: (err: any, data?: UpdateThingCommandOutput) => void): void;
@@ -8400,6 +8862,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Update a thing group.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingGroup</a> action.</p>
    */
   public updateThingGroup(
     args: UpdateThingGroupCommandInput,
@@ -8432,6 +8895,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates the groups to which the thing belongs.</p>
+   * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingGroupsForThing</a> action.</p>
    */
   public updateThingGroupsForThing(
     args: UpdateThingGroupsForThingCommandInput,
@@ -8465,6 +8929,7 @@ export class IoT extends IoTClient {
   /**
    * <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or
    *          confirmation URL of the destination.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateTopicRuleDestination</a> action.</p>
    */
   public updateTopicRuleDestination(
     args: UpdateTopicRuleDestinationCommandInput,
@@ -8497,6 +8962,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Validates a Device Defender security profile behaviors specification.</p>
+   *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ValidateSecurityProfileBehaviors</a> action.</p>
    */
   public validateSecurityProfileBehaviors(
     args: ValidateSecurityProfileBehaviorsCommandInput,

@@ -21,7 +21,7 @@ export interface DeleteStackInstancesCommandInput extends DeleteStackInstancesIn
 export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes stack instances for the specified accounts, in the specified Regions. </p>
+ * <p>Deletes stack instances for the specified accounts, in the specified Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

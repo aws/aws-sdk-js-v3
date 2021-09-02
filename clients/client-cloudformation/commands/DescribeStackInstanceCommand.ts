@@ -21,7 +21,7 @@ export interface DescribeStackInstanceCommandInput extends DescribeStackInstance
 export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the stack instance that's associated with the specified stack set, account, and Region.</p>
+ * <p>Returns the stack instance that's associated with the specified stack set, Amazon Web Services account, and Region.</p>
  *          <p>For a list of stack instances that are associated with a specific stack set, use
  *             <a>ListStackInstances</a>.</p>
  * @example

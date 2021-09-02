@@ -23,11 +23,11 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
 /**
  * <p>Records the configuration state for the resource provided in the request.
  *
- * 			The configuration state of a resource is represented in AWS Config as Configuration Items.
- * 			Once this API records the configuration item, you can retrieve the list of configuration items for the custom resource type using existing AWS Config APIs. </p>
+ * 			The configuration state of a resource is represented in Config as Configuration Items.
+ * 			Once this API records the configuration item, you can retrieve the list of configuration items for the custom resource type using existing Config APIs. </p>
  * 		       <note>
- *             <p>The custom resource type must be registered with AWS CloudFormation. This API accepts the configuration item registered with AWS CloudFormation.</p>
- * 			         <p>When you call this API, AWS Config only stores configuration state of the resource provided in the request. This API does not change or remediate the configuration of the resource.
+ *             <p>The custom resource type must be registered with CloudFormation. This API accepts the configuration item registered with CloudFormation.</p>
+ * 			         <p>When you call this API, Config only stores configuration state of the resource provided in the request. This API does not change or remediate the configuration of the resource.
  * 				</p>
  * 		          <p>Write-only schema properites are not recorded as part of the published configuration item.</p>
  *          </note>

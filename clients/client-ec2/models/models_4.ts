@@ -104,8 +104,31 @@ import {
   ReservedInstancesConfiguration,
   SnapshotAttributeName,
   VolumeModification,
+  VolumeStatusItem,
 } from "./models_3";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface DescribeVolumeStatusResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *       when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the status of the volumes.</p>
+   */
+  VolumeStatuses?: VolumeStatusItem[];
+}
+
+export namespace DescribeVolumeStatusResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVolumeStatusResult): any => ({
+    ...obj,
+  });
+}
 
 export type VpcAttributeName = "enableDnsHostnames" | "enableDnsSupport";
 
@@ -9454,39 +9477,6 @@ export namespace PeeringConnectionOptionsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: PeeringConnectionOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpcPeeringConnectionOptionsRequest {
-  /**
-   * <p>The VPC peering connection options for the accepter VPC.</p>
-   */
-  AccepterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The VPC peering connection options for the requester VPC.</p>
-   */
-  RequesterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
-
-  /**
-   * <p>The ID of the VPC peering connection.</p>
-   */
-  VpcPeeringConnectionId: string | undefined;
-}
-
-export namespace ModifyVpcPeeringConnectionOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpcPeeringConnectionOptionsRequest): any => ({
     ...obj,
   });
 }

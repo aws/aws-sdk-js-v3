@@ -22,14 +22,14 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
 
 /**
  * <p>Creates and updates the retention configuration with details
- * 			about retention period (number of days) that AWS Config stores your
+ * 			about retention period (number of days) that Config stores your
  * 			historical information. The API creates the
  * 				<code>RetentionConfiguration</code> object and names the object
  * 			as <b>default</b>. When you have a
  * 				<code>RetentionConfiguration</code> object named <b>default</b>, calling the API modifies the
  * 			default object. </p>
  * 		       <note>
- * 			         <p>Currently, AWS Config supports only one retention
+ * 			         <p>Currently, Config supports only one retention
  * 				configuration per region in your account.</p>
  * 		       </note>
  * @example

@@ -23,7 +23,7 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the number of AWS Config rules that are compliant and
+ * <p>Returns the number of Config rules that are compliant and
  * 			noncompliant, up to a maximum of 25 for each.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

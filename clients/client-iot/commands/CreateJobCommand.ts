@@ -22,6 +22,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
 
 /**
  * <p>Creates a job.</p>
+ *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJob</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

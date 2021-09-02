@@ -21,7 +21,8 @@ export interface CreateFileSystemFromBackupCommandInput extends CreateFileSystem
 export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSystemFromBackupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon FSx file system from an existing Amazon FSx backup.</p>
+ * <p>Creates a new Amazon FSx for Lustre or Amazon FSx for Windows File Server file system
+ *             from an existing Amazon FSx backup.</p>
  *
  *         <p>If a file system with the specified client request token exists and the parameters
  *             match, this operation returns the description of the file system. If a client

@@ -22,18 +22,18 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
 
 /**
  * <p>Deletes key material that you previously imported. This operation makes the specified
- *       customer master key (CMK) unusable. For more information about importing key material into
- *       AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key
- *         Material</a> in the <i>AWS Key Management Service Developer Guide</i>. </p>
- *          <p>When the specified CMK is in the <code>PendingDeletion</code> state, this operation does
- *       not change the CMK's state. Otherwise, it changes the CMK's state to
+ *       KMS key unusable. For more information about importing key material into
+ *       KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key
+ *         Material</a> in the <i>Key Management Service Developer Guide</i>. </p>
+ *          <p>When the specified KMS key is in the <code>PendingDeletion</code> state, this operation does
+ *       not change the KMS key's state. Otherwise, it changes the KMS key's state to
  *         <code>PendingImport</code>.</p>
  *          <p>After you delete key material, you can use <a>ImportKeyMaterial</a> to reimport
- *       the same key material into the CMK.</p>
- *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *       the same key material into the KMS key.</p>
+ *          <p>The KMS key that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DeleteImportedKeyMaterial</a> (key policy)</p>

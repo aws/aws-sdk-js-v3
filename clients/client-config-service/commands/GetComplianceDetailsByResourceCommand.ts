@@ -23,8 +23,8 @@ export interface GetComplianceDetailsByResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the evaluation results for the specified AWS resource.
- * 			The results indicate which AWS Config rules were used to evaluate
+ * <p>Returns the evaluation results for the specified Amazon Web Services resource.
+ * 			The results indicate which Config rules were used to evaluate
  * 			the resource, when each rule was last used, and whether the resource
  * 			complies with each rule.</p>
  * @example

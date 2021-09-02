@@ -22,14 +22,14 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
 
 /**
  * <p>Deletes the configuration recorder.</p>
- * 		       <p>After the configuration recorder is deleted, AWS Config will
+ * 		       <p>After the configuration recorder is deleted, Config will
  * 			not record resource configuration changes until you create a new
  * 			configuration recorder.</p>
  * 		       <p>This action does not delete the configuration information that
  * 			was previously recorded. You will be able to access the previously
  * 			recorded information by using the
  * 				<code>GetResourceConfigHistory</code> action, but you will not
- * 			be able to access this information in the AWS Config console until
+ * 			be able to access this information in the Config console until
  * 			you create a new configuration recorder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -23,6 +23,7 @@ export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerR
 /**
  * <p>Sets the default authorizer. This will be used if a websocket connection is made
  *          without specifying an authorizer.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetDefaultAuthorizer</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -11,16 +11,15 @@ export interface ActiveDirectoryBackupAttributes {
   DomainName?: string;
 
   /**
-   * <p>The ID of the AWS Managed Microsoft Active Directory instance to which the file system is joined.</p>
+   * <p>The ID of the Amazon Web Services Managed Microsoft Active Directory instance to which the file system is joined.</p>
    */
   ActiveDirectoryId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify AWS
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
    *             resources. We require an ARN when you need to specify a resource unambiguously across
-   *             all of AWS. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)
-   *                 and AWS Service Namespaces</a> in the <i>AWS General
-   *             Reference</i>.</p>
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
    */
   ResourceARN?: string;
 }
@@ -128,6 +127,7 @@ export namespace FileSystemFailureDetails {
 
 export enum FileSystemType {
   LUSTRE = "LUSTRE",
+  ONTAP = "ONTAP",
   WINDOWS = "WINDOWS",
 }
 
@@ -340,7 +340,7 @@ export interface LustreFileSystemConfiguration {
    * <p>You use the <code>MountName</code> value when mounting the file system.</p>
    *         <p>For the <code>SCRATCH_1</code> deployment type, this value is always "<code>fsx</code>".
    *             For <code>SCRATCH_2</code> and <code>PERSISTENT_1</code> deployment types, this
-   *             value is a string that is unique within an AWS Region.
+   *             value is a string that is unique within an Amazon Web Services Region.
    *
    *         </p>
    */
@@ -404,6 +404,184 @@ export namespace LustreFileSystemConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: LustreFileSystemConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum OntapDeploymentType {
+  MULTI_AZ_1 = "MULTI_AZ_1",
+}
+
+export enum DiskIopsConfigurationMode {
+  AUTOMATIC = "AUTOMATIC",
+  USER_PROVISIONED = "USER_PROVISIONED",
+}
+
+/**
+ * <p>The SSD IOPS (input/output operations per second) configuration
+ *             for an Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS
+ *             per GB of storage capacity, but you can provision additional IOPS
+ *             per GB of storage. The configuration consists of the total number
+ *             of provisioned SSD IOPS and how the amount was provisioned
+ *             (by the customer or by the system).</p>
+ */
+export interface DiskIopsConfiguration {
+  /**
+   * <p>Specifies whether the number of IOPS for the file system is
+   *             using the system default (<code>AUTOMATIC</code>) or was
+   *             provisioned by the customer (<code>USER_PROVISIONED</code>).</p>
+   */
+  Mode?: DiskIopsConfigurationMode | string;
+
+  /**
+   * <p>The total number of SSD IOPS provisioned for the file system.</p>
+   */
+  Iops?: number;
+}
+
+export namespace DiskIopsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DiskIopsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An Amazon FSx for NetApp ONTAP file system has two endpoints
+ *             that are used to access data or to manage the file system
+ *             using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. They
+ *             are the <code>Management</code> and <code>Intercluster</code> endpoints.</p>
+ */
+export interface FileSystemEndpoint {
+  /**
+   * <p>The Domain Name Service (DNS) name for the file system. You can mount your file
+   *             system using its DNS name.</p>
+   */
+  DNSName?: string;
+
+  /**
+   * <p>IP addresses of the file system endpoint.</p>
+   */
+  IpAddresses?: string[];
+}
+
+export namespace FileSystemEndpoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FileSystemEndpoint): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An Amazon FSx for NetApp ONTAP file system has the following endpoints
+ *             that are used to access data or to manage the file system using the
+ *             NetApp ONTAP CLI, REST API, or NetApp SnapMirror.</p>
+ */
+export interface FileSystemEndpoints {
+  /**
+   * <p>An endpoint for managing your file system by setting up NetApp SnapMirror
+   *             with other ONTAP systems.</p>
+   */
+  Intercluster?: FileSystemEndpoint;
+
+  /**
+   * <p>An endpoint for managing your file system using the NetApp ONTAP CLI
+   *             and NetApp ONTAP API.</p>
+   */
+  Management?: FileSystemEndpoint;
+}
+
+export namespace FileSystemEndpoints {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FileSystemEndpoints): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for the FSx for NetApp ONTAP file system.</p>
+ */
+export interface OntapFileSystemConfiguration {
+  /**
+   * <p>The number of days to retain automatic backups. Setting this to 0 disables
+   *             automatic backups. You can retain automatic backups for a maximum of 90 days. The default is 0.</p>
+   */
+  AutomaticBackupRetentionDays?: number;
+
+  /**
+   * <p>A recurring daily time, in the format <code>HH:MM</code>. <code>HH</code> is the
+   *             zero-padded hour of the day (0-23), and <code>MM</code> is the zero-padded minute of the
+   *             hour. For example, <code>05:00</code> specifies 5 AM daily. </p>
+   */
+  DailyAutomaticBackupStartTime?: string;
+
+  /**
+   * <p>The ONTAP file system deployment type.</p>
+   */
+  DeploymentType?: OntapDeploymentType | string;
+
+  /**
+   * <p>The IP address range in which the endpoints to access your file system
+   *             are created.</p>
+   */
+  EndpointIpAddressRange?: string;
+
+  /**
+   * <p>The <code>Management</code> and <code>Intercluster</code> endpoints
+   *             that are used to access data or to manage the file system using the
+   *             NetApp ONTAP CLI, REST API, or NetApp SnapMirror.</p>
+   */
+  Endpoints?: FileSystemEndpoints;
+
+  /**
+   * <p>The SSD IOPS configuration for the ONTAP file system, specifying
+   *             the number of provisioned IOPS and the provision mode.</p>
+   */
+  DiskIopsConfiguration?: DiskIopsConfiguration;
+
+  /**
+   * <p>The ID for a subnet. A <i>subnet</i> is a range of IP addresses in
+   *             your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">VPC and Subnets</a> in the
+   *                 <i>Amazon VPC User Guide.</i>
+   *          </p>
+   */
+  PreferredSubnetId?: string;
+
+  /**
+   * <p>The VPC route tables in which your file system's endpoints are
+   *             created.</p>
+   */
+  RouteTableIds?: string[];
+
+  /**
+   * <p>Sustained throughput of an Amazon FSx file system in MBps.</p>
+   */
+  ThroughputCapacity?: number;
+
+  /**
+   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
+   *         <p>
+   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
+   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
+   *         <p>
+   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
+   *             the zero-padded minute of the hour. </p>
+   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+}
+
+export namespace OntapFileSystemConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OntapFileSystemConfiguration): any => ({
     ...obj,
   });
 }
@@ -494,7 +672,7 @@ export interface Alias {
    *                <p>DELETING - Amazon FSx is disassociating the DNS alias from the file system and deleting it.</p>
    *             </li>
    *             <li>
-   *                <p>DELETE_FAILED - Amazon FSx was unable to disassocate the DNS alias from the file system.</p>
+   *                <p>DELETE_FAILED - Amazon FSx was unable to disassociate the DNS alias from the file system.</p>
    *             </li>
    *          </ul>
    */
@@ -585,8 +763,8 @@ export interface WindowsAuditLogConfiguration {
    *             the <code>/aws/fsx</code> prefix. The name of the Amazon Kinesis Data
    *             Firehouse delivery stream must begin with the <code>aws-fsx</code> prefix.</p>
    *         <p>The destination ARN (either CloudWatch Logs log group or Kinesis
-   *             Data Firehose delivery stream) must be in the same AWS partition,
-   *             AWS region, and AWS account as your Amazon FSx file system.</p>
+   *             Data Firehose delivery stream) must be in the same Amazon Web Services partition,
+   *             Amazon Web Services Region, and Amazon Web Services account as your Amazon FSx file system.</p>
    */
   AuditLogDestination?: string;
 }
@@ -613,7 +791,7 @@ export enum FileSystemMaintenanceOperation {
 
 /**
  * <p>The configuration of the self-managed Microsoft Active Directory (AD) directory to
- *             which the Windows File Server instance is joined.</p>
+ *             which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.</p>
  */
 export interface SelfManagedActiveDirectoryAttributes {
   /**
@@ -623,7 +801,7 @@ export interface SelfManagedActiveDirectoryAttributes {
 
   /**
    * <p>The fully qualified distinguished name of the organizational unit within the
-   *             self-managed AD directory to which the Windows File Server instance is joined.</p>
+   *             self-managed AD directory to which the Windows File Server  or ONTAP storage virtual machine (SVM) instance is joined.</p>
    */
   OrganizationalUnitDistinguishedName?: string;
 
@@ -660,13 +838,13 @@ export namespace SelfManagedActiveDirectoryAttributes {
  */
 export interface WindowsFileSystemConfiguration {
   /**
-   * <p>The ID for an existing AWS Managed Microsoft Active Directory instance that the file system is joined to.</p>
+   * <p>The ID for an existing Amazon Web Services Managed Microsoft Active Directory instance that the file system is joined to.</p>
    */
   ActiveDirectoryId?: string;
 
   /**
    * <p>The configuration of the self-managed Microsoft Active Directory (AD) directory to
-   *             which the Windows File Server instance is joined.</p>
+   *             which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.</p>
    */
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryAttributes;
 
@@ -792,14 +970,324 @@ export namespace WindowsFileSystemConfiguration {
   });
 }
 
+export enum VolumeLifecycle {
+  CREATED = "CREATED",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  MISCONFIGURED = "MISCONFIGURED",
+  PENDING = "PENDING",
+}
+
+/**
+ * <p>Describes why a resource lifecycle state changed.</p>
+ */
+export interface LifecycleTransitionReason {
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
+}
+
+export namespace LifecycleTransitionReason {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LifecycleTransitionReason): any => ({
+    ...obj,
+  });
+}
+
+export enum FlexCacheEndpointType {
+  CACHE = "CACHE",
+  NONE = "NONE",
+  ORIGIN = "ORIGIN",
+}
+
+export enum OntapVolumeType {
+  DP = "DP",
+  LS = "LS",
+  RW = "RW",
+}
+
+export enum SecurityStyle {
+  MIXED = "MIXED",
+  NTFS = "NTFS",
+  UNIX = "UNIX",
+}
+
+export enum TieringPolicyName {
+  ALL = "ALL",
+  AUTO = "AUTO",
+  NONE = "NONE",
+  SNAPSHOT_ONLY = "SNAPSHOT_ONLY",
+}
+
+/**
+ * <p>Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent
+ *             tiering automatically transitions a volume's data between the file system's primary storage and capacity
+ *             pool storage based on your access patterns.</p>
+ */
+export interface TieringPolicy {
+  /**
+   * <p>Specifies the number of days that user data in a volume must remain inactive before it is considered "cold"
+   *             and moved to the capacity pool. Used with the <code>AUTO</code> and <code>SNAPSHOT_ONLY</code> tiering policies.
+   *             Enter a whole number between 2 and 183. Default values are 31 days for <code>AUTO</code> and 2 days for
+   *             <code>SNAPSHOT_ONLY</code>.</p>
+   */
+  CoolingPeriod?: number;
+
+  /**
+   * <p>Specifies the tiering policy used to transition data. Default value is <code>SNAPSHOT_ONLY</code>.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SNAPSHOT_ONLY</code> - moves cold snapshots to the capacity pool storage tier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO</code> - moves cold user data and snapshots to the capacity pool storage tier
+   *                 based on your access patterns.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> - moves all user data blocks in both the active file system and Snapshot copies to the
+   *                 storage pool tier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - keeps a volume's data in the primary storage tier, preventing it from being moved to
+   *                 the capacity pool tier.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name?: TieringPolicyName | string;
+}
+
+export namespace TieringPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TieringPolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration of an Amazon FSx for NetApp ONTAP volume</p>
+ */
+export interface OntapVolumeConfiguration {
+  /**
+   * <p>Specifies the FlexCache endpoint type of the volume.
+   *             Valid values are the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> specifies that the volume doesn't have a FlexCache configuration.
+   *                 <code>NONE</code> is the default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ORIGIN</code> specifies that the volume is the origin volume for a FlexCache volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CACHE</code> specifies that the volume is a FlexCache volume.</p>
+   *             </li>
+   *          </ul>
+   */
+  FlexCacheEndpointType?: FlexCacheEndpointType | string;
+
+  /**
+   * <p>Specifies the directory that NAS clients use to mount the volume, along with the SVM DNS name or IP address.
+   *         You can create a <code>JunctionPath</code> directly below a parent volume junction or on a
+   *         directory within a volume. A <code>JunctionPath</code> for a volume named vol3 might
+   *         be /vol1/vol2/vol3, or /vol1/dir2/vol3, or even /dir1/dir2/vol3..</p>
+   */
+  JunctionPath?: string;
+
+  /**
+   * <p>The security style for the volume, which can be <code>UNIX</code>,
+   *             <code>NTFS</code>, or <code>MIXED</code>.</p>
+   */
+  SecurityStyle?: SecurityStyle | string;
+
+  /**
+   * <p>The configured size of the volume, in megabytes (MBs).</p>
+   */
+  SizeInMegabytes?: number;
+
+  /**
+   * <p>The volume's storage efficiency setting.</p>
+   */
+  StorageEfficiencyEnabled?: boolean;
+
+  /**
+   * <p>The ID of the volume's storage virtual machine.</p>
+   */
+  StorageVirtualMachineId?: string;
+
+  /**
+   * <p>A boolean flag indicating whether this volume is the root volume for
+   *             its storage virtual machine (SVM). Only one volume on an SVM can be the
+   *             root volume. This value defaults to false. If this value is true, then
+   *             this is the SVM root volume.</p>
+   *         <p>This flag is useful when you're deleting an SVM, because you must
+   *             first delete all non-root volumes. This flag, when set to false, helps
+   *             you identify which volumes to delete before you can delete the SVM.</p>
+   */
+  StorageVirtualMachineRoot?: boolean;
+
+  /**
+   * <p>The volume's <code>TieringPolicy</code> setting.</p>
+   */
+  TieringPolicy?: TieringPolicy;
+
+  /**
+   * <p>The volume's UUID (universally unique identifier).</p>
+   */
+  UUID?: string;
+
+  /**
+   * <p>Specifies the type of volume. Valid values are the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RW</code> specifies a read-write volume.
+   *                 <code>RW</code> is the default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DP</code> specifies a data protection volume. You can
+   *                 protect data by replicating it to data protection mirror copies and use
+   *                 data protection mirror copies to recover data when a disaster occurs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LS</code> specifies a load-sharing mirror volume.
+   *                 A load-sharing mirror reduces the network traffic to a FlexVol volume
+   *                 by providing additional read-only access to clients.</p>
+   *             </li>
+   *          </ul>
+   */
+  OntapVolumeType?: OntapVolumeType | string;
+}
+
+export namespace OntapVolumeConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OntapVolumeConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum VolumeType {
+  ONTAP = "ONTAP",
+}
+
+/**
+ * <p>Describes an Amazon FSx for NetApp ONTAP volume.</p>
+ */
+export interface Volume {
+  /**
+   * <p>The time that the resource was created, in seconds (since 1970-01-01T00:00:00Z),
+   *             also known as Unix time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   */
+  FileSystemId?: string;
+
+  /**
+   * <p>The lifecycle status of the volume.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code> - The volume is fully available for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - Amazon FSx is creating the new volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - Amazon FSx is deleting an existing volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - Amazon FSx was unable to create the volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MISCONFIGURED</code> - The volume is in a failed but recoverable state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - Amazon FSx has not started creating the volume.</p>
+   *             </li>
+   *          </ul>
+   */
+  Lifecycle?: VolumeLifecycle | string;
+
+  /**
+   * <p>The name of the volume.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The configuration of an Amazon FSx for NetApp ONTAP volume</p>
+   */
+  OntapConfiguration?: OntapVolumeConfiguration;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  ResourceARN?: string;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The system-generated, unique ID of the volume.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The type of volume; <code>ONTAP</code> is the only valid volume type.</p>
+   */
+  VolumeType?: VolumeType | string;
+
+  /**
+   * <p>Describes why the volume lifecycle state changed.</p>
+   */
+  LifecycleTransitionReason?: LifecycleTransitionReason;
+}
+
+export namespace Volume {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Volume): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The request object specifying one or more DNS alias names to associate with an Amazon FSx for Windows File Server file system.</p>
  */
 export interface AssociateFileSystemAliasesRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
-   *             ASCII characters. This token is automatically filled on your behalf when you use the AWS
-   *             Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
@@ -1093,8 +1581,8 @@ export namespace BackupNotFound {
 export interface CopyBackupRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
-   *             ASCII characters. This token is automatically filled on your behalf when you use the AWS
-   *             Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
@@ -1105,20 +1593,20 @@ export interface CopyBackupRequest {
   SourceBackupId: string | undefined;
 
   /**
-   * <p>The source AWS Region of the backup. Specifies the AWS Region from which
+   * <p>The source Amazon Web Services Region of the backup. Specifies the Amazon Web Services Region from which
    *          the backup is being copied. The source and destination Regions must be in
-   *          the same AWS partition. If you don't specify a Region, it defaults to
+   *          the same Amazon Web Services partition. If you don't specify a Region, it defaults to
    *          the Region where the request is sent from (in-Region copy).</p>
    */
   SourceRegion?: string;
 
   /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file system's data
-   *             for Amazon FSx for Windows File Server file systems and Amazon FSx for Lustre <code>PERSISTENT_1</code> file
-   *             systems at rest. In either case, if not specified, the Amazon FSx managed key
-   *             is used. The Amazon FSx for Lustre <code>SCRATCH_1</code> and <code>SCRATCH_2</code> file systems are always encrypted at rest using
-   *             Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
-   *             in the <i>AWS Key Management Service API Reference</i>.</p>
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt the file system's data
+   *             for Amazon FSx for Windows File Server file systems, Amazon FSx for NetApp ONTAP file systems, and
+   *             Amazon FSx for Lustre <code>PERSISTENT_1</code> file systems at rest. If not specified, the Amazon FSx
+   *             managed key is used. The Amazon FSx for Lustre <code>SCRATCH_1</code> and <code>SCRATCH_2</code> file systems
+   *             are always encrypted at rest using Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
+   *             in the <i>Key Management Service API Reference</i>.</p>
    */
   KmsKeyId?: string;
 
@@ -1179,6 +1667,11 @@ export enum BackupLifecycle {
   TRANSFERRING = "TRANSFERRING",
 }
 
+export enum ResourceType {
+  FILE_SYSTEM = "FILE_SYSTEM",
+  VOLUME = "VOLUME",
+}
+
 export enum BackupType {
   AUTOMATIC = "AUTOMATIC",
   AWS_BACKUP = "AWS_BACKUP",
@@ -1237,7 +1730,7 @@ export namespace IncompatibleRegionForMultiAZ {
 }
 
 /**
- * <p>The AWS Key Management Service (AWS KMS) key of the destination
+ * <p>The Key Management Service (KMS) key of the destination
  *          backup is invalid.</p>
  */
 export interface InvalidDestinationKmsKey extends __SmithyException, $MetadataBearer {
@@ -1260,7 +1753,7 @@ export namespace InvalidDestinationKmsKey {
 
 /**
  * <p>The Region provided for <code>Source Region</code> is invalid or
- *          is in a different AWS partition.</p>
+ *          is in a different Amazon Web Services partition.</p>
  */
 export interface InvalidRegion extends __SmithyException, $MetadataBearer {
   name: "InvalidRegion";
@@ -1281,7 +1774,7 @@ export namespace InvalidRegion {
 }
 
 /**
- * <p>The AWS Key Management Service (AWS KMS) key of the source backup
+ * <p>The Key Management Service (KMS) key of the source backup
  *          is invalid.</p>
  */
 export interface InvalidSourceKmsKey extends __SmithyException, $MetadataBearer {
@@ -1304,17 +1797,19 @@ export namespace InvalidSourceKmsKey {
 
 export enum ServiceLimit {
   FILE_SYSTEM_COUNT = "FILE_SYSTEM_COUNT",
+  STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM = "STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM",
   TOTAL_IN_PROGRESS_COPY_BACKUPS = "TOTAL_IN_PROGRESS_COPY_BACKUPS",
+  TOTAL_SSD_IOPS = "TOTAL_SSD_IOPS",
   TOTAL_STORAGE = "TOTAL_STORAGE",
   TOTAL_THROUGHPUT_CAPACITY = "TOTAL_THROUGHPUT_CAPACITY",
   TOTAL_USER_INITIATED_BACKUPS = "TOTAL_USER_INITIATED_BACKUPS",
   TOTAL_USER_TAGS = "TOTAL_USER_TAGS",
+  VOLUMES_PER_FILE_SYSTEM = "VOLUMES_PER_FILE_SYSTEM",
 }
 
 /**
  * <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting AWS Support.
- *             </p>
+ *             some service limits by contacting Amazon Web Services Support.</p>
  */
 export interface ServiceLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ServiceLimitExceeded";
@@ -1395,12 +1890,12 @@ export interface CreateBackupRequest {
   /**
    * <p>The ID of the file system to back up.</p>
    */
-  FileSystemId: string | undefined;
+  FileSystemId?: string;
 
   /**
    * <p>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure
    *             idempotent creation. This string is automatically filled on your behalf when you use the
-   *             AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
@@ -1410,6 +1905,11 @@ export interface CreateBackupRequest {
    *             you specify one or more tags using the <code>CreateBackup</code> action, no existing file system tags are copied from the file system to the backup.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The ID of he FSx for NetApp ONTAP volume to back up.</p>
+   */
+  VolumeId?: string;
 }
 
 export namespace CreateBackupRequest {
@@ -1417,6 +1917,27 @@ export namespace CreateBackupRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateBackupRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>No Amazon FSx for NetApp ONTAP volumes were found based upon the supplied parameters.</p>
+ */
+export interface VolumeNotFound extends __SmithyException, $MetadataBearer {
+  name: "VolumeNotFound";
+  $fault: "client";
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
+}
+
+export namespace VolumeNotFound {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VolumeNotFound): any => ({
     ...obj,
   });
 }
@@ -1510,8 +2031,8 @@ export interface CreateDataRepositoryTaskRequest {
 
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
-   *             ASCII characters. This token is automatically filled on your behalf when you use the AWS
-   *             Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
@@ -1657,11 +2178,10 @@ export interface DataRepositoryTask {
   EndTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify AWS
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
    *             resources. We require an ARN when you need to specify a resource unambiguously across
-   *             all of AWS. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)
-   *                 and AWS Service Namespaces</a> in the <i>AWS General
-   *             Reference</i>.</p>
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
    */
   ResourceARN?: string;
 
@@ -1817,7 +2337,7 @@ export interface CreateFileSystemLustreConfiguration {
    *             (Default = <code>SCRATCH_1</code>)
    *         </p>
    *             <p>Encryption of data in-transit for <code>SCRATCH_2</code> and <code>PERSISTENT_1</code>
-   *                 deployment types is supported when accessed from supported instance types in supported AWS Regions. To learn more,
+   *                 deployment types is supported when accessed from supported instance types in supported Amazon Web Services Regions. To learn more,
    *                 <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html">Encrypting Data in Transit</a>.</p>
    */
   DeploymentType?: LustreDeploymentType | string;
@@ -1931,6 +2451,90 @@ export namespace CreateFileSystemLustreConfiguration {
 }
 
 /**
+ * <p>The ONTAP configuration properties of the FSx for NetApp ONTAP file system that you are creating.</p>
+ */
+export interface CreateFileSystemOntapConfiguration {
+  /**
+   * <p>The number of days to retain automatic backups. Setting this to 0 disables
+   *             automatic backups. You can retain automatic backups for a maximum of 90 days. The default is 0.</p>
+   */
+  AutomaticBackupRetentionDays?: number;
+
+  /**
+   * <p>A recurring daily time, in the format <code>HH:MM</code>. <code>HH</code> is the
+   *             zero-padded hour of the day (0-23), and <code>MM</code> is the zero-padded minute of the
+   *             hour. For example, <code>05:00</code> specifies 5 AM daily. </p>
+   */
+  DailyAutomaticBackupStartTime?: string;
+
+  /**
+   * <p>Specifies the ONTAP file system deployment type to use in creating the file system.</p>
+   */
+  DeploymentType: OntapDeploymentType | string | undefined;
+
+  /**
+   * <p>Specifies the IP address range in which the endpoints to access your file system
+   *             will be created. By default, Amazon FSx selects an unused IP address range for you
+   *             from the 198.19.* range.</p>
+   */
+  EndpointIpAddressRange?: string;
+
+  /**
+   * <p>The ONTAP administrative password for the <code>fsxadmin</code> user that you can
+   *             use to administer your file system using the ONTAP CLI and REST API.</p>
+   */
+  FsxAdminPassword?: string;
+
+  /**
+   * <p>The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system.</p>
+   */
+  DiskIopsConfiguration?: DiskIopsConfiguration;
+
+  /**
+   * <p>The ID for a subnet. A <i>subnet</i> is a range of IP addresses in
+   *             your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">VPC and Subnets</a> in the
+   *                 <i>Amazon VPC User Guide.</i>
+   *          </p>
+   */
+  PreferredSubnetId?: string;
+
+  /**
+   * <p>Specifies the VPC route tables in which your file system's endpoints will be
+   *             created. You should specify all VPC route tables associated with the subnets
+   *             in which your clients are located. By default, Amazon FSx selects your VPC's
+   *             default route table.</p>
+   */
+  RouteTableIds?: string[];
+
+  /**
+   * <p>Sustained throughput of an Amazon FSx file system in MBps.</p>
+   */
+  ThroughputCapacity: number | undefined;
+
+  /**
+   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
+   *         <p>
+   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
+   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
+   *         <p>
+   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
+   *             the zero-padded minute of the hour. </p>
+   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+}
+
+export namespace CreateFileSystemOntapConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFileSystemOntapConfiguration): any => ({
+    ...obj,
+    ...(obj.FsxAdminPassword && { FsxAdminPassword: SENSITIVE_STRING }),
+  });
+}
+
+/**
  * <p>The Windows file access auditing configuration used when creating
  *             or updating an Amazon FSx for Windows File Server file system.</p>
  */
@@ -1994,8 +2598,8 @@ export interface WindowsAuditLogCreateConfiguration {
    *         <ul>
    *             <li>
    *                 <p>The destination ARN that you provide (either CloudWatch Logs log group
-   *                     or Kinesis Data Firehose delivery stream) must be in the same AWS partition,
-   *                     AWS region, and AWS account as your Amazon FSx file system.</p>
+   *                     or Kinesis Data Firehose delivery stream) must be in the same Amazon Web Services partition,
+   *                     Amazon Web Services Region, and Amazon Web Services account as your Amazon FSx file system.</p>
    *             </li>
    *             <li>
    *                 <p>The name of the Amazon CloudWatch Logs log group must begin with
@@ -2031,11 +2635,12 @@ export namespace WindowsAuditLogCreateConfiguration {
 }
 
 /**
- * <p>The configuration that Amazon FSx uses to join the Windows File Server instance to
- *             your self-managed (including on-premises) Microsoft Active Directory (AD)
+ * <p>The configuration that Amazon FSx uses to join a Amazon FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
+ *             a self-managed (including on-premises) Microsoft Active Directory (AD)
  *             directory. For more information, see
  *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html">
- *                 Using Amazon FSx with your self-managed Microsoft Active Directory</a>.</p>
+ *                 Using Amazon FSx with your self-managed Microsoft Active Directory</a> or
+ *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing SVMs</a>.</p>
  */
 export interface SelfManagedActiveDirectoryConfiguration {
   /**
@@ -2046,7 +2651,7 @@ export interface SelfManagedActiveDirectoryConfiguration {
 
   /**
    * <p>(Optional) The fully qualified distinguished name of the organizational unit within
-   *             your self-managed AD directory that the Windows File Server instance will join. Amazon
+   *             your self-managed AD directory. Amazon
    *             FSx only accepts OU as the direct parent of the file system. An example is
    *                 <code>OU=FSx,DC=yourdomain,DC=corp,DC=com</code>. To learn more, see <a href="https://tools.ietf.org/html/rfc2253">RFC 2253</a>. If none is provided, the
    *             FSx file system is created in the default location of your self-managed AD directory. </p>
@@ -2106,17 +2711,18 @@ export namespace SelfManagedActiveDirectoryConfiguration {
  */
 export interface CreateFileSystemWindowsConfiguration {
   /**
-   * <p>The ID for an existing AWS Managed Microsoft Active Directory (AD) instance that the
+   * <p>The ID for an existing Amazon Web Services Managed Microsoft Active Directory (AD) instance that the
    *             file system should join when it's created.</p>
    */
   ActiveDirectoryId?: string;
 
   /**
-   * <p>The configuration that Amazon FSx uses to join the Windows File Server instance to
-   *             your self-managed (including on-premises) Microsoft Active Directory (AD)
+   * <p>The configuration that Amazon FSx uses to join a Amazon FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
+   *             a self-managed (including on-premises) Microsoft Active Directory (AD)
    *             directory. For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html">
-   *                 Using Amazon FSx with your self-managed Microsoft Active Directory</a>.</p>
+   *                 Using Amazon FSx with your self-managed Microsoft Active Directory</a> or
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing SVMs</a>.</p>
    */
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfiguration;
 
@@ -2127,7 +2733,7 @@ export interface CreateFileSystemWindowsConfiguration {
    *                 <p>
    *                   <code>MULTI_AZ_1</code> - Deploys a high availability file system that is configured
    *                     for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ) unavailability. You
-   *                     can only deploy a Multi-AZ file system in AWS Regions that have a minimum of three Availability Zones. Also
+   *                     can only deploy a Multi-AZ file system in Amazon Web Services Regions that have a minimum of three Availability Zones. Also
    *                 supports HDD storage type</p>
    *             </li>
    *             <li>
@@ -2148,7 +2754,7 @@ export interface CreateFileSystemWindowsConfiguration {
 
   /**
    * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This specifies the subnet
-   *             in which you want the preferred file server to be located. For in-AWS applications, we recommend that you launch
+   *             in which you want the preferred file server to be located. For in-Amazon Web Services applications, we recommend that you launch
    *             your clients in the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
    *             data transfer costs and minimize latency. </p>
    */
@@ -2248,12 +2854,13 @@ export interface CreateFileSystemRequest {
   /**
    * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
    *             idempotent creation. This string is automatically filled on your behalf when you use the
-   *             AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
   /**
-   * <p>The type of Amazon FSx file system to create, either <code>WINDOWS</code> or <code>LUSTRE</code>.</p>
+   * <p>The type of Amazon FSx file system to create. Valid values are <code>WINDOWS</code>,
+   *             <code>LUSTRE</code>, and <code>ONTAP</code>.</p>
    */
   FileSystemType: FileSystemType | string | undefined;
 
@@ -2283,6 +2890,12 @@ export interface CreateFileSystemRequest {
    *                <p>If <code>StorageType=HDD</code>, valid values are 2000 GiB - 65,536 GiB (64 TiB).</p>
    *             </li>
    *          </ul>
+   *         <p>For ONTAP file systems:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Valid values are 1024 GiB - 196,608 GiB (192 TiB).</p>
+   *             </li>
+   *          </ul>
    */
   StorageCapacity: number | undefined;
 
@@ -2292,7 +2905,7 @@ export interface CreateFileSystemRequest {
    *         <ul>
    *             <li>
    *                <p>Set to <code>SSD</code> to use solid state drive storage.
-   *                 SSD is supported on all Windows and Lustre deployment types.</p>
+   *                 SSD is supported on all Windows, Lustre, and ONTAP deployment types.</p>
    *             </li>
    *             <li>
    *                <p>Set to <code>HDD</code> to use hard disk drive storage.
@@ -2312,12 +2925,17 @@ export interface CreateFileSystemRequest {
   StorageType?: StorageType | string;
 
   /**
-   * <p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows <code>MULTI_AZ_1</code>
-   *             file system deployment types, provide exactly two subnet IDs, one for the preferred file server
-   *             and one for the standby file server. You specify one of these subnets as the preferred subnet
-   *             using the <code>WindowsConfiguration > PreferredSubnetID</code> property. For more information,
+   * <p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows
+   *             and ONTAP <code>MULTI_AZ_1</code> file system deployment types, provide exactly two subnet IDs,
+   *             one for the preferred file server and one for the standby file server. You specify one of these
+   *             subnets as the preferred subnet using the <code>WindowsConfiguration > PreferredSubnetID</code>
+   *             or <code>OntapConfiguration > PreferredSubnetID</code> properties. For more information,
    *             see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
-   *                 Availability and durability: Single-AZ and Multi-AZ file systems</a>.</p>
+   *                 Availability and durability: Single-AZ and Multi-AZ file systems</a> in the
+   *             <i>Amazon FSx for Windows User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">
+   *                 Availability and durability</a> in the
+   *             <i>Amazon FSx for ONTAP User Guide</i>.</p>
    *         <p>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment types and Lustre file systems, provide exactly one subnet ID.
    *            The file server is launched in that subnet's Availability Zone.</p>
    */
@@ -2337,12 +2955,12 @@ export interface CreateFileSystemRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file system's data
-   *             for Amazon FSx for Windows File Server file systems and Amazon FSx for Lustre <code>PERSISTENT_1</code> file
-   *             systems at rest. In either case, if not specified, the Amazon FSx managed key
-   *             is used. The Amazon FSx for Lustre <code>SCRATCH_1</code> and <code>SCRATCH_2</code> file systems are always encrypted at rest using
-   *             Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
-   *             in the <i>AWS Key Management Service API Reference</i>.</p>
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt the file system's data
+   *             for Amazon FSx for Windows File Server file systems, Amazon FSx for NetApp ONTAP file systems, and
+   *             Amazon FSx for Lustre <code>PERSISTENT_1</code> file systems at rest. If not specified, the Amazon FSx
+   *             managed key is used. The Amazon FSx for Lustre <code>SCRATCH_1</code> and <code>SCRATCH_2</code> file systems
+   *             are always encrypted at rest using Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
+   *             in the <i>Key Management Service API Reference</i>.</p>
    */
   KmsKeyId?: string;
 
@@ -2357,6 +2975,11 @@ export interface CreateFileSystemRequest {
    *             </p>
    */
   LustreConfiguration?: CreateFileSystemLustreConfiguration;
+
+  /**
+   * <p>The ONTAP configuration properties of the FSx for NetApp ONTAP file system that you are creating.</p>
+   */
+  OntapConfiguration?: CreateFileSystemOntapConfiguration;
 }
 
 export namespace CreateFileSystemRequest {
@@ -2367,6 +2990,9 @@ export namespace CreateFileSystemRequest {
     ...obj,
     ...(obj.WindowsConfiguration && {
       WindowsConfiguration: CreateFileSystemWindowsConfiguration.filterSensitiveLog(obj.WindowsConfiguration),
+    }),
+    ...(obj.OntapConfiguration && {
+      OntapConfiguration: CreateFileSystemOntapConfiguration.filterSensitiveLog(obj.OntapConfiguration),
     }),
   });
 }
@@ -2414,37 +3040,30 @@ export namespace InvalidImportPath {
 }
 
 /**
- * <p>One or more network settings specified in the request are invalid.
- *                 <code>InvalidVpcId</code> means that the ID passed for the virtual private cloud
- *             (VPC) is invalid. <code>InvalidSubnetIds</code> returns the list of IDs for subnets that
- *             are either invalid or not part of the VPC specified.
- *                 <code>InvalidSecurityGroupIds</code> returns the list of IDs for security groups
- *             that are either invalid or not part of the VPC specified.</p>
+ * <p>One or more network settings specified in the request are invalid.</p>
  */
 export interface InvalidNetworkSettings extends __SmithyException, $MetadataBearer {
   name: "InvalidNetworkSettings";
   $fault: "client";
   /**
-   * <p>A detailed error message.</p>
+   * <p>Error message explaining what's wrong with network settings.</p>
    */
   Message?: string;
 
   /**
-   * <p>The ID for a subnet. A <i>subnet</i> is a range of IP addresses in
-   *             your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">VPC and Subnets</a> in the
-   *                 <i>Amazon VPC User Guide.</i>
-   *          </p>
+   * <p>The subnet ID that is either invalid or not part of the VPC specified.</p>
    */
   InvalidSubnetId?: string;
 
   /**
-   * <p>The ID of your Amazon EC2 security group. This ID is used to control network access
-   *             to the endpoint that Amazon FSx creates on your behalf in each subnet. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 Security
-   *                 Groups for Linux Instances</a> in the <i>Amazon EC2 User
-   *             Guide</i>.</p>
+   * <p>The security group ID is either invalid or not part of the VPC specified.</p>
    */
   InvalidSecurityGroupId?: string;
+
+  /**
+   * <p>The route table ID is either invalid or not part of the VPC specified.</p>
+   */
+  InvalidRouteTableId?: string;
 }
 
 export namespace InvalidNetworkSettings {
@@ -2511,7 +3130,7 @@ export interface CreateFileSystemFromBackupRequest {
   /**
    * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
    *             idempotent creation. This string is automatically filled on your behalf when you use the
-   *             AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
@@ -2579,12 +3198,12 @@ export interface CreateFileSystemFromBackupRequest {
   StorageType?: StorageType | string;
 
   /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file system's data
-   *             for Amazon FSx for Windows File Server file systems and Amazon FSx for Lustre <code>PERSISTENT_1</code> file
-   *             systems at rest. In either case, if not specified, the Amazon FSx managed key
-   *             is used. The Amazon FSx for Lustre <code>SCRATCH_1</code> and <code>SCRATCH_2</code> file systems are always encrypted at rest using
-   *             Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
-   *             in the <i>AWS Key Management Service API Reference</i>.</p>
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt the file system's data
+   *             for Amazon FSx for Windows File Server file systems, Amazon FSx for NetApp ONTAP file systems, and
+   *             Amazon FSx for Lustre <code>PERSISTENT_1</code> file systems at rest. If not specified, the Amazon FSx
+   *             managed key is used. The Amazon FSx for Lustre <code>SCRATCH_1</code> and <code>SCRATCH_2</code> file systems
+   *             are always encrypted at rest using Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
+   *             in the <i>Key Management Service API Reference</i>.</p>
    */
   KmsKeyId?: string;
 }
@@ -2598,6 +3217,579 @@ export namespace CreateFileSystemFromBackupRequest {
     ...(obj.WindowsConfiguration && {
       WindowsConfiguration: CreateFileSystemWindowsConfiguration.filterSensitiveLog(obj.WindowsConfiguration),
     }),
+  });
+}
+
+/**
+ * <p>The configuration that Amazon FSx uses to join the ONTAP storage virtual machine
+ *             (SVM) to your self-managed (including on-premises) Microsoft Active Directory (AD) directory.</p>
+ */
+export interface CreateSvmActiveDirectoryConfiguration {
+  /**
+   * <p>The NetBIOS name of the Active Directory computer object that will be created for your SVM.</p>
+   */
+  NetBiosName: string | undefined;
+
+  /**
+   * <p>The configuration that Amazon FSx uses to join a Amazon FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
+   *             a self-managed (including on-premises) Microsoft Active Directory (AD)
+   *             directory. For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html">
+   *                 Using Amazon FSx with your self-managed Microsoft Active Directory</a> or
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing SVMs</a>.</p>
+   */
+  SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfiguration;
+}
+
+export namespace CreateSvmActiveDirectoryConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSvmActiveDirectoryConfiguration): any => ({
+    ...obj,
+    ...(obj.SelfManagedActiveDirectoryConfiguration && {
+      SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryConfiguration.filterSensitiveLog(
+        obj.SelfManagedActiveDirectoryConfiguration
+      ),
+    }),
+  });
+}
+
+export enum StorageVirtualMachineRootVolumeSecurityStyle {
+  MIXED = "MIXED",
+  NTFS = "NTFS",
+  UNIX = "UNIX",
+}
+
+export interface CreateStorageVirtualMachineRequest {
+  /**
+   * <p>Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
+   *       Joining an Active Directory provides user authentication and access control for SMB clients,
+   *       including Microsoft Windows and macOS client accessing the file system.</p>
+   */
+  ActiveDirectoryConfiguration?: CreateSvmActiveDirectoryConfiguration;
+
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>The name of the SVM.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The password to use when managing the SVM using the NetApp ONTAP CLI or REST API.
+   *             If you do not specify a password, you can still use the file system's
+   *             <code>fsxadmin</code> user to manage the SVM.</p>
+   */
+  SvmAdminPassword?: string;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The security style of the root volume of the SVM. Specify one of the following values:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UNIX</code> if the file system is managed by a UNIX
+   *                 administrator, the majority of users are NFS clients, and an application
+   *                 accessing the data uses a UNIX user as the service account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NTFS</code> if the file system is managed by a Windows
+   *                 administrator, the majority of users are SMB clients, and an application
+   *                 accessing the data uses a Windows user as the service account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MIXED</code> if the file system is managed by both UNIX
+   *                 and Windows administrators and users consist of both NFS and SMB clients.</p>
+   *             </li>
+   *          </ul>
+   */
+  RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle | string;
+}
+
+export namespace CreateStorageVirtualMachineRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateStorageVirtualMachineRequest): any => ({
+    ...obj,
+    ...(obj.ActiveDirectoryConfiguration && {
+      ActiveDirectoryConfiguration: CreateSvmActiveDirectoryConfiguration.filterSensitiveLog(
+        obj.ActiveDirectoryConfiguration
+      ),
+    }),
+    ...(obj.SvmAdminPassword && { SvmAdminPassword: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Describes the configuration of the Microsoft Active Directory (AD)
+ *             directory to which the Amazon FSx for ONTAP storage virtual machine (SVM) is joined.
+ *             Pleae note, account credentials are not returned in the response payload.</p>
+ */
+export interface SvmActiveDirectoryConfiguration {
+  /**
+   * <p>The NetBIOS name of the Active Directory computer object that is joined to your SVM.</p>
+   */
+  NetBiosName?: string;
+
+  /**
+   * <p>The configuration of the self-managed Microsoft Active Directory (AD) directory to
+   *             which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.</p>
+   */
+  SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryAttributes;
+}
+
+export namespace SvmActiveDirectoryConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SvmActiveDirectoryConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An Amazon FSx for NetApp ONTAP storage virtual machine (SVM) has
+ *             four endpoints  that are used to access data or to manage the SVM
+ *             using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They
+ *             are the <code>Iscsi</code>, <code>Management</code>, <code>Nfs</code>,
+ *             and <code>Smb</code> endpoints.</p>
+ */
+export interface SvmEndpoint {
+  /**
+   * <p>The Domain Name Service (DNS) name for the file system. You can mount your file
+   *             system using its DNS name.</p>
+   */
+  DNSName?: string;
+
+  /**
+   * <p>The SVM endpoint's IP addresses.</p>
+   */
+  IpAddresses?: string[];
+}
+
+export namespace SvmEndpoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SvmEndpoint): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An Amazon FSx for NetApp ONTAP storage virtual machine (SVM) has
+ *             the following endpoints that are used to access data or to manage
+ *             the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager.</p>
+ */
+export interface SvmEndpoints {
+  /**
+   * <p>An endpoint for connecting using the Internet Small Computer Systems Interface (iSCSI)  protocol.</p>
+   */
+  Iscsi?: SvmEndpoint;
+
+  /**
+   * <p>An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager.</p>
+   */
+  Management?: SvmEndpoint;
+
+  /**
+   * <p>An endpoint for connecting using the Network File System (NFS) protocol.</p>
+   */
+  Nfs?: SvmEndpoint;
+
+  /**
+   * <p>An endpoint for connecting using the Server Message Block (SMB) protocol.</p>
+   */
+  Smb?: SvmEndpoint;
+}
+
+export namespace SvmEndpoints {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SvmEndpoints): any => ({
+    ...obj,
+  });
+}
+
+export enum StorageVirtualMachineLifecycle {
+  CREATED = "CREATED",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  MISCONFIGURED = "MISCONFIGURED",
+  PENDING = "PENDING",
+}
+
+export enum StorageVirtualMachineSubtype {
+  DEFAULT = "DEFAULT",
+  DP_DESTINATION = "DP_DESTINATION",
+  SYNC_DESTINATION = "SYNC_DESTINATION",
+  SYNC_SOURCE = "SYNC_SOURCE",
+}
+
+/**
+ * <p>Describes the Amazon FSx for NetApp ONTAP storage virtual machine (SVM) configuraton.</p>
+ */
+export interface StorageVirtualMachine {
+  /**
+   * <p>Describes the Microsoft Active Directory configuration to which the SVM is joined, if applicable.</p>
+   */
+  ActiveDirectoryConfiguration?: SvmActiveDirectoryConfiguration;
+
+  /**
+   * <p>The time that the resource was created, in seconds (since 1970-01-01T00:00:00Z),
+   *             also known as Unix time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The endpoints  that are used to access data or to manage the SVM
+   *             using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They
+   *             are the <code>Iscsi</code>, <code>Management</code>, <code>Nfs</code>,
+   *             and <code>Smb</code> endpoints.</p>
+   */
+  Endpoints?: SvmEndpoints;
+
+  /**
+   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   */
+  FileSystemId?: string;
+
+  /**
+   * <p>Describes the SVM's lifecycle status.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code> - The SVM is fully available for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - Amazon FSx is creating the new SVM.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - Amazon FSx is deleting an existing SVM.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - Amazon FSx was unable to create the SVM.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MISCONFIGURED</code> - The SVM is in a failed but recoverable state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - Amazon FSx has not started creating the SVM.</p>
+   *             </li>
+   *          </ul>
+   */
+  Lifecycle?: StorageVirtualMachineLifecycle | string;
+
+  /**
+   * <p>The name of the SVM, if provisioned.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  ResourceARN?: string;
+
+  /**
+   * <p>The SVM's system generated unique ID.</p>
+   */
+  StorageVirtualMachineId?: string;
+
+  /**
+   * <p>Describes the SVM's subtype.</p>
+   */
+  Subtype?: StorageVirtualMachineSubtype | string;
+
+  /**
+   * <p>The SVM's UUID (universally unique identifier).</p>
+   */
+  UUID?: string;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Describes why the SVM lifecycle state changed.</p>
+   */
+  LifecycleTransitionReason?: LifecycleTransitionReason;
+
+  /**
+   * <p>The security style of the root volume of the SVM.</p>
+   */
+  RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle | string;
+}
+
+export namespace StorageVirtualMachine {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StorageVirtualMachine): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateStorageVirtualMachineResponse {
+  /**
+   * <p>Returned after a successful <code>CreateStorageVirtualMachine</code> operation; describes the SVM just created.</p>
+   */
+  StorageVirtualMachine?: StorageVirtualMachine;
+}
+
+export namespace CreateStorageVirtualMachineResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateStorageVirtualMachineResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration of the ONTAP volume that you are creating.</p>
+ */
+export interface CreateOntapVolumeConfiguration {
+  /**
+   * <p>Specifies the location in the SVM's namespace where the volume is mounted.
+   *             The <code>JunctionPath</code> must have a leading forward slash, such as <code>/vol3</code>.</p>
+   */
+  JunctionPath: string | undefined;
+
+  /**
+   * <p>The security style for the volume. Specify one of the following values:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UNIX</code> if the file system is managed by a UNIX
+   *                 administrator, the majority of users are NFS clients, and an application
+   *                 accessing the data uses a UNIX user as the service account.
+   *                 <code>UNIX</code> is the default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NTFS</code> if the file system is managed by a Windows
+   *                 administrator, the majority of users are SMB clients, and an application
+   *                 accessing the data uses a Windows user as the service account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MIXED</code> if the file system is managed by both UNIX
+   *                 and Windows administrators and users consist of both NFS and SMB clients.</p>
+   *             </li>
+   *          </ul>
+   */
+  SecurityStyle?: SecurityStyle | string;
+
+  /**
+   * <p>Specifies the size of the volume, in megabytes (MB), that you are creating.</p>
+   */
+  SizeInMegabytes: number | undefined;
+
+  /**
+   * <p>Set to true to enable deduplication, compression, and
+   *             compaction storage efficiency features on the volume.</p>
+   */
+  StorageEfficiencyEnabled: boolean | undefined;
+
+  /**
+   * <p>Specifies the ONTAP SVM in which to create the volume.</p>
+   */
+  StorageVirtualMachineId: string | undefined;
+
+  /**
+   * <p>Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent
+   *             tiering automatically transitions a volume's data between the file system's primary storage and capacity
+   *             pool storage based on your access patterns.</p>
+   */
+  TieringPolicy?: TieringPolicy;
+}
+
+export namespace CreateOntapVolumeConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateOntapVolumeConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVolumeRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>Specifies the type of volume to create; <code>ONTAP</code> is the only valid volume type.</p>
+   */
+  VolumeType: VolumeType | string | undefined;
+
+  /**
+   * <p>Specifies the name of the volume you're creating.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies the <code>ONTAP</code> configuration to use in creating the volume.</p>
+   */
+  OntapConfiguration?: CreateOntapVolumeConfiguration;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateVolumeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVolumeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVolumeResponse {
+  /**
+   * <p>Returned after a successful <code>CreateVolume</code> API operation, describing the volume just created.</p>
+   */
+  Volume?: Volume;
+}
+
+export namespace CreateVolumeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVolumeResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A volume configuration is required for this operation.</p>
+ */
+export interface MissingVolumeConfiguration extends __SmithyException, $MetadataBearer {
+  name: "MissingVolumeConfiguration";
+  $fault: "client";
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
+}
+
+export namespace MissingVolumeConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MissingVolumeConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>No Amazon FSx for NetApp ONTAP SVMs were found based upon the supplied parameters.</p>
+ */
+export interface StorageVirtualMachineNotFound extends __SmithyException, $MetadataBearer {
+  name: "StorageVirtualMachineNotFound";
+  $fault: "client";
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
+}
+
+export namespace StorageVirtualMachineNotFound {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StorageVirtualMachineNotFound): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVolumeFromBackupRequest {
+  /**
+   * <p>The ID of the source backup. Specifies the backup you are copying.</p>
+   */
+  BackupId: string | undefined;
+
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The name of the new volume you're creating.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies the configuration of the ONTAP volume that you are creating.</p>
+   */
+  OntapConfiguration?: CreateOntapVolumeConfiguration;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateVolumeFromBackupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVolumeFromBackupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVolumeFromBackupResponse {
+  /**
+   * <p>Returned after a successful <code>CreateVolumeFromBackup</code> API operation,
+   *             describing the volume just created.</p>
+   */
+  Volume?: Volume;
+}
+
+export namespace CreateVolumeFromBackupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVolumeFromBackupResponse): any => ({
+    ...obj,
   });
 }
 
@@ -2665,8 +3857,8 @@ export interface DeleteBackupRequest {
 
   /**
    * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
-   *             idempotent deletion. This is automatically filled on your behalf when using the AWS CLI
-   *             or SDK.</p>
+   *             idempotent deletion. This is automatically filled on your behalf when using
+   *             the CLI or SDK.</p>
    */
   ClientRequestToken?: string;
 }
@@ -2773,8 +3965,8 @@ export interface DeleteFileSystemRequest {
 
   /**
    * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
-   *             idempotent deletion. This is automatically filled on your behalf when using the AWS CLI
-   *             or SDK.</p>
+   *             idempotent deletion. This is automatically filled on your behalf when using the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
@@ -2887,10 +4079,161 @@ export namespace DeleteFileSystemResponse {
   });
 }
 
+export interface DeleteStorageVirtualMachineRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The ID of the SVM that you want to delete.</p>
+   */
+  StorageVirtualMachineId: string | undefined;
+}
+
+export namespace DeleteStorageVirtualMachineRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteStorageVirtualMachineRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteStorageVirtualMachineResponse {
+  /**
+   * <p>The ID of the SVM Amazon FSx is deleting.</p>
+   */
+  StorageVirtualMachineId?: string;
+
+  /**
+   * <p>Describes the lifecycle state of the SVM being deleted.</p>
+   */
+  Lifecycle?: StorageVirtualMachineLifecycle | string;
+}
+
+export namespace DeleteStorageVirtualMachineResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteStorageVirtualMachineResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Use to specify skipping a final backup, or to add tags to a final backup.</p>
+ */
+export interface DeleteVolumeOntapConfiguration {
+  /**
+   * <p>Set to true if you want to skip taking a final backup of the volume
+   *         you are deleting.</p>
+   */
+  SkipFinalBackup?: boolean;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   */
+  FinalBackupTags?: Tag[];
+}
+
+export namespace DeleteVolumeOntapConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteVolumeOntapConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteVolumeRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The ID of the volume you are deleting.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>For Amazon FSx for ONTAP volumes, specify whether to take
+   *         a final backup of the volume, and apply tags to the backup.</p>
+   */
+  OntapConfiguration?: DeleteVolumeOntapConfiguration;
+}
+
+export namespace DeleteVolumeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteVolumeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The response object for the Amazon FSx for NetApp ONTAP volume being deleted
+ *             in the <code>DeleteVolume</code> operation.</p>
+ */
+export interface DeleteVolumeOntapResponse {
+  /**
+   * <p>The ID of the source backup. Specifies the backup you are copying.</p>
+   */
+  FinalBackupId?: string;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   */
+  FinalBackupTags?: Tag[];
+}
+
+export namespace DeleteVolumeOntapResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteVolumeOntapResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteVolumeResponse {
+  /**
+   * <p>The ID of the volume being deleted.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>Describes the lifecycle state of the volume being deleted.</p>
+   */
+  Lifecycle?: VolumeLifecycle | string;
+
+  /**
+   * <p>Returned after a <code>DeleteVolume request, showing the status of the delete request.</code>
+   *          </p>
+   */
+  OntapResponse?: DeleteVolumeOntapResponse;
+}
+
+export namespace DeleteVolumeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteVolumeResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum FilterName {
   BACKUP_TYPE = "backup-type",
   FILE_SYSTEM_ID = "file-system-id",
   FILE_SYSTEM_TYPE = "file-system-type",
+  VOLUME_ID = "volume-id",
 }
 
 /**
@@ -2930,8 +4273,9 @@ export interface DescribeBackupsRequest {
   BackupIds?: string[];
 
   /**
-   * <p>Filters structure. Supported names are file-system-id and
-   *             backup-type.</p>
+   * <p>Filters structure. Supported names are <code>file-system-id</code>,
+   *             <code>backup-type</code>, <code>file-system-type</code>, and
+   *             <code>volume-id</code>.</p>
    */
   Filters?: Filter[];
 
@@ -3066,8 +4410,8 @@ export namespace DescribeDataRepositoryTasksResponse {
 export interface DescribeFileSystemAliasesRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
-   *             ASCII characters. This token is automatically filled on your behalf when you use the AWS
-   *             Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
@@ -3163,14 +4507,191 @@ export namespace DescribeFileSystemsRequest {
   });
 }
 
+export enum StorageVirtualMachineFilterName {
+  FILE_SYSTEM_ID = "file-system-id",
+}
+
+/**
+ * <p>A filter used to restrict the results of describe calls for
+ *             Amazon FSx for NetApp ONTAP storage virtual machines (SVMs). You can use multiple
+ *             filters to return results that meet all applied filter requirements.</p>
+ */
+export interface StorageVirtualMachineFilter {
+  /**
+   * <p>The name for this filter.</p>
+   */
+  Name?: StorageVirtualMachineFilterName | string;
+
+  /**
+   * <p>The values of the filter. These are all the values for any of the applied
+   *             filters.</p>
+   */
+  Values?: string[];
+}
+
+export namespace StorageVirtualMachineFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StorageVirtualMachineFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStorageVirtualMachinesRequest {
+  /**
+   * <p>Enter the ID of one or more SVMs that you want to view.</p>
+   */
+  StorageVirtualMachineIds?: string[];
+
+  /**
+   * <p>Enter a filter name:value pair to view a select set of SVMs.</p>
+   */
+  Filters?: StorageVirtualMachineFilter[];
+
+  /**
+   * <p>The maximum number of resources to return in the response. This value must be an
+   *             integer greater than zero.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeStorageVirtualMachinesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStorageVirtualMachinesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStorageVirtualMachinesResponse {
+  /**
+   * <p>Returned after a successful <code>DescribeStorageVirtualMachines</code> operation, describing each SVM.</p>
+   */
+  StorageVirtualMachines?: StorageVirtualMachine[];
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeStorageVirtualMachinesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStorageVirtualMachinesResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum VolumeFilterName {
+  FILE_SYSTEM_ID = "file-system-id",
+  STORAGE_VIRTUAL_MACHINE_ID = "storage-virtual-machine-id",
+}
+
+/**
+ * <p>A filter used to restrict the results of describe calls for
+ *             Amazon FSx for NetApp ONTAP volumes. You can use multiple
+ *             filters to return results that meet all applied filter requirements.</p>
+ */
+export interface VolumeFilter {
+  /**
+   * <p>The name for this filter.</p>
+   */
+  Name?: VolumeFilterName | string;
+
+  /**
+   * <p>The values of the filter. These are all the values for any of the applied
+   *             filters.</p>
+   */
+  Values?: string[];
+}
+
+export namespace VolumeFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VolumeFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVolumesRequest {
+  /**
+   * <p>IDs of the volumes whose descriptions you want to retrieve.</p>
+   */
+  VolumeIds?: string[];
+
+  /**
+   * <p>Enter a filter name:value pair to view a select set of volumes.</p>
+   */
+  Filters?: VolumeFilter[];
+
+  /**
+   * <p>The maximum number of resources to return in the response. This value must be an
+   *             integer greater than zero.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeVolumesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVolumesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVolumesResponse {
+  /**
+   * <p>Returned after a successful <code>DescribeVolumes</code> operation, describing each volume.</p>
+   */
+  Volumes?: Volume[];
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeVolumesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVolumesResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The request object of DNS aliases to disassociate from an Amazon FSx for Windows File Server file system.</p>
  */
 export interface DisassociateFileSystemAliasesRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
-   *             ASCII characters. This token is automatically filled on your behalf when you use the AWS
-   *             Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
@@ -3520,6 +5041,51 @@ export namespace UpdateFileSystemLustreConfiguration {
 }
 
 /**
+ * <p>The configuration updates for an Amazon FSx for NetApp ONTAP file system.</p>
+ */
+export interface UpdateFileSystemOntapConfiguration {
+  /**
+   * <p>The number of days to retain automatic backups. Setting this to 0 disables
+   *             automatic backups. You can retain automatic backups for a maximum of 90 days. The default is 0.</p>
+   */
+  AutomaticBackupRetentionDays?: number;
+
+  /**
+   * <p>A recurring daily time, in the format <code>HH:MM</code>. <code>HH</code> is the
+   *             zero-padded hour of the day (0-23), and <code>MM</code> is the zero-padded minute of the
+   *             hour. For example, <code>05:00</code> specifies 5 AM daily. </p>
+   */
+  DailyAutomaticBackupStartTime?: string;
+
+  /**
+   * <p>The ONTAP administrative password for the <code>fsxadmin</code> user.</p>
+   */
+  FsxAdminPassword?: string;
+
+  /**
+   * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
+   *         <p>
+   *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
+   *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
+   *         <p>
+   *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
+   *             the zero-padded minute of the hour. </p>
+   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+}
+
+export namespace UpdateFileSystemOntapConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFileSystemOntapConfiguration): any => ({
+    ...obj,
+    ...(obj.FsxAdminPassword && { FsxAdminPassword: SENSITIVE_STRING }),
+  });
+}
+
+/**
  * <p>The configuration that Amazon FSx uses to join the Windows File Server instance to a
  *             self-managed Microsoft Active Directory (AD) directory.</p>
  */
@@ -3626,13 +5192,14 @@ export interface UpdateFileSystemRequest {
 
   /**
    * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
-   *           idempotent updates. This string is automatically filled on your behalf when you use the AWS
-   *           Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   *           idempotent updates. This string is automatically filled on your behalf when you use
+   *           the Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
   /**
-   * <p>Use this parameter to increase the storage capacity of an Amazon FSx file system.
+   * <p>Use this parameter to increase the storage capacity of an Amazon FSx for Windows File Server
+   *       or Amazon FSx for Lustre file system.
    *       Specifies the storage capacity target value, GiB, to increase the storage capacity for the
    *       file system that you're updating. You cannot make a storage capacity increase request if
    *       there is an existing storage capacity increase request in progress.</p>
@@ -3671,6 +5238,11 @@ export interface UpdateFileSystemRequest {
    *                 <code>UpdateFileSystem</code> operation.</p>
    */
   LustreConfiguration?: UpdateFileSystemLustreConfiguration;
+
+  /**
+   * <p>The configuration updates for an Amazon FSx for NetApp ONTAP file system.</p>
+   */
+  OntapConfiguration?: UpdateFileSystemOntapConfiguration;
 }
 
 export namespace UpdateFileSystemRequest {
@@ -3682,6 +5254,176 @@ export namespace UpdateFileSystemRequest {
     ...(obj.WindowsConfiguration && {
       WindowsConfiguration: UpdateFileSystemWindowsConfiguration.filterSensitiveLog(obj.WindowsConfiguration),
     }),
+    ...(obj.OntapConfiguration && {
+      OntapConfiguration: UpdateFileSystemOntapConfiguration.filterSensitiveLog(obj.OntapConfiguration),
+    }),
+  });
+}
+
+/**
+ * <p>Updates the Microsoft Active Directory (AD) configuration of an SVM joined to an AD.
+ *             Pleae note, account credentials are not returned in the response payload.</p>
+ */
+export interface UpdateSvmActiveDirectoryConfiguration {
+  /**
+   * <p>The configuration that Amazon FSx uses to join the Windows File Server instance to a
+   *             self-managed Microsoft Active Directory (AD) directory.</p>
+   */
+  SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfigurationUpdates;
+}
+
+export namespace UpdateSvmActiveDirectoryConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSvmActiveDirectoryConfiguration): any => ({
+    ...obj,
+    ...(obj.SelfManagedActiveDirectoryConfiguration && {
+      SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryConfigurationUpdates.filterSensitiveLog(
+        obj.SelfManagedActiveDirectoryConfiguration
+      ),
+    }),
+  });
+}
+
+export interface UpdateStorageVirtualMachineRequest {
+  /**
+   * <p>Updates the Microsoft Active Directory (AD) configuration for an SVM that is joined to an AD.</p>
+   */
+  ActiveDirectoryConfiguration?: UpdateSvmActiveDirectoryConfiguration;
+
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The ID of the SVM that you want to update, in the format <code>svm-0123456789abcdef0</code>.</p>
+   */
+  StorageVirtualMachineId: string | undefined;
+
+  /**
+   * <p>Enter a new SvmAdminPassword if you are updating it.</p>
+   */
+  SvmAdminPassword?: string;
+}
+
+export namespace UpdateStorageVirtualMachineRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateStorageVirtualMachineRequest): any => ({
+    ...obj,
+    ...(obj.ActiveDirectoryConfiguration && {
+      ActiveDirectoryConfiguration: UpdateSvmActiveDirectoryConfiguration.filterSensitiveLog(
+        obj.ActiveDirectoryConfiguration
+      ),
+    }),
+    ...(obj.SvmAdminPassword && { SvmAdminPassword: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdateStorageVirtualMachineResponse {
+  /**
+   * <p>Describes the Amazon FSx for NetApp ONTAP storage virtual machine (SVM) configuraton.</p>
+   */
+  StorageVirtualMachine?: StorageVirtualMachine;
+}
+
+export namespace UpdateStorageVirtualMachineResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateStorageVirtualMachineResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Used to specify changes to the ONTAP configuration for the volume you are updating.</p>
+ */
+export interface UpdateOntapVolumeConfiguration {
+  /**
+   * <p>Specifies the location in the SVM's namespace where the volume is mounted.
+   *             The <code>JunctionPath</code> must have a leading forward slash, such as <code>/vol3</code>.</p>
+   */
+  JunctionPath?: string;
+
+  /**
+   * <p>The security style for the volume, which can be <code>UNIX</code>.
+   *             <code>NTFS</code>, or <code>MIXED</code>.</p>
+   */
+  SecurityStyle?: SecurityStyle | string;
+
+  /**
+   * <p>Specifies the size of the volume in megabytes.</p>
+   */
+  SizeInMegabytes?: number;
+
+  /**
+   * <p>Default is <code>false</code>. Set to true to enable the deduplication,
+   *             compression, and compaction storage efficiency features on the volume.</p>
+   */
+  StorageEfficiencyEnabled?: boolean;
+
+  /**
+   * <p>Update the volume's data tiering policy.</p>
+   */
+  TieringPolicy?: TieringPolicy;
+}
+
+export namespace UpdateOntapVolumeConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateOntapVolumeConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateVolumeRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>Specifies the volume that you want to update, formatted <code>fsvol-0123456789abcdef0</code>.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>The <code>ONTAP</code> configuration of the volume you are updating.</p>
+   */
+  OntapConfiguration?: UpdateOntapVolumeConfiguration;
+}
+
+export namespace UpdateVolumeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateVolumeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateVolumeResponse {
+  /**
+   * <p>Returned after a successful <code>UpdateVolume</code> API operation, describing the volume just updated.</p>
+   */
+  Volume?: Volume;
+}
+
+export namespace UpdateVolumeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateVolumeResponse): any => ({
+    ...obj,
   });
 }
 
@@ -3796,6 +5538,11 @@ export interface AdministrativeAction {
    * <p>Provides information about a failed administrative action.</p>
    */
   FailureDetails?: AdministrativeActionFailureDetails;
+
+  /**
+   * <p>Describes an Amazon FSx for NetApp ONTAP volume.</p>
+   */
+  TargetVolumeValues?: Volume;
 }
 
 export namespace AdministrativeAction {
@@ -3812,9 +5559,9 @@ export namespace AdministrativeAction {
  */
 export interface FileSystem {
   /**
-   * <p>The AWS account that created the file system. If the file system was created by an AWS
-   *             Identity and Access Management (IAM) user, the AWS account to which the IAM user belongs
-   *             is the owner.</p>
+   * <p>The Amazon Web Services account that created the file system. If the file system was created by an
+   *             Identity and Access Management (IAM) user, the Amazon Web Services account to which the
+   *             IAM user belongs is the owner.</p>
    */
   OwnerId?: string;
 
@@ -3830,7 +5577,8 @@ export interface FileSystem {
   FileSystemId?: string;
 
   /**
-   * <p>The type of Amazon FSx file system, either <code>LUSTRE</code> or <code>WINDOWS</code>.</p>
+   * <p>The type of Amazon FSx file system, which can be <code>LUSTRE</code>, <code>WINDOWS</code>,
+   *             or <code>ONTAP</code>.</p>
    */
   FileSystemType?: FileSystemType | string;
 
@@ -3892,13 +5640,13 @@ export interface FileSystem {
   VpcId?: string;
 
   /**
-   * <p>Specifies the IDs of the subnets that the file system is accessible from. For Windows <code>MULTI_AZ_1</code>
-   *             file system deployment type, there are two subnet IDs, one for the preferred file server
-   *             and one for the standby file server. The preferred file server subnet identified in the
-   *             <code>PreferredSubnetID</code> property. All other file systems have only one subnet ID.</p>
+   * <p>Specifies the IDs of the subnets that the file system is accessible from. For Windows and
+   *             ONTAP <code>MULTI_AZ_1</code> file system deployment type, there are two subnet IDs, one for
+   *             the preferred file server and one for the standby file server. The preferred file server subnet
+   *             identified in the <code>PreferredSubnetID</code> property. All other file systems have only one subnet ID.</p>
    *         <p>For Lustre file systems, and Single-AZ Windows file systems, this is the ID of
-   *             the subnet that contains the endpoint for the file system. For <code>MULTI_AZ_1</code> Windows file systems,
-   *             the endpoint for the file system is available in the <code>PreferredSubnetID</code>.</p>
+   *             the subnet that contains the endpoint for the file system. For <code>MULTI_AZ_1</code> Windows and
+   *             ONTAP file systems, the endpoint for the file system is available in the <code>PreferredSubnetID</code>.</p>
    */
   SubnetIds?: string[];
 
@@ -3921,12 +5669,12 @@ export interface FileSystem {
   DNSName?: string;
 
   /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file system's data
-   *             for Amazon FSx for Windows File Server file systems and persistent Amazon FSx for Lustre file
-   *             systems at rest. In either case, if not specified, the Amazon FSx managed key
-   *             is used. The scratch Amazon FSx for Lustre file systems are always encrypted at rest using
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt the file system's data
+   *             for Amazon FSx for Windows File Server file systems, Amazon FSx for NetApp ONTAP file systems, and
+   *             persistent Amazon FSx for Lustre file systems at rest. If not specified, the Amazon FSx
+   *             managed key is used. The scratch Amazon FSx for Lustre file systems are always encrypted at rest using
    *             Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
-   *             in the <i>AWS Key Management Service API Reference</i>.</p>
+   *             in the <i>Key Management Service API Reference</i>.</p>
    */
   KmsKeyId?: string;
 
@@ -3954,10 +5702,15 @@ export interface FileSystem {
 
   /**
    * <p>A list of administrative actions for the file system that are in process or waiting to be processed.
-   *             Administrative actions describe changes to the Windows file system that you have initiated using the <code>UpdateFileSystem</code> action.
-   *         </p>
+   *             Administrative actions describe changes to the Amazon FSx file system that you have initiated using
+   *             the <code>UpdateFileSystem</code> action.</p>
    */
   AdministrativeActions?: AdministrativeAction[];
+
+  /**
+   * <p>The configuration for this FSx for NetApp ONTAP file system.</p>
+   */
+  OntapConfiguration?: OntapFileSystemConfiguration;
 }
 
 export namespace FileSystem {
@@ -3970,7 +5723,8 @@ export namespace FileSystem {
 }
 
 /**
- * <p>A backup of an Amazon FSx file system.</p>
+ * <p>A backup of an Amazon FSx for Windows File Server or Amazon FSx for Lustre file system,
+ *             or of an Amazon FSx for NetApp ONTAP volume.</p>
  */
 export interface Backup {
   /**
@@ -4034,7 +5788,7 @@ export interface Backup {
   CreationTime: Date | undefined;
 
   /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt the
    *               backup of the Amazon FSx file system's data at rest.
    *               </p>
    */
@@ -4062,7 +5816,7 @@ export interface Backup {
   DirectoryInformation?: ActiveDirectoryBackupAttributes;
 
   /**
-   * <p>An AWS account ID. This ID is a 12-digit number that you use to construct Amazon
+   * <p>An Amazon Web Services account ID. This ID is a 12-digit number that you use to construct Amazon
    *             Resource Names (ARNs) for resources.</p>
    */
   OwnerId?: string;
@@ -4077,6 +5831,16 @@ export interface Backup {
    *             is copied.</p>
    */
   SourceBackupRegion?: string;
+
+  /**
+   * <p>Specifies the resource type that is backed up.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>Describes an Amazon FSx for NetApp ONTAP volume.</p>
+   */
+  Volume?: Volume;
 }
 
 export namespace Backup {
@@ -4148,7 +5912,8 @@ export namespace UpdateFileSystemResponse {
 
 export interface CopyBackupResponse {
   /**
-   * <p>A backup of an Amazon FSx file system.</p>
+   * <p>A backup of an Amazon FSx for Windows File Server or Amazon FSx for Lustre file system,
+   *             or of an Amazon FSx for NetApp ONTAP volume.</p>
    */
   Backup?: Backup;
 }

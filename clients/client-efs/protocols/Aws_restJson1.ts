@@ -4026,6 +4026,10 @@ const serializeAws_restJson1LifecyclePolicy = (input: LifecyclePolicy, context: 
   return {
     ...(input.TransitionToIA !== undefined &&
       input.TransitionToIA !== null && { TransitionToIA: input.TransitionToIA }),
+    ...(input.TransitionToPrimaryStorageClass !== undefined &&
+      input.TransitionToPrimaryStorageClass !== null && {
+        TransitionToPrimaryStorageClass: input.TransitionToPrimaryStorageClass,
+      }),
   };
 };
 
@@ -4225,6 +4229,7 @@ const deserializeAws_restJson1LifecyclePolicies = (output: any, context: __Serde
 const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
   return {
     TransitionToIA: __expectString(output.TransitionToIA),
+    TransitionToPrimaryStorageClass: __expectString(output.TransitionToPrimaryStorageClass),
   } as any;
 };
 

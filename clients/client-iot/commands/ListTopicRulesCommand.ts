@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListTopicRulesRequest, ListTopicRulesResponse } from "../models/models_1";
+import { ListTopicRulesRequest, ListTopicRulesResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1ListTopicRulesCommand,
   serializeAws_restJson1ListTopicRulesCommand,
@@ -22,6 +22,7 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
 
 /**
  * <p>Lists the rules for the specific topic.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRules</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

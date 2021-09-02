@@ -28,6 +28,7 @@ export interface DescribeLifecycleConfigurationCommandOutput
  *       to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system
  *       without a <code>LifecycleConfiguration</code> object, the call returns an empty array in the
  *       response.</p>
+ *          <p>When EFS Intelligent Tiering is enabled, <code>TransitionToPrimaryStorageClass</code> has a value of <code>AFTER_1_ACCESS</code>.</p>
  *          <p>This operation requires permissions for the
  *         <code>elasticfilesystem:DescribeLifecycleConfiguration</code> operation.</p>
  * @example

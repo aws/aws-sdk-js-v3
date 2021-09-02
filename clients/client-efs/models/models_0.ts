@@ -208,7 +208,7 @@ export interface AccessPointDescription {
   RootDirectory?: RootDirectory;
 
   /**
-   * <p>Identified the AWS account that owns the access point resource.</p>
+   * <p>Identified the Amazon Web Services account that owns the access point resource.</p>
    */
   OwnerId?: string;
 
@@ -228,7 +228,7 @@ export namespace AccessPointDescription {
 }
 
 /**
- * <p>Returned if the AWS account has already created the maximum number of access points
+ * <p>Returned if the Amazon Web Services account has already created the maximum number of access points
  *             allowed per file system.</p>
  */
 export interface AccessPointLimitExceeded extends __SmithyException, $MetadataBearer {
@@ -249,7 +249,7 @@ export namespace AccessPointLimitExceeded {
 
 /**
  * <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
- *             requester's AWS account.</p>
+ *             requester's Amazon Web Services account.</p>
  */
 export interface AccessPointNotFound extends __SmithyException, $MetadataBearer {
   name: "AccessPointNotFound";
@@ -384,7 +384,9 @@ export interface CreateAccessPointRequest {
   ClientToken?: string;
 
   /**
-   * <p>Creates tags associated with the access point. Each tag is a key-value pair.</p>
+   * <p>Creates tags associated with the access point. Each tag is a key-value pair, each key must be unique. For more
+   *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *       in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
 
@@ -424,7 +426,7 @@ export namespace CreateAccessPointRequest {
 
 /**
  * <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's AWS account.</p>
+ *             requester's Amazon Web Services account.</p>
  */
 export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
   name: "FileSystemNotFound";
@@ -511,15 +513,15 @@ export interface CreateFileSystemRequest {
 
   /**
    * <p>A Boolean value that, if true, creates an encrypted file system. When creating an
-   *       encrypted file system, you have the option of specifying <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key Management Service (AWS
-   *       KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for
+   *       encrypted file system, you have the option of specifying <a>CreateFileSystemRequest$KmsKeyId</a> for an existing Key Management Service (KMS
+   *       customer master key (CMK). If you don't specify a CMK, then the default CMK for
    *       Amazon EFS, <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
    *     </p>
    */
   Encrypted?: boolean;
 
   /**
-   * <p>The ID of the AWS KMS CMK that you want to use to protect the encrypted file system. This
+   * <p>The ID of the KMS CMK that you want to use to protect the encrypted file system. This
    *       parameter is only required if you want to use a non-default KMS key. If this parameter is not
    *       specified, the default CMK for Amazon EFS is used. This ID can be in one of the following
    *       formats:</p>
@@ -565,18 +567,18 @@ export interface CreateFileSystemRequest {
    * <p>The throughput, measured in MiB/s, that you want to provision for a file system that
    *       you're creating. Valid values are 1-1024. Required if <code>ThroughputMode</code> is set
    *       to <code>provisioned</code>. The upper limit for throughput is 1024 MiB/s. To increase this
-   *       limit, contact AWS Support. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas that you can increase</a>
+   *       limit, contact Amazon Web Services Support. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas that you can increase</a>
    *       in the <i>Amazon EFS User Guide</i>.</p>
    */
   ProvisionedThroughputInMibps?: number;
 
   /**
-   * <p>Used to create a file system that uses One Zone storage classes. It specifies the AWS
+   * <p>Used to create a file system that uses One Zone storage classes. It specifies the Amazon Web Services
    *       Availability Zone in which to create the file system. Use the format <code>us-east-1a</code>
    *       to specify the Availability Zone. For
    *       more information about One Zone storage classes, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS storage classes</a> in the <i>Amazon EFS User Guide</i>.</p>
    *          <note>
-   *             <p>One Zone storage classes are not available in all Availability Zones in AWS Regions where
+   *             <p>One Zone storage classes are not available in all Availability Zones in Amazon Web Services Regions where
    *         Amazon EFS is available.</p>
    *          </note>
    */
@@ -591,15 +593,17 @@ export interface CreateFileSystemRequest {
    *          <p>Default is <code>false</code>. However, if you specify an <code>AvailabilityZoneName</code>,
    *       the default is <code>true</code>.</p>
    *          <note>
-   *             <p>AWS Backup is not available in all AWS Regions where Amazon EFS is available.</p>
+   *             <p>Backup is not available in all Amazon Web Services Regionswhere Amazon EFS is available.</p>
    *          </note>
    */
   Backup?: boolean;
 
   /**
-   * <p>A value that specifies to create one or more tags associated with the file system. Each
+   * <p>Use to create one or more tags associated with the file system. Each
    *         tag is a user-defined key-value pair. Name your file system on creation by including a
-   *           <code>"Key":"Name","Value":"{value}"</code> key-value pair.</p>
+   *         <code>"Key":"Name","Value":"{value}"</code> key-value pair. Each key must be unique. For more
+   *         information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *         in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -682,7 +686,7 @@ export namespace FileSystemSize {
  */
 export interface FileSystemDescription {
   /**
-   * <p>The AWS account that created the file system. If the file system was created by an IAM
+   * <p>The Amazon Web Services account that created the file system. If the file system was created by an IAM
    *       user, the parent account to which the user belongs is the owner.</p>
    */
   OwnerId: string | undefined;
@@ -753,7 +757,7 @@ export interface FileSystemDescription {
   Encrypted?: boolean;
 
   /**
-   * <p>The ID of an AWS Key Management Service (AWS KMS) customer master key (CMK) that was
+   * <p>The ID of an Key Management Service customer master key (CMK) that was
    *       used to protect the encrypted file system.</p>
    */
   KmsKeyId?: string;
@@ -773,7 +777,7 @@ export interface FileSystemDescription {
   ProvisionedThroughputInMibps?: number;
 
   /**
-   * <p>Describes the AWS Availability Zone in which the file system is located, and is valid only
+   * <p>Describes the Amazon Web Services Availability Zone in which the file system is located, and is valid only
    *       for file systems using One Zone storage classes. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS storage classes</a>
    *       in the <i>Amazon EFS User Guide</i>.</p>
    */
@@ -782,7 +786,7 @@ export interface FileSystemDescription {
   /**
    * <p>The unique and consistent identifier of the Availability Zone in which the file system's
    *       One Zone storage classes exist. For example, <code>use1-az1</code> is an Availability Zone ID
-   *       for the us-east-1 AWS Region, and it has the same location in every AWS account.</p>
+   *       for the us-east-1 Amazon Web Services Region, and it has the same location in every Amazon Web Services account.</p>
    */
   AvailabilityZoneId?: string;
 
@@ -803,7 +807,7 @@ export namespace FileSystemDescription {
 }
 
 /**
- * <p>Returned if the AWS account has already created the maximum number of file systems
+ * <p>Returned if the Amazon Web Services account has already created the maximum number of file systems
  *             allowed per account.</p>
  */
 export interface FileSystemLimitExceeded extends __SmithyException, $MetadataBearer {
@@ -965,7 +969,7 @@ export namespace MountTargetConflict {
  */
 export interface MountTargetDescription {
   /**
-   * <p>AWS account ID that owns the resource.</p>
+   * <p>Amazon Web Services account ID that owns the resource.</p>
    */
   OwnerId?: string;
 
@@ -1002,14 +1006,14 @@ export interface MountTargetDescription {
 
   /**
    * <p>The unique and consistent identifier of the Availability Zone that the mount target resides in.
-   *       For example, <code>use1-az1</code> is an AZ ID for the us-east-1 Region and it has the same location in every AWS account.</p>
+   *       For example, <code>use1-az1</code> is an AZ ID for the us-east-1 Region and it has the same location in every Amazon Web Services account.</p>
    */
   AvailabilityZoneId?: string;
 
   /**
    * <p>The name of the Availability Zone in which the mount target is located. Availability Zones are
-   *       independently mapped to names for each AWS account. For example, the Availability Zone
-   *       <code>us-east-1a</code> for your AWS account might not be the same location as <code>us-east-1a</code> for another AWS account.</p>
+   *       independently mapped to names for each Amazon Web Services account. For example, the Availability Zone
+   *       <code>us-east-1a</code> for your Amazon Web Services account might not be the same location as <code>us-east-1a</code> for another Amazon Web Services account.</p>
    */
   AvailabilityZoneName?: string;
 
@@ -1030,7 +1034,7 @@ export namespace MountTargetDescription {
 
 /**
  * <p>The calling account has reached the limit for elastic network interfaces for the
- *             specific AWS Region. The client should try to delete some elastic network interfaces or
+ *             specific Amazon Web Services Region. The client should try to delete some elastic network interfaces or
  *             get the account limit raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a>
  *             in the <i>Amazon VPC User Guide </i> (see the Network interfaces per VPC
  *             entry in the table). </p>
@@ -1268,7 +1272,7 @@ export namespace DependencyTimeout {
 
 /**
  * <p>Returned if there is no mount target with the specified ID found in the
- *             caller's account.</p>
+ *             caller's Amazon Web Services account.</p>
  */
 export interface MountTargetNotFound extends __SmithyException, $MetadataBearer {
   name: "MountTargetNotFound";
@@ -1368,12 +1372,15 @@ export namespace DescribeAccessPointsResponse {
 
 export interface DescribeAccountPreferencesRequest {
   /**
-   * Token used for pagination.
+   * <p>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the next page of
+   *       Amazon Web Services account preferences if the response payload was paginated.</p>
    */
   NextToken?: string;
 
   /**
-   * Max results used for pagination.
+   * <p>(Optional) When retrieving account preferences,
+   *       you can optionally specify the <code>MaxItems</code> parameter to limit the number of objects returned in a response.
+   *       The default value is 100. </p>
    */
   MaxResults?: number;
 }
@@ -1397,14 +1404,17 @@ export enum Resource {
   MountTarget = "MOUNT_TARGET",
 }
 
+/**
+ * <p>Describes the resource type and its ID preference for the user's Amazon Web Services account, in the current Amazon Web Services Region.</p>
+ */
 export interface ResourceIdPreference {
   /**
-   * A preference indicating a choice to use 63bit/32bit IDs for all applicable resources.
+   * <p>Identifies the EFS resource ID preference, either <code>LONG_ID</code> (17 characters) or <code>SHORT_ID</code> (8 characters).</p>
    */
   ResourceIdType?: ResourceIdType | string;
 
   /**
-   * EFS resources to which a preference applies to.
+   * <p>Identifies the Amazon EFS resources to which the ID preference setting applies, <code>FILE_SYSTEM</code> and <code>MOUNT_TARGET</code>.</p>
    */
   Resources?: (Resource | string)[];
 }
@@ -1419,9 +1429,14 @@ export namespace ResourceIdPreference {
 }
 
 export interface DescribeAccountPreferencesResponse {
-  ResourceIdPreference?: ResourceIdPreference;
   /**
-   * Token used for pagination.
+   * <p>Describes the resource ID preference setting for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.</p>
+   */
+  ResourceIdPreference?: ResourceIdPreference;
+
+  /**
+   * <p>Present if there are more records than returned in the response.
+   *       You can use the <code>NextToken</code> in the subsequent request to fetch the additional descriptions.</p>
    */
   NextToken?: string;
 }
@@ -1471,7 +1486,7 @@ export namespace PolicyNotFound {
 }
 
 /**
- * <p>Returned if the AWS Backup service is not available in the Region in which the request was made.</p>
+ * <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
  */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
@@ -1618,6 +1633,10 @@ export enum TransitionToIARules {
   AFTER_90_DAYS = "AFTER_90_DAYS",
 }
 
+export enum TransitionToPrimaryStorageClassRules {
+  AFTER_1_ACCESS = "AFTER_1_ACCESS",
+}
+
 /**
  * <p>Describes a policy used by EFS lifecycle management to transition files to the Infrequent
  *       Access (IA) storage class.</p>
@@ -1625,11 +1644,16 @@ export enum TransitionToIARules {
 export interface LifecyclePolicy {
   /**
    * <p>
-   *       A value that describes the period of time that a file is not accessed, after which it transitions to the IA storage class. Metadata
+   *       Describes the period of time that a file is not accessed, after which it transitions to the IA storage class. Metadata
    *       operations such as listing the contents of a directory don't count as file access
    *       events.</p>
    */
   TransitionToIA?: TransitionToIARules | string;
+
+  /**
+   * <p>Describes the policy used to transition a file from infequent access storage to primary storage.</p>
+   */
+  TransitionToPrimaryStorageClass?: TransitionToPrimaryStorageClassRules | string;
 }
 
 export namespace LifecyclePolicy {
@@ -1643,7 +1667,7 @@ export namespace LifecyclePolicy {
 
 export interface LifecycleConfigurationDescription {
   /**
-   * <p>An array of lifecycle management policies. Currently, EFS supports a maximum of one
+   * <p>An array of lifecycle management policies. EFS supports a maximum of one
    *       policy per file system.</p>
    */
   LifecyclePolicies?: LifecyclePolicy[];
@@ -1952,7 +1976,8 @@ export namespace ModifyMountTargetSecurityGroupsRequest {
 
 export interface PutAccountPreferencesRequest {
   /**
-   * A preference indicating a choice to use 63bit/32bit IDs for all applicable resources.
+   * <p>Specifies the EFS resource ID preference to set for the user's Amazon Web Services account, in the current Amazon Web Services Region,
+   *       either <code>LONG_ID</code> (17 characters), or <code>SHORT_ID</code> (8 characters).</p>
    */
   ResourceIdType: ResourceIdType | string | undefined;
 }
@@ -1967,6 +1992,9 @@ export namespace PutAccountPreferencesRequest {
 }
 
 export interface PutAccountPreferencesResponse {
+  /**
+   * <p>Describes the resource type and its ID preference for the user's Amazon Web Services account, in the current Amazon Web Services Region.</p>
+   */
   ResourceIdPreference?: ResourceIdPreference;
 }
 
