@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/config-resolver",
-  "version": "3.28.0",
+  "version": "3.29.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -17,14 +17,14 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "3.28.0",
+    "@aws-sdk/node-config-provider": "3.29.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.4.2"
   },
   "dependencies": {
-    "@aws-sdk/signature-v4": "3.25.0",
-    "@aws-sdk/types": "3.25.0",
+    "@aws-sdk/signature-v4": "3.29.0",
+    "@aws-sdk/types": "3.29.0",
     "tslib": "^2.3.0"
   },
   "engines": {

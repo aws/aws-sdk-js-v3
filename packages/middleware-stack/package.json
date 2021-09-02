@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-stack",
-  "version": "3.25.0",
+  "version": "3.29.0",
   "description": "Provides a means for composing multiple middleware functions into a single handler",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -22,7 +22,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/types": "3.25.0",
+    "@aws-sdk/types": "3.29.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.4.2"
