@@ -45,6 +45,11 @@ import {
   GetApplicationCommandOutput,
 } from "./commands/GetApplicationCommand";
 import {
+  GetAssociatedResourceCommand,
+  GetAssociatedResourceCommandInput,
+  GetAssociatedResourceCommandOutput,
+} from "./commands/GetAssociatedResourceCommand";
+import {
   GetAttributeGroupCommand,
   GetAttributeGroupCommandInput,
   GetAttributeGroupCommandOutput,
@@ -98,7 +103,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p> AWS Service Catalog AppRegistry enables organizations to understand the application context of their AWS resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
+ * <p> Amazon Web Services Service Catalog AppRegistry enables organizations to understand the application context of their Amazon Web Services resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
  */
 export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   /**
@@ -395,6 +400,38 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * <p>Gets the resource associated with the application.</p>
+   */
+  public getAssociatedResource(
+    args: GetAssociatedResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssociatedResourceCommandOutput>;
+  public getAssociatedResource(
+    args: GetAssociatedResourceCommandInput,
+    cb: (err: any, data?: GetAssociatedResourceCommandOutput) => void
+  ): void;
+  public getAssociatedResource(
+    args: GetAssociatedResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssociatedResourceCommandOutput) => void
+  ): void;
+  public getAssociatedResource(
+    args: GetAssociatedResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssociatedResourceCommandOutput) => void),
+    cb?: (err: any, data?: GetAssociatedResourceCommandOutput) => void
+  ): Promise<GetAssociatedResourceCommandOutput> | void {
+    const command = new GetAssociatedResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.</p>
    */
   public getAttributeGroup(
@@ -587,7 +624,8 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
-   * <p>Syncs the resource with what is currently recorded in App registry. Specifically, the resource’s App registry system tags are synced with its associated application. The resource is removed if it is not associated with the application. The caller must have permissions to read and update the resource.</p>
+   * <p>Syncs the resource with current AppRegistry records.</p>
+   *          <p>Specifically, the resource’s AppRegistry system tags sync with its associated application. We remove the resource's AppRegistry system tags if it does not associate with the application. The caller must have permissions to read and update the resource.</p>
    */
   public syncResource(
     args: SyncResourceCommandInput,

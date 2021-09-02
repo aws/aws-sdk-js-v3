@@ -24,10 +24,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * <p>Creates a dashboard from a template. To first create a template, see the <code>
  *                <a>CreateTemplate</a>
  *             </code> API operation.</p>
- *         <p>A dashboard is an entity in QuickSight that identifies QuickSight reports, created
- *             from analyses. You can share QuickSight dashboards. With the right permissions, you can
+ *         <p>A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created
+ *             from analyses. You can share Amazon QuickSight dashboards. With the right permissions, you can
  *             create scheduled email reports from them. If you have the correct permissions, you can
- *             create a dashboard from a template that exists in a different Amazon Web Services account;.</p>
+ *             create a dashboard from a template that exists in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

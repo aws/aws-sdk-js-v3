@@ -26,9 +26,7 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns status information for each of your AWS managed Config
- * 			rules. The status includes information such as the last time AWS
- * 			Config invoked the rule, the last time AWS Config failed to invoke
+ * <p>Returns status information for each of your Config managed rules. The status includes information such as the last time Config invoked the rule, the last time Config failed to invoke
  * 			the rule, and the related error for the last failure.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

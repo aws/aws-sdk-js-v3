@@ -26,7 +26,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *         <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for
  *         <code>CreateUser</code>, you can specify the user name, set the home directory, store the
  *       user's public key, and assign the user's Amazon Web Services Identity and Access Management (IAM)
- *       role. You can also optionally add a scope-down policy, and assign metadata with tags that can
+ *       role. You can also optionally add a session policy, and assign metadata with tags that can
  *       be used to group and search for users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -22,7 +22,7 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
 
 /**
  * <p>Use this action to associate one or more Domain Name Server (DNS) aliases with an existing Amazon FSx for Windows File Server file system.
- *         A file systen can have a maximum of 50 DNS aliases associated with it at any one time. If you try to
+ *         A file system can have a maximum of 50 DNS aliases associated with it at any one time. If you try to
  *         associate a DNS alias that is already associated with the file system, FSx takes no action on that alias in the request.
  *         For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a> and
  *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html">Walkthrough 5: Using DNS aliases to access your file system</a>, including

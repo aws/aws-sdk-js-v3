@@ -21,7 +21,7 @@ export interface DeleteStoredQueryCommandInput extends DeleteStoredQueryRequest 
 export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the stored query for a single AWS account and a single AWS Region.</p>
+ * <p>Deletes the stored query for a single Amazon Web Services account and a single Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,6 +27,39 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  *       authentication method as soon as you create your server. By doing so, you can troubleshoot
  *       issues with the identity provider integration to ensure that your users can successfully use
  *       the service.</p>
+ *          <p>
+ *       The <code>ServerId</code> and <code>UserName</code> parameters are required. The <code>ServerProtocol</code>, <code>SourceIp</code>, and <code>UserPassword</code> are all optional.
+ *     </p>
+ *          <note>
+ *             <p>
+ *         You cannot use <code>TestIdentityProvider</code> if the <code>IdentityProviderType</code> of your server is <code>SERVICE_MANAGED</code>.
+ *       </p>
+ *          </note>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *         If you provide any incorrect values for any parameters, the <code>Response</code> field is empty.
+ *       </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *         If you provide a server ID for a server that uses service-managed users, you get an error:
+ *       </p>
+ *                <p>
+ *                   <code>
+ *         An error occurred (InvalidRequestException) when calling the TestIdentityProvider operation: s-<i>server-ID</i> not configured for external auth
+ *       </code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *           If you enter a Server ID for the <code>--server-id</code> parameter that does not identify an actual Transfer server, you receive the following error:
+ *         </p>
+ *                <p>
+ *                   <code>An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider operation: Unknown server</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

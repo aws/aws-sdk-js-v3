@@ -22,8 +22,9 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
 
 /**
  * <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use
- *          this to test and debug the custom authorization behavior of devices that connect to the AWS
- *          IoT device gateway.</p>
+ *          this to test and debug the custom authorization behavior of devices that connect to the IoT
+ *          device gateway.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TestInvokeAuthorizer</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

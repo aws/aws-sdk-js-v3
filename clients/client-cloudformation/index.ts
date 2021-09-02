@@ -77,6 +77,7 @@ export * from "./commands/PublishTypeCommand";
 export * from "./commands/RecordHandlerProgressCommand";
 export * from "./commands/RegisterPublisherCommand";
 export * from "./commands/RegisterTypeCommand";
+export * from "./commands/RollbackStackCommand";
 export * from "./commands/SetStackPolicyCommand";
 export * from "./commands/SetTypeConfigurationCommand";
 export * from "./commands/SetTypeDefaultVersionCommand";

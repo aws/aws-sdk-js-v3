@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteThingTypeRequest, DeleteThingTypeResponse } from "../models/models_0";
+import { DeleteThingTypeRequest, DeleteThingTypeResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteThingTypeCommand,
   serializeAws_restJson1DeleteThingTypeCommand,
@@ -24,6 +24,7 @@ export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, _
  * <p>Deletes the specified thing type. You cannot delete a thing type if it has things
  * 			associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and
  * 			finally use <a>DeleteThingType</a> to delete the thing type.</p>
+ * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingType</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

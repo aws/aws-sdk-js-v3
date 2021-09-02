@@ -23,7 +23,7 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes an existing IAM policy assignment, as specified by the assignment name.</p>
+ * <p>Describes an existing IAMpolicy assignment, as specified by the assignment name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

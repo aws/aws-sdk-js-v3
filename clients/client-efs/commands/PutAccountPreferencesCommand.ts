@@ -20,6 +20,26 @@ import {
 export interface PutAccountPreferencesCommandInput extends PutAccountPreferencesRequest {}
 export interface PutAccountPreferencesCommandOutput extends PutAccountPreferencesResponse, __MetadataBearer {}
 
+/**
+ * <p>Use this operation to set the account preference in the current Amazon Web Services Region to use either long 17 character (63 bit) or short 8 character (32 bit) IDs for
+ *       new EFS file systems and mount targets created. All existing resource IDs are not affected by any changes you make. You can set the ID preference during the
+ *       opt-in period as EFS transitions to long resource IDs. For more information,
+ *       see <a href="efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon EFS resource IDs</a>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, PutAccountPreferencesCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, PutAccountPreferencesCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new PutAccountPreferencesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAccountPreferencesCommandInput} for command's `input` shape.
+ * @see {@link PutAccountPreferencesCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
+ */
 export class PutAccountPreferencesCommand extends $Command<
   PutAccountPreferencesCommandInput,
   PutAccountPreferencesCommandOutput,

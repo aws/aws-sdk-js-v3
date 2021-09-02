@@ -21,12 +21,12 @@ export interface PutConformancePackCommandInput extends PutConformancePackReques
 export interface PutConformancePackCommandOutput extends PutConformancePackResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a conformance pack. A conformance pack is a collection of AWS Config rules that can be easily deployed in an account and a region and across AWS Organization.</p>
+ * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across Amazon Web Services Organization.</p>
  * 		       <p>This API creates a service linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
  * 		The service linked role is created only when the role does not exist in your account. </p>
  * 		       <note>
  *             <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
- * 			If you provide both AWS Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
+ * 			If you provide both Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

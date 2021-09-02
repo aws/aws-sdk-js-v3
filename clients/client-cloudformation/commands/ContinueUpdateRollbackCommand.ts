@@ -26,11 +26,12 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  *          the cause of the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed"> fix the error</a> and continue the rollback. By continuing the rollback, you can
  *          return your stack to a working state (the <code>UPDATE_ROLLBACK_COMPLETE</code> state), and
  *          then try to update the stack again.</p>
- *          <p>A stack goes into the <code>UPDATE_ROLLBACK_FAILED</code> state when CloudFormation cannot roll back all changes after a failed stack update. For example,
- *          you might have a stack that is rolling back to an old database instance that was deleted
- *          outside of CloudFormation. Because CloudFormation doesn't know the database
- *          was deleted, it assumes that the database instance still exists and attempts to roll back
- *          to it, causing the update rollback to fail.</p>
+ *          <p>A stack goes into the <code>UPDATE_ROLLBACK_FAILED</code> state when
+ *          CloudFormation cannot roll back all changes after a failed stack update. For example, you
+ *          might have a stack that is rolling back to an old database instance that was deleted
+ *          outside of CloudFormation. Because CloudFormation doesn't know the database was
+ *          deleted, it assumes that the database instance still exists and attempts to roll back to
+ *          it, causing the update rollback to fail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

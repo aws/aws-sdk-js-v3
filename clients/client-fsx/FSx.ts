@@ -31,6 +31,21 @@ import {
   CreateFileSystemFromBackupCommandOutput,
 } from "./commands/CreateFileSystemFromBackupCommand";
 import {
+  CreateStorageVirtualMachineCommand,
+  CreateStorageVirtualMachineCommandInput,
+  CreateStorageVirtualMachineCommandOutput,
+} from "./commands/CreateStorageVirtualMachineCommand";
+import {
+  CreateVolumeCommand,
+  CreateVolumeCommandInput,
+  CreateVolumeCommandOutput,
+} from "./commands/CreateVolumeCommand";
+import {
+  CreateVolumeFromBackupCommand,
+  CreateVolumeFromBackupCommandInput,
+  CreateVolumeFromBackupCommandOutput,
+} from "./commands/CreateVolumeFromBackupCommand";
+import {
   DeleteBackupCommand,
   DeleteBackupCommandInput,
   DeleteBackupCommandOutput,
@@ -40,6 +55,16 @@ import {
   DeleteFileSystemCommandInput,
   DeleteFileSystemCommandOutput,
 } from "./commands/DeleteFileSystemCommand";
+import {
+  DeleteStorageVirtualMachineCommand,
+  DeleteStorageVirtualMachineCommandInput,
+  DeleteStorageVirtualMachineCommandOutput,
+} from "./commands/DeleteStorageVirtualMachineCommand";
+import {
+  DeleteVolumeCommand,
+  DeleteVolumeCommandInput,
+  DeleteVolumeCommandOutput,
+} from "./commands/DeleteVolumeCommand";
 import {
   DescribeBackupsCommand,
   DescribeBackupsCommandInput,
@@ -61,6 +86,16 @@ import {
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
 import {
+  DescribeStorageVirtualMachinesCommand,
+  DescribeStorageVirtualMachinesCommandInput,
+  DescribeStorageVirtualMachinesCommandOutput,
+} from "./commands/DescribeStorageVirtualMachinesCommand";
+import {
+  DescribeVolumesCommand,
+  DescribeVolumesCommandInput,
+  DescribeVolumesCommandOutput,
+} from "./commands/DescribeVolumesCommand";
+import {
   DisassociateFileSystemAliasesCommand,
   DisassociateFileSystemAliasesCommandInput,
   DisassociateFileSystemAliasesCommandOutput,
@@ -81,6 +116,16 @@ import {
   UpdateFileSystemCommandInput,
   UpdateFileSystemCommandOutput,
 } from "./commands/UpdateFileSystemCommand";
+import {
+  UpdateStorageVirtualMachineCommand,
+  UpdateStorageVirtualMachineCommandInput,
+  UpdateStorageVirtualMachineCommandOutput,
+} from "./commands/UpdateStorageVirtualMachineCommand";
+import {
+  UpdateVolumeCommand,
+  UpdateVolumeCommandInput,
+  UpdateVolumeCommandOutput,
+} from "./commands/UpdateVolumeCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -90,7 +135,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class FSx extends FSxClient {
   /**
    * <p>Use this action to associate one or more Domain Name Server (DNS) aliases with an existing Amazon FSx for Windows File Server file system.
-   *         A file systen can have a maximum of 50 DNS aliases associated with it at any one time. If you try to
+   *         A file system can have a maximum of 50 DNS aliases associated with it at any one time. If you try to
    *         associate a DNS alias that is already associated with the file system, FSx takes no action on that alias in the request.
    *         For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a> and
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html">Walkthrough 5: Using DNS aliases to access your file system</a>, including
@@ -175,17 +220,17 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Copies an existing backup within the same AWS account to another Region
-   *          (cross-Region copy) or within the same Region (in-Region copy). You can have up to five
+   * <p>Copies an existing backup within the same Amazon Web Services account to another Amazon Web Services Region
+   *          (cross-Region copy) or within the same Amazon Web Services Region (in-Region copy). You can have up to five
    *          backup copy requests in progress to a single destination Region per account.</p>
    *          <p>You can use cross-Region backup copies for cross-region disaster recovery.
    *          You periodically take backups and copy them to another Region so that in the
    *          event of a disaster in the primary Region, you can restore from backup and recover
    *          availability quickly in the other Region. You can make cross-Region copies
-   *          only within your AWS partition.</p>
+   *          only within your Amazon Web Services partition.</p>
    *          <p> You can also use backup copies to clone your file data set to another Region
    *          or within the same Region.</p>
-   *          <p>You can use the <code>SourceRegion</code> parameter to specify the AWS Region
+   *          <p>You can use the <code>SourceRegion</code> parameter to specify the Amazon Web Services Region
    *          from which the backup will be copied. For example, if you make the call from the
    *          <code>us-west-1</code> Region and want to copy a backup from the <code>us-east-2</code>
    *          Region, you specify <code>us-east-2</code> in the <code>SourceRegion</code> parameter
@@ -221,9 +266,11 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates a backup of an existing Amazon FSx file system.
-   *             Creating regular backups for your file system is a best practice, enabling you to restore a file system
-   *             from a backup if an issue arises with the original file system.</p>
+   * <p>Creates a backup of an existing Amazon FSx for Windows File Server
+   *             or Amazon FSx for Lustre file system, or of an Amazon FSx for NetApp ONTAP
+   *             volume. Creating regular backups is a best practice, enabling you to restore
+   *             a file system or volume from a backup if an issue arises with the original
+   *             file system or volume.</p>
    *         <p>For Amazon FSx for Lustre file systems, you can create a backup only
    *             for file systems with the following configuration:</p>
    *         <ul>
@@ -231,14 +278,24 @@ export class FSx extends FSxClient {
    *                <p>a Persistent deployment type</p>
    *             </li>
    *             <li>
-   *                <p>is <i>not</i> linked to a data respository.</p>
+   *                <p>is <i>not</i> linked to a data repository.</p>
    *             </li>
    *          </ul>
-   *             <p>For more information about backing up Amazon FSx for Lustre file systems,
+   *             <p>For more information about backups, see the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>For Amazon FSx for Lustre,
    *                 see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with FSx for Lustre backups</a>.</p>
-   *         <p>For more information about backing up Amazon FSx for Windows file systems,
-   *             see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for Windows backups</a>.</p>
-   *
+   *             </li>
+   *             <li>
+   *                <p>For Amazon FSx for Windows,
+   *                 see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for Windows backups</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon FSx for NetApp ONTAP,
+   *                 see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/using-backups.html">Working with FSx for NetApp ONTAP backups</a>.</p>
+   *             </li>
+   *          </ul>
    *         <p>If a backup with the specified client request token exists, and the parameters
    *             match, this operation returns the description of the existing backup. If a backup
    *             specified client request token exists, and the parameters don't match, this
@@ -397,7 +454,8 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates a new Amazon FSx file system from an existing Amazon FSx backup.</p>
+   * <p>Creates a new Amazon FSx for Lustre or Amazon FSx for Windows File Server file system
+   *             from an existing Amazon FSx backup.</p>
    *
    *         <p>If a file system with the specified client request token exists and the parameters
    *             match, this operation returns the description of the file system. If a client
@@ -464,6 +522,100 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * <p>Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.</p>
+   */
+  public createStorageVirtualMachine(
+    args: CreateStorageVirtualMachineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStorageVirtualMachineCommandOutput>;
+  public createStorageVirtualMachine(
+    args: CreateStorageVirtualMachineCommandInput,
+    cb: (err: any, data?: CreateStorageVirtualMachineCommandOutput) => void
+  ): void;
+  public createStorageVirtualMachine(
+    args: CreateStorageVirtualMachineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStorageVirtualMachineCommandOutput) => void
+  ): void;
+  public createStorageVirtualMachine(
+    args: CreateStorageVirtualMachineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStorageVirtualMachineCommandOutput) => void),
+    cb?: (err: any, data?: CreateStorageVirtualMachineCommandOutput) => void
+  ): Promise<CreateStorageVirtualMachineCommandOutput> | void {
+    const command = new CreateStorageVirtualMachineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an Amazon FSx for NetApp ONTAP storage volume.</p>
+   */
+  public createVolume(
+    args: CreateVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVolumeCommandOutput>;
+  public createVolume(args: CreateVolumeCommandInput, cb: (err: any, data?: CreateVolumeCommandOutput) => void): void;
+  public createVolume(
+    args: CreateVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVolumeCommandOutput) => void
+  ): void;
+  public createVolume(
+    args: CreateVolumeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVolumeCommandOutput) => void),
+    cb?: (err: any, data?: CreateVolumeCommandOutput) => void
+  ): Promise<CreateVolumeCommandOutput> | void {
+    const command = new CreateVolumeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new Amazon FSx for NetApp ONTAP volume from an
+   *             existing Amazon FSx volume backup.</p>
+   */
+  public createVolumeFromBackup(
+    args: CreateVolumeFromBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVolumeFromBackupCommandOutput>;
+  public createVolumeFromBackup(
+    args: CreateVolumeFromBackupCommandInput,
+    cb: (err: any, data?: CreateVolumeFromBackupCommandOutput) => void
+  ): void;
+  public createVolumeFromBackup(
+    args: CreateVolumeFromBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVolumeFromBackupCommandOutput) => void
+  ): void;
+  public createVolumeFromBackup(
+    args: CreateVolumeFromBackupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVolumeFromBackupCommandOutput) => void),
+    cb?: (err: any, data?: CreateVolumeFromBackupCommandOutput) => void
+  ): Promise<CreateVolumeFromBackupCommandOutput> | void {
+    const command = new CreateVolumeFromBackupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an Amazon FSx backup, deleting its contents. After deletion, the backup no longer exists, and its data is gone.</p>
    *
    *         <p>The <code>DeleteBackup</code> call returns instantly. The backup will not show up
@@ -504,10 +656,13 @@ export class FSx extends FSxClient {
    * <p>Deletes a file system, deleting its contents. After deletion, the file system no
    *             longer exists, and its data is gone. Any existing automatic backups will also be
    *             deleted.</p>
+   *         <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the volumes
+   *             and SVMs on the file system. Then provide a <code>FileSystemId</code> value to the
+   *             <code>DeleFileSystem</code> operation.</p>
+   *
    *         <p>By default, when you delete an Amazon FSx for Windows File Server file system, a
    *             final backup is created upon deletion. This final backup is not subject to the file
    *             system's retention policy, and must be manually deleted.</p>
-   *
    *
    *         <p>The <code>DeleteFileSystem</code> action returns while the file system has the
    *                 <code>DELETING</code> status. You can check the file system deletion status by
@@ -555,10 +710,75 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * <p>Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior
+   *         to deleting an SVM, you must delete all non-root volumes in the SVM, otherwise the operation will fail.</p>
+   */
+  public deleteStorageVirtualMachine(
+    args: DeleteStorageVirtualMachineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStorageVirtualMachineCommandOutput>;
+  public deleteStorageVirtualMachine(
+    args: DeleteStorageVirtualMachineCommandInput,
+    cb: (err: any, data?: DeleteStorageVirtualMachineCommandOutput) => void
+  ): void;
+  public deleteStorageVirtualMachine(
+    args: DeleteStorageVirtualMachineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStorageVirtualMachineCommandOutput) => void
+  ): void;
+  public deleteStorageVirtualMachine(
+    args: DeleteStorageVirtualMachineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStorageVirtualMachineCommandOutput) => void),
+    cb?: (err: any, data?: DeleteStorageVirtualMachineCommandOutput) => void
+  ): Promise<DeleteStorageVirtualMachineCommandOutput> | void {
+    const command = new DeleteStorageVirtualMachineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an Amazon FSx for NetApp ONTAP volume. When deleting a volume,
+   *         you have the option of creating a final backup. If you create a final backup, you have the option to
+   *         apply Tags to the backup. You need to have <code>fsx:TagResource</code>
+   *             permission in order to apply tags to the backup.</p>
+   */
+  public deleteVolume(
+    args: DeleteVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVolumeCommandOutput>;
+  public deleteVolume(args: DeleteVolumeCommandInput, cb: (err: any, data?: DeleteVolumeCommandOutput) => void): void;
+  public deleteVolume(
+    args: DeleteVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVolumeCommandOutput) => void
+  ): void;
+  public deleteVolume(
+    args: DeleteVolumeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVolumeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVolumeCommandOutput) => void
+  ): Promise<DeleteVolumeCommandOutput> | void {
+    const command = new DeleteVolumeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the description of specific Amazon FSx backups, if
    *             a <code>BackupIds</code> value is provided for that backup. Otherwise, it returns all
-   *             backups owned by your AWS account in the AWS Region of the endpoint that you're
-   *             calling.</p>
+   *             backups owned by your Amazon Web Services account  in the Amazon Web Services Region
+   *             of the endpoint that you're calling.</p>
    *
    *         <p>When retrieving all backups, you can optionally specify the <code>MaxResults</code>
    *             parameter to limit the number of backups in a response. If more backups remain, Amazon
@@ -575,10 +795,9 @@ export class FSx extends FSxClient {
    *         <p>When using this action, keep the following in mind:</p>
    *         <ul>
    *             <li>
-   *                 <p>The implementation might return fewer than <code>MaxResults</code> file
-   *                     system descriptions while still including a <code>NextToken</code>
+   *                 <p>The implementation might return fewer than <code>MaxResults</code>
+   *                     backup descriptions while still including a <code>NextToken</code>
    *                     value.</p>
-   *
    *             </li>
    *             <li>
    *                 <p>The order of backups returned in the response of one
@@ -621,7 +840,7 @@ export class FSx extends FSxClient {
    *             one or more <code>TaskIds</code> values are provided in the request, or if filters are used in the request.
    *             You can use filters to narrow the response to include just tasks for specific file systems,
    *             or tasks in a specific lifecycle state. Otherwise, it returns all data repository tasks owned
-   *             by your AWS account in the AWS Region of the endpoint that you're calling.</p>
+   *             by your Amazon Web Services account in the Amazon Web Services Region of the endpoint that you're calling.</p>
    *
    *         <p>When retrieving all tasks, you can paginate the response by using  the optional <code>MaxResults</code>
    *             parameter to limit the number of tasks returned in a response. If more tasks remain, Amazon
@@ -695,8 +914,8 @@ export class FSx extends FSxClient {
   /**
    * <p>Returns the description of specific Amazon FSx file systems, if a
    *                 <code>FileSystemIds</code> value is provided for that file system. Otherwise, it
-   *             returns descriptions of all file systems owned by your AWS account in the AWS Region of
-   *             the endpoint that you're calling.</p>
+   *             returns descriptions of all file systems owned by your Amazon Web Services account in
+   *             the Amazon Web Services Region of the endpoint that you're calling.</p>
    *
    *         <p>When retrieving all file system descriptions, you can optionally specify the
    *                 <code>MaxResults</code> parameter to limit the number of descriptions in a response.
@@ -745,6 +964,70 @@ export class FSx extends FSxClient {
     cb?: (err: any, data?: DescribeFileSystemsCommandOutput) => void
   ): Promise<DescribeFileSystemsCommandOutput> | void {
     const command = new DescribeFileSystemsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines (SVMs).</p>
+   */
+  public describeStorageVirtualMachines(
+    args: DescribeStorageVirtualMachinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStorageVirtualMachinesCommandOutput>;
+  public describeStorageVirtualMachines(
+    args: DescribeStorageVirtualMachinesCommandInput,
+    cb: (err: any, data?: DescribeStorageVirtualMachinesCommandOutput) => void
+  ): void;
+  public describeStorageVirtualMachines(
+    args: DescribeStorageVirtualMachinesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStorageVirtualMachinesCommandOutput) => void
+  ): void;
+  public describeStorageVirtualMachines(
+    args: DescribeStorageVirtualMachinesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStorageVirtualMachinesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStorageVirtualMachinesCommandOutput) => void
+  ): Promise<DescribeStorageVirtualMachinesCommandOutput> | void {
+    const command = new DescribeStorageVirtualMachinesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes one or more Amazon FSx for NetApp ONTAP volumes.</p>
+   */
+  public describeVolumes(
+    args: DescribeVolumesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVolumesCommandOutput>;
+  public describeVolumes(
+    args: DescribeVolumesCommandInput,
+    cb: (err: any, data?: DescribeVolumesCommandOutput) => void
+  ): void;
+  public describeVolumes(
+    args: DescribeVolumesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVolumesCommandOutput) => void
+  ): void;
+  public describeVolumes(
+    args: DescribeVolumesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVolumesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVolumesCommandOutput) => void
+  ): Promise<DescribeVolumesCommandOutput> | void {
+    const command = new DescribeVolumesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -963,6 +1246,22 @@ export class FSx extends FSxClient {
    *                <p>WeeklyMaintenanceStartTime</p>
    *             </li>
    *          </ul>
+   *          <p>For Amazon FSx for NetApp ONTAP file systems, you can update the following
+   *       properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AutomaticBackupRetentionDays</p>
+   *             </li>
+   *             <li>
+   *                <p>DailyAutomaticBackupStartTime</p>
+   *             </li>
+   *             <li>
+   *                <p>FsxAdminPassword</p>
+   *             </li>
+   *             <li>
+   *                <p>WeeklyMaintenanceStartTime</p>
+   *             </li>
+   *          </ul>
    */
   public updateFileSystem(
     args: UpdateFileSystemCommandInput,
@@ -983,6 +1282,67 @@ export class FSx extends FSxClient {
     cb?: (err: any, data?: UpdateFileSystemCommandOutput) => void
   ): Promise<UpdateFileSystemCommandOutput> | void {
     const command = new UpdateFileSystemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an Amazon FSx for ONTAP storage virtual machine (SVM).</p>
+   */
+  public updateStorageVirtualMachine(
+    args: UpdateStorageVirtualMachineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStorageVirtualMachineCommandOutput>;
+  public updateStorageVirtualMachine(
+    args: UpdateStorageVirtualMachineCommandInput,
+    cb: (err: any, data?: UpdateStorageVirtualMachineCommandOutput) => void
+  ): void;
+  public updateStorageVirtualMachine(
+    args: UpdateStorageVirtualMachineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStorageVirtualMachineCommandOutput) => void
+  ): void;
+  public updateStorageVirtualMachine(
+    args: UpdateStorageVirtualMachineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStorageVirtualMachineCommandOutput) => void),
+    cb?: (err: any, data?: UpdateStorageVirtualMachineCommandOutput) => void
+  ): Promise<UpdateStorageVirtualMachineCommandOutput> | void {
+    const command = new UpdateStorageVirtualMachineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an Amazon FSx for NetApp ONTAP volume's configuration.</p>
+   */
+  public updateVolume(
+    args: UpdateVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVolumeCommandOutput>;
+  public updateVolume(args: UpdateVolumeCommandInput, cb: (err: any, data?: UpdateVolumeCommandOutput) => void): void;
+  public updateVolume(
+    args: UpdateVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVolumeCommandOutput) => void
+  ): void;
+  public updateVolume(
+    args: UpdateVolumeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVolumeCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVolumeCommandOutput) => void
+  ): Promise<UpdateVolumeCommandOutput> | void {
+    const command = new UpdateVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

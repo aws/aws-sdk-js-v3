@@ -21,10 +21,10 @@ export interface DeleteEvaluationResultsCommandInput extends DeleteEvaluationRes
 export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationResultsResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the evaluation results for the specified AWS Config
- * 			rule. You can specify one AWS Config rule per request. After you
+ * <p>Deletes the evaluation results for the specified Config
+ * 			rule. You can specify one Config rule per request. After you
  * 			delete the evaluation results, you can call the <a>StartConfigRulesEvaluation</a> API to start evaluating
- * 			your AWS resources against the rule.</p>
+ * 			your Amazon Web Services resources against the rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

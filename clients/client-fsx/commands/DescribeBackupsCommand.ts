@@ -23,8 +23,8 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
 /**
  * <p>Returns the description of specific Amazon FSx backups, if
  *             a <code>BackupIds</code> value is provided for that backup. Otherwise, it returns all
- *             backups owned by your AWS account in the AWS Region of the endpoint that you're
- *             calling.</p>
+ *             backups owned by your Amazon Web Services account  in the Amazon Web Services Region
+ *             of the endpoint that you're calling.</p>
  *
  *         <p>When retrieving all backups, you can optionally specify the <code>MaxResults</code>
  *             parameter to limit the number of backups in a response. If more backups remain, Amazon
@@ -41,10 +41,9 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *         <p>When using this action, keep the following in mind:</p>
  *         <ul>
  *             <li>
- *                 <p>The implementation might return fewer than <code>MaxResults</code> file
- *                     system descriptions while still including a <code>NextToken</code>
+ *                 <p>The implementation might return fewer than <code>MaxResults</code>
+ *                     backup descriptions while still including a <code>NextToken</code>
  *                     value.</p>
- *
  *             </li>
  *             <li>
  *                 <p>The order of backups returned in the response of one

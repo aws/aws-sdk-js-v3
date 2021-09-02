@@ -21,7 +21,7 @@ export interface DeleteIAMPolicyAssignmentCommandInput extends DeleteIAMPolicyAs
 export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing IAM policy assignment.</p>
+ * <p>Deletes an existing IAMpolicy assignment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -449,10 +449,17 @@ export enum S3ObjectAcl {
  * 		       <p>ACM Private CA assets that are stored in Amazon S3 can be protected with encryption.
  *   For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
  * 			CRLs</a>.</p>
- * 		       <p>Your private CA uses the value in the <b>ExpirationInDays</b> parameter to calculate the <b>nextUpdate</b> field in the CRL. The CRL is refreshed at 1/2 the age of next
- * 			update or when a certificate is revoked. When a certificate is revoked, it is recorded
- * 			in the next CRL that is generated and in the next audit report. Only time valid
- * 			certificates are listed in the CRL. Expired certificates are not included. </p>
+ * 		       <p>Your private CA uses the value in the <b>ExpirationInDays</b>
+ * 			parameter to calculate the <b>nextUpdate</b> field in the CRL.
+ * 			The CRL is refreshed at 1/2 the age of next update or when a certificate is revoked.
+ * 			When a certificate is revoked, it is recorded in the next CRL that is generated and in
+ * 			the next audit report. Only time valid certificates are listed in the CRL. Expired
+ * 			certificates are not included.</p>
+ *
+ * 		       <p>A CRL is typically updated approximately 30 minutes after a certificate
+ * 	is revoked. If for any reason a CRL update fails, ACM Private CA makes further attempts
+ * 	every 15 minutes.</p>
+ *
  * 		       <p>CRLs contain the following fields:</p>
  * 		       <ul>
  *             <li>
@@ -544,6 +551,9 @@ export enum S3ObjectAcl {
  *             <code>openssl crl -inform DER -text -in <i>crl_path</i>
  * 			-noout</code>
  *          </p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html">Planning a certificate revocation list (CRL)</a>
+ * 			in the <i>AWS Certificate Manager Private Certificate Authority (PCA) User Guide</i>
+ *          </p>
  */
 export interface CrlConfiguration {
   /**
@@ -571,9 +581,8 @@ export interface CrlConfiguration {
    * <p>Name of the S3 bucket that contains the CRL. If you do not provide a value for the
    * 				<b>CustomCname</b> argument, the name of your S3 bucket
    * 			is placed into the <b>CRL Distribution Points</b> extension of
-   * 			the issued certificate. You can change the name of your bucket by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> action. You must specify a
-   * 			<a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies">bucket policy</a> that
-   * 			allows ACM Private CA to write the CRL to your bucket.</p>
+   * 			the issued certificate. You can change the name of your bucket by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> operation. You must specify a <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies">bucket
+   * 				policy</a> that allows ACM Private CA to write the CRL to your bucket.</p>
    */
   S3BucketName?: string;
 
@@ -607,16 +616,64 @@ export namespace CrlConfiguration {
 }
 
 /**
+ * <p>Contains information to enable and configure Online Certificate Status Protocol (OCSP) for
+ * 			validating certificate revocation status.</p>
+ * 		       <p>When you revoke a certificate, OCSP responses may take up to 60 minutes
+ * 	to reflect the new status.</p>
+ */
+export interface OcspConfiguration {
+  /**
+   * <p>Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating
+   * 			certificate revocation status.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>By default, ACM Private CA injects an AWS domain into certificates being validated by the
+   * 			Online Certificate Status Protocol (OCSP). A customer can alternatively use this object
+   * 			to define a CNAME specifying a customized OCSP domain.</p>
+   * 		       <p>Note: The value of the CNAME must not include a protocol prefix such as "http://" or
+   * 			"https://".</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/ocsp-customize.html">Customizing Online Certificate
+   * 			Status Protocol (OCSP) </a> in the <i>AWS Certificate Manager Private Certificate Authority (PCA) User
+   * 				Guide</i>.</p>
+   */
+  OcspCustomCname?: string;
+}
+
+export namespace OcspConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OcspConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Certificate revocation information used by the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> and <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> actions. Your private certificate authority (CA)
- * 			can create and maintain a certificate revocation list (CRL). A CRL contains information
- * 			about certificates revoked by your CA. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a>.</p>
+ * 			can configure Online Certificate Status Protocol (OCSP) support and/or maintain a
+ * 			certificate revocation list (CRL). OCSP returns validation information about
+ * 			certificates as requested by clients, and a CRL contains an updated list of certificates
+ * 			revoked by your CA. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> and <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/revocation-setup.html">Setting up a
+ * 				certificate revocation method</a> in the <i>AWS Certificate Manager Private Certificate Authority (PCA) User
+ * 				Guide</i>.</p>
  */
 export interface RevocationConfiguration {
   /**
-   * <p>Configuration of the certificate revocation list (CRL), if any, maintained by your
-   * 			private CA.</p>
+   * <p>Configuration of the certificate revocation list (CRL), if any, maintained by your private
+   * 			CA. A CRL is typically updated approximately 30 minutes after a certificate
+   * 	is revoked. If for any reason a CRL update fails, ACM Private CA makes further attempts
+   * 	every 15 minutes.</p>
    */
   CrlConfiguration?: CrlConfiguration;
+
+  /**
+   * <p>Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by
+   * 			your private CA. When you revoke a certificate, OCSP responses may take up to 60 minutes
+   * 	to reflect the new status.</p>
+   */
+  OcspConfiguration?: OcspConfiguration;
 }
 
 export namespace RevocationConfiguration {
@@ -663,11 +720,10 @@ export interface CreateCertificateAuthorityRequest {
   CertificateAuthorityConfiguration: CertificateAuthorityConfiguration | undefined;
 
   /**
-   * <p>Contains a Boolean value that you can use to enable a certification revocation list
-   * 			(CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an
-   * 			optional CNAME alias that you can use to hide the name of your bucket in the <b>CRL Distribution Points</b> extension of your CA certificate. For
-   * 			more information, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a> structure.
-   * 		</p>
+   * <p>Contains information to enable Online Certificate Status Protocol (OCSP) support,
+   * 			to enable a certificate revocation list (CRL), to enable both, or to enable neither. The
+   * 			default is for both certificate validation mechanisms to be disabled. For more
+   * 			information, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html">OcspConfiguration</a> and <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a> types.</p>
    */
   RevocationConfiguration?: RevocationConfiguration;
 
@@ -1246,8 +1302,8 @@ export interface CertificateAuthority {
   CertificateAuthorityConfiguration?: CertificateAuthorityConfiguration;
 
   /**
-   * <p>Information about the certificate revocation list (CRL) created and maintained by your
-   * 			private CA. </p>
+   * <p>Information about the Online Certificate Status Protocol (OCSP) configuration or
+   * 			certificate revocation list (CRL) created and maintained by your private CA. </p>
    */
   RevocationConfiguration?: RevocationConfiguration;
 
@@ -2492,7 +2548,10 @@ export interface UpdateCertificateAuthorityRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
-   * <p>Revocation information for your private CA.</p>
+   * <p>Contains information to enable Online Certificate Status Protocol (OCSP) support,
+   * 			to enable a certificate revocation list (CRL), to enable both, or to enable neither. If
+   * 			this parameter is not supplied, existing capibilites remain unchanged. For more
+   * 			information, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html">OcspConfiguration</a> and <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a> types.</p>
    */
   RevocationConfiguration?: RevocationConfiguration;
 

@@ -23,9 +23,9 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
 /**
  * <p>Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization. </p>
  * 	        <p>Only a master account and a delegated administrator account can delete an organization config rule.
- * 		When calling this API with a delegated administrator, you must ensure AWS Organizations
+ * 		When calling this API with a delegated administrator, you must ensure Organizations
  * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
- * 		       <p>AWS Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
+ * 		       <p>Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
  * 			You cannot update a rule while it is in this state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

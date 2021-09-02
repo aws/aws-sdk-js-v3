@@ -21,7 +21,7 @@ export interface ListIAMPolicyAssignmentsCommandInput extends ListIAMPolicyAssig
 export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssignmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists IAM policy assignments in the current Amazon QuickSight account.</p>
+ * <p>Lists IAMpolicy assignments in the current Amazon QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,7 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
 
 /**
  * <p>Deletes all Amazon QuickSight customizations in this Amazon Web Services Region; for the specified
- *             Amazon Web Services account; and QuickSight namespace.</p>
+ *             Amazon Web Services account and Amazon QuickSight namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

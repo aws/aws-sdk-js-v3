@@ -21,7 +21,8 @@ export interface DescribeDimensionCommandInput extends DescribeDimensionRequest 
 export interface DescribeDimensionCommandOutput extends DescribeDimensionResponse, __MetadataBearer {}
 
 /**
- * <p>Provides details about a dimension that is defined in your AWS account.</p>
+ * <p>Provides details about a dimension that is defined in your Amazon Web Services accounts.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDimension</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

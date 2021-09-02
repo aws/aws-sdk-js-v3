@@ -21,8 +21,8 @@ export interface BatchGetResourceConfigCommandInput extends BatchGetResourceConf
 export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the current configuration for one or more requested
- * 			resources. The operation also returns a list of resources that are
+ * <p>Returns the <code>BaseConfigurationItem</code> for one or more requested resources.
+ * 			The operation also returns a list of resources that are
  * 			not processed in the current request. If there are no unprocessed
  * 			resources, the operation returns an empty unprocessedResourceKeys
  * 			list. </p>

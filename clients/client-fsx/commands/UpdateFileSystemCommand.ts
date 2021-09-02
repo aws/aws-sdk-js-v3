@@ -70,6 +70,22 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                <p>WeeklyMaintenanceStartTime</p>
  *             </li>
  *          </ul>
+ *          <p>For Amazon FSx for NetApp ONTAP file systems, you can update the following
+ *       properties:</p>
+ *          <ul>
+ *             <li>
+ *                <p>AutomaticBackupRetentionDays</p>
+ *             </li>
+ *             <li>
+ *                <p>DailyAutomaticBackupStartTime</p>
+ *             </li>
+ *             <li>
+ *                <p>FsxAdminPassword</p>
+ *             </li>
+ *             <li>
+ *                <p>WeeklyMaintenanceStartTime</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

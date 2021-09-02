@@ -25,14 +25,19 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  *       grant allows. For more
  *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/managing-grants.html#grant-delete">Retiring and revoking grants</a> in
  *       the <i>
- *                <i>AWS Key Management Service Developer Guide</i>
+ *                <i>Key Management Service Developer Guide</i>
  *             </i>.</p>
- *          <p>When you create, retire, or revoke a grant, there might be a brief delay, usually less than five minutes, until the grant is available throughout AWS KMS. This state is known as <i>eventual consistency</i>. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual consistency</a> in
+ *          <p>When you create, retire, or revoke a grant, there might be a brief delay, usually less than five minutes, until the grant is available throughout KMS. This state is known as <i>eventual consistency</i>. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual consistency</a> in
  *       the <i>
- *                <i>AWS Key Management Service Developer Guide</i>
+ *                <i>Key Management Service Developer Guide</i>
  *             </i>. </p>
+ *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using grants</a> in the
+ *         <i>
+ *                <i>Key Management Service Developer Guide</i>
+ *             </i>. For examples of working with grants in several
+ *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>. </p>
  *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different AWS account, specify the key
+ *             <b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different Amazon Web Services account, specify the key
  *   ARN in the value of the <code>KeyId</code> parameter.</p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:RevokeGrant</a> (key policy).</p>

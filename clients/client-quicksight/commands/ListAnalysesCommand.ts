@@ -21,7 +21,7 @@ export interface ListAnalysesCommandInput extends ListAnalysesRequest {}
 export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists Amazon QuickSight analyses that exist in the specified Amazon Web Services account;.</p>
+ * <p>Lists Amazon QuickSight analyses that exist in the specified Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

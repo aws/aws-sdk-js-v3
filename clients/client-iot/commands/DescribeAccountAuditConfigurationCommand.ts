@@ -29,6 +29,7 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  * <p>Gets information about the Device Defender audit settings for this account.
  *           Settings include how audit notifications are sent and which audit checks are
  *           enabled or disabled.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAccountAuditConfiguration</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,7 +21,7 @@ export interface StopLoggingCommandInput extends StopLoggingRequest {}
 export interface StopLoggingCommandOutput extends StopLoggingResponse, __MetadataBearer {}
 
 /**
- * <p>Suspends the recording of AWS API calls and log file delivery for the specified trail.
+ * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the specified trail.
  *          Under most circumstances, there is no need to use this action. You can update a trail
  *          without stopping it first. This action is the only way to stop recording. For a trail
  *          enabled in all regions, this operation must be called from the region in which the trail

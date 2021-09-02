@@ -21,17 +21,18 @@ export interface DeleteCustomMetricCommandInput extends DeleteCustomMetricReques
 export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>Before you can delete a custom metric, you must first remove the custom metric from all
- *         security profiles it's a part of.
- *         The
- *         security
- *         profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a>
- *         API with <code>metricName</code> set to your custom metric name.</p>
- *          </note>
- *          <p>
+ * <p>
  *       Deletes a Device Defender detect custom metric.
  *     </p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCustomMetric</a> action.</p>
+ *          <note>
+ *             <p>Before you can delete a custom metric, you must first remove the custom metric from all
+ *       security profiles it's a part of.
+ *       The
+ *       security
+ *       profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a>
+ *       API with <code>metricName</code> set to your custom metric name.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -666,7 +666,7 @@ export namespace Tag {
 
 export interface StartSnapshotRequest {
   /**
-   * <p>The size of the volume, in GiB. The maximum size is <code>16384</code> GiB (16
+   * <p>The size of the volume, in GiB. The maximum size is <code>65536</code> GiB (64
    *             TiB).</p>
    */
   VolumeSize: number | undefined;

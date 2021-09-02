@@ -22,11 +22,13 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
 
 /**
  * <p>Creates a root or subordinate private certificate authority (CA). You must specify the
- * 			CA configuration, the certificate revocation list (CRL) configuration, the CA type, and
+ * 			CA configuration, an optional configuration for Online Certificate Status Protocol (OCSP)
+ * 			and/or a certificate revocation list (CRL), the CA type, and
  * 			an optional idempotency token to avoid accidental creation of multiple CAs. The CA
  * 			configuration specifies the name of the algorithm and key size to be used to create the
  * 			CA private key, the type of signing algorithm that the CA uses, and X.500 subject
- * 			information. The CRL configuration specifies the CRL expiration period in days (the
+ * 			information. The OCSP configuration can optionally specify a custom URL for the OCSP responder.
+ * 			The CRL configuration specifies the CRL expiration period in days (the
  * 			validity period of the CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME
  * 			alias for the S3 bucket that is included in certificates issued by the CA. If
  * 			successful, this action returns the Amazon Resource Name (ARN) of the CA.</p>

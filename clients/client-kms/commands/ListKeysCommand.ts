@@ -18,10 +18,10 @@ export interface ListKeysCommandInput extends ListKeysRequest {}
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of all customer master keys (CMKs) in the caller's AWS account and
+ * <p>Gets a list of all KMS keys in the caller's Amazon Web Services account and
  *       Region.</p>
  *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListKeys</a> (IAM policy)</p>

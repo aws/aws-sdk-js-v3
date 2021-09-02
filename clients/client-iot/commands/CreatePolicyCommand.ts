@@ -21,10 +21,11 @@ export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS IoT policy.</p>
+ * <p>Creates an IoT policy.</p>
  *          <p>The created policy is the default version for the policy. This operation creates a
  *          policy version with a version identifier of <b>1</b> and sets
  *             <b>1</b> as the policy's default version.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePolicy</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

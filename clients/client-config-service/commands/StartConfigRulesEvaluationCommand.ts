@@ -21,25 +21,25 @@ export interface StartConfigRulesEvaluationCommandInput extends StartConfigRules
 export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRulesEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>Runs an on-demand evaluation for the specified AWS Config rules
+ * <p>Runs an on-demand evaluation for the specified Config rules
  * 			against the last known configuration state of the resources. Use
  * 				<code>StartConfigRulesEvaluation</code> when you want to test
  * 			that a rule you updated is working as expected.
  * 				<code>StartConfigRulesEvaluation</code> does not re-record the
  * 			latest configuration state for your resources. It re-runs an
  * 			evaluation against the last known state of your resources. </p>
- * 		       <p>You can specify up to 25 AWS Config rules per request. </p>
+ * 		       <p>You can specify up to 25 Config rules per request. </p>
  *
  *
  * 		       <p>An existing <code>StartConfigRulesEvaluation</code> call for
  * 			the specified rules must complete before you can call the API again.
- * 			If you chose to have AWS Config stream to an Amazon SNS topic, you
+ * 			If you chose to have Config stream to an Amazon SNS topic, you
  * 			will receive a <code>ConfigRuleEvaluationStarted</code> notification
  * 			when the evaluation starts.</p>
  * 		       <note>
  * 			         <p>You don't need to call the
  * 					<code>StartConfigRulesEvaluation</code> API to run an
- * 				evaluation for a new rule. When you create a rule, AWS Config
+ * 				evaluation for a new rule. When you create a rule, Config
  * 				evaluates your resources against the rule automatically.
  * 			</p>
  * 		       </note>
@@ -61,7 +61,7 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * 					API.</p>
  * 			         </li>
  *             <li>
- * 				           <p>AWS Config invokes your Lambda function and evaluates
+ * 				           <p>Config invokes your Lambda function and evaluates
  * 					your IAM resources.</p>
  * 			         </li>
  *             <li>

@@ -22,6 +22,7 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
 
 /**
  * <p>Returns a list of job templates.</p>
+ *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobTemplates</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

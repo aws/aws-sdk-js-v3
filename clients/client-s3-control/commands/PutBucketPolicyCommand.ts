@@ -30,7 +30,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  *          </note>
  *          <p>Applies an Amazon S3 bucket policy to an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
- *          <p>If you are using an identity other than the root user of the account that owns the
+ *          <p>If you are using an identity other than the root user of the Amazon Web Services account that owns the
  *          Outposts bucket, the calling identity must have the <code>PutBucketPolicy</code>
  *          permissions on the specified Outposts bucket and belong to the bucket owner's account in
  *          order to use this action.</p>
@@ -39,7 +39,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  *          but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.</p>
  *
  *          <important>
- *             <p> As a security precaution, the root user of the account that owns a bucket can always use this action, even if the policy
+ *             <p> As a security precaution, the root user of the Amazon Web Services account that owns a bucket can always use this action, even if the policy
  *          explicitly denies the root user the ability to perform this action.
  *       </p>
  *          </important>

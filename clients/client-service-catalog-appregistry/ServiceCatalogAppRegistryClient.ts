@@ -22,6 +22,10 @@ import {
   DisassociateResourceCommandOutput,
 } from "./commands/DisassociateResourceCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import {
+  GetAssociatedResourceCommandInput,
+  GetAssociatedResourceCommandOutput,
+} from "./commands/GetAssociatedResourceCommand";
 import { GetAttributeGroupCommandInput, GetAttributeGroupCommandOutput } from "./commands/GetAttributeGroupCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
@@ -110,6 +114,7 @@ export type ServiceInputTypes =
   | DisassociateAttributeGroupCommandInput
   | DisassociateResourceCommandInput
   | GetApplicationCommandInput
+  | GetAssociatedResourceCommandInput
   | GetAttributeGroupCommandInput
   | ListApplicationsCommandInput
   | ListAssociatedAttributeGroupsCommandInput
@@ -132,6 +137,7 @@ export type ServiceOutputTypes =
   | DisassociateAttributeGroupCommandOutput
   | DisassociateResourceCommandOutput
   | GetApplicationCommandOutput
+  | GetAssociatedResourceCommandOutput
   | GetAttributeGroupCommandOutput
   | ListApplicationsCommandOutput
   | ListAssociatedAttributeGroupsCommandOutput
@@ -284,7 +290,7 @@ export interface ServiceCatalogAppRegistryClientResolvedConfig
   extends ServiceCatalogAppRegistryClientResolvedConfigType {}
 
 /**
- * <p> AWS Service Catalog AppRegistry enables organizations to understand the application context of their AWS resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
+ * <p> Amazon Web Services Service Catalog AppRegistry enables organizations to understand the application context of their Amazon Web Services resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
  */
 export class ServiceCatalogAppRegistryClient extends __Client<
   __HttpHandlerOptions,

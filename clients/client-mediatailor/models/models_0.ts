@@ -252,6 +252,11 @@ export interface Channel {
   CreationTime?: Date;
 
   /**
+   * <p>Contains information about the slate used to fill gaps between programs in the schedule. You must configure FillerSlate if your channel uses an LINEAR PlaybackMode.</p>
+   */
+  FillerSlate?: SlateSource;
+
+  /**
    * <p>The timestamp of when the channel was last modified.</p>
    */
   LastModifiedTime?: Date;
@@ -262,7 +267,7 @@ export interface Channel {
   Outputs: ResponseOutputItem[] | undefined;
 
   /**
-   * <p>The type of playback mode for this channel. Possible values: ONCE or LOOP.</p>
+   * <p>The type of playback mode for this channel.</p> <p>LINEAR - Programs play back-to-back only once.</p> <p>LOOP - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.</p>
    */
   PlaybackMode: string | undefined;
 
@@ -611,6 +616,11 @@ export namespace ScheduleAdBreak {
   });
 }
 
+export enum ScheduleEntryType {
+  FILLER_SLATE = "FILLER_SLATE",
+  PROGRAM = "PROGRAM",
+}
+
 /**
  * <p>The properties for a schedule.</p>
  */
@@ -644,6 +654,11 @@ export interface ScheduleEntry {
    * <p>The schedule's ad break properties.</p>
    */
   ScheduleAdBreaks?: ScheduleAdBreak[];
+
+  /**
+   * <p>The type of schedule entry.</p> <p>Valid values: PROGRAM or FILLER_SLATE.</p>
+   */
+  ScheduleEntryType?: ScheduleEntryType | string;
 
   /**
    * <p>The name of the source location.</p>
@@ -922,7 +937,7 @@ export enum ChannelState {
 }
 
 /**
- * <p>The ouput configuration for this channel.</p>
+ * <p>The output configuration for this channel.</p>
  */
 export interface RequestOutputItem {
   /**
@@ -956,6 +971,7 @@ export namespace RequestOutputItem {
 }
 
 export enum PlaybackMode {
+  LINEAR = "LINEAR",
   LOOP = "LOOP",
 }
 
@@ -966,12 +982,17 @@ export interface CreateChannelRequest {
   ChannelName: string | undefined;
 
   /**
+   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses an LINEAR PlaybackMode.</p>
+   */
+  FillerSlate?: SlateSource;
+
+  /**
    * <p>The channel's output properties.</p>
    */
   Outputs: RequestOutputItem[] | undefined;
 
   /**
-   * <p>The type of playback mode for this channel. The only supported value is LOOP.</p>
+   * <p>The type of playback mode to use for this channel.</p> <p>LINEAR - The programs in the schedule play once back-to-back in the schedule.</p> <p>LOOP - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
    */
   PlaybackMode: PlaybackMode | string | undefined;
 
@@ -1012,6 +1033,11 @@ export interface CreateChannelResponse {
   CreationTime?: Date;
 
   /**
+   * <p>Contains information about the slate used to fill gaps between programs in the schedule.</p>
+   */
+  FillerSlate?: SlateSource;
+
+  /**
    * <p>The timestamp of when the channel was last modified.</p>
    */
   LastModifiedTime?: Date;
@@ -1022,7 +1048,7 @@ export interface CreateChannelResponse {
   Outputs?: ResponseOutputItem[];
 
   /**
-   * <p>The type of playback for this channel. The only supported value is LOOP.</p>
+   * <p>The channel's playback mode.</p>
    */
   PlaybackMode?: string;
 
@@ -1051,7 +1077,7 @@ export enum RelativePosition {
  */
 export interface Transition {
   /**
-   * <p>The position where this program will be inserted relative to the RelativeProgram. Possible values are: AFTER_PROGRAM, and BEFORE_PROGRAM.</p>
+   * <p>The position where this program will be inserted relative to the RelativePosition.</p>
    */
   RelativePosition: RelativePosition | string | undefined;
 
@@ -1061,7 +1087,12 @@ export interface Transition {
   RelativeProgram?: string;
 
   /**
-   * <p>When the program should be played. RELATIVE means that programs will be played back-to-back.</p>
+   * <p>The date and time that the program is scheduled to start, in epoch milliseconds.</p>
+   */
+  ScheduledStartTimeMillis?: number;
+
+  /**
+   * <p>Defines when the program plays in the schedule. You can set the value to ABSOLUTE or RELATIVE.</p> <p>ABSOLUTE - The program plays at a specific wall clock time. This setting can only be used for channels using the LINEAR PlaybackMode.</p> <p>Note the following considerations when using ABSOLUTE transitions:</p> <p>If the preceding program in the schedule has a duration that extends past the wall clock time, MediaTailor truncates the preceding program on a common segment boundary.</p> <p>If there are gaps in playback, MediaTailor plays the FillerSlate you configured for your linear channel.</p> <p>RELATIVE - The program is inserted into the schedule either before or after a program that you specify via RelativePosition.</p>
    */
   Type: string | undefined;
 }
@@ -1160,6 +1191,11 @@ export interface CreateProgramResponse {
    * <p>The name of the program.</p>
    */
   ProgramName?: string;
+
+  /**
+   * <p>The date and time that the program is scheduled to start in ISO 8601 format and Coordinated Universal Time (UTC). For example, the value 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.</p>
+   */
+  ScheduledStartTime?: Date;
 
   /**
    * <p>The source location name.</p>
@@ -1579,6 +1615,11 @@ export interface DescribeChannelResponse {
   CreationTime?: Date;
 
   /**
+   * <p>Contains information about the slate used to fill gaps between programs in the schedule.</p>
+   */
+  FillerSlate?: SlateSource;
+
+  /**
    * <p>The timestamp of when the channel was last modified.</p>
    */
   LastModifiedTime?: Date;
@@ -1589,7 +1630,7 @@ export interface DescribeChannelResponse {
   Outputs?: ResponseOutputItem[];
 
   /**
-   * <p>The type of playback for this channel. The only supported value is LOOP.</p>
+   * <p>The channel's playback mode.</p>
    */
   PlaybackMode?: string;
 
@@ -1654,6 +1695,11 @@ export interface DescribeProgramResponse {
    * <p>The name of the program.</p>
    */
   ProgramName?: string;
+
+  /**
+   * <p>The date and time that the program is scheduled to start in ISO 8601 format and Coordinated Universal Time (UTC). For example, the value 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.</p>
+   */
+  ScheduledStartTime?: Date;
 
   /**
    * <p>The source location name.</p>
@@ -2615,6 +2661,11 @@ export interface UpdateChannelResponse {
   CreationTime?: Date;
 
   /**
+   * <p>Contains information about the slate used to fill gaps between programs in the schedule.</p>
+   */
+  FillerSlate?: SlateSource;
+
+  /**
    * <p>The timestamp of when the channel was last modified.</p>
    */
   LastModifiedTime?: Date;
@@ -2625,7 +2676,7 @@ export interface UpdateChannelResponse {
   Outputs?: ResponseOutputItem[];
 
   /**
-   * <p>The type of playback for this channel. The only supported value is LOOP.</p>
+   * <p>The channel's playback mode.</p>
    */
   PlaybackMode?: string;
 

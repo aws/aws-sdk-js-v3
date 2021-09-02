@@ -2,12 +2,14 @@ import {
   AccountDetails,
   Action,
   ActionTarget,
+  Adjustment,
   AdminAccount,
   AwsApiGatewayRestApiDetails,
   AwsApiGatewayStageDetails,
   AwsApiGatewayV2ApiDetails,
   AwsApiGatewayV2StageDetails,
   AwsAutoScalingAutoScalingGroupDetails,
+  AwsAutoScalingLaunchConfigurationDetails,
   AwsCertificateManagerCertificateDetails,
   AwsCloudFrontDistributionDetails,
   AwsCloudTrailTrailDetails,
@@ -21,6 +23,8 @@ import {
   AwsEc2SubnetDetails,
   AwsEc2VolumeDetails,
   AwsEc2VpcDetails,
+  AwsEc2VpnConnectionDetails,
+  AwsEcrContainerImageDetails,
   AwsEcsClusterDetails,
   AwsEcsServiceDetails,
   AwsEcsTaskDefinitionDetails,
@@ -46,30 +50,786 @@ import {
   AwsS3BucketDetails,
   AwsS3ObjectDetails,
   AwsSecretsManagerSecretDetails,
-  AwsSnsTopicSubscription,
   Compliance,
-  DataClassificationDetails,
   FindingProviderFields,
   Malware,
-  Network,
-  NetworkPathComponent,
-  Note,
-  PatchSummary,
-  ProcessDetails,
-  RecordState,
+  NetworkDirection,
+  PortRange,
   RelatedFinding,
-  Remediation,
   SeverityLabel,
 } from "./models_0";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+/**
+ * <p>The details of network-related information about a finding.</p>
+ */
+export interface Network {
+  /**
+   * <p>The direction of network traffic associated with a finding.</p>
+   */
+  Direction?: NetworkDirection | string;
+
+  /**
+   * <p>The protocol of network-related information about a finding.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The range of open ports that is present on the network.</p>
+   */
+  OpenPortRange?: PortRange;
+
+  /**
+   * <p>The source IPv4 address of network-related information about a finding.</p>
+   */
+  SourceIpV4?: string;
+
+  /**
+   * <p>The source IPv6 address of network-related information about a finding.</p>
+   */
+  SourceIpV6?: string;
+
+  /**
+   * <p>The source port of network-related information about a finding.</p>
+   */
+  SourcePort?: number;
+
+  /**
+   * <p>The source domain of network-related information about a finding.</p>
+   */
+  SourceDomain?: string;
+
+  /**
+   * <p>The source media access control (MAC) address of network-related information about a
+   *          finding.</p>
+   */
+  SourceMac?: string;
+
+  /**
+   * <p>The destination IPv4 address of network-related information about a finding.</p>
+   */
+  DestinationIpV4?: string;
+
+  /**
+   * <p>The destination IPv6 address of network-related information about a finding.</p>
+   */
+  DestinationIpV6?: string;
+
+  /**
+   * <p>The destination port of network-related information about a finding.</p>
+   */
+  DestinationPort?: number;
+
+  /**
+   * <p>The destination domain of network-related information about a finding.</p>
+   */
+  DestinationDomain?: string;
+}
+
+export namespace Network {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Network): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the destination of the next component in the network path.</p>
+ */
+export interface NetworkPathComponentDetails {
+  /**
+   * <p>The IP addresses of the destination.</p>
+   */
+  Address?: string[];
+
+  /**
+   * <p>A list of port ranges for the destination.</p>
+   */
+  PortRanges?: PortRange[];
+}
+
+export namespace NetworkPathComponentDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkPathComponentDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about a network path component that occurs before or after the current
+ *          component.</p>
+ */
+export interface NetworkHeader {
+  /**
+   * <p>The protocol used for the component.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>Information about the destination of the component.</p>
+   */
+  Destination?: NetworkPathComponentDetails;
+
+  /**
+   * <p>Information about the origin of the component.</p>
+   */
+  Source?: NetworkPathComponentDetails;
+}
+
+export namespace NetworkHeader {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkHeader): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a network path component.</p>
+ */
+export interface NetworkPathComponent {
+  /**
+   * <p>The identifier of a component in the network path.</p>
+   */
+  ComponentId?: string;
+
+  /**
+   * <p>The type of component.</p>
+   */
+  ComponentType?: string;
+
+  /**
+   * <p>Information about the component that comes after the current component in the network
+   *          path.</p>
+   */
+  Egress?: NetworkHeader;
+
+  /**
+   * <p>Information about the component that comes before the current node in the network
+   *          path.</p>
+   */
+  Ingress?: NetworkHeader;
+}
+
+export namespace NetworkPathComponent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkPathComponent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A user-defined note added to a finding.</p>
+ */
+export interface Note {
+  /**
+   * <p>The text of a note.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The principal that created a note.</p>
+   */
+  UpdatedBy: string | undefined;
+
+  /**
+   * <p>The timestamp of when the note was updated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  UpdatedAt: string | undefined;
+}
+
+export namespace Note {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Note): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides an overview of the patch compliance status for an instance against a selected
+ *          compliance standard.</p>
+ */
+export interface PatchSummary {
+  /**
+   * <p>The identifier of the compliance standard that was used to determine the patch
+   *          compliance status.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The number of patches from the compliance standard that were installed
+   *          successfully.</p>
+   */
+  InstalledCount?: number;
+
+  /**
+   * <p>The number of patches that are part of the compliance standard but are not installed.
+   *          The count includes patches that failed to install.</p>
+   */
+  MissingCount?: number;
+
+  /**
+   * <p>The number of patches from the compliance standard that failed to install.</p>
+   */
+  FailedCount?: number;
+
+  /**
+   * <p>The number of installed patches that are not part of the compliance standard.</p>
+   */
+  InstalledOtherCount?: number;
+
+  /**
+   * <p>The number of patches that are installed but are also on a list of patches that the
+   *          customer rejected.</p>
+   */
+  InstalledRejectedCount?: number;
+
+  /**
+   * <p>The number of patches that were applied, but that require the instance to be rebooted in
+   *          order to be marked as installed.</p>
+   */
+  InstalledPendingReboot?: number;
+
+  /**
+   * <p>Indicates when the operation started.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  OperationStartTime?: string;
+
+  /**
+   * <p>Indicates when the operation completed.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  OperationEndTime?: string;
+
+  /**
+   * <p>The reboot option specified for the instance.</p>
+   */
+  RebootOption?: string;
+
+  /**
+   * <p>The type of patch operation performed. For Patch Manager, the values are
+   *             <code>SCAN</code> and <code>INSTALL</code>. </p>
+   */
+  Operation?: string;
+}
+
+export namespace PatchSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PatchSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of process-related information about a finding.</p>
+ */
+export interface ProcessDetails {
+  /**
+   * <p>The name of the process.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The path to the process executable.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The process ID.</p>
+   */
+  Pid?: number;
+
+  /**
+   * <p>The parent process ID.</p>
+   */
+  ParentPid?: number;
+
+  /**
+   * <p>Indicates when the process was launched.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LaunchedAt?: string;
+
+  /**
+   * <p>Indicates when the process was terminated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  TerminatedAt?: string;
+}
+
+export namespace ProcessDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProcessDetails): any => ({
+    ...obj,
+  });
+}
+
+export enum RecordState {
+  ACTIVE = "ACTIVE",
+  ARCHIVED = "ARCHIVED",
+}
+
+/**
+ * <p>A recommendation on how to remediate the issue identified in a finding.</p>
+ */
+export interface Recommendation {
+  /**
+   * <p>Describes the recommended steps to take to remediate an issue identified in a finding.</p>
+   */
+  Text?: string;
+
+  /**
+   * <p>A URL to a page or site that contains information about how to remediate a finding.</p>
+   */
+  Url?: string;
+}
+
+export namespace Recommendation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Recommendation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the remediation steps for a finding.</p>
+ */
+export interface Remediation {
+  /**
+   * <p>A recommendation on the steps to take to remediate the issue identified by a finding.</p>
+   */
+  Recommendation?: Recommendation;
+}
+
+export namespace Remediation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Remediation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An occurrence of sensitive data detected in a Microsoft Excel workbook, comma-separated value (CSV) file, or tab-separated value (TSV) file.</p>
+ */
+export interface Cell {
+  /**
+   * <p>The column number of the column that contains the data. For a Microsoft Excel workbook, the column number corresponds to the alphabetical column identifiers. For example, a value of 1 for Column corresponds to the A column in the workbook.</p>
+   */
+  Column?: number;
+
+  /**
+   * <p>The row number of the row that contains the data.</p>
+   */
+  Row?: number;
+
+  /**
+   * <p>The name of the column that contains the data.</p>
+   */
+  ColumnName?: string;
+
+  /**
+   * <p>For a Microsoft Excel workbook, provides the location of the cell, as an absolute cell reference, that contains the data. For example, Sheet2!C5 for cell C5 on Sheet2.</p>
+   */
+  CellReference?: string;
+}
+
+export namespace Cell {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Cell): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies where the sensitive data begins and ends.</p>
+ */
+export interface Range {
+  /**
+   * <p>The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.</p>
+   */
+  Start?: number;
+
+  /**
+   * <p>The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.</p>
+   */
+  End?: number;
+
+  /**
+   * <p>In the line where the sensitive data starts, the column within the line where the sensitive data starts.</p>
+   */
+  StartColumn?: number;
+}
+
+export namespace Range {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Range): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An occurrence of sensitive data in an Adobe Portable Document Format (PDF) file.</p>
+ */
+export interface Page {
+  /**
+   * <p>The page number of the page that contains the sensitive data.</p>
+   */
+  PageNumber?: number;
+
+  /**
+   * <p>An occurrence of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.</p>
+   */
+  LineRange?: Range;
+
+  /**
+   * <p>An occurrence of sensitive data detected in a binary text file.</p>
+   */
+  OffsetRange?: Range;
+}
+
+export namespace Page {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Page): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An occurrence of sensitive data in an Apache Avro object container or an Apache Parquet file.</p>
+ */
+export interface _Record {
+  /**
+   * <p>The path, as a JSONPath expression, to the field in the record that contains the data. If the field name is longer than 20 characters, it is truncated. If the path is longer than 250 characters, it is truncated.</p>
+   */
+  JsonPath?: string;
+
+  /**
+   * <p>The record index, starting from 0, for the record that contains the data.</p>
+   */
+  RecordIndex?: number;
+}
+
+export namespace _Record {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: _Record): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The detected occurrences of sensitive data.</p>
+ */
+export interface Occurrences {
+  /**
+   * <p>Occurrences of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.</p>
+   */
+  LineRanges?: Range[];
+
+  /**
+   * <p>Occurrences of sensitive data detected in a binary text file.</p>
+   */
+  OffsetRanges?: Range[];
+
+  /**
+   * <p>Occurrences of sensitive data in an Adobe Portable Document Format (PDF) file.</p>
+   */
+  Pages?: Page[];
+
+  /**
+   * <p>Occurrences of sensitive data in an Apache Avro object container or an Apache Parquet file.</p>
+   */
+  Records?: _Record[];
+
+  /**
+   * <p>Occurrences of sensitive data detected in Microsoft Excel workbooks, comma-separated value (CSV) files, or tab-separated value (TSV) files.</p>
+   */
+  Cells?: Cell[];
+}
+
+export namespace Occurrences {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Occurrences): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The list of detected instances of sensitive data.</p>
+ */
+export interface CustomDataIdentifiersDetections {
+  /**
+   * <p>The total number of occurrences of sensitive data that were detected.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>The ARN of the custom identifier that was used to detect the sensitive data.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>he name of the custom identifier that detected the sensitive data.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Details about the sensitive data that was detected.</p>
+   */
+  Occurrences?: Occurrences;
+}
+
+export namespace CustomDataIdentifiersDetections {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomDataIdentifiersDetections): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains an instance of sensitive data that was detected by a customer-defined identifier.</p>
+ */
+export interface CustomDataIdentifiersResult {
+  /**
+   * <p>The list of detected instances of sensitive data.</p>
+   */
+  Detections?: CustomDataIdentifiersDetections[];
+
+  /**
+   * <p>The total number of occurrences of sensitive data.</p>
+   */
+  TotalCount?: number;
+}
+
+export namespace CustomDataIdentifiersResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomDataIdentifiersResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The list of detected instances of sensitive data.</p>
+ */
+export interface SensitiveDataDetections {
+  /**
+   * <p>The total number of occurrences of sensitive data that were detected.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>The type of sensitive data that was detected. For example, the type might indicate that the data is an email address.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>Details about the sensitive data that was detected.</p>
+   */
+  Occurrences?: Occurrences;
+}
+
+export namespace SensitiveDataDetections {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SensitiveDataDetections): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains a detected instance of sensitive data that are based on built-in identifiers.</p>
+ */
+export interface SensitiveDataResult {
+  /**
+   * <p>The category of sensitive data that was detected. For example, the category can indicate that the sensitive data involved credentials, financial information, or personal information.</p>
+   */
+  Category?: string;
+
+  /**
+   * <p>The list of detected instances of sensitive data.</p>
+   */
+  Detections?: SensitiveDataDetections[];
+
+  /**
+   * <p>The total number of occurrences of sensitive data.</p>
+   */
+  TotalCount?: number;
+}
+
+export namespace SensitiveDataResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SensitiveDataResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about the current status of the sensitive data detection.</p>
+ */
+export interface ClassificationStatus {
+  /**
+   * <p>The code that represents the status of the sensitive data detection.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>A longer description of the current status of the sensitive data detection.</p>
+   */
+  Reason?: string;
+}
+
+export namespace ClassificationStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClassificationStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the sensitive data that was detected on the resource.</p>
+ */
+export interface ClassificationResult {
+  /**
+   * <p>The type of content that the finding applies to.</p>
+   */
+  MimeType?: string;
+
+  /**
+   * <p>The total size in bytes of the affected data.</p>
+   */
+  SizeClassified?: number;
+
+  /**
+   * <p>Indicates whether there are additional occurrences of sensitive data that are not included in the finding. This occurs when the number of occurrences exceeds the maximum that can be included.</p>
+   */
+  AdditionalOccurrences?: boolean;
+
+  /**
+   * <p>The current status of the sensitive data detection.</p>
+   */
+  Status?: ClassificationStatus;
+
+  /**
+   * <p>Provides details about sensitive data that was identified based on built-in configuration.</p>
+   */
+  SensitiveData?: SensitiveDataResult[];
+
+  /**
+   * <p>Provides details about sensitive data that was identified based on customer-defined configuration.</p>
+   */
+  CustomDataIdentifiers?: CustomDataIdentifiersResult;
+}
+
+export namespace ClassificationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClassificationResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about sensitive data that was detected on a resource.</p>
+ */
+export interface DataClassificationDetails {
+  /**
+   * <p>The path to the folder or file that contains the sensitive data.</p>
+   */
+  DetailedResultsLocation?: string;
+
+  /**
+   * <p>The details about the sensitive data that was detected on the resource.</p>
+   */
+  Result?: ClassificationResult;
+}
+
+export namespace DataClassificationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataClassificationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
+ */
+export interface AwsSnsTopicSubscription {
+  /**
+   * <p>The subscription's endpoint (format depends on the protocol).</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The subscription's protocol.</p>
+   */
+  Protocol?: string;
+}
+
+export namespace AwsSnsTopicSubscription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSnsTopicSubscription): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>A wrapper type for the topic's ARN.</p>
  */
 export interface AwsSnsTopicDetails {
   /**
-   * <p>The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom
-   *          CMK.</p>
+   * <p>The ID of an Amazon Web Services managed key for Amazon SNS or a customer managed key.</p>
    */
   KmsMasterKeyId?: string;
 
@@ -108,8 +868,8 @@ export interface AwsSqsQueueDetails {
   KmsDataKeyReusePeriodSeconds?: number;
 
   /**
-   * <p>The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SQS or a custom
-   *          CMK.</p>
+   * <p>The ID of an Amazon Web Services managed key for Amazon SQS or a custom
+   *          KMS key.</p>
    */
   KmsMasterKeyId?: string;
 
@@ -690,7 +1450,7 @@ export interface ResourceDetails {
   AwsRedshiftCluster?: AwsRedshiftClusterDetails;
 
   /**
-   * <p>contains details about a Classic Load Balancer.</p>
+   * <p>Contains details about a Classic Load Balancer.</p>
    */
   AwsElbLoadBalancer?: AwsElbLoadBalancerDetails;
 
@@ -796,6 +1556,21 @@ export interface ResourceDetails {
    * <p>Details about a service within an ECS cluster.</p>
    */
   AwsEcsService?: AwsEcsServiceDetails;
+
+  /**
+   * <p>Provides details about a launch configuration.</p>
+   */
+  AwsAutoScalingLaunchConfiguration?: AwsAutoScalingLaunchConfigurationDetails;
+
+  /**
+   * <p>Details about an EC2 VPN connection.</p>
+   */
+  AwsEc2VpnConnection?: AwsEc2VpnConnectionDetails;
+
+  /**
+   * <p>information about an Amazon ECR image.</p>
+   */
+  AwsEcrContainerImage?: AwsEcrContainerImageDetails;
 }
 
 export namespace ResourceDetails {
@@ -1085,6 +1860,16 @@ export interface Cvss {
    * <p>The base scoring vector for the CVSS score.</p>
    */
   BaseVector?: string;
+
+  /**
+   * <p>The origin of the original CVSS score and vector.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>Adjustments to the CVSS metrics.</p>
+   */
+  Adjustments?: Adjustment[];
 }
 
 export namespace Cvss {
@@ -1169,6 +1954,16 @@ export interface SoftwarePackage {
    * <p>The architecture used for the software package.</p>
    */
   Architecture?: string;
+
+  /**
+   * <p>The source of the package.</p>
+   */
+  PackageManager?: string;
+
+  /**
+   * <p>The file system path to the package manager inventory file.</p>
+   */
+  FilePath?: string;
 }
 
 export namespace SoftwarePackage {
@@ -1236,8 +2031,8 @@ export enum WorkflowStatus {
  */
 export interface Workflow {
   /**
-   * <p>The status of the investigation into the finding. The allowed values are the
-   *          following.</p>
+   * <p>The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to <code>SUPPRESSED</code> or <code>RESOLVED</code> does not prevent a new finding for the same issue.</p>
+   *          <p>The allowed values are the following.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1266,8 +2061,7 @@ export interface Workflow {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUPPRESSED</code> - The finding will not be reviewed again and will not be
-   *                acted upon.</p>
+   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1327,7 +2121,7 @@ export interface AwsSecurityFinding {
    * <p>The name of the product that generated the finding.</p>
    *          <p>Security Hub populates this attribute automatically for each finding. You cannot update it using <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is when you use a custom integration.</p>
    *          <p>When you use the Security Hub console to filter findings by product name, you use this attribute.</p>
-   *          <p>When you use the Security Hub API to filter findings by product name, you use the <code>aws/securityhub/ProductyName</code> attribute under <code>ProductFields</code>.</p>
+   *          <p>When you use the Security Hub API to filter findings by product name, you use the <code>aws/securityhub/ProductName</code> attribute under <code>ProductFields</code>.</p>
    *          <p>Security Hub does not synchronize those two attributes.</p>
    */
   ProductName?: string;
@@ -2785,8 +3579,8 @@ export namespace SeverityUpdate {
  */
 export interface WorkflowUpdate {
   /**
-   * <p>The status of the investigation into the finding. The allowed values are the
-   *          following.</p>
+   * <p>The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to <code>SUPPRESSED</code> or <code>RESOLVED</code> does not prevent a new finding for the same issue.</p>
+   *          <p>The allowed values are the following.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2818,8 +3612,7 @@ export interface WorkflowUpdate {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUPPRESSED</code> - The finding will not be reviewed again and will not be
-   *                acted upon.</p>
+   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.</p>
    *             </li>
    *          </ul>
    */
@@ -3555,7 +4348,7 @@ export interface Product {
 
   /**
    * <p>For integrations with Amazon Web Services services, the Amazon Web Services Console URL from which to activate the service.</p>
-   *          <p>For integrations with third-party products, the Marketplace URL from which to subscribe to or purchase the product.</p>
+   *          <p>For integrations with third-party products, the Amazon Web Services Marketplace URL from which to subscribe to or purchase the product.</p>
    */
   MarketplaceUrl?: string;
 

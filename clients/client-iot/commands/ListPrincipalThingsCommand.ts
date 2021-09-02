@@ -24,6 +24,7 @@ export interface ListPrincipalThingsCommandOutput extends ListPrincipalThingsRes
  * <p>Lists the things associated with the specified principal. A principal can be X.509
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities. </p>
+ * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalThings</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

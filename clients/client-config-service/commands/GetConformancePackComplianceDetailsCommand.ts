@@ -26,7 +26,7 @@ export interface GetConformancePackComplianceDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns compliance details of a conformance pack for all AWS resources that are monitered by conformance pack.</p>
+ * <p>Returns compliance details of a conformance pack for all Amazon Web Services resources that are monitered by conformance pack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

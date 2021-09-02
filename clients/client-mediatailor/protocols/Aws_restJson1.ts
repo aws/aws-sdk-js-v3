@@ -134,6 +134,8 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.FillerSlate !== undefined &&
+      input.FillerSlate !== null && { FillerSlate: serializeAws_restJson1SlateSource(input.FillerSlate, context) }),
     ...(input.Outputs !== undefined &&
       input.Outputs !== null && { Outputs: serializeAws_restJson1RequestOutputs(input.Outputs, context) }),
     ...(input.PlaybackMode !== undefined && input.PlaybackMode !== null && { PlaybackMode: input.PlaybackMode }),
@@ -1255,6 +1257,7 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
     ChannelName: undefined,
     ChannelState: undefined,
     CreationTime: undefined,
+    FillerSlate: undefined,
     LastModifiedTime: undefined,
     Outputs: undefined,
     PlaybackMode: undefined,
@@ -1272,6 +1275,9 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
+  }
+  if (data.FillerSlate !== undefined && data.FillerSlate !== null) {
+    contents.FillerSlate = deserializeAws_restJson1SlateSource(data.FillerSlate, context);
   }
   if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
     contents.LastModifiedTime = new Date(Math.round(data.LastModifiedTime * 1000));
@@ -1331,6 +1337,7 @@ export const deserializeAws_restJson1CreateProgramCommand = async (
     ChannelName: undefined,
     CreationTime: undefined,
     ProgramName: undefined,
+    ScheduledStartTime: undefined,
     SourceLocationName: undefined,
     VodSourceName: undefined,
   };
@@ -1349,6 +1356,9 @@ export const deserializeAws_restJson1CreateProgramCommand = async (
   }
   if (data.ProgramName !== undefined && data.ProgramName !== null) {
     contents.ProgramName = __expectString(data.ProgramName);
+  }
+  if (data.ScheduledStartTime !== undefined && data.ScheduledStartTime !== null) {
+    contents.ScheduledStartTime = new Date(Math.round(data.ScheduledStartTime * 1000));
   }
   if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
     contents.SourceLocationName = __expectString(data.SourceLocationName);
@@ -1811,6 +1821,7 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
     ChannelName: undefined,
     ChannelState: undefined,
     CreationTime: undefined,
+    FillerSlate: undefined,
     LastModifiedTime: undefined,
     Outputs: undefined,
     PlaybackMode: undefined,
@@ -1828,6 +1839,9 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
   }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
+  }
+  if (data.FillerSlate !== undefined && data.FillerSlate !== null) {
+    contents.FillerSlate = deserializeAws_restJson1SlateSource(data.FillerSlate, context);
   }
   if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
     contents.LastModifiedTime = new Date(Math.round(data.LastModifiedTime * 1000));
@@ -1887,6 +1901,7 @@ export const deserializeAws_restJson1DescribeProgramCommand = async (
     ChannelName: undefined,
     CreationTime: undefined,
     ProgramName: undefined,
+    ScheduledStartTime: undefined,
     SourceLocationName: undefined,
     VodSourceName: undefined,
   };
@@ -1905,6 +1920,9 @@ export const deserializeAws_restJson1DescribeProgramCommand = async (
   }
   if (data.ProgramName !== undefined && data.ProgramName !== null) {
     contents.ProgramName = __expectString(data.ProgramName);
+  }
+  if (data.ScheduledStartTime !== undefined && data.ScheduledStartTime !== null) {
+    contents.ScheduledStartTime = new Date(Math.round(data.ScheduledStartTime * 1000));
   }
   if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
     contents.SourceLocationName = __expectString(data.SourceLocationName);
@@ -2996,6 +3014,7 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
     ChannelName: undefined,
     ChannelState: undefined,
     CreationTime: undefined,
+    FillerSlate: undefined,
     LastModifiedTime: undefined,
     Outputs: undefined,
     PlaybackMode: undefined,
@@ -3013,6 +3032,9 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
+  }
+  if (data.FillerSlate !== undefined && data.FillerSlate !== null) {
+    contents.FillerSlate = deserializeAws_restJson1SlateSource(data.FillerSlate, context);
   }
   if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
     contents.LastModifiedTime = new Date(Math.round(data.LastModifiedTime * 1000));
@@ -3487,6 +3509,8 @@ const serializeAws_restJson1Transition = (input: Transition, context: __SerdeCon
       input.RelativePosition !== null && { RelativePosition: input.RelativePosition }),
     ...(input.RelativeProgram !== undefined &&
       input.RelativeProgram !== null && { RelativeProgram: input.RelativeProgram }),
+    ...(input.ScheduledStartTimeMillis !== undefined &&
+      input.ScheduledStartTimeMillis !== null && { ScheduledStartTimeMillis: input.ScheduledStartTimeMillis }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
@@ -3685,6 +3709,10 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    FillerSlate:
+      output.FillerSlate !== undefined && output.FillerSlate !== null
+        ? deserializeAws_restJson1SlateSource(output.FillerSlate, context)
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
@@ -3914,6 +3942,7 @@ const deserializeAws_restJson1ScheduleEntry = (output: any, context: __SerdeCont
       output.ScheduleAdBreaks !== undefined && output.ScheduleAdBreaks !== null
         ? deserializeAws_restJson1__listOfScheduleAdBreak(output.ScheduleAdBreaks, context)
         : undefined,
+    ScheduleEntryType: __expectString(output.ScheduleEntryType),
     SourceLocationName: __expectString(output.SourceLocationName),
     VodSourceName: __expectString(output.VodSourceName),
   } as any;

@@ -22,16 +22,16 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
 
 /**
  * <p>Generates a unique symmetric data key for client-side encryption. This operation returns a
- *       plaintext copy of the data key and a copy that is encrypted under a customer master key (CMK)
- *       that you specify. You can use the plaintext key to encrypt your data outside of AWS KMS and
+ *       plaintext copy of the data key and a copy that is encrypted under a KMS key
+ *       that you specify. You can use the plaintext key to encrypt your data outside of KMS and
  *       store the encrypted data key with the encrypted data.</p>
  *
  *          <p>
  *             <code>GenerateDataKey</code> returns a unique data key for each request. The bytes in the
- *       plaintext key are not related to the caller or the CMK.</p>
+ *       plaintext key are not related to the caller or the KMS key.</p>
  *
- *          <p>To generate a data key, specify the symmetric CMK that will be used to encrypt the data
- *       key. You cannot use an asymmetric CMK to generate data keys. To get the type of your CMK, use
+ *          <p>To generate a data key, specify the symmetric KMS key that will be used to encrypt the data
+ *       key. You cannot use an asymmetric KMS key to generate data keys. To get the type of your KMS key, use
  *       the <a>DescribeKey</a> operation. You must also specify the length of the data key.
  *       Use either the <code>KeySpec</code> or <code>NumberOfBytes</code> parameters (but not both).
  *       For 128-bit and 256-bit data keys, use the <code>KeySpec</code> parameter. </p>
@@ -44,45 +44,44 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
  *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
- *       <i>AWS Key Management Service Developer Guide</i>.</p>
- *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *       <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>Applications in Amazon Web Services Nitro Enclaves can call this operation by using the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services Nitro Enclaves Development Kit</a>. For information about the supporting parameters, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves use KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>The KMS key that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>How to use your
- *         data key</b>
+ *             <b>How to use your data key</b>
  *          </p>
- *          <p>We recommend that you use the following pattern to encrypt data locally in your
- *       application. You can write your own code or use a client-side encryption library, such as the
- *         <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">AWS Encryption SDK</a>, the <a href="https://docs.aws.amazon.com/dynamodb-encryption-client/latest/devguide/">Amazon DynamoDB Encryption Client</a>, or
+ *          <p>We recommend that you use the following pattern to encrypt data locally in your application.
+ *       You can write your own code or use a client-side encryption library, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon Web Services Encryption SDK</a>, the <a href="https://docs.aws.amazon.com/dynamodb-encryption-client/latest/devguide/">Amazon DynamoDB Encryption Client</a>, or
  *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3
  *         client-side encryption</a> to do these tasks for you.</p>
- *          <p>To encrypt data outside of AWS KMS:</p>
+ *          <p>To encrypt data outside of KMS:</p>
  *          <ol>
  *             <li>
  *                <p>Use the <code>GenerateDataKey</code> operation to get a data key.</p>
  *             </li>
  *             <li>
  *                <p>Use the plaintext data key (in the <code>Plaintext</code> field of the response) to
- *           encrypt your data outside of AWS KMS. Then erase the plaintext data key from memory.</p>
+ *           encrypt your data outside of KMS. Then erase the plaintext data key from memory.</p>
  *             </li>
  *             <li>
  *                <p>Store the encrypted data key (in the <code>CiphertextBlob</code> field of the
  *           response) with the encrypted data.</p>
  *             </li>
  *          </ol>
- *          <p>To decrypt data outside of AWS KMS:</p>
+ *          <p>To decrypt data outside of KMS:</p>
  *          <ol>
  *             <li>
  *                <p>Use the <a>Decrypt</a> operation to decrypt the encrypted data key. The
  *           operation returns a plaintext copy of the data key.</p>
  *             </li>
  *             <li>
- *                <p>Use the plaintext data key to decrypt data outside of AWS KMS, then erase the plaintext
+ *                <p>Use the plaintext data key to decrypt data outside of KMS, then erase the plaintext
  *           data key from memory.</p>
  *             </li>
  *          </ol>
  *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation with a CMK in a different AWS account, specify
+ *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
  *
  *          <p>

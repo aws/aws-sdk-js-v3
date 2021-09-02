@@ -68,6 +68,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
+  expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -94,6 +95,7 @@ export const serializeAws_restJson1CreateDiscovererCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers";
   let body: any;
   body = JSON.stringify({
+    ...(input.CrossAccount !== undefined && input.CrossAccount !== null && { CrossAccount: input.CrossAccount }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.SourceArn !== undefined && input.SourceArn !== null && { SourceArn: input.SourceArn }),
     ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
@@ -1080,6 +1082,7 @@ export const serializeAws_restJson1UpdateDiscovererCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.CrossAccount !== undefined && input.CrossAccount !== null && { CrossAccount: input.CrossAccount }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
   return new __HttpRequest({
@@ -1183,6 +1186,7 @@ export const deserializeAws_restJson1CreateDiscovererCommand = async (
   }
   const contents: CreateDiscovererCommandOutput = {
     $metadata: deserializeMetadata(output),
+    CrossAccount: undefined,
     Description: undefined,
     DiscovererArn: undefined,
     DiscovererId: undefined,
@@ -1191,6 +1195,9 @@ export const deserializeAws_restJson1CreateDiscovererCommand = async (
     Tags: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CrossAccount !== undefined && data.CrossAccount !== null) {
+    contents.CrossAccount = __expectBoolean(data.CrossAccount);
+  }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
@@ -2074,6 +2081,7 @@ export const deserializeAws_restJson1DescribeDiscovererCommand = async (
   }
   const contents: DescribeDiscovererCommandOutput = {
     $metadata: deserializeMetadata(output),
+    CrossAccount: undefined,
     Description: undefined,
     DiscovererArn: undefined,
     DiscovererId: undefined,
@@ -2082,6 +2090,9 @@ export const deserializeAws_restJson1DescribeDiscovererCommand = async (
     Tags: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CrossAccount !== undefined && data.CrossAccount !== null) {
+    contents.CrossAccount = __expectBoolean(data.CrossAccount);
+  }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
@@ -3933,6 +3944,7 @@ export const deserializeAws_restJson1UpdateDiscovererCommand = async (
   }
   const contents: UpdateDiscovererCommandOutput = {
     $metadata: deserializeMetadata(output),
+    CrossAccount: undefined,
     Description: undefined,
     DiscovererArn: undefined,
     DiscovererId: undefined,
@@ -3941,6 +3953,9 @@ export const deserializeAws_restJson1UpdateDiscovererCommand = async (
     Tags: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CrossAccount !== undefined && data.CrossAccount !== null) {
+    contents.CrossAccount = __expectBoolean(data.CrossAccount);
+  }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
@@ -4577,6 +4592,7 @@ const deserializeAws_restJson1__listOfSearchSchemaVersionSummary = (
 
 const deserializeAws_restJson1DiscovererSummary = (output: any, context: __SerdeContext): DiscovererSummary => {
   return {
+    CrossAccount: __expectBoolean(output.CrossAccount),
     DiscovererArn: __expectString(output.DiscovererArn),
     DiscovererId: __expectString(output.DiscovererId),
     SourceArn: __expectString(output.SourceArn),

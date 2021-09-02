@@ -28,7 +28,7 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  *          <p>When an event occurs in your account, CloudTrail
  *          evaluates the event selectors or advanced event selectors in all trails. For each trail, if the event matches
  *          any event selector, the trail processes and logs the event. If the event doesn't match any event
- *          selector, the trail doesn't log the event. </p>
+ *          selector, the trail doesn't log the event.</p>
  *          <p>Example</p>
  *          <ol>
  *             <li>
@@ -57,15 +57,15 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  *          the trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception is
  *          thrown.</p>
  *          <p>You can configure up to five event selectors for each trail. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging data and management events for trails
- *       </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in AWS CloudTrail</a>
- *          in the <i>AWS CloudTrail User Guide</i>.</p>
+ *       </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a>
+ *          in the <i>CloudTrail User Guide</i>.</p>
  *          <p>You can add advanced event selectors, and conditions for your advanced
  *          event selectors, up to a maximum of 500 values for all conditions and selectors on a trail.
  *          You can use either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If you apply <code>AdvancedEventSelectors</code>
  *          to a trail, any existing <code>EventSelectors</code> are overwritten. For more information about
  *          advanced event selectors, see
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
- *             data events for trails</a> in the <i>AWS CloudTrail User Guide</i>.</p>
+ *             data events for trails</a> in the <i>CloudTrail User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

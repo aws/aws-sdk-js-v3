@@ -21,9 +21,9 @@ export interface DeleteConformancePackCommandInput extends DeleteConformancePack
 export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified conformance pack and all the AWS Config rules, remediation actions, and all evaluation results within that
+ * <p>Deletes the specified conformance pack and all the Config rules, remediation actions, and all evaluation results within that
  * 			conformance pack.</p>
- * 		       <p>AWS Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
+ * 		       <p>Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
  * 			You cannot update a conformance pack while it is in this state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

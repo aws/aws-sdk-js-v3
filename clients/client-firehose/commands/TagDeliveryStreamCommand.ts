@@ -26,8 +26,8 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  *          the tag value is replaced with the value that you specify in the request. Tags are
  *          metadata. For example, you can add friendly names and descriptions or other types of
  *          information that can help you distinguish the delivery stream. For more information about
- *          tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
- *             User Guide</i>. </p>
+ *          tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
+ *             Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
  *          <p>Each delivery stream can have up to 50 tags. </p>
  *          <p>This operation has a limit of five transactions per second per account. </p>
  * @example

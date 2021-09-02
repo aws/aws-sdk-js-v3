@@ -21,11 +21,11 @@ export interface ListKeyPoliciesCommandInput extends ListKeyPoliciesRequest {}
 export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the names of the key policies that are attached to a customer master key (CMK). This
+ * <p>Gets the names of the key policies that are attached to a KMS key. This
  *       operation is designed to get policy names that you can use in a <a>GetKeyPolicy</a>
  *       operation. However, the only valid policy name is <code>default</code>. </p>
  *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListKeyPolicies</a> (key policy)</p>

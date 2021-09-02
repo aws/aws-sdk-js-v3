@@ -26,7 +26,7 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  *          You can look up events that occurred in a region within the last 90 days. Lookup supports the following attributes for management events:</p>
  *          <ul>
  *             <li>
- *                <p>AWS access key</p>
+ *                <p>Amazon Web Services access key</p>
  *             </li>
  *             <li>
  *                <p>Event ID</p>

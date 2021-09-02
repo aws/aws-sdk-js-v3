@@ -20,6 +20,24 @@ import {
 export interface DescribeAccountPreferencesCommandInput extends DescribeAccountPreferencesRequest {}
 export interface DescribeAccountPreferencesCommandOutput extends DescribeAccountPreferencesResponse, __MetadataBearer {}
 
+/**
+ * <p>Returns the account preferences settings for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.
+ *       For more information, see <a href="efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon EFS resource IDs</a>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, DescribeAccountPreferencesCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, DescribeAccountPreferencesCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new DescribeAccountPreferencesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountPreferencesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountPreferencesCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
+ */
 export class DescribeAccountPreferencesCommand extends $Command<
   DescribeAccountPreferencesCommandInput,
   DescribeAccountPreferencesCommandOutput,

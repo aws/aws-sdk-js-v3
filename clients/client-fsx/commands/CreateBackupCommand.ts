@@ -21,9 +21,11 @@ export interface CreateBackupCommandInput extends CreateBackupRequest {}
 export interface CreateBackupCommandOutput extends CreateBackupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a backup of an existing Amazon FSx file system.
- *             Creating regular backups for your file system is a best practice, enabling you to restore a file system
- *             from a backup if an issue arises with the original file system.</p>
+ * <p>Creates a backup of an existing Amazon FSx for Windows File Server
+ *             or Amazon FSx for Lustre file system, or of an Amazon FSx for NetApp ONTAP
+ *             volume. Creating regular backups is a best practice, enabling you to restore
+ *             a file system or volume from a backup if an issue arises with the original
+ *             file system or volume.</p>
  *         <p>For Amazon FSx for Lustre file systems, you can create a backup only
  *             for file systems with the following configuration:</p>
  *         <ul>
@@ -31,14 +33,24 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *                <p>a Persistent deployment type</p>
  *             </li>
  *             <li>
- *                <p>is <i>not</i> linked to a data respository.</p>
+ *                <p>is <i>not</i> linked to a data repository.</p>
  *             </li>
  *          </ul>
- *             <p>For more information about backing up Amazon FSx for Lustre file systems,
+ *             <p>For more information about backups, see the following:</p>
+ *         <ul>
+ *             <li>
+ *                <p>For Amazon FSx for Lustre,
  *                 see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with FSx for Lustre backups</a>.</p>
- *         <p>For more information about backing up Amazon FSx for Windows file systems,
- *             see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for Windows backups</a>.</p>
- *
+ *             </li>
+ *             <li>
+ *                <p>For Amazon FSx for Windows,
+ *                 see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for Windows backups</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For Amazon FSx for NetApp ONTAP,
+ *                 see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/using-backups.html">Working with FSx for NetApp ONTAP backups</a>.</p>
+ *             </li>
+ *          </ul>
  *         <p>If a backup with the specified client request token exists, and the parameters
  *             match, this operation returns the description of the existing backup. If a backup
  *             specified client request token exists, and the parameters don't match, this

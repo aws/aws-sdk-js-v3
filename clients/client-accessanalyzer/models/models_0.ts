@@ -610,7 +610,7 @@ export type ReasonCode =
  * <p>Provides more details about the current status of the analyzer. For example, if the
  *          creation for the analyzer fails, a <code>Failed</code> status is returned. For an analyzer
  *          with organization as the type, this failure can be due to an issue with creating the
- *          service-linked roles required in the member accounts of the AWS organization.</p>
+ *          service-linked roles required in the member accounts of the Amazon Web Services organization.</p>
  */
 export interface StatusReason {
   /**
@@ -671,10 +671,10 @@ export interface AnalyzerSummary {
   /**
    * <p>The status of the analyzer. An <code>Active</code> analyzer successfully monitors
    *          supported resources and generates new findings. The analyzer is <code>Disabled</code> when
-   *          a user action, such as removing trusted access for AWS IAM Access Analyzer from AWS Organizations,
-   *          causes the analyzer to stop generating new findings. The status is <code>Creating</code>
-   *          when the analyzer creation is in progress and <code>Failed</code> when the analyzer
-   *          creation has failed. </p>
+   *          a user action, such as removing trusted access for Identity and Access Management Access Analyzer from Organizations, causes
+   *          the analyzer to stop generating new findings. The status is <code>Creating</code> when the
+   *          analyzer creation is in progress and <code>Failed</code> when the analyzer creation has
+   *          failed. </p>
    */
   status: AnalyzerStatus | string | undefined;
 
@@ -682,7 +682,7 @@ export interface AnalyzerSummary {
    * <p>The <code>statusReason</code> provides more details about the current status of the
    *          analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status
    *          is returned. For an analyzer with organization as the type, this failure can be due to an
-   *          issue with creating the service-linked roles required in the member accounts of the AWS
+   *          issue with creating the service-linked roles required in the member accounts of the Amazon Web Services
    *          organization.</p>
    */
   statusReason?: StatusReason;
@@ -935,8 +935,8 @@ export interface KmsGrantConfiguration {
   constraints?: KmsGrantConstraints;
 
   /**
-   * <p> The AWS account under which the grant was issued. The account is used to propose KMS
-   *          grants issued by accounts other than the owner of the key.</p>
+   * <p> The Amazon Web Services account under which the grant was issued. The account is used to propose
+   *          KMS grants issued by accounts other than the owner of the key.</p>
    */
   issuingAccount: string | undefined;
 }
@@ -951,21 +951,21 @@ export namespace KmsGrantConfiguration {
 }
 
 /**
- * <p>Proposed access control configuration for a KMS key. You can propose a configuration for
- *          a new KMS key or an existing KMS key that you own by specifying the key policy and KMS
- *          grant configuration. If the configuration is for an existing key and you do not specify the
- *          key policy, the access preview uses the existing policy for the key. If the access preview
- *          is for a new resource and you do not specify the key policy, then the access preview uses
- *          the default key policy. The proposed key policy cannot be an empty string. For more
- *          information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key
+ * <p>Proposed access control configuration for a KMS key. You can propose a configuration
+ *          for a new KMS key or an existing KMS key that you own by specifying the key policy and
+ *          KMS grant configuration. If the configuration is for an existing key and you do not
+ *          specify the key policy, the access preview uses the existing policy for the key. If the
+ *          access preview is for a new resource and you do not specify the key policy, then the access
+ *          preview uses the default key policy. The proposed key policy cannot be an empty string. For
+ *          more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key
  *             policy</a>. For more information about key policy limits, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html">Resource
  *             quotas</a>.</p>
  *          <p/>
  */
 export interface KmsKeyConfiguration {
   /**
-   * <p>Resource policy configuration for the KMS key. The only valid value for the name of the
-   *          key policy is <code>default</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key
+   * <p>Resource policy configuration for the KMS key. The only valid value for the name of
+   *          the key policy is <code>default</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key
    *             policy</a>.</p>
    */
   keyPolicies?: { [key: string]: string };
@@ -989,8 +989,8 @@ export namespace KmsKeyConfiguration {
 }
 
 /**
- * <p>This configuration sets the Amazon S3 access point network origin to
- *          <code>Internet</code>.</p>
+ * <p>This configuration sets the network origin for the Amazon S3 access point or multi-region
+ *          access point to <code>Internet</code>.</p>
  */
 export interface InternetConfiguration {}
 
@@ -1004,9 +1004,9 @@ export namespace InternetConfiguration {
 }
 
 /**
- * <p> The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. For
- *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>.
- *       </p>
+ * <p>The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC
+ *          configuration does not apply to multi-region access points. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>. </p>
  */
 export interface VpcConfiguration {
   /**
@@ -1027,8 +1027,9 @@ export namespace VpcConfiguration {
 
 /**
  * <p>The proposed <code>InternetConfiguration</code> or <code>VpcConfiguration</code> to
- *          apply to the Amazon S3 Access point. You can make the access point accessible from the internet,
- *          or you can specify that all requests made through that access point must originate from a
+ *          apply to the Amazon S3 access point. <code>VpcConfiguration</code> does not apply to
+ *          multi-region access points. You can make the access point accessible from the internet, or
+ *          you can specify that all requests made through that access point must originate from a
  *          specific virtual private cloud (VPC). You can specify only one type of network
  *          configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access
  *          points</a>.</p>
@@ -1040,9 +1041,9 @@ export type NetworkOriginConfiguration =
 
 export namespace NetworkOriginConfiguration {
   /**
-   * <p> The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. For
-   *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>.
-   *       </p>
+   * <p>The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC
+   *          configuration does not apply to multi-region access points. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>. </p>
    */
   export interface VpcConfigurationMember {
     vpcConfiguration: VpcConfiguration;
@@ -1051,7 +1052,8 @@ export namespace NetworkOriginConfiguration {
   }
 
   /**
-   * <p>The configuration for the Amazon S3 access point with an <code>Internet</code> origin.</p>
+   * <p>The configuration for the Amazon S3 access point or multi-region access point with an
+   *             <code>Internet</code> origin.</p>
    */
   export interface InternetConfigurationMember {
     vpcConfiguration?: never;
@@ -1094,9 +1096,9 @@ export namespace NetworkOriginConfiguration {
  *          proposed configuration is for an existing Amazon S3 bucket and the configuration is not
  *          specified, the access preview uses the existing setting. If the proposed configuration is
  *          for a new bucket and the configuration is not specified, the access preview uses
- *             <code>false</code>. If the proposed configuration is for a new access point and the
- *          access point BPA configuration is not specified, the access preview uses <code>true</code>.
- *          For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html">PublicAccessBlockConfiguration</a>. </p>
+ *             <code>false</code>. If the proposed configuration is for a new access point or
+ *          multi-region access point and the access point BPA configuration is not specified, the
+ *          access preview uses <code>true</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html">PublicAccessBlockConfiguration</a>. </p>
  */
 export interface S3PublicAccessBlockConfiguration {
   /**
@@ -1121,32 +1123,34 @@ export namespace S3PublicAccessBlockConfiguration {
 }
 
 /**
- * <p>The configuration for an Amazon S3 access point for the bucket. You can propose up to 10
- *          access points per bucket. If the proposed Amazon S3 access point configuration is for an
- *          existing bucket, the access preview uses the proposed access point configuration in place
- *          of the existing access points. To propose an access point without a policy, you can provide
- *          an empty string as the access point policy. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>. For more information about access point policy limits,
+ * <p>The configuration for an Amazon S3 access point or multi-region access point for the bucket.
+ *          You can propose up to 10 access points or multi-region access points per bucket. If the
+ *          proposed Amazon S3 access point configuration is for an existing bucket, the access preview uses
+ *          the proposed access point configuration in place of the existing access points. To propose
+ *          an access point without a policy, you can provide an empty string as the access point
+ *          policy. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>. For more information about access point policy limits,
  *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points-restrictions-limitations.html">Access points
  *             restrictions and limitations</a>.</p>
  */
 export interface S3AccessPointConfiguration {
   /**
-   * <p>The access point policy.</p>
+   * <p>The access point or multi-region access point policy.</p>
    */
   accessPointPolicy?: string;
 
   /**
-   * <p>The proposed <code>S3PublicAccessBlock</code> configuration to apply to this Amazon S3 Access
-   *          Point.</p>
+   * <p>The proposed <code>S3PublicAccessBlock</code> configuration to apply to this Amazon S3 access
+   *          point or multi-region access point.</p>
    */
   publicAccessBlock?: S3PublicAccessBlockConfiguration;
 
   /**
    * <p>The proposed <code>Internet</code> and <code>VpcConfiguration</code> to apply to this
-   *          Amazon S3 access point. If the access preview is for a new resource and neither is specified,
-   *          the access preview uses <code>Internet</code> for the network origin. If the access preview
-   *          is for an existing resource and neither is specified, the access preview uses the exiting
-   *          network origin.</p>
+   *          Amazon S3 access point. <code>VpcConfiguration</code> does not apply to multi-region access
+   *          points. If the access preview is for a new resource and neither is specified, the access
+   *          preview uses <code>Internet</code> for the network origin. If the access preview is for an
+   *          existing resource and neither is specified, the access preview uses the exiting network
+   *          origin.</p>
    */
   networkOrigin?: NetworkOriginConfiguration;
 }
@@ -1169,7 +1173,7 @@ export type AclGrantee = AclGrantee.IdMember | AclGrantee.UriMember | AclGrantee
 
 export namespace AclGrantee {
   /**
-   * <p>The value specified is the canonical user ID of an AWS account.</p>
+   * <p>The value specified is the canonical user ID of an Amazon Web Services account.</p>
    */
   export interface IdMember {
     id: string;
@@ -1252,13 +1256,13 @@ export namespace S3BucketAclGrantConfiguration {
 /**
  * <p>Proposed access control configuration for an Amazon S3 bucket. You can propose a
  *          configuration for a new Amazon S3 bucket or an existing Amazon S3 bucket that you own by specifying
- *          the Amazon S3 bucket policy, bucket ACLs, bucket BPA settings, and Amazon S3 access points attached
- *          to the bucket. If the configuration is for an existing Amazon S3 bucket and you do not specify
- *          the Amazon S3 bucket policy, the access preview uses the existing policy attached to the bucket.
- *          If the access preview is for a new resource and you do not specify the Amazon S3 bucket policy,
- *          the access preview assumes a bucket without a policy. To propose deletion of an existing
- *          bucket policy, you can specify an empty string. For more information about bucket policy
- *          limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html">Bucket Policy
+ *          the Amazon S3 bucket policy, bucket ACLs, bucket BPA settings, Amazon S3 access points, and
+ *          multi-region access points attached to the bucket. If the configuration is for an existing
+ *          Amazon S3 bucket and you do not specify the Amazon S3 bucket policy, the access preview uses the
+ *          existing policy attached to the bucket. If the access preview is for a new resource and you
+ *          do not specify the Amazon S3 bucket policy, the access preview assumes a bucket without a
+ *          policy. To propose deletion of an existing bucket policy, you can specify an empty string.
+ *          For more information about bucket policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html">Bucket Policy
  *          Examples</a>.</p>
  */
 export interface S3BucketConfiguration {
@@ -1281,7 +1285,8 @@ export interface S3BucketConfiguration {
   bucketPublicAccessBlock?: S3PublicAccessBlockConfiguration;
 
   /**
-   * <p>The configuration of Amazon S3 access points for the bucket.</p>
+   * <p>The configuration of Amazon S3 access points or multi-region access points for the bucket.
+   *          You can propose up to 10 new access points per bucket.</p>
    */
   accessPoints?: { [key: string]: S3AccessPointConfiguration };
 }
@@ -1315,15 +1320,15 @@ export namespace S3BucketConfiguration {
  *          existing policy for the secret. If the access preview is for a new resource and you do not
  *          specify the policy, the access preview assumes a secret without a policy. To propose
  *          deletion of an existing policy, you can specify an empty string. If the proposed
- *          configuration is for a new secret and you do not specify the KMS key ID, the access preview
- *          uses the default CMK of the AWS account. If you specify an empty string for the KMS key
- *          ID, the access preview uses the default CMK of the AWS account. For more information
- *          about secret policy limits, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html">Quotas for AWS Secrets
- *             Manager.</a>.</p>
+ *          configuration is for a new secret and you do not specify the KMS key ID, the access
+ *          preview uses the default CMK of the Amazon Web Services account. If you specify an empty string for the
+ *          KMS key ID, the access preview uses the default CMK of the Amazon Web Services account. For more
+ *          information about secret policy limits, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html">Quotas for
+ *             Secrets Manager.</a>.</p>
  */
 export interface SecretsManagerSecretConfiguration {
   /**
-   * <p>The proposed ARN, key ID, or alias of the AWS KMS customer master key (CMK).</p>
+   * <p>The proposed ARN, key ID, or alias of the KMS customer master key (CMK).</p>
    */
   kmsKeyId?: string;
 
@@ -1343,19 +1348,19 @@ export namespace SecretsManagerSecretConfiguration {
 }
 
 /**
- * <p>The proposed access control configuration for an SQS queue. You can propose a
- *          configuration for a new SQS queue or an existing SQS queue that you own by specifying the
- *          SQS policy. If the configuration is for an existing SQS queue and you do not specify the
- *          SQS policy, the access preview uses the existing SQS policy for the queue. If the access
- *          preview is for a new resource and you do not specify the policy, the access preview assumes
- *          an SQS queue without a policy. To propose deletion of an existing SQS queue policy, you can
- *          specify an empty string for the SQS policy. For more information about SQS policy limits,
- *          see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-policies.html">Quotas related
+ * <p>The proposed access control configuration for an Amazon SQS queue. You can propose a
+ *          configuration for a new Amazon SQS queue or an existing Amazon SQS queue that you own by specifying
+ *          the Amazon SQS policy. If the configuration is for an existing Amazon SQS queue and you do not
+ *          specify the Amazon SQS policy, the access preview uses the existing Amazon SQS policy for the queue.
+ *          If the access preview is for a new resource and you do not specify the policy, the access
+ *          preview assumes an Amazon SQS queue without a policy. To propose deletion of an existing Amazon SQS
+ *          queue policy, you can specify an empty string for the Amazon SQS policy. For more information
+ *          about Amazon SQS policy limits, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-policies.html">Quotas related
  *             to policies</a>.</p>
  */
 export interface SqsQueueConfiguration {
   /**
-   * <p> The proposed resource policy for the SQS queue. </p>
+   * <p> The proposed resource policy for the Amazon SQS queue. </p>
    */
   queuePolicy?: string;
 }
@@ -1431,7 +1436,7 @@ export namespace Configuration {
   }
 
   /**
-   * <p>The access control configuration is for an SQS queue. </p>
+   * <p>The access control configuration is for an Amazon SQS queue. </p>
    */
   export interface SqsQueueMember {
     iamRole?: never;
@@ -1772,7 +1777,7 @@ export interface AnalyzedResource {
   status?: FindingStatus | string;
 
   /**
-   * <p>The AWS account ID that owns the resource.</p>
+   * <p>The Amazon Web Services account ID that owns the resource.</p>
    */
   resourceOwnerAccount: string | undefined;
 
@@ -1796,8 +1801,8 @@ export namespace AnalyzedResource {
  */
 export interface GetAnalyzedResourceResponse {
   /**
-   * <p>An <code>AnalyzedResource</code> object that contains information that Access Analyzer found
-   *          when it analyzed the resource.</p>
+   * <p>An <code>AnalyzedResource</code> object that contains information that IAM Access Analyzer
+   *          found when it analyzed the resource.</p>
    */
   resource?: AnalyzedResource;
 }
@@ -1842,7 +1847,8 @@ export namespace GetFindingRequest {
  */
 export interface FindingSourceDetail {
   /**
-   * <p>The ARN of the access point that generated the finding.</p>
+   * <p>The ARN of the access point that generated the finding. The ARN format depends on
+   *          whether the ARN represents an access point or a multi-region access point.</p>
    */
   accessPointArn?: string;
 }
@@ -1946,7 +1952,7 @@ export interface Finding {
   status: FindingStatus | string | undefined;
 
   /**
-   * <p>The AWS account ID that owns the resource.</p>
+   * <p>The Amazon Web Services account ID that owns the resource.</p>
    */
   resourceOwnerAccount: string | undefined;
 
@@ -2011,8 +2017,8 @@ export interface GetGeneratedPolicyRequest {
   /**
    * <p>The level of detail that you want to generate. You can specify whether to generate
    *          service-level policies. </p>
-   *          <p>Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have been
-   *          used recently to create this service-level template.</p>
+   *          <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have
+   *          been used recently to create this service-level template.</p>
    */
   includeServiceLevelTemplate?: boolean;
 }
@@ -2063,7 +2069,7 @@ export interface TrailProperties {
 
   /**
    * <p>Possible values are <code>true</code> or <code>false</code>. If set to
-   *          <code>true</code>, Access Analyzer retrieves CloudTrail data from all regions to analyze and
+   *          <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and
    *          generate a policy.</p>
    */
   allRegions?: boolean;
@@ -2089,13 +2095,13 @@ export interface CloudTrailProperties {
   trailProperties: TrailProperties[] | undefined;
 
   /**
-   * <p>The start of the time range for which Access Analyzer reviews your CloudTrail events. Events
+   * <p>The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events
    *          with a timestamp before this time are not considered to generate a policy.</p>
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The end of the time range for which Access Analyzer reviews your CloudTrail events. Events with
+   * <p>The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with
    *          a timestamp after this time are not considered to generate a policy. If this is not
    *          included in the request, the default value is the current time.</p>
    */
@@ -2116,9 +2122,9 @@ export namespace CloudTrailProperties {
  */
 export interface GeneratedPolicyProperties {
   /**
-   * <p>This value is set to <code>true</code> if the generated policy contains all possible actions for a
-   *          service that Access Analyzer identified from the CloudTrail trail that you specified, and
-   *          <code>false</code> otherwise.</p>
+   * <p>This value is set to <code>true</code> if the generated policy contains all possible
+   *          actions for a service that IAM Access Analyzer identified from the CloudTrail trail that you specified,
+   *          and <code>false</code> otherwise.</p>
    */
   isComplete?: boolean;
 
@@ -2235,7 +2241,7 @@ export interface JobDetails {
   completedOn?: Date;
 
   /**
-   * <p>Contains the details about the policy generation error.</p>
+   * <p>The job error for the policy generation request.</p>
    */
   jobError?: JobError;
 }
@@ -2327,7 +2333,8 @@ export interface AccessPreviewFinding {
   id: string | undefined;
 
   /**
-   * <p>The existing ID of the finding in Access Analyzer, provided only for existing findings.</p>
+   * <p>The existing ID of the finding in IAM Access Analyzer, provided only for existing
+   *          findings.</p>
    */
   existingFindingId?: string;
 
@@ -2376,7 +2383,7 @@ export interface AccessPreviewFinding {
 
   /**
    * <p>Provides context on how the access preview finding compares to existing access
-   *          identified in Access Analyzer.</p>
+   *          identified in IAM Access Analyzer.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2409,7 +2416,7 @@ export interface AccessPreviewFinding {
   status: FindingStatus | string | undefined;
 
   /**
-   * <p>The AWS account ID that owns the resource. For most AWS resources, the owning
+   * <p>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning
    *          account is the account in which the resource was created.</p>
    */
   resourceOwnerAccount: string | undefined;
@@ -2606,7 +2613,7 @@ export interface AnalyzedResourceSummary {
   resourceArn: string | undefined;
 
   /**
-   * <p>The AWS account ID that owns the resource.</p>
+   * <p>The Amazon Web Services account ID that owns the resource.</p>
    */
   resourceOwnerAccount: string | undefined;
 
@@ -2778,7 +2785,7 @@ export interface FindingSummary {
   status: FindingStatus | string | undefined;
 
   /**
-   * <p>The AWS account ID that owns the resource.</p>
+   * <p>The Amazon Web Services account ID that owns the resource.</p>
    */
   resourceOwnerAccount: string | undefined;
 
@@ -2975,7 +2982,7 @@ export interface Trail {
 
   /**
    * <p>Possible values are <code>true</code> or <code>false</code>. If set to
-   *          <code>true</code>, Access Analyzer retrieves CloudTrail data from all regions to analyze and
+   *          <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and
    *          generate a policy.</p>
    */
   allRegions?: boolean;
@@ -3000,19 +3007,19 @@ export interface CloudTrailDetails {
   trails: Trail[] | undefined;
 
   /**
-   * <p>The ARN of the service role that Access Analyzer uses to access your CloudTrail trail and
+   * <p>The ARN of the service role that IAM Access Analyzer uses to access your CloudTrail trail and
    *          service last accessed information.</p>
    */
   accessRole: string | undefined;
 
   /**
-   * <p>The start of the time range for which Access Analyzer reviews your CloudTrail events. Events
+   * <p>The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events
    *          with a timestamp before this time are not considered to generate a policy.</p>
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The end of the time range for which Access Analyzer reviews your CloudTrail events. Events with
+   * <p>The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with
    *          a timestamp after this time are not considered to generate a policy. If this is not
    *          included in the request, the default value is the current time.</p>
    */
@@ -3067,7 +3074,7 @@ export interface StartPolicyGenerationRequest {
    *          request, if the original request completes successfully, the subsequent retries with the
    *          same client token return the result from the original successful request and they have no
    *          additional effect.</p>
-   *          <p>If you do not specify a client token, one is automatically generated by the AWS
+   *          <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services
    *          SDK.</p>
    */
   clientToken?: string;
@@ -3290,12 +3297,12 @@ export interface ValidatePolicyRequest {
   /**
    * <p>The type of policy to validate. Identity policies grant permissions to IAM principals.
    *          Identity policies include managed and inline policies for IAM roles, users, and groups.
-   *          They also include service-control policies (SCPs) that are attached to an AWS
+   *          They also include service-control policies (SCPs) that are attached to an Amazon Web Services
    *          organization, organizational unit (OU), or an account.</p>
-   *          <p>Resource policies grant permissions on AWS resources. Resource policies include trust
-   *          policies for IAM roles and bucket policies for S3 buckets. You can provide a generic input
-   *          such as identity policy or resource policy or a specific input such as managed policy or S3
-   *          bucket policy. </p>
+   *          <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust
+   *          policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic
+   *          input such as identity policy or resource policy or a specific input such as managed policy
+   *          or Amazon S3 bucket policy. </p>
    */
   policyType: PolicyType | string | undefined;
 }
@@ -3563,7 +3570,7 @@ export namespace ValidatePolicyFinding {
 
 export interface ValidatePolicyResponse {
   /**
-   * <p>The list of findings in a policy returned by Access Analyzer based on its suite of policy
+   * <p>The list of findings in a policy returned by IAM Access Analyzer based on its suite of policy
    *          checks.</p>
    */
   findings: ValidatePolicyFinding[] | undefined;

@@ -28,7 +28,7 @@ export interface AbortCriteria {
 
   /**
    * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
-   *         <p>AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
+   *         <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
    */
   thresholdPercentage: number | undefined;
 
@@ -652,8 +652,8 @@ export interface HttpAction {
   url: string | undefined;
 
   /**
-   * <p>The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL
-   *          must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses
+   * <p>The URL to which IoT sends a confirmation message. The value of the confirmation URL
+   *          must be a prefix of the endpoint URL. If you do not specify a confirmation URL IoT uses
    *          the endpoint URL as the confirmation URL. If you use substitution templates in the
    *          confirmationUrl, you must create and enable topic rule destinations that match each
    *          possible value of the substitution template before traffic is allowed to your endpoint
@@ -682,7 +682,7 @@ export namespace HttpAction {
 }
 
 /**
- * <p>Sends message data to an AWS IoT Analytics channel.</p>
+ * <p>Sends message data to an IoT Analytics channel.</p>
  */
 export interface IotAnalyticsAction {
   /**
@@ -702,7 +702,7 @@ export interface IotAnalyticsAction {
    *          <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates
    *          to an Array, each Array element is delivered as a separate message when passed by <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html">
    *                <code>BatchPutMessage</code>
-   *             </a> to the AWS IoT Analytics channel. The resulting array can't have more
+   *             </a> to the IoT Analytics channel. The resulting array can't have more
    *          than 100 messages.</p>
    */
   batchMode?: boolean;
@@ -724,11 +724,11 @@ export namespace IotAnalyticsAction {
 }
 
 /**
- * <p>Sends an input to an AWS IoT Events detector.</p>
+ * <p>Sends an input to an IoT Events detector.</p>
  */
 export interface IotEventsAction {
   /**
-   * <p>The name of the AWS IoT Events input.</p>
+   * <p>The name of the IoT Events input.</p>
    */
   inputName: string | undefined;
 
@@ -737,7 +737,7 @@ export interface IotEventsAction {
    *          <p>When <code>batchMode</code> is <code>true</code>, you can't specify a
    *         <code>messageId</code>--a new UUID value will be assigned.</p>
    *          <p>Assign a value to this property to ensure that only one input (message) with a given
-   *             <code>messageId</code> will be processed by an AWS IoT Events detector.</p>
+   *             <code>messageId</code> will be processed by an IoT Events detector.</p>
    */
   messageId?: string;
 
@@ -747,7 +747,7 @@ export interface IotEventsAction {
    *          <p>When <code>batchMode</code> is <code>true</code>, you can't specify a
    *             <code>messageId</code>. </p>
    *          <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates
-   *          to an Array, each Array element is treated as a separate message when it's sent to AWS IoT
+   *          to an Array, each Array element is treated as a separate message when it's sent to IoT
    *          Events by calling <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html">
    *                <code>BatchPutMessage</code>
    *             </a>.  The resulting array can't have more
@@ -756,7 +756,7 @@ export interface IotEventsAction {
   batchMode?: boolean;
 
   /**
-   * <p>The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT
+   * <p>The ARN of the role that grants IoT permission to send an input to an IoT
    *       Events detector. ("Action":"iotevents:BatchPutMessage").</p>
    */
   roleArn: string | undefined;
@@ -934,7 +934,7 @@ export interface PutAssetPropertyValueEntry {
   entryId?: string;
 
   /**
-   * <p>The ID of the AWS IoT SiteWise asset. You must specify either a <code>propertyAlias</code>
+   * <p>The ID of the IoT SiteWise asset. You must specify either a <code>propertyAlias</code>
    *       or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution
    *       templates.</p>
    */
@@ -974,7 +974,7 @@ export namespace PutAssetPropertyValueEntry {
 }
 
 /**
- * <p>Describes an action to send data from an MQTT message that triggered the rule to AWS IoT
+ * <p>Describes an action to send data from an MQTT message that triggered the rule to IoT
  *       SiteWise asset properties.</p>
  */
 export interface IotSiteWiseAction {
@@ -984,8 +984,7 @@ export interface IotSiteWiseAction {
   putAssetPropertyValueEntries: PutAssetPropertyValueEntry[] | undefined;
 
   /**
-   * <p>The ARN of the role that grants AWS IoT permission to send an asset property value to AWS
-   *       IoTSiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The trust
+   * <p>The ARN of the role that grants IoT permission to send an asset property value to IoT SiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The trust
    *       policy can restrict access to specific asset hierarchy paths.</p>
    */
   roleArn: string | undefined;
@@ -1474,17 +1473,17 @@ export interface Action {
   salesforce?: SalesforceAction;
 
   /**
-   * <p>Sends message data to an AWS IoT Analytics channel.</p>
+   * <p>Sends message data to an IoT Analytics channel.</p>
    */
   iotAnalytics?: IotAnalyticsAction;
 
   /**
-   * <p>Sends an input to an AWS IoT Events detector.</p>
+   * <p>Sends an input to an IoT Events detector.</p>
    */
   iotEvents?: IotEventsAction;
 
   /**
-   * <p>Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset
+   * <p>Sends data from the MQTT message that triggered the rule to IoT SiteWise asset
    *       properties.</p>
    */
   iotSiteWise?: IotSiteWiseAction;
@@ -2027,6 +2026,36 @@ export namespace AddThingToThingGroupResponse {
   });
 }
 
+export enum AggregationTypeName {
+  CARDINALITY = "Cardinality",
+  PERCENTILES = "Percentiles",
+  STATISTICS = "Statistics",
+}
+
+/**
+ * <p>The type of aggregation queries.</p>
+ */
+export interface AggregationType {
+  /**
+   * <p>The name of the aggregation type.</p>
+   */
+  name: AggregationTypeName | string | undefined;
+
+  /**
+   * <p>A list of the values of aggregation types.</p>
+   */
+  values?: string[];
+}
+
+export namespace AggregationType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AggregationType): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>A structure containing the alert target ARN and the role ARN.</p>
  */
@@ -2057,7 +2086,7 @@ export enum AlertTargetType {
 }
 
 /**
- * <p>Describes an AWS IoT policy.</p>
+ * <p>Describes an IoT policy.</p>
  */
 export interface Policy {
   /**
@@ -2117,7 +2146,7 @@ export interface AssociateTargetsWithJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
+   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
    *         <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
@@ -3073,7 +3102,7 @@ export interface AuthorizerDescription {
   lastModifiedDate?: Date;
 
   /**
-   * <p>Specifies whether AWS IoT validates the token signature in an authorization request.</p>
+   * <p>Specifies whether IoT validates the token signature in an authorization request.</p>
    */
   signingDisabled?: boolean;
 }
@@ -3711,7 +3740,7 @@ export interface CreateAuthorizerRequest {
   tags?: Tag[];
 
   /**
-   * <p>Specifies whether AWS IoT validates the token signature in an authorization request.</p>
+   * <p>Specifies whether IoT validates the token signature in an authorization request.</p>
    */
   signingDisabled?: boolean;
 }
@@ -3916,7 +3945,7 @@ export interface CreateCustomMetricRequest {
    *       metric must have a unique client request token. If you try to create a new custom metric that
    *       already exists with a different token,
    *       an exception
-   *       occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. </p>
+   *       occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request. </p>
    */
   clientRequestToken?: string;
 }
@@ -3983,7 +4012,8 @@ export interface CreateDimensionRequest {
   tags?: Tag[];
 
   /**
-   * <p>Each dimension must have a unique client request token. If you try to create a new dimension with the same token as a dimension that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.</p>
+   * <p>Each dimension must have a unique client request token. If you try to create a new dimension with the same token as a dimension that already exists, an exception occurs.
+   *       If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request.</p>
    */
   clientRequestToken?: string;
 }
@@ -4060,14 +4090,14 @@ export interface CreateDomainConfigurationRequest {
   domainName?: string;
 
   /**
-   * <p>The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN.
-   *       This value is not required for AWS-managed domains.</p>
+   * <p>The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN.
+   *       This value is not required for Amazon Web Services-managed domains.</p>
    */
   serverCertificateArns?: string[];
 
   /**
    * <p>The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority.
-   *          This value is not required for AWS-managed domains.</p>
+   *          This value is not required for Amazon Web Services-managed domains.</p>
    */
   validationCertificateArn?: string;
 
@@ -4079,7 +4109,7 @@ export interface CreateDomainConfigurationRequest {
   /**
    * <p>The type of service delivered by the endpoint.</p>
    *          <note>
-   *             <p>AWS IoT Core currently supports only the <code>DATA</code> service type.</p>
+   *             <p>Amazon Web Services IoT Core currently supports only the <code>DATA</code> service type.</p>
    *          </note>
    */
   serviceType?: ServiceType | string;
@@ -4165,7 +4195,7 @@ export interface CreateDynamicThingGroupRequest {
   /**
    * <p>The dynamic thing group index name.</p>
    * 		       <note>
-   * 			         <p>Currently one index is supported: "AWS_Things".</p>
+   * 			         <p>Currently one index is supported: <code>AWS_Things</code>.</p>
    * 		       </note>
    */
   indexName?: string;
@@ -4262,6 +4292,158 @@ export namespace InvalidQueryException {
   });
 }
 
+export enum FleetMetricUnit {
+  Bits = "Bits",
+  BitsSecond = "Bits/Second",
+  Bytes = "Bytes",
+  BytesSecond = "Bytes/Second",
+  Count = "Count",
+  CountSecond = "Count/Second",
+  Gigabits = "Gigabits",
+  GigabitsSecond = "Gigabits/Second",
+  Gigabytes = "Gigabytes",
+  GigabytesSecond = "Gigabytes/Second",
+  Kilobits = "Kilobits",
+  KilobitsSecond = "Kilobits/Second",
+  Kilobytes = "Kilobytes",
+  KilobytesSecond = "Kilobytes/Second",
+  Megabits = "Megabits",
+  MegabitsSecond = "Megabits/Second",
+  Megabytes = "Megabytes",
+  MegabytesSecond = "Megabytes/Second",
+  Microseconds = "Microseconds",
+  Milliseconds = "Milliseconds",
+  None = "None",
+  Percent = "Percent",
+  Seconds = "Seconds",
+  Terabits = "Terabits",
+  TerabitsSecond = "Terabits/Second",
+  Terabytes = "Terabytes",
+  TerabytesSecond = "Terabytes/Second",
+}
+
+export interface CreateFleetMetricRequest {
+  /**
+   * <p>The name of the fleet metric to create.</p>
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>The search query string.</p>
+   */
+  queryString: string | undefined;
+
+  /**
+   * <p>The type of the aggregation query.</p>
+   */
+  aggregationType: AggregationType | undefined;
+
+  /**
+   * <p>The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60.</p>
+   */
+  period: number | undefined;
+
+  /**
+   * <p>The field to aggregate.</p>
+   */
+  aggregationField: string | undefined;
+
+  /**
+   * <p>The fleet metric description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The query version.</p>
+   */
+  queryVersion?: string;
+
+  /**
+   * <p>The name of the index to search.</p>
+   */
+  indexName?: string;
+
+  /**
+   * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
+   *       supported by <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>. Default to null.</p>
+   */
+  unit?: FleetMetricUnit | string;
+
+  /**
+   * <p>Metadata, which can be used to manage the fleet metric.</p>
+   */
+  tags?: Tag[];
+}
+
+export namespace CreateFleetMetricRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFleetMetricRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFleetMetricResponse {
+  /**
+   * <p>The name of the fleet metric to create.</p>
+   */
+  metricName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the new fleet metric.</p>
+   */
+  metricArn?: string;
+}
+
+export namespace CreateFleetMetricResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFleetMetricResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The index is not ready.</p>
+ */
+export interface IndexNotReadyException extends __SmithyException, $MetadataBearer {
+  name: "IndexNotReadyException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace IndexNotReadyException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IndexNotReadyException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The aggregation is invalid.</p>
+ */
+export interface InvalidAggregationException extends __SmithyException, $MetadataBearer {
+  name: "InvalidAggregationException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidAggregationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidAggregationException): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Allows you to define a criteria to initiate the increase in rate of rollout for a job.</p>
  */
@@ -4298,7 +4480,7 @@ export interface ExponentialRolloutRate {
 
   /**
    * <p>The exponential factor to increase the rate of rollout for a job.</p>
-   *         <p>AWS IoT supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+   *         <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
    */
   incrementFactor: number | undefined;
 
@@ -4402,7 +4584,7 @@ export namespace TimeoutConfig {
 
 export interface CreateJobRequest {
   /**
-   * <p>A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric
+   * <p>A job identifier which must be unique for your Amazon Web Services account. We recommend using a UUID. Alpha-numeric
    *             characters, "-" and "_" are valid for use here.</p>
    */
   jobId: string | undefined;
@@ -4473,7 +4655,7 @@ export interface CreateJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
+   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
    *         <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
@@ -4639,6 +4821,7 @@ export namespace CreateJobTemplateResponse {
 
 /**
  * <p>The input for the CreateKeysAndCertificate operation.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateKeysAndCertificateRequest</a> action.</p>
  */
 export interface CreateKeysAndCertificateRequest {
   /**
@@ -4691,8 +4874,8 @@ export interface CreateKeysAndCertificateResponse {
   certificateArn?: string;
 
   /**
-   * <p>The ID of the certificate. AWS IoT issues a default subject name for the certificate
-   *          (for example, AWS IoT Certificate).</p>
+   * <p>The ID of the certificate. IoT issues a default subject name for the certificate
+   *          (for example, IoT Certificate).</p>
    */
   certificateId?: string;
 
@@ -4726,7 +4909,7 @@ export enum LogLevel {
 }
 
 /**
- * <p>Parameters used when defining a mitigation action that enable AWS IoT logging.</p>
+ * <p>Parameters used when defining a mitigation action that enable Amazon Web Services IoT Core logging.</p>
  */
 export interface EnableIoTLoggingParams {
   /**
@@ -4862,7 +5045,7 @@ export interface MitigationActionParams {
   replaceDefaultPolicyVersionParams?: ReplaceDefaultPolicyVersionParams;
 
   /**
-   * <p>Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.</p>
+   * <p>Parameters to define a mitigation action that enables Amazon Web Services IoT Core logging at a specified level of detail.</p>
    */
   enableIoTLoggingParams?: EnableIoTLoggingParams;
 
@@ -4960,7 +5143,7 @@ export interface AwsJobAbortCriteria {
 
   /**
    * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
-   *          <p>AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
+   *          <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
    */
   thresholdPercentage: number | undefined;
 
@@ -5044,7 +5227,7 @@ export interface AwsJobExponentialRolloutRate {
 
   /**
    * <p>The criteria to initiate the increase in rate of rollout for a job.</p>
-   *         <p>AWS IoT supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+   *         <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
    */
   rateIncreaseCriteria: AwsJobRateIncreaseCriteria | undefined;
 }
@@ -5313,7 +5496,7 @@ export namespace StartSigningJobParameter {
  */
 export interface CodeSigning {
   /**
-   * <p>The ID of the AWSSignerJob which was created to sign the file.</p>
+   * <p>The ID of the <code>AWSSignerJob</code> which was created to sign the file.</p>
    */
   awsSignerJobId?: string;
 
@@ -5524,7 +5707,7 @@ export interface CreateOTAUpdateRequest {
   files: OTAUpdateFile[] | undefined;
 
   /**
-   * <p>The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code Signing resources
+   * <p>The IAM role that grants Amazon Web Services IoT Core access to the Amazon S3, IoT jobs and Amazon Web Services Code Signing resources
    *             to create an OTA update job.</p>
    */
   roleArn: string | undefined;
@@ -5563,7 +5746,7 @@ export interface CreateOTAUpdateResponse {
   otaUpdateId?: string;
 
   /**
-   * <p>The AWS IoT job ID associated with the OTA update.</p>
+   * <p>The IoT job ID associated with the OTA update.</p>
    */
   awsIotJobId?: string;
 
@@ -5573,7 +5756,7 @@ export interface CreateOTAUpdateResponse {
   otaUpdateArn?: string;
 
   /**
-   * <p>The AWS IoT job ARN associated with the OTA update.</p>
+   * <p>The IoT job ARN associated with the OTA update.</p>
    */
   awsIotJobArn?: string;
 
@@ -5999,7 +6182,7 @@ export interface CreateRoleAliasRequest {
   roleArn: string | undefined;
 
   /**
-   * <p>How long (in seconds) the credentials will be valid.</p>
+   * <p>How long (in seconds) the credentials will be valid. The default value is 3,600 seconds.</p>
    */
   credentialDurationSeconds?: number;
 
@@ -6514,8 +6697,8 @@ export namespace CreateThingTypeResponse {
  */
 export interface TopicRulePayload {
   /**
-   * <p>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html">AWS IoT SQL
-   *             Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>
+   * <p>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html">IoT SQL
+   *             Reference</a> in the <i>IoT Developer Guide</i>.</p>
    */
   sql: string | undefined;
 
@@ -6616,7 +6799,7 @@ export namespace SqlParseException {
  */
 export interface HttpUrlDestinationConfiguration {
   /**
-   * <p>The URL AWS IoT uses to confirm ownership of or access to the topic rule destination
+   * <p>The URL IoT uses to confirm ownership of or access to the topic rule destination
    *          URL.</p>
    */
   confirmationUrl: string | undefined;
@@ -7205,6 +7388,27 @@ export namespace DeleteDynamicThingGroupResponse {
   });
 }
 
+export interface DeleteFleetMetricRequest {
+  /**
+   * <p>The name of the fleet metric to delete.</p>
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>The expected version of the fleet metric to delete.</p>
+   */
+  expectedVersion?: number;
+}
+
+export namespace DeleteFleetMetricRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFleetMetricRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteJobRequest {
   /**
    * <p>The ID of the job to be deleted.</p>
@@ -7229,7 +7433,7 @@ export interface DeleteJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
+   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
    *         <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
@@ -7283,7 +7487,7 @@ export interface DeleteJobExecutionRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
+   *         <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
    *         <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
@@ -7360,7 +7564,7 @@ export interface DeleteOTAUpdateRequest {
   deleteStream?: boolean;
 
   /**
-   * <p>When true, deletes the AWS job created by the OTAUpdate process even if it is "IN_PROGRESS". Otherwise, if the
+   * <p>When true, deletes the IoT job created by the OTAUpdate process even if it is "IN_PROGRESS". Otherwise, if the
    *             job is not in a terminal state ("COMPLETED" or "CANCELED") an exception will occur. The default is false.</p>
    */
   forceDeleteAWSJob?: boolean;
@@ -7616,142 +7820,6 @@ export namespace DeleteStreamRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteStreamRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteStreamResponse {}
-
-export namespace DeleteStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DeleteThing operation.</p>
- */
-export interface DeleteThingRequest {
-  /**
-   * <p>The name of the thing to delete.</p>
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>The expected version of the thing record in the registry. If the version of the
-   * 			record in the registry does not match the expected version specified in the request, the
-   * 				<code>DeleteThing</code> request is rejected with a
-   * 				<code>VersionConflictException</code>.</p>
-   */
-  expectedVersion?: number;
-}
-
-export namespace DeleteThingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThingRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output of the DeleteThing operation.</p>
- */
-export interface DeleteThingResponse {}
-
-export namespace DeleteThingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThingResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteThingGroupRequest {
-  /**
-   * <p>The name of the thing group to delete.</p>
-   */
-  thingGroupName: string | undefined;
-
-  /**
-   * <p>The expected version of the thing group to delete.</p>
-   */
-  expectedVersion?: number;
-}
-
-export namespace DeleteThingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteThingGroupResponse {}
-
-export namespace DeleteThingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DeleteThingType operation.</p>
- */
-export interface DeleteThingTypeRequest {
-  /**
-   * <p>The name of the thing type.</p>
-   */
-  thingTypeName: string | undefined;
-}
-
-export namespace DeleteThingTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThingTypeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output for the DeleteThingType operation.</p>
- */
-export interface DeleteThingTypeResponse {}
-
-export namespace DeleteThingTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThingTypeResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DeleteTopicRule operation.</p>
- */
-export interface DeleteTopicRuleRequest {
-  /**
-   * <p>The name of the rule.</p>
-   */
-  ruleName: string | undefined;
-}
-
-export namespace DeleteTopicRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTopicRuleRequest): any => ({
     ...obj,
   });
 }

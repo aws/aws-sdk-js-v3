@@ -21,7 +21,7 @@ export interface DescribeConfigRulesCommandInput extends DescribeConfigRulesRequ
 export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns details about your AWS Config rules.</p>
+ * <p>Returns details about your Config rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

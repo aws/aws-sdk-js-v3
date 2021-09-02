@@ -21,7 +21,7 @@ export interface ListStoredQueriesCommandInput extends ListStoredQueriesRequest 
 export interface ListStoredQueriesCommandOutput extends ListStoredQueriesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the stored queries for a single AWS account and a single AWS Region. The default is 100. </p>
+ * <p>Lists the stored queries for a single Amazon Web Services account and a single Amazon Web Services Region. The default is 100. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

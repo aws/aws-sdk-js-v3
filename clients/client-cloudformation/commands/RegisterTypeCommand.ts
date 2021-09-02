@@ -19,7 +19,7 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
 
 /**
  * <p>Registers an extension with the CloudFormation service. Registering an
- *          extension makes it available for use in CloudFormation templates in your account, and includes:</p>
+ *          extension makes it available for use in CloudFormation templates in your Amazon Web Services account, and includes:</p>
  *          <ul>
  *             <li>
  *                <p>Validating the extension schema</p>

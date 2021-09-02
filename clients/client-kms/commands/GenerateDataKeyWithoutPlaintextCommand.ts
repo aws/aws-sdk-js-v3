@@ -24,7 +24,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
 
 /**
  * <p>Generates a unique symmetric data key. This operation returns a data key that is encrypted
- *       under a customer master key (CMK) that you specify. To request an asymmetric data key pair,
+ *       under a KMS key that you specify. To request an asymmetric data key pair,
  *       use the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operations.</p>
  *          <p>
  *             <code>GenerateDataKeyWithoutPlaintext</code> is identical to the <a>GenerateDataKey</a> operation except that returns only the encrypted copy of the
@@ -40,12 +40,12 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *       plaintext data key.</p>
  *          <p>
  *             <code>GenerateDataKeyWithoutPlaintext</code> returns a unique data key for each request.
- *       The bytes in the keys are not related to the caller or CMK that is used to encrypt the private
+ *       The bytes in the keys are not related to the caller or KMS key that is used to encrypt the private
  *       key.</p>
  *
- *          <p>To generate a data key, you must specify the symmetric customer master key (CMK) that is
- *       used to encrypt the data key. You cannot use an asymmetric CMK to generate a data key. To get
- *       the type of your CMK, use the <a>DescribeKey</a> operation.</p>
+ *          <p>To generate a data key, you must specify the symmetric KMS key that is
+ *       used to encrypt the data key. You cannot use an asymmetric KMS key to generate a data key. To get
+ *       the type of your KMS key, use the <a>DescribeKey</a> operation.</p>
  *
  *          <p>If the operation succeeds, you will find the encrypted copy of the data key in the
  *         <code>CiphertextBlob</code> field.</p>
@@ -54,11 +54,11 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
  *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
- *       <i>AWS Key Management Service Developer Guide</i>.</p>
- *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *       <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>The KMS key that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation with a CMK in a different AWS account, specify
+ *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
  *
  *          <p>

@@ -23,10 +23,12 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates the status of the specified certificate. This operation is
  *          idempotent.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificate</a> action.</p>
+ *
  *          <p>Certificates must be in the ACTIVE state to authenticate devices that use
- *          a certificate to connect to AWS IoT.</p>
+ *          a certificate to connect to IoT.</p>
  *          <p>Within a few minutes of updating a certificate from the ACTIVE state to any other
- *          state, AWS IoT disconnects all devices that used that certificate to connect. Devices cannot
+ *          state, IoT disconnects all devices that used that certificate to connect. Devices cannot
  *          use a certificate that is not in the ACTIVE state to reconnect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -21,7 +21,9 @@ export interface CreateDimensionCommandInput extends CreateDimensionRequest {}
 export interface CreateDimensionCommandOutput extends CreateDimensionResponse, __MetadataBearer {}
 
 /**
- * <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for AWS IoT Device Defender. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+ * <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender.
+ *       For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDimension</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

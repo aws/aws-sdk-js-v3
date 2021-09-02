@@ -23,8 +23,8 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
 /**
  * <p>Returns the description of a specific Amazon EFS file system if either the file system
  *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
- *       returns descriptions of all file systems owned by the caller's AWS account in the AWS
- *       Region of the endpoint that you're calling.</p>
+ *       returns descriptions of all file systems owned by the caller's Amazon Web Services account in the
+ *       Amazon Web Services Region of the endpoint that you're calling.</p>
  *
  *          <p>When retrieving all file system descriptions, you can optionally specify the
  *         <code>MaxItems</code> parameter to limit the number of descriptions in a response.

@@ -21,8 +21,8 @@ export interface PutStoredQueryCommandInput extends PutStoredQueryRequest {}
 export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Saves a new query or updates an existing saved query. The <code>QueryName</code> must be unique for a single AWS account and a single AWS Region.
- * 			You can create upto 300 queries in a single AWS account and a single AWS Region.</p>
+ * <p>Saves a new query or updates an existing saved query. The <code>QueryName</code> must be unique for a single Amazon Web Services account and a single Amazon Web Services Region.
+ * 			You can create upto 300 queries in a single Amazon Web Services account and a single Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

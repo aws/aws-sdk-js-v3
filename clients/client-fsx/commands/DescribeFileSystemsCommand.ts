@@ -23,8 +23,8 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
 /**
  * <p>Returns the description of specific Amazon FSx file systems, if a
  *                 <code>FileSystemIds</code> value is provided for that file system. Otherwise, it
- *             returns descriptions of all file systems owned by your AWS account in the AWS Region of
- *             the endpoint that you're calling.</p>
+ *             returns descriptions of all file systems owned by your Amazon Web Services account in
+ *             the Amazon Web Services Region of the endpoint that you're calling.</p>
  *
  *         <p>When retrieving all file system descriptions, you can optionally specify the
  *                 <code>MaxResults</code> parameter to limit the number of descriptions in a response.

@@ -51,6 +51,7 @@ import {
   DescribeDeliveryStreamOutput,
   Deserializer,
   DestinationDescription,
+  DynamicPartitioningConfiguration,
   ElasticsearchBufferingHints,
   ElasticsearchDestinationConfiguration,
   ElasticsearchDestinationDescription,
@@ -100,6 +101,7 @@ import {
   RedshiftRetryOptions,
   ResourceInUseException,
   ResourceNotFoundException,
+  RetryOptions,
   S3DestinationConfiguration,
   S3DestinationDescription,
   S3DestinationUpdate,
@@ -1453,6 +1455,17 @@ const serializeAws_json1_1Deserializer = (input: Deserializer, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1DynamicPartitioningConfiguration = (
+  input: DynamicPartitioningConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.RetryOptions !== undefined &&
+      input.RetryOptions !== null && { RetryOptions: serializeAws_json1_1RetryOptions(input.RetryOptions, context) }),
+  };
+};
+
 const serializeAws_json1_1ElasticsearchBufferingHints = (
   input: ElasticsearchBufferingHints,
   context: __SerdeContext
@@ -1583,6 +1596,13 @@ const serializeAws_json1_1ExtendedS3DestinationConfiguration = (
           context
         ),
       }),
+    ...(input.DynamicPartitioningConfiguration !== undefined &&
+      input.DynamicPartitioningConfiguration !== null && {
+        DynamicPartitioningConfiguration: serializeAws_json1_1DynamicPartitioningConfiguration(
+          input.DynamicPartitioningConfiguration,
+          context
+        ),
+      }),
     ...(input.EncryptionConfiguration !== undefined &&
       input.EncryptionConfiguration !== null && {
         EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
@@ -1623,6 +1643,13 @@ const serializeAws_json1_1ExtendedS3DestinationUpdate = (
       input.DataFormatConversionConfiguration !== null && {
         DataFormatConversionConfiguration: serializeAws_json1_1DataFormatConversionConfiguration(
           input.DataFormatConversionConfiguration,
+          context
+        ),
+      }),
+    ...(input.DynamicPartitioningConfiguration !== undefined &&
+      input.DynamicPartitioningConfiguration !== null && {
+        DynamicPartitioningConfiguration: serializeAws_json1_1DynamicPartitioningConfiguration(
+          input.DynamicPartitioningConfiguration,
           context
         ),
       }),
@@ -2103,6 +2130,13 @@ const serializeAws_json1_1RedshiftDestinationUpdate = (
 };
 
 const serializeAws_json1_1RedshiftRetryOptions = (input: RedshiftRetryOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.DurationInSeconds !== undefined &&
+      input.DurationInSeconds !== null && { DurationInSeconds: input.DurationInSeconds }),
+  };
+};
+
+const serializeAws_json1_1RetryOptions = (input: RetryOptions, context: __SerdeContext): any => {
   return {
     ...(input.DurationInSeconds !== undefined &&
       input.DurationInSeconds !== null && { DurationInSeconds: input.DurationInSeconds }),
@@ -2631,6 +2665,19 @@ const deserializeAws_json1_1DestinationDescriptionList = (
     });
 };
 
+const deserializeAws_json1_1DynamicPartitioningConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DynamicPartitioningConfiguration => {
+  return {
+    Enabled: __expectBoolean(output.Enabled),
+    RetryOptions:
+      output.RetryOptions !== undefined && output.RetryOptions !== null
+        ? deserializeAws_json1_1RetryOptions(output.RetryOptions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ElasticsearchBufferingHints = (
   output: any,
   context: __SerdeContext
@@ -2720,6 +2767,10 @@ const deserializeAws_json1_1ExtendedS3DestinationDescription = (
     DataFormatConversionConfiguration:
       output.DataFormatConversionConfiguration !== undefined && output.DataFormatConversionConfiguration !== null
         ? deserializeAws_json1_1DataFormatConversionConfiguration(output.DataFormatConversionConfiguration, context)
+        : undefined,
+    DynamicPartitioningConfiguration:
+      output.DynamicPartitioningConfiguration !== undefined && output.DynamicPartitioningConfiguration !== null
+        ? deserializeAws_json1_1DynamicPartitioningConfiguration(output.DynamicPartitioningConfiguration, context)
         : undefined,
     EncryptionConfiguration:
       output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
@@ -3180,6 +3231,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1RetryOptions = (output: any, context: __SerdeContext): RetryOptions => {
+  return {
+    DurationInSeconds: __expectInt32(output.DurationInSeconds),
   } as any;
 };
 

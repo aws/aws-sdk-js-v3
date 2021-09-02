@@ -24,6 +24,7 @@ export interface StartAuditMitigationActionsTaskCommandOutput
 
 /**
  * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartAuditMitigationActionsTask</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

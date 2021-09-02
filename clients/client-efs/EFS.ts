@@ -127,7 +127,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <fullname>Amazon Elastic File System</fullname>
  *          <p>Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use
- *       with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic,
+ *       with Amazon EC2 instances in the Amazon Web Services Cloud. With Amazon EFS, storage capacity is elastic,
  *       growing and shrinking automatically as you add and remove files, so your applications have the
  *       storage they need, when they need it. For more information, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">Amazon Elastic File System API Reference</a> and the <a href="https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html">Amazon Elastic File System User Guide</a>.</p>
  */
@@ -175,7 +175,7 @@ export class EFS extends EFSClient {
    * <p>Creates a new, empty file system. The operation requires a creation token in the
    *       request that Amazon EFS uses to ensure idempotent creation (calling the operation with same
    *       creation token has no effect). If a file system does not currently exist that is owned by the
-   *       caller's AWS account with the specified creation token, this operation does the
+   *       caller's Amazon Web Services account with the specified creation token, this operation does the
    *       following:</p>
    *          <ul>
    *             <li>
@@ -656,8 +656,8 @@ export class EFS extends EFSClient {
    *          </note>
    *          <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
    *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
-   *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag Restrictions</a> in the
-   *         <i>AWS Billing and Cost Management User Guide</i>.</p>
+   *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag restrictions</a> in the
+   *         <i>Billing and Cost Management User Guide</i>.</p>
    *
    *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
    *       action.</p>
@@ -720,6 +720,10 @@ export class EFS extends EFSClient {
     }
   }
 
+  /**
+   * <p>Returns the account preferences settings for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.
+   *       For more information, see <a href="efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon EFS resource IDs</a>.</p>
+   */
   public describeAccountPreferences(
     args: DescribeAccountPreferencesCommandInput,
     options?: __HttpHandlerOptions
@@ -817,8 +821,8 @@ export class EFS extends EFSClient {
   /**
    * <p>Returns the description of a specific Amazon EFS file system if either the file system
    *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
-   *       returns descriptions of all file systems owned by the caller's AWS account in the AWS
-   *       Region of the endpoint that you're calling.</p>
+   *       returns descriptions of all file systems owned by the caller's Amazon Web Services account in the
+   *       Amazon Web Services Region of the endpoint that you're calling.</p>
    *
    *          <p>When retrieving all file system descriptions, you can optionally specify the
    *         <code>MaxItems</code> parameter to limit the number of descriptions in a response.
@@ -874,6 +878,7 @@ export class EFS extends EFSClient {
    *       to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system
    *       without a <code>LifecycleConfiguration</code> object, the call returns an empty array in the
    *       response.</p>
+   *          <p>When EFS Intelligent Tiering is enabled, <code>TransitionToPrimaryStorageClass</code> has a value of <code>AFTER_1_ACCESS</code>.</p>
    *          <p>This operation requires permissions for the
    *         <code>elasticfilesystem:DescribeLifecycleConfiguration</code> operation.</p>
    */
@@ -1115,6 +1120,12 @@ export class EFS extends EFSClient {
     }
   }
 
+  /**
+   * <p>Use this operation to set the account preference in the current Amazon Web Services Region to use either long 17 character (63 bit) or short 8 character (32 bit) IDs for
+   *       new EFS file systems and mount targets created. All existing resource IDs are not affected by any changes you make. You can set the ID preference during the
+   *       opt-in period as EFS transitions to long resource IDs. For more information,
+   *       see <a href="efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon EFS resource IDs</a>.</p>
+   */
   public putAccountPreferences(
     args: PutAccountPreferencesCommandInput,
     options?: __HttpHandlerOptions
@@ -1221,7 +1232,9 @@ export class EFS extends EFSClient {
    * <p>Enables lifecycle management by creating a new <code>LifecycleConfiguration</code>
    *       object. A <code>LifecycleConfiguration</code> object defines when files in an Amazon EFS file
    *       system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class.
-   *       A <code>LifecycleConfiguration</code> applies to all files in a file system.</p>
+   *       To enable EFS Intelligent Tiering, set the value of <code>TransitionToPrimaryStorageClass</code> to <code>AFTER_1_ACCESS</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS Lifecycle Management</a>.</p>
+   *          <p>A <code>LifecycleConfiguration</code> applies to all files in a file system.</p>
    *          <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to all files in the file system. If a
    *         <code>LifecycleConfiguration</code> object already exists for the specified file system, a
    *         <code>PutLifecycleConfiguration</code> call modifies the existing configuration. A
@@ -1245,7 +1258,7 @@ export class EFS extends EFSClient {
    *          <p>This operation requires permissions for the
    *         <code>elasticfilesystem:PutLifecycleConfiguration</code> operation.</p>
    *          <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you
-   *       need the same AWS Key Management Service (AWS KMS) permissions as when you created the encrypted
+   *       need the same Key Management Service permissions as when you created the encrypted
    *       file system. </p>
    */
   public putLifecycleConfiguration(

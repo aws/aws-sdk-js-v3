@@ -22,9 +22,9 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
 
 /**
  * <p>Generates a session URL and authorization code that you can use to embed the Amazon
- *             QuickSight console in your web server code. Use <code>GetSessionEmbedUrl</code> where
+ *             Amazon QuickSight console in your web server code. Use <code>GetSessionEmbedUrl</code> where
  *             you want to provide an authoring portal that allows users to create data sources,
- *             datasets, analyses, and dashboards. The users who access an embedded QuickSight console
+ *             datasets, analyses, and dashboards. The users who access an embedded Amazon QuickSight console
  *             need belong to the author or admin security cohort. If you want to restrict permissions
  *             to some of these features, add a custom permissions profile to the user with the
  *             <code>
@@ -37,7 +37,7 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  *         <ul>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users-get.html">Embedding the Amazon QuickSight Console Using GetSessionEmbedUrl</a>
+ *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedding Analytics</a>
  *                </p>
  *             </li>
  *             <li>

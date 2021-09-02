@@ -18,7 +18,7 @@ export interface CreateACLCommandInput extends CreateACLRequest {}
 export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Access Control List. For more information, see <a href="https://docs.aws.amazon.com/AmazonMemoryDB/latest/devguide/Clusters.ACLs.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
+ * <p>Creates an Access Control List. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

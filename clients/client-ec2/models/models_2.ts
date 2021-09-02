@@ -67,6 +67,22 @@ import {
   TransitGatewayRouteTable,
 } from "./models_1";
 
+export interface DeleteCarrierGatewayResult {
+  /**
+   * <p>Information about the carrier gateway.</p>
+   */
+  CarrierGateway?: CarrierGateway;
+}
+
+export namespace DeleteCarrierGatewayResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCarrierGatewayResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteClientVpnEndpointRequest {
   /**
    * <p>The ID of the Client VPN to be deleted.</p>
@@ -9507,24 +9523,6 @@ export namespace DescribeInstanceCreditSpecificationsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeInstanceCreditSpecificationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceEventNotificationAttributesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeInstanceEventNotificationAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceEventNotificationAttributesRequest): any => ({
     ...obj,
   });
 }

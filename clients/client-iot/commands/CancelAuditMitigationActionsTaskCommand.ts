@@ -26,6 +26,7 @@ export interface CancelAuditMitigationActionsTaskCommandOutput
  * <p>Cancels a mitigation action task that is in progress. If the task
  *       is not
  *       in progress, an InvalidRequestException occurs.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditMitigationActionsTask</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

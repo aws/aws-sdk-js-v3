@@ -24,15 +24,15 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * <p>Accepts a resource type and returns a list of resource
  * 			identifiers for the resources of that type. A resource identifier
  * 			includes the resource type, ID, and (if available) the custom
- * 			resource name. The results consist of resources that AWS Config has
- * 			discovered, including those that AWS Config is not currently
+ * 			resource name. The results consist of resources that Config has
+ * 			discovered, including those that Config is not currently
  * 			recording. You can narrow the results to include only resources that
  * 			have specific resource IDs or a resource name.</p>
  * 		       <note>
  * 			         <p>You can specify either resource IDs or a resource name, but
  * 				not both, in the same request.</p>
  * 		       </note>
- * 		       <p>The response is paginated. By default, AWS Config lists 100
+ * 		       <p>The response is paginated. By default, Config lists 100
  * 			resource identifiers on each page. You can customize this number
  * 			with the <code>limit</code> parameter. The response includes a
  * 				<code>nextToken</code> string. To get the next page of results,

@@ -1,7 +1,7 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>Represents a Service Catalog AppRegistry application that is the top-level node in a hierarchy of related
+ * <p>Represents a Amazon Web Services Service Catalog AppRegistry application that is the top-level node in a hierarchy of related
  *        cloud resource abstractions.</p>
  */
 export interface Application {
@@ -51,7 +51,7 @@ export namespace Application {
 }
 
 /**
- * <p>Summary of a Service Catalog AppRegistry application.</p>
+ * <p>Summary of a Amazon Web Services Service Catalog AppRegistry application.</p>
  */
 export interface ApplicationSummary {
   /**
@@ -279,7 +279,7 @@ export namespace ConflictException {
 }
 
 /**
- * <p>Represents a Service Catalog AppRegistry attribute group that is rich metadata which describes an application and its components.</p>
+ * <p>Represents a Amazon Web Services Service Catalog AppRegistry attribute group that is rich metadata which describes an application and its components.</p>
  */
 export interface AttributeGroup {
   /**
@@ -328,7 +328,7 @@ export namespace AttributeGroup {
 }
 
 /**
- * <p>Summary of a Service Catalog AppRegistry attribute group.</p>
+ * <p>Summary of a Amazon Web Services Service Catalog AppRegistry attribute group.</p>
  */
 export interface AttributeGroupSummary {
   /**
@@ -645,6 +645,75 @@ export namespace GetApplicationRequest {
   });
 }
 
+export enum ResourceGroupState {
+  CREATE_COMPLETE = "CREATE_COMPLETE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  UPDATE_COMPLETE = "UPDATE_COMPLETE",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>The information about the resource group integration.</p>
+ */
+export interface ResourceGroup {
+  /**
+   * <p>The state of the propagation process for the resource group. The states includes:</p>
+   *          <p>
+   *             <code>CREATING </code>if the resource group is in the process of being created.</p>
+   *          <p>
+   *             <code>CREATE_COMPLETE</code> if the resource group was created successfully.</p>
+   *          <p>
+   *             <code>CREATE_FAILED</code> if the resource group failed to be created.</p>
+   *          <p>
+   *             <code>UPDATING</code> if the resource group is in the process of being updated.</p>
+   *          <p>
+   *             <code>UPDATE_COMPLETE</code> if the resource group updated successfully.</p>
+   *          <p>
+   *             <code>UPDATE_FAILED</code> if the resource group could not update successfully.</p>
+   */
+  state?: ResourceGroupState | string;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the resource group.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The error message that generates when the propagation process for the resource group fails.</p>
+   */
+  errorMessage?: string;
+}
+
+export namespace ResourceGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p> The information about the service integration.</p>
+ */
+export interface Integrations {
+  /**
+   * <p> The information about the resource group integration.</p>
+   */
+  resourceGroup?: ResourceGroup;
+}
+
+export namespace Integrations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Integrations): any => ({
+    ...obj,
+  });
+}
+
 export interface GetApplicationResponse {
   /**
    * <p>The identifier of the application.</p>
@@ -685,6 +754,11 @@ export interface GetApplicationResponse {
    * <p>Key-value pairs associated with the application.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The information about the integration of the application with other services, such as Resource Groups.</p>
+   */
+  integrations?: Integrations;
 }
 
 export namespace GetApplicationResponse {
@@ -692,6 +766,102 @@ export namespace GetApplicationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetApplicationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAssociatedResourceRequest {
+  /**
+   * <p>The name or ID of the application.</p>
+   */
+  application: string | undefined;
+
+  /**
+   * <p>The type of resource associated with the application.</p>
+   */
+  resourceType: ResourceType | string | undefined;
+
+  /**
+   * <p>The name or ID of the resource associated with the application.</p>
+   */
+  resource: string | undefined;
+}
+
+export namespace GetAssociatedResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAssociatedResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The service integration information about the resource.</p>
+ */
+export interface ResourceIntegrations {
+  /**
+   * <p>The information about the integration of Resource Groups.</p>
+   */
+  resourceGroup?: ResourceGroup;
+}
+
+export namespace ResourceIntegrations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceIntegrations): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p> The information about the resource.</p>
+ */
+export interface Resource {
+  /**
+   * <p>The name of the resource.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The time the resource was associated with the application.</p>
+   */
+  associationTime?: Date;
+
+  /**
+   * <p>The service integration information about the resource.
+   *      </p>
+   */
+  integrations?: ResourceIntegrations;
+}
+
+export namespace Resource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Resource): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAssociatedResourceResponse {
+  /**
+   * <p>The resource associated with the application.</p>
+   */
+  resource?: Resource;
+}
+
+export namespace GetAssociatedResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAssociatedResourceResponse): any => ({
     ...obj,
   });
 }
@@ -879,7 +1049,7 @@ export namespace ListAssociatedResourcesRequest {
 }
 
 /**
- * <p>Information about the resource.</p>
+ * <p>The information about the resource.</p>
  */
 export interface ResourceInfo {
   /**
@@ -1004,7 +1174,7 @@ export interface SyncResourceRequest {
   resourceType: ResourceType | string | undefined;
 
   /**
-   * <p>An entity you can work with and specify with a name or ID. Examples include an Amazon EC2 instance, an AWS CloudFormation stack, or an Amazon S3 bucket.</p>
+   * <p>An entity you can work with and specify with a name or ID. Examples include an Amazon EC2 instance, an Amazon Web Services CloudFormation stack, or an Amazon S3 bucket.</p>
    */
   resource: string | undefined;
 }

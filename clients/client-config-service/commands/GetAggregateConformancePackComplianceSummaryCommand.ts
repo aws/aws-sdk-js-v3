@@ -27,7 +27,7 @@ export interface GetAggregateConformancePackComplianceSummaryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the count of compliant and noncompliant conformance packs across all AWS Accounts and AWS Regions in an aggregator. You can filter based on AWS Account ID or AWS Region.</p>
+ * <p>Returns the count of compliant and noncompliant conformance packs across all Amazon Web Services accounts and Amazon Web Services Regions in an aggregator. You can filter based on Amazon Web Services account ID or Amazon Web Services Region.</p>
  * 		       <note>
  *             <p>The results can return an empty result page, but if you have a nextToken, the results are displayed on the next page.</p>
  *          </note>

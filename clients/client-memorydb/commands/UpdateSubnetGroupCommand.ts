@@ -21,7 +21,7 @@ export interface UpdateSubnetGroupCommandInput extends UpdateSubnetGroupRequest 
 export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a subnet group. For more information, see <a href="https://docs.aws.amazon.com/AmazonMemoryDB/latest/devguide/SubnetGroups.Modifying.html">Updating a subnet group</a>
+ * <p>Updates a subnet group. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html">Updating a subnet group</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

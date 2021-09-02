@@ -25,6 +25,7 @@ export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer
  *          INACTIVE.</p>
  *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
  *          to enumerate your certificates.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AcceptCertificateTransfer</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

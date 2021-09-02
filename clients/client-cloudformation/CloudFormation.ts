@@ -233,6 +233,11 @@ import {
   RegisterTypeCommandOutput,
 } from "./commands/RegisterTypeCommand";
 import {
+  RollbackStackCommand,
+  RollbackStackCommandInput,
+  RollbackStackCommandOutput,
+} from "./commands/RollbackStackCommand";
+import {
   SetStackPolicyCommand,
   SetStackPolicyCommandInput,
   SetStackPolicyCommandOutput,
@@ -283,20 +288,20 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS CloudFormation</fullname>
- *          <p>CloudFormation allows you to create and manage Amazon Web Services
- *          infrastructure deployments predictably and repeatedly. You can use CloudFormation
- *          to leverage Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon
- *          Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto
- *          Scaling to build highly-reliable, highly scalable, cost-effective applications without
- *          creating or configuring the underlying Amazon Web Services infrastructure.</p>
+ *          <p>CloudFormation allows you to create and manage Amazon Web Services infrastructure deployments
+ *          predictably and repeatedly. You can use CloudFormation to leverage Amazon Web Services products, such
+ *          as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification
+ *          Service, Elastic Load Balancing, and Auto Scaling to build highly-reliable, highly
+ *          scalable, cost-effective applications without creating or configuring the underlying Amazon Web Services
+ *          infrastructure.</p>
  *          <p>With CloudFormation, you declare all of your resources and dependencies in a
  *          template file. The template defines a collection of resources as a single unit called a
- *          stack. CloudFormation creates and deletes all member resources of the stack
- *          together and manages all dependencies between the resources for you.</p>
+ *          stack. CloudFormation creates and deletes all member resources of the stack together
+ *          and manages all dependencies between the resources for you.</p>
  *          <p>For more information about CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">CloudFormation Product Page</a>.</p>
- *          <p>CloudFormation makes use of other Amazon Web Services products. If you need
- *          additional technical information about a specific Amazon Web Services product, you can find
- *          the product's technical documentation at <a href="https://docs.aws.amazon.com/">
+ *          <p>CloudFormation makes use of other Amazon Web Services products. If you need additional
+ *          technical information about a specific Amazon Web Services product, you can find the product's technical
+ *          documentation at <a href="https://docs.aws.amazon.com/">
  *                <code>docs.aws.amazon.com</code>
  *             </a>.</p>
  */
@@ -413,11 +418,12 @@ export class CloudFormation extends CloudFormationClient {
    *          the cause of the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed"> fix the error</a> and continue the rollback. By continuing the rollback, you can
    *          return your stack to a working state (the <code>UPDATE_ROLLBACK_COMPLETE</code> state), and
    *          then try to update the stack again.</p>
-   *          <p>A stack goes into the <code>UPDATE_ROLLBACK_FAILED</code> state when CloudFormation cannot roll back all changes after a failed stack update. For example,
-   *          you might have a stack that is rolling back to an old database instance that was deleted
-   *          outside of CloudFormation. Because CloudFormation doesn't know the database
-   *          was deleted, it assumes that the database instance still exists and attempts to roll back
-   *          to it, causing the update rollback to fail.</p>
+   *          <p>A stack goes into the <code>UPDATE_ROLLBACK_FAILED</code> state when
+   *          CloudFormation cannot roll back all changes after a failed stack update. For example, you
+   *          might have a stack that is rolling back to an old database instance that was deleted
+   *          outside of CloudFormation. Because CloudFormation doesn't know the database was
+   *          deleted, it assumes that the database instance still exists and attempts to roll back to
+   *          it, causing the update rollback to fail.</p>
    */
   public continueUpdateRollback(
     args: ContinueUpdateRollbackCommandInput,
@@ -452,12 +458,11 @@ export class CloudFormation extends CloudFormationClient {
    * <p>Creates a list of changes that will be applied to a stack so that you can review the
    *          changes before executing them. You can create a change set for a stack that doesn't exist
    *          or an existing stack. If you create a change set for a stack that doesn't exist, the change
-   *          set shows all of the resources that CloudFormation will create. If you create a
-   *          change set for an existing stack, CloudFormation compares the stack's information
-   *          with the information that you submit in the change set and lists the differences. Use
-   *          change sets to understand which resources CloudFormation will create or change, and
-   *          how it will change resources in an existing stack, before you create or update a
-   *          stack.</p>
+   *          set shows all of the resources that CloudFormation will create. If you create a change
+   *          set for an existing stack, CloudFormation compares the stack's information with the
+   *          information that you submit in the change set and lists the differences. Use change sets to
+   *          understand which resources CloudFormation will create or change, and how it will change
+   *          resources in an existing stack, before you create or update a stack.</p>
    *          <p>To create a change set for a stack that doesn't exist, for the
    *             <code>ChangeSetType</code> parameter, specify <code>CREATE</code>. To create a change
    *          set for an existing stack, specify <code>UPDATE</code> for the <code>ChangeSetType</code>
@@ -467,8 +472,8 @@ export class CloudFormation extends CloudFormationClient {
    *          status of the change set or to review it, use the <a>DescribeChangeSet</a>
    *          action.</p>
    *          <p>When you are satisfied with the changes the change set will make, execute the change
-   *          set by using the <a>ExecuteChangeSet</a> action. CloudFormation doesn't
-   *          make changes until you execute the change set.</p>
+   *          set by using the <a>ExecuteChangeSet</a> action. CloudFormation doesn't make
+   *          changes until you execute the change set.</p>
    *          <p>To create a change set for the entire stack hierachy, set
    *             <code>IncludeNestedStacks</code> to <code>True</code>.</p>
    */
@@ -530,9 +535,7 @@ export class CloudFormation extends CloudFormationClient {
 
   /**
    * <p>Creates stack instances for the specified accounts, within the specified Regions. A
-   *          stack instance refers to a stack in a specific account and Region. You must specify at
-   *          least one value for either <code>Accounts</code> or <code>DeploymentTargets</code>, and you
-   *          must specify at least one value for <code>Regions</code>.</p>
+   *          stack instance refers to a stack in a specific account and Region. You must specify at least one value for either <code>Accounts</code> or <code>DeploymentTargets</code>, and you must specify at least one value for <code>Regions</code>.</p>
    */
   public createStackInstances(
     args: CreateStackInstancesCommandInput,
@@ -700,7 +703,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
-   * <p>Deletes stack instances for the specified accounts, in the specified Regions. </p>
+   * <p>Deletes stack instances for the specified accounts, in the specified Regions.</p>
    */
   public deleteStackInstances(
     args: DeleteStackInstancesCommandInput,
@@ -733,7 +736,7 @@ export class CloudFormation extends CloudFormationClient {
 
   /**
    * <p>Deletes a stack set. Before you can delete a stack set, all of its member stack
-   *          instances must be deleted. For more information about how to do this, see <a>DeleteStackInstances</a>. </p>
+   *          instances must be deleted. For more information about how to do this, see <a>DeleteStackInstances</a>.</p>
    */
   public deleteStackSet(
     args: DeleteStackSetCommandInput,
@@ -808,8 +811,8 @@ export class CloudFormation extends CloudFormationClient {
   /**
    * <p>Retrieves your account's CloudFormation limits, such as the maximum number of
    *          stacks that you can create in your account. For more information about account limits, see
-   *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation Limits</a> in the <i>CloudFormation User
-   *          Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
+   *             Limits</a> in the <i>CloudFormation User Guide</i>.</p>
    */
   public describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
@@ -841,7 +844,8 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
-   * <p>Returns the inputs for the change set and a list of changes that CloudFormation will make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating Stacks Using Change Sets</a> in the CloudFormation User
+   * <p>Returns the inputs for the change set and a list of changes that CloudFormation
+   *          will make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating Stacks Using Change Sets</a> in the CloudFormation User
    *          Guide.</p>
    */
   public describeChangeSet(
@@ -1005,7 +1009,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
-   * <p>Returns the stack instance that's associated with the specified stack set, account, and Region.</p>
+   * <p>Returns the stack instance that's associated with the specified stack set, Amazon Web Services account, and Region.</p>
    *          <p>For a list of stack instances that are associated with a specific stack set, use
    *             <a>ListStackInstances</a>.</p>
    */
@@ -1511,8 +1515,9 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
-   * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple Monthly Calculator URL with a query string that describes the
-   *          resources required to run the template.</p>
+   * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple
+   *          Monthly Calculator URL with a query string that describes the resources required to run the
+   *          template.</p>
    */
   public estimateTemplateCost(
     args: EstimateTemplateCostCommandInput,
@@ -1545,9 +1550,9 @@ export class CloudFormation extends CloudFormationClient {
 
   /**
    * <p>Updates a stack using the input information that was provided when the specified
-   *          change set was created. After the call successfully completes, CloudFormation
-   *          starts updating the stack. Use the <a>DescribeStacks</a> action to view the
-   *          status of the update.</p>
+   *          change set was created. After the call successfully completes, CloudFormation starts
+   *          updating the stack. Use the <a>DescribeStacks</a> action to view the status of
+   *          the update.</p>
    *          <p>When you execute a change set, CloudFormation deletes all other change sets
    *          associated with the stack because they aren't valid for the updated stack.</p>
    *          <p>If a stack policy is associated with the stack, CloudFormation enforces the
@@ -1624,8 +1629,7 @@ export class CloudFormation extends CloudFormationClient {
    *          <p>For deleted stacks, GetTemplate returns the template for up to 90 days after the
    *          stack has been deleted.</p>
    *          <note>
-   *             <p> If the template does not exist, a <code>ValidationError</code> is returned.
-   *          </p>
+   *             <p>If the template does not exist, a <code>ValidationError</code> is returned.</p>
    *          </note>
    */
   public getTemplate(args: GetTemplateCommandInput, options?: __HttpHandlerOptions): Promise<GetTemplateCommandOutput>;
@@ -1731,7 +1735,8 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
-   * <p>Returns the ID and status of each active change set for a stack. For example, CloudFormation lists change sets that are in the <code>CREATE_IN_PROGRESS</code> or
+   * <p>Returns the ID and status of each active change set for a stack. For example,
+   *          CloudFormation lists change sets that are in the <code>CREATE_IN_PROGRESS</code> or
    *             <code>CREATE_PENDING</code> state.</p>
    */
   public listChangeSets(
@@ -1768,7 +1773,7 @@ export class CloudFormation extends CloudFormationClient {
    *          action. Use this action to see the exported output values that you can import into other
    *          stacks. To import values, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">
    *                <code>Fn::ImportValue</code>
-   *             </a> function. </p>
+   *             </a> function.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html">
    *             CloudFormation Export Stack Output Values</a>.</p>
    */
@@ -1798,10 +1803,10 @@ export class CloudFormation extends CloudFormationClient {
   /**
    * <p>Lists all stacks that are importing an exported output value. To modify or remove an
    *          exported output value, first use this action to see which stacks are using it. To see the
-   *          exported output values in your account, see <a>ListExports</a>. </p>
+   *          exported output values in your account, see <a>ListExports</a>.</p>
    *          <p>For more information about importing an exported output value, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">
    *                <code>Fn::ImportValue</code>
-   *             </a> function. </p>
+   *             </a> function.</p>
    */
   public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
   public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
@@ -1829,7 +1834,7 @@ export class CloudFormation extends CloudFormationClient {
   /**
    * <p>Returns summary information about stack instances that are associated with the
    *          specified stack set. You can filter for stack instances that are associated with a specific
-   *             account name or Region, or that have a specific status.</p>
+   *          Amazon Web Services account name or Region, or that have a specific status.</p>
    */
   public listStackInstances(
     args: ListStackInstancesCommandInput,
@@ -1994,8 +1999,8 @@ export class CloudFormation extends CloudFormationClient {
    *          <ul>
    *             <li>
    *                <p>[Self-managed permissions] If you set the <code>CallAs</code> parameter to
-   *                   <code>SELF</code> while signed in to your account,
-   *                   <code>ListStackSets</code> returns all self-managed stack sets in your account.</p>
+   *                   <code>SELF</code> while signed in to your Amazon Web Services account,
+   *                   <code>ListStackSets</code> returns all self-managed stack sets in your Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to
@@ -2197,7 +2202,7 @@ export class CloudFormation extends CloudFormationClient {
   /**
    * <p>Registers your account as a publisher of public extensions in the CloudFormation
    *          registry. Public extensions are available for use by all CloudFormation users. This
-   *          publisher ID applies to your account in all Regions.</p>
+   *          publisher ID applies to your account in all Amazon Web Services Regions.</p>
    *          <p>For information on requirements for registering as a public extension publisher, see
    *             <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Registering your account to publish CloudFormation
    *             extensions</a> in the <i>CloudFormation CLI User Guide</i>.</p>
@@ -2234,7 +2239,7 @@ export class CloudFormation extends CloudFormationClient {
 
   /**
    * <p>Registers an extension with the CloudFormation service. Registering an
-   *          extension makes it available for use in CloudFormation templates in your account, and includes:</p>
+   *          extension makes it available for use in CloudFormation templates in your Amazon Web Services account, and includes:</p>
    *          <ul>
    *             <li>
    *                <p>Validating the extension schema</p>
@@ -2278,6 +2283,67 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: RegisterTypeCommandOutput) => void
   ): Promise<RegisterTypeCommandOutput> | void {
     const command = new RegisterTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>When specifying <code>RollbackStack</code>, you preserve the state of previously provisioned resources when an operation fails. You can check the status of the stack through the <a>DescribeStacks</a> API.</p>
+   *          <p>Rolls back the specified stack to the last known stable state from <code>CREATE_FAILED</code> or <code>UPDATE_FAILED</code> stack statuses.</p>
+   *          <p>This operation will delete a stack if it doesn't contain a last known stable state. A last known stable state includes any status in a <code>*_COMPLETE</code>. This includes the following stack statuses.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_COMPLETE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_COMPLETE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_ROLLBACK_COMPLETE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IMPORT_COMPLETE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IMPORT_ROLLBACK_COMPLETE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public rollbackStack(
+    args: RollbackStackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RollbackStackCommandOutput>;
+  public rollbackStack(
+    args: RollbackStackCommandInput,
+    cb: (err: any, data?: RollbackStackCommandOutput) => void
+  ): void;
+  public rollbackStack(
+    args: RollbackStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RollbackStackCommandOutput) => void
+  ): void;
+  public rollbackStack(
+    args: RollbackStackCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RollbackStackCommandOutput) => void),
+    cb?: (err: any, data?: RollbackStackCommandOutput) => void
+  ): Promise<RollbackStackCommandOutput> | void {
+    const command = new RollbackStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2399,8 +2465,9 @@ export class CloudFormation extends CloudFormationClient {
 
   /**
    * <p>Sends a signal to the specified resource with a success or failure status. You can
-   *          use the SignalResource API in conjunction with a creation policy or update policy. CloudFormation doesn't proceed with a stack creation or update until resources receive
-   *          the required number of signals or the timeout period is exceeded. The SignalResource API is
+   *          use the SignalResource API in conjunction with a creation policy or update policy.
+   *          CloudFormation doesn't proceed with a stack creation or update until resources receive the
+   *          required number of signals or the timeout period is exceeded. The SignalResource API is
    *          useful in cases where you want to send signals from anywhere other than an Amazon EC2
    *          instance.</p>
    */
@@ -2631,7 +2698,7 @@ export class CloudFormation extends CloudFormationClient {
    *          a stack with termination protection enabled, the operation fails and the stack remains
    *          unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a
    *             Stack From Being Deleted</a> in the <i>CloudFormation User Guide</i>.</p>
-   *          <p> For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
+   *          <p>For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
    *             stacks</a>, termination protection is set on the root stack and cannot be changed
    *          directly on the nested stack.</p>
    */
@@ -2665,10 +2732,9 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
-   * <p>Validates a specified template. CloudFormation first checks if the template
-   *          is valid JSON. If it isn't, CloudFormation checks if the template is valid YAML. If
-   *          both these checks fail, CloudFormation returns a template validation
-   *          error.</p>
+   * <p>Validates a specified template. CloudFormation first checks if the template is
+   *          valid JSON. If it isn't, CloudFormation checks if the template is valid YAML. If both
+   *          these checks fail, CloudFormation returns a template validation error.</p>
    */
   public validateTemplate(
     args: ValidateTemplateCommandInput,

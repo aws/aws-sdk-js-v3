@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListViolationEventsRequest, ListViolationEventsResponse } from "../models/models_1";
+import { ListViolationEventsRequest, ListViolationEventsResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1ListViolationEventsCommand,
   serializeAws_restJson1ListViolationEventsCommand,
@@ -24,6 +24,7 @@ export interface ListViolationEventsCommandOutput extends ListViolationEventsRes
  * <p>Lists the Device Defender security profile violations discovered during the given time period.
  *       You can use filters to limit the results to those alerts issued for a particular security profile,
  *       behavior, or thing (device).</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListViolationEvents</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

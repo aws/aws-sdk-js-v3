@@ -649,7 +649,7 @@ export namespace ServiceUpdateNotFoundFault {
 /**
  * <p>A tag that can be added to an MemoryDB resource. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your MemoryDB resources.
  *          When you add or remove tags on clusters, those actions will be replicated to all nodes in the cluster. A tag with a null Value is permitted. For more information, see
- *          <a href="https://docs.aws.amazon.com/AmazonMemoryDB/latest/devguide/Tagging-Resources.html">Tagging your MemoryDB resources</a>
+ *          <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging-resources.html">Tagging your MemoryDB resources</a>
  *          </p>
  */
 export interface Tag {
@@ -689,7 +689,7 @@ export interface CopySnapshotRequest {
    *
    *        When using this parameter to export a snapshot, be sure MemoryDB has the needed permissions to this S3 bucket. For more information, see
    *
-   *        <a href="https://docs.aws.amazon.com/AmazonMemoryDB/latest/devguide/snapshots-exporting.html">Step 2: Grant MemoryDB Access to Your Amazon S3 Bucket</a>.
+   *        <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/snapshots-exporting.html">Step 2: Grant MemoryDB Access to Your Amazon S3 Bucket</a>.
    *
    *      </p>
    */
@@ -1197,15 +1197,12 @@ export interface CreateClusterRequest {
   Description?: string;
 
   /**
-   * <p>The number of shards the cluster will contain.</p>
-   *          <p>Clusters can have up to 500 shards, with your data partitioned across the shards. For example, you can choose to configure a 500 node cluster that ranges between
-   * 			83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase.
-   * 			Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. </p>
+   * <p>The number of shards the cluster will contain. The default value is 1. </p>
    */
   NumShards?: number;
 
   /**
-   * <p>The number of replicas to apply to each shard. The limit is 5.</p>
+   * <p>The number of replicas to apply to each shard. The default value is 1. The maximum is 5. </p>
    */
   NumReplicasPerShard?: number;
 
@@ -3157,6 +3154,9 @@ export namespace InvalidKMSKeyFault {
   });
 }
 
+/**
+ * <p></p>
+ */
 export interface ShardNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ShardNotFoundFault";
   $fault: "client";

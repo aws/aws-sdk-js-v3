@@ -24,6 +24,7 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  * <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance,
  *       and standard deviation for the specified aggregated field. If the aggregation field is of type
  *       <code>String</code>, only the count statistic is returned.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetStatistics</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

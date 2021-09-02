@@ -22,8 +22,6 @@ export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a user's Secure Shell (SSH) public key.</p>
- *
- *          <p>No response is returned from this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

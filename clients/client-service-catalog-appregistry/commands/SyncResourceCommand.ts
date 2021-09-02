@@ -25,7 +25,8 @@ export interface SyncResourceCommandInput extends SyncResourceRequest {}
 export interface SyncResourceCommandOutput extends SyncResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Syncs the resource with what is currently recorded in App registry. Specifically, the resource’s App registry system tags are synced with its associated application. The resource is removed if it is not associated with the application. The caller must have permissions to read and update the resource.</p>
+ * <p>Syncs the resource with current AppRegistry records.</p>
+ *          <p>Specifically, the resource’s AppRegistry system tags sync with its associated application. We remove the resource's AppRegistry system tags if it does not associate with the application. The caller must have permissions to read and update the resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

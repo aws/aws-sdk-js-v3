@@ -275,6 +275,7 @@ import {
   ColumnLevelPermissionRule,
   ColumnSchema,
   ColumnTag,
+  ColumnTagName,
   ConcurrentUpdatingException,
   ConflictException,
   CreateColumnsOperation,
@@ -295,6 +296,7 @@ import {
   DataSetReference,
   DataSetSchema,
   DataSetSummary,
+  DataSetUsageConfiguration,
   DataSource,
   DataSourceCredentials,
   DataSourceErrorInfo,
@@ -308,8 +310,6 @@ import {
   FilterOperation,
   Folder,
   FolderMember,
-  FolderSearchFilter,
-  FolderSummary,
   GeoSpatialColumnGroup,
   Group,
   GroupMember,
@@ -330,7 +330,6 @@ import {
   ManifestFileLocation,
   MarginStyle,
   MariaDbParameters,
-  MemberIdArnPair,
   MySqlParameters,
   NamespaceError,
   NamespaceInfoV2,
@@ -387,14 +386,18 @@ import {
   TwitterParameters,
   UIColorPalette,
   UnsupportedUserEditionException,
+  UntagColumnOperation,
   UploadSettings,
   User,
   VpcConnectionProperties,
   _Parameters,
 } from "../models/models_0";
 import {
+  FolderSearchFilter,
+  FolderSummary,
   IAMPolicyAssignmentSummary,
   IdentityTypeNotSupportedException,
+  MemberIdArnPair,
   QuickSightUserNotFoundException,
   RegisteredUserDashboardEmbeddingConfiguration,
   RegisteredUserEmbeddingExperienceConfiguration,
@@ -670,6 +673,13 @@ export const serializeAws_restJson1CreateDataSetCommand = async (
         ),
       }),
     ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
+    ...(input.DataSetUsageConfiguration !== undefined &&
+      input.DataSetUsageConfiguration !== null && {
+        DataSetUsageConfiguration: serializeAws_restJson1DataSetUsageConfiguration(
+          input.DataSetUsageConfiguration,
+          context
+        ),
+      }),
     ...(input.FieldFolders !== undefined &&
       input.FieldFolders !== null && {
         FieldFolders: serializeAws_restJson1FieldFolderMap(input.FieldFolders, context),
@@ -4844,6 +4854,13 @@ export const serializeAws_restJson1UpdateDataSetCommand = async (
       input.ColumnLevelPermissionRules !== null && {
         ColumnLevelPermissionRules: serializeAws_restJson1ColumnLevelPermissionRuleList(
           input.ColumnLevelPermissionRules,
+          context
+        ),
+      }),
+    ...(input.DataSetUsageConfiguration !== undefined &&
+      input.DataSetUsageConfiguration !== null && {
+        DataSetUsageConfiguration: serializeAws_restJson1DataSetUsageConfiguration(
+          input.DataSetUsageConfiguration,
           context
         ),
       }),
@@ -19011,6 +19028,17 @@ const serializeAws_restJson1ColumnTagList = (input: ColumnTag[], context: __Serd
     });
 };
 
+const serializeAws_restJson1ColumnTagNames = (input: (ColumnTagName | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1CreateColumnsOperation = (input: CreateColumnsOperation, context: __SerdeContext): any => {
   return {
     ...(input.Columns !== undefined &&
@@ -19136,6 +19164,20 @@ const serializeAws_restJson1DataSetReferenceList = (input: DataSetReference[], c
       }
       return serializeAws_restJson1DataSetReference(entry, context);
     });
+};
+
+const serializeAws_restJson1DataSetUsageConfiguration = (
+  input: DataSetUsageConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DisableUseAsDirectQuerySource !== undefined &&
+      input.DisableUseAsDirectQuerySource !== null && {
+        DisableUseAsDirectQuerySource: input.DisableUseAsDirectQuerySource,
+      }),
+    ...(input.DisableUseAsImportedSource !== undefined &&
+      input.DisableUseAsImportedSource !== null && { DisableUseAsImportedSource: input.DisableUseAsImportedSource }),
+  };
 };
 
 const serializeAws_restJson1DataSourceCredentials = (input: DataSourceCredentials, context: __SerdeContext): any => {
@@ -19448,6 +19490,7 @@ const serializeAws_restJson1LogicalTableMap = (
 
 const serializeAws_restJson1LogicalTableSource = (input: LogicalTableSource, context: __SerdeContext): any => {
   return {
+    ...(input.DataSetArn !== undefined && input.DataSetArn !== null && { DataSetArn: input.DataSetArn }),
     ...(input.JoinInstruction !== undefined &&
       input.JoinInstruction !== null && {
         JoinInstruction: serializeAws_restJson1JoinInstruction(input.JoinInstruction, context),
@@ -19985,6 +20028,9 @@ const serializeAws_restJson1TransformOperation = (input: TransformOperation, con
       RenameColumnOperation: serializeAws_restJson1RenameColumnOperation(value, context),
     }),
     TagColumnOperation: (value) => ({ TagColumnOperation: serializeAws_restJson1TagColumnOperation(value, context) }),
+    UntagColumnOperation: (value) => ({
+      UntagColumnOperation: serializeAws_restJson1UntagColumnOperation(value, context),
+    }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -20035,6 +20081,14 @@ const serializeAws_restJson1UIColorPalette = (input: UIColorPalette, context: __
     ...(input.Warning !== undefined && input.Warning !== null && { Warning: input.Warning }),
     ...(input.WarningForeground !== undefined &&
       input.WarningForeground !== null && { WarningForeground: input.WarningForeground }),
+  };
+};
+
+const serializeAws_restJson1UntagColumnOperation = (input: UntagColumnOperation, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnName !== undefined && input.ColumnName !== null && { ColumnName: input.ColumnName }),
+    ...(input.TagNames !== undefined &&
+      input.TagNames !== null && { TagNames: serializeAws_restJson1ColumnTagNames(input.TagNames, context) }),
   };
 };
 
@@ -20451,6 +20505,17 @@ const deserializeAws_restJson1ColumnTagList = (output: any, context: __SerdeCont
     });
 };
 
+const deserializeAws_restJson1ColumnTagNames = (output: any, context: __SerdeContext): (ColumnTagName | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restJson1CreateColumnsOperation = (
   output: any,
   context: __SerdeContext
@@ -20638,6 +20703,10 @@ const deserializeAws_restJson1DataSet = (output: any, context: __SerdeContext): 
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
     DataSetId: __expectString(output.DataSetId),
+    DataSetUsageConfiguration:
+      output.DataSetUsageConfiguration !== undefined && output.DataSetUsageConfiguration !== null
+        ? deserializeAws_restJson1DataSetUsageConfiguration(output.DataSetUsageConfiguration, context)
+        : undefined,
     FieldFolders:
       output.FieldFolders !== undefined && output.FieldFolders !== null
         ? deserializeAws_restJson1FieldFolderMap(output.FieldFolders, context)
@@ -20751,6 +20820,16 @@ const deserializeAws_restJson1DataSetSummaryList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1DataSetSummary(entry, context);
     });
+};
+
+const deserializeAws_restJson1DataSetUsageConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DataSetUsageConfiguration => {
+  return {
+    DisableUseAsDirectQuerySource: __expectBoolean(output.DisableUseAsDirectQuerySource),
+    DisableUseAsImportedSource: __expectBoolean(output.DisableUseAsImportedSource),
+  } as any;
 };
 
 const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext): DataSource => {
@@ -21285,6 +21364,7 @@ const deserializeAws_restJson1LogicalTableMap = (
 
 const deserializeAws_restJson1LogicalTableSource = (output: any, context: __SerdeContext): LogicalTableSource => {
   return {
+    DataSetArn: __expectString(output.DataSetArn),
     JoinInstruction:
       output.JoinInstruction !== undefined && output.JoinInstruction !== null
         ? deserializeAws_restJson1JoinInstruction(output.JoinInstruction, context)
@@ -22074,6 +22154,11 @@ const deserializeAws_restJson1TransformOperation = (output: any, context: __Serd
       TagColumnOperation: deserializeAws_restJson1TagColumnOperation(output.TagColumnOperation, context),
     };
   }
+  if (output.UntagColumnOperation !== undefined && output.UntagColumnOperation !== null) {
+    return {
+      UntagColumnOperation: deserializeAws_restJson1UntagColumnOperation(output.UntagColumnOperation, context),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -22113,6 +22198,16 @@ const deserializeAws_restJson1UIColorPalette = (output: any, context: __SerdeCon
     SuccessForeground: __expectString(output.SuccessForeground),
     Warning: __expectString(output.Warning),
     WarningForeground: __expectString(output.WarningForeground),
+  } as any;
+};
+
+const deserializeAws_restJson1UntagColumnOperation = (output: any, context: __SerdeContext): UntagColumnOperation => {
+  return {
+    ColumnName: __expectString(output.ColumnName),
+    TagNames:
+      output.TagNames !== undefined && output.TagNames !== null
+        ? deserializeAws_restJson1ColumnTagNames(output.TagNames, context)
+        : undefined,
   } as any;
 };
 

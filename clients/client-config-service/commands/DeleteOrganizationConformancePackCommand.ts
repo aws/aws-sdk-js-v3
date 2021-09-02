@@ -24,9 +24,9 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * <p>Deletes the specified organization conformance pack and all of the config rules and remediation actions from
  * 			all member accounts in that organization. </p>
  *          <p> Only a master account or a delegated administrator account can delete an organization conformance pack.
- * 	When calling this API with a delegated administrator, you must ensure AWS Organizations
+ * 	When calling this API with a delegated administrator, you must ensure Organizations
  * 		<code>ListDelegatedAdministrator</code> permissions are added.</p>
- * 			      <p>AWS Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
+ * 			      <p>Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
  * 				You cannot update a conformance pack while it is in this state. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

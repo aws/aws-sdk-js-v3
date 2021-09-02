@@ -21,7 +21,7 @@ export interface UpdateTrailCommandInput extends UpdateTrailRequest {}
 export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the settings that specify delivery of log files. Changes to a trail do not require
+ * <p>Updates trail settings that control what events you are logging, and how to handle log files. Changes to a trail do not require
  *          stopping the CloudTrail service. Use this action to designate an existing bucket for log
  *          delivery. If the existing bucket has previously been a target for CloudTrail log files,
  *          an IAM policy exists for the bucket. <code>UpdateTrail</code> must be called from the

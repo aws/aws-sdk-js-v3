@@ -22,23 +22,23 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
 
 /**
  * <p>Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is
- *       enabled for the specified customer master key (CMK).</p>
- *          <p>You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric CMKs</a>, CMKs with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or CMKs in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-replica-key">multi-Region keys</a>, set the property on the primary key. The key rotation status for these CMKs is always <code>false</code>.</p>
- *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *       enabled for the specified KMS key.</p>
+ *          <p>You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-replica-key">multi-Region keys</a>, set the property on the primary key. The key rotation status for these KMS keys is always <code>false</code>.</p>
+ *          <p>The KMS key that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <ul>
  *             <li>
- *                <p>Disabled: The key rotation status does not change when you disable a CMK. However,
- *           while the CMK is disabled, AWS KMS does not rotate the backing key.</p>
+ *                <p>Disabled: The key rotation status does not change when you disable a KMS key. However,
+ *           while the KMS key is disabled, KMS does not rotate the key material.</p>
  *             </li>
  *             <li>
- *                <p>Pending deletion: While a CMK is pending deletion, its key rotation status is
- *             <code>false</code> and AWS KMS does not rotate the backing key. If you cancel the
+ *                <p>Pending deletion: While a KMS key is pending deletion, its key rotation status is
+ *             <code>false</code> and KMS does not rotate the key material. If you cancel the
  *           deletion, the original key rotation status is restored.</p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different AWS account, specify the key
+ *             <b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different Amazon Web Services account, specify the key
  *   ARN in the value of the <code>KeyId</code> parameter.</p>
  *
  *          <p>

@@ -22,7 +22,7 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
 
 /**
  * <p>Add or updates the evaluations for process checks.
- * 			This API checks if the rule is a process check when the name of the AWS Config rule is provided.</p>
+ * 			This API checks if the rule is a process check when the name of the Config rule is provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

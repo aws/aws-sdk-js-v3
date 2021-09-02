@@ -70,6 +70,7 @@ import {
   CreateDynamicThingGroupCommandInput,
   CreateDynamicThingGroupCommandOutput,
 } from "./commands/CreateDynamicThingGroupCommand";
+import { CreateFleetMetricCommandInput, CreateFleetMetricCommandOutput } from "./commands/CreateFleetMetricCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from "./commands/CreateJobTemplateCommand";
 import {
@@ -141,6 +142,7 @@ import {
   DeleteDynamicThingGroupCommandInput,
   DeleteDynamicThingGroupCommandOutput,
 } from "./commands/DeleteDynamicThingGroupCommand";
+import { DeleteFleetMetricCommandInput, DeleteFleetMetricCommandOutput } from "./commands/DeleteFleetMetricCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import { DeleteJobExecutionCommandInput, DeleteJobExecutionCommandOutput } from "./commands/DeleteJobExecutionCommand";
 import { DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput } from "./commands/DeleteJobTemplateCommand";
@@ -241,6 +243,10 @@ import {
   DescribeEventConfigurationsCommandInput,
   DescribeEventConfigurationsCommandOutput,
 } from "./commands/DescribeEventConfigurationsCommand";
+import {
+  DescribeFleetMetricCommandInput,
+  DescribeFleetMetricCommandOutput,
+} from "./commands/DescribeFleetMetricCommand";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
@@ -299,6 +305,10 @@ import {
   GetBehaviorModelTrainingSummariesCommandInput,
   GetBehaviorModelTrainingSummariesCommandOutput,
 } from "./commands/GetBehaviorModelTrainingSummariesCommand";
+import {
+  GetBucketsAggregationCommandInput,
+  GetBucketsAggregationCommandOutput,
+} from "./commands/GetBucketsAggregationCommand";
 import { GetCardinalityCommandInput, GetCardinalityCommandOutput } from "./commands/GetCardinalityCommand";
 import {
   GetEffectivePoliciesCommandInput,
@@ -372,6 +382,7 @@ import {
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput,
 } from "./commands/ListDomainConfigurationsCommand";
+import { ListFleetMetricsCommandInput, ListFleetMetricsCommandOutput } from "./commands/ListFleetMetricsCommand";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import {
   ListJobExecutionsForJobCommandInput,
@@ -581,6 +592,7 @@ import {
   UpdateEventConfigurationsCommandInput,
   UpdateEventConfigurationsCommandOutput,
 } from "./commands/UpdateEventConfigurationsCommand";
+import { UpdateFleetMetricCommandInput, UpdateFleetMetricCommandOutput } from "./commands/UpdateFleetMetricCommand";
 import {
   UpdateIndexingConfigurationCommandInput,
   UpdateIndexingConfigurationCommandOutput,
@@ -701,6 +713,7 @@ export type ServiceInputTypes =
   | CreateDimensionCommandInput
   | CreateDomainConfigurationCommandInput
   | CreateDynamicThingGroupCommandInput
+  | CreateFleetMetricCommandInput
   | CreateJobCommandInput
   | CreateJobTemplateCommandInput
   | CreateKeysAndCertificateCommandInput
@@ -730,6 +743,7 @@ export type ServiceInputTypes =
   | DeleteDimensionCommandInput
   | DeleteDomainConfigurationCommandInput
   | DeleteDynamicThingGroupCommandInput
+  | DeleteFleetMetricCommandInput
   | DeleteJobCommandInput
   | DeleteJobExecutionCommandInput
   | DeleteJobTemplateCommandInput
@@ -767,6 +781,7 @@ export type ServiceInputTypes =
   | DescribeDomainConfigurationCommandInput
   | DescribeEndpointCommandInput
   | DescribeEventConfigurationsCommandInput
+  | DescribeFleetMetricCommandInput
   | DescribeIndexCommandInput
   | DescribeJobCommandInput
   | DescribeJobExecutionCommandInput
@@ -789,6 +804,7 @@ export type ServiceInputTypes =
   | DisableTopicRuleCommandInput
   | EnableTopicRuleCommandInput
   | GetBehaviorModelTrainingSummariesCommandInput
+  | GetBucketsAggregationCommandInput
   | GetCardinalityCommandInput
   | GetEffectivePoliciesCommandInput
   | GetIndexingConfigurationCommandInput
@@ -820,6 +836,7 @@ export type ServiceInputTypes =
   | ListDetectMitigationActionsTasksCommandInput
   | ListDimensionsCommandInput
   | ListDomainConfigurationsCommandInput
+  | ListFleetMetricsCommandInput
   | ListIndicesCommandInput
   | ListJobExecutionsForJobCommandInput
   | ListJobExecutionsForThingCommandInput
@@ -891,6 +908,7 @@ export type ServiceInputTypes =
   | UpdateDomainConfigurationCommandInput
   | UpdateDynamicThingGroupCommandInput
   | UpdateEventConfigurationsCommandInput
+  | UpdateFleetMetricCommandInput
   | UpdateIndexingConfigurationCommandInput
   | UpdateJobCommandInput
   | UpdateMitigationActionCommandInput
@@ -930,6 +948,7 @@ export type ServiceOutputTypes =
   | CreateDimensionCommandOutput
   | CreateDomainConfigurationCommandOutput
   | CreateDynamicThingGroupCommandOutput
+  | CreateFleetMetricCommandOutput
   | CreateJobCommandOutput
   | CreateJobTemplateCommandOutput
   | CreateKeysAndCertificateCommandOutput
@@ -959,6 +978,7 @@ export type ServiceOutputTypes =
   | DeleteDimensionCommandOutput
   | DeleteDomainConfigurationCommandOutput
   | DeleteDynamicThingGroupCommandOutput
+  | DeleteFleetMetricCommandOutput
   | DeleteJobCommandOutput
   | DeleteJobExecutionCommandOutput
   | DeleteJobTemplateCommandOutput
@@ -996,6 +1016,7 @@ export type ServiceOutputTypes =
   | DescribeDomainConfigurationCommandOutput
   | DescribeEndpointCommandOutput
   | DescribeEventConfigurationsCommandOutput
+  | DescribeFleetMetricCommandOutput
   | DescribeIndexCommandOutput
   | DescribeJobCommandOutput
   | DescribeJobExecutionCommandOutput
@@ -1018,6 +1039,7 @@ export type ServiceOutputTypes =
   | DisableTopicRuleCommandOutput
   | EnableTopicRuleCommandOutput
   | GetBehaviorModelTrainingSummariesCommandOutput
+  | GetBucketsAggregationCommandOutput
   | GetCardinalityCommandOutput
   | GetEffectivePoliciesCommandOutput
   | GetIndexingConfigurationCommandOutput
@@ -1049,6 +1071,7 @@ export type ServiceOutputTypes =
   | ListDetectMitigationActionsTasksCommandOutput
   | ListDimensionsCommandOutput
   | ListDomainConfigurationsCommandOutput
+  | ListFleetMetricsCommandOutput
   | ListIndicesCommandOutput
   | ListJobExecutionsForJobCommandOutput
   | ListJobExecutionsForThingCommandOutput
@@ -1120,6 +1143,7 @@ export type ServiceOutputTypes =
   | UpdateDomainConfigurationCommandOutput
   | UpdateDynamicThingGroupCommandOutput
   | UpdateEventConfigurationsCommandOutput
+  | UpdateFleetMetricCommandOutput
   | UpdateIndexingConfigurationCommandOutput
   | UpdateJobCommandOutput
   | UpdateMitigationActionCommandOutput
@@ -1273,22 +1297,22 @@ type IoTClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
 export interface IoTClientResolvedConfig extends IoTClientResolvedConfigType {}
 
 /**
- * <fullname>AWS IoT</fullname>
- *         <p>AWS IoT provides secure, bi-directional communication between Internet-connected
- *             devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS
+ * <fullname>IoT</fullname>
+ *         <p>IoT provides secure, bi-directional communication between Internet-connected
+ *             devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services
  *             cloud. You can discover your custom IoT-Data endpoint to communicate with, configure
  *             rules for data processing and integration with other services, organize resources
  *             associated with each device (Registry), configure logging, and create and manage
  *             policies and credentials to authenticate devices.</p>
  *         <p>The service endpoints that expose this API are listed in
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">AWS IoT Core Endpoints and Quotas</a>.
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>.
  *             You must use the endpoint for the region that has the resources you want to access.</p>
- *         <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">AWS
+ *         <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services
  *                 Signature Version 4</a> to sign the request is:
  *             <i>execute-api</i>.</p>
- *         <p>For more information about how AWS IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
+ *         <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
  *             Guide</a>.</p>
- *         <p>For information about how to use the credentials provider for AWS IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to AWS Services</a>.</p>
+ *         <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>
  */
 export class IoTClient extends __Client<
   __HttpHandlerOptions,

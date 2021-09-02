@@ -225,6 +225,7 @@ export enum Locale {
   FR_FR = "fr-FR",
   IT_IT = "it-IT",
   JA_JP = "ja-JP",
+  KO_KR = "ko-KR",
 }
 
 export enum Status {

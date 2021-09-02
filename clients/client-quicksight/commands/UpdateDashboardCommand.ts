@@ -21,7 +21,7 @@ export interface UpdateDashboardCommandInput extends UpdateDashboardRequest {}
 export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a dashboard in an Amazon Web Services account;.</p>
+ * <p>Updates a dashboard in an Amazon Web Services account.</p>
  *         <note>
  *             <p>Updating a Dashboard creates a new dashboard version but does not immediately publish
  *                 the new version.  You can update the published version of a dashboard by

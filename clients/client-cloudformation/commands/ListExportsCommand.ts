@@ -22,7 +22,7 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  *          action. Use this action to see the exported output values that you can import into other
  *          stacks. To import values, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">
  *                <code>Fn::ImportValue</code>
- *             </a> function. </p>
+ *             </a> function.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html">
  *             CloudFormation Export Stack Output Values</a>.</p>
  * @example

@@ -739,6 +739,30 @@ export namespace ActionTarget {
   });
 }
 
+/**
+ * <p>An adjustment to the CVSS metric.</p>
+ */
+export interface Adjustment {
+  /**
+   * <p>The metric to adjust.</p>
+   */
+  Metric?: string;
+
+  /**
+   * <p>The reason for the adjustment.</p>
+   */
+  Reason?: string;
+}
+
+export namespace Adjustment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Adjustment): any => ({
+    ...obj,
+  });
+}
+
 export enum AdminStatus {
   DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
   ENABLED = "ENABLED",
@@ -1464,6 +1488,237 @@ export namespace AwsAutoScalingAutoScalingGroupDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsAutoScalingAutoScalingGroupDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Parameters that are used to automatically set up EBS volumes when an instance is launched.</p>
+ */
+export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails {
+  /**
+   * <p>Whether to delete the volume when the instance is terminated.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>Whether to encrypt the volume.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The number of input/output (I/O) operations per second (IOPS) to provision for the volume.</p>
+   *          <p>Only supported for <code>gp3</code> or <code>io1</code> volumes. Required for <code>io1</code> volumes. Not used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code> volumes.</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>The snapshot ID of the volume to use.</p>
+   *          <p>You must specify either <code>VolumeSize</code> or <code>SnapshotId</code>.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The volume size, in GiBs. The following are the supported volumes sizes for each volume type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>gp2 and gp3: 1-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>io1: 4-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>st1 and sc1: 125-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>standard: 1-1,024</p>
+   *             </li>
+   *          </ul>
+   *          <p>You must specify either <code>SnapshotId</code> or <code>VolumeSize</code>. If you specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must be equal or greater than the size of the snapshot.</p>
+   */
+  VolumeSize?: number;
+
+  /**
+   * <p>The volume type.</p>
+   */
+  VolumeType?: string;
+}
+
+export namespace AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A block device for the instance.</p>
+ */
+export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails {
+  /**
+   * <p>The device name that is exposed to the EC2 instance. For example, <code>/dev/sdh</code> or <code>xvdh</code>.</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>Parameters that are used to automatically set up Amazon EBS volumes when an instance is launched.</p>
+   */
+  Ebs?: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails;
+
+  /**
+   * <p>Whether to suppress the device that is included in the block device mapping of the Amazon Machine Image (AMI).</p>
+   *          <p>If <code>NoDevice</code> is <code>true</code>, then you cannot specify <code>Ebs</code>.></p>
+   */
+  NoDevice?: boolean;
+
+  /**
+   * <p>The name of the virtual device (for example, <code>ephemeral0</code>).</p>
+   *          <p>You can provide either <code>VirtualName</code> or <code>Ebs</code>, but not both.</p>
+   */
+  VirtualName?: string;
+}
+
+export namespace AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the type of monitoring for instances in the group.</p>
+ */
+export interface AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
+  /**
+   * <p>If set to <code>true</code>, then instances in the group launch with detailed
+   *          monitoring.</p>
+   *          <p>If set to <code>false</code>, then instances in the group launch with basic
+   *          monitoring.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about a launch configuration.</p>
+ */
+export interface AwsAutoScalingLaunchConfigurationDetails {
+  /**
+   * <p>For Auto Scaling groups that run in a VPC, specifies whether to assign a public IP address to the group's instances.</p>
+   */
+  AssociatePublicIpAddress?: boolean;
+
+  /**
+   * <p>Specifies the block devices for the instance.</p>
+   */
+  BlockDeviceMappings?: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails[];
+
+  /**
+   * <p>The identifier of a ClassicLink-enabled VPC that EC2-Classic instances are linked to.</p>
+   */
+  ClassicLinkVpcId?: string;
+
+  /**
+   * <p>The identifiers of one or more security groups for the VPC that is specified in <code>ClassicLinkVPCId</code>.</p>
+   */
+  ClassicLinkVpcSecurityGroups?: string[];
+
+  /**
+   * <p>The creation date and time for the launch configuration.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>Whether the launch configuration is optimized for Amazon EBS I/O.</p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The name or the ARN of the instance profile associated with the IAM role for the
+   *          instance. The instance profile contains the IAM role.</p>
+   */
+  IamInstanceProfile?: string;
+
+  /**
+   * <p>The identifier of the Amazon Machine Image (AMI) that is used to launch EC2
+   *          instances.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>Indicates the type of monitoring for instances in the group.</p>
+   */
+  InstanceMonitoring?: AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails;
+
+  /**
+   * <p>The instance type for the instances.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The identifier of the kernel associated with the AMI.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The name of the key pair.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The name of the launch configuration.</p>
+   */
+  LaunchConfigurationName?: string;
+
+  /**
+   * <p>The tenancy of the instance. An instance with <code>dedicated</code> tenancy runs on
+   *          isolated, single-tenant hardware and can only be launched into a VPC.</p>
+   */
+  PlacementTenancy?: string;
+
+  /**
+   * <p>The identifier of the RAM disk associated with the AMI.</p>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The security groups to assign to the instances in the Auto Scaling group.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>The maximum hourly price to be paid for any Spot Instance that is launched to fulfill the
+   *          request.</p>
+   */
+  SpotPrice?: string;
+
+  /**
+   * <p>The user data to make available to the launched EC2 instances. Must be base64-encoded
+   *          text.</p>
+   */
+  UserData?: string;
+}
+
+export namespace AwsAutoScalingLaunchConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsAutoScalingLaunchConfigurationDetails): any => ({
     ...obj,
   });
 }
@@ -2541,10 +2796,10 @@ export namespace AwsCodeBuildProjectVpcConfig {
  */
 export interface AwsCodeBuildProjectDetails {
   /**
-   * <p>The KMS customer master key (CMK) used to encrypt the
+   * <p>The KMS key used to encrypt the
    *          build output artifacts.</p>
-   *          <p>You can specify either the ARN of the CMK or, if available, the
-   *          CMK alias (using the format alias/alias-name). </p>
+   *          <p>You can specify either the ARN of the KMS key or, if available, the
+   *          KMS key alias (using the format alias/alias-name). </p>
    */
   EncryptionKey?: string;
 
@@ -2883,7 +3138,7 @@ export interface AwsDynamoDbTableReplica {
   GlobalSecondaryIndexes?: AwsDynamoDbTableReplicaGlobalSecondaryIndex[];
 
   /**
-   * <p>The identifier of the KMS customer master key (CMK) that will be used for KMS
+   * <p>The identifier of the KMS key that will be used for KMS
    *          encryption for the replica.</p>
    */
   KmsMasterKeyId?: string;
@@ -2979,7 +3234,7 @@ export interface AwsDynamoDbTableSseDescription {
   SseType?: string;
 
   /**
-   * <p>The ARN of the KMS customer master key (CMK) that is used for the KMS
+   * <p>The ARN of the KMS key that is used for the KMS
    *          encryption.</p>
    */
   KmsMasterKeyArn?: string;
@@ -4031,7 +4286,7 @@ export interface AwsEc2VolumeDetails {
   Status?: string;
 
   /**
-   * <p>The ARN of the KMS customer master key (CMK) that was
+   * <p>The ARN of the KMS key that was
    *          used to protect the volume encryption key for the volume.</p>
    */
   KmsKeyId?: string;
@@ -4112,6 +4367,327 @@ export namespace AwsEc2VpcDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsEc2VpcDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The VPN tunnel options.</p>
+ */
+export interface AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
+  /**
+   * <p>The number of seconds after which a Dead Peer Detection (DPD) timeout occurs.</p>
+   */
+  DpdTimeoutSeconds?: number;
+
+  /**
+   * <p>The Internet Key Exchange (IKE) versions that are permitted for the VPN tunnel.</p>
+   */
+  IkeVersions?: string[];
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   */
+  OutsideIpAddress?: string;
+
+  /**
+   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE
+   *          negotiations.</p>
+   */
+  Phase1DhGroupNumbers?: number[];
+
+  /**
+   * <p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
+   *          negotiations.</p>
+   */
+  Phase1EncryptionAlgorithms?: string[];
+
+  /**
+   * <p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
+   *          negotiations.</p>
+   */
+  Phase1IntegrityAlgorithms?: string[];
+
+  /**
+   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
+   */
+  Phase1LifetimeSeconds?: number;
+
+  /**
+   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE
+   *          negotiations.</p>
+   */
+  Phase2DhGroupNumbers?: number[];
+
+  /**
+   * <p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
+   *          negotiations.</p>
+   */
+  Phase2EncryptionAlgorithms?: string[];
+
+  /**
+   * <p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
+   *          negotiations.</p>
+   */
+  Phase2IntegrityAlgorithms?: string[];
+
+  /**
+   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
+   */
+  Phase2LifetimeSeconds?: number;
+
+  /**
+   * <p>The preshared key to establish initial authentication between the virtual private gateway
+   *          and the customer gateway.</p>
+   */
+  PreSharedKey?: string;
+
+  /**
+   * <p>The percentage of the rekey window, which is determined by
+   *          <code>RekeyMarginTimeSeconds</code> during which the rekey time is randomly selected.</p>
+   */
+  RekeyFuzzPercentage?: number;
+
+  /**
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the Amazon Web Services
+   *          side of the VPN connection performs an IKE rekey.</p>
+   */
+  RekeyMarginTimeSeconds?: number;
+
+  /**
+   * <p>The number of packets in an IKE replay window.</p>
+   */
+  ReplayWindowSize?: number;
+
+  /**
+   * <p>The range of inside IPv4 addresses for the tunnel.</p>
+   */
+  TunnelInsideCidr?: string;
+}
+
+export namespace AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2VpnConnectionOptionsTunnelOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>VPN connection options.</p>
+ */
+export interface AwsEc2VpnConnectionOptionsDetails {
+  /**
+   * <p>Whether the VPN connection uses static routes only.</p>
+   */
+  StaticRoutesOnly?: boolean;
+
+  /**
+   * <p>The VPN tunnel options.</p>
+   */
+  TunnelOptions?: AwsEc2VpnConnectionOptionsTunnelOptionsDetails[];
+}
+
+export namespace AwsEc2VpnConnectionOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2VpnConnectionOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A static routes associated with
+ *          the VPN connection.</p>
+ */
+export interface AwsEc2VpnConnectionRoutesDetails {
+  /**
+   * <p>The CIDR block associated with the local subnet of the customer data center.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The current state of the static route.</p>
+   */
+  State?: string;
+}
+
+export namespace AwsEc2VpnConnectionRoutesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2VpnConnectionRoutesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the VPN tunnel.</p>
+ */
+export interface AwsEc2VpnConnectionVgwTelemetryDetails {
+  /**
+   * <p>The number of accepted routes.</p>
+   */
+  AcceptedRouteCount?: number;
+
+  /**
+   * <p>The ARN of the VPN tunnel endpoint certificate.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * <p>The date and time of the last change in status.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LastStatusChange?: string;
+
+  /**
+   * <p>The Internet-routable IP address of the virtual private gateway's outside
+   *          interface.</p>
+   */
+  OutsideIpAddress?: string;
+
+  /**
+   * <p>The status of the VPN tunnel.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>If an error occurs, a description of the error.</p>
+   */
+  StatusMessage?: string;
+}
+
+export namespace AwsEc2VpnConnectionVgwTelemetryDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2VpnConnectionVgwTelemetryDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an Amazon EC2 VPN
+ *          connection.</p>
+ */
+export interface AwsEc2VpnConnectionDetails {
+  /**
+   * <p>The identifier of the VPN connection.</p>
+   */
+  VpnConnectionId?: string;
+
+  /**
+   * <p>The current state of the VPN connection.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The identifier of the customer gateway that is at your end of the VPN connection.</p>
+   */
+  CustomerGatewayId?: string;
+
+  /**
+   * <p>The configuration information for the VPN connection's customer gateway, in the native XML
+   *          format.</p>
+   */
+  CustomerGatewayConfiguration?: string;
+
+  /**
+   * <p>The type of VPN connection.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The identifier of the virtual private gateway that is at the Amazon Web Services side of the VPN
+   *          connection.</p>
+   */
+  VpnGatewayId?: string;
+
+  /**
+   * <p>The category of the VPN connection. <code>VPN</code> indicates an Amazon Web Services VPN connection. <code>VPN-Classic</code>
+   *          indicates an Amazon Web Services Classic VPN connection.</p>
+   */
+  Category?: string;
+
+  /**
+   * <p>Information about the VPN tunnel.</p>
+   */
+  VgwTelemetry?: AwsEc2VpnConnectionVgwTelemetryDetails[];
+
+  /**
+   * <p>The VPN connection options.</p>
+   */
+  Options?: AwsEc2VpnConnectionOptionsDetails;
+
+  /**
+   * <p>The static routes that are associated with the VPN connection.</p>
+   */
+  Routes?: AwsEc2VpnConnectionRoutesDetails[];
+
+  /**
+   * <p>The identifier of the transit gateway that is associated with the VPN connection.</p>
+   */
+  TransitGatewayId?: string;
+}
+
+export namespace AwsEc2VpnConnectionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2VpnConnectionDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an Amazon ECR image.</p>
+ */
+export interface AwsEcrContainerImageDetails {
+  /**
+   * <p>The Amazon Web Services account identifier that is associated with the registry that the image belongs
+   *          to.</p>
+   */
+  RegistryId?: string;
+
+  /**
+   * <p>The name of the repository that the image belongs to.</p>
+   */
+  RepositoryName?: string;
+
+  /**
+   * <p>The architecture of the image.</p>
+   */
+  Architecture?: string;
+
+  /**
+   * <p>The sha256 digest of the image manifest.</p>
+   */
+  ImageDigest?: string;
+
+  /**
+   * <p>The list of tags that are associated with the image.</p>
+   */
+  ImageTags?: string[];
+
+  /**
+   * <p>The date and time when the image was pushed to the repository.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  ImagePublishedAt?: string;
+}
+
+export namespace AwsEcrContainerImageDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcrContainerImageDetails): any => ({
     ...obj,
   });
 }
@@ -7750,16 +8326,16 @@ export namespace AwsIamUserDetails {
 }
 
 /**
- * <p>Contains metadata about a customer master key (CMK).</p>
+ * <p>Contains metadata about an KMS key.</p>
  */
 export interface AwsKmsKeyDetails {
   /**
-   * <p>The twelve-digit account ID of the Amazon Web Services account that owns the CMK.</p>
+   * <p>The twelve-digit account ID of the Amazon Web Services account that owns the KMS key.</p>
    */
   AWSAccountId?: string;
 
   /**
-   * <p>Indicates when the CMK was created.</p>
+   * <p>Indicates when the KMS key was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
@@ -7767,25 +8343,25 @@ export interface AwsKmsKeyDetails {
   CreationDate?: number;
 
   /**
-   * <p>The globally unique identifier for the CMK.</p>
+   * <p>The globally unique identifier for the KMS key.</p>
    */
   KeyId?: string;
 
   /**
-   * <p>The manager of the CMK. CMKs in your Amazon Web Services account are either customer managed or Amazon Web Services managed.</p>
+   * <p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or Amazon Web Services managed.</p>
    */
   KeyManager?: string;
 
   /**
-   * <p>The state of the CMK.</p>
+   * <p>The state of the KMS key.</p>
    */
   KeyState?: string;
 
   /**
-   * <p>The source of the CMK's key material.</p>
+   * <p>The source of the KMS key material.</p>
    *          <p>When this value is <code>AWS_KMS</code>, KMS created the key material.</p>
    *          <p>When this value is <code>EXTERNAL</code>, the key material was imported from your
-   *          existing key management infrastructure or the CMK lacks key material.</p>
+   *          existing key management infrastructure or the KMS key lacks key material.</p>
    *          <p>When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the CloudHSM cluster associated with a custom key store.</p>
    */
   Origin?: string;
@@ -7794,6 +8370,11 @@ export interface AwsKmsKeyDetails {
    * <p>A description of the key.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Whether the key has key rotation enabled.</p>
+   */
+  KeyRotationStatus?: boolean;
 }
 
 export namespace AwsKmsKeyDetails {
@@ -8013,7 +8594,7 @@ export interface AwsLambdaFunctionDetails {
   Handler?: string;
 
   /**
-   * <p>The KMS key that is used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
+   * <p>The KMS key that is used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed customer managed key.</p>
    */
   KmsKeyArn?: string;
 
@@ -10693,6 +11274,309 @@ export namespace AwsS3BucketBucketLifecycleConfigurationDetails {
 }
 
 /**
+ * <p>Information about logging for
+ *          the S3 bucket</p>
+ */
+export interface AwsS3BucketLoggingConfiguration {
+  /**
+   * <p>The name of the S3 bucket where log files for the S3 bucket are stored.</p>
+   */
+  DestinationBucketName?: string;
+
+  /**
+   * <p>The prefix added to log files for the S3 bucket.</p>
+   */
+  LogFilePrefix?: string;
+}
+
+export namespace AwsS3BucketLoggingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketLoggingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum AwsS3BucketNotificationConfigurationS3KeyFilterRuleName {
+  PREFIX = "Prefix",
+  SUFFIX = "Suffix",
+}
+
+/**
+ * <p>Details for a filter rule.</p>
+ */
+export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
+  /**
+   * <p>Indicates whether the filter is based on the prefix or suffix of the Amazon S3 key.</p>
+   */
+  Name?: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName | string;
+
+  /**
+   * <p>The filter value.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsS3BucketNotificationConfigurationS3KeyFilterRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationS3KeyFilterRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details for an Amazon S3 filter.</p>
+ */
+export interface AwsS3BucketNotificationConfigurationS3KeyFilter {
+  /**
+   * <p>The filter rules for the filter.</p>
+   */
+  FilterRules?: AwsS3BucketNotificationConfigurationS3KeyFilterRule[];
+}
+
+export namespace AwsS3BucketNotificationConfigurationS3KeyFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationS3KeyFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Filtering information for the notifications. The
+ *          filtering is based on Amazon S3 key names.</p>
+ */
+export interface AwsS3BucketNotificationConfigurationFilter {
+  /**
+   * <p>Details for an Amazon S3 filter.</p>
+   */
+  S3KeyFilter?: AwsS3BucketNotificationConfigurationS3KeyFilter;
+}
+
+export namespace AwsS3BucketNotificationConfigurationFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details for an S3 bucket notification configuration.</p>
+ */
+export interface AwsS3BucketNotificationConfigurationDetail {
+  /**
+   * <p>The list of events that trigger a notification.</p>
+   */
+  Events?: string[];
+
+  /**
+   * <p>The filters that determine which S3 buckets generate notifications.</p>
+   */
+  Filter?: AwsS3BucketNotificationConfigurationFilter;
+
+  /**
+   * <p>The ARN of the Lambda function, Amazon SQS queue, or Amazon SNS topic that generates the
+   *          notification.</p>
+   */
+  Destination?: string;
+
+  /**
+   * <p>Indicates the type of notification. Notifications can be generated using Lambda functions,
+   *          Amazon SQS queues or Amazon SNS topics.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsS3BucketNotificationConfigurationDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The notification
+ *          configuration for the S3 bucket.</p>
+ */
+export interface AwsS3BucketNotificationConfiguration {
+  /**
+   * <p>Configurations for S3 bucket notifications.</p>
+   */
+  Configurations?: AwsS3BucketNotificationConfigurationDetail[];
+}
+
+export namespace AwsS3BucketNotificationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The redirect behavior for requests
+ *          to the website.</p>
+ */
+export interface AwsS3BucketWebsiteConfigurationRedirectTo {
+  /**
+   * <p>The name of the host to redirect requests to.</p>
+   */
+  Hostname?: string;
+
+  /**
+   * <p>The protocol to use when redirecting requests. By default, uses the same protocol as the
+   *          original request.</p>
+   */
+  Protocol?: string;
+}
+
+export namespace AwsS3BucketWebsiteConfigurationRedirectTo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRedirectTo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The condition that must be met in order to apply the routing rule.</p>
+ */
+export interface AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
+  /**
+   * <p>Indicates to redirect the request if the HTTP error code matches this value.</p>
+   */
+  HttpErrorCodeReturnedEquals?: string;
+
+  /**
+   * <p>Indicates to redirect the request if the key prefix matches this value.</p>
+   */
+  KeyPrefixEquals?: string;
+}
+
+export namespace AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRuleCondition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The rules to redirect the request if the condition in <code>Condition</code> is
+ *          met.</p>
+ */
+export interface AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
+  /**
+   * <p>The host name to use in the redirect request.</p>
+   */
+  Hostname?: string;
+
+  /**
+   * <p>The HTTP redirect code to use in the response.</p>
+   */
+  HttpRedirectCode?: string;
+
+  /**
+   * <p>The protocol to use to redirect the request. By default, uses the protocol from the
+   *          original request.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The object key prefix to use in the redirect request.</p>
+   *          <p>Cannot be provided if <code>ReplaceKeyWith</code> is present.</p>
+   */
+  ReplaceKeyPrefixWith?: string;
+
+  /**
+   * <p>The specific object key to use in the redirect request.</p>
+   *          <p>Cannot be provided if <code>ReplaceKeyPrefixWith</code> is present.</p>
+   */
+  ReplaceKeyWith?: string;
+}
+
+export namespace AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A rule for redirecting requests
+ *          to the website.</p>
+ */
+export interface AwsS3BucketWebsiteConfigurationRoutingRule {
+  /**
+   * <p>Provides the condition that must be met in order to apply the routing rule.</p>
+   */
+  Condition?: AwsS3BucketWebsiteConfigurationRoutingRuleCondition;
+
+  /**
+   * <p>Provides the rules to redirect the request if the condition in <code>Condition</code> is
+   *          met.</p>
+   */
+  Redirect?: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect;
+}
+
+export namespace AwsS3BucketWebsiteConfigurationRoutingRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Website parameters for the S3
+ *          bucket.</p>
+ */
+export interface AwsS3BucketWebsiteConfiguration {
+  /**
+   * <p>The name of the error document for the website.</p>
+   */
+  ErrorDocument?: string;
+
+  /**
+   * <p>The name of the index document for the website.</p>
+   */
+  IndexDocumentSuffix?: string;
+
+  /**
+   * <p>The redirect behavior for requests to the website.</p>
+   */
+  RedirectAllRequestsTo?: AwsS3BucketWebsiteConfigurationRedirectTo;
+
+  /**
+   * <p>The rules for applying redirects for requests to the website.</p>
+   */
+  RoutingRules?: AwsS3BucketWebsiteConfigurationRoutingRule[];
+}
+
+export namespace AwsS3BucketWebsiteConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies the default server-side encryption to apply to new objects in the
  *          bucket.</p>
  */
@@ -10703,7 +11587,7 @@ export interface AwsS3BucketServerSideEncryptionByDefault {
   SSEAlgorithm?: string;
 
   /**
-   * <p>KMS customer master key (CMK) ID to use for the default encryption.</p>
+   * <p>KMS key ID to use for the default encryption.</p>
    */
   KMSMasterKeyID?: string;
 }
@@ -10793,6 +11677,26 @@ export interface AwsS3BucketDetails {
    * <p>Provides information about the Amazon S3 Public Access Block configuration for the S3 bucket.</p>
    */
   PublicAccessBlockConfiguration?: AwsS3AccountPublicAccessBlockDetails;
+
+  /**
+   * <p>The access control list for the S3 bucket.</p>
+   */
+  AccessControlList?: string;
+
+  /**
+   * <p>The logging configuration for the S3 bucket.</p>
+   */
+  BucketLoggingConfiguration?: AwsS3BucketLoggingConfiguration;
+
+  /**
+   * <p>The website configuration parameters for the S3 bucket.</p>
+   */
+  BucketWebsiteConfiguration?: AwsS3BucketWebsiteConfiguration;
+
+  /**
+   * <p>The notification configuration for the S3 bucket.</p>
+   */
+  BucketNotificationConfiguration?: AwsS3BucketNotificationConfiguration;
 }
 
 export namespace AwsS3BucketDetails {
@@ -10839,8 +11743,7 @@ export interface AwsS3ObjectDetails {
   ServerSideEncryption?: string;
 
   /**
-   * <p>The identifier of the KMS symmetric customer managed
-   *          customer master key (CMK) that was used for the object.</p>
+   * <p>The identifier of the KMS symmetric customer managed key that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 }
@@ -10888,7 +11791,7 @@ export interface AwsSecretsManagerSecretDetails {
   RotationOccurredWithinFrequency?: boolean;
 
   /**
-   * <p>The ARN, Key ID, or alias of the KMS customer master key (CMK) used to encrypt the
+   * <p>The ARN, Key ID, or alias of the KMS key used to encrypt the
    *             <code>SecretString</code> or <code>SecretBinary</code> values for versions of this
    *          secret.</p>
    */
@@ -11211,770 +12114,6 @@ export namespace PortRange {
    * @internal
    */
   export const filterSensitiveLog = (obj: PortRange): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The details of network-related information about a finding.</p>
- */
-export interface Network {
-  /**
-   * <p>The direction of network traffic associated with a finding.</p>
-   */
-  Direction?: NetworkDirection | string;
-
-  /**
-   * <p>The protocol of network-related information about a finding.</p>
-   */
-  Protocol?: string;
-
-  /**
-   * <p>The range of open ports that is present on the network.</p>
-   */
-  OpenPortRange?: PortRange;
-
-  /**
-   * <p>The source IPv4 address of network-related information about a finding.</p>
-   */
-  SourceIpV4?: string;
-
-  /**
-   * <p>The source IPv6 address of network-related information about a finding.</p>
-   */
-  SourceIpV6?: string;
-
-  /**
-   * <p>The source port of network-related information about a finding.</p>
-   */
-  SourcePort?: number;
-
-  /**
-   * <p>The source domain of network-related information about a finding.</p>
-   */
-  SourceDomain?: string;
-
-  /**
-   * <p>The source media access control (MAC) address of network-related information about a
-   *          finding.</p>
-   */
-  SourceMac?: string;
-
-  /**
-   * <p>The destination IPv4 address of network-related information about a finding.</p>
-   */
-  DestinationIpV4?: string;
-
-  /**
-   * <p>The destination IPv6 address of network-related information about a finding.</p>
-   */
-  DestinationIpV6?: string;
-
-  /**
-   * <p>The destination port of network-related information about a finding.</p>
-   */
-  DestinationPort?: number;
-
-  /**
-   * <p>The destination domain of network-related information about a finding.</p>
-   */
-  DestinationDomain?: string;
-}
-
-export namespace Network {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Network): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the destination of the next component in the network path.</p>
- */
-export interface NetworkPathComponentDetails {
-  /**
-   * <p>The IP addresses of the destination.</p>
-   */
-  Address?: string[];
-
-  /**
-   * <p>A list of port ranges for the destination.</p>
-   */
-  PortRanges?: PortRange[];
-}
-
-export namespace NetworkPathComponentDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkPathComponentDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about a network path component that occurs before or after the current
- *          component.</p>
- */
-export interface NetworkHeader {
-  /**
-   * <p>The protocol used for the component.</p>
-   */
-  Protocol?: string;
-
-  /**
-   * <p>Information about the destination of the component.</p>
-   */
-  Destination?: NetworkPathComponentDetails;
-
-  /**
-   * <p>Information about the origin of the component.</p>
-   */
-  Source?: NetworkPathComponentDetails;
-}
-
-export namespace NetworkHeader {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkHeader): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a network path component.</p>
- */
-export interface NetworkPathComponent {
-  /**
-   * <p>The identifier of a component in the network path.</p>
-   */
-  ComponentId?: string;
-
-  /**
-   * <p>The type of component.</p>
-   */
-  ComponentType?: string;
-
-  /**
-   * <p>Information about the component that comes after the current component in the network
-   *          path.</p>
-   */
-  Egress?: NetworkHeader;
-
-  /**
-   * <p>Information about the component that comes before the current node in the network
-   *          path.</p>
-   */
-  Ingress?: NetworkHeader;
-}
-
-export namespace NetworkPathComponent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkPathComponent): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A user-defined note added to a finding.</p>
- */
-export interface Note {
-  /**
-   * <p>The text of a note.</p>
-   */
-  Text: string | undefined;
-
-  /**
-   * <p>The principal that created a note.</p>
-   */
-  UpdatedBy: string | undefined;
-
-  /**
-   * <p>The timestamp of when the note was updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  UpdatedAt: string | undefined;
-}
-
-export namespace Note {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Note): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides an overview of the patch compliance status for an instance against a selected
- *          compliance standard.</p>
- */
-export interface PatchSummary {
-  /**
-   * <p>The identifier of the compliance standard that was used to determine the patch
-   *          compliance status.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The number of patches from the compliance standard that were installed
-   *          successfully.</p>
-   */
-  InstalledCount?: number;
-
-  /**
-   * <p>The number of patches that are part of the compliance standard but are not installed.
-   *          The count includes patches that failed to install.</p>
-   */
-  MissingCount?: number;
-
-  /**
-   * <p>The number of patches from the compliance standard that failed to install.</p>
-   */
-  FailedCount?: number;
-
-  /**
-   * <p>The number of installed patches that are not part of the compliance standard.</p>
-   */
-  InstalledOtherCount?: number;
-
-  /**
-   * <p>The number of patches that are installed but are also on a list of patches that the
-   *          customer rejected.</p>
-   */
-  InstalledRejectedCount?: number;
-
-  /**
-   * <p>The number of patches that were applied, but that require the instance to be rebooted in
-   *          order to be marked as installed.</p>
-   */
-  InstalledPendingReboot?: number;
-
-  /**
-   * <p>Indicates when the operation started.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  OperationStartTime?: string;
-
-  /**
-   * <p>Indicates when the operation completed.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  OperationEndTime?: string;
-
-  /**
-   * <p>The reboot option specified for the instance.</p>
-   */
-  RebootOption?: string;
-
-  /**
-   * <p>The type of patch operation performed. For Patch Manager, the values are
-   *             <code>SCAN</code> and <code>INSTALL</code>. </p>
-   */
-  Operation?: string;
-}
-
-export namespace PatchSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PatchSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The details of process-related information about a finding.</p>
- */
-export interface ProcessDetails {
-  /**
-   * <p>The name of the process.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The path to the process executable.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The process ID.</p>
-   */
-  Pid?: number;
-
-  /**
-   * <p>The parent process ID.</p>
-   */
-  ParentPid?: number;
-
-  /**
-   * <p>Indicates when the process was launched.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LaunchedAt?: string;
-
-  /**
-   * <p>Indicates when the process was terminated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  TerminatedAt?: string;
-}
-
-export namespace ProcessDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessDetails): any => ({
-    ...obj,
-  });
-}
-
-export enum RecordState {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-}
-
-/**
- * <p>A recommendation on how to remediate the issue identified in a finding.</p>
- */
-export interface Recommendation {
-  /**
-   * <p>Describes the recommended steps to take to remediate an issue identified in a finding.</p>
-   */
-  Text?: string;
-
-  /**
-   * <p>A URL to a page or site that contains information about how to remediate a finding.</p>
-   */
-  Url?: string;
-}
-
-export namespace Recommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Recommendation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about the remediation steps for a finding.</p>
- */
-export interface Remediation {
-  /**
-   * <p>A recommendation on the steps to take to remediate the issue identified by a finding.</p>
-   */
-  Recommendation?: Recommendation;
-}
-
-export namespace Remediation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Remediation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An occurrence of sensitive data detected in a Microsoft Excel workbook, comma-separated value (CSV) file, or tab-separated value (TSV) file.</p>
- */
-export interface Cell {
-  /**
-   * <p>The column number of the column that contains the data. For a Microsoft Excel workbook, the column number corresponds to the alphabetical column identifiers. For example, a value of 1 for Column corresponds to the A column in the workbook.</p>
-   */
-  Column?: number;
-
-  /**
-   * <p>The row number of the row that contains the data.</p>
-   */
-  Row?: number;
-
-  /**
-   * <p>The name of the column that contains the data.</p>
-   */
-  ColumnName?: string;
-
-  /**
-   * <p>For a Microsoft Excel workbook, provides the location of the cell, as an absolute cell reference, that contains the data. For example, Sheet2!C5 for cell C5 on Sheet2.</p>
-   */
-  CellReference?: string;
-}
-
-export namespace Cell {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cell): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Identifies where the sensitive data begins and ends.</p>
- */
-export interface Range {
-  /**
-   * <p>The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.</p>
-   */
-  Start?: number;
-
-  /**
-   * <p>The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.</p>
-   */
-  End?: number;
-
-  /**
-   * <p>In the line where the sensitive data starts, the column within the line where the sensitive data starts.</p>
-   */
-  StartColumn?: number;
-}
-
-export namespace Range {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Range): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An occurrence of sensitive data in an Adobe Portable Document Format (PDF) file.</p>
- */
-export interface Page {
-  /**
-   * <p>The page number of the page that contains the sensitive data.</p>
-   */
-  PageNumber?: number;
-
-  /**
-   * <p>An occurrence of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.</p>
-   */
-  LineRange?: Range;
-
-  /**
-   * <p>An occurrence of sensitive data detected in a binary text file.</p>
-   */
-  OffsetRange?: Range;
-}
-
-export namespace Page {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Page): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An occurrence of sensitive data in an Apache Avro object container or an Apache Parquet file.</p>
- */
-export interface _Record {
-  /**
-   * <p>The path, as a JSONPath expression, to the field in the record that contains the data. If the field name is longer than 20 characters, it is truncated. If the path is longer than 250 characters, it is truncated.</p>
-   */
-  JsonPath?: string;
-
-  /**
-   * <p>The record index, starting from 0, for the record that contains the data.</p>
-   */
-  RecordIndex?: number;
-}
-
-export namespace _Record {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The detected occurrences of sensitive data.</p>
- */
-export interface Occurrences {
-  /**
-   * <p>Occurrences of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.</p>
-   */
-  LineRanges?: Range[];
-
-  /**
-   * <p>Occurrences of sensitive data detected in a binary text file.</p>
-   */
-  OffsetRanges?: Range[];
-
-  /**
-   * <p>Occurrences of sensitive data in an Adobe Portable Document Format (PDF) file.</p>
-   */
-  Pages?: Page[];
-
-  /**
-   * <p>Occurrences of sensitive data in an Apache Avro object container or an Apache Parquet file.</p>
-   */
-  Records?: _Record[];
-
-  /**
-   * <p>Occurrences of sensitive data detected in Microsoft Excel workbooks, comma-separated value (CSV) files, or tab-separated value (TSV) files.</p>
-   */
-  Cells?: Cell[];
-}
-
-export namespace Occurrences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Occurrences): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The list of detected instances of sensitive data.</p>
- */
-export interface CustomDataIdentifiersDetections {
-  /**
-   * <p>The total number of occurrences of sensitive data that were detected.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>The ARN of the custom identifier that was used to detect the sensitive data.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>he name of the custom identifier that detected the sensitive data.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Details about the sensitive data that was detected.</p>
-   */
-  Occurrences?: Occurrences;
-}
-
-export namespace CustomDataIdentifiersDetections {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomDataIdentifiersDetections): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains an instance of sensitive data that was detected by a customer-defined identifier.</p>
- */
-export interface CustomDataIdentifiersResult {
-  /**
-   * <p>The list of detected instances of sensitive data.</p>
-   */
-  Detections?: CustomDataIdentifiersDetections[];
-
-  /**
-   * <p>The total number of occurrences of sensitive data.</p>
-   */
-  TotalCount?: number;
-}
-
-export namespace CustomDataIdentifiersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomDataIdentifiersResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The list of detected instances of sensitive data.</p>
- */
-export interface SensitiveDataDetections {
-  /**
-   * <p>The total number of occurrences of sensitive data that were detected.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>The type of sensitive data that was detected. For example, the type might indicate that the data is an email address.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>Details about the sensitive data that was detected.</p>
-   */
-  Occurrences?: Occurrences;
-}
-
-export namespace SensitiveDataDetections {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SensitiveDataDetections): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains a detected instance of sensitive data that are based on built-in identifiers.</p>
- */
-export interface SensitiveDataResult {
-  /**
-   * <p>The category of sensitive data that was detected. For example, the category can indicate that the sensitive data involved credentials, financial information, or personal information.</p>
-   */
-  Category?: string;
-
-  /**
-   * <p>The list of detected instances of sensitive data.</p>
-   */
-  Detections?: SensitiveDataDetections[];
-
-  /**
-   * <p>The total number of occurrences of sensitive data.</p>
-   */
-  TotalCount?: number;
-}
-
-export namespace SensitiveDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SensitiveDataResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides details about the current status of the sensitive data detection.</p>
- */
-export interface ClassificationStatus {
-  /**
-   * <p>The code that represents the status of the sensitive data detection.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>A longer description of the current status of the sensitive data detection.</p>
-   */
-  Reason?: string;
-}
-
-export namespace ClassificationStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClassificationStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about the sensitive data that was detected on the resource.</p>
- */
-export interface ClassificationResult {
-  /**
-   * <p>The type of content that the finding applies to.</p>
-   */
-  MimeType?: string;
-
-  /**
-   * <p>The total size in bytes of the affected data.</p>
-   */
-  SizeClassified?: number;
-
-  /**
-   * <p>Indicates whether there are additional occurrences of sensitive data that are not included in the finding. This occurs when the number of occurrences exceeds the maximum that can be included.</p>
-   */
-  AdditionalOccurrences?: boolean;
-
-  /**
-   * <p>The current status of the sensitive data detection.</p>
-   */
-  Status?: ClassificationStatus;
-
-  /**
-   * <p>Provides details about sensitive data that was identified based on built-in configuration.</p>
-   */
-  SensitiveData?: SensitiveDataResult[];
-
-  /**
-   * <p>Provides details about sensitive data that was identified based on customer-defined configuration.</p>
-   */
-  CustomDataIdentifiers?: CustomDataIdentifiersResult;
-}
-
-export namespace ClassificationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClassificationResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides details about sensitive data that was detected on a resource.</p>
- */
-export interface DataClassificationDetails {
-  /**
-   * <p>The path to the folder or file that contains the sensitive data.</p>
-   */
-  DetailedResultsLocation?: string;
-
-  /**
-   * <p>The details about the sensitive data that was detected on the resource.</p>
-   */
-  Result?: ClassificationResult;
-}
-
-export namespace DataClassificationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataClassificationDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
- */
-export interface AwsSnsTopicSubscription {
-  /**
-   * <p>The subscription's endpoint (format depends on the protocol).</p>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>The subscription's protocol.</p>
-   */
-  Protocol?: string;
-}
-
-export namespace AwsSnsTopicSubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSnsTopicSubscription): any => ({
     ...obj,
   });
 }

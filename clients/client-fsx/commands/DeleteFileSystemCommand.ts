@@ -24,10 +24,13 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * <p>Deletes a file system, deleting its contents. After deletion, the file system no
  *             longer exists, and its data is gone. Any existing automatic backups will also be
  *             deleted.</p>
+ *         <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the volumes
+ *             and SVMs on the file system. Then provide a <code>FileSystemId</code> value to the
+ *             <code>DeleFileSystem</code> operation.</p>
+ *
  *         <p>By default, when you delete an Amazon FSx for Windows File Server file system, a
  *             final backup is created upon deletion. This final backup is not subject to the file
  *             system's retention policy, and must be manually deleted.</p>
- *
  *
  *         <p>The <code>DeleteFileSystem</code> action returns while the file system has the
  *                 <code>DELETING</code> status. You can check the file system deletion status by

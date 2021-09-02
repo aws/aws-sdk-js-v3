@@ -2,7 +2,6 @@ import {
   AddPrefixListEntry,
   ApplianceModeSupportValue,
   AttachmentStatus,
-  CarrierGateway,
   CurrencyCodeValues,
   DnsSupportValue,
   GatewayType,
@@ -624,6 +623,11 @@ export namespace LaunchTemplateLicenseConfigurationRequest {
 
 export type LaunchTemplateInstanceMetadataEndpointState = "disabled" | "enabled";
 
+export enum LaunchTemplateInstanceMetadataProtocolIpv6 {
+  disabled = "disabled",
+  enabled = "enabled",
+}
+
 export enum LaunchTemplateHttpTokensState {
   optional = "optional",
   required = "required",
@@ -656,6 +660,13 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *          </note>
    */
   HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+   *         <p>Default: <code>disabled</code>
+   *          </p>
+   */
+  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
 }
 
 export namespace LaunchTemplateInstanceMetadataOptionsRequest {
@@ -861,25 +872,25 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   NetworkCardIndex?: number;
 
   /**
-   * <p>One or more IPv4 delegated prefixes to be assigned to the network interface. You cannot use
+   * <p>One or more IPv4 prefixes to be assigned to the network interface. You cannot use
    *             this option if you use the <code>Ipv4PrefixCount</code> option.</p>
    */
   Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[];
 
   /**
-   * <p>The number of IPv4 delegated prefixes to be automatically assigned to the
+   * <p>The number of IPv4 prefixes to be automatically assigned to the
    *             network interface. You cannot use this option if you use the <code>Ipv4Prefix</code> option.</p>
    */
   Ipv4PrefixCount?: number;
 
   /**
-   * <p>One or more IPv6 delegated prefixes to be assigned to the network interface. You cannot
+   * <p>One or more IPv6 prefixes to be assigned to the network interface. You cannot
    *             use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
    */
   Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[];
 
   /**
-   * <p>The number of IPv6 delegated prefixes to be automatically assigned to the network
+   * <p>The number of IPv6 prefixes to be automatically assigned to the network
    *             interface. You cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>
    */
   Ipv6PrefixCount?: number;
@@ -1077,9 +1088,14 @@ export interface RequestLaunchTemplateData {
   InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
 
   /**
-   * <p>The Base64-encoded user data to make available to the instance. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running Commands on Your Linux Instance
-   *                 at Launch</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding User Data</a> (Windows).</p>
+   * <p>The user data to make available to the instance. You must provide base64-encoded text.
+   *             User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running Commands on Your Linux Instance
+   *                 at Launch</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding User Data</a> (Windows).</p>
+   *
+   *         <p>If you are creating the launch template for use with Batch, the user data
+   *             must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive">
+   *                 MIME multi-part archive format</a>.  For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html">Amazon EC2 user data in
+   *                     launch templates</a> in the <i>Batch User Guide</i>.</p>
    */
   UserData?: string;
 
@@ -1822,6 +1838,13 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *         </note>
    */
   HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+   *         <p>Default: <code>disabled</code>
+   *          </p>
+   */
+  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
 }
 
 export namespace LaunchTemplateInstanceMetadataOptions {
@@ -1996,23 +2019,23 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
   NetworkCardIndex?: number;
 
   /**
-   * <p>One or more IPv4 delegated prefixes assigned to the network interface.</p>
+   * <p>One or more IPv4 prefixes assigned to the network interface.</p>
    */
   Ipv4Prefixes?: Ipv4PrefixSpecificationResponse[];
 
   /**
-   * <p>The number of IPv4 delegated prefixes that AWS automatically assigned to the
+   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigned to the
    *             network interface.</p>
    */
   Ipv4PrefixCount?: number;
 
   /**
-   * <p>One or more IPv6 delegated prefixes assigned to the network interface.</p>
+   * <p>One or more IPv6 prefixes assigned to the network interface.</p>
    */
   Ipv6Prefixes?: Ipv6PrefixSpecificationResponse[];
 
   /**
-   * <p>The number of IPv6 delegated prefixes that AWS automatically assigned to the network
+   * <p>The number of IPv6 prefixes that Amazon Web Services automatically assigned to the network
    *             interface.</p>
    */
   Ipv6PrefixCount?: number;
@@ -7772,12 +7795,6 @@ export namespace Volume {
 
 export interface CreateVpcRequest {
   /**
-   * <p>The IPv4 network range for the VPC, in CIDR notation. For example,
-   * 		        <code>10.0.0.0/16</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   */
-  CidrBlock: string | undefined;
-
-  /**
    * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
    *             You cannot specify the range of IP addresses, or the size of the CIDR block.</p>
    */
@@ -7824,6 +7841,12 @@ export interface CreateVpcRequest {
    * <p>The tags to assign to the VPC.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The IPv4 network range for the VPC, in CIDR notation. For example,
+   * 		        <code>10.0.0.0/16</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   */
+  CidrBlock: string | undefined;
 }
 
 export namespace CreateVpcRequest {
@@ -9653,22 +9676,6 @@ export namespace DeleteCarrierGatewayRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteCarrierGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteCarrierGatewayResult {
-  /**
-   * <p>Information about the carrier gateway.</p>
-   */
-  CarrierGateway?: CarrierGateway;
-}
-
-export namespace DeleteCarrierGatewayResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCarrierGatewayResult): any => ({
     ...obj,
   });
 }

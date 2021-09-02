@@ -21,7 +21,8 @@ export interface CreateTrailCommandInput extends CreateTrailRequest {}
 export interface CreateTrailCommandOutput extends CreateTrailResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. </p>
+ * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

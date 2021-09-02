@@ -27,11 +27,11 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>The Amazon QuickSight customizations associated with your Amazon Web Services account; or a QuickSight namespace in a specific Amazon Web Services Region;.</p>
+ * <p>The Amazon QuickSight customizations associated with your Amazon Web Services account or a Amazon QuickSight namespace in a specific Amazon Web Services Region;.</p>
  */
 export interface AccountCustomization {
   /**
-   * <p>The default theme for this QuickSight subscription.</p>
+   * <p>The default theme for this Amazon QuickSight subscription.</p>
    */
   DefaultTheme?: string;
 }
@@ -51,29 +51,29 @@ export enum Edition {
 }
 
 /**
- * <p>The QuickSight settings associated with your Amazon Web Services account;.</p>
+ * <p>The Amazon QuickSight settings associated with your Amazon Web Services account.</p>
  */
 export interface AccountSettings {
   /**
-   * <p>The "account name" you provided for the QuickSight subscription in your Amazon Web Services account;.
-   *             You create this name when you sign up for QuickSight. It is unique in all of Amazon Web Services and
+   * <p>The "account name" you provided for the Amazon QuickSight subscription in your Amazon Web Services account.
+   *             You create this name when you sign up for Amazon QuickSight. It is unique in all of Amazon Web Services and
    *             it appears only when users sign in.</p>
    */
   AccountName?: string;
 
   /**
-   * <p>The edition of QuickSight that you're currently subscribed to:
+   * <p>The edition of Amazon QuickSight that you're currently subscribed to:
    *         Enterprise edition or Standard edition.</p>
    */
   Edition?: Edition | string;
 
   /**
-   * <p>The default QuickSight namespace for your Amazon Web Services account;. </p>
+   * <p>The default Amazon QuickSight namespace for your Amazon Web Services account. </p>
    */
   DefaultNamespace?: string;
 
   /**
-   * <p>The main notification email for your QuickSight subscription.</p>
+   * <p>The main notification email for your Amazon QuickSight subscription.</p>
    */
   NotificationEmail?: string;
 }
@@ -92,7 +92,7 @@ export namespace AccountSettings {
  */
 export interface ActiveIAMPolicyAssignment {
   /**
-   * <p>A name for the IAM policy assignment.</p>
+   * <p>A name for the IAMpolicy assignment.</p>
    */
   AssignmentName?: string;
 
@@ -136,11 +136,11 @@ export namespace AdHocFilteringOption {
 }
 
 /**
- * <p>Amazon Elasticsearch Service parameters.</p>
+ * <p>The parameters for Elasticsearch.</p>
  */
 export interface AmazonElasticsearchParameters {
   /**
-   * <p>The Amazon Elasticsearch Service domain.</p>
+   * <p>The Elasticsearch domain.</p>
    */
   Domain: string | undefined;
 }
@@ -168,7 +168,7 @@ export enum AnalysisErrorType {
 }
 
 /**
- * <p>A metadata error structure for an analysis.</p>
+ * <p>Analysis error.</p>
  */
 export interface AnalysisError {
   /**
@@ -205,7 +205,7 @@ export interface Sheet {
   SheetId?: string;
 
   /**
-   * <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+   * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
    *             console.</p>
    */
   Name?: string;
@@ -417,7 +417,8 @@ export interface AnalysisSummary {
   AnalysisId?: string;
 
   /**
-   * <p>The name of the analysis. This name is displayed in the QuickSight console.</p>
+   * <p>The name of the analysis. This name is displayed in the Amazon QuickSight console.
+   *             </p>
    */
   Name?: string;
 
@@ -492,7 +493,7 @@ export enum AssignmentStatus {
 }
 
 /**
- * <p>Amazon Athena parameters.</p>
+ * <p>Parameters for Amazon Athena.</p>
  */
 export interface AthenaParameters {
   /**
@@ -511,7 +512,7 @@ export namespace AthenaParameters {
 }
 
 /**
- * <p>Amazon Aurora parameters.</p>
+ * <p>Parameters for Amazon Aurora.</p>
  */
 export interface AuroraParameters {
   /**
@@ -540,21 +541,21 @@ export namespace AuroraParameters {
 }
 
 /**
- * <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
+ * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
  */
 export interface AuroraPostgreSqlParameters {
   /**
-   * <p>Host.</p>
+   * <p>The Amazon Aurora PostgreSQL-Compatible host to connect to.</p>
    */
   Host: string | undefined;
 
   /**
-   * <p>Port.</p>
+   * <p>The port that Amazon Aurora PostgreSQL is listening on.</p>
    */
   Port: number | undefined;
 
   /**
-   * <p>Database.</p>
+   * <p>The Amazon Aurora PostgreSQL database to connect to.</p>
    */
   Database: string | undefined;
 }
@@ -569,7 +570,7 @@ export namespace AuroraPostgreSqlParameters {
 }
 
 /**
- * <p>Amazon Web Services IoT Analytics parameters.</p>
+ * <p>The parameters for IoT Analytics.</p>
  */
 export interface AwsIotAnalyticsParameters {
   /**
@@ -639,7 +640,7 @@ export namespace CalculatedColumn {
 
 export interface CancelIngestionRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -989,7 +990,7 @@ export namespace ColumnGroupSchema {
  */
 export interface ColumnLevelPermissionRule {
   /**
-   * <p>An array of Amazon Resource Names (ARNs) for QuickSight users or groups.</p>
+   * <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
    */
   Principals?: string[];
 
@@ -1073,6 +1074,11 @@ export namespace ColumnTag {
   });
 }
 
+export enum ColumnTagName {
+  COLUMN_DESCRIPTION = "COLUMN_DESCRIPTION",
+  COLUMN_GEOGRAPHIC_ROLE = "COLUMN_GEOGRAPHIC_ROLE",
+}
+
 /**
  * <p>A resource is already in a state that indicates an operation is happening that must complete
  * 			before a new update can be applied.</p>
@@ -1142,18 +1148,18 @@ export namespace Tag {
 
 export interface CreateAccountCustomizationRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that you want to customize QuickSight for.</p>
+   * <p>The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The QuickSight namespace that you want to add customizations to.</p>
+   * <p>The Amazon QuickSight namespace that you want to add customizations to.</p>
    */
   Namespace?: string;
 
   /**
-   * <p>The QuickSight customizations you're adding in the current Amazon Web Services Region;. You can add
-   *             these to an Amazon Web Services account; and a QuickSight namespace. </p>
+   * <p>The Amazon QuickSight customizations you're adding in the current Amazon Web Services Region;. You can add
+   *             these to an Amazon Web Services account and a Amazon QuickSight namespace. </p>
    *         <p>For example, you can add a default theme by setting <code>AccountCustomization</code>
    *             to the midnight theme: <code>"AccountCustomization": { "DefaultTheme":
    *                 "arn:aws:quicksight::aws:theme/MIDNIGHT" }</code>. Or, you can add a custom theme by
@@ -1180,12 +1186,12 @@ export namespace CreateAccountCustomizationRequest {
 
 export interface CreateAccountCustomizationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the customization that you created for this Amazon Web Services account;.</p>
+   * <p>The Amazon Resource Name (ARN) for the customization that you created for this Amazon Web Services account.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that you want to customize QuickSight for.</p>
+   * <p>The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for.</p>
    */
   AwsAccountId?: string;
 
@@ -1195,7 +1201,7 @@ export interface CreateAccountCustomizationResponse {
   Namespace?: string;
 
   /**
-   * <p>The QuickSight customizations you're adding in the current Amazon Web Services Region;. </p>
+   * <p>The Amazon QuickSight customizations you're adding in the current Amazon Web Services Region;. </p>
    */
   AccountCustomization?: AccountCustomization;
 
@@ -1343,26 +1349,26 @@ export namespace StringParameter {
 }
 
 /**
- * <p>A list of QuickSight parameters and the list's override values.</p>
+ * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
  */
 export interface _Parameters {
   /**
-   * <p>String parameters.</p>
+   * <p>The parameters that have a data type of string.</p>
    */
   StringParameters?: StringParameter[];
 
   /**
-   * <p>Integer parameters.</p>
+   * <p>The parameters that have a data type of integer.</p>
    */
   IntegerParameters?: IntegerParameter[];
 
   /**
-   * <p>Decimal parameters.</p>
+   * <p>The parameters that have a data type of decimal.</p>
    */
   DecimalParameters?: DecimalParameter[];
 
   /**
-   * <p>Date-time parameters.</p>
+   * <p>The parameters that have a data type of date-time.</p>
    */
   DateTimeParameters?: DateTimeParameter[];
 }
@@ -1391,7 +1397,7 @@ export interface ResourcePermission {
    *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
    *             </li>
    *             <li>
-   *                 <p>The ARN of an Amazon Web Services account; root: This is an IAM ARN rather than a QuickSight
+   *                 <p>The ARN of an Amazon Web Services account root: This is an IAMARN rather than a Amazon QuickSight
    *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
    *                     (This is less common.) </p>
    *             </li>
@@ -1400,7 +1406,7 @@ export interface ResourcePermission {
   Principal: string | undefined;
 
   /**
-   * <p>The IAM action to grant or revoke permissions on.</p>
+   * <p>The IAMaction to grant or revoke permissions on.</p>
    */
   Actions: string[] | undefined;
 }
@@ -1416,7 +1422,7 @@ export namespace ResourcePermission {
 
 export interface CreateAnalysisRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; where you are creating an analysis.</p>
+   * <p>The ID of the Amazon Web Services account where you are creating an analysis.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1428,7 +1434,7 @@ export interface CreateAnalysisRequest {
 
   /**
    * <p>A descriptive name for the analysis that you're creating. This name displays for the
-   *             analysis in the QuickSight console. </p>
+   *             analysis in the Amazon QuickSight console. </p>
    */
   Name: string | undefined;
 
@@ -1456,7 +1462,7 @@ export interface CreateAnalysisRequest {
 
   /**
    * <p>The ARN for the theme to apply to the analysis that you're creating. To see the theme
-   *             in the QuickSight console, make sure that you have access to it.</p>
+   *             in the Amazon QuickSight console, make sure that you have access to it.</p>
    */
   ThemeArn?: string;
 
@@ -1515,7 +1521,7 @@ export namespace CreateAnalysisResponse {
 /**
  * <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  */
 export interface UnsupportedUserEditionException extends __SmithyException, $MetadataBearer {
@@ -1674,12 +1680,12 @@ export namespace DashboardSourceEntity {
 
 export interface CreateDashboardRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; where you want to create the dashboard.</p>
+   * <p>The ID of the Amazon Web Services account where you want to create the dashboard.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dashboard, also added to the IAM policy.</p>
+   * <p>The ID for the dashboard, also added to the IAMpolicy.</p>
    */
   DashboardId: string | undefined;
 
@@ -1697,7 +1703,7 @@ export interface CreateDashboardRequest {
 
   /**
    * <p>A structure that contains the permissions of the dashboard. You can use this structure
-   *             for granting permissions by providing a list of IAM action information for each
+   *             for granting permissions by providing a list of IAMaction information for each
    *             principal ARN. </p>
    *
    *         <p>To specify no permissions, omit the permissions list.</p>
@@ -1711,8 +1717,8 @@ export interface CreateDashboardRequest {
    *             entity. If you need to create a dashboard from an analysis, first convert the analysis
    *             to a template by using the <a>CreateTemplate</a> API operation. For
    *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
-   *             template. The <code>SourceTemplate</code>ARN can contain any Amazon Web Services account; and any
-   *             QuickSight-supported Amazon Web Services Region;. </p>
+   *             template. The <code>SourceTemplate</code>ARN can contain any Amazon Web Services account and any
+   *             Amazon QuickSight-supported Amazon Web Services Region;. </p>
    *         <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
    *             list the replacement datasets for the placeholders listed in the original. The schema in
    *             each dataset must match its placeholder. </p>
@@ -1737,7 +1743,7 @@ export interface CreateDashboardRequest {
    *                 <p>
    *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
    *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, QuickSight disables the left filter pane on the
+   *                     set to <code>DISABLED</code>, Amazon QuickSight disables the left filter pane on the
    *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
    *                     option is <code>ENABLED</code> by default. </p>
    *             </li>
@@ -1761,7 +1767,7 @@ export interface CreateDashboardRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
    *             you add a value for this field, it overrides the value that is used in the source
-   *             entity. The theme ARN must exist in the same Amazon Web Services account; where you create the
+   *             entity. The theme ARN must exist in the same Amazon Web Services account where you create the
    *             dashboard.</p>
    */
   ThemeArn?: string;
@@ -1814,6 +1820,30 @@ export namespace CreateDashboardResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateDashboardResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+ */
+export interface DataSetUsageConfiguration {
+  /**
+   * <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
+   */
+  DisableUseAsDirectQuerySource?: boolean;
+
+  /**
+   * <p>An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.</p>
+   */
+  DisableUseAsImportedSource?: boolean;
+}
+
+export namespace DataSetUsageConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataSetUsageConfiguration): any => ({
     ...obj,
   });
 }
@@ -1939,6 +1969,30 @@ export namespace TagColumnOperation {
 }
 
 /**
+ * <p>A transform operation that removes tags associated with a column.</p>
+ */
+export interface UntagColumnOperation {
+  /**
+   * <p>The column that this operation acts on.</p>
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The column tags to remove from this column.</p>
+   */
+  TagNames: (ColumnTagName | string)[] | undefined;
+}
+
+export namespace UntagColumnOperation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagColumnOperation): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A data transformation on a logical table. This is a variant type structure. For this
  *             structure to be valid, only one of the attributes can be non-null.</p>
  */
@@ -1949,6 +2003,7 @@ export type TransformOperation =
   | TransformOperation.ProjectOperationMember
   | TransformOperation.RenameColumnOperationMember
   | TransformOperation.TagColumnOperationMember
+  | TransformOperation.UntagColumnOperationMember
   | TransformOperation.$UnknownMember;
 
 export namespace TransformOperation {
@@ -1963,6 +2018,7 @@ export namespace TransformOperation {
     RenameColumnOperation?: never;
     CastColumnTypeOperation?: never;
     TagColumnOperation?: never;
+    UntagColumnOperation?: never;
     $unknown?: never;
   }
 
@@ -1976,6 +2032,7 @@ export namespace TransformOperation {
     RenameColumnOperation?: never;
     CastColumnTypeOperation?: never;
     TagColumnOperation?: never;
+    UntagColumnOperation?: never;
     $unknown?: never;
   }
 
@@ -1990,6 +2047,7 @@ export namespace TransformOperation {
     RenameColumnOperation?: never;
     CastColumnTypeOperation?: never;
     TagColumnOperation?: never;
+    UntagColumnOperation?: never;
     $unknown?: never;
   }
 
@@ -2003,6 +2061,7 @@ export namespace TransformOperation {
     RenameColumnOperation: RenameColumnOperation;
     CastColumnTypeOperation?: never;
     TagColumnOperation?: never;
+    UntagColumnOperation?: never;
     $unknown?: never;
   }
 
@@ -2016,6 +2075,7 @@ export namespace TransformOperation {
     RenameColumnOperation?: never;
     CastColumnTypeOperation: CastColumnTypeOperation;
     TagColumnOperation?: never;
+    UntagColumnOperation?: never;
     $unknown?: never;
   }
 
@@ -2029,6 +2089,21 @@ export namespace TransformOperation {
     RenameColumnOperation?: never;
     CastColumnTypeOperation?: never;
     TagColumnOperation: TagColumnOperation;
+    UntagColumnOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A transform operation that removes tags associated with a column.</p>
+   */
+  export interface UntagColumnOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation: UntagColumnOperation;
     $unknown?: never;
   }
 
@@ -2039,6 +2114,7 @@ export namespace TransformOperation {
     RenameColumnOperation?: never;
     CastColumnTypeOperation?: never;
     TagColumnOperation?: never;
+    UntagColumnOperation?: never;
     $unknown: [string, any];
   }
 
@@ -2049,6 +2125,7 @@ export namespace TransformOperation {
     RenameColumnOperation: (value: RenameColumnOperation) => T;
     CastColumnTypeOperation: (value: CastColumnTypeOperation) => T;
     TagColumnOperation: (value: TagColumnOperation) => T;
+    UntagColumnOperation: (value: UntagColumnOperation) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2060,6 +2137,7 @@ export namespace TransformOperation {
     if (value.CastColumnTypeOperation !== undefined)
       return visitor.CastColumnTypeOperation(value.CastColumnTypeOperation);
     if (value.TagColumnOperation !== undefined) return visitor.TagColumnOperation(value.TagColumnOperation);
+    if (value.UntagColumnOperation !== undefined) return visitor.UntagColumnOperation(value.UntagColumnOperation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
@@ -2079,6 +2157,8 @@ export namespace TransformOperation {
       return { CastColumnTypeOperation: CastColumnTypeOperation.filterSensitiveLog(obj.CastColumnTypeOperation) };
     if (obj.TagColumnOperation !== undefined)
       return { TagColumnOperation: TagColumnOperation.filterSensitiveLog(obj.TagColumnOperation) };
+    if (obj.UntagColumnOperation !== undefined)
+      return { UntagColumnOperation: UntagColumnOperation.filterSensitiveLog(obj.UntagColumnOperation) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -2089,7 +2169,7 @@ export namespace TransformOperation {
 export interface JoinKeyProperties {
   /**
    * <p>A value that indicates that a row in a table is uniquely identified by the columns in
-   *             a join key. This is used by QuickSight to optimize query performance.</p>
+   *             a join key. This is used by Amazon QuickSight to optimize query performance.</p>
    */
   UniqueKey?: boolean;
 }
@@ -2168,6 +2248,11 @@ export interface LogicalTableSource {
    * <p>Physical table ID.</p>
    */
   PhysicalTableId?: string;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
+   */
+  DataSetArn?: string;
 }
 
 export namespace LogicalTableSource {
@@ -2391,7 +2476,7 @@ export interface S3Source {
   /**
    * <p>A physical table type for an S3 data source.</p>
    *         <note>
-   *             <p>For non-JSON files, only <code>STRING</code> data types are supported in input columns.</p>
+   *             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
    *         </note>
    */
   InputColumns: InputColumn[] | undefined;
@@ -2516,7 +2601,7 @@ export interface RowLevelPermissionDataSet {
   Arn: string | undefined;
 
   /**
-   * <p>The type of permissions to use when interpretting the permissions for RLS. <code>DENY_ACCESS</code>
+   * <p>The type of permissions to use when interpreting the permissions for RLS. <code>DENY_ACCESS</code>
    *         is included for backward compatibility only.</p>
    */
   PermissionPolicy: RowLevelPermissionPolicy | string | undefined;
@@ -2604,12 +2689,12 @@ export namespace RowLevelPermissionTagConfiguration {
 
 export interface CreateDataSetRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>An ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>An ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
 
@@ -2634,7 +2719,7 @@ export interface CreateDataSetRequest {
   ImportMode: DataSetImportMode | string | undefined;
 
   /**
-   * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+   * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    */
   ColumnGroups?: ColumnGroup[];
 
@@ -2669,6 +2754,11 @@ export interface CreateDataSetRequest {
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+   */
+  DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
 export namespace CreateDataSetRequest {
@@ -2710,7 +2800,7 @@ export interface CreateDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSetId?: string;
 
@@ -2774,7 +2864,7 @@ export namespace LimitExceededException {
 }
 
 /**
- * <p>Jira parameters.</p>
+ * <p>The parameters for Jira.</p>
  */
 export interface JiraParameters {
   /**
@@ -2793,7 +2883,7 @@ export namespace JiraParameters {
 }
 
 /**
- * <p>MariaDB parameters.</p>
+ * <p>The parameters for MariaDB.</p>
  */
 export interface MariaDbParameters {
   /**
@@ -2822,7 +2912,7 @@ export namespace MariaDbParameters {
 }
 
 /**
- * <p>MySQL parameters.</p>
+ * <p>The parameters for MySQL.</p>
  */
 export interface MySqlParameters {
   /**
@@ -2851,7 +2941,7 @@ export namespace MySqlParameters {
 }
 
 /**
- * <p>Oracle parameters.</p>
+ * <p>The parameters for Oracle.</p>
  */
 export interface OracleParameters {
   /**
@@ -2880,7 +2970,7 @@ export namespace OracleParameters {
 }
 
 /**
- * <p>PostgreSQL parameters.</p>
+ * <p>The parameters for PostgreSQL.</p>
  */
 export interface PostgreSqlParameters {
   /**
@@ -2909,7 +2999,7 @@ export namespace PostgreSqlParameters {
 }
 
 /**
- * <p>Presto parameters.</p>
+ * <p>The parameters for Presto.</p>
  */
 export interface PrestoParameters {
   /**
@@ -2938,7 +3028,7 @@ export namespace PrestoParameters {
 }
 
 /**
- * <p>Amazon RDS parameters.</p>
+ * <p>The parameters for Amazon RDS.</p>
  */
 export interface RdsParameters {
   /**
@@ -2962,7 +3052,7 @@ export namespace RdsParameters {
 }
 
 /**
- * <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
+ * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
  *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
  *             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
  */
@@ -3023,12 +3113,12 @@ export namespace ManifestFileLocation {
 }
 
 /**
- * <p>S3 parameters.</p>
+ * <p>The parameters for S3.</p>
  */
 export interface S3Parameters {
   /**
    * <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was
-   *             uploaded into QuickSight.</p>
+   *             uploaded into Amazon QuickSight.</p>
    */
   ManifestFileLocation: ManifestFileLocation | undefined;
 }
@@ -3043,7 +3133,7 @@ export namespace S3Parameters {
 }
 
 /**
- * <p>ServiceNow parameters.</p>
+ * <p>The parameters for ServiceNow.</p>
  */
 export interface ServiceNowParameters {
   /**
@@ -3062,7 +3152,7 @@ export namespace ServiceNowParameters {
 }
 
 /**
- * <p>Snowflake parameters.</p>
+ * <p>The parameters for Snowflake.</p>
  */
 export interface SnowflakeParameters {
   /**
@@ -3091,7 +3181,7 @@ export namespace SnowflakeParameters {
 }
 
 /**
- * <p>Spark parameters.</p>
+ * <p>The parameters for Spark.</p>
  */
 export interface SparkParameters {
   /**
@@ -3115,7 +3205,7 @@ export namespace SparkParameters {
 }
 
 /**
- * <p>SQL Server parameters.</p>
+ * <p>The parameters for SQL Server.</p>
  */
 export interface SqlServerParameters {
   /**
@@ -3144,7 +3234,7 @@ export namespace SqlServerParameters {
 }
 
 /**
- * <p>Teradata parameters.</p>
+ * <p>The parameters for Teradata.</p>
  */
 export interface TeradataParameters {
   /**
@@ -3173,7 +3263,7 @@ export namespace TeradataParameters {
 }
 
 /**
- * <p>Twitter parameters.</p>
+ * <p>The parameters for Twitter.</p>
  */
 export interface TwitterParameters {
   /**
@@ -3226,7 +3316,7 @@ export type DataSourceParameters =
 
 export namespace DataSourceParameters {
   /**
-   * <p>Amazon Elasticsearch Service parameters.</p>
+   * <p>The parameters for Elasticsearch.</p>
    */
   export interface AmazonElasticsearchParametersMember {
     AmazonElasticsearchParameters: AmazonElasticsearchParameters;
@@ -3253,7 +3343,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Amazon Athena parameters.</p>
+   * <p>The parameters for Amazon Athena.</p>
    */
   export interface AthenaParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3280,7 +3370,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Amazon Aurora MySQL parameters.</p>
+   * <p>The parameters for Amazon Aurora MySQL.</p>
    */
   export interface AuroraParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3307,7 +3397,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Aurora PostgreSQL parameters.</p>
+   * <p>The parameters for Amazon Aurora.</p>
    */
   export interface AuroraPostgreSqlParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3334,7 +3424,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Amazon Web Services IoT Analytics parameters.</p>
+   * <p>The parameters for IoT Analytics.</p>
    */
   export interface AwsIotAnalyticsParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3361,7 +3451,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Jira parameters.</p>
+   * <p>The parameters for Jira.</p>
    */
   export interface JiraParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3388,7 +3478,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>MariaDB parameters.</p>
+   * <p>The parameters for MariaDB.</p>
    */
   export interface MariaDbParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3415,7 +3505,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>MySQL parameters.</p>
+   * <p>The parameters for MySQL.</p>
    */
   export interface MySqlParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3442,7 +3532,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Oracle parameters.</p>
+   * <p>The parameters for Oracle.</p>
    */
   export interface OracleParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3469,7 +3559,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>PostgreSQL parameters.</p>
+   * <p>The parameters for PostgreSQL.</p>
    */
   export interface PostgreSqlParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3496,7 +3586,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Presto parameters.</p>
+   * <p>The parameters for Presto.</p>
    */
   export interface PrestoParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3523,7 +3613,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Amazon RDS parameters.</p>
+   * <p>The parameters for Amazon RDS.</p>
    */
   export interface RdsParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3550,7 +3640,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Amazon Redshift parameters.</p>
+   * <p>The parameters for Amazon Redshift.</p>
    */
   export interface RedshiftParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3577,7 +3667,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>S3 parameters.</p>
+   * <p>The parameters for S3.</p>
    */
   export interface S3ParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3604,7 +3694,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>ServiceNow parameters.</p>
+   * <p>The parameters for ServiceNow.</p>
    */
   export interface ServiceNowParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3631,7 +3721,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Snowflake parameters.</p>
+   * <p>The parameters for Snowflake.</p>
    */
   export interface SnowflakeParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3658,7 +3748,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Spark parameters.</p>
+   * <p>The parameters for Spark.</p>
    */
   export interface SparkParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3685,7 +3775,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>SQL Server parameters.</p>
+   * <p>The parameters for SQL Server.</p>
    */
   export interface SqlServerParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3712,7 +3802,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Teradata parameters.</p>
+   * <p>The parameters for Teradata.</p>
    */
   export interface TeradataParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3739,7 +3829,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>Twitter parameters.</p>
+   * <p>The parameters for Twitter.</p>
    */
   export interface TwitterParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3964,7 +4054,7 @@ export namespace DataSourceCredentials {
 }
 
 /**
- * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+ * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
  *             underlying data source.</p>
  */
 export interface SslProperties {
@@ -4030,12 +4120,12 @@ export namespace VpcConnectionProperties {
 
 export interface CreateDataSourceRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>An ID for the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;. </p>
+   * <p>An ID for the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account. </p>
    */
   DataSourceId: string | undefined;
 
@@ -4045,23 +4135,19 @@ export interface CreateDataSourceRequest {
   Name: string | undefined;
 
   /**
-   * <p>The type of the data source. Currently, the supported types for this operation are:
-   * 			<code>ATHENA, AURORA, AURORA_POSTGRESQL, AMAZON_ELASTICSEARCH, MARIADB, MYSQL, POSTGRESQL, PRESTO, REDSHIFT, S3,
-   * 			SNOWFLAKE, SPARK, SQLSERVER, TERADATA</code>.
-   * 			Use <code>ListDataSources</code> to return a
-   * 			list of all data sources.</p>
-   * 		       <p>
-   *             <code>AMAZON_ELASTICSEARCH</code> is for Amazon managed Elasticsearch Service.</p>
+   * <p>The type of the data source. To return a
+   * 			list of all data sources, use <code>ListDataSources</code>.</p>
+   * 		       <p>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon Elasticsearch Service.</p>
    */
   Type: DataSourceType | string | undefined;
 
   /**
-   * <p>The parameters that QuickSight uses to connect to your underlying source.</p>
+   * <p>The parameters that Amazon QuickSight uses to connect to your underlying source.</p>
    */
   DataSourceParameters?: DataSourceParameters;
 
   /**
-   * <p>The credentials QuickSight that uses to connect to your underlying source. Currently, only
+   * <p>The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only
    * 			credentials based on user name and password are supported.</p>
    */
   Credentials?: DataSourceCredentials;
@@ -4072,13 +4158,13 @@ export interface CreateDataSourceRequest {
   Permissions?: ResourcePermission[];
 
   /**
-   * <p>Use this parameter only when you want QuickSight to use a VPC connection when connecting to
+   * <p>Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to
    * 			your underlying source.</p>
    */
   VpcConnectionProperties?: VpcConnectionProperties;
 
   /**
-   * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying source.</p>
+   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.</p>
    */
   SslProperties?: SslProperties;
 
@@ -4108,7 +4194,7 @@ export interface CreateDataSourceResponse {
   Arn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSourceId?: string;
 
@@ -4323,8 +4409,8 @@ export interface CreateGroupRequest {
   Description?: string;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4441,8 +4527,8 @@ export interface CreateGroupMembershipRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4514,13 +4600,13 @@ export namespace CreateGroupMembershipResponse {
 
 export interface CreateIAMPolicyAssignmentRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; where you want to assign an IAM policy to QuickSight users or
+   * <p>The ID of the Amazon Web Services account where you want to assign an IAMpolicy to Amazon QuickSight users or
    * 			groups.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The name of the assignment, also called a rule. It must be unique within an Amazon Web Services account;.</p>
+   * <p>The name of the assignment, also called a rule. It must be unique within an Amazon Web Services account.</p>
    */
   AssignmentName: string | undefined;
 
@@ -4546,13 +4632,13 @@ export interface CreateIAMPolicyAssignmentRequest {
   AssignmentStatus: AssignmentStatus | string | undefined;
 
   /**
-   * <p>The ARN for the IAM policy to apply to the QuickSight users and groups
+   * <p>The ARN for the IAMpolicy to apply to the Amazon QuickSight users and groups
    * 			specified in this assignment.</p>
    */
   PolicyArn?: string;
 
   /**
-   * <p>The QuickSight users, groups, or both that you want to assign the policy to.</p>
+   * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy to.</p>
    */
   Identities?: { [key: string]: string[] };
 
@@ -4573,7 +4659,7 @@ export namespace CreateIAMPolicyAssignmentRequest {
 
 export interface CreateIAMPolicyAssignmentResponse {
   /**
-   * <p>The name of the assignment. This name must be unique within the Amazon Web Services account;.</p>
+   * <p>The name of the assignment. This name must be unique within the Amazon Web Services account.</p>
    */
   AssignmentName?: string;
 
@@ -4604,12 +4690,12 @@ export interface CreateIAMPolicyAssignmentResponse {
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
-   * <p>The ARN for the IAM policy that is applied to the QuickSight users and groups specified in this assignment.</p>
+   * <p>The ARN for the IAMpolicy that is applied to the Amazon QuickSight users and groups specified in this assignment.</p>
    */
   PolicyArn?: string;
 
   /**
-   * <p>The QuickSight users, groups, or both that the IAM policy is assigned to.</p>
+   * <p>The Amazon QuickSight users, groups, or both that the IAMpolicy is assigned to.</p>
    */
   Identities?: { [key: string]: string[] };
 
@@ -4645,7 +4731,7 @@ export interface CreateIngestionRequest {
   IngestionId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 }
@@ -4710,7 +4796,7 @@ export enum IdentityStore {
 
 export interface CreateNamespaceRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that you want to create the QuickSight namespace in.</p>
+   * <p>The ID for the Amazon Web Services account that you want to create the Amazon QuickSight namespace in.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4750,7 +4836,7 @@ export enum NamespaceStatus {
 
 export interface CreateNamespaceResponse {
   /**
-   * <p>The ARN of the QuickSight namespace you created. </p>
+   * <p>The ARN of the Amazon QuickSight namespace you created. </p>
    */
   Arn?: string;
 
@@ -4870,14 +4956,13 @@ export namespace TemplateSourceEntity {
 
 export interface CreateTemplateRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
    * <p>An ID for the template that you want to create. This template is unique per Amazon Web Services Region; in
-   * 			each Amazon Web Services account;.</p>
+   * 			each Amazon Web Services account.</p>
    */
   TemplateId: string | undefined;
 
@@ -4898,7 +4983,7 @@ export interface CreateTemplateRequest {
    * 			analysis. Both of these require an Amazon Resource Name (ARN). For
    * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
    * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any Amazon Web Services account; and any QuickSight-supported Amazon Web Services Region;. </p>
+   * 			ARN can contain any Amazon Web Services account and any Amazon QuickSight-supported Amazon Web Services Region;. </p>
    * 		       <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
    * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
    * 			in the original. The schema in each dataset must match its placeholder. </p>
@@ -4972,7 +5057,7 @@ export namespace CreateTemplateResponse {
 
 export interface CreateTemplateAliasRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the template that you creating an alias for.</p>
+   * <p>The ID of the Amazon Web Services account that contains the template that you creating an alias for.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -5337,13 +5422,13 @@ export namespace ThemeConfiguration {
 
 export interface CreateThemeRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; where you want to store the new theme. </p>
+   * <p>The ID of the Amazon Web Services account where you want to store the new theme. </p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>An ID for the theme that you want to create. The theme ID is unique per Amazon Web Services Region; in
-   * 			each Amazon Web Services account;.</p>
+   * <p>An ID for the theme that you want to create. The theme ID is unique per Amazon Web Services Region in
+   * 			each Amazon Web Services account.</p>
    */
   ThemeId: string | undefined;
 
@@ -5356,7 +5441,7 @@ export interface CreateThemeRequest {
    * <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
    * 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
    * 				<code>ListThemes</code> or choose <b>Themes</b> from
-   * 			within a QuickSight analysis. </p>
+   * 			within a Amazon QuickSight analysis. </p>
    */
   BaseThemeId: string | undefined;
 
@@ -5438,7 +5523,7 @@ export namespace CreateThemeResponse {
 
 export interface CreateThemeAliasRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the theme for the new theme alias.</p>
+   * <p>The ID of the Amazon Web Services account that contains the theme for the new theme alias.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -5918,6 +6003,11 @@ export interface DataSet {
    *             </code>.</p>
    */
   ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
+
+  /**
+   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+   */
+  DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
 export namespace DataSet {
@@ -6105,7 +6195,7 @@ export interface DataSource {
 
   /**
    * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each
-   *             Amazon Web Services account;.</p>
+   *             Amazon Web Services account.</p>
    */
   DataSourceId?: string;
 
@@ -6157,12 +6247,12 @@ export interface DataSource {
 
   /**
    * <p>The VPC connection information. You need to use this parameter only when you want
-   *             QuickSight to use a VPC connection when connecting to your underlying source.</p>
+   *             Amazon QuickSight to use a VPC connection when connecting to your underlying source.</p>
    */
   VpcConnectionProperties?: VpcConnectionProperties;
 
   /**
-   * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
    *             underlying source.</p>
    */
   SslProperties?: SslProperties;
@@ -6192,13 +6282,13 @@ export namespace DataSource {
 
 export interface DeleteAccountCustomizationRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that you want to delete QuickSight customizations from in
+   * <p>The ID for the Amazon Web Services account that you want to delete Amazon QuickSight customizations from in
    *             this Amazon Web Services Region;.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The QuickSight namespace that you're deleting the customizations from.</p>
+   * <p>The Amazon QuickSight namespace that you're deleting the customizations from.</p>
    */
   Namespace?: string;
 }
@@ -6235,7 +6325,7 @@ export namespace DeleteAccountCustomizationResponse {
 
 export interface DeleteAnalysisRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; where you want to delete an analysis.</p>
+   * <p>The ID of the Amazon Web Services account where you want to delete an analysis.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6245,7 +6335,7 @@ export interface DeleteAnalysisRequest {
   AnalysisId: string | undefined;
 
   /**
-   * <p>A value that specifies the number of days that QuickSight waits before it deletes the
+   * <p>A value that specifies the number of days that Amazon QuickSight waits before it deletes the
    *             analysis. You can't use this parameter with the <code>ForceDeleteWithoutRecovery</code>
    *             option in the same API call. The default value is 30.</p>
    */
@@ -6306,7 +6396,7 @@ export namespace DeleteAnalysisResponse {
 
 export interface DeleteDashboardRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the dashboard that you're
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
    *             deleting.</p>
    */
   AwsAccountId: string | undefined;
@@ -6365,12 +6455,12 @@ export namespace DeleteDashboardResponse {
 
 export interface DeleteDataSetRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
 }
@@ -6391,7 +6481,7 @@ export interface DeleteDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSetId?: string;
 
@@ -6417,12 +6507,12 @@ export namespace DeleteDataSetResponse {
 
 export interface DeleteDataSourceRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSourceId: string | undefined;
 }
@@ -6443,7 +6533,7 @@ export interface DeleteDataSourceResponse {
   Arn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSourceId?: string;
 
@@ -6579,8 +6669,8 @@ export interface DeleteGroupRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6632,8 +6722,8 @@ export interface DeleteGroupMembershipRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6675,7 +6765,7 @@ export namespace DeleteGroupMembershipResponse {
 
 export interface DeleteIAMPolicyAssignmentRequest {
   /**
-   * <p>The Amazon Web Services account; ID where you want to delete the IAM policy assignment.</p>
+   * <p>The Amazon Web Services account ID where you want to delete the IAMpolicy assignment.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6727,7 +6817,7 @@ export namespace DeleteIAMPolicyAssignmentResponse {
 
 export interface DeleteNamespaceRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that you want to delete the QuickSight namespace from.</p>
+   * <p>The ID for the Amazon Web Services account that you want to delete the Amazon QuickSight namespace from.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6769,7 +6859,7 @@ export namespace DeleteNamespaceResponse {
 
 export interface DeleteTemplateRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the template that you're deleting.</p>
+   * <p>The ID of the Amazon Web Services account that contains the template that you're deleting.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6828,7 +6918,7 @@ export namespace DeleteTemplateResponse {
 
 export interface DeleteTemplateAliasRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the item to delete.</p>
+   * <p>The ID of the Amazon Web Services account that contains the item to delete.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6893,7 +6983,7 @@ export namespace DeleteTemplateAliasResponse {
 
 export interface DeleteThemeRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the theme that you're deleting.</p>
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're deleting.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6953,7 +7043,7 @@ export namespace DeleteThemeResponse {
 
 export interface DeleteThemeAliasRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the theme alias to delete.</p>
+   * <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7020,8 +7110,8 @@ export interface DeleteUserRequest {
   UserName: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7071,8 +7161,8 @@ export interface DeleteUserByPrincipalIdRequest {
   PrincipalId: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7114,21 +7204,21 @@ export namespace DeleteUserByPrincipalIdResponse {
 
 export interface DescribeAccountCustomizationRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that you want to describe QuickSight customizations
+   * <p>The ID for the Amazon Web Services account that you want to describe Amazon QuickSight customizations
    *             for.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The QuickSight namespace that you want to describe QuickSight customizations
+   * <p>The Amazon QuickSight namespace that you want to describe Amazon QuickSight customizations
    *             for.</p>
    */
   Namespace?: string;
 
   /**
    * <p>The <code>Resolved</code> flag works with the other parameters to determine which view
-   *             of QuickSight customizations is returned. You can add this flag to your command to use
-   *             the same view that QuickSight uses to identify which customizations to apply to the
+   *             of Amazon QuickSight customizations is returned. You can add this flag to your command to use
+   *             the same view that Amazon QuickSight uses to identify which customizations to apply to the
    *             console. Omit this flag, or set it to <code>no-resolved</code>, to reveal customizations
    *             that are configured at different levels. </p>
    */
@@ -7146,22 +7236,22 @@ export namespace DescribeAccountCustomizationRequest {
 
 export interface DescribeAccountCustomizationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the customization that's associated with this Amazon Web Services account;.</p>
+   * <p>The Amazon Resource Name (ARN) of the customization that's associated with this Amazon Web Services account.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that you're describing.</p>
+   * <p>The ID for the Amazon Web Services account that you're describing.</p>
    */
   AwsAccountId?: string;
 
   /**
-   * <p>The QuickSight namespace that you're describing. </p>
+   * <p>The Amazon QuickSight namespace that you're describing. </p>
    */
   Namespace?: string;
 
   /**
-   * <p>The QuickSight customizations that exist in the current Amazon Web Services Region;. </p>
+   * <p>The Amazon QuickSight customizations that exist in the current Amazon Web Services Region;. </p>
    */
   AccountCustomization?: AccountCustomization;
 
@@ -7187,7 +7277,7 @@ export namespace DescribeAccountCustomizationResponse {
 
 export interface DescribeAccountSettingsRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that contains the settings that you want to list.</p>
+   * <p>The ID for the Amazon Web Services account that contains the settings that you want to list.</p>
    */
   AwsAccountId: string | undefined;
 }
@@ -7203,12 +7293,12 @@ export namespace DescribeAccountSettingsRequest {
 
 export interface DescribeAccountSettingsResponse {
   /**
-   * <p>The QuickSight settings for this Amazon Web Services account;. This information includes the edition of Amazon
-   *             QuickSight that you subscribed to (Standard or Enterprise) and the notification email for the
-   *             QuickSight subscription. In the QuickSight console, the QuickSight subscription is sometimes
-   *             referred to as a QuickSight "account" even though it's technically not an account
-   *             by itself. Instead, it's a subscription to the QuickSight service for your Amazon Web Services account;. The
-   *             edition that you subscribe to applies to QuickSight in every Amazon Web Services Region; where you use it.</p>
+   * <p>The Amazon QuickSight settings for this Amazon Web Services account. This information includes the edition of Amazon
+   *             Amazon QuickSight that you subscribed to (Standard or Enterprise) and the notification email for the
+   *             Amazon QuickSight subscription. In the Amazon QuickSight console, the Amazon QuickSight subscription is sometimes
+   *             referred to as a Amazon QuickSight "account" even though it's technically not an account
+   *             by itself. Instead, it's a subscription to the Amazon QuickSight service for your Amazon Web Services account. The
+   *             edition that you subscribe to applies to Amazon QuickSight in every Amazon Web Services Region; where you use it.</p>
    */
   AccountSettings?: AccountSettings;
 
@@ -7234,8 +7324,8 @@ export namespace DescribeAccountSettingsResponse {
 
 export interface DescribeAnalysisRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the analysis. You must be using the
-   *             Amazon Web Services account; that the analysis is in.</p>
+   * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
+   *             Amazon Web Services account that the analysis is in.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7284,8 +7374,8 @@ export namespace DescribeAnalysisResponse {
 
 export interface DescribeAnalysisPermissionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the analysis whose permissions you're
-   *             describing. You must be using the Amazon Web Services account; that the analysis is in.</p>
+   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
+   *             describing. You must be using the Amazon Web Services account that the analysis is in.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7345,7 +7435,7 @@ export namespace DescribeAnalysisPermissionsResponse {
 
 export interface DescribeDashboardRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the dashboard that you're
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
    *             describing.</p>
    */
   AwsAccountId: string | undefined;
@@ -7404,13 +7494,13 @@ export namespace DescribeDashboardResponse {
 
 export interface DescribeDashboardPermissionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the dashboard that you're describing
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're describing
    *             permissions for.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dashboard, also added to the IAM policy.</p>
+   * <p>The ID for the dashboard, also added to the IAMpolicy.</p>
    */
   DashboardId: string | undefined;
 }
@@ -7462,12 +7552,12 @@ export namespace DescribeDashboardPermissionsResponse {
 
 export interface DescribeDataSetRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
 }
@@ -7510,12 +7600,12 @@ export namespace DescribeDataSetResponse {
 
 export interface DescribeDataSetPermissionsRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
 }
@@ -7536,7 +7626,7 @@ export interface DescribeDataSetPermissionsResponse {
   DataSetArn?: string;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSetId?: string;
 
@@ -7567,12 +7657,12 @@ export namespace DescribeDataSetPermissionsResponse {
 
 export interface DescribeDataSourceRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSourceId: string | undefined;
 }
@@ -7615,12 +7705,12 @@ export namespace DescribeDataSourceResponse {
 
 export interface DescribeDataSourcePermissionsRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSourceId: string | undefined;
 }
@@ -7641,7 +7731,7 @@ export interface DescribeDataSourcePermissionsResponse {
   DataSourceArn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   DataSourceId?: string;
 
@@ -7888,8 +7978,8 @@ export interface DescribeGroupRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7936,7 +8026,7 @@ export namespace DescribeGroupResponse {
 
 export interface DescribeIAMPolicyAssignmentRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the assignment that you want to describe.</p>
+   * <p>The ID of the Amazon Web Services account that contains the assignment that you want to describe.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7965,7 +8055,7 @@ export namespace DescribeIAMPolicyAssignmentRequest {
  */
 export interface IAMPolicyAssignment {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId?: string;
 
@@ -7980,7 +8070,7 @@ export interface IAMPolicyAssignment {
   AssignmentName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the IAM policy.</p>
+   * <p>The Amazon Resource Name (ARN) for the IAMpolicy.</p>
    */
   PolicyArn?: string;
 
@@ -8006,7 +8096,7 @@ export namespace IAMPolicyAssignment {
 
 export interface DescribeIAMPolicyAssignmentResponse {
   /**
-   * <p>Information describing the IAM policy assignment.</p>
+   * <p>Information describing the IAMpolicy assignment.</p>
    */
   IAMPolicyAssignment?: IAMPolicyAssignment;
 
@@ -8054,7 +8144,7 @@ export namespace InvalidNextTokenException {
 
 export interface DescribeIngestionRequest {
   /**
-   * <p>The Amazon Web Services account; ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8303,7 +8393,7 @@ export namespace DescribeIngestionResponse {
 
 export interface DescribeNamespaceRequest {
   /**
-   * <p>The ID for the Amazon Web Services account; that contains the QuickSight namespace that you want to describe.</p>
+   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespace that you want to describe.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8426,7 +8516,7 @@ export namespace DescribeNamespaceResponse {
 
 export interface DescribeTemplateRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the template that you're describing.</p>
+   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8553,7 +8643,7 @@ export namespace TemplateVersion {
 }
 
 /**
- * <p>A template object. A <i>template</i> is an entity in QuickSight that
+ * <p>A template object. A <i>template</i> is an entity in Amazon QuickSight that
  *             encapsulates the metadata required to create an analysis and that you can use to create
  *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
  *             dataset associated with an analysis. You can use templates to create dashboards by
@@ -8579,7 +8669,7 @@ export interface Template {
   Version?: TemplateVersion;
 
   /**
-   * <p>The ID for the template. This is unique per Amazon Web Services Region; for each Amazon Web Services account;.</p>
+   * <p>The ID for the template. This is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
    */
   TemplateId?: string;
 
@@ -8631,7 +8721,7 @@ export namespace DescribeTemplateResponse {
 
 export interface DescribeTemplateAliasRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the template alias that you're
+   * <p>The ID of the Amazon Web Services account that contains the template alias that you're
    * 			describing.</p>
    */
   AwsAccountId: string | undefined;
@@ -8687,7 +8777,7 @@ export namespace DescribeTemplateAliasResponse {
 
 export interface DescribeTemplatePermissionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the template that you're describing.</p>
+   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8744,7 +8834,7 @@ export namespace DescribeTemplatePermissionsResponse {
 
 export interface DescribeThemeRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the theme that you're describing.</p>
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8832,7 +8922,7 @@ export interface ThemeVersion {
 
   /**
    * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-   *             themes initially inherit from a default QuickSight theme.</p>
+   *             themes initially inherit from a default Amazon QuickSight theme.</p>
    */
   BaseThemeId?: string;
 
@@ -8944,7 +9034,7 @@ export namespace DescribeThemeResponse {
 
 export interface DescribeThemeAliasRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the theme alias that you're
+   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're
    * 			describing.</p>
    */
   AwsAccountId: string | undefined;
@@ -8997,7 +9087,7 @@ export namespace DescribeThemeAliasResponse {
 
 export interface DescribeThemePermissionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account; that contains the theme that you're describing.</p>
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -9059,8 +9149,8 @@ export interface DescribeUserRequest {
   UserName: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account; that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -9127,7 +9217,7 @@ export interface User {
    *             <li>
    *                 <p>
    *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon
-   *                     QuickSight settings.</p>
+   *                     Amazon QuickSight settings.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -9167,7 +9257,7 @@ export interface User {
 
   /**
    * <p>The type of supported external login provider that provides identity to let the user
-   *             federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
+   *             federate into Amazon QuickSight with an associated IAMrole. The type can be one of the following.</p>
    *         <ul>
    *             <li>
    *                     <p>
@@ -9258,101 +9348,4 @@ export enum EmbeddingIdentityType {
 
 export enum FolderFilterAttribute {
   PARENT_FOLDER_ARN = "PARENT_FOLDER_ARN",
-}
-
-/**
- * <p>An object that consists of the member Amazon Resource Name (ARN) and member ID.</p>
- */
-export interface MemberIdArnPair {
-  /**
-   * <p>The ID of the member.</p>
-   */
-  MemberId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the member.</p>
-   */
-  MemberArn?: string;
-}
-
-export namespace MemberIdArnPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberIdArnPair): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Searches a folder by a filter.</p>
- */
-export interface FolderSearchFilter {
-  /**
-   * <p>The comparison operator that you want to use as a filter. For example, <code>"Operator": "StringEquals"</code>.</p>
-   */
-  Operator?: FilterOperator | string;
-
-  /**
-   * <p>The name of the value that you want to use as a filter. For example, <code>"Name": "PARENT_FOLDER_ARN"</code>.</p>
-   */
-  Name?: FolderFilterAttribute | string;
-
-  /**
-   * <p>The value of the named item (in this example, <code>PARENT_FOLDER_ARN</code>), that you want to use as a filter. For example, <code>"Value": "arn:aws:quicksight:us-east-1:1:folder/folderId"</code>.</p>
-   */
-  Value?: string;
-}
-
-export namespace FolderSearchFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FolderSearchFilter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A summary of the folder. </p>
- */
-export interface FolderSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN).</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The folder ID.</p>
-   */
-  FolderId?: string;
-
-  /**
-   * <p>The display name of the folder.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of folder.</p>
-   */
-  FolderType?: FolderType | string;
-
-  /**
-   * <p>The time that the folder was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The time that the folder was last updated.</p>
-   */
-  LastUpdatedTime?: Date;
-}
-
-export namespace FolderSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FolderSummary): any => ({
-    ...obj,
-  });
 }

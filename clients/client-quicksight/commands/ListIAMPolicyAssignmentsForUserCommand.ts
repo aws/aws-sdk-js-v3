@@ -23,7 +23,7 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for the IAM
+ * <p>Lists all the IAMpolicy assignments, including the Amazon Resource Names (ARNs) for the IAM
  * 			policies assigned to the specified user and group or groups that the user belongs
  * 			to.</p>
  * @example
