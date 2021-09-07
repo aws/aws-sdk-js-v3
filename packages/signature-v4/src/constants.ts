@@ -5,7 +5,6 @@ export const SIGNED_HEADERS_QUERY_PARAM = "X-Amz-SignedHeaders";
 export const EXPIRES_QUERY_PARAM = "X-Amz-Expires";
 export const SIGNATURE_QUERY_PARAM = "X-Amz-Signature";
 export const TOKEN_QUERY_PARAM = "X-Amz-Security-Token";
-export const REGION_SET_PARAM = "X-Amz-Region-Set";
 
 export const AUTH_HEADER = "authorization";
 export const AMZ_DATE_HEADER = AMZ_DATE_QUERY_PARAM.toLowerCase();
@@ -41,7 +40,6 @@ export const SEC_HEADER_PATTERN = /^sec-/;
 export const UNSIGNABLE_PATTERNS = [/^proxy-/i, /^sec-/i];
 
 export const ALGORITHM_IDENTIFIER = "AWS4-HMAC-SHA256";
-export const ALGORITHM_IDENTIFIER_V4A = "AWS4-ECDSA-P256-SHA256";
 
 export const EVENT_ALGORITHM_IDENTIFIER = "AWS4-HMAC-SHA256-PAYLOAD";
 

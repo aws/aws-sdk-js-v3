@@ -134,7 +134,6 @@ describe("bucketEndpointMiddleware", () => {
         clientSigningRegion: mockRegion,
         useArnRegion: false,
         isCustomEndpoint: false,
-        disableMultiregionAccessPoints: false,
       });
       expect(previouslyResolvedConfig.region).toBeCalled();
       expect(previouslyResolvedConfig.regionInfoProvider).toBeCalled();

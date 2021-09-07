@@ -1,9 +1,10 @@
-export const iso8601 = (time: number | string | Date): string =>
-  toDate(time)
+export function iso8601(time: number | string | Date): string {
+  return toDate(time)
     .toISOString()
     .replace(/\.\d{3}Z$/, "Z");
+}
 
-export const toDate = (time: number | string | Date): Date => {
+export function toDate(time: number | string | Date): Date {
   if (typeof time === "number") {
     return new Date(time * 1000);
   }
@@ -16,4 +17,4 @@ export const toDate = (time: number | string | Date): Date => {
   }
 
   return time;
-};
+}

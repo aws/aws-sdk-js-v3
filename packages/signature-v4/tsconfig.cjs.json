@@ -4,6 +4,7 @@
     "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/cjs",
+    "noUnusedLocals": true,
     "baseUrl": "."
   },
   "extends": "../../tsconfig.cjs.json",
