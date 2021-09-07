@@ -1,5 +1,5 @@
 import { memoize } from "@aws-sdk/property-provider";
-import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
+import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { Credentials, HashConstructor, Provider, RegionInfo, RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
 
 // 5 minutes buffer time the refresh the credential before it really expires
@@ -35,13 +35,6 @@ export interface AwsAuthInputConfig {
    * can be different to the region in the endpoint.
    */
   signingRegion?: string;
-
-  /**
-   * The injectable SigV4-compatible signer class constructor. If not supplied,
-   * regular SignatureV4 constructor will be used.
-   * @private
-   */
-  signerConstructor?: new (options: SignatureV4Init & SignatureV4CryptoInit) => RequestSigner;
 }
 
 export interface SigV4AuthInputConfig {
@@ -128,16 +121,13 @@ export const resolveAwsAuthConfig = <T>(
           //user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
           input.signingName = input.signingName || signingService || input.serviceId;
 
-          const params: SignatureV4Init & SignatureV4CryptoInit = {
-            ...input,
+          return new SignatureV4({
             credentials: normalizedCreds,
             region: input.signingRegion,
             service: input.signingName,
             sha256,
             uriEscapePath: signingEscapePath,
-          };
-          const signerConstructor = input.signerConstructor || SignatureV4;
-          return new signerConstructor(params);
+          });
         });
   }
 

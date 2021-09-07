@@ -37,9 +37,8 @@ import { createScope, getSigningKey } from "./credentialDerivation";
 import { getCanonicalHeaders } from "./getCanonicalHeaders";
 import { getCanonicalQuery } from "./getCanonicalQuery";
 import { getPayloadHash } from "./getPayloadHash";
-import { hasHeader } from "./headerUtil";
+import { hasHeader } from "./hasHeader";
 import { moveHeadersToQuery } from "./moveHeadersToQuery";
-import { normalizeCredentialsProvider, normalizeRegionProvider } from "./normalizeProvider";
 import { prepareRequest } from "./prepareRequest";
 import { iso8601 } from "./utilDate";
 
@@ -318,3 +317,21 @@ const formatDate = (now: DateInput): { longDate: string; shortDate: string } => 
 };
 
 const getCanonicalHeaderList = (headers: object): string => Object.keys(headers).sort().join(";");
+
+const normalizeRegionProvider = (region: string | Provider<string>): Provider<string> => {
+  if (typeof region === "string") {
+    const promisified = Promise.resolve(region);
+    return () => promisified;
+  } else {
+    return region;
+  }
+};
+
+const normalizeCredentialsProvider = (credentials: Credentials | Provider<Credentials>): Provider<Credentials> => {
+  if (typeof credentials === "object") {
+    const promisified = Promise.resolve(credentials);
+    return () => promisified;
+  } else {
+    return credentials;
+  }
+};

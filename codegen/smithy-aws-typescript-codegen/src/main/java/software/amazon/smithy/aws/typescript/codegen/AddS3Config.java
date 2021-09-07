@@ -87,10 +87,6 @@ public final class AddS3Config implements TypeScriptIntegration {
                     writer.write("false");
                 }, "useArnRegion", writer -> {
                     writer.write("false");
-                }, "signerConstructor", writer -> {
-                    writer.addDependency(AwsDependency.S3_MIDDLEWARE)
-                            .addImport("S3SignatureV4", "S3SignatureV4", AwsDependency.S3_MIDDLEWARE.packageName)
-                            .write("S3SignatureV4");
                 });
             case NODE:
                 return MapUtils.of("useArnRegion", writer -> {

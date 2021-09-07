@@ -3,13 +3,13 @@ import { HeaderBag, HttpRequest } from "@aws-sdk/types";
 import { ALWAYS_UNSIGNABLE_HEADERS, PROXY_HEADER_PATTERN, SEC_HEADER_PATTERN } from "./constants";
 
 /**
- * @private
+ * @internal
  */
-export const getCanonicalHeaders = (
+export function getCanonicalHeaders(
   { headers }: HttpRequest,
   unsignableHeaders?: Set<string>,
   signableHeaders?: Set<string>
-): HeaderBag => {
+): HeaderBag {
   const canonical: HeaderBag = {};
   for (const headerName of Object.keys(headers).sort()) {
     const canonicalHeaderName = headerName.toLowerCase();
@@ -28,4 +28,4 @@ export const getCanonicalHeaders = (
   }
 
   return canonical;
-};
+}

@@ -13,8 +13,9 @@ const cacheQueue: Array<string> = [];
  * @param region    The AWS region in which the service resides.
  * @param service   The service to which the signed request is being sent.
  */
-export const createScope = (shortDate: string, region: string, service: string): string =>
-  `${shortDate}/${region}/${service}/${KEY_TYPE_IDENTIFIER}`;
+export function createScope(shortDate: string, region: string, service: string): string {
+  return `${shortDate}/${region}/${service}/${KEY_TYPE_IDENTIFIER}`;
+}
 
 /**
  * Derive a signing key from its composite parts
@@ -56,15 +57,15 @@ export const getSigningKey = async (
 /**
  * @internal
  */
-export const clearCredentialCache = (): void => {
+export function clearCredentialCache(): void {
   cacheQueue.length = 0;
   Object.keys(signingKeyCache).forEach((cacheKey) => {
     delete signingKeyCache[cacheKey];
   });
-};
+}
 
-const hmac = (ctor: HashConstructor, secret: SourceData, data: SourceData): Promise<Uint8Array> => {
+function hmac(ctor: HashConstructor, secret: SourceData, data: SourceData): Promise<Uint8Array> {
   const hash = new ctor(secret);
   hash.update(data);
   return hash.digest();
-};
+}
