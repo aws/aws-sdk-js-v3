@@ -327,13 +327,6 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        if (!testCase.getId().matches("^RestJsonBody\\w+MalformedValueRejected.*")) {
-            //TODO: trailing characters in untyped contexts not rejected yet
-            if (testCase.hasTag("trailing_chars") || testCase.hasTag("hex")) {
-                return true;
-            }
-        }
-
         //TODO: request serialization does not verify that the request is an object
         if (testCase.hasTag("technically_valid_json_body")) {
             return true;
