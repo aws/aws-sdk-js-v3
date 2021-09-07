@@ -51,9 +51,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1518,7 +1520,7 @@ const deserializeAws_restJson1LexiconAttributes = (output: any, context: __Serde
     LanguageCode: __expectString(output.LanguageCode),
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
-        ? new Date(Math.round(output.LastModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
         : undefined,
     LexemesCount: __expectInt32(output.LexemesCount),
     LexiconArn: __expectString(output.LexiconArn),
@@ -1576,7 +1578,7 @@ const deserializeAws_restJson1SynthesisTask = (output: any, context: __SerdeCont
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Engine: __expectString(output.Engine),
     LanguageCode: __expectString(output.LanguageCode),

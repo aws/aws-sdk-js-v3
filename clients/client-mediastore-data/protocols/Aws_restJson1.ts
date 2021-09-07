@@ -14,9 +14,12 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc7231DateTime as __parseRfc7231DateTime,
   strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
 import {
@@ -297,7 +300,7 @@ export const deserializeAws_restJson1DescribeObjectCommand = async (
     contents.CacheControl = output.headers["cache-control"];
   }
   if (output.headers["last-modified"] !== undefined) {
-    contents.LastModified = new Date(output.headers["last-modified"]);
+    contents.LastModified = __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"]));
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -390,7 +393,7 @@ export const deserializeAws_restJson1GetObjectCommand = async (
     contents.ETag = output.headers["etag"];
   }
   if (output.headers["last-modified"] !== undefined) {
-    contents.LastModified = new Date(output.headers["last-modified"]);
+    contents.LastModified = __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"]));
   }
   const data: any = output.body;
   contents.Body = data;
@@ -674,7 +677,7 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
     ETag: __expectString(output.ETag),
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
-        ? new Date(Math.round(output.LastModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
         : undefined,
     Name: __expectString(output.Name),
     Type: __expectString(output.Type),

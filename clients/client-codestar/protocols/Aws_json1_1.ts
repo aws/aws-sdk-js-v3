@@ -90,7 +90,13 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectBoolean as __expectBoolean, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectBoolean as __expectBoolean,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2184,13 +2190,13 @@ const deserializeAws_json1_1CreateUserProfileResult = (
   return {
     createdTimestamp:
       output.createdTimestamp !== undefined && output.createdTimestamp !== null
-        ? new Date(Math.round(output.createdTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
         : undefined,
     displayName: __expectString(output.displayName),
     emailAddress: __expectString(output.emailAddress),
     lastModifiedTimestamp:
       output.lastModifiedTimestamp !== undefined && output.lastModifiedTimestamp !== null
-        ? new Date(Math.round(output.lastModifiedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
         : undefined,
     sshPublicKey: __expectString(output.sshPublicKey),
     userArn: __expectString(output.userArn),
@@ -2219,7 +2225,7 @@ const deserializeAws_json1_1DescribeProjectResult = (output: any, context: __Ser
     clientRequestToken: __expectString(output.clientRequestToken),
     createdTimeStamp:
       output.createdTimeStamp !== undefined && output.createdTimeStamp !== null
-        ? new Date(Math.round(output.createdTimeStamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimeStamp)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
@@ -2240,13 +2246,13 @@ const deserializeAws_json1_1DescribeUserProfileResult = (
   return {
     createdTimestamp:
       output.createdTimestamp !== undefined && output.createdTimestamp !== null
-        ? new Date(Math.round(output.createdTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
         : undefined,
     displayName: __expectString(output.displayName),
     emailAddress: __expectString(output.emailAddress),
     lastModifiedTimestamp:
       output.lastModifiedTimestamp !== undefined && output.lastModifiedTimestamp !== null
-        ? new Date(Math.round(output.lastModifiedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
         : undefined,
     sshPublicKey: __expectString(output.sshPublicKey),
     userArn: __expectString(output.userArn),
@@ -2492,13 +2498,13 @@ const deserializeAws_json1_1UpdateUserProfileResult = (
   return {
     createdTimestamp:
       output.createdTimestamp !== undefined && output.createdTimestamp !== null
-        ? new Date(Math.round(output.createdTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
         : undefined,
     displayName: __expectString(output.displayName),
     emailAddress: __expectString(output.emailAddress),
     lastModifiedTimestamp:
       output.lastModifiedTimestamp !== undefined && output.lastModifiedTimestamp !== null
-        ? new Date(Math.round(output.lastModifiedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
         : undefined,
     sshPublicKey: __expectString(output.sshPublicKey),
     userArn: __expectString(output.userArn),

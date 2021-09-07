@@ -209,10 +209,12 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -8466,7 +8468,7 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
     BillingTagsSource: __expectString(output.billingTagsSource),
     CreatedAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     CurrentPhase: __expectString(output.currentPhase),
     ErrorCode: __expectInt32(output.errorCode),
@@ -8585,7 +8587,7 @@ const deserializeAws_restJson1JobTemplate = (output: any, context: __SerdeContex
     Category: __expectString(output.category),
     CreatedAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     Description: __expectString(output.description),
     HopDestinations:
@@ -8594,7 +8596,7 @@ const deserializeAws_restJson1JobTemplate = (output: any, context: __SerdeContex
         : undefined,
     LastUpdated:
       output.lastUpdated !== undefined && output.lastUpdated !== null
-        ? new Date(Math.round(output.lastUpdated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     Name: __expectString(output.name),
     Priority: __expectInt32(output.priority),
@@ -9189,12 +9191,12 @@ const deserializeAws_restJson1Preset = (output: any, context: __SerdeContext): P
     Category: __expectString(output.category),
     CreatedAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     Description: __expectString(output.description),
     LastUpdated:
       output.lastUpdated !== undefined && output.lastUpdated !== null
-        ? new Date(Math.round(output.lastUpdated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     Name: __expectString(output.name),
     Settings:
@@ -9249,12 +9251,12 @@ const deserializeAws_restJson1Queue = (output: any, context: __SerdeContext): Qu
     Arn: __expectString(output.arn),
     CreatedAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     Description: __expectString(output.description),
     LastUpdated:
       output.lastUpdated !== undefined && output.lastUpdated !== null
-        ? new Date(Math.round(output.lastUpdated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     Name: __expectString(output.name),
     PricingPlan: __expectString(output.pricingPlan),
@@ -9275,7 +9277,7 @@ const deserializeAws_restJson1QueueTransition = (output: any, context: __SerdeCo
     SourceQueue: __expectString(output.sourceQueue),
     Timestamp:
       output.timestamp !== undefined && output.timestamp !== null
-        ? new Date(Math.round(output.timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp)))
         : undefined,
   } as any;
 };
@@ -9305,11 +9307,11 @@ const deserializeAws_restJson1ReservationPlan = (output: any, context: __SerdeCo
     Commitment: __expectString(output.commitment),
     ExpiresAt:
       output.expiresAt !== undefined && output.expiresAt !== null
-        ? new Date(Math.round(output.expiresAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiresAt)))
         : undefined,
     PurchasedAt:
       output.purchasedAt !== undefined && output.purchasedAt !== null
-        ? new Date(Math.round(output.purchasedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.purchasedAt)))
         : undefined,
     RenewalType: __expectString(output.renewalType),
     ReservedSlots: __expectInt32(output.reservedSlots),
@@ -9473,15 +9475,15 @@ const deserializeAws_restJson1Timing = (output: any, context: __SerdeContext): T
   return {
     FinishTime:
       output.finishTime !== undefined && output.finishTime !== null
-        ? new Date(Math.round(output.finishTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.finishTime)))
         : undefined,
     StartTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     SubmitTime:
       output.submitTime !== undefined && output.submitTime !== null
-        ? new Date(Math.round(output.submitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.submitTime)))
         : undefined,
   } as any;
 };

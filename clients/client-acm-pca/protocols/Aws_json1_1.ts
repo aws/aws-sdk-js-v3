@@ -143,7 +143,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3297,26 +3300,26 @@ const deserializeAws_json1_1CertificateAuthority = (output: any, context: __Serd
         : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     KeyStorageSecurityStandard: __expectString(output.KeyStorageSecurityStandard),
     LastStateChangeAt:
       output.LastStateChangeAt !== undefined && output.LastStateChangeAt !== null
-        ? new Date(Math.round(output.LastStateChangeAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastStateChangeAt)))
         : undefined,
     NotAfter:
       output.NotAfter !== undefined && output.NotAfter !== null
-        ? new Date(Math.round(output.NotAfter * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter)))
         : undefined,
     NotBefore:
       output.NotBefore !== undefined && output.NotBefore !== null
-        ? new Date(Math.round(output.NotBefore * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore)))
         : undefined,
     OwnerAccount: __expectString(output.OwnerAccount),
     RestorableUntil:
       output.RestorableUntil !== undefined && output.RestorableUntil !== null
-        ? new Date(Math.round(output.RestorableUntil * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RestorableUntil)))
         : undefined,
     RevocationConfiguration:
       output.RevocationConfiguration !== undefined && output.RevocationConfiguration !== null
@@ -3414,7 +3417,7 @@ const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse = (
     AuditReportStatus: __expectString(output.AuditReportStatus),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     S3BucketName: __expectString(output.S3BucketName),
     S3Key: __expectString(output.S3Key),
@@ -3654,7 +3657,7 @@ const deserializeAws_json1_1Permission = (output: any, context: __SerdeContext):
     CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Policy: __expectString(output.Policy),
     Principal: __expectString(output.Principal),

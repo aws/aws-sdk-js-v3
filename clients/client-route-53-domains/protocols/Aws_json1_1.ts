@@ -159,8 +159,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3023,7 +3026,7 @@ const deserializeAws_json1_1BillingRecord = (output: any, context: __SerdeContex
   return {
     BillDate:
       output.BillDate !== undefined && output.BillDate !== null
-        ? new Date(Math.round(output.BillDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.BillDate)))
         : undefined,
     DomainName: __expectString(output.DomainName),
     InvoiceId: __expectString(output.InvoiceId),
@@ -3158,7 +3161,9 @@ const deserializeAws_json1_1DomainSummary = (output: any, context: __SerdeContex
     AutoRenew: __expectBoolean(output.AutoRenew),
     DomainName: __expectString(output.DomainName),
     Expiry:
-      output.Expiry !== undefined && output.Expiry !== null ? new Date(Math.round(output.Expiry * 1000)) : undefined,
+      output.Expiry !== undefined && output.Expiry !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiry)))
+        : undefined,
     TransferLock: __expectBoolean(output.TransferLock),
   } as any;
 };
@@ -3245,13 +3250,13 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
     AutoRenew: __expectBoolean(output.AutoRenew),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DnsSec: __expectString(output.DnsSec),
     DomainName: __expectString(output.DomainName),
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
-        ? new Date(Math.round(output.ExpirationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationDate)))
         : undefined,
     Nameservers:
       output.Nameservers !== undefined && output.Nameservers !== null
@@ -3277,7 +3282,7 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
     TechPrivacy: __expectBoolean(output.TechPrivacy),
     UpdatedDate:
       output.UpdatedDate !== undefined && output.UpdatedDate !== null
-        ? new Date(Math.round(output.UpdatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedDate)))
         : undefined,
     WhoIsServer: __expectString(output.WhoIsServer),
   } as any;
@@ -3306,7 +3311,7 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
     Status: __expectString(output.Status),
     SubmittedDate:
       output.SubmittedDate !== undefined && output.SubmittedDate !== null
-        ? new Date(Math.round(output.SubmittedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedDate)))
         : undefined,
     Type: __expectString(output.Type),
   } as any;
@@ -3394,7 +3399,7 @@ const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeCon
     Status: __expectString(output.Status),
     SubmittedDate:
       output.SubmittedDate !== undefined && output.SubmittedDate !== null
-        ? new Date(Math.round(output.SubmittedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedDate)))
         : undefined,
     Type: __expectString(output.Type),
   } as any;

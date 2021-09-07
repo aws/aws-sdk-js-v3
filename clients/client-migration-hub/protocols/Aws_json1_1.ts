@@ -118,7 +118,13 @@ import {
   UnauthorizedOperation,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2697,7 +2703,7 @@ const deserializeAws_json1_1ApplicationState = (output: any, context: __SerdeCon
     ApplicationStatus: __expectString(output.ApplicationStatus),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
   } as any;
 };
@@ -2767,7 +2773,7 @@ const deserializeAws_json1_1DescribeApplicationStateResult = (
     ApplicationStatus: __expectString(output.ApplicationStatus),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
   } as any;
 };
@@ -2941,7 +2947,7 @@ const deserializeAws_json1_1MigrationTask = (output: any, context: __SerdeContex
       output.Task !== undefined && output.Task !== null ? deserializeAws_json1_1Task(output.Task, context) : undefined,
     UpdateDateTime:
       output.UpdateDateTime !== undefined && output.UpdateDateTime !== null
-        ? new Date(Math.round(output.UpdateDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDateTime)))
         : undefined,
   } as any;
 };
@@ -2955,7 +2961,7 @@ const deserializeAws_json1_1MigrationTaskSummary = (output: any, context: __Serd
     StatusDetail: __expectString(output.StatusDetail),
     UpdateDateTime:
       output.UpdateDateTime !== undefined && output.UpdateDateTime !== null
-        ? new Date(Math.round(output.UpdateDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDateTime)))
         : undefined,
   } as any;
 };

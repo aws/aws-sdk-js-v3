@@ -35,9 +35,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -329,7 +331,7 @@ export const deserializeAws_restJson1GetReportDefinitionCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.destinationS3Location !== undefined && data.destinationS3Location !== null) {
     contents.destinationS3Location = deserializeAws_restJson1S3Location(data.destinationS3Location, context);
@@ -338,7 +340,7 @@ export const deserializeAws_restJson1GetReportDefinitionCommand = async (
     contents.format = __expectString(data.format);
   }
   if (data.lastUpdated !== undefined && data.lastUpdated !== null) {
-    contents.lastUpdated = new Date(Math.round(data.lastUpdated * 1000));
+    contents.lastUpdated = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdated)));
   }
   if (data.reportDescription !== undefined && data.reportDescription !== null) {
     contents.reportDescription = __expectString(data.reportDescription);
@@ -845,7 +847,7 @@ const deserializeAws_restJson1ReportDefinition = (output: any, context: __SerdeC
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     destinationS3Location:
       output.destinationS3Location !== undefined && output.destinationS3Location !== null
@@ -854,7 +856,7 @@ const deserializeAws_restJson1ReportDefinition = (output: any, context: __SerdeC
     format: __expectString(output.format),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     reportDescription: __expectString(output.reportDescription),
     reportFrequency: __expectString(output.reportFrequency),

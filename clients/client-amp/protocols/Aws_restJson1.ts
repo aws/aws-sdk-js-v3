@@ -22,9 +22,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
@@ -845,7 +847,7 @@ const deserializeAws_restJson1WorkspaceDescription = (output: any, context: __Se
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     prometheusEndpoint: __expectString(output.prometheusEndpoint),
     status:
@@ -868,7 +870,7 @@ const deserializeAws_restJson1WorkspaceSummary = (output: any, context: __SerdeC
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     status:
       output.status !== undefined && output.status !== null

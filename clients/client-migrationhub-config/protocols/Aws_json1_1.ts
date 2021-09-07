@@ -24,7 +24,13 @@ import {
   ThrottlingException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -515,7 +521,7 @@ const deserializeAws_json1_1HomeRegionControl = (output: any, context: __SerdeCo
     HomeRegion: __expectString(output.HomeRegion),
     RequestedTime:
       output.RequestedTime !== undefined && output.RequestedTime !== null
-        ? new Date(Math.round(output.RequestedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestedTime)))
         : undefined,
     Target:
       output.Target !== undefined && output.Target !== null

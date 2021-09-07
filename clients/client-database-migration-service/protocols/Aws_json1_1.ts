@@ -366,7 +366,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6874,7 +6877,7 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
     CertificateArn: __expectString(output.CertificateArn),
     CertificateCreationDate:
       output.CertificateCreationDate !== undefined && output.CertificateCreationDate !== null
-        ? new Date(Math.round(output.CertificateCreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CertificateCreationDate)))
         : undefined,
     CertificateIdentifier: __expectString(output.CertificateIdentifier),
     CertificateOwner: __expectString(output.CertificateOwner),
@@ -6887,11 +6890,11 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
     SigningAlgorithm: __expectString(output.SigningAlgorithm),
     ValidFromDate:
       output.ValidFromDate !== undefined && output.ValidFromDate !== null
-        ? new Date(Math.round(output.ValidFromDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ValidFromDate)))
         : undefined,
     ValidToDate:
       output.ValidToDate !== undefined && output.ValidToDate !== null
-        ? new Date(Math.round(output.ValidToDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ValidToDate)))
         : undefined,
   } as any;
 };
@@ -7541,7 +7544,10 @@ const deserializeAws_json1_1EndpointSettingsList = (output: any, context: __Serd
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
-    Date: output.Date !== undefined && output.Date !== null ? new Date(Math.round(output.Date * 1000)) : undefined,
+    Date:
+      output.Date !== undefined && output.Date !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Date)))
+        : undefined,
     EventCategories:
       output.EventCategories !== undefined && output.EventCategories !== null
         ? deserializeAws_json1_1EventCategoriesList(output.EventCategories, context)
@@ -8034,16 +8040,16 @@ const deserializeAws_json1_1PendingMaintenanceAction = (
     Action: __expectString(output.Action),
     AutoAppliedAfterDate:
       output.AutoAppliedAfterDate !== undefined && output.AutoAppliedAfterDate !== null
-        ? new Date(Math.round(output.AutoAppliedAfterDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AutoAppliedAfterDate)))
         : undefined,
     CurrentApplyDate:
       output.CurrentApplyDate !== undefined && output.CurrentApplyDate !== null
-        ? new Date(Math.round(output.CurrentApplyDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CurrentApplyDate)))
         : undefined,
     Description: __expectString(output.Description),
     ForcedApplyDate:
       output.ForcedApplyDate !== undefined && output.ForcedApplyDate !== null
-        ? new Date(Math.round(output.ForcedApplyDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ForcedApplyDate)))
         : undefined,
     OptInStatus: __expectString(output.OptInStatus),
   } as any;
@@ -8174,7 +8180,7 @@ const deserializeAws_json1_1RefreshSchemasStatus = (output: any, context: __Serd
     LastFailureMessage: __expectString(output.LastFailureMessage),
     LastRefreshDate:
       output.LastRefreshDate !== undefined && output.LastRefreshDate !== null
-        ? new Date(Math.round(output.LastRefreshDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRefreshDate)))
         : undefined,
     ReplicationInstanceArn: __expectString(output.ReplicationInstanceArn),
     Status: __expectString(output.Status),
@@ -8203,11 +8209,11 @@ const deserializeAws_json1_1ReplicationInstance = (output: any, context: __Serde
     EngineVersion: __expectString(output.EngineVersion),
     FreeUntil:
       output.FreeUntil !== undefined && output.FreeUntil !== null
-        ? new Date(Math.round(output.FreeUntil * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FreeUntil)))
         : undefined,
     InstanceCreateTime:
       output.InstanceCreateTime !== undefined && output.InstanceCreateTime !== null
-        ? new Date(Math.round(output.InstanceCreateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InstanceCreateTime)))
         : undefined,
     KmsKeyId: __expectString(output.KmsKeyId),
     MultiAZ: __expectBoolean(output.MultiAZ),
@@ -8373,13 +8379,13 @@ const deserializeAws_json1_1ReplicationTask = (output: any, context: __SerdeCont
     ReplicationTaskArn: __expectString(output.ReplicationTaskArn),
     ReplicationTaskCreationDate:
       output.ReplicationTaskCreationDate !== undefined && output.ReplicationTaskCreationDate !== null
-        ? new Date(Math.round(output.ReplicationTaskCreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplicationTaskCreationDate)))
         : undefined,
     ReplicationTaskIdentifier: __expectString(output.ReplicationTaskIdentifier),
     ReplicationTaskSettings: __expectString(output.ReplicationTaskSettings),
     ReplicationTaskStartDate:
       output.ReplicationTaskStartDate !== undefined && output.ReplicationTaskStartDate !== null
-        ? new Date(Math.round(output.ReplicationTaskStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplicationTaskStartDate)))
         : undefined,
     ReplicationTaskStats:
       output.ReplicationTaskStats !== undefined && output.ReplicationTaskStats !== null
@@ -8407,7 +8413,7 @@ const deserializeAws_json1_1ReplicationTaskAssessmentResult = (
     ReplicationTaskIdentifier: __expectString(output.ReplicationTaskIdentifier),
     ReplicationTaskLastAssessmentDate:
       output.ReplicationTaskLastAssessmentDate !== undefined && output.ReplicationTaskLastAssessmentDate !== null
-        ? new Date(Math.round(output.ReplicationTaskLastAssessmentDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplicationTaskLastAssessmentDate)))
         : undefined,
     S3ObjectUrl: __expectString(output.S3ObjectUrl),
   } as any;
@@ -8443,7 +8449,7 @@ const deserializeAws_json1_1ReplicationTaskAssessmentRun = (
     ReplicationTaskAssessmentRunCreationDate:
       output.ReplicationTaskAssessmentRunCreationDate !== undefined &&
       output.ReplicationTaskAssessmentRunCreationDate !== null
-        ? new Date(Math.round(output.ReplicationTaskAssessmentRunCreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplicationTaskAssessmentRunCreationDate)))
         : undefined,
     ResultEncryptionMode: __expectString(output.ResultEncryptionMode),
     ResultKmsKeyArn: __expectString(output.ResultKmsKeyArn),
@@ -8489,7 +8495,7 @@ const deserializeAws_json1_1ReplicationTaskIndividualAssessment = (
     ReplicationTaskIndividualAssessmentStartDate:
       output.ReplicationTaskIndividualAssessmentStartDate !== undefined &&
       output.ReplicationTaskIndividualAssessmentStartDate !== null
-        ? new Date(Math.round(output.ReplicationTaskIndividualAssessmentStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplicationTaskIndividualAssessmentStartDate)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -8525,24 +8531,24 @@ const deserializeAws_json1_1ReplicationTaskStats = (output: any, context: __Serd
     ElapsedTimeMillis: __expectLong(output.ElapsedTimeMillis),
     FreshStartDate:
       output.FreshStartDate !== undefined && output.FreshStartDate !== null
-        ? new Date(Math.round(output.FreshStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FreshStartDate)))
         : undefined,
     FullLoadFinishDate:
       output.FullLoadFinishDate !== undefined && output.FullLoadFinishDate !== null
-        ? new Date(Math.round(output.FullLoadFinishDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FullLoadFinishDate)))
         : undefined,
     FullLoadProgressPercent: __expectInt32(output.FullLoadProgressPercent),
     FullLoadStartDate:
       output.FullLoadStartDate !== undefined && output.FullLoadStartDate !== null
-        ? new Date(Math.round(output.FullLoadStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FullLoadStartDate)))
         : undefined,
     StartDate:
       output.StartDate !== undefined && output.StartDate !== null
-        ? new Date(Math.round(output.StartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDate)))
         : undefined,
     StopDate:
       output.StopDate !== undefined && output.StopDate !== null
-        ? new Date(Math.round(output.StopDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopDate)))
         : undefined,
     TablesErrored: __expectInt32(output.TablesErrored),
     TablesLoaded: __expectInt32(output.TablesLoaded),
@@ -8810,19 +8816,19 @@ const deserializeAws_json1_1TableStatistics = (output: any, context: __SerdeCont
     FullLoadCondtnlChkFailedRows: __expectLong(output.FullLoadCondtnlChkFailedRows),
     FullLoadEndTime:
       output.FullLoadEndTime !== undefined && output.FullLoadEndTime !== null
-        ? new Date(Math.round(output.FullLoadEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FullLoadEndTime)))
         : undefined,
     FullLoadErrorRows: __expectLong(output.FullLoadErrorRows),
     FullLoadReloaded: __expectBoolean(output.FullLoadReloaded),
     FullLoadRows: __expectLong(output.FullLoadRows),
     FullLoadStartTime:
       output.FullLoadStartTime !== undefined && output.FullLoadStartTime !== null
-        ? new Date(Math.round(output.FullLoadStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FullLoadStartTime)))
         : undefined,
     Inserts: __expectLong(output.Inserts),
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     SchemaName: __expectString(output.SchemaName),
     TableName: __expectString(output.TableName),

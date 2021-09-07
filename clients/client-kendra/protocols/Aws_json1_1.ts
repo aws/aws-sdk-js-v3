@@ -287,8 +287,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -7819,7 +7822,7 @@ const deserializeAws_json1_1DataSourceSummary = (output: any, context: __SerdeCo
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
@@ -7827,7 +7830,7 @@ const deserializeAws_json1_1DataSourceSummary = (output: any, context: __SerdeCo
     Type: __expectString(output.Type),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -7847,7 +7850,9 @@ const deserializeAws_json1_1DataSourceSyncJob = (output: any, context: __SerdeCo
   return {
     DataSourceErrorCode: __expectString(output.DataSourceErrorCode),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     ErrorCode: __expectString(output.ErrorCode),
     ErrorMessage: __expectString(output.ErrorMessage),
     ExecutionId: __expectString(output.ExecutionId),
@@ -7857,7 +7862,7 @@ const deserializeAws_json1_1DataSourceSyncJob = (output: any, context: __SerdeCo
         : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -7942,7 +7947,7 @@ const deserializeAws_json1_1DescribeDataSourceResponse = (
         : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     ErrorMessage: __expectString(output.ErrorMessage),
@@ -7955,7 +7960,7 @@ const deserializeAws_json1_1DescribeDataSourceResponse = (
     Type: __expectString(output.Type),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -7964,7 +7969,7 @@ const deserializeAws_json1_1DescribeFaqResponse = (output: any, context: __Serde
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     ErrorMessage: __expectString(output.ErrorMessage),
@@ -7980,7 +7985,7 @@ const deserializeAws_json1_1DescribeFaqResponse = (output: any, context: __Serde
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -7993,7 +7998,7 @@ const deserializeAws_json1_1DescribeIndexResponse = (output: any, context: __Ser
         : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     DocumentMetadataConfigurations:
@@ -8016,7 +8021,7 @@ const deserializeAws_json1_1DescribeIndexResponse = (output: any, context: __Ser
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
     UserContextPolicy: __expectString(output.UserContextPolicy),
     UserTokenConfigurations:
@@ -8048,7 +8053,7 @@ const deserializeAws_json1_1DescribeQuerySuggestionsBlockListResponse = (
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     ErrorMessage: __expectString(output.ErrorMessage),
@@ -8065,7 +8070,7 @@ const deserializeAws_json1_1DescribeQuerySuggestionsBlockListResponse = (
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -8078,11 +8083,11 @@ const deserializeAws_json1_1DescribeQuerySuggestionsConfigResponse = (
     IncludeQueriesWithoutUserInformation: __expectBoolean(output.IncludeQueriesWithoutUserInformation),
     LastClearTime:
       output.LastClearTime !== undefined && output.LastClearTime !== null
-        ? new Date(Math.round(output.LastClearTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastClearTime)))
         : undefined,
     LastSuggestionsBuildTime:
       output.LastSuggestionsBuildTime !== undefined && output.LastSuggestionsBuildTime !== null
-        ? new Date(Math.round(output.LastSuggestionsBuildTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuggestionsBuildTime)))
         : undefined,
     MinimumNumberOfQueryingUsers: __expectInt32(output.MinimumNumberOfQueryingUsers),
     MinimumQueryCount: __expectInt32(output.MinimumQueryCount),
@@ -8100,7 +8105,7 @@ const deserializeAws_json1_1DescribeThesaurusResponse = (
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     ErrorMessage: __expectString(output.ErrorMessage),
@@ -8118,7 +8123,7 @@ const deserializeAws_json1_1DescribeThesaurusResponse = (
     TermCount: __expectLong(output.TermCount),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -8158,7 +8163,7 @@ const deserializeAws_json1_1DocumentAttributeStringListValue = (output: any, con
 const deserializeAws_json1_1DocumentAttributeValue = (output: any, context: __SerdeContext): DocumentAttributeValue => {
   if (output.DateValue !== undefined && output.DateValue !== null) {
     return {
-      DateValue: new Date(Math.round(output.DateValue * 1000)),
+      DateValue: __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateValue))),
     };
   }
   if (__expectLong(output.LongValue) !== undefined) {
@@ -8319,7 +8324,7 @@ const deserializeAws_json1_1FaqSummary = (output: any, context: __SerdeContext):
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     FileFormat: __expectString(output.FileFormat),
     Id: __expectString(output.Id),
@@ -8327,7 +8332,7 @@ const deserializeAws_json1_1FaqSummary = (output: any, context: __SerdeContext):
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -8408,12 +8413,12 @@ const deserializeAws_json1_1GroupOrderingIdSummary = (output: any, context: __Se
     FailureReason: __expectString(output.FailureReason),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     OrderingId: __expectLong(output.OrderingId),
     ReceivedAt:
       output.ReceivedAt !== undefined && output.ReceivedAt !== null
-        ? new Date(Math.round(output.ReceivedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReceivedAt)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -8453,7 +8458,7 @@ const deserializeAws_json1_1IndexConfigurationSummary = (
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Edition: __expectString(output.Edition),
     Id: __expectString(output.Id),
@@ -8461,7 +8466,7 @@ const deserializeAws_json1_1IndexConfigurationSummary = (
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -8751,7 +8756,7 @@ const deserializeAws_json1_1QuerySuggestionsBlockListSummary = (
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Id: __expectString(output.Id),
     ItemCount: __expectInt32(output.ItemCount),
@@ -8759,7 +8764,7 @@ const deserializeAws_json1_1QuerySuggestionsBlockListSummary = (
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -9398,14 +9403,14 @@ const deserializeAws_json1_1ThesaurusSummary = (output: any, context: __SerdeCon
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };

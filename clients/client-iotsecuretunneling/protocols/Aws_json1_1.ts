@@ -33,7 +33,13 @@ import {
   UntagResourceResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -657,7 +663,7 @@ const deserializeAws_json1_1ConnectionState = (output: any, context: __SerdeCont
   return {
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -771,7 +777,7 @@ const deserializeAws_json1_1Tunnel = (output: any, context: __SerdeContext): Tun
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     destinationConfig:
@@ -784,7 +790,7 @@ const deserializeAws_json1_1Tunnel = (output: any, context: __SerdeContext): Tun
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     sourceConnectionState:
       output.sourceConnectionState !== undefined && output.sourceConnectionState !== null
@@ -808,12 +814,12 @@ const deserializeAws_json1_1TunnelSummary = (output: any, context: __SerdeContex
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     status: __expectString(output.status),
     tunnelArn: __expectString(output.tunnelArn),

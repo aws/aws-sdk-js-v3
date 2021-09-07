@@ -276,7 +276,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5338,7 +5341,7 @@ const deserializeAws_json1_1ActionExecution = (output: any, context: __SerdeCont
     externalExecutionUrl: __expectString(output.externalExecutionUrl),
     lastStatusChange:
       output.lastStatusChange !== undefined && output.lastStatusChange !== null
-        ? new Date(Math.round(output.lastStatusChange * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStatusChange)))
         : undefined,
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
     percentComplete: __expectInt32(output.percentComplete),
@@ -5358,7 +5361,7 @@ const deserializeAws_json1_1ActionExecutionDetail = (output: any, context: __Ser
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     output:
       output.output !== undefined && output.output !== null
@@ -5369,7 +5372,7 @@ const deserializeAws_json1_1ActionExecutionDetail = (output: any, context: __Ser
     stageName: __expectString(output.stageName),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -5450,7 +5453,9 @@ const deserializeAws_json1_1ActionNotFoundException = (
 const deserializeAws_json1_1ActionRevision = (output: any, context: __SerdeContext): ActionRevision => {
   return {
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     revisionChangeId: __expectString(output.revisionChangeId),
     revisionId: __expectString(output.revisionId),
   } as any;
@@ -5734,7 +5739,9 @@ const deserializeAws_json1_1ArtifactLocation = (output: any, context: __SerdeCon
 const deserializeAws_json1_1ArtifactRevision = (output: any, context: __SerdeContext): ArtifactRevision => {
   return {
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     name: __expectString(output.name),
     revisionChangeIdentifier: __expectString(output.revisionChangeIdentifier),
     revisionId: __expectString(output.revisionId),
@@ -5939,7 +5946,9 @@ const deserializeAws_json1_1GetPipelineOutput = (output: any, context: __SerdeCo
 const deserializeAws_json1_1GetPipelineStateOutput = (output: any, context: __SerdeContext): GetPipelineStateOutput => {
   return {
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     pipelineName: __expectString(output.pipelineName),
     pipelineVersion: __expectInt32(output.pipelineVersion),
     stageStates:
@@ -5947,7 +5956,9 @@ const deserializeAws_json1_1GetPipelineStateOutput = (output: any, context: __Se
         ? deserializeAws_json1_1StageStateList(output.stageStates, context)
         : undefined,
     updated:
-      output.updated !== undefined && output.updated !== null ? new Date(Math.round(output.updated * 1000)) : undefined,
+      output.updated !== undefined && output.updated !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updated)))
+        : undefined,
   } as any;
 };
 
@@ -6269,7 +6280,7 @@ const deserializeAws_json1_1ListWebhookItem = (output: any, context: __SerdeCont
     errorMessage: __expectString(output.errorMessage),
     lastTriggered:
       output.lastTriggered !== undefined && output.lastTriggered !== null
-        ? new Date(Math.round(output.lastTriggered * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastTriggered)))
         : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
@@ -6411,7 +6422,7 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
   return {
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     pipelineExecutionId: __expectString(output.pipelineExecutionId),
     sourceRevisions:
@@ -6420,7 +6431,7 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
         : undefined,
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     status: __expectString(output.status),
     stopTrigger:
@@ -6462,10 +6473,14 @@ const deserializeAws_json1_1PipelineList = (output: any, context: __SerdeContext
 const deserializeAws_json1_1PipelineMetadata = (output: any, context: __SerdeContext): PipelineMetadata => {
   return {
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     pipelineArn: __expectString(output.pipelineArn),
     updated:
-      output.updated !== undefined && output.updated !== null ? new Date(Math.round(output.updated * 1000)) : undefined,
+      output.updated !== undefined && output.updated !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updated)))
+        : undefined,
   } as any;
 };
 
@@ -6504,10 +6519,14 @@ const deserializeAws_json1_1PipelineStageDeclarationList = (
 const deserializeAws_json1_1PipelineSummary = (output: any, context: __SerdeContext): PipelineSummary => {
   return {
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     name: __expectString(output.name),
     updated:
-      output.updated !== undefined && output.updated !== null ? new Date(Math.round(output.updated * 1000)) : undefined,
+      output.updated !== undefined && output.updated !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updated)))
+        : undefined,
     version: __expectInt32(output.version),
   } as any;
 };
@@ -6581,7 +6600,7 @@ const deserializeAws_json1_1PutApprovalResultOutput = (
   return {
     approvedAt:
       output.approvedAt !== undefined && output.approvedAt !== null
-        ? new Date(Math.round(output.approvedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.approvedAt)))
         : undefined,
   } as any;
 };
@@ -6899,7 +6918,7 @@ const deserializeAws_json1_1TransitionState = (output: any, context: __SerdeCont
     enabled: __expectBoolean(output.enabled),
     lastChangedAt:
       output.lastChangedAt !== undefined && output.lastChangedAt !== null
-        ? new Date(Math.round(output.lastChangedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastChangedAt)))
         : undefined,
     lastChangedBy: __expectString(output.lastChangedBy),
   } as any;

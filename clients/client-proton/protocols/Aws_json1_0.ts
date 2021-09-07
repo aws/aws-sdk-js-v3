@@ -282,7 +282,12 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -6414,7 +6419,7 @@ const deserializeAws_json1_0Environment = (output: any, context: __SerdeContext)
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
@@ -6423,11 +6428,11 @@ const deserializeAws_json1_0Environment = (output: any, context: __SerdeContext)
     environmentAccountId: __expectString(output.environmentAccountId),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
-        ? new Date(Math.round(output.lastDeploymentAttemptedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
       output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
-        ? new Date(Math.round(output.lastDeploymentSucceededAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     name: __expectString(output.name),
     protonServiceRoleArn: __expectString(output.protonServiceRoleArn),
@@ -6450,12 +6455,12 @@ const deserializeAws_json1_0EnvironmentAccountConnection = (
     id: __expectString(output.id),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     managementAccountId: __expectString(output.managementAccountId),
     requestedAt:
       output.requestedAt !== undefined && output.requestedAt !== null
-        ? new Date(Math.round(output.requestedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedAt)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     status: __expectString(output.status),
@@ -6473,12 +6478,12 @@ const deserializeAws_json1_0EnvironmentAccountConnectionSummary = (
     id: __expectString(output.id),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     managementAccountId: __expectString(output.managementAccountId),
     requestedAt:
       output.requestedAt !== undefined && output.requestedAt !== null
-        ? new Date(Math.round(output.requestedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedAt)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     status: __expectString(output.status),
@@ -6504,7 +6509,7 @@ const deserializeAws_json1_0EnvironmentSummary = (output: any, context: __SerdeC
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
@@ -6513,11 +6518,11 @@ const deserializeAws_json1_0EnvironmentSummary = (output: any, context: __SerdeC
     environmentAccountId: __expectString(output.environmentAccountId),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
-        ? new Date(Math.round(output.lastDeploymentAttemptedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
       output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
-        ? new Date(Math.round(output.lastDeploymentSucceededAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     name: __expectString(output.name),
     protonServiceRoleArn: __expectString(output.protonServiceRoleArn),
@@ -6544,14 +6549,14 @@ const deserializeAws_json1_0EnvironmentTemplate = (output: any, context: __Serde
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     displayName: __expectString(output.displayName),
     encryptionKey: __expectString(output.encryptionKey),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
     provisioning: __expectString(output.provisioning),
@@ -6567,13 +6572,13 @@ const deserializeAws_json1_0EnvironmentTemplateSummary = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     displayName: __expectString(output.displayName),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
     provisioning: __expectString(output.provisioning),
@@ -6603,12 +6608,12 @@ const deserializeAws_json1_0EnvironmentTemplateVersion = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     majorVersion: __expectString(output.majorVersion),
     minorVersion: __expectString(output.minorVersion),
@@ -6628,12 +6633,12 @@ const deserializeAws_json1_0EnvironmentTemplateVersionSummary = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     majorVersion: __expectString(output.majorVersion),
     minorVersion: __expectString(output.minorVersion),
@@ -6907,12 +6912,12 @@ const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Se
     branchName: __expectString(output.branchName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
     pipeline:
@@ -6933,18 +6938,18 @@ const deserializeAws_json1_0ServiceInstance = (output: any, context: __SerdeCont
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     environmentName: __expectString(output.environmentName),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
-        ? new Date(Math.round(output.lastDeploymentAttemptedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
       output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
-        ? new Date(Math.round(output.lastDeploymentSucceededAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     name: __expectString(output.name),
     serviceName: __expectString(output.serviceName),
@@ -6960,18 +6965,18 @@ const deserializeAws_json1_0ServiceInstanceSummary = (output: any, context: __Se
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     environmentName: __expectString(output.environmentName),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
-        ? new Date(Math.round(output.lastDeploymentAttemptedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
       output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
-        ? new Date(Math.round(output.lastDeploymentSucceededAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     name: __expectString(output.name),
     serviceName: __expectString(output.serviceName),
@@ -7000,17 +7005,17 @@ const deserializeAws_json1_0ServicePipeline = (output: any, context: __SerdeCont
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
-        ? new Date(Math.round(output.lastDeploymentAttemptedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
       output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
-        ? new Date(Math.round(output.lastDeploymentSucceededAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     spec: __expectString(output.spec),
     templateMajorVersion: __expectString(output.templateMajorVersion),
@@ -7033,12 +7038,12 @@ const deserializeAws_json1_0ServiceSummary = (output: any, context: __SerdeConte
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -7063,14 +7068,14 @@ const deserializeAws_json1_0ServiceTemplate = (output: any, context: __SerdeCont
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     displayName: __expectString(output.displayName),
     encryptionKey: __expectString(output.encryptionKey),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
     pipelineProvisioning: __expectString(output.pipelineProvisioning),
@@ -7083,13 +7088,13 @@ const deserializeAws_json1_0ServiceTemplateSummary = (output: any, context: __Se
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     displayName: __expectString(output.displayName),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
     pipelineProvisioning: __expectString(output.pipelineProvisioning),
@@ -7120,12 +7125,12 @@ const deserializeAws_json1_0ServiceTemplateVersion = (output: any, context: __Se
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     majorVersion: __expectString(output.majorVersion),
     minorVersion: __expectString(output.minorVersion),
@@ -7145,12 +7150,12 @@ const deserializeAws_json1_0ServiceTemplateVersionSummary = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
-        ? new Date(Math.round(output.lastModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     majorVersion: __expectString(output.majorVersion),
     minorVersion: __expectString(output.minorVersion),

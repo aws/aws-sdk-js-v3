@@ -178,11 +178,13 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -4582,7 +4584,7 @@ const deserializeAws_queryAlarmHistoryItem = (output: any, context: __SerdeConte
     contents.AlarmType = __expectString(output["AlarmType"]);
   }
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
   }
   if (output["HistoryItemType"] !== undefined) {
     contents.HistoryItemType = __expectString(output["HistoryItemType"]);
@@ -4731,7 +4733,9 @@ const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext
     contents.AlarmArn = __expectString(output["AlarmArn"]);
   }
   if (output["AlarmConfigurationUpdatedTimestamp"] !== undefined) {
-    contents.AlarmConfigurationUpdatedTimestamp = new Date(output["AlarmConfigurationUpdatedTimestamp"]);
+    contents.AlarmConfigurationUpdatedTimestamp = __expectNonNull(
+      __parseRfc3339DateTime(output["AlarmConfigurationUpdatedTimestamp"])
+    );
   }
   if (output["AlarmDescription"] !== undefined) {
     contents.AlarmDescription = __expectString(output["AlarmDescription"]);
@@ -4767,7 +4771,7 @@ const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext
     contents.StateReasonData = __expectString(output["StateReasonData"]);
   }
   if (output["StateUpdatedTimestamp"] !== undefined) {
-    contents.StateUpdatedTimestamp = new Date(output["StateUpdatedTimestamp"]);
+    contents.StateUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["StateUpdatedTimestamp"]));
   }
   if (output["StateValue"] !== undefined) {
     contents.StateValue = __expectString(output["StateValue"]);
@@ -4824,7 +4828,7 @@ const deserializeAws_queryDashboardEntry = (output: any, context: __SerdeContext
     contents.DashboardArn = __expectString(output["DashboardArn"]);
   }
   if (output["LastModified"] !== undefined) {
-    contents.LastModified = new Date(output["LastModified"]);
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
   }
   if (output["Size"] !== undefined) {
     contents.Size = __strictParseLong(output["Size"]) as number;
@@ -4911,7 +4915,7 @@ const deserializeAws_queryDatapoint = (output: any, context: __SerdeContext): Da
     ExtendedStatistics: undefined,
   };
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
   }
   if (output["SampleCount"] !== undefined) {
     contents.SampleCount = __strictParseFloat(output["SampleCount"]) as number;
@@ -5367,10 +5371,10 @@ const deserializeAws_queryGetMetricStreamOutput = (output: any, context: __Serde
     contents.State = __expectString(output["State"]);
   }
   if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = new Date(output["CreationDate"]);
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(output["CreationDate"]));
   }
   if (output["LastUpdateDate"] !== undefined) {
-    contents.LastUpdateDate = new Date(output["LastUpdateDate"]);
+    contents.LastUpdateDate = __expectNonNull(__parseRfc3339DateTime(output["LastUpdateDate"]));
   }
   if (output["OutputFormat"] !== undefined) {
     contents.OutputFormat = __expectString(output["OutputFormat"]);
@@ -5452,7 +5456,7 @@ const deserializeAws_queryInsightRuleContributorDatapoint = (
     ApproximateValue: undefined,
   };
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
   }
   if (output["ApproximateValue"] !== undefined) {
     contents.ApproximateValue = __strictParseFloat(output["ApproximateValue"]) as number;
@@ -5525,7 +5529,7 @@ const deserializeAws_queryInsightRuleMetricDatapoint = (
     Maximum: undefined,
   };
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
   }
   if (output["UniqueContributors"] !== undefined) {
     contents.UniqueContributors = __strictParseFloat(output["UniqueContributors"]) as number;
@@ -5803,7 +5807,9 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
     contents.AlarmDescription = __expectString(output["AlarmDescription"]);
   }
   if (output["AlarmConfigurationUpdatedTimestamp"] !== undefined) {
-    contents.AlarmConfigurationUpdatedTimestamp = new Date(output["AlarmConfigurationUpdatedTimestamp"]);
+    contents.AlarmConfigurationUpdatedTimestamp = __expectNonNull(
+      __parseRfc3339DateTime(output["AlarmConfigurationUpdatedTimestamp"])
+    );
   }
   if (output["ActionsEnabled"] !== undefined) {
     contents.ActionsEnabled = __parseBoolean(output["ActionsEnabled"]);
@@ -5845,7 +5851,7 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
     contents.StateReasonData = __expectString(output["StateReasonData"]);
   }
   if (output["StateUpdatedTimestamp"] !== undefined) {
-    contents.StateUpdatedTimestamp = new Date(output["StateUpdatedTimestamp"]);
+    contents.StateUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["StateUpdatedTimestamp"]));
   }
   if (output["MetricName"] !== undefined) {
     contents.MetricName = __expectString(output["MetricName"]);
@@ -6088,10 +6094,10 @@ const deserializeAws_queryMetricStreamEntry = (output: any, context: __SerdeCont
     contents.Arn = __expectString(output["Arn"]);
   }
   if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = new Date(output["CreationDate"]);
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(output["CreationDate"]));
   }
   if (output["LastUpdateDate"] !== undefined) {
-    contents.LastUpdateDate = new Date(output["LastUpdateDate"]);
+    contents.LastUpdateDate = __expectNonNull(__parseRfc3339DateTime(output["LastUpdateDate"]));
   }
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -6212,10 +6218,10 @@ const deserializeAws_queryRange = (output: any, context: __SerdeContext): Range 
     EndTime: undefined,
   };
   if (output["StartTime"] !== undefined) {
-    contents.StartTime = new Date(output["StartTime"]);
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["StartTime"]));
   }
   if (output["EndTime"] !== undefined) {
-    contents.EndTime = new Date(output["EndTime"]);
+    contents.EndTime = __expectNonNull(__parseRfc3339DateTime(output["EndTime"]));
   }
   return contents;
 };
@@ -6312,7 +6318,7 @@ const deserializeAws_queryTimestamps = (output: any, context: __SerdeContext): D
       if (entry === null) {
         return null as any;
       }
-      return new Date(entry);
+      return __expectNonNull(__parseRfc3339DateTime(entry));
     });
 };
 

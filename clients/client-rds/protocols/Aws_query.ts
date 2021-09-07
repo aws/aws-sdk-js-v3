@@ -908,11 +908,13 @@ import {
 } from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
@@ -20303,10 +20305,10 @@ const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): 
     contents.Thumbprint = __expectString(output["Thumbprint"]);
   }
   if (output["ValidFrom"] !== undefined) {
-    contents.ValidFrom = new Date(output["ValidFrom"]);
+    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTime(output["ValidFrom"]));
   }
   if (output["ValidTill"] !== undefined) {
-    contents.ValidTill = new Date(output["ValidTill"]);
+    contents.ValidTill = __expectNonNull(__parseRfc3339DateTime(output["ValidTill"]));
   }
   if (output["CertificateArn"] !== undefined) {
     contents.CertificateArn = __expectString(output["CertificateArn"]);
@@ -20315,7 +20317,7 @@ const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): 
     contents.CustomerOverride = __parseBoolean(output["CustomerOverride"]);
   }
   if (output["CustomerOverrideValidTill"] !== undefined) {
-    contents.CustomerOverrideValidTill = new Date(output["CustomerOverrideValidTill"]);
+    contents.CustomerOverrideValidTill = __expectNonNull(__parseRfc3339DateTime(output["CustomerOverrideValidTill"]));
   }
   return contents;
 };
@@ -20888,13 +20890,13 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.Status = __expectString(output["Status"]);
   }
   if (output["AutomaticRestartTime"] !== undefined) {
-    contents.AutomaticRestartTime = new Date(output["AutomaticRestartTime"]);
+    contents.AutomaticRestartTime = __expectNonNull(__parseRfc3339DateTime(output["AutomaticRestartTime"]));
   }
   if (output["PercentProgress"] !== undefined) {
     contents.PercentProgress = __expectString(output["PercentProgress"]);
   }
   if (output["EarliestRestorableTime"] !== undefined) {
-    contents.EarliestRestorableTime = new Date(output["EarliestRestorableTime"]);
+    contents.EarliestRestorableTime = __expectNonNull(__parseRfc3339DateTime(output["EarliestRestorableTime"]));
   }
   if (output["Endpoint"] !== undefined) {
     contents.Endpoint = __expectString(output["Endpoint"]);
@@ -20921,7 +20923,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["LatestRestorableTime"] !== undefined) {
-    contents.LatestRestorableTime = new Date(output["LatestRestorableTime"]);
+    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTime(output["LatestRestorableTime"]));
   }
   if (output["Port"] !== undefined) {
     contents.Port = __strictParseInt32(output["Port"]) as number;
@@ -21014,10 +21016,10 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.CloneGroupId = __expectString(output["CloneGroupId"]);
   }
   if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = new Date(output["ClusterCreateTime"]);
+    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ClusterCreateTime"]));
   }
   if (output["EarliestBacktrackTime"] !== undefined) {
-    contents.EarliestBacktrackTime = new Date(output["EarliestBacktrackTime"]);
+    contents.EarliestBacktrackTime = __expectNonNull(__parseRfc3339DateTime(output["EarliestBacktrackTime"]));
   }
   if (output["BacktrackWindow"] !== undefined) {
     contents.BacktrackWindow = __strictParseLong(output["BacktrackWindow"]) as number;
@@ -21132,13 +21134,15 @@ const deserializeAws_queryDBClusterBacktrack = (output: any, context: __SerdeCon
     contents.BacktrackIdentifier = __expectString(output["BacktrackIdentifier"]);
   }
   if (output["BacktrackTo"] !== undefined) {
-    contents.BacktrackTo = new Date(output["BacktrackTo"]);
+    contents.BacktrackTo = __expectNonNull(__parseRfc3339DateTime(output["BacktrackTo"]));
   }
   if (output["BacktrackedFrom"] !== undefined) {
-    contents.BacktrackedFrom = new Date(output["BacktrackedFrom"]);
+    contents.BacktrackedFrom = __expectNonNull(__parseRfc3339DateTime(output["BacktrackedFrom"]));
   }
   if (output["BacktrackRequestCreationTime"] !== undefined) {
-    contents.BacktrackRequestCreationTime = new Date(output["BacktrackRequestCreationTime"]);
+    contents.BacktrackRequestCreationTime = __expectNonNull(
+      __parseRfc3339DateTime(output["BacktrackRequestCreationTime"])
+    );
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -21694,7 +21698,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
   }
   if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = new Date(output["SnapshotCreateTime"]);
+    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotCreateTime"]));
   }
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -21715,7 +21719,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = new Date(output["ClusterCreateTime"]);
+    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ClusterCreateTime"]));
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -22122,7 +22126,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.DBInstanceStatus = __expectString(output["DBInstanceStatus"]);
   }
   if (output["AutomaticRestartTime"] !== undefined) {
-    contents.AutomaticRestartTime = new Date(output["AutomaticRestartTime"]);
+    contents.AutomaticRestartTime = __expectNonNull(__parseRfc3339DateTime(output["AutomaticRestartTime"]));
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -22137,7 +22141,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
   }
   if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = new Date(output["InstanceCreateTime"]);
+    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTime(output["InstanceCreateTime"]));
   }
   if (output["PreferredBackupWindow"] !== undefined) {
     contents.PreferredBackupWindow = __expectString(output["PreferredBackupWindow"]);
@@ -22191,7 +22195,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     );
   }
   if (output["LatestRestorableTime"] !== undefined) {
-    contents.LatestRestorableTime = new Date(output["LatestRestorableTime"]);
+    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTime(output["LatestRestorableTime"]));
   }
   if (output["MultiAZ"] !== undefined) {
     contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
@@ -22498,7 +22502,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = new Date(output["InstanceCreateTime"]);
+    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTime(output["InstanceCreateTime"]));
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -23034,10 +23038,10 @@ const deserializeAws_queryDBProxy = (output: any, context: __SerdeContext): DBPr
     contents.DebugLogging = __parseBoolean(output["DebugLogging"]);
   }
   if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = new Date(output["CreatedDate"]);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["CreatedDate"]));
   }
   if (output["UpdatedDate"] !== undefined) {
-    contents.UpdatedDate = new Date(output["UpdatedDate"]);
+    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTime(output["UpdatedDate"]));
   }
   return contents;
 };
@@ -23106,7 +23110,7 @@ const deserializeAws_queryDBProxyEndpoint = (output: any, context: __SerdeContex
     contents.Endpoint = __expectString(output["Endpoint"]);
   }
   if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = new Date(output["CreatedDate"]);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["CreatedDate"]));
   }
   if (output["TargetRole"] !== undefined) {
     contents.TargetRole = __expectString(output["TargetRole"]);
@@ -23285,10 +23289,10 @@ const deserializeAws_queryDBProxyTargetGroup = (output: any, context: __SerdeCon
     );
   }
   if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = new Date(output["CreatedDate"]);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["CreatedDate"]));
   }
   if (output["UpdatedDate"] !== undefined) {
-    contents.UpdatedDate = new Date(output["UpdatedDate"]);
+    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTime(output["UpdatedDate"]));
   }
   return contents;
 };
@@ -23516,7 +23520,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
   }
   if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = new Date(output["SnapshotCreateTime"]);
+    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotCreateTime"]));
   }
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -23537,7 +23541,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = new Date(output["InstanceCreateTime"]);
+    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTime(output["InstanceCreateTime"]));
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -23606,7 +23610,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
   }
   if (output["OriginalSnapshotCreateTime"] !== undefined) {
-    contents.OriginalSnapshotCreateTime = new Date(output["OriginalSnapshotCreateTime"]);
+    contents.OriginalSnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["OriginalSnapshotCreateTime"]));
   }
   return contents;
 };
@@ -24436,7 +24440,7 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
     );
   }
   if (output["Date"] !== undefined) {
-    contents.Date = new Date(output["Date"]);
+    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
   }
   if (output["SourceArn"] !== undefined) {
     contents.SourceArn = __expectString(output["SourceArn"]);
@@ -24675,13 +24679,13 @@ const deserializeAws_queryExportTask = (output: any, context: __SerdeContext): E
     );
   }
   if (output["SnapshotTime"] !== undefined) {
-    contents.SnapshotTime = new Date(output["SnapshotTime"]);
+    contents.SnapshotTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotTime"]));
   }
   if (output["TaskStartTime"] !== undefined) {
-    contents.TaskStartTime = new Date(output["TaskStartTime"]);
+    contents.TaskStartTime = __expectNonNull(__parseRfc3339DateTime(output["TaskStartTime"]));
   }
   if (output["TaskEndTime"] !== undefined) {
-    contents.TaskEndTime = new Date(output["TaskEndTime"]);
+    contents.TaskEndTime = __expectNonNull(__parseRfc3339DateTime(output["TaskEndTime"]));
   }
   if (output["S3Bucket"] !== undefined) {
     contents.S3Bucket = __expectString(output["S3Bucket"]);
@@ -26553,16 +26557,16 @@ const deserializeAws_queryPendingMaintenanceAction = (
     contents.Action = __expectString(output["Action"]);
   }
   if (output["AutoAppliedAfterDate"] !== undefined) {
-    contents.AutoAppliedAfterDate = new Date(output["AutoAppliedAfterDate"]);
+    contents.AutoAppliedAfterDate = __expectNonNull(__parseRfc3339DateTime(output["AutoAppliedAfterDate"]));
   }
   if (output["ForcedApplyDate"] !== undefined) {
-    contents.ForcedApplyDate = new Date(output["ForcedApplyDate"]);
+    contents.ForcedApplyDate = __expectNonNull(__parseRfc3339DateTime(output["ForcedApplyDate"]));
   }
   if (output["OptInStatus"] !== undefined) {
     contents.OptInStatus = __expectString(output["OptInStatus"]);
   }
   if (output["CurrentApplyDate"] !== undefined) {
-    contents.CurrentApplyDate = new Date(output["CurrentApplyDate"]);
+    contents.CurrentApplyDate = __expectNonNull(__parseRfc3339DateTime(output["CurrentApplyDate"]));
   }
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
@@ -26975,7 +26979,7 @@ const deserializeAws_queryReservedDBInstance = (output: any, context: __SerdeCon
     contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
   }
   if (output["StartTime"] !== undefined) {
-    contents.StartTime = new Date(output["StartTime"]);
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["StartTime"]));
   }
   if (output["Duration"] !== undefined) {
     contents.Duration = __strictParseInt32(output["Duration"]) as number;
@@ -27326,10 +27330,10 @@ const deserializeAws_queryRestoreWindow = (output: any, context: __SerdeContext)
     LatestTime: undefined,
   };
   if (output["EarliestTime"] !== undefined) {
-    contents.EarliestTime = new Date(output["EarliestTime"]);
+    contents.EarliestTime = __expectNonNull(__parseRfc3339DateTime(output["EarliestTime"]));
   }
   if (output["LatestTime"] !== undefined) {
-    contents.LatestTime = new Date(output["LatestTime"]);
+    contents.LatestTime = __expectNonNull(__parseRfc3339DateTime(output["LatestTime"]));
   }
   return contents;
 };

@@ -33,6 +33,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -659,7 +660,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseRfc3339DateTime(data.createdAt));
   }
   if (data.deviceArn !== undefined && data.deviceArn !== null) {
     contents.deviceArn = __expectString(data.deviceArn);
@@ -668,7 +669,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
     contents.deviceParameters = new __LazyJsonString(data.deviceParameters);
   }
   if (data.endedAt !== undefined && data.endedAt !== null) {
-    contents.endedAt = new Date(Math.round(data.endedAt * 1000));
+    contents.endedAt = __expectNonNull(__parseRfc3339DateTime(data.endedAt));
   }
   if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = __expectString(data.failureReason);
@@ -1380,11 +1381,13 @@ const deserializeAws_restJson1QuantumTaskSummary = (output: any, context: __Serd
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
         : undefined,
     deviceArn: __expectString(output.deviceArn),
     endedAt:
-      output.endedAt !== undefined && output.endedAt !== null ? new Date(Math.round(output.endedAt * 1000)) : undefined,
+      output.endedAt !== undefined && output.endedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.endedAt))
+        : undefined,
     outputS3Bucket: __expectString(output.outputS3Bucket),
     outputS3Directory: __expectString(output.outputS3Directory),
     quantumTaskArn: __expectString(output.quantumTaskArn),

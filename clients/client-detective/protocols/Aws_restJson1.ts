@@ -41,6 +41,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1688,7 +1689,9 @@ const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Gr
   return {
     Arn: __expectString(output.Arn),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null ? new Date(output.CreatedTime) : undefined,
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTime))
+        : undefined,
   } as any;
 };
 
@@ -1711,20 +1714,24 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     EmailAddress: __expectString(output.EmailAddress),
     GraphArn: __expectString(output.GraphArn),
     InvitedTime:
-      output.InvitedTime !== undefined && output.InvitedTime !== null ? new Date(output.InvitedTime) : undefined,
+      output.InvitedTime !== undefined && output.InvitedTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.InvitedTime))
+        : undefined,
     MasterId: __expectString(output.MasterId),
     PercentOfGraphUtilization: __limitedParseDouble(output.PercentOfGraphUtilization),
     PercentOfGraphUtilizationUpdatedTime:
       output.PercentOfGraphUtilizationUpdatedTime !== undefined && output.PercentOfGraphUtilizationUpdatedTime !== null
-        ? new Date(output.PercentOfGraphUtilizationUpdatedTime)
+        ? __expectNonNull(__parseRfc3339DateTime(output.PercentOfGraphUtilizationUpdatedTime))
         : undefined,
     Status: __expectString(output.Status),
     UpdatedTime:
-      output.UpdatedTime !== undefined && output.UpdatedTime !== null ? new Date(output.UpdatedTime) : undefined,
+      output.UpdatedTime !== undefined && output.UpdatedTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTime))
+        : undefined,
     VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
     VolumeUsageUpdatedTime:
       output.VolumeUsageUpdatedTime !== undefined && output.VolumeUsageUpdatedTime !== null
-        ? new Date(output.VolumeUsageUpdatedTime)
+        ? __expectNonNull(__parseRfc3339DateTime(output.VolumeUsageUpdatedTime))
         : undefined,
   } as any;
 };

@@ -3004,11 +3004,13 @@ import {
 } from "../models/models_5";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -51319,7 +51321,7 @@ const deserializeAws_ec2BundleTask = (output: any, context: __SerdeContext): Bun
     contents.Progress = __expectString(output["progress"]);
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = new Date(output["startTime"]);
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
   }
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -51328,7 +51330,7 @@ const deserializeAws_ec2BundleTask = (output: any, context: __SerdeContext): Bun
     contents.Storage = deserializeAws_ec2Storage(output["storage"], context);
   }
   if (output["updateTime"] !== undefined) {
-    contents.UpdateTime = new Date(output["updateTime"]);
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(output["updateTime"]));
   }
   return contents;
 };
@@ -51682,10 +51684,10 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
     contents.State = __expectString(output["state"]);
   }
   if (output["startDate"] !== undefined) {
-    contents.StartDate = new Date(output["startDate"]);
+    contents.StartDate = __expectNonNull(__parseRfc3339DateTime(output["startDate"]));
   }
   if (output["endDate"] !== undefined) {
-    contents.EndDate = new Date(output["endDate"]);
+    contents.EndDate = __expectNonNull(__parseRfc3339DateTime(output["endDate"]));
   }
   if (output["endDateType"] !== undefined) {
     contents.EndDateType = __expectString(output["endDateType"]);
@@ -51694,7 +51696,7 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
     contents.InstanceMatchCriteria = __expectString(output["instanceMatchCriteria"]);
   }
   if (output["createDate"] !== undefined) {
-    contents.CreateDate = new Date(output["createDate"]);
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["createDate"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -55058,19 +55060,19 @@ const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessItem = (
     contents.OwnerAlias = __expectString(output["ownerAlias"]);
   }
   if (output["enablingTime"] !== undefined) {
-    contents.EnablingTime = new Date(output["enablingTime"]);
+    contents.EnablingTime = __expectNonNull(__parseRfc3339DateTime(output["enablingTime"]));
   }
   if (output["optimizingTime"] !== undefined) {
-    contents.OptimizingTime = new Date(output["optimizingTime"]);
+    contents.OptimizingTime = __expectNonNull(__parseRfc3339DateTime(output["optimizingTime"]));
   }
   if (output["enabledTime"] !== undefined) {
-    contents.EnabledTime = new Date(output["enabledTime"]);
+    contents.EnabledTime = __expectNonNull(__parseRfc3339DateTime(output["enabledTime"]));
   }
   if (output["disablingTime"] !== undefined) {
-    contents.DisablingTime = new Date(output["disablingTime"]);
+    contents.DisablingTime = __expectNonNull(__parseRfc3339DateTime(output["disablingTime"]));
   }
   if (output["disabledTime"] !== undefined) {
-    contents.DisabledTime = new Date(output["disabledTime"]);
+    contents.DisabledTime = __expectNonNull(__parseRfc3339DateTime(output["disabledTime"]));
   }
   return contents;
 };
@@ -55135,7 +55137,7 @@ const deserializeAws_ec2DescribeFleetHistoryResult = (
     );
   }
   if (output["lastEvaluatedTime"] !== undefined) {
-    contents.LastEvaluatedTime = new Date(output["lastEvaluatedTime"]);
+    contents.LastEvaluatedTime = __expectNonNull(__parseRfc3339DateTime(output["lastEvaluatedTime"]));
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
@@ -55144,7 +55146,7 @@ const deserializeAws_ec2DescribeFleetHistoryResult = (
     contents.FleetId = __expectString(output["fleetId"]);
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = new Date(output["startTime"]);
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
   }
   return contents;
 };
@@ -56577,7 +56579,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryResponse = (
     );
   }
   if (output["lastEvaluatedTime"] !== undefined) {
-    contents.LastEvaluatedTime = new Date(output["lastEvaluatedTime"]);
+    contents.LastEvaluatedTime = __expectNonNull(__parseRfc3339DateTime(output["lastEvaluatedTime"]));
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
@@ -56586,7 +56588,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryResponse = (
     contents.SpotFleetRequestId = __expectString(output["spotFleetRequestId"]);
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = new Date(output["startTime"]);
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
   }
   return contents;
 };
@@ -57680,19 +57682,19 @@ const deserializeAws_ec2DisableFastSnapshotRestoreSuccessItem = (
     contents.OwnerAlias = __expectString(output["ownerAlias"]);
   }
   if (output["enablingTime"] !== undefined) {
-    contents.EnablingTime = new Date(output["enablingTime"]);
+    contents.EnablingTime = __expectNonNull(__parseRfc3339DateTime(output["enablingTime"]));
   }
   if (output["optimizingTime"] !== undefined) {
-    contents.OptimizingTime = new Date(output["optimizingTime"]);
+    contents.OptimizingTime = __expectNonNull(__parseRfc3339DateTime(output["optimizingTime"]));
   }
   if (output["enabledTime"] !== undefined) {
-    contents.EnabledTime = new Date(output["enabledTime"]);
+    contents.EnabledTime = __expectNonNull(__parseRfc3339DateTime(output["enabledTime"]));
   }
   if (output["disablingTime"] !== undefined) {
-    contents.DisablingTime = new Date(output["disablingTime"]);
+    contents.DisablingTime = __expectNonNull(__parseRfc3339DateTime(output["disablingTime"]));
   }
   if (output["disabledTime"] !== undefined) {
-    contents.DisabledTime = new Date(output["disabledTime"]);
+    contents.DisabledTime = __expectNonNull(__parseRfc3339DateTime(output["disabledTime"]));
   }
   return contents;
 };
@@ -58090,7 +58092,7 @@ const deserializeAws_ec2EbsInstanceBlockDevice = (output: any, context: __SerdeC
     VolumeId: undefined,
   };
   if (output["attachTime"] !== undefined) {
-    contents.AttachTime = new Date(output["attachTime"]);
+    contents.AttachTime = __expectNonNull(__parseRfc3339DateTime(output["attachTime"]));
   }
   if (output["deleteOnTermination"] !== undefined) {
     contents.DeleteOnTermination = __parseBoolean(output["deleteOnTermination"]);
@@ -58330,8 +58332,8 @@ const deserializeAws_ec2ElasticInferenceAcceleratorAssociation = (
     );
   }
   if (output["elasticInferenceAcceleratorAssociationTime"] !== undefined) {
-    contents.ElasticInferenceAcceleratorAssociationTime = new Date(
-      output["elasticInferenceAcceleratorAssociationTime"]
+    contents.ElasticInferenceAcceleratorAssociationTime = __expectNonNull(
+      __parseRfc3339DateTime(output["elasticInferenceAcceleratorAssociationTime"])
     );
   }
   return contents;
@@ -58517,19 +58519,19 @@ const deserializeAws_ec2EnableFastSnapshotRestoreSuccessItem = (
     contents.OwnerAlias = __expectString(output["ownerAlias"]);
   }
   if (output["enablingTime"] !== undefined) {
-    contents.EnablingTime = new Date(output["enablingTime"]);
+    contents.EnablingTime = __expectNonNull(__parseRfc3339DateTime(output["enablingTime"]));
   }
   if (output["optimizingTime"] !== undefined) {
-    contents.OptimizingTime = new Date(output["optimizingTime"]);
+    contents.OptimizingTime = __expectNonNull(__parseRfc3339DateTime(output["optimizingTime"]));
   }
   if (output["enabledTime"] !== undefined) {
-    contents.EnabledTime = new Date(output["enabledTime"]);
+    contents.EnabledTime = __expectNonNull(__parseRfc3339DateTime(output["enabledTime"]));
   }
   if (output["disablingTime"] !== undefined) {
-    contents.DisablingTime = new Date(output["disablingTime"]);
+    contents.DisablingTime = __expectNonNull(__parseRfc3339DateTime(output["disablingTime"]));
   }
   if (output["disabledTime"] !== undefined) {
-    contents.DisabledTime = new Date(output["disabledTime"]);
+    contents.DisabledTime = __expectNonNull(__parseRfc3339DateTime(output["disabledTime"]));
   }
   return contents;
 };
@@ -59203,7 +59205,7 @@ const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): Flee
     contents.ActivityStatus = __expectString(output["activityStatus"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = new Date(output["createTime"]);
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
   }
   if (output["fleetId"] !== undefined) {
     contents.FleetId = __expectString(output["fleetId"]);
@@ -59245,10 +59247,10 @@ const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): Flee
     contents.Type = __expectString(output["type"]);
   }
   if (output["validFrom"] !== undefined) {
-    contents.ValidFrom = new Date(output["validFrom"]);
+    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTime(output["validFrom"]));
   }
   if (output["validUntil"] !== undefined) {
-    contents.ValidUntil = new Date(output["validUntil"]);
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["validUntil"]));
   }
   if (output["replaceUnhealthyInstances"] !== undefined) {
     contents.ReplaceUnhealthyInstances = __parseBoolean(output["replaceUnhealthyInstances"]);
@@ -59456,7 +59458,7 @@ const deserializeAws_ec2FlowLog = (output: any, context: __SerdeContext): FlowLo
     MaxAggregationInterval: undefined,
   };
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["creationTime"]);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
   }
   if (output["deliverLogsErrorMessage"] !== undefined) {
     contents.DeliverLogsErrorMessage = __expectString(output["deliverLogsErrorMessage"]);
@@ -59597,10 +59599,10 @@ const deserializeAws_ec2FpgaImage = (output: any, context: __SerdeContext): Fpga
     contents.State = deserializeAws_ec2FpgaImageState(output["state"], context);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = new Date(output["createTime"]);
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
   }
   if (output["updateTime"] !== undefined) {
-    contents.UpdateTime = new Date(output["updateTime"]);
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(output["updateTime"]));
   }
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
@@ -59834,7 +59836,7 @@ const deserializeAws_ec2GetConsoleOutputResult = (output: any, context: __SerdeC
     contents.Output = __expectString(output["output"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
   }
   return contents;
 };
@@ -60037,7 +60039,7 @@ const deserializeAws_ec2GetPasswordDataResult = (output: any, context: __SerdeCo
     contents.PasswordData = __expectString(output["passwordData"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
   }
   return contents;
 };
@@ -60064,7 +60066,9 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteResult = (
     contents.IsValidExchange = __parseBoolean(output["isValidExchange"]);
   }
   if (output["outputReservedInstancesWillExpireAt"] !== undefined) {
-    contents.OutputReservedInstancesWillExpireAt = new Date(output["outputReservedInstancesWillExpireAt"]);
+    contents.OutputReservedInstancesWillExpireAt = __expectNonNull(
+      __parseRfc3339DateTime(output["outputReservedInstancesWillExpireAt"])
+    );
   }
   if (output["paymentDue"] !== undefined) {
     contents.PaymentDue = __expectString(output["paymentDue"]);
@@ -60417,7 +60421,7 @@ const deserializeAws_ec2HistoryRecord = (output: any, context: __SerdeContext): 
     contents.EventType = __expectString(output["eventType"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
   }
   return contents;
 };
@@ -60435,7 +60439,7 @@ const deserializeAws_ec2HistoryRecordEntry = (output: any, context: __SerdeConte
     contents.EventType = __expectString(output["eventType"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
   }
   return contents;
 };
@@ -60516,10 +60520,10 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
     contents.State = __expectString(output["state"]);
   }
   if (output["allocationTime"] !== undefined) {
-    contents.AllocationTime = new Date(output["allocationTime"]);
+    contents.AllocationTime = __expectNonNull(__parseRfc3339DateTime(output["allocationTime"]));
   }
   if (output["releaseTime"] !== undefined) {
-    contents.ReleaseTime = new Date(output["releaseTime"]);
+    contents.ReleaseTime = __expectNonNull(__parseRfc3339DateTime(output["releaseTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -60683,7 +60687,7 @@ const deserializeAws_ec2HostReservation = (output: any, context: __SerdeContext)
     contents.Duration = __strictParseInt32(output["duration"]) as number;
   }
   if (output["end"] !== undefined) {
-    contents.End = new Date(output["end"]);
+    contents.End = __expectNonNull(__parseRfc3339DateTime(output["end"]));
   }
   if (output.hostIdSet === "") {
     contents.HostIdSet = [];
@@ -60710,7 +60714,7 @@ const deserializeAws_ec2HostReservation = (output: any, context: __SerdeContext)
     contents.PaymentOption = __expectString(output["paymentOption"]);
   }
   if (output["start"] !== undefined) {
-    contents.Start = new Date(output["start"]);
+    contents.Start = __expectNonNull(__parseRfc3339DateTime(output["start"]));
   }
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -60776,7 +60780,7 @@ const deserializeAws_ec2IamInstanceProfileAssociation = (
     contents.State = __expectString(output["state"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
   }
   return contents;
 };
@@ -60833,7 +60837,7 @@ const deserializeAws_ec2IdFormat = (output: any, context: __SerdeContext): IdFor
     UseLongIds: undefined,
   };
   if (output["deadline"] !== undefined) {
-    contents.Deadline = new Date(output["deadline"]);
+    contents.Deadline = __expectNonNull(__parseRfc3339DateTime(output["deadline"]));
   }
   if (output["resource"] !== undefined) {
     contents.Resource = __expectString(output["resource"]);
@@ -61646,7 +61650,7 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
     contents.KeyName = __expectString(output["keyName"]);
   }
   if (output["launchTime"] !== undefined) {
-    contents.LaunchTime = new Date(output["launchTime"]);
+    contents.LaunchTime = __expectNonNull(__parseRfc3339DateTime(output["launchTime"]));
   }
   if (output["monitoring"] !== undefined) {
     contents.Monitoring = deserializeAws_ec2Monitoring(output["monitoring"], context);
@@ -62508,7 +62512,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceAttachment = (
     NetworkCardIndex: undefined,
   };
   if (output["attachTime"] !== undefined) {
-    contents.AttachTime = new Date(output["attachTime"]);
+    contents.AttachTime = __expectNonNull(__parseRfc3339DateTime(output["attachTime"]));
   }
   if (output["attachmentId"] !== undefined) {
     contents.AttachmentId = __expectString(output["attachmentId"]);
@@ -62797,7 +62801,7 @@ const deserializeAws_ec2InstanceStatusDetails = (output: any, context: __SerdeCo
     Status: undefined,
   };
   if (output["impairedSince"] !== undefined) {
-    contents.ImpairedSince = new Date(output["impairedSince"]);
+    contents.ImpairedSince = __expectNonNull(__parseRfc3339DateTime(output["impairedSince"]));
   }
   if (output["name"] !== undefined) {
     contents.Name = __expectString(output["name"]);
@@ -62838,13 +62842,13 @@ const deserializeAws_ec2InstanceStatusEvent = (output: any, context: __SerdeCont
     contents.Description = __expectString(output["description"]);
   }
   if (output["notAfter"] !== undefined) {
-    contents.NotAfter = new Date(output["notAfter"]);
+    contents.NotAfter = __expectNonNull(__parseRfc3339DateTime(output["notAfter"]));
   }
   if (output["notBefore"] !== undefined) {
-    contents.NotBefore = new Date(output["notBefore"]);
+    contents.NotBefore = __expectNonNull(__parseRfc3339DateTime(output["notBefore"]));
   }
   if (output["notBeforeDeadline"] !== undefined) {
-    contents.NotBeforeDeadline = new Date(output["notBeforeDeadline"]);
+    contents.NotBeforeDeadline = __expectNonNull(__parseRfc3339DateTime(output["notBeforeDeadline"]));
   }
   return contents;
 };
@@ -63831,7 +63835,7 @@ const deserializeAws_ec2LaunchTemplate = (output: any, context: __SerdeContext):
     contents.LaunchTemplateName = __expectString(output["launchTemplateName"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = new Date(output["createTime"]);
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
   }
   if (output["createdBy"] !== undefined) {
     contents.CreatedBy = __expectString(output["createdBy"]);
@@ -64422,7 +64426,7 @@ const deserializeAws_ec2LaunchTemplateSpotMarketOptions = (
     contents.BlockDurationMinutes = __strictParseInt32(output["blockDurationMinutes"]) as number;
   }
   if (output["validUntil"] !== undefined) {
-    contents.ValidUntil = new Date(output["validUntil"]);
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["validUntil"]));
   }
   if (output["instanceInterruptionBehavior"] !== undefined) {
     contents.InstanceInterruptionBehavior = __expectString(output["instanceInterruptionBehavior"]);
@@ -64488,7 +64492,7 @@ const deserializeAws_ec2LaunchTemplateVersion = (output: any, context: __SerdeCo
     contents.VersionDescription = __expectString(output["versionDescription"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = new Date(output["createTime"]);
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
   }
   if (output["createdBy"] !== undefined) {
     contents.CreatedBy = __expectString(output["createdBy"]);
@@ -65642,10 +65646,10 @@ const deserializeAws_ec2NatGateway = (output: any, context: __SerdeContext): Nat
     ConnectivityType: undefined,
   };
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = new Date(output["createTime"]);
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
   }
   if (output["deleteTime"] !== undefined) {
-    contents.DeleteTime = new Date(output["deleteTime"]);
+    contents.DeleteTime = __expectNonNull(__parseRfc3339DateTime(output["deleteTime"]));
   }
   if (output["failureCode"] !== undefined) {
     contents.FailureCode = __expectString(output["failureCode"]);
@@ -65995,7 +65999,7 @@ const deserializeAws_ec2NetworkInsightsAnalysis = (output: any, context: __Serde
     );
   }
   if (output["startDate"] !== undefined) {
-    contents.StartDate = new Date(output["startDate"]);
+    contents.StartDate = __expectNonNull(__parseRfc3339DateTime(output["startDate"]));
   }
   if (output["status"] !== undefined) {
     contents.Status = __expectString(output["status"]);
@@ -66085,7 +66089,7 @@ const deserializeAws_ec2NetworkInsightsPath = (output: any, context: __SerdeCont
     contents.NetworkInsightsPathArn = __expectString(output["networkInsightsPathArn"]);
   }
   if (output["createdDate"] !== undefined) {
-    contents.CreatedDate = new Date(output["createdDate"]);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["createdDate"]));
   }
   if (output["source"] !== undefined) {
     contents.Source = __expectString(output["source"]);
@@ -66308,7 +66312,7 @@ const deserializeAws_ec2NetworkInterfaceAttachment = (
     Status: undefined,
   };
   if (output["attachTime"] !== undefined) {
-    contents.AttachTime = new Date(output["attachTime"]);
+    contents.AttachTime = __expectNonNull(__parseRfc3339DateTime(output["attachTime"]));
   }
   if (output["attachmentId"] !== undefined) {
     contents.AttachmentId = __expectString(output["attachmentId"]);
@@ -67352,13 +67356,13 @@ const deserializeAws_ec2ProvisionedBandwidth = (output: any, context: __SerdeCon
     Status: undefined,
   };
   if (output["provisionTime"] !== undefined) {
-    contents.ProvisionTime = new Date(output["provisionTime"]);
+    contents.ProvisionTime = __expectNonNull(__parseRfc3339DateTime(output["provisionTime"]));
   }
   if (output["provisioned"] !== undefined) {
     contents.Provisioned = __expectString(output["provisioned"]);
   }
   if (output["requestTime"] !== undefined) {
-    contents.RequestTime = new Date(output["requestTime"]);
+    contents.RequestTime = __expectNonNull(__parseRfc3339DateTime(output["requestTime"]));
   }
   if (output["requested"] !== undefined) {
     contents.Requested = __expectString(output["requested"]);
@@ -68106,7 +68110,7 @@ const deserializeAws_ec2ReservedInstances = (output: any, context: __SerdeContex
     contents.Duration = __strictParseLong(output["duration"]) as number;
   }
   if (output["end"] !== undefined) {
-    contents.End = new Date(output["end"]);
+    contents.End = __expectNonNull(__parseRfc3339DateTime(output["end"]));
   }
   if (output["fixedPrice"] !== undefined) {
     contents.FixedPrice = __strictParseFloat(output["fixedPrice"]) as number;
@@ -68124,7 +68128,7 @@ const deserializeAws_ec2ReservedInstances = (output: any, context: __SerdeContex
     contents.ReservedInstancesId = __expectString(output["reservedInstancesId"]);
   }
   if (output["start"] !== undefined) {
-    contents.Start = new Date(output["start"]);
+    contents.Start = __expectNonNull(__parseRfc3339DateTime(output["start"]));
   }
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -68232,7 +68236,7 @@ const deserializeAws_ec2ReservedInstancesListing = (output: any, context: __Serd
     contents.ClientToken = __expectString(output["clientToken"]);
   }
   if (output["createDate"] !== undefined) {
-    contents.CreateDate = new Date(output["createDate"]);
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["createDate"]));
   }
   if (output.instanceCounts === "") {
     contents.InstanceCounts = [];
@@ -68271,7 +68275,7 @@ const deserializeAws_ec2ReservedInstancesListing = (output: any, context: __Serd
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
   }
   if (output["updateDate"] !== undefined) {
-    contents.UpdateDate = new Date(output["updateDate"]);
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["updateDate"]));
   }
   return contents;
 };
@@ -68309,10 +68313,10 @@ const deserializeAws_ec2ReservedInstancesModification = (
     contents.ClientToken = __expectString(output["clientToken"]);
   }
   if (output["createDate"] !== undefined) {
-    contents.CreateDate = new Date(output["createDate"]);
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["createDate"]));
   }
   if (output["effectiveDate"] !== undefined) {
-    contents.EffectiveDate = new Date(output["effectiveDate"]);
+    contents.EffectiveDate = __expectNonNull(__parseRfc3339DateTime(output["effectiveDate"]));
   }
   if (output.modificationResultSet === "") {
     contents.ModificationResults = [];
@@ -68342,7 +68346,7 @@ const deserializeAws_ec2ReservedInstancesModification = (
     contents.StatusMessage = __expectString(output["statusMessage"]);
   }
   if (output["updateDate"] !== undefined) {
-    contents.UpdateDate = new Date(output["updateDate"]);
+    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTime(output["updateDate"]));
   }
   return contents;
 };
@@ -69141,7 +69145,7 @@ const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContex
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["createDate"] !== undefined) {
-    contents.CreateDate = new Date(output["createDate"]);
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["createDate"]));
   }
   if (output["hourlyPrice"] !== undefined) {
     contents.HourlyPrice = __expectString(output["hourlyPrice"]);
@@ -69156,13 +69160,13 @@ const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContex
     contents.NetworkPlatform = __expectString(output["networkPlatform"]);
   }
   if (output["nextSlotStartTime"] !== undefined) {
-    contents.NextSlotStartTime = new Date(output["nextSlotStartTime"]);
+    contents.NextSlotStartTime = __expectNonNull(__parseRfc3339DateTime(output["nextSlotStartTime"]));
   }
   if (output["platform"] !== undefined) {
     contents.Platform = __expectString(output["platform"]);
   }
   if (output["previousSlotEndTime"] !== undefined) {
-    contents.PreviousSlotEndTime = new Date(output["previousSlotEndTime"]);
+    contents.PreviousSlotEndTime = __expectNonNull(__parseRfc3339DateTime(output["previousSlotEndTime"]));
   }
   if (output["recurrence"] !== undefined) {
     contents.Recurrence = deserializeAws_ec2ScheduledInstanceRecurrence(output["recurrence"], context);
@@ -69174,10 +69178,10 @@ const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContex
     contents.SlotDurationInHours = __strictParseInt32(output["slotDurationInHours"]) as number;
   }
   if (output["termEndDate"] !== undefined) {
-    contents.TermEndDate = new Date(output["termEndDate"]);
+    contents.TermEndDate = __expectNonNull(__parseRfc3339DateTime(output["termEndDate"]));
   }
   if (output["termStartDate"] !== undefined) {
-    contents.TermStartDate = new Date(output["termStartDate"]);
+    contents.TermStartDate = __expectNonNull(__parseRfc3339DateTime(output["termStartDate"]));
   }
   if (output["totalScheduledInstanceHours"] !== undefined) {
     contents.TotalScheduledInstanceHours = __strictParseInt32(output["totalScheduledInstanceHours"]) as number;
@@ -69211,7 +69215,7 @@ const deserializeAws_ec2ScheduledInstanceAvailability = (
     contents.AvailableInstanceCount = __strictParseInt32(output["availableInstanceCount"]) as number;
   }
   if (output["firstSlotStartTime"] !== undefined) {
-    contents.FirstSlotStartTime = new Date(output["firstSlotStartTime"]);
+    contents.FirstSlotStartTime = __expectNonNull(__parseRfc3339DateTime(output["firstSlotStartTime"]));
   }
   if (output["hourlyPrice"] !== undefined) {
     contents.HourlyPrice = __expectString(output["hourlyPrice"]);
@@ -69827,7 +69831,7 @@ const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snaps
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = new Date(output["startTime"]);
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
   }
   if (output["status"] !== undefined) {
     contents.State = __expectString(output["status"]);
@@ -69949,7 +69953,7 @@ const deserializeAws_ec2SnapshotInfo = (output: any, context: __SerdeContext): S
     contents.VolumeSize = __strictParseInt32(output["volumeSize"]) as number;
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = new Date(output["startTime"]);
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
   }
   if (output["progress"] !== undefined) {
     contents.Progress = __expectString(output["progress"]);
@@ -70205,7 +70209,7 @@ const deserializeAws_ec2SpotFleetRequestConfig = (output: any, context: __SerdeC
     contents.ActivityStatus = __expectString(output["activityStatus"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = new Date(output["createTime"]);
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
   }
   if (output["spotFleetRequestConfig"] !== undefined) {
     contents.SpotFleetRequestConfig = deserializeAws_ec2SpotFleetRequestConfigData(
@@ -70326,10 +70330,10 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
     contents.Type = __expectString(output["type"]);
   }
   if (output["validFrom"] !== undefined) {
-    contents.ValidFrom = new Date(output["validFrom"]);
+    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTime(output["validFrom"]));
   }
   if (output["validUntil"] !== undefined) {
-    contents.ValidUntil = new Date(output["validUntil"]);
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["validUntil"]));
   }
   if (output["replaceUnhealthyInstances"] !== undefined) {
     contents.ReplaceUnhealthyInstances = __parseBoolean(output["replaceUnhealthyInstances"]);
@@ -70438,7 +70442,7 @@ const deserializeAws_ec2SpotInstanceRequest = (output: any, context: __SerdeCont
     contents.BlockDurationMinutes = __strictParseInt32(output["blockDurationMinutes"]) as number;
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = new Date(output["createTime"]);
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
   }
   if (output["fault"] !== undefined) {
     contents.Fault = deserializeAws_ec2SpotInstanceStateFault(output["fault"], context);
@@ -70480,10 +70484,10 @@ const deserializeAws_ec2SpotInstanceRequest = (output: any, context: __SerdeCont
     contents.Type = __expectString(output["type"]);
   }
   if (output["validFrom"] !== undefined) {
-    contents.ValidFrom = new Date(output["validFrom"]);
+    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTime(output["validFrom"]));
   }
   if (output["validUntil"] !== undefined) {
-    contents.ValidUntil = new Date(output["validUntil"]);
+    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTime(output["validUntil"]));
   }
   if (output["instanceInterruptionBehavior"] !== undefined) {
     contents.InstanceInterruptionBehavior = __expectString(output["instanceInterruptionBehavior"]);
@@ -70529,7 +70533,7 @@ const deserializeAws_ec2SpotInstanceStatus = (output: any, context: __SerdeConte
     contents.Message = __expectString(output["message"]);
   }
   if (output["updateTime"] !== undefined) {
-    contents.UpdateTime = new Date(output["updateTime"]);
+    contents.UpdateTime = __expectNonNull(__parseRfc3339DateTime(output["updateTime"]));
   }
   return contents;
 };
@@ -70627,7 +70631,7 @@ const deserializeAws_ec2SpotPrice = (output: any, context: __SerdeContext): Spot
     contents.SpotPrice = __expectString(output["spotPrice"]);
   }
   if (output["timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["timestamp"]));
   }
   return contents;
 };
@@ -70851,7 +70855,7 @@ const deserializeAws_ec2StoreImageTaskResult = (output: any, context: __SerdeCon
     contents.AmiId = __expectString(output["amiId"]);
   }
   if (output["taskStartTime"] !== undefined) {
-    contents.TaskStartTime = new Date(output["taskStartTime"]);
+    contents.TaskStartTime = __expectNonNull(__parseRfc3339DateTime(output["taskStartTime"]));
   }
   if (output["bucket"] !== undefined) {
     contents.Bucket = __expectString(output["bucket"]);
@@ -71781,7 +71785,7 @@ const deserializeAws_ec2TransitGateway = (output: any, context: __SerdeContext):
     contents.Description = __expectString(output["description"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["creationTime"]);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
   }
   if (output["options"] !== undefined) {
     contents.Options = deserializeAws_ec2TransitGatewayOptions(output["options"], context);
@@ -71862,7 +71866,7 @@ const deserializeAws_ec2TransitGatewayAttachment = (output: any, context: __Serd
     contents.Association = deserializeAws_ec2TransitGatewayAttachmentAssociation(output["association"], context);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["creationTime"]);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -72001,7 +72005,7 @@ const deserializeAws_ec2TransitGatewayConnect = (output: any, context: __SerdeCo
     contents.State = __expectString(output["state"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["creationTime"]);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
   }
   if (output["options"] !== undefined) {
     contents.Options = deserializeAws_ec2TransitGatewayConnectOptions(output["options"], context);
@@ -72061,7 +72065,7 @@ const deserializeAws_ec2TransitGatewayConnectPeer = (
     contents.State = __expectString(output["state"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["creationTime"]);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
   }
   if (output["connectPeerConfiguration"] !== undefined) {
     contents.ConnectPeerConfiguration = deserializeAws_ec2TransitGatewayConnectPeerConfiguration(
@@ -72237,7 +72241,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomain = (
     contents.State = __expectString(output["state"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["creationTime"]);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -72573,7 +72577,7 @@ const deserializeAws_ec2TransitGatewayPeeringAttachment = (
     contents.State = __expectString(output["state"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["creationTime"]);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -72802,7 +72806,7 @@ const deserializeAws_ec2TransitGatewayRouteTable = (output: any, context: __Serd
     contents.DefaultPropagationRouteTable = __parseBoolean(output["defaultPropagationRouteTable"]);
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["creationTime"]);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -72945,7 +72949,7 @@ const deserializeAws_ec2TransitGatewayVpcAttachment = (
     );
   }
   if (output["creationTime"] !== undefined) {
-    contents.CreationTime = new Date(output["creationTime"]);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
   }
   if (output["options"] !== undefined) {
     contents.Options = deserializeAws_ec2TransitGatewayVpcAttachmentOptions(output["options"], context);
@@ -73538,7 +73542,7 @@ const deserializeAws_ec2VgwTelemetry = (output: any, context: __SerdeContext): V
     contents.AcceptedRouteCount = __strictParseInt32(output["acceptedRouteCount"]) as number;
   }
   if (output["lastStatusChange"] !== undefined) {
-    contents.LastStatusChange = new Date(output["lastStatusChange"]);
+    contents.LastStatusChange = __expectNonNull(__parseRfc3339DateTime(output["lastStatusChange"]));
   }
   if (output["outsideIpAddress"] !== undefined) {
     contents.OutsideIpAddress = __expectString(output["outsideIpAddress"]);
@@ -73612,7 +73616,7 @@ const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume 
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
   if (output["createTime"] !== undefined) {
-    contents.CreateTime = new Date(output["createTime"]);
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
   }
   if (output["encrypted"] !== undefined) {
     contents.Encrypted = __parseBoolean(output["encrypted"]);
@@ -73669,7 +73673,7 @@ const deserializeAws_ec2VolumeAttachment = (output: any, context: __SerdeContext
     DeleteOnTermination: undefined,
   };
   if (output["attachTime"] !== undefined) {
-    contents.AttachTime = new Date(output["attachTime"]);
+    contents.AttachTime = __expectNonNull(__parseRfc3339DateTime(output["attachTime"]));
   }
   if (output["device"] !== undefined) {
     contents.Device = __expectString(output["device"]);
@@ -73773,10 +73777,10 @@ const deserializeAws_ec2VolumeModification = (output: any, context: __SerdeConte
     contents.Progress = __strictParseLong(output["progress"]) as number;
   }
   if (output["startTime"] !== undefined) {
-    contents.StartTime = new Date(output["startTime"]);
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
   }
   if (output["endTime"] !== undefined) {
-    contents.EndTime = new Date(output["endTime"]);
+    contents.EndTime = __expectNonNull(__parseRfc3339DateTime(output["endTime"]));
   }
   return contents;
 };
@@ -73900,10 +73904,10 @@ const deserializeAws_ec2VolumeStatusEvent = (output: any, context: __SerdeContex
     contents.EventType = __expectString(output["eventType"]);
   }
   if (output["notAfter"] !== undefined) {
-    contents.NotAfter = new Date(output["notAfter"]);
+    contents.NotAfter = __expectNonNull(__parseRfc3339DateTime(output["notAfter"]));
   }
   if (output["notBefore"] !== undefined) {
-    contents.NotBefore = new Date(output["notBefore"]);
+    contents.NotBefore = __expectNonNull(__parseRfc3339DateTime(output["notBefore"]));
   }
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
@@ -74256,7 +74260,7 @@ const deserializeAws_ec2VpcEndpoint = (output: any, context: __SerdeContext): Vp
     contents.DnsEntries = deserializeAws_ec2DnsEntrySet(__getArrayIfSingleItem(output["dnsEntrySet"]["item"]), context);
   }
   if (output["creationTimestamp"] !== undefined) {
-    contents.CreationTimestamp = new Date(output["creationTimestamp"]);
+    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTime(output["creationTimestamp"]));
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -74297,7 +74301,7 @@ const deserializeAws_ec2VpcEndpointConnection = (output: any, context: __SerdeCo
     contents.VpcEndpointState = __expectString(output["vpcEndpointState"]);
   }
   if (output["creationTimestamp"] !== undefined) {
-    contents.CreationTimestamp = new Date(output["creationTimestamp"]);
+    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTime(output["creationTimestamp"]));
   }
   if (output.dnsEntrySet === "") {
     contents.DnsEntries = [];
@@ -74415,7 +74419,7 @@ const deserializeAws_ec2VpcPeeringConnection = (output: any, context: __SerdeCon
     contents.AccepterVpcInfo = deserializeAws_ec2VpcPeeringConnectionVpcInfo(output["accepterVpcInfo"], context);
   }
   if (output["expirationTime"] !== undefined) {
-    contents.ExpirationTime = new Date(output["expirationTime"]);
+    contents.ExpirationTime = __expectNonNull(__parseRfc3339DateTime(output["expirationTime"]));
   }
   if (output["requesterVpcInfo"] !== undefined) {
     contents.RequesterVpcInfo = deserializeAws_ec2VpcPeeringConnectionVpcInfo(output["requesterVpcInfo"], context);

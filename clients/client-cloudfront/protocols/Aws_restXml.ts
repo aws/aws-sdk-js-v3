@@ -488,6 +488,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
@@ -15854,7 +15855,7 @@ const deserializeAws_restXmlCachePolicy = (output: any, context: __SerdeContext)
     contents.Id = __expectString(output["Id"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["CachePolicyConfig"] !== undefined) {
     contents.CachePolicyConfig = deserializeAws_restXmlCachePolicyConfig(output["CachePolicyConfig"], context);
@@ -16482,7 +16483,7 @@ const deserializeAws_restXmlDistribution = (output: any, context: __SerdeContext
     contents.Status = __expectString(output["Status"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["InProgressInvalidationBatches"] !== undefined) {
     contents.InProgressInvalidationBatches = __strictParseInt32(output["InProgressInvalidationBatches"]) as number;
@@ -16704,7 +16705,7 @@ const deserializeAws_restXmlDistributionSummary = (output: any, context: __Serde
     contents.Status = __expectString(output["Status"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["DomainName"] !== undefined) {
     contents.DomainName = __expectString(output["DomainName"]);
@@ -16858,7 +16859,7 @@ const deserializeAws_restXmlFieldLevelEncryption = (output: any, context: __Serd
     contents.Id = __expectString(output["Id"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["FieldLevelEncryptionConfig"] !== undefined) {
     contents.FieldLevelEncryptionConfig = deserializeAws_restXmlFieldLevelEncryptionConfig(
@@ -16944,7 +16945,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfile = (
     contents.Id = __expectString(output["Id"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["FieldLevelEncryptionProfileConfig"] !== undefined) {
     contents.FieldLevelEncryptionProfileConfig = deserializeAws_restXmlFieldLevelEncryptionProfileConfig(
@@ -17026,7 +17027,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSummary = (
     contents.Id = __expectString(output["Id"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -17069,7 +17070,7 @@ const deserializeAws_restXmlFieldLevelEncryptionSummary = (
     contents.Id = __expectString(output["Id"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["Comment"] !== undefined) {
     contents.Comment = __expectString(output["Comment"]);
@@ -17279,10 +17280,10 @@ const deserializeAws_restXmlFunctionMetadata = (output: any, context: __SerdeCon
     contents.Stage = __expectString(output["Stage"]);
   }
   if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = new Date(output["CreatedTime"]);
+    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTime(output["CreatedTime"]));
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   return contents;
 };
@@ -17383,7 +17384,7 @@ const deserializeAws_restXmlInvalidation = (output: any, context: __SerdeContext
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CreateTime"] !== undefined) {
-    contents.CreateTime = new Date(output["CreateTime"]);
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["CreateTime"]));
   }
   if (output["InvalidationBatch"] !== undefined) {
     contents.InvalidationBatch = deserializeAws_restXmlInvalidationBatch(output["InvalidationBatch"], context);
@@ -17451,7 +17452,7 @@ const deserializeAws_restXmlInvalidationSummary = (output: any, context: __Serde
     contents.Id = __expectString(output["Id"]);
   }
   if (output["CreateTime"] !== undefined) {
-    contents.CreateTime = new Date(output["CreateTime"]);
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["CreateTime"]));
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -17480,7 +17481,7 @@ const deserializeAws_restXmlKeyGroup = (output: any, context: __SerdeContext): K
     contents.Id = __expectString(output["Id"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["KeyGroupConfig"] !== undefined) {
     contents.KeyGroupConfig = deserializeAws_restXmlKeyGroupConfig(output["KeyGroupConfig"], context);
@@ -17934,7 +17935,7 @@ const deserializeAws_restXmlOriginRequestPolicy = (output: any, context: __Serde
     contents.Id = __expectString(output["Id"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["OriginRequestPolicyConfig"] !== undefined) {
     contents.OriginRequestPolicyConfig = deserializeAws_restXmlOriginRequestPolicyConfig(
@@ -18211,7 +18212,7 @@ const deserializeAws_restXmlPublicKey = (output: any, context: __SerdeContext): 
     contents.Id = __expectString(output["Id"]);
   }
   if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = new Date(output["CreatedTime"]);
+    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTime(output["CreatedTime"]));
   }
   if (output["PublicKeyConfig"] !== undefined) {
     contents.PublicKeyConfig = deserializeAws_restXmlPublicKeyConfig(output["PublicKeyConfig"], context);
@@ -18295,7 +18296,7 @@ const deserializeAws_restXmlPublicKeySummary = (output: any, context: __SerdeCon
     contents.Name = __expectString(output["Name"]);
   }
   if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = new Date(output["CreatedTime"]);
+    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTime(output["CreatedTime"]));
   }
   if (output["EncodedKey"] !== undefined) {
     contents.EncodedKey = __expectString(output["EncodedKey"]);
@@ -18650,7 +18651,7 @@ const deserializeAws_restXmlStreamingDistribution = (output: any, context: __Ser
     contents.Status = __expectString(output["Status"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["DomainName"] !== undefined) {
     contents.DomainName = __expectString(output["DomainName"]);
@@ -18774,7 +18775,7 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
     contents.Status = __expectString(output["Status"]);
   }
   if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
   }
   if (output["DomainName"] !== undefined) {
     contents.DomainName = __expectString(output["DomainName"]);

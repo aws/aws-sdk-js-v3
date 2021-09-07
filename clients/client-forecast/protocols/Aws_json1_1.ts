@@ -184,8 +184,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4029,13 +4032,13 @@ const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __Serde
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatasetGroupArn: __expectString(output.DatasetGroupArn),
     DatasetGroupName: __expectString(output.DatasetGroupName),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
   } as any;
 };
@@ -4058,7 +4061,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DataSource:
       output.DataSource !== undefined && output.DataSource !== null
@@ -4068,7 +4071,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
     DatasetImportJobName: __expectString(output.DatasetImportJobName),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
     Status: __expectString(output.Status),
@@ -4090,7 +4093,7 @@ const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeConte
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatasetArn: __expectString(output.DatasetArn),
     DatasetName: __expectString(output.DatasetName),
@@ -4098,7 +4101,7 @@ const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeConte
     Domain: __expectString(output.Domain),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
   } as any;
 };
@@ -4119,7 +4122,7 @@ const deserializeAws_json1_1DescribeDatasetGroupResponse = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatasetArns:
       output.DatasetArns !== undefined && output.DatasetArns !== null
@@ -4130,7 +4133,7 @@ const deserializeAws_json1_1DescribeDatasetGroupResponse = (
     Domain: __expectString(output.Domain),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -4143,7 +4146,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DataSize: __limitedParseDouble(output.DataSize),
     DataSource:
@@ -4161,7 +4164,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
     GeolocationFormat: __expectString(output.GeolocationFormat),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
     Status: __expectString(output.Status),
@@ -4178,7 +4181,7 @@ const deserializeAws_json1_1DescribeDatasetResponse = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DataFrequency: __expectString(output.DataFrequency),
     DatasetArn: __expectString(output.DatasetArn),
@@ -4191,7 +4194,7 @@ const deserializeAws_json1_1DescribeDatasetResponse = (
         : undefined,
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Schema:
       output.Schema !== undefined && output.Schema !== null
@@ -4208,7 +4211,7 @@ const deserializeAws_json1_1DescribeForecastExportJobResponse = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Destination:
       output.Destination !== undefined && output.Destination !== null
@@ -4219,7 +4222,7 @@ const deserializeAws_json1_1DescribeForecastExportJobResponse = (
     ForecastExportJobName: __expectString(output.ForecastExportJobName),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
     Status: __expectString(output.Status),
@@ -4233,7 +4236,7 @@ const deserializeAws_json1_1DescribeForecastResponse = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatasetGroupArn: __expectString(output.DatasetGroupArn),
     EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
@@ -4245,7 +4248,7 @@ const deserializeAws_json1_1DescribeForecastResponse = (
         : undefined,
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
     PredictorArn: __expectString(output.PredictorArn),
@@ -4260,7 +4263,7 @@ const deserializeAws_json1_1DescribePredictorBacktestExportJobResponse = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Destination:
       output.Destination !== undefined && output.Destination !== null
@@ -4268,7 +4271,7 @@ const deserializeAws_json1_1DescribePredictorBacktestExportJobResponse = (
         : undefined,
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
     PredictorArn: __expectString(output.PredictorArn),
@@ -4291,7 +4294,7 @@ const deserializeAws_json1_1DescribePredictorResponse = (
     AutoMLOverrideStrategy: __expectString(output.AutoMLOverrideStrategy),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatasetImportJobArns:
       output.DatasetImportJobArns !== undefined && output.DatasetImportJobArns !== null
@@ -4325,7 +4328,7 @@ const deserializeAws_json1_1DescribePredictorResponse = (
         : undefined,
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
     PerformAutoML: __expectBoolean(output.PerformAutoML),
@@ -4499,7 +4502,7 @@ const deserializeAws_json1_1ForecastExportJobSummary = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Destination:
       output.Destination !== undefined && output.Destination !== null
@@ -4509,7 +4512,7 @@ const deserializeAws_json1_1ForecastExportJobSummary = (
     ForecastExportJobName: __expectString(output.ForecastExportJobName),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
     Status: __expectString(output.Status),
@@ -4531,14 +4534,14 @@ const deserializeAws_json1_1ForecastSummary = (output: any, context: __SerdeCont
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatasetGroupArn: __expectString(output.DatasetGroupArn),
     ForecastArn: __expectString(output.ForecastArn),
     ForecastName: __expectString(output.ForecastName),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
     PredictorArn: __expectString(output.PredictorArn),
@@ -4780,7 +4783,7 @@ const deserializeAws_json1_1PredictorBacktestExportJobSummary = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Destination:
       output.Destination !== undefined && output.Destination !== null
@@ -4788,7 +4791,7 @@ const deserializeAws_json1_1PredictorBacktestExportJobSummary = (
         : undefined,
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
     PredictorBacktestExportJobArn: __expectString(output.PredictorBacktestExportJobArn),
@@ -4856,12 +4859,12 @@ const deserializeAws_json1_1PredictorSummary = (output: any, context: __SerdeCon
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatasetGroupArn: __expectString(output.DatasetGroupArn),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
     PredictorArn: __expectString(output.PredictorArn),
@@ -5014,11 +5017,11 @@ const deserializeAws_json1_1TestWindowSummary = (output: any, context: __SerdeCo
     Status: __expectString(output.Status),
     TestWindowEnd:
       output.TestWindowEnd !== undefined && output.TestWindowEnd !== null
-        ? new Date(Math.round(output.TestWindowEnd * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowEnd)))
         : undefined,
     TestWindowStart:
       output.TestWindowStart !== undefined && output.TestWindowStart !== null
-        ? new Date(Math.round(output.TestWindowStart * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowStart)))
         : undefined,
   } as any;
 };
@@ -5085,11 +5088,11 @@ const deserializeAws_json1_1WindowSummary = (output: any, context: __SerdeContex
         : undefined,
     TestWindowEnd:
       output.TestWindowEnd !== undefined && output.TestWindowEnd !== null
-        ? new Date(Math.round(output.TestWindowEnd * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowEnd)))
         : undefined,
     TestWindowStart:
       output.TestWindowStart !== undefined && output.TestWindowStart !== null
-        ? new Date(Math.round(output.TestWindowStart * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowStart)))
         : undefined,
   } as any;
 };

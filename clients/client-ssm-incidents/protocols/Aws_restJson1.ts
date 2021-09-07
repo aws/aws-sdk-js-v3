@@ -111,9 +111,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4046,12 +4048,12 @@ const deserializeAws_restJson1EventSummary = (output: any, context: __SerdeConte
     eventId: __expectString(output.eventId),
     eventTime:
       output.eventTime !== undefined && output.eventTime !== null
-        ? new Date(Math.round(output.eventTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTime)))
         : undefined,
     eventType: __expectString(output.eventType),
     eventUpdatedTime:
       output.eventUpdatedTime !== undefined && output.eventUpdatedTime !== null
-        ? new Date(Math.round(output.eventUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventUpdatedTime)))
         : undefined,
     incidentRecordArn: __expectString(output.incidentRecordArn),
   } as any;
@@ -4081,7 +4083,7 @@ const deserializeAws_restJson1IncidentRecord = (output: any, context: __SerdeCon
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     dedupeString: __expectString(output.dedupeString),
     impact: __expectInt32(output.impact),
@@ -4092,7 +4094,7 @@ const deserializeAws_restJson1IncidentRecord = (output: any, context: __SerdeCon
     lastModifiedBy: __expectString(output.lastModifiedBy),
     lastModifiedTime:
       output.lastModifiedTime !== undefined && output.lastModifiedTime !== null
-        ? new Date(Math.round(output.lastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTime)))
         : undefined,
     notificationTargets:
       output.notificationTargets !== undefined && output.notificationTargets !== null
@@ -4100,7 +4102,7 @@ const deserializeAws_restJson1IncidentRecord = (output: any, context: __SerdeCon
         : undefined,
     resolvedTime:
       output.resolvedTime !== undefined && output.resolvedTime !== null
-        ? new Date(Math.round(output.resolvedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.resolvedTime)))
         : undefined,
     status: __expectString(output.status),
     summary: __expectString(output.summary),
@@ -4122,7 +4124,7 @@ const deserializeAws_restJson1IncidentRecordSummary = (output: any, context: __S
     arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     impact: __expectInt32(output.impact),
     incidentRecordSource:
@@ -4131,7 +4133,7 @@ const deserializeAws_restJson1IncidentRecordSummary = (output: any, context: __S
         : undefined,
     resolvedTime:
       output.resolvedTime !== undefined && output.resolvedTime !== null
-        ? new Date(Math.round(output.resolvedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.resolvedTime)))
         : undefined,
     status: __expectString(output.status),
     title: __expectString(output.title),
@@ -4219,7 +4221,7 @@ const deserializeAws_restJson1RegionInfo = (output: any, context: __SerdeContext
     statusMessage: __expectString(output.statusMessage),
     statusUpdateDateTime:
       output.statusUpdateDateTime !== undefined && output.statusUpdateDateTime !== null
-        ? new Date(Math.round(output.statusUpdateDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.statusUpdateDateTime)))
         : undefined,
   } as any;
 };
@@ -4263,13 +4265,13 @@ const deserializeAws_restJson1ReplicationSet = (output: any, context: __SerdeCon
     createdBy: __expectString(output.createdBy),
     createdTime:
       output.createdTime !== undefined && output.createdTime !== null
-        ? new Date(Math.round(output.createdTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     deletionProtected: __expectBoolean(output.deletionProtected),
     lastModifiedBy: __expectString(output.lastModifiedBy),
     lastModifiedTime:
       output.lastModifiedTime !== undefined && output.lastModifiedTime !== null
-        ? new Date(Math.round(output.lastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTime)))
         : undefined,
     regionMap:
       output.regionMap !== undefined && output.regionMap !== null
@@ -4385,12 +4387,12 @@ const deserializeAws_restJson1TimelineEvent = (output: any, context: __SerdeCont
     eventId: __expectString(output.eventId),
     eventTime:
       output.eventTime !== undefined && output.eventTime !== null
-        ? new Date(Math.round(output.eventTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTime)))
         : undefined,
     eventType: __expectString(output.eventType),
     eventUpdatedTime:
       output.eventUpdatedTime !== undefined && output.eventUpdatedTime !== null
-        ? new Date(Math.round(output.eventUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventUpdatedTime)))
         : undefined,
     incidentRecordArn: __expectString(output.incidentRecordArn),
   } as any;

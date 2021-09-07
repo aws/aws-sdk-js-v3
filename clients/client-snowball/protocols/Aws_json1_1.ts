@@ -139,7 +139,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2840,7 +2843,7 @@ const deserializeAws_json1_1ClusterListEntry = (output: any, context: __SerdeCon
     ClusterState: __expectString(output.ClusterState),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     Description: __expectString(output.Description),
   } as any;
@@ -2864,7 +2867,7 @@ const deserializeAws_json1_1ClusterMetadata = (output: any, context: __SerdeCont
     ClusterState: __expectString(output.ClusterState),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     Description: __expectString(output.Description),
     ForwardingAddressId: __expectString(output.ForwardingAddressId),
@@ -3013,7 +3016,7 @@ const deserializeAws_json1_1DescribeReturnShippingLabelResult = (
   return {
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
-        ? new Date(Math.round(output.ExpirationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationDate)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -3159,7 +3162,7 @@ const deserializeAws_json1_1JobListEntry = (output: any, context: __SerdeContext
   return {
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     Description: __expectString(output.Description),
     IsMaster: __expectBoolean(output.IsMaster),
@@ -3195,7 +3198,7 @@ const deserializeAws_json1_1JobMetadata = (output: any, context: __SerdeContext)
     ClusterId: __expectString(output.ClusterId),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DataTransferProgress:
       output.DataTransferProgress !== undefined && output.DataTransferProgress !== null
@@ -3413,12 +3416,12 @@ const deserializeAws_json1_1LongTermPricingListEntry = (
         : undefined,
     LongTermPricingEndDate:
       output.LongTermPricingEndDate !== undefined && output.LongTermPricingEndDate !== null
-        ? new Date(Math.round(output.LongTermPricingEndDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LongTermPricingEndDate)))
         : undefined,
     LongTermPricingId: __expectString(output.LongTermPricingId),
     LongTermPricingStartDate:
       output.LongTermPricingStartDate !== undefined && output.LongTermPricingStartDate !== null
-        ? new Date(Math.round(output.LongTermPricingStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LongTermPricingStartDate)))
         : undefined,
     LongTermPricingStatus: __expectString(output.LongTermPricingStatus),
     LongTermPricingType: __expectString(output.LongTermPricingType),

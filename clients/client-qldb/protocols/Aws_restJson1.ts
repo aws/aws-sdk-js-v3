@@ -65,9 +65,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -849,7 +851,7 @@ export const deserializeAws_restJson1CreateLedgerCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreationDateTime !== undefined && data.CreationDateTime !== null) {
-    contents.CreationDateTime = new Date(Math.round(data.CreationDateTime * 1000));
+    contents.CreationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDateTime)));
   }
   if (data.DeletionProtection !== undefined && data.DeletionProtection !== null) {
     contents.DeletionProtection = __expectBoolean(data.DeletionProtection);
@@ -1153,7 +1155,7 @@ export const deserializeAws_restJson1DescribeLedgerCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreationDateTime !== undefined && data.CreationDateTime !== null) {
-    contents.CreationDateTime = new Date(Math.round(data.CreationDateTime * 1000));
+    contents.CreationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDateTime)));
   }
   if (data.DeletionProtection !== undefined && data.DeletionProtection !== null) {
     contents.DeletionProtection = __expectBoolean(data.DeletionProtection);
@@ -2010,7 +2012,7 @@ export const deserializeAws_restJson1UpdateLedgerCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreationDateTime !== undefined && data.CreationDateTime !== null) {
-    contents.CreationDateTime = new Date(Math.round(data.CreationDateTime * 1000));
+    contents.CreationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDateTime)));
   }
   if (data.DeletionProtection !== undefined && data.DeletionProtection !== null) {
     contents.DeletionProtection = __expectBoolean(data.DeletionProtection);
@@ -2347,16 +2349,16 @@ const deserializeAws_restJson1JournalKinesisStreamDescription = (
     Arn: __expectString(output.Arn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ErrorCause: __expectString(output.ErrorCause),
     ExclusiveEndTime:
       output.ExclusiveEndTime !== undefined && output.ExclusiveEndTime !== null
-        ? new Date(Math.round(output.ExclusiveEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExclusiveEndTime)))
         : undefined,
     InclusiveStartTime:
       output.InclusiveStartTime !== undefined && output.InclusiveStartTime !== null
-        ? new Date(Math.round(output.InclusiveStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InclusiveStartTime)))
         : undefined,
     KinesisConfiguration:
       output.KinesisConfiguration !== undefined && output.KinesisConfiguration !== null
@@ -2391,16 +2393,16 @@ const deserializeAws_restJson1JournalS3ExportDescription = (
   return {
     ExclusiveEndTime:
       output.ExclusiveEndTime !== undefined && output.ExclusiveEndTime !== null
-        ? new Date(Math.round(output.ExclusiveEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExclusiveEndTime)))
         : undefined,
     ExportCreationTime:
       output.ExportCreationTime !== undefined && output.ExportCreationTime !== null
-        ? new Date(Math.round(output.ExportCreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExportCreationTime)))
         : undefined,
     ExportId: __expectString(output.ExportId),
     InclusiveStartTime:
       output.InclusiveStartTime !== undefined && output.InclusiveStartTime !== null
-        ? new Date(Math.round(output.InclusiveStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InclusiveStartTime)))
         : undefined,
     LedgerName: __expectString(output.LedgerName),
     RoleArn: __expectString(output.RoleArn),
@@ -2441,7 +2443,7 @@ const deserializeAws_restJson1LedgerEncryptionDescription = (
     EncryptionStatus: __expectString(output.EncryptionStatus),
     InaccessibleKmsKeyDateTime:
       output.InaccessibleKmsKeyDateTime !== undefined && output.InaccessibleKmsKeyDateTime !== null
-        ? new Date(Math.round(output.InaccessibleKmsKeyDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InaccessibleKmsKeyDateTime)))
         : undefined,
     KmsKeyArn: __expectString(output.KmsKeyArn),
   } as any;
@@ -2462,7 +2464,7 @@ const deserializeAws_restJson1LedgerSummary = (output: any, context: __SerdeCont
   return {
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
-        ? new Date(Math.round(output.CreationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDateTime)))
         : undefined,
     Name: __expectString(output.Name),
     State: __expectString(output.State),

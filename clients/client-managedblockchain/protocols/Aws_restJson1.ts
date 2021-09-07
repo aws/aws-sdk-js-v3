@@ -79,6 +79,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3439,10 +3440,12 @@ const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
+        : undefined,
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
-        ? new Date(output.ExpirationDate)
+        ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate))
         : undefined,
     InvitationId: __expectString(output.InvitationId),
     NetworkSummary:
@@ -3500,7 +3503,9 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
+        : undefined,
     Description: __expectString(output.Description),
     FrameworkAttributes:
       output.FrameworkAttributes !== undefined && output.FrameworkAttributes !== null
@@ -3572,7 +3577,9 @@ const deserializeAws_restJson1MemberSummary = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
+        : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     IsOwned: __expectBoolean(output.IsOwned),
@@ -3596,7 +3603,9 @@ const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): 
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
+        : undefined,
     Description: __expectString(output.Description),
     Framework: __expectString(output.Framework),
     FrameworkAttributes:
@@ -3658,7 +3667,9 @@ const deserializeAws_restJson1NetworkSummary = (output: any, context: __SerdeCon
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
+        : undefined,
     Description: __expectString(output.Description),
     Framework: __expectString(output.Framework),
     FrameworkVersion: __expectString(output.FrameworkVersion),
@@ -3684,7 +3695,9 @@ const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Nod
     Arn: __expectString(output.Arn),
     AvailabilityZone: __expectString(output.AvailabilityZone),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
+        : undefined,
     FrameworkAttributes:
       output.FrameworkAttributes !== undefined && output.FrameworkAttributes !== null
         ? deserializeAws_restJson1NodeFrameworkAttributes(output.FrameworkAttributes, context)
@@ -3773,7 +3786,9 @@ const deserializeAws_restJson1NodeSummary = (output: any, context: __SerdeContex
     Arn: __expectString(output.Arn),
     AvailabilityZone: __expectString(output.AvailabilityZone),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
+        : undefined,
     Id: __expectString(output.Id),
     InstanceType: __expectString(output.InstanceType),
     Status: __expectString(output.Status),
@@ -3811,11 +3826,13 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
         : undefined,
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
+        : undefined,
     Description: __expectString(output.Description),
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
-        ? new Date(output.ExpirationDate)
+        ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate))
         : undefined,
     NetworkId: __expectString(output.NetworkId),
     NoVoteCount: __expectInt32(output.NoVoteCount),
@@ -3849,11 +3866,13 @@ const deserializeAws_restJson1ProposalSummary = (output: any, context: __SerdeCo
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
+        : undefined,
     Description: __expectString(output.Description),
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
-        ? new Date(output.ExpirationDate)
+        ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate))
         : undefined,
     ProposalId: __expectString(output.ProposalId),
     ProposedByMemberId: __expectString(output.ProposedByMemberId),

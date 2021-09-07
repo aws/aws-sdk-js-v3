@@ -273,8 +273,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5606,7 +5609,7 @@ const deserializeAws_json1_1Accelerator = (output: any, context: __SerdeContext)
     AcceleratorArn: __expectString(output.AcceleratorArn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DnsName: __expectString(output.DnsName),
     Enabled: __expectBoolean(output.Enabled),
@@ -5617,7 +5620,7 @@ const deserializeAws_json1_1Accelerator = (output: any, context: __SerdeContext)
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
@@ -5726,7 +5729,7 @@ const deserializeAws_json1_1ByoipCidrEvent = (output: any, context: __SerdeConte
     Message: __expectString(output.Message),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
   } as any;
 };
@@ -5845,7 +5848,7 @@ const deserializeAws_json1_1CustomRoutingAccelerator = (
     AcceleratorArn: __expectString(output.AcceleratorArn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DnsName: __expectString(output.DnsName),
     Enabled: __expectBoolean(output.Enabled),
@@ -5856,7 +5859,7 @@ const deserializeAws_json1_1CustomRoutingAccelerator = (
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),

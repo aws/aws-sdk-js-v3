@@ -75,7 +75,12 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1631,7 +1636,7 @@ const deserializeAws_json1_0DatastoreProperties = (output: any, context: __Serde
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DatastoreArn: __expectString(output.DatastoreArn),
     DatastoreEndpoint: __expectString(output.DatastoreEndpoint),
@@ -1714,7 +1719,9 @@ const deserializeAws_json1_0ExportJobProperties = (output: any, context: __Serde
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     DatastoreId: __expectString(output.DatastoreId),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),
@@ -1725,7 +1732,7 @@ const deserializeAws_json1_0ExportJobProperties = (output: any, context: __Serde
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
   } as any;
 };
@@ -1746,7 +1753,9 @@ const deserializeAws_json1_0ImportJobProperties = (output: any, context: __Serde
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     DatastoreId: __expectString(output.DatastoreId),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_0InputDataConfig(output.InputDataConfig, context)
@@ -1761,7 +1770,7 @@ const deserializeAws_json1_0ImportJobProperties = (output: any, context: __Serde
     Message: __expectString(output.Message),
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
   } as any;
 };

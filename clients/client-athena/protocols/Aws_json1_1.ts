@@ -167,7 +167,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3862,7 +3865,7 @@ const deserializeAws_json1_1PreparedStatement = (output: any, context: __SerdeCo
     Description: __expectString(output.Description),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     QueryStatement: __expectString(output.QueryStatement),
     StatementName: __expectString(output.StatementName),
@@ -3891,7 +3894,7 @@ const deserializeAws_json1_1PreparedStatementSummary = (
   return {
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     StatementName: __expectString(output.StatementName),
   } as any;
@@ -3974,13 +3977,13 @@ const deserializeAws_json1_1QueryExecutionStatus = (output: any, context: __Serd
   return {
     CompletionDateTime:
       output.CompletionDateTime !== undefined && output.CompletionDateTime !== null
-        ? new Date(Math.round(output.CompletionDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDateTime)))
         : undefined,
     State: __expectString(output.State),
     StateChangeReason: __expectString(output.StateChangeReason),
     SubmissionDateTime:
       output.SubmissionDateTime !== undefined && output.SubmissionDateTime !== null
-        ? new Date(Math.round(output.SubmissionDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmissionDateTime)))
         : undefined,
   } as any;
 };
@@ -4071,11 +4074,11 @@ const deserializeAws_json1_1TableMetadata = (output: any, context: __SerdeContex
         : undefined,
     CreateTime:
       output.CreateTime !== undefined && output.CreateTime !== null
-        ? new Date(Math.round(output.CreateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime)))
         : undefined,
     LastAccessTime:
       output.LastAccessTime !== undefined && output.LastAccessTime !== null
-        ? new Date(Math.round(output.LastAccessTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessTime)))
         : undefined,
     Name: __expectString(output.Name),
     Parameters:
@@ -4213,7 +4216,7 @@ const deserializeAws_json1_1WorkGroup = (output: any, context: __SerdeContext): 
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     Name: __expectString(output.Name),
@@ -4253,7 +4256,7 @@ const deserializeAws_json1_1WorkGroupSummary = (output: any, context: __SerdeCon
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     EngineVersion:

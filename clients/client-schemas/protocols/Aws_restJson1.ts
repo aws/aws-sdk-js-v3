@@ -74,6 +74,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1426,7 +1427,7 @@ export const deserializeAws_restJson1CreateSchemaCommand = async (
     contents.Description = __expectString(data.Description);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(data.LastModified);
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(data.LastModified));
   }
   if (data.SchemaArn !== undefined && data.SchemaArn !== null) {
     contents.SchemaArn = __expectString(data.SchemaArn);
@@ -1444,7 +1445,7 @@ export const deserializeAws_restJson1CreateSchemaCommand = async (
     contents.Type = __expectString(data.Type);
   }
   if (data.VersionCreatedDate !== undefined && data.VersionCreatedDate !== null) {
-    contents.VersionCreatedDate = new Date(data.VersionCreatedDate);
+    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTime(data.VersionCreatedDate));
   }
   return Promise.resolve(contents);
 };
@@ -1981,10 +1982,10 @@ export const deserializeAws_restJson1DescribeCodeBindingCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(data.CreationDate);
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data.CreationDate));
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(data.LastModified);
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(data.LastModified));
   }
   if (data.SchemaVersion !== undefined && data.SchemaVersion !== null) {
     contents.SchemaVersion = __expectString(data.SchemaVersion);
@@ -2325,7 +2326,7 @@ export const deserializeAws_restJson1DescribeSchemaCommand = async (
     contents.Description = __expectString(data.Description);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(data.LastModified);
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(data.LastModified));
   }
   if (data.SchemaArn !== undefined && data.SchemaArn !== null) {
     contents.SchemaArn = __expectString(data.SchemaArn);
@@ -2343,7 +2344,7 @@ export const deserializeAws_restJson1DescribeSchemaCommand = async (
     contents.Type = __expectString(data.Type);
   }
   if (data.VersionCreatedDate !== undefined && data.VersionCreatedDate !== null) {
-    contents.VersionCreatedDate = new Date(data.VersionCreatedDate);
+    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTime(data.VersionCreatedDate));
   }
   return Promise.resolve(contents);
 };
@@ -3290,10 +3291,10 @@ export const deserializeAws_restJson1PutCodeBindingCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(data.CreationDate);
+    contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data.CreationDate));
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(data.LastModified);
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(data.LastModified));
   }
   if (data.SchemaVersion !== undefined && data.SchemaVersion !== null) {
     contents.SchemaVersion = __expectString(data.SchemaVersion);
@@ -4184,7 +4185,7 @@ export const deserializeAws_restJson1UpdateSchemaCommand = async (
     contents.Description = __expectString(data.Description);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(data.LastModified);
+    contents.LastModified = __expectNonNull(__parseRfc3339DateTime(data.LastModified));
   }
   if (data.SchemaArn !== undefined && data.SchemaArn !== null) {
     contents.SchemaArn = __expectString(data.SchemaArn);
@@ -4202,7 +4203,7 @@ export const deserializeAws_restJson1UpdateSchemaCommand = async (
     contents.Type = __expectString(data.Type);
   }
   if (data.VersionCreatedDate !== undefined && data.VersionCreatedDate !== null) {
-    contents.VersionCreatedDate = new Date(data.VersionCreatedDate);
+    contents.VersionCreatedDate = __expectNonNull(__parseRfc3339DateTime(data.VersionCreatedDate));
   }
   return Promise.resolve(contents);
 };
@@ -4618,7 +4619,9 @@ const deserializeAws_restJson1RegistrySummary = (output: any, context: __SerdeCo
 const deserializeAws_restJson1SchemaSummary = (output: any, context: __SerdeContext): SchemaSummary => {
   return {
     LastModified:
-      output.LastModified !== undefined && output.LastModified !== null ? new Date(output.LastModified) : undefined,
+      output.LastModified !== undefined && output.LastModified !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.LastModified))
+        : undefined,
     SchemaArn: __expectString(output.SchemaArn),
     SchemaName: __expectString(output.SchemaName),
     Tags:
@@ -4656,7 +4659,9 @@ const deserializeAws_restJson1SearchSchemaVersionSummary = (
 ): SearchSchemaVersionSummary => {
   return {
     CreatedDate:
-      output.CreatedDate !== undefined && output.CreatedDate !== null ? new Date(output.CreatedDate) : undefined,
+      output.CreatedDate !== undefined && output.CreatedDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedDate))
+        : undefined,
     SchemaVersion: __expectString(output.SchemaVersion),
     Type: __expectString(output.Type),
   } as any;

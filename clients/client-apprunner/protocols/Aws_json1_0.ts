@@ -120,7 +120,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2511,11 +2514,11 @@ const deserializeAws_json1_0AutoScalingConfiguration = (
     AutoScalingConfigurationRevision: __expectInt32(output.AutoScalingConfigurationRevision),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DeletedAt:
       output.DeletedAt !== undefined && output.DeletedAt !== null
-        ? new Date(Math.round(output.DeletedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt)))
         : undefined,
     Latest: __expectBoolean(output.Latest),
     MaxConcurrency: __expectInt32(output.MaxConcurrency),
@@ -2622,7 +2625,7 @@ const deserializeAws_json1_0Connection = (output: any, context: __SerdeContext):
     ConnectionName: __expectString(output.ConnectionName),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     ProviderType: __expectString(output.ProviderType),
     Status: __expectString(output.Status),
@@ -2635,7 +2638,7 @@ const deserializeAws_json1_0ConnectionSummary = (output: any, context: __SerdeCo
     ConnectionName: __expectString(output.ConnectionName),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     ProviderType: __expectString(output.ProviderType),
     Status: __expectString(output.Status),
@@ -2935,18 +2938,20 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
 const deserializeAws_json1_0OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
   return {
     EndedAt:
-      output.EndedAt !== undefined && output.EndedAt !== null ? new Date(Math.round(output.EndedAt * 1000)) : undefined,
+      output.EndedAt !== undefined && output.EndedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt)))
+        : undefined,
     Id: __expectString(output.Id),
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
-        ? new Date(Math.round(output.StartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
         : undefined,
     Status: __expectString(output.Status),
     TargetArn: __expectString(output.TargetArn),
     Type: __expectString(output.Type),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -3014,11 +3019,11 @@ const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Se
         : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DeletedAt:
       output.DeletedAt !== undefined && output.DeletedAt !== null
-        ? new Date(Math.round(output.DeletedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt)))
         : undefined,
     EncryptionConfiguration:
       output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
@@ -3043,7 +3048,7 @@ const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Se
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -3061,7 +3066,7 @@ const deserializeAws_json1_0ServiceSummary = (output: any, context: __SerdeConte
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     ServiceArn: __expectString(output.ServiceArn),
     ServiceId: __expectString(output.ServiceId),
@@ -3070,7 +3075,7 @@ const deserializeAws_json1_0ServiceSummary = (output: any, context: __SerdeConte
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };

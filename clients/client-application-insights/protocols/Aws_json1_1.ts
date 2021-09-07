@@ -129,8 +129,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2959,7 +2962,7 @@ const deserializeAws_json1_1ConfigurationEvent = (output: any, context: __SerdeC
     EventStatus: __expectString(output.EventStatus),
     EventTime:
       output.EventTime !== undefined && output.EventTime !== null
-        ? new Date(Math.round(output.EventTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime)))
         : undefined,
     MonitoredResourceARN: __expectString(output.MonitoredResourceARN),
   } as any;
@@ -3304,7 +3307,9 @@ const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext)
     EbsResult: __expectString(output.EbsResult),
     Ec2State: __expectString(output.Ec2State),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     HealthEventArn: __expectString(output.HealthEventArn),
     HealthEventDescription: __expectString(output.HealthEventDescription),
     HealthEventTypeCategory: __expectString(output.HealthEventTypeCategory),
@@ -3313,7 +3318,7 @@ const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext)
     Id: __expectString(output.Id),
     LineTime:
       output.LineTime !== undefined && output.LineTime !== null
-        ? new Date(Math.round(output.LineTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LineTime)))
         : undefined,
     LogFilter: __expectString(output.LogFilter),
     LogGroup: __expectString(output.LogGroup),
@@ -3327,7 +3332,7 @@ const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext)
     SourceType: __expectString(output.SourceType),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     StatesArn: __expectString(output.StatesArn),
     StatesExecutionArn: __expectString(output.StatesExecutionArn),
@@ -3360,7 +3365,9 @@ const deserializeAws_json1_1Problem = (output: any, context: __SerdeContext): Pr
   return {
     AffectedResource: __expectString(output.AffectedResource),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     Feedback:
       output.Feedback !== undefined && output.Feedback !== null
         ? deserializeAws_json1_1Feedback(output.Feedback, context)
@@ -3371,7 +3378,7 @@ const deserializeAws_json1_1Problem = (output: any, context: __SerdeContext): Pr
     SeverityLevel: __expectString(output.SeverityLevel),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Status: __expectString(output.Status),
     Title: __expectString(output.Title),

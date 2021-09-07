@@ -311,7 +311,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6106,7 +6109,7 @@ const deserializeAws_json1_1AccountModification = (output: any, context: __Serde
     ModificationState: __expectString(output.ModificationState),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
 };
@@ -6985,7 +6988,7 @@ const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): S
   return {
     SnapshotTime:
       output.SnapshotTime !== undefined && output.SnapshotTime !== null
-        ? new Date(Math.round(output.SnapshotTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SnapshotTime)))
         : undefined,
   } as any;
 };
@@ -7163,13 +7166,13 @@ const deserializeAws_json1_1WorkspaceBundle = (output: any, context: __SerdeCont
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     ImageId: __expectString(output.ImageId),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     Name: __expectString(output.Name),
     Owner: __expectString(output.Owner),
@@ -7192,11 +7195,11 @@ const deserializeAws_json1_1WorkspaceConnectionStatus = (
     ConnectionState: __expectString(output.ConnectionState),
     ConnectionStateCheckTimestamp:
       output.ConnectionStateCheckTimestamp !== undefined && output.ConnectionStateCheckTimestamp !== null
-        ? new Date(Math.round(output.ConnectionStateCheckTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConnectionStateCheckTimestamp)))
         : undefined,
     LastKnownUserConnectionTimestamp:
       output.LastKnownUserConnectionTimestamp !== undefined && output.LastKnownUserConnectionTimestamp !== null
-        ? new Date(Math.round(output.LastKnownUserConnectionTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastKnownUserConnectionTimestamp)))
         : undefined,
     WorkspaceId: __expectString(output.WorkspaceId),
   } as any;
@@ -7258,7 +7261,9 @@ const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeC
 const deserializeAws_json1_1WorkspaceImage = (output: any, context: __SerdeContext): WorkspaceImage => {
   return {
     Created:
-      output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
+      output.Created !== undefined && output.Created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Created)))
+        : undefined,
     Description: __expectString(output.Description),
     ErrorCode: __expectString(output.ErrorCode),
     ErrorMessage: __expectString(output.ErrorMessage),

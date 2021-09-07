@@ -280,10 +280,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5165,7 +5167,7 @@ export const deserializeAws_restJson1CreateApiKeyCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.customerId !== undefined && data.customerId !== null) {
     contents.customerId = __expectString(data.customerId);
@@ -5180,7 +5182,7 @@ export const deserializeAws_restJson1CreateApiKeyCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -5527,7 +5529,7 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
     contents.apiSummary = deserializeAws_restJson1PathToMapOfMethodSnapshot(data.apiSummary, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -5741,7 +5743,7 @@ export const deserializeAws_restJson1CreateDocumentationVersionCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -5864,7 +5866,7 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
     contents.certificateName = __expectString(data.certificateName);
   }
   if (data.certificateUploadDate !== undefined && data.certificateUploadDate !== null) {
-    contents.certificateUploadDate = new Date(Math.round(data.certificateUploadDate * 1000));
+    contents.certificateUploadDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.certificateUploadDate)));
   }
   if (data.distributionDomainName !== undefined && data.distributionDomainName !== null) {
     contents.distributionDomainName = __expectString(data.distributionDomainName);
@@ -6343,7 +6345,7 @@ export const deserializeAws_restJson1CreateRestApiCommand = async (
     contents.binaryMediaTypes = deserializeAws_restJson1ListOfString(data.binaryMediaTypes, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -6494,7 +6496,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.clientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
     contents.deploymentId = __expectString(data.deploymentId);
@@ -6506,7 +6508,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.documentationVersion = __expectString(data.documentationVersion);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.methodSettings !== undefined && data.methodSettings !== null) {
     contents.methodSettings = deserializeAws_restJson1MapOfMethodSettings(data.methodSettings, context);
@@ -8901,13 +8903,13 @@ export const deserializeAws_restJson1GenerateClientCertificateCommand = async (
     contents.clientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
   }
   if (data.expirationDate !== undefined && data.expirationDate !== null) {
-    contents.expirationDate = new Date(Math.round(data.expirationDate * 1000));
+    contents.expirationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expirationDate)));
   }
   if (data.pemEncodedCertificate !== undefined && data.pemEncodedCertificate !== null) {
     contents.pemEncodedCertificate = __expectString(data.pemEncodedCertificate);
@@ -9100,7 +9102,7 @@ export const deserializeAws_restJson1GetApiKeyCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.customerId !== undefined && data.customerId !== null) {
     contents.customerId = __expectString(data.customerId);
@@ -9115,7 +9117,7 @@ export const deserializeAws_restJson1GetApiKeyCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -9669,13 +9671,13 @@ export const deserializeAws_restJson1GetClientCertificateCommand = async (
     contents.clientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
   }
   if (data.expirationDate !== undefined && data.expirationDate !== null) {
-    contents.expirationDate = new Date(Math.round(data.expirationDate * 1000));
+    contents.expirationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expirationDate)));
   }
   if (data.pemEncodedCertificate !== undefined && data.pemEncodedCertificate !== null) {
     contents.pemEncodedCertificate = __expectString(data.pemEncodedCertificate);
@@ -9849,7 +9851,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     contents.apiSummary = deserializeAws_restJson1PathToMapOfMethodSnapshot(data.apiSummary, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -10205,7 +10207,7 @@ export const deserializeAws_restJson1GetDocumentationVersionCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -10387,7 +10389,7 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
     contents.certificateName = __expectString(data.certificateName);
   }
   if (data.certificateUploadDate !== undefined && data.certificateUploadDate !== null) {
-    contents.certificateUploadDate = new Date(Math.round(data.certificateUploadDate * 1000));
+    contents.certificateUploadDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.certificateUploadDate)));
   }
   if (data.distributionDomainName !== undefined && data.distributionDomainName !== null) {
     contents.distributionDomainName = __expectString(data.distributionDomainName);
@@ -11915,7 +11917,7 @@ export const deserializeAws_restJson1GetRestApiCommand = async (
     contents.binaryMediaTypes = deserializeAws_restJson1ListOfString(data.binaryMediaTypes, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -12415,7 +12417,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.clientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
     contents.deploymentId = __expectString(data.deploymentId);
@@ -12427,7 +12429,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.documentationVersion = __expectString(data.documentationVersion);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.methodSettings !== undefined && data.methodSettings !== null) {
     contents.methodSettings = deserializeAws_restJson1MapOfMethodSettings(data.methodSettings, context);
@@ -13575,7 +13577,7 @@ export const deserializeAws_restJson1ImportRestApiCommand = async (
     contents.binaryMediaTypes = deserializeAws_restJson1ListOfString(data.binaryMediaTypes, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -14332,7 +14334,7 @@ export const deserializeAws_restJson1PutRestApiCommand = async (
     contents.binaryMediaTypes = deserializeAws_restJson1ListOfString(data.binaryMediaTypes, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -14957,7 +14959,7 @@ export const deserializeAws_restJson1UpdateApiKeyCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.customerId !== undefined && data.customerId !== null) {
     contents.customerId = __expectString(data.customerId);
@@ -14972,7 +14974,7 @@ export const deserializeAws_restJson1UpdateApiKeyCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -15321,13 +15323,13 @@ export const deserializeAws_restJson1UpdateClientCertificateCommand = async (
     contents.clientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
   }
   if (data.expirationDate !== undefined && data.expirationDate !== null) {
-    contents.expirationDate = new Date(Math.round(data.expirationDate * 1000));
+    contents.expirationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expirationDate)));
   }
   if (data.pemEncodedCertificate !== undefined && data.pemEncodedCertificate !== null) {
     contents.pemEncodedCertificate = __expectString(data.pemEncodedCertificate);
@@ -15434,7 +15436,7 @@ export const deserializeAws_restJson1UpdateDeploymentCommand = async (
     contents.apiSummary = deserializeAws_restJson1PathToMapOfMethodSnapshot(data.apiSummary, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -15648,7 +15650,7 @@ export const deserializeAws_restJson1UpdateDocumentationVersionCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -15771,7 +15773,7 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
     contents.certificateName = __expectString(data.certificateName);
   }
   if (data.certificateUploadDate !== undefined && data.certificateUploadDate !== null) {
-    contents.certificateUploadDate = new Date(Math.round(data.certificateUploadDate * 1000));
+    contents.certificateUploadDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.certificateUploadDate)));
   }
   if (data.distributionDomainName !== undefined && data.distributionDomainName !== null) {
     contents.distributionDomainName = __expectString(data.distributionDomainName);
@@ -16856,7 +16858,7 @@ export const deserializeAws_restJson1UpdateRestApiCommand = async (
     contents.binaryMediaTypes = deserializeAws_restJson1ListOfString(data.binaryMediaTypes, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -17015,7 +17017,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.clientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
     contents.deploymentId = __expectString(data.deploymentId);
@@ -17027,7 +17029,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.documentationVersion = __expectString(data.documentationVersion);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.methodSettings !== undefined && data.methodSettings !== null) {
     contents.methodSettings = deserializeAws_restJson1MapOfMethodSettings(data.methodSettings, context);
@@ -17854,7 +17856,7 @@ const deserializeAws_restJson1ApiKey = (output: any, context: __SerdeContext): A
   return {
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     customerId: __expectString(output.customerId),
     description: __expectString(output.description),
@@ -17862,7 +17864,7 @@ const deserializeAws_restJson1ApiKey = (output: any, context: __SerdeContext): A
     id: __expectString(output.id),
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? new Date(Math.round(output.lastUpdatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
         : undefined,
     name: __expectString(output.name),
     stageKeys:
@@ -17931,12 +17933,12 @@ const deserializeAws_restJson1ClientCertificate = (output: any, context: __Serde
     clientCertificateId: __expectString(output.clientCertificateId),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     expirationDate:
       output.expirationDate !== undefined && output.expirationDate !== null
-        ? new Date(Math.round(output.expirationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expirationDate)))
         : undefined,
     pemEncodedCertificate: __expectString(output.pemEncodedCertificate),
     tags:
@@ -17954,7 +17956,7 @@ const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext
         : undefined,
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
@@ -17989,7 +17991,7 @@ const deserializeAws_restJson1DocumentationVersion = (output: any, context: __Se
   return {
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     version: __expectString(output.version),
@@ -18002,7 +18004,7 @@ const deserializeAws_restJson1DomainName = (output: any, context: __SerdeContext
     certificateName: __expectString(output.certificateName),
     certificateUploadDate:
       output.certificateUploadDate !== undefined && output.certificateUploadDate !== null
-        ? new Date(Math.round(output.certificateUploadDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.certificateUploadDate)))
         : undefined,
     distributionDomainName: __expectString(output.distributionDomainName),
     distributionHostedZoneId: __expectString(output.distributionHostedZoneId),
@@ -18689,7 +18691,7 @@ const deserializeAws_restJson1RestApi = (output: any, context: __SerdeContext): 
         : undefined,
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     disableExecuteApiEndpoint: __expectBoolean(output.disableExecuteApiEndpoint),
@@ -18754,14 +18756,14 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
     clientCertificateId: __expectString(output.clientCertificateId),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     deploymentId: __expectString(output.deploymentId),
     description: __expectString(output.description),
     documentationVersion: __expectString(output.documentationVersion),
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? new Date(Math.round(output.lastUpdatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
         : undefined,
     methodSettings:
       output.methodSettings !== undefined && output.methodSettings !== null

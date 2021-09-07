@@ -135,9 +135,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -979,10 +981,10 @@ export const deserializeAws_restJson1CreateAlarmModelCommand = async (
     contents.alarmModelVersion = __expectString(data.alarmModelVersion);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(data.creationTime * 1000));
+    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
   }
   if (data.lastUpdateTime !== undefined && data.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(Math.round(data.lastUpdateTime * 1000));
+    contents.lastUpdateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdateTime)));
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -1592,13 +1594,13 @@ export const deserializeAws_restJson1DescribeAlarmModelCommand = async (
     contents.alarmRule = deserializeAws_restJson1AlarmRule(data.alarmRule, context);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(data.creationTime * 1000));
+    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
   }
   if (data.key !== undefined && data.key !== null) {
     contents.key = __expectString(data.key);
   }
   if (data.lastUpdateTime !== undefined && data.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(Math.round(data.lastUpdateTime * 1000));
+    contents.lastUpdateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdateTime)));
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.roleArn = __expectString(data.roleArn);
@@ -3124,10 +3126,10 @@ export const deserializeAws_restJson1UpdateAlarmModelCommand = async (
     contents.alarmModelVersion = __expectString(data.alarmModelVersion);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(data.creationTime * 1000));
+    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
   }
   if (data.lastUpdateTime !== undefined && data.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(Math.round(data.lastUpdateTime * 1000));
+    contents.lastUpdateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdateTime)));
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -4377,7 +4379,7 @@ const deserializeAws_restJson1AlarmModelSummary = (output: any, context: __Serde
     alarmModelName: __expectString(output.alarmModelName),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
   } as any;
 };
@@ -4406,11 +4408,11 @@ const deserializeAws_restJson1AlarmModelVersionSummary = (
     alarmModelVersion: __expectString(output.alarmModelVersion),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     status: __expectString(output.status),
@@ -4576,7 +4578,7 @@ const deserializeAws_restJson1DetectorModelConfiguration = (
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     detectorModelArn: __expectString(output.detectorModelArn),
     detectorModelDescription: __expectString(output.detectorModelDescription),
@@ -4586,7 +4588,7 @@ const deserializeAws_restJson1DetectorModelConfiguration = (
     key: __expectString(output.key),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     status: __expectString(output.status),
@@ -4624,7 +4626,7 @@ const deserializeAws_restJson1DetectorModelSummary = (output: any, context: __Se
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     detectorModelDescription: __expectString(output.detectorModelDescription),
     detectorModelName: __expectString(output.detectorModelName),
@@ -4652,7 +4654,7 @@ const deserializeAws_restJson1DetectorModelVersionSummary = (
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     detectorModelArn: __expectString(output.detectorModelArn),
     detectorModelName: __expectString(output.detectorModelName),
@@ -4660,7 +4662,7 @@ const deserializeAws_restJson1DetectorModelVersionSummary = (
     evaluationMethod: __expectString(output.evaluationMethod),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     status: __expectString(output.status),
@@ -4795,14 +4797,14 @@ const deserializeAws_restJson1InputConfiguration = (output: any, context: __Serd
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     inputArn: __expectString(output.inputArn),
     inputDescription: __expectString(output.inputDescription),
     inputName: __expectString(output.inputName),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -4832,14 +4834,14 @@ const deserializeAws_restJson1InputSummary = (output: any, context: __SerdeConte
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     inputArn: __expectString(output.inputArn),
     inputDescription: __expectString(output.inputDescription),
     inputName: __expectString(output.inputName),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     status: __expectString(output.status),
   } as any;

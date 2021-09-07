@@ -776,11 +776,13 @@ import {
 } from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
@@ -16747,7 +16749,7 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
     contents.Endpoint = deserializeAws_queryEndpoint(output["Endpoint"], context);
   }
   if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = new Date(output["ClusterCreateTime"]);
+    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ClusterCreateTime"]));
   }
   if (output["AutomatedSnapshotRetentionPeriod"] !== undefined) {
     contents.AutomatedSnapshotRetentionPeriod = __strictParseInt32(
@@ -16911,13 +16913,17 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
     contents.SnapshotScheduleState = __expectString(output["SnapshotScheduleState"]);
   }
   if (output["ExpectedNextSnapshotScheduleTime"] !== undefined) {
-    contents.ExpectedNextSnapshotScheduleTime = new Date(output["ExpectedNextSnapshotScheduleTime"]);
+    contents.ExpectedNextSnapshotScheduleTime = __expectNonNull(
+      __parseRfc3339DateTime(output["ExpectedNextSnapshotScheduleTime"])
+    );
   }
   if (output["ExpectedNextSnapshotScheduleTimeStatus"] !== undefined) {
     contents.ExpectedNextSnapshotScheduleTimeStatus = __expectString(output["ExpectedNextSnapshotScheduleTimeStatus"]);
   }
   if (output["NextMaintenanceWindowStartTime"] !== undefined) {
-    contents.NextMaintenanceWindowStartTime = new Date(output["NextMaintenanceWindowStartTime"]);
+    contents.NextMaintenanceWindowStartTime = __expectNonNull(
+      __parseRfc3339DateTime(output["NextMaintenanceWindowStartTime"])
+    );
   }
   if (output["ResizeInfo"] !== undefined) {
     contents.ResizeInfo = deserializeAws_queryResizeInfo(output["ResizeInfo"], context);
@@ -16980,7 +16986,7 @@ const deserializeAws_queryClusterCredentials = (output: any, context: __SerdeCon
     contents.DbPassword = __expectString(output["DbPassword"]);
   }
   if (output["Expiration"] !== undefined) {
-    contents.Expiration = new Date(output["Expiration"]);
+    contents.Expiration = __expectNonNull(__parseRfc3339DateTime(output["Expiration"]));
   }
   return contents;
 };
@@ -16999,7 +17005,9 @@ const deserializeAws_queryClusterDbRevision = (output: any, context: __SerdeCont
     contents.CurrentDatabaseRevision = __expectString(output["CurrentDatabaseRevision"]);
   }
   if (output["DatabaseRevisionReleaseDate"] !== undefined) {
-    contents.DatabaseRevisionReleaseDate = new Date(output["DatabaseRevisionReleaseDate"]);
+    contents.DatabaseRevisionReleaseDate = __expectNonNull(
+      __parseRfc3339DateTime(output["DatabaseRevisionReleaseDate"])
+    );
   }
   if (output.RevisionTargets === "") {
     contents.RevisionTargets = [];
@@ -17969,10 +17977,10 @@ const deserializeAws_queryDataShareAssociation = (output: any, context: __SerdeC
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = new Date(output["CreatedDate"]);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["CreatedDate"]));
   }
   if (output["StatusChangeDate"] !== undefined) {
-    contents.StatusChangeDate = new Date(output["StatusChangeDate"]);
+    contents.StatusChangeDate = __expectNonNull(__parseRfc3339DateTime(output["StatusChangeDate"]));
   }
   return contents;
 };
@@ -18071,10 +18079,10 @@ const deserializeAws_queryDeferredMaintenanceWindow = (
     contents.DeferMaintenanceIdentifier = __expectString(output["DeferMaintenanceIdentifier"]);
   }
   if (output["DeferMaintenanceStartTime"] !== undefined) {
-    contents.DeferMaintenanceStartTime = new Date(output["DeferMaintenanceStartTime"]);
+    contents.DeferMaintenanceStartTime = __expectNonNull(__parseRfc3339DateTime(output["DeferMaintenanceStartTime"]));
   }
   if (output["DeferMaintenanceEndTime"] !== undefined) {
-    contents.DeferMaintenanceEndTime = new Date(output["DeferMaintenanceEndTime"]);
+    contents.DeferMaintenanceEndTime = __expectNonNull(__parseRfc3339DateTime(output["DeferMaintenanceEndTime"]));
   }
   return contents;
 };
@@ -18444,7 +18452,7 @@ const deserializeAws_queryEndpointAccess = (output: any, context: __SerdeContext
     contents.EndpointName = __expectString(output["EndpointName"]);
   }
   if (output["EndpointCreateTime"] !== undefined) {
-    contents.EndpointCreateTime = new Date(output["EndpointCreateTime"]);
+    contents.EndpointCreateTime = __expectNonNull(__parseRfc3339DateTime(output["EndpointCreateTime"]));
   }
   if (output["Port"] !== undefined) {
     contents.Port = __strictParseInt32(output["Port"]) as number;
@@ -18533,7 +18541,7 @@ const deserializeAws_queryEndpointAuthorization = (output: any, context: __Serde
     contents.ClusterIdentifier = __expectString(output["ClusterIdentifier"]);
   }
   if (output["AuthorizeTime"] !== undefined) {
-    contents.AuthorizeTime = new Date(output["AuthorizeTime"]);
+    contents.AuthorizeTime = __expectNonNull(__parseRfc3339DateTime(output["AuthorizeTime"]));
   }
   if (output["ClusterStatus"] !== undefined) {
     contents.ClusterStatus = __expectString(output["ClusterStatus"]);
@@ -18703,7 +18711,7 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
     contents.Severity = __expectString(output["Severity"]);
   }
   if (output["Date"] !== undefined) {
-    contents.Date = new Date(output["Date"]);
+    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
   }
   if (output["EventId"] !== undefined) {
     contents.EventId = __expectString(output["EventId"]);
@@ -18866,7 +18874,7 @@ const deserializeAws_queryEventSubscription = (output: any, context: __SerdeCont
     contents.Status = __expectString(output["Status"]);
   }
   if (output["SubscriptionCreationTime"] !== undefined) {
-    contents.SubscriptionCreationTime = new Date(output["SubscriptionCreationTime"]);
+    contents.SubscriptionCreationTime = __expectNonNull(__parseRfc3339DateTime(output["SubscriptionCreationTime"]));
   }
   if (output["SourceType"] !== undefined) {
     contents.SourceType = __expectString(output["SourceType"]);
@@ -19703,10 +19711,10 @@ const deserializeAws_queryLoggingStatus = (output: any, context: __SerdeContext)
     contents.S3KeyPrefix = __expectString(output["S3KeyPrefix"]);
   }
   if (output["LastSuccessfulDeliveryTime"] !== undefined) {
-    contents.LastSuccessfulDeliveryTime = new Date(output["LastSuccessfulDeliveryTime"]);
+    contents.LastSuccessfulDeliveryTime = __expectNonNull(__parseRfc3339DateTime(output["LastSuccessfulDeliveryTime"]));
   }
   if (output["LastFailureTime"] !== undefined) {
-    contents.LastFailureTime = new Date(output["LastFailureTime"]);
+    contents.LastFailureTime = __expectNonNull(__parseRfc3339DateTime(output["LastFailureTime"]));
   }
   if (output["LastFailureMessage"] !== undefined) {
     contents.LastFailureMessage = __expectString(output["LastFailureMessage"]);
@@ -20141,10 +20149,10 @@ const deserializeAws_queryPartnerIntegrationInfo = (output: any, context: __Serd
     contents.StatusMessage = __expectString(output["StatusMessage"]);
   }
   if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = new Date(output["CreatedAt"]);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(output["CreatedAt"]));
   }
   if (output["UpdatedAt"] !== undefined) {
-    contents.UpdatedAt = new Date(output["UpdatedAt"]);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(output["UpdatedAt"]));
   }
   return contents;
 };
@@ -20347,7 +20355,7 @@ const deserializeAws_queryReservedNode = (output: any, context: __SerdeContext):
     contents.NodeType = __expectString(output["NodeType"]);
   }
   if (output["StartTime"] !== undefined) {
-    contents.StartTime = new Date(output["StartTime"]);
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["StartTime"]));
   }
   if (output["Duration"] !== undefined) {
     contents.Duration = __strictParseInt32(output["Duration"]) as number;
@@ -20832,7 +20840,9 @@ const deserializeAws_queryRevisionTarget = (output: any, context: __SerdeContext
     contents.Description = __expectString(output["Description"]);
   }
   if (output["DatabaseRevisionReleaseDate"] !== undefined) {
-    contents.DatabaseRevisionReleaseDate = new Date(output["DatabaseRevisionReleaseDate"]);
+    contents.DatabaseRevisionReleaseDate = __expectNonNull(
+      __parseRfc3339DateTime(output["DatabaseRevisionReleaseDate"])
+    );
   }
   return contents;
 };
@@ -20927,10 +20937,10 @@ const deserializeAws_queryScheduledAction = (output: any, context: __SerdeContex
     );
   }
   if (output["StartTime"] !== undefined) {
-    contents.StartTime = new Date(output["StartTime"]);
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["StartTime"]));
   }
   if (output["EndTime"] !== undefined) {
-    contents.EndTime = new Date(output["EndTime"]);
+    contents.EndTime = __expectNonNull(__parseRfc3339DateTime(output["EndTime"]));
   }
   return contents;
 };
@@ -21012,7 +21022,7 @@ const deserializeAws_queryScheduledActionTimeList = (output: any, context: __Ser
       if (entry === null) {
         return null as any;
       }
-      return new Date(entry);
+      return __expectNonNull(__parseRfc3339DateTime(entry));
     });
 };
 
@@ -21078,7 +21088,7 @@ const deserializeAws_queryScheduledSnapshotTimeList = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return new Date(entry);
+      return __expectNonNull(__parseRfc3339DateTime(entry));
     });
 };
 
@@ -21126,7 +21136,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.ClusterIdentifier = __expectString(output["ClusterIdentifier"]);
   }
   if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = new Date(output["SnapshotCreateTime"]);
+    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotCreateTime"]));
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
@@ -21138,7 +21148,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
   }
   if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = new Date(output["ClusterCreateTime"]);
+    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ClusterCreateTime"]));
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -21241,7 +21251,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.ManualSnapshotRemainingDays = __strictParseInt32(output["ManualSnapshotRemainingDays"]) as number;
   }
   if (output["SnapshotRetentionStartTime"] !== undefined) {
-    contents.SnapshotRetentionStartTime = new Date(output["SnapshotRetentionStartTime"]);
+    contents.SnapshotRetentionStartTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotRetentionStartTime"]));
   }
   return contents;
 };
@@ -21817,7 +21827,7 @@ const deserializeAws_queryTableRestoreStatus = (output: any, context: __SerdeCon
     contents.Message = __expectString(output["Message"]);
   }
   if (output["RequestTime"] !== undefined) {
-    contents.RequestTime = new Date(output["RequestTime"]);
+    contents.RequestTime = __expectNonNull(__parseRfc3339DateTime(output["RequestTime"]));
   }
   if (output["ProgressInMegaBytes"] !== undefined) {
     contents.ProgressInMegaBytes = __strictParseLong(output["ProgressInMegaBytes"]) as number;

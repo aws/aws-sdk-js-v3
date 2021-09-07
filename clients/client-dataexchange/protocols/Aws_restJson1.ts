@@ -69,6 +69,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -952,7 +953,7 @@ export const deserializeAws_restJson1CreateDataSetCommand = async (
     contents.AssetType = __expectString(data.AssetType);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(data.CreatedAt);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
   }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
@@ -976,7 +977,7 @@ export const deserializeAws_restJson1CreateDataSetCommand = async (
     contents.Tags = deserializeAws_restJson1MapOf__string(data.Tags, context);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(data.UpdatedAt);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
   }
   return Promise.resolve(contents);
 };
@@ -1073,7 +1074,7 @@ export const deserializeAws_restJson1CreateJobCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(data.CreatedAt);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
   }
   if (data.Details !== undefined && data.Details !== null) {
     contents.Details = deserializeAws_restJson1ResponseDetails(data.Details, context);
@@ -1091,7 +1092,7 @@ export const deserializeAws_restJson1CreateJobCommand = async (
     contents.Type = __expectString(data.Type);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(data.UpdatedAt);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
   }
   return Promise.resolve(contents);
 };
@@ -1192,7 +1193,7 @@ export const deserializeAws_restJson1CreateRevisionCommand = async (
     contents.Comment = __expectString(data.Comment);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(data.CreatedAt);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
   }
   if (data.DataSetId !== undefined && data.DataSetId !== null) {
     contents.DataSetId = __expectString(data.DataSetId);
@@ -1210,7 +1211,7 @@ export const deserializeAws_restJson1CreateRevisionCommand = async (
     contents.Tags = deserializeAws_restJson1MapOf__string(data.Tags, context);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(data.UpdatedAt);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
   }
   return Promise.resolve(contents);
 };
@@ -1588,7 +1589,7 @@ export const deserializeAws_restJson1GetAssetCommand = async (
     contents.AssetType = __expectString(data.AssetType);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(data.CreatedAt);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
   }
   if (data.DataSetId !== undefined && data.DataSetId !== null) {
     contents.DataSetId = __expectString(data.DataSetId);
@@ -1606,7 +1607,7 @@ export const deserializeAws_restJson1GetAssetCommand = async (
     contents.SourceId = __expectString(data.SourceId);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(data.UpdatedAt);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
   }
   return Promise.resolve(contents);
 };
@@ -1701,7 +1702,7 @@ export const deserializeAws_restJson1GetDataSetCommand = async (
     contents.AssetType = __expectString(data.AssetType);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(data.CreatedAt);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
   }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
@@ -1725,7 +1726,7 @@ export const deserializeAws_restJson1GetDataSetCommand = async (
     contents.Tags = deserializeAws_restJson1MapOf__string(data.Tags, context);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(data.UpdatedAt);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
   }
   return Promise.resolve(contents);
 };
@@ -1814,7 +1815,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(data.CreatedAt);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
   }
   if (data.Details !== undefined && data.Details !== null) {
     contents.Details = deserializeAws_restJson1ResponseDetails(data.Details, context);
@@ -1832,7 +1833,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
     contents.Type = __expectString(data.Type);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(data.UpdatedAt);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
   }
   return Promise.resolve(contents);
 };
@@ -1925,7 +1926,7 @@ export const deserializeAws_restJson1GetRevisionCommand = async (
     contents.Comment = __expectString(data.Comment);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(data.CreatedAt);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
   }
   if (data.DataSetId !== undefined && data.DataSetId !== null) {
     contents.DataSetId = __expectString(data.DataSetId);
@@ -1943,7 +1944,7 @@ export const deserializeAws_restJson1GetRevisionCommand = async (
     contents.Tags = deserializeAws_restJson1MapOf__string(data.Tags, context);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(data.UpdatedAt);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
   }
   return Promise.resolve(contents);
 };
@@ -2596,7 +2597,7 @@ export const deserializeAws_restJson1UpdateAssetCommand = async (
     contents.AssetType = __expectString(data.AssetType);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(data.CreatedAt);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
   }
   if (data.DataSetId !== undefined && data.DataSetId !== null) {
     contents.DataSetId = __expectString(data.DataSetId);
@@ -2614,7 +2615,7 @@ export const deserializeAws_restJson1UpdateAssetCommand = async (
     contents.SourceId = __expectString(data.SourceId);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(data.UpdatedAt);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
   }
   return Promise.resolve(contents);
 };
@@ -2724,7 +2725,7 @@ export const deserializeAws_restJson1UpdateDataSetCommand = async (
     contents.AssetType = __expectString(data.AssetType);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(data.CreatedAt);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
   }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
@@ -2745,7 +2746,7 @@ export const deserializeAws_restJson1UpdateDataSetCommand = async (
     contents.SourceId = __expectString(data.SourceId);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(data.UpdatedAt);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
   }
   return Promise.resolve(contents);
 };
@@ -2845,7 +2846,7 @@ export const deserializeAws_restJson1UpdateRevisionCommand = async (
     contents.Comment = __expectString(data.Comment);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(data.CreatedAt);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
   }
   if (data.DataSetId !== undefined && data.DataSetId !== null) {
     contents.DataSetId = __expectString(data.DataSetId);
@@ -2860,7 +2861,7 @@ export const deserializeAws_restJson1UpdateRevisionCommand = async (
     contents.SourceId = __expectString(data.SourceId);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(data.UpdatedAt);
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
   }
   return Promise.resolve(contents);
 };
@@ -3303,13 +3304,19 @@ const deserializeAws_restJson1AssetEntry = (output: any, context: __SerdeContext
         ? deserializeAws_restJson1AssetDetails(output.AssetDetails, context)
         : undefined,
     AssetType: __expectString(output.AssetType),
-    CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt))
+        : undefined,
     DataSetId: __expectString(output.DataSetId),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     RevisionId: __expectString(output.RevisionId),
     SourceId: __expectString(output.SourceId),
-    UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? new Date(output.UpdatedAt) : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
+        : undefined,
   } as any;
 };
 
@@ -3324,7 +3331,10 @@ const deserializeAws_restJson1DataSetEntry = (output: any, context: __SerdeConte
   return {
     Arn: __expectString(output.Arn),
     AssetType: __expectString(output.AssetType),
-    CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt))
+        : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
@@ -3334,7 +3344,10 @@ const deserializeAws_restJson1DataSetEntry = (output: any, context: __SerdeConte
         ? deserializeAws_restJson1OriginDetails(output.OriginDetails, context)
         : undefined,
     SourceId: __expectString(output.SourceId),
-    UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? new Date(output.UpdatedAt) : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
+        : undefined,
   } as any;
 };
 
@@ -3384,7 +3397,7 @@ const deserializeAws_restJson1ExportAssetToSignedUrlResponseDetails = (
     SignedUrl: __expectString(output.SignedUrl),
     SignedUrlExpiresAt:
       output.SignedUrlExpiresAt !== undefined && output.SignedUrlExpiresAt !== null
-        ? new Date(output.SignedUrlExpiresAt)
+        ? __expectNonNull(__parseRfc3339DateTime(output.SignedUrlExpiresAt))
         : undefined,
   } as any;
 };
@@ -3437,7 +3450,7 @@ const deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails = (
     SignedUrl: __expectString(output.SignedUrl),
     SignedUrlExpiresAt:
       output.SignedUrlExpiresAt !== undefined && output.SignedUrlExpiresAt !== null
-        ? new Date(output.SignedUrlExpiresAt)
+        ? __expectNonNull(__parseRfc3339DateTime(output.SignedUrlExpiresAt))
         : undefined,
   } as any;
 };
@@ -3459,7 +3472,10 @@ const deserializeAws_restJson1ImportAssetsFromS3ResponseDetails = (
 const deserializeAws_restJson1JobEntry = (output: any, context: __SerdeContext): JobEntry => {
   return {
     Arn: __expectString(output.Arn),
-    CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt))
+        : undefined,
     Details:
       output.Details !== undefined && output.Details !== null
         ? deserializeAws_restJson1ResponseDetails(output.Details, context)
@@ -3471,7 +3487,10 @@ const deserializeAws_restJson1JobEntry = (output: any, context: __SerdeContext):
     Id: __expectString(output.Id),
     State: __expectString(output.State),
     Type: __expectString(output.Type),
-    UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? new Date(output.UpdatedAt) : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
+        : undefined,
   } as any;
 };
 
@@ -3642,12 +3661,18 @@ const deserializeAws_restJson1RevisionEntry = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.Arn),
     Comment: __expectString(output.Comment),
-    CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt))
+        : undefined,
     DataSetId: __expectString(output.DataSetId),
     Finalized: __expectBoolean(output.Finalized),
     Id: __expectString(output.Id),
     SourceId: __expectString(output.SourceId),
-    UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? new Date(output.UpdatedAt) : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
+        : undefined,
   } as any;
 };
 

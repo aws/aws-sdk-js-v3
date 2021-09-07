@@ -478,7 +478,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8870,7 +8873,7 @@ const deserializeAws_json1_1BusinessReport = (output: any, context: __SerdeConte
   return {
     DeliveryTime:
       output.DeliveryTime !== undefined && output.DeliveryTime !== null
-        ? new Date(Math.round(output.DeliveryTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryTime)))
         : undefined,
     DownloadUrl: __expectString(output.DownloadUrl),
     FailureCode: __expectString(output.FailureCode),
@@ -9252,7 +9255,7 @@ const deserializeAws_json1_1DeviceData = (output: any, context: __SerdeContext):
   return {
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DeviceArn: __expectString(output.DeviceArn),
     DeviceName: __expectString(output.DeviceName),
@@ -9287,7 +9290,7 @@ const deserializeAws_json1_1DeviceEvent = (output: any, context: __SerdeContext)
   return {
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
     Type: __expectString(output.Type),
     Value: __expectString(output.Value),
@@ -9313,7 +9316,7 @@ const deserializeAws_json1_1DeviceNetworkProfileInfo = (
     CertificateArn: __expectString(output.CertificateArn),
     CertificateExpirationTime:
       output.CertificateExpirationTime !== undefined && output.CertificateExpirationTime !== null
-        ? new Date(Math.round(output.CertificateExpirationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CertificateExpirationTime)))
         : undefined,
     NetworkProfileArn: __expectString(output.NetworkProfileArn),
   } as any;
@@ -9351,7 +9354,7 @@ const deserializeAws_json1_1DeviceStatusInfo = (output: any, context: __SerdeCon
     ConnectionStatus: __expectString(output.ConnectionStatus),
     ConnectionStatusUpdatedTime:
       output.ConnectionStatusUpdatedTime !== undefined && output.ConnectionStatusUpdatedTime !== null
-        ? new Date(Math.round(output.ConnectionStatusUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConnectionStatusUpdatedTime)))
         : undefined,
     DeviceStatusDetails:
       output.DeviceStatusDetails !== undefined && output.DeviceStatusDetails !== null

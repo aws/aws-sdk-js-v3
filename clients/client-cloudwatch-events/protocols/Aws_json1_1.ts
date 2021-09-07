@@ -266,7 +266,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6030,14 +6033,14 @@ const deserializeAws_json1_1ApiDestination = (output: any, context: __SerdeConte
     ConnectionArn: __expectString(output.ConnectionArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     HttpMethod: __expectString(output.HttpMethod),
     InvocationEndpoint: __expectString(output.InvocationEndpoint),
     InvocationRateLimitPerSecond: __expectInt32(output.InvocationRateLimitPerSecond),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     Name: __expectString(output.Name),
   } as any;
@@ -6059,7 +6062,7 @@ const deserializeAws_json1_1Archive = (output: any, context: __SerdeContext): Ar
     ArchiveName: __expectString(output.ArchiveName),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     EventCount: __expectLong(output.EventCount),
     EventSourceArn: __expectString(output.EventSourceArn),
@@ -6171,15 +6174,15 @@ const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext):
     ConnectionState: __expectString(output.ConnectionState),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastAuthorizedTime:
       output.LastAuthorizedTime !== undefined && output.LastAuthorizedTime !== null
-        ? new Date(Math.round(output.LastAuthorizedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAuthorizedTime)))
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     Name: __expectString(output.Name),
     StateReason: __expectString(output.StateReason),
@@ -6370,11 +6373,11 @@ const deserializeAws_json1_1CreateApiDestinationResponse = (
     ApiDestinationState: __expectString(output.ApiDestinationState),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
   } as any;
 };
@@ -6384,7 +6387,7 @@ const deserializeAws_json1_1CreateArchiveResponse = (output: any, context: __Ser
     ArchiveArn: __expectString(output.ArchiveArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
@@ -6400,11 +6403,11 @@ const deserializeAws_json1_1CreateConnectionResponse = (
     ConnectionState: __expectString(output.ConnectionState),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
   } as any;
 };
@@ -6439,15 +6442,15 @@ const deserializeAws_json1_1DeauthorizeConnectionResponse = (
     ConnectionState: __expectString(output.ConnectionState),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastAuthorizedTime:
       output.LastAuthorizedTime !== undefined && output.LastAuthorizedTime !== null
-        ? new Date(Math.round(output.LastAuthorizedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAuthorizedTime)))
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
   } as any;
 };
@@ -6472,15 +6475,15 @@ const deserializeAws_json1_1DeleteConnectionResponse = (
     ConnectionState: __expectString(output.ConnectionState),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastAuthorizedTime:
       output.LastAuthorizedTime !== undefined && output.LastAuthorizedTime !== null
-        ? new Date(Math.round(output.LastAuthorizedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAuthorizedTime)))
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
   } as any;
 };
@@ -6495,7 +6498,7 @@ const deserializeAws_json1_1DescribeApiDestinationResponse = (
     ConnectionArn: __expectString(output.ConnectionArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     HttpMethod: __expectString(output.HttpMethod),
@@ -6503,7 +6506,7 @@ const deserializeAws_json1_1DescribeApiDestinationResponse = (
     InvocationRateLimitPerSecond: __expectInt32(output.InvocationRateLimitPerSecond),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     Name: __expectString(output.Name),
   } as any;
@@ -6518,7 +6521,7 @@ const deserializeAws_json1_1DescribeArchiveResponse = (
     ArchiveName: __expectString(output.ArchiveName),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     EventCount: __expectLong(output.EventCount),
@@ -6545,16 +6548,16 @@ const deserializeAws_json1_1DescribeConnectionResponse = (
     ConnectionState: __expectString(output.ConnectionState),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     LastAuthorizedTime:
       output.LastAuthorizedTime !== undefined && output.LastAuthorizedTime !== null
-        ? new Date(Math.round(output.LastAuthorizedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAuthorizedTime)))
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     Name: __expectString(output.Name),
     SecretArn: __expectString(output.SecretArn),
@@ -6582,11 +6585,11 @@ const deserializeAws_json1_1DescribeEventSourceResponse = (
     CreatedBy: __expectString(output.CreatedBy),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ExpirationTime:
       output.ExpirationTime !== undefined && output.ExpirationTime !== null
-        ? new Date(Math.round(output.ExpirationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTime)))
         : undefined,
     Name: __expectString(output.Name),
     State: __expectString(output.State),
@@ -6612,26 +6615,26 @@ const deserializeAws_json1_1DescribeReplayResponse = (output: any, context: __Se
         : undefined,
     EventEndTime:
       output.EventEndTime !== undefined && output.EventEndTime !== null
-        ? new Date(Math.round(output.EventEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventEndTime)))
         : undefined,
     EventLastReplayedTime:
       output.EventLastReplayedTime !== undefined && output.EventLastReplayedTime !== null
-        ? new Date(Math.round(output.EventLastReplayedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventLastReplayedTime)))
         : undefined,
     EventSourceArn: __expectString(output.EventSourceArn),
     EventStartTime:
       output.EventStartTime !== undefined && output.EventStartTime !== null
-        ? new Date(Math.round(output.EventStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventStartTime)))
         : undefined,
     ReplayArn: __expectString(output.ReplayArn),
     ReplayEndTime:
       output.ReplayEndTime !== undefined && output.ReplayEndTime !== null
-        ? new Date(Math.round(output.ReplayEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplayEndTime)))
         : undefined,
     ReplayName: __expectString(output.ReplayName),
     ReplayStartTime:
       output.ReplayStartTime !== undefined && output.ReplayStartTime !== null
-        ? new Date(Math.round(output.ReplayStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplayStartTime)))
         : undefined,
     State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
@@ -6712,11 +6715,11 @@ const deserializeAws_json1_1EventSource = (output: any, context: __SerdeContext)
     CreatedBy: __expectString(output.CreatedBy),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ExpirationTime:
       output.ExpirationTime !== undefined && output.ExpirationTime !== null
-        ? new Date(Math.round(output.ExpirationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTime)))
         : undefined,
     Name: __expectString(output.Name),
     State: __expectString(output.State),
@@ -6994,11 +6997,11 @@ const deserializeAws_json1_1PartnerEventSourceAccount = (
     Account: __expectString(output.Account),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ExpirationTime:
       output.ExpirationTime !== undefined && output.ExpirationTime !== null
-        ? new Date(Math.round(output.ExpirationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTime)))
         : undefined,
     State: __expectString(output.State),
   } as any;
@@ -7258,25 +7261,25 @@ const deserializeAws_json1_1Replay = (output: any, context: __SerdeContext): Rep
   return {
     EventEndTime:
       output.EventEndTime !== undefined && output.EventEndTime !== null
-        ? new Date(Math.round(output.EventEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventEndTime)))
         : undefined,
     EventLastReplayedTime:
       output.EventLastReplayedTime !== undefined && output.EventLastReplayedTime !== null
-        ? new Date(Math.round(output.EventLastReplayedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventLastReplayedTime)))
         : undefined,
     EventSourceArn: __expectString(output.EventSourceArn),
     EventStartTime:
       output.EventStartTime !== undefined && output.EventStartTime !== null
-        ? new Date(Math.round(output.EventStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventStartTime)))
         : undefined,
     ReplayEndTime:
       output.ReplayEndTime !== undefined && output.ReplayEndTime !== null
-        ? new Date(Math.round(output.ReplayEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplayEndTime)))
         : undefined,
     ReplayName: __expectString(output.ReplayName),
     ReplayStartTime:
       output.ReplayStartTime !== undefined && output.ReplayStartTime !== null
-        ? new Date(Math.round(output.ReplayStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplayStartTime)))
         : undefined,
     State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
@@ -7464,7 +7467,7 @@ const deserializeAws_json1_1StartReplayResponse = (output: any, context: __Serde
     ReplayArn: __expectString(output.ReplayArn),
     ReplayStartTime:
       output.ReplayStartTime !== undefined && output.ReplayStartTime !== null
-        ? new Date(Math.round(output.ReplayStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplayStartTime)))
         : undefined,
     State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
@@ -7603,11 +7606,11 @@ const deserializeAws_json1_1UpdateApiDestinationResponse = (
     ApiDestinationState: __expectString(output.ApiDestinationState),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
   } as any;
 };
@@ -7617,7 +7620,7 @@ const deserializeAws_json1_1UpdateArchiveResponse = (output: any, context: __Ser
     ArchiveArn: __expectString(output.ArchiveArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
@@ -7633,15 +7636,15 @@ const deserializeAws_json1_1UpdateConnectionResponse = (
     ConnectionState: __expectString(output.ConnectionState),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastAuthorizedTime:
       output.LastAuthorizedTime !== undefined && output.LastAuthorizedTime !== null
-        ? new Date(Math.round(output.LastAuthorizedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAuthorizedTime)))
         : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
   } as any;
 };

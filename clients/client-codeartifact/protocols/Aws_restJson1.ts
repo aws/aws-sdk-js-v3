@@ -130,9 +130,11 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2537,7 +2539,7 @@ export const deserializeAws_restJson1GetAuthorizationTokenCommand = async (
     contents.authorizationToken = __expectString(data.authorizationToken);
   }
   if (data.expiration !== undefined && data.expiration !== null) {
-    contents.expiration = new Date(Math.round(data.expiration * 1000));
+    contents.expiration = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expiration)));
   }
   return Promise.resolve(contents);
 };
@@ -4676,7 +4678,7 @@ const deserializeAws_restJson1DomainDescription = (output: any, context: __Serde
     assetSizeBytes: __expectLong(output.assetSizeBytes),
     createdTime:
       output.createdTime !== undefined && output.createdTime !== null
-        ? new Date(Math.round(output.createdTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     encryptionKey: __expectString(output.encryptionKey),
     name: __expectString(output.name),
@@ -4692,7 +4694,7 @@ const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeCont
     arn: __expectString(output.arn),
     createdTime:
       output.createdTime !== undefined && output.createdTime !== null
-        ? new Date(Math.round(output.createdTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     encryptionKey: __expectString(output.encryptionKey),
     name: __expectString(output.name),
@@ -4785,7 +4787,7 @@ const deserializeAws_restJson1PackageVersionDescription = (
     packageName: __expectString(output.packageName),
     publishedTime:
       output.publishedTime !== undefined && output.publishedTime !== null
-        ? new Date(Math.round(output.publishedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.publishedTime)))
         : undefined,
     revision: __expectString(output.revision),
     sourceCodeRepository: __expectString(output.sourceCodeRepository),

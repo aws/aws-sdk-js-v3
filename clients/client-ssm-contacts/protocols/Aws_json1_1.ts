@@ -131,7 +131,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3576,11 +3579,11 @@ const deserializeAws_json1_1DescribeEngagementResult = (
     Sender: __expectString(output.Sender),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     StopTime:
       output.StopTime !== undefined && output.StopTime !== null
-        ? new Date(Math.round(output.StopTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime)))
         : undefined,
     Subject: __expectString(output.Subject),
   } as any;
@@ -3592,7 +3595,7 @@ const deserializeAws_json1_1DescribePageResult = (output: any, context: __SerdeC
     Content: __expectString(output.Content),
     DeliveryTime:
       output.DeliveryTime !== undefined && output.DeliveryTime !== null
-        ? new Date(Math.round(output.DeliveryTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryTime)))
         : undefined,
     EngagementArn: __expectString(output.EngagementArn),
     IncidentId: __expectString(output.IncidentId),
@@ -3601,12 +3604,12 @@ const deserializeAws_json1_1DescribePageResult = (output: any, context: __SerdeC
     PublicSubject: __expectString(output.PublicSubject),
     ReadTime:
       output.ReadTime !== undefined && output.ReadTime !== null
-        ? new Date(Math.round(output.ReadTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadTime)))
         : undefined,
     Sender: __expectString(output.Sender),
     SentTime:
       output.SentTime !== undefined && output.SentTime !== null
-        ? new Date(Math.round(output.SentTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SentTime)))
         : undefined,
     Subject: __expectString(output.Subject),
   } as any;
@@ -3620,11 +3623,11 @@ const deserializeAws_json1_1Engagement = (output: any, context: __SerdeContext):
     Sender: __expectString(output.Sender),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     StopTime:
       output.StopTime !== undefined && output.StopTime !== null
-        ? new Date(Math.round(output.StopTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime)))
         : undefined,
   } as any;
 };
@@ -3771,19 +3774,19 @@ const deserializeAws_json1_1Page = (output: any, context: __SerdeContext): Page 
     ContactArn: __expectString(output.ContactArn),
     DeliveryTime:
       output.DeliveryTime !== undefined && output.DeliveryTime !== null
-        ? new Date(Math.round(output.DeliveryTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryTime)))
         : undefined,
     EngagementArn: __expectString(output.EngagementArn),
     IncidentId: __expectString(output.IncidentId),
     PageArn: __expectString(output.PageArn),
     ReadTime:
       output.ReadTime !== undefined && output.ReadTime !== null
-        ? new Date(Math.round(output.ReadTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadTime)))
         : undefined,
     Sender: __expectString(output.Sender),
     SentTime:
       output.SentTime !== undefined && output.SentTime !== null
-        ? new Date(Math.round(output.SentTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SentTime)))
         : undefined,
   } as any;
 };
@@ -3818,7 +3821,7 @@ const deserializeAws_json1_1Receipt = (output: any, context: __SerdeContext): Re
     ReceiptInfo: __expectString(output.ReceiptInfo),
     ReceiptTime:
       output.ReceiptTime !== undefined && output.ReceiptTime !== null
-        ? new Date(Math.round(output.ReceiptTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReceiptTime)))
         : undefined,
     ReceiptType: __expectString(output.ReceiptType),
   } as any;

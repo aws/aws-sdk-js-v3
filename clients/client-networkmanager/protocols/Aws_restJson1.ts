@@ -106,9 +106,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
@@ -5058,7 +5060,7 @@ const deserializeAws_restJson1Connection = (output: any, context: __SerdeContext
     ConnectionId: __expectString(output.ConnectionId),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     DeviceId: __expectString(output.DeviceId),
@@ -5118,7 +5120,7 @@ const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): D
         : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     DeviceArn: __expectString(output.DeviceArn),
@@ -5156,7 +5158,7 @@ const deserializeAws_restJson1GlobalNetwork = (output: any, context: __SerdeCont
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     GlobalNetworkArn: __expectString(output.GlobalNetworkArn),
@@ -5188,7 +5190,7 @@ const deserializeAws_restJson1Link = (output: any, context: __SerdeContext): Lin
         : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     GlobalNetworkId: __expectString(output.GlobalNetworkId),
@@ -5248,7 +5250,7 @@ const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Sit
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     GlobalNetworkId: __expectString(output.GlobalNetworkId),

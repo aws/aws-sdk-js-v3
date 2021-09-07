@@ -299,7 +299,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5522,11 +5525,11 @@ const deserializeAws_json1_1ApplicationDetail = (output: any, context: __SerdeCo
     ConditionalToken: __expectString(output.ConditionalToken),
     CreateTimestamp:
       output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
-        ? new Date(Math.round(output.CreateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTimestamp)))
         : undefined,
     LastUpdateTimestamp:
       output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
-        ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
         : undefined,
     RuntimeEnvironment: __expectString(output.RuntimeEnvironment),
     ServiceExecutionRole: __expectString(output.ServiceExecutionRole),
@@ -6528,7 +6531,7 @@ const deserializeAws_json1_1SnapshotDetails = (output: any, context: __SerdeCont
     ApplicationVersionId: __expectLong(output.ApplicationVersionId),
     SnapshotCreationTimestamp:
       output.SnapshotCreationTimestamp !== undefined && output.SnapshotCreationTimestamp !== null
-        ? new Date(Math.round(output.SnapshotCreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SnapshotCreationTimestamp)))
         : undefined,
     SnapshotName: __expectString(output.SnapshotName),
     SnapshotStatus: __expectString(output.SnapshotStatus),

@@ -217,7 +217,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4448,7 +4451,7 @@ const deserializeAws_json1_1AuthorizationData = (output: any, context: __SerdeCo
     authorizationToken: __expectString(output.authorizationToken),
     expiresAt:
       output.expiresAt !== undefined && output.expiresAt !== null
-        ? new Date(Math.round(output.expiresAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiresAt)))
         : undefined,
     proxyEndpoint: __expectString(output.proxyEndpoint),
   } as any;
@@ -4541,7 +4544,7 @@ const deserializeAws_json1_1DeleteLifecyclePolicyResponse = (
   return {
     lastEvaluatedAt:
       output.lastEvaluatedAt !== undefined && output.lastEvaluatedAt !== null
-        ? new Date(Math.round(output.lastEvaluatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastEvaluatedAt)))
         : undefined,
     lifecyclePolicyText: __expectString(output.lifecyclePolicyText),
     registryId: __expectString(output.registryId),
@@ -4725,7 +4728,7 @@ const deserializeAws_json1_1GetLifecyclePolicyResponse = (
   return {
     lastEvaluatedAt:
       output.lastEvaluatedAt !== undefined && output.lastEvaluatedAt !== null
-        ? new Date(Math.round(output.lastEvaluatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastEvaluatedAt)))
         : undefined,
     lifecyclePolicyText: __expectString(output.lifecyclePolicyText),
     registryId: __expectString(output.registryId),
@@ -4783,7 +4786,7 @@ const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext)
     imageManifestMediaType: __expectString(output.imageManifestMediaType),
     imagePushedAt:
       output.imagePushedAt !== undefined && output.imagePushedAt !== null
-        ? new Date(Math.round(output.imagePushedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imagePushedAt)))
         : undefined,
     imageScanFindingsSummary:
       output.imageScanFindingsSummary !== undefined && output.imageScanFindingsSummary !== null
@@ -4916,11 +4919,11 @@ const deserializeAws_json1_1ImageScanFindings = (output: any, context: __SerdeCo
         : undefined,
     imageScanCompletedAt:
       output.imageScanCompletedAt !== undefined && output.imageScanCompletedAt !== null
-        ? new Date(Math.round(output.imageScanCompletedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imageScanCompletedAt)))
         : undefined,
     vulnerabilitySourceUpdatedAt:
       output.vulnerabilitySourceUpdatedAt !== undefined && output.vulnerabilitySourceUpdatedAt !== null
-        ? new Date(Math.round(output.vulnerabilitySourceUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vulnerabilitySourceUpdatedAt)))
         : undefined,
   } as any;
 };
@@ -4936,11 +4939,11 @@ const deserializeAws_json1_1ImageScanFindingsSummary = (
         : undefined,
     imageScanCompletedAt:
       output.imageScanCompletedAt !== undefined && output.imageScanCompletedAt !== null
-        ? new Date(Math.round(output.imageScanCompletedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imageScanCompletedAt)))
         : undefined,
     vulnerabilitySourceUpdatedAt:
       output.vulnerabilitySourceUpdatedAt !== undefined && output.vulnerabilitySourceUpdatedAt !== null
-        ? new Date(Math.round(output.vulnerabilitySourceUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vulnerabilitySourceUpdatedAt)))
         : undefined,
   } as any;
 };
@@ -5150,7 +5153,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewResult = (
     imageDigest: __expectString(output.imageDigest),
     imagePushedAt:
       output.imagePushedAt !== undefined && output.imagePushedAt !== null
-        ? new Date(Math.round(output.imagePushedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imagePushedAt)))
         : undefined,
     imageTags:
       output.imageTags !== undefined && output.imageTags !== null
@@ -5361,7 +5364,7 @@ const deserializeAws_json1_1Repository = (output: any, context: __SerdeContext):
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     encryptionConfiguration:
       output.encryptionConfiguration !== undefined && output.encryptionConfiguration !== null

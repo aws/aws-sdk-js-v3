@@ -169,7 +169,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3038,11 +3041,11 @@ const deserializeAws_json1_1AppsListData = (output: any, context: __SerdeContext
         : undefined,
     CreateTime:
       output.CreateTime !== undefined && output.CreateTime !== null
-        ? new Date(Math.round(output.CreateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime)))
         : undefined,
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     ListId: __expectString(output.ListId),
     ListName: __expectString(output.ListName),
@@ -3933,7 +3936,7 @@ const deserializeAws_json1_1PolicyComplianceDetail = (output: any, context: __Se
     EvaluationLimitExceeded: __expectBoolean(output.EvaluationLimitExceeded),
     ExpiredAt:
       output.ExpiredAt !== undefined && output.ExpiredAt !== null
-        ? new Date(Math.round(output.ExpiredAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpiredAt)))
         : undefined,
     IssueInfoMap:
       output.IssueInfoMap !== undefined && output.IssueInfoMap !== null
@@ -3961,7 +3964,7 @@ const deserializeAws_json1_1PolicyComplianceStatus = (output: any, context: __Se
         : undefined,
     LastUpdated:
       output.LastUpdated !== undefined && output.LastUpdated !== null
-        ? new Date(Math.round(output.LastUpdated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
         : undefined,
     MemberAccount: __expectString(output.MemberAccount),
     PolicyId: __expectString(output.PolicyId),
@@ -4090,11 +4093,11 @@ const deserializeAws_json1_1ProtocolsListData = (output: any, context: __SerdeCo
   return {
     CreateTime:
       output.CreateTime !== undefined && output.CreateTime !== null
-        ? new Date(Math.round(output.CreateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime)))
         : undefined,
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     ListId: __expectString(output.ListId),
     ListName: __expectString(output.ListName),

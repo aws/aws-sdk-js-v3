@@ -53,9 +53,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1557,11 +1559,11 @@ const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeCo
   return {
     DateCreated:
       output.DateCreated !== undefined && output.DateCreated !== null
-        ? new Date(Math.round(output.DateCreated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
         : undefined,
     DateModified:
       output.DateModified !== undefined && output.DateModified !== null
-        ? new Date(Math.round(output.DateModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
         : undefined,
     Description: __expectString(output.Description),
     ExecutionRoleArn: __expectString(output.ExecutionRoleArn),

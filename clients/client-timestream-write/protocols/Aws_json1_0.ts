@@ -66,7 +66,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2029,13 +2032,13 @@ const deserializeAws_json1_0Database = (output: any, context: __SerdeContext): D
     Arn: __expectString(output.Arn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatabaseName: __expectString(output.DatabaseName),
     KmsKeyId: __expectString(output.KmsKeyId),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     TableCount: __expectLong(output.TableCount),
   } as any;
@@ -2215,12 +2218,12 @@ const deserializeAws_json1_0Table = (output: any, context: __SerdeContext): Tabl
     Arn: __expectString(output.Arn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatabaseName: __expectString(output.DatabaseName),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     RetentionProperties:
       output.RetentionProperties !== undefined && output.RetentionProperties !== null

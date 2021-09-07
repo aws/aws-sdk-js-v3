@@ -409,7 +409,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -10571,7 +10574,7 @@ const deserializeAws_json1_1SampledHTTPRequest = (output: any, context: __SerdeC
     RuleWithinRuleGroup: __expectString(output.RuleWithinRuleGroup),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
     Weight: __expectLong(output.Weight),
   } as any;
@@ -10765,10 +10768,12 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 const deserializeAws_json1_1TimeWindow = (output: any, context: __SerdeContext): TimeWindow => {
   return {
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
 };

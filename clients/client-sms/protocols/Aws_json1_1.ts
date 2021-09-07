@@ -211,7 +211,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4640,17 +4643,17 @@ const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext):
     appId: __expectString(output.appId),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
     importedAppId: __expectString(output.importedAppId),
     lastModified:
       output.lastModified !== undefined && output.lastModified !== null
-        ? new Date(Math.round(output.lastModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModified)))
         : undefined,
     latestReplicationTime:
       output.latestReplicationTime !== undefined && output.latestReplicationTime !== null
-        ? new Date(Math.round(output.latestReplicationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.latestReplicationTime)))
         : undefined,
     launchConfigurationStatus: __expectString(output.launchConfigurationStatus),
     launchDetails:
@@ -4713,7 +4716,7 @@ const deserializeAws_json1_1Connector = (output: any, context: __SerdeContext): 
   return {
     associatedOn:
       output.associatedOn !== undefined && output.associatedOn !== null
-        ? new Date(Math.round(output.associatedOn * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.associatedOn)))
         : undefined,
     capabilityList:
       output.capabilityList !== undefined && output.capabilityList !== null
@@ -4975,7 +4978,7 @@ const deserializeAws_json1_1GetServersResponse = (output: any, context: __SerdeC
   return {
     lastModifiedOn:
       output.lastModifiedOn !== undefined && output.lastModifiedOn !== null
-        ? new Date(Math.round(output.lastModifiedOn * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedOn)))
         : undefined,
     nextToken: __expectString(output.nextToken),
     serverCatalogStatus: __expectString(output.serverCatalogStatus),
@@ -5023,7 +5026,7 @@ const deserializeAws_json1_1LaunchDetails = (output: any, context: __SerdeContex
   return {
     latestLaunchTime:
       output.latestLaunchTime !== undefined && output.latestLaunchTime !== null
-        ? new Date(Math.round(output.latestLaunchTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.latestLaunchTime)))
         : undefined,
     stackId: __expectString(output.stackId),
     stackName: __expectString(output.stackName),
@@ -5103,7 +5106,7 @@ const deserializeAws_json1_1ReplicationJob = (output: any, context: __SerdeConte
     licenseType: __expectString(output.licenseType),
     nextReplicationRunStartTime:
       output.nextReplicationRunStartTime !== undefined && output.nextReplicationRunStartTime !== null
-        ? new Date(Math.round(output.nextReplicationRunStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.nextReplicationRunStartTime)))
         : undefined,
     numberOfRecentAmisToKeep: __expectInt32(output.numberOfRecentAmisToKeep),
     replicationJobId: __expectString(output.replicationJobId),
@@ -5115,7 +5118,7 @@ const deserializeAws_json1_1ReplicationJob = (output: any, context: __SerdeConte
     runOnce: __expectBoolean(output.runOnce),
     seedReplicationTime:
       output.seedReplicationTime !== undefined && output.seedReplicationTime !== null
-        ? new Date(Math.round(output.seedReplicationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.seedReplicationTime)))
         : undefined,
     serverId: __expectString(output.serverId),
     serverType: __expectString(output.serverType),
@@ -5162,7 +5165,7 @@ const deserializeAws_json1_1ReplicationRun = (output: any, context: __SerdeConte
     amiId: __expectString(output.amiId),
     completedTime:
       output.completedTime !== undefined && output.completedTime !== null
-        ? new Date(Math.round(output.completedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completedTime)))
         : undefined,
     description: __expectString(output.description),
     encrypted: __expectBoolean(output.encrypted),
@@ -5170,7 +5173,7 @@ const deserializeAws_json1_1ReplicationRun = (output: any, context: __SerdeConte
     replicationRunId: __expectString(output.replicationRunId),
     scheduledStartTime:
       output.scheduledStartTime !== undefined && output.scheduledStartTime !== null
-        ? new Date(Math.round(output.scheduledStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scheduledStartTime)))
         : undefined,
     stageDetails:
       output.stageDetails !== undefined && output.stageDetails !== null
@@ -5442,7 +5445,7 @@ const deserializeAws_json1_1ServerReplicationParameters = (
     runOnce: __expectBoolean(output.runOnce),
     seedTime:
       output.seedTime !== undefined && output.seedTime !== null
-        ? new Date(Math.round(output.seedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.seedTime)))
         : undefined,
   } as any;
 };
@@ -5644,7 +5647,7 @@ const deserializeAws_json1_1ValidationOutput = (output: any, context: __SerdeCon
         : undefined,
     latestValidationTime:
       output.latestValidationTime !== undefined && output.latestValidationTime !== null
-        ? new Date(Math.round(output.latestValidationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.latestValidationTime)))
         : undefined,
     name: __expectString(output.name),
     serverValidationOutput:

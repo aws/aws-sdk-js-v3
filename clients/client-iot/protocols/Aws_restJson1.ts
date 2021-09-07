@@ -865,10 +865,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -11520,7 +11522,7 @@ export const deserializeAws_restJson1CreateProvisioningClaimCommand = async (
     contents.certificatePem = __expectString(data.certificatePem);
   }
   if (data.expiration !== undefined && data.expiration !== null) {
-    contents.expiration = new Date(Math.round(data.expiration * 1000));
+    contents.expiration = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expiration)));
   }
   if (data.keyPair !== undefined && data.keyPair !== null) {
     contents.keyPair = deserializeAws_restJson1KeyPair(data.keyPair, context);
@@ -15630,10 +15632,10 @@ export const deserializeAws_restJson1DescribeAuditMitigationActionsTaskCommand =
     );
   }
   if (data.endTime !== undefined && data.endTime !== null) {
-    contents.endTime = new Date(Math.round(data.endTime * 1000));
+    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
   }
   if (data.startTime !== undefined && data.startTime !== null) {
-    contents.startTime = new Date(Math.round(data.startTime * 1000));
+    contents.startTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startTime)));
   }
   if (data.target !== undefined && data.target !== null) {
     contents.target = deserializeAws_restJson1AuditMitigationActionsTaskTarget(data.target, context);
@@ -15734,7 +15736,7 @@ export const deserializeAws_restJson1DescribeAuditSuppressionCommand = async (
     contents.description = __expectString(data.description);
   }
   if (data.expirationDate !== undefined && data.expirationDate !== null) {
-    contents.expirationDate = new Date(Math.round(data.expirationDate * 1000));
+    contents.expirationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.expirationDate)));
   }
   if (data.resourceIdentifier !== undefined && data.resourceIdentifier !== null) {
     contents.resourceIdentifier = deserializeAws_restJson1ResourceIdentifier(data.resourceIdentifier, context);
@@ -15830,7 +15832,7 @@ export const deserializeAws_restJson1DescribeAuditTaskCommand = async (
     contents.scheduledAuditName = __expectString(data.scheduledAuditName);
   }
   if (data.taskStartTime !== undefined && data.taskStartTime !== null) {
-    contents.taskStartTime = new Date(Math.round(data.taskStartTime * 1000));
+    contents.taskStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.taskStartTime)));
   }
   if (data.taskStatistics !== undefined && data.taskStatistics !== null) {
     contents.taskStatistics = deserializeAws_restJson1TaskStatistics(data.taskStatistics, context);
@@ -16320,13 +16322,13 @@ export const deserializeAws_restJson1DescribeCustomMetricCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.displayName !== undefined && data.displayName !== null) {
     contents.displayName = __expectString(data.displayName);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.metricArn !== undefined && data.metricArn !== null) {
     contents.metricArn = __expectString(data.metricArn);
@@ -16596,10 +16598,10 @@ export const deserializeAws_restJson1DescribeDimensionCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -16713,7 +16715,7 @@ export const deserializeAws_restJson1DescribeDomainConfigurationCommand = async 
     contents.domainType = __expectString(data.domainType);
   }
   if (data.lastStatusChangeDate !== undefined && data.lastStatusChangeDate !== null) {
-    contents.lastStatusChangeDate = new Date(Math.round(data.lastStatusChangeDate * 1000));
+    contents.lastStatusChangeDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStatusChangeDate)));
   }
   if (data.serverCertificates !== undefined && data.serverCertificates !== null) {
     contents.serverCertificates = deserializeAws_restJson1ServerCertificates(data.serverCertificates, context);
@@ -16895,13 +16897,13 @@ export const deserializeAws_restJson1DescribeEventConfigurationsCommand = async 
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.eventConfigurations !== undefined && data.eventConfigurations !== null) {
     contents.eventConfigurations = deserializeAws_restJson1EventConfigurations(data.eventConfigurations, context);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   return Promise.resolve(contents);
 };
@@ -16982,7 +16984,7 @@ export const deserializeAws_restJson1DescribeFleetMetricCommand = async (
     contents.aggregationType = deserializeAws_restJson1AggregationType(data.aggregationType, context);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -16991,7 +16993,7 @@ export const deserializeAws_restJson1DescribeFleetMetricCommand = async (
     contents.indexName = __expectString(data.indexName);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.metricArn !== undefined && data.metricArn !== null) {
     contents.metricArn = __expectString(data.metricArn);
@@ -17384,7 +17386,7 @@ export const deserializeAws_restJson1DescribeJobTemplateCommand = async (
     contents.abortConfig = deserializeAws_restJson1AbortConfig(data.abortConfig, context);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -17512,10 +17514,10 @@ export const deserializeAws_restJson1DescribeMitigationActionCommand = async (
     contents.actionType = __expectString(data.actionType);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.roleArn = __expectString(data.roleArn);
@@ -17606,7 +17608,7 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateCommand = async
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.defaultVersionId !== undefined && data.defaultVersionId !== null) {
     contents.defaultVersionId = __expectInt32(data.defaultVersionId);
@@ -17618,7 +17620,7 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateCommand = async
     contents.enabled = __expectBoolean(data.enabled);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.preProvisioningHook !== undefined && data.preProvisioningHook !== null) {
     contents.preProvisioningHook = deserializeAws_restJson1ProvisioningHook(data.preProvisioningHook, context);
@@ -17723,7 +17725,7 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateVersionCommand 
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.isDefaultVersion !== undefined && data.isDefaultVersion !== null) {
     contents.isDefaultVersion = __expectBoolean(data.isDefaultVersion);
@@ -18040,10 +18042,10 @@ export const deserializeAws_restJson1DescribeSecurityProfileCommand = async (
     contents.behaviors = deserializeAws_restJson1Behaviors(data.behaviors, context);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.securityProfileArn !== undefined && data.securityProfileArn !== null) {
     contents.securityProfileArn = __expectString(data.securityProfileArn);
@@ -18478,7 +18480,7 @@ export const deserializeAws_restJson1DescribeThingRegistrationTaskCommand = asyn
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.failureCount !== undefined && data.failureCount !== null) {
     contents.failureCount = __expectInt32(data.failureCount);
@@ -18490,7 +18492,7 @@ export const deserializeAws_restJson1DescribeThingRegistrationTaskCommand = asyn
     contents.inputFileKey = __expectString(data.inputFileKey);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
@@ -20122,7 +20124,7 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.defaultVersionId !== undefined && data.defaultVersionId !== null) {
     contents.defaultVersionId = __expectString(data.defaultVersionId);
@@ -20131,7 +20133,7 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
     contents.generationId = __expectString(data.generationId);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.policyArn !== undefined && data.policyArn !== null) {
     contents.policyArn = __expectString(data.policyArn);
@@ -20242,7 +20244,7 @@ export const deserializeAws_restJson1GetPolicyVersionCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.generationId !== undefined && data.generationId !== null) {
     contents.generationId = __expectString(data.generationId);
@@ -20251,7 +20253,7 @@ export const deserializeAws_restJson1GetPolicyVersionCommand = async (
     contents.isDefaultVersion = __expectBoolean(data.isDefaultVersion);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.policyArn !== undefined && data.policyArn !== null) {
     contents.policyArn = __expectString(data.policyArn);
@@ -28232,13 +28234,13 @@ export const deserializeAws_restJson1UpdateCustomMetricCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.displayName !== undefined && data.displayName !== null) {
     contents.displayName = __expectString(data.displayName);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.metricArn !== undefined && data.metricArn !== null) {
     contents.metricArn = __expectString(data.metricArn);
@@ -28334,10 +28336,10 @@ export const deserializeAws_restJson1UpdateDimensionCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -29346,10 +29348,10 @@ export const deserializeAws_restJson1UpdateSecurityProfileCommand = async (
     contents.behaviors = deserializeAws_restJson1Behaviors(data.behaviors, context);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+    contents.lastModifiedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedDate)));
   }
   if (data.securityProfileArn !== undefined && data.securityProfileArn !== null) {
     contents.securityProfileArn = __expectString(data.securityProfileArn);
@@ -32428,7 +32430,7 @@ const deserializeAws_restJson1ActiveViolation = (output: any, context: __SerdeCo
         : undefined,
     lastViolationTime:
       output.lastViolationTime !== undefined && output.lastViolationTime !== null
-        ? new Date(Math.round(output.lastViolationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastViolationTime)))
         : undefined,
     lastViolationValue:
       output.lastViolationValue !== undefined && output.lastViolationValue !== null
@@ -32443,7 +32445,7 @@ const deserializeAws_restJson1ActiveViolation = (output: any, context: __SerdeCo
     violationId: __expectString(output.violationId),
     violationStartTime:
       output.violationStartTime !== undefined && output.violationStartTime !== null
-        ? new Date(Math.round(output.violationStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.violationStartTime)))
         : undefined,
   } as any;
 };
@@ -32739,7 +32741,7 @@ const deserializeAws_restJson1AuditFinding = (output: any, context: __SerdeConte
     findingId: __expectString(output.findingId),
     findingTime:
       output.findingTime !== undefined && output.findingTime !== null
-        ? new Date(Math.round(output.findingTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.findingTime)))
         : undefined,
     isSuppressed: __expectBoolean(output.isSuppressed),
     nonCompliantResource:
@@ -32756,7 +32758,7 @@ const deserializeAws_restJson1AuditFinding = (output: any, context: __SerdeConte
     taskId: __expectString(output.taskId),
     taskStartTime:
       output.taskStartTime !== undefined && output.taskStartTime !== null
-        ? new Date(Math.round(output.taskStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.taskStartTime)))
         : undefined,
   } as any;
 };
@@ -32780,13 +32782,15 @@ const deserializeAws_restJson1AuditMitigationActionExecutionMetadata = (
     actionId: __expectString(output.actionId),
     actionName: __expectString(output.actionName),
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     errorCode: __expectString(output.errorCode),
     findingId: __expectString(output.findingId),
     message: __expectString(output.message),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     status: __expectString(output.status),
     taskId: __expectString(output.taskId),
@@ -32814,7 +32818,7 @@ const deserializeAws_restJson1AuditMitigationActionsTaskMetadata = (
   return {
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     taskId: __expectString(output.taskId),
     taskStatus: __expectString(output.taskStatus),
@@ -32905,7 +32909,7 @@ const deserializeAws_restJson1AuditSuppression = (output: any, context: __SerdeC
     description: __expectString(output.description),
     expirationDate:
       output.expirationDate !== undefined && output.expirationDate !== null
-        ? new Date(Math.round(output.expirationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expirationDate)))
         : undefined,
     resourceIdentifier:
       output.resourceIdentifier !== undefined && output.resourceIdentifier !== null
@@ -32969,11 +32973,11 @@ const deserializeAws_restJson1AuthorizerDescription = (output: any, context: __S
     authorizerName: __expectString(output.authorizerName),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
-        ? new Date(Math.round(output.lastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
     signingDisabled: __expectBoolean(output.signingDisabled),
     status: __expectString(output.status),
@@ -33142,13 +33146,13 @@ const deserializeAws_restJson1BehaviorModelTrainingSummary = (
     datapointsCollectionPercentage: __limitedParseDouble(output.datapointsCollectionPercentage),
     lastModelRefreshDate:
       output.lastModelRefreshDate !== undefined && output.lastModelRefreshDate !== null
-        ? new Date(Math.round(output.lastModelRefreshDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModelRefreshDate)))
         : undefined,
     modelStatus: __expectString(output.modelStatus),
     securityProfileName: __expectString(output.securityProfileName),
     trainingDataCollectionStartDate:
       output.trainingDataCollectionStartDate !== undefined && output.trainingDataCollectionStartDate !== null
-        ? new Date(Math.round(output.trainingDataCollectionStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.trainingDataCollectionStartDate)))
         : undefined,
   } as any;
 };
@@ -33168,7 +33172,7 @@ const deserializeAws_restJson1BillingGroupMetadata = (output: any, context: __Se
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
   } as any;
 };
@@ -33220,7 +33224,7 @@ const deserializeAws_restJson1CACertificate = (output: any, context: __SerdeCont
     certificateId: __expectString(output.certificateId),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -33237,13 +33241,13 @@ const deserializeAws_restJson1CACertificateDescription = (
     certificatePem: __expectString(output.certificatePem),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     customerVersion: __expectInt32(output.customerVersion),
     generationId: __expectString(output.generationId),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
-        ? new Date(Math.round(output.lastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
     ownedBy: __expectString(output.ownedBy),
     status: __expectString(output.status),
@@ -33272,7 +33276,7 @@ const deserializeAws_restJson1Certificate = (output: any, context: __SerdeContex
     certificateMode: __expectString(output.certificateMode),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -33290,13 +33294,13 @@ const deserializeAws_restJson1CertificateDescription = (
     certificatePem: __expectString(output.certificatePem),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     customerVersion: __expectInt32(output.customerVersion),
     generationId: __expectString(output.generationId),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
-        ? new Date(Math.round(output.lastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
     ownedBy: __expectString(output.ownedBy),
     previousOwnedBy: __expectString(output.previousOwnedBy),
@@ -33327,11 +33331,11 @@ const deserializeAws_restJson1CertificateValidity = (output: any, context: __Ser
   return {
     notAfter:
       output.notAfter !== undefined && output.notAfter !== null
-        ? new Date(Math.round(output.notAfter * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notAfter)))
         : undefined,
     notBefore:
       output.notBefore !== undefined && output.notBefore !== null
-        ? new Date(Math.round(output.notBefore * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notBefore)))
         : undefined,
   } as any;
 };
@@ -33486,11 +33490,11 @@ const deserializeAws_restJson1DetectMitigationActionExecution = (
     errorCode: __expectString(output.errorCode),
     executionEndDate:
       output.executionEndDate !== undefined && output.executionEndDate !== null
-        ? new Date(Math.round(output.executionEndDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.executionEndDate)))
         : undefined,
     executionStartDate:
       output.executionStartDate !== undefined && output.executionStartDate !== null
-        ? new Date(Math.round(output.executionStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.executionStartDate)))
         : undefined,
     message: __expectString(output.message),
     status: __expectString(output.status),
@@ -33542,12 +33546,12 @@ const deserializeAws_restJson1DetectMitigationActionsTaskSummary = (
         : undefined,
     taskEndTime:
       output.taskEndTime !== undefined && output.taskEndTime !== null
-        ? new Date(Math.round(output.taskEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.taskEndTime)))
         : undefined,
     taskId: __expectString(output.taskId),
     taskStartTime:
       output.taskStartTime !== undefined && output.taskStartTime !== null
-        ? new Date(Math.round(output.taskStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.taskStartTime)))
         : undefined,
     taskStatistics:
       output.taskStatistics !== undefined && output.taskStatistics !== null
@@ -33944,11 +33948,11 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
     comment: __expectString(output.comment),
     completedAt:
       output.completedAt !== undefined && output.completedAt !== null
-        ? new Date(Math.round(output.completedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completedAt)))
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     forceCanceled: __expectBoolean(output.forceCanceled),
@@ -33965,7 +33969,7 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
     jobTemplateArn: __expectString(output.jobTemplateArn),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     namespaceId: __expectString(output.namespaceId),
     presignedUrlConfig:
@@ -33994,15 +33998,15 @@ const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeConte
     jobId: __expectString(output.jobId),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     queuedAt:
       output.queuedAt !== undefined && output.queuedAt !== null
-        ? new Date(Math.round(output.queuedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.queuedAt)))
         : undefined,
     startedAt:
       output.startedAt !== undefined && output.startedAt !== null
-        ? new Date(Math.round(output.startedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
         : undefined,
     status: __expectString(output.status),
     statusDetails:
@@ -34044,15 +34048,15 @@ const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __Ser
     executionNumber: __expectLong(output.executionNumber),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     queuedAt:
       output.queuedAt !== undefined && output.queuedAt !== null
-        ? new Date(Math.round(output.queuedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.queuedAt)))
         : undefined,
     startedAt:
       output.startedAt !== undefined && output.startedAt !== null
-        ? new Date(Math.round(output.startedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -34133,17 +34137,17 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
   return {
     completedAt:
       output.completedAt !== undefined && output.completedAt !== null
-        ? new Date(Math.round(output.completedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completedAt)))
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     jobArn: __expectString(output.jobArn),
     jobId: __expectString(output.jobId),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     status: __expectString(output.status),
     targetSelection: __expectString(output.targetSelection),
@@ -34177,7 +34181,7 @@ const deserializeAws_restJson1JobTemplateSummary = (output: any, context: __Serd
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     jobTemplateArn: __expectString(output.jobTemplateArn),
@@ -34356,7 +34360,7 @@ const deserializeAws_restJson1MitigationActionIdentifier = (
     actionName: __expectString(output.actionName),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
   } as any;
 };
@@ -34503,7 +34507,7 @@ const deserializeAws_restJson1OTAUpdateInfo = (output: any, context: __SerdeCont
         : undefined,
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     description: __expectString(output.description),
     errorInfo:
@@ -34512,7 +34516,7 @@ const deserializeAws_restJson1OTAUpdateInfo = (output: any, context: __SerdeCont
         : undefined,
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
-        ? new Date(Math.round(output.lastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
     otaUpdateArn: __expectString(output.otaUpdateArn),
     otaUpdateFiles:
@@ -34548,7 +34552,7 @@ const deserializeAws_restJson1OTAUpdateSummary = (output: any, context: __SerdeC
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     otaUpdateArn: __expectString(output.otaUpdateArn),
     otaUpdateId: __expectString(output.otaUpdateId),
@@ -34561,11 +34565,11 @@ const deserializeAws_restJson1OutgoingCertificate = (output: any, context: __Ser
     certificateId: __expectString(output.certificateId),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     transferDate:
       output.transferDate !== undefined && output.transferDate !== null
-        ? new Date(Math.round(output.transferDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.transferDate)))
         : undefined,
     transferMessage: __expectString(output.transferMessage),
     transferredTo: __expectString(output.transferredTo),
@@ -34645,7 +34649,7 @@ const deserializeAws_restJson1PolicyVersion = (output: any, context: __SerdeCont
   return {
     createDate:
       output.createDate !== undefined && output.createDate !== null
-        ? new Date(Math.round(output.createDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createDate)))
         : undefined,
     isDefaultVersion: __expectBoolean(output.isDefaultVersion),
     versionId: __expectString(output.versionId),
@@ -34752,13 +34756,13 @@ const deserializeAws_restJson1ProvisioningTemplateSummary = (
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     description: __expectString(output.description),
     enabled: __expectBoolean(output.enabled),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
-        ? new Date(Math.round(output.lastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
     templateArn: __expectString(output.templateArn),
     templateName: __expectString(output.templateName),
@@ -34786,7 +34790,7 @@ const deserializeAws_restJson1ProvisioningTemplateVersionSummary = (
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     isDefaultVersion: __expectBoolean(output.isDefaultVersion),
     versionId: __expectInt32(output.versionId),
@@ -34960,12 +34964,12 @@ const deserializeAws_restJson1RoleAliasDescription = (output: any, context: __Se
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     credentialDurationSeconds: __expectInt32(output.credentialDurationSeconds),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
-        ? new Date(Math.round(output.lastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
     owner: __expectString(output.owner),
     roleAlias: __expectString(output.roleAlias),
@@ -35286,7 +35290,7 @@ const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     files:
@@ -35295,7 +35299,7 @@ const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     streamArn: __expectString(output.streamArn),
@@ -35560,7 +35564,7 @@ const deserializeAws_restJson1ThingGroupMetadata = (output: any, context: __Serd
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     parentGroupName: __expectString(output.parentGroupName),
     rootToParentThingGroups:
@@ -35672,12 +35676,12 @@ const deserializeAws_restJson1ThingTypeMetadata = (output: any, context: __Serde
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     deprecated: __expectBoolean(output.deprecated),
     deprecationDate:
       output.deprecationDate !== undefined && output.deprecationDate !== null
-        ? new Date(Math.round(output.deprecationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deprecationDate)))
         : undefined,
   } as any;
 };
@@ -35751,7 +35755,7 @@ const deserializeAws_restJson1TopicRule = (output: any, context: __SerdeContext)
     awsIotSqlVersion: __expectString(output.awsIotSqlVersion),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     errorAction:
@@ -35769,7 +35773,7 @@ const deserializeAws_restJson1TopicRuleDestination = (output: any, context: __Se
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     httpUrlProperties:
       output.httpUrlProperties !== undefined && output.httpUrlProperties !== null
@@ -35777,7 +35781,7 @@ const deserializeAws_restJson1TopicRuleDestination = (output: any, context: __Se
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
@@ -35810,7 +35814,7 @@ const deserializeAws_restJson1TopicRuleDestinationSummary = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     httpUrlSummary:
       output.httpUrlSummary !== undefined && output.httpUrlSummary !== null
@@ -35818,7 +35822,7 @@ const deserializeAws_restJson1TopicRuleDestinationSummary = (
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
@@ -35844,7 +35848,7 @@ const deserializeAws_restJson1TopicRuleListItem = (output: any, context: __Serde
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     ruleArn: __expectString(output.ruleArn),
     ruleDisabled: __expectBoolean(output.ruleDisabled),
@@ -35857,16 +35861,16 @@ const deserializeAws_restJson1TransferData = (output: any, context: __SerdeConte
   return {
     acceptDate:
       output.acceptDate !== undefined && output.acceptDate !== null
-        ? new Date(Math.round(output.acceptDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.acceptDate)))
         : undefined,
     rejectDate:
       output.rejectDate !== undefined && output.rejectDate !== null
-        ? new Date(Math.round(output.rejectDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.rejectDate)))
         : undefined,
     rejectReason: __expectString(output.rejectReason),
     transferDate:
       output.transferDate !== undefined && output.transferDate !== null
-        ? new Date(Math.round(output.transferDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.transferDate)))
         : undefined,
     transferMessage: __expectString(output.transferMessage),
   } as any;
@@ -35925,7 +35929,7 @@ const deserializeAws_restJson1ViolationEvent = (output: any, context: __SerdeCon
         : undefined,
     violationEventTime:
       output.violationEventTime !== undefined && output.violationEventTime !== null
-        ? new Date(Math.round(output.violationEventTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.violationEventTime)))
         : undefined,
     violationEventType: __expectString(output.violationEventType),
     violationId: __expectString(output.violationId),
@@ -35947,10 +35951,12 @@ const deserializeAws_restJson1ViolationEventOccurrenceRange = (
 ): ViolationEventOccurrenceRange => {
   return {
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
   } as any;
 };

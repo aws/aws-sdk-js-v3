@@ -163,7 +163,10 @@ import {
 import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3525,7 +3528,7 @@ const deserializeAws_json1_1Namespace = (output: any, context: __SerdeContext): 
     Arn: __expectString(output.Arn),
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
-        ? new Date(Math.round(output.CreateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate)))
         : undefined,
     CreatorRequestId: __expectString(output.CreatorRequestId),
     Description: __expectString(output.Description),
@@ -3583,7 +3586,7 @@ const deserializeAws_json1_1NamespaceSummary = (output: any, context: __SerdeCon
     Arn: __expectString(output.Arn),
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
-        ? new Date(Math.round(output.CreateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate)))
         : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
@@ -3601,7 +3604,7 @@ const deserializeAws_json1_1Operation = (output: any, context: __SerdeContext): 
   return {
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
-        ? new Date(Math.round(output.CreateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate)))
         : undefined,
     ErrorCode: __expectString(output.ErrorCode),
     ErrorMessage: __expectString(output.ErrorMessage),
@@ -3614,7 +3617,7 @@ const deserializeAws_json1_1Operation = (output: any, context: __SerdeContext): 
     Type: __expectString(output.Type),
     UpdateDate:
       output.UpdateDate !== undefined && output.UpdateDate !== null
-        ? new Date(Math.round(output.UpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDate)))
         : undefined,
   } as any;
 };
@@ -3699,7 +3702,7 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
     Arn: __expectString(output.Arn),
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
-        ? new Date(Math.round(output.CreateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate)))
         : undefined,
     CreatorRequestId: __expectString(output.CreatorRequestId),
     Description: __expectString(output.Description),
@@ -3753,7 +3756,7 @@ const deserializeAws_json1_1ServiceSummary = (output: any, context: __SerdeConte
     Arn: __expectString(output.Arn),
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
-        ? new Date(Math.round(output.CreateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate)))
         : undefined,
     Description: __expectString(output.Description),
     DnsConfig:

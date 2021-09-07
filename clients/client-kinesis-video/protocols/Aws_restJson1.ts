@@ -69,8 +69,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2569,7 +2571,7 @@ const deserializeAws_restJson1ChannelInfo = (output: any, context: __SerdeContex
     ChannelType: __expectString(output.ChannelType),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     SingleMasterConfiguration:
       output.SingleMasterConfiguration !== undefined && output.SingleMasterConfiguration !== null
@@ -2639,7 +2641,7 @@ const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DataRetentionInHours: __expectInt32(output.DataRetentionInHours),
     DeviceName: __expectString(output.DeviceName),

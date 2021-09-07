@@ -34,7 +34,13 @@ import {
   UsageRecordResult,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1039,7 +1045,7 @@ const deserializeAws_json1_1RegisterUsageResult = (output: any, context: __Serde
   return {
     PublicKeyRotationTimestamp:
       output.PublicKeyRotationTimestamp !== undefined && output.PublicKeyRotationTimestamp !== null
-        ? new Date(Math.round(output.PublicKeyRotationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PublicKeyRotationTimestamp)))
         : undefined,
     Signature: __expectString(output.Signature),
   } as any;
@@ -1113,7 +1119,7 @@ const deserializeAws_json1_1UsageRecord = (output: any, context: __SerdeContext)
     Quantity: __expectInt32(output.Quantity),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
     UsageAllocations:
       output.UsageAllocations !== undefined && output.UsageAllocations !== null

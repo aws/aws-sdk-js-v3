@@ -214,11 +214,13 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
@@ -6722,7 +6724,7 @@ const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext):
     contents.CanonicalHostedZoneId = __expectString(output["CanonicalHostedZoneId"]);
   }
   if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = new Date(output["CreatedTime"]);
+    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTime(output["CreatedTime"]));
   }
   if (output["LoadBalancerName"] !== undefined) {
     contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);

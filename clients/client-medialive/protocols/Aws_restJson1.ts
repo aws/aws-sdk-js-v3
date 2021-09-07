@@ -359,6 +359,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseRfc7231DateTime as __parseRfc7231DateTime,
   serializeFloat as __serializeFloat,
   strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
@@ -5140,7 +5141,7 @@ export const deserializeAws_restJson1DescribeInputDeviceThumbnailCommand = async
     contents.ETag = output.headers["etag"];
   }
   if (output.headers["last-modified"] !== undefined) {
-    contents.LastModified = new Date(output.headers["last-modified"]);
+    contents.LastModified = __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"]));
   }
   const data: any = output.body;
   contents.Body = data;

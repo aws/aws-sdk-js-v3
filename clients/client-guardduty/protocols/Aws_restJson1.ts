@@ -208,10 +208,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7111,7 +7113,7 @@ const deserializeAws_restJson1S3BucketDetail = (output: any, context: __SerdeCon
     Arn: __expectString(output.arn),
     CreatedAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     DefaultServerSideEncryption:
       output.defaultServerSideEncryption !== undefined && output.defaultServerSideEncryption !== null

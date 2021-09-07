@@ -109,7 +109,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2820,7 +2823,7 @@ const deserializeAws_json1_1DeleteSecretResponse = (output: any, context: __Serd
     ARN: __expectString(output.ARN),
     DeletionDate:
       output.DeletionDate !== undefined && output.DeletionDate !== null
-        ? new Date(Math.round(output.DeletionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
         : undefined,
     Name: __expectString(output.Name),
   } as any;
@@ -2831,25 +2834,25 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
     ARN: __expectString(output.ARN),
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     DeletedDate:
       output.DeletedDate !== undefined && output.DeletedDate !== null
-        ? new Date(Math.round(output.DeletedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedDate)))
         : undefined,
     Description: __expectString(output.Description),
     KmsKeyId: __expectString(output.KmsKeyId),
     LastAccessedDate:
       output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
-        ? new Date(Math.round(output.LastAccessedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
         : undefined,
     LastChangedDate:
       output.LastChangedDate !== undefined && output.LastChangedDate !== null
-        ? new Date(Math.round(output.LastChangedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastChangedDate)))
         : undefined,
     LastRotatedDate:
       output.LastRotatedDate !== undefined && output.LastRotatedDate !== null
-        ? new Date(Math.round(output.LastRotatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRotatedDate)))
         : undefined,
     Name: __expectString(output.Name),
     OwningService: __expectString(output.OwningService),
@@ -2906,7 +2909,7 @@ const deserializeAws_json1_1GetSecretValueResponse = (output: any, context: __Se
     ARN: __expectString(output.ARN),
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     Name: __expectString(output.Name),
     SecretBinary:
@@ -3088,7 +3091,7 @@ const deserializeAws_json1_1ReplicationStatusType = (output: any, context: __Ser
     KmsKeyId: __expectString(output.KmsKeyId),
     LastAccessedDate:
       output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
-        ? new Date(Math.round(output.LastAccessedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
         : undefined,
     Region: __expectString(output.Region),
     Status: __expectString(output.Status),
@@ -3140,25 +3143,25 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
     ARN: __expectString(output.ARN),
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     DeletedDate:
       output.DeletedDate !== undefined && output.DeletedDate !== null
-        ? new Date(Math.round(output.DeletedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedDate)))
         : undefined,
     Description: __expectString(output.Description),
     KmsKeyId: __expectString(output.KmsKeyId),
     LastAccessedDate:
       output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
-        ? new Date(Math.round(output.LastAccessedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
         : undefined,
     LastChangedDate:
       output.LastChangedDate !== undefined && output.LastChangedDate !== null
-        ? new Date(Math.round(output.LastChangedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastChangedDate)))
         : undefined,
     LastRotatedDate:
       output.LastRotatedDate !== undefined && output.LastRotatedDate !== null
-        ? new Date(Math.round(output.LastRotatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRotatedDate)))
         : undefined,
     Name: __expectString(output.Name),
     OwningService: __expectString(output.OwningService),
@@ -3198,7 +3201,7 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
   return {
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     KmsKeyIds:
       output.KmsKeyIds !== undefined && output.KmsKeyIds !== null
@@ -3206,7 +3209,7 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
         : undefined,
     LastAccessedDate:
       output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
-        ? new Date(Math.round(output.LastAccessedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
         : undefined,
     VersionId: __expectString(output.VersionId),
     VersionStages:

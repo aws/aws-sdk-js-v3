@@ -164,7 +164,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3581,12 +3584,12 @@ const deserializeAws_json1_1DescribeAgentResponse = (output: any, context: __Ser
     AgentArn: __expectString(output.AgentArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     EndpointType: __expectString(output.EndpointType),
     LastConnectionTime:
       output.LastConnectionTime !== undefined && output.LastConnectionTime !== null
-        ? new Date(Math.round(output.LastConnectionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastConnectionTime)))
         : undefined,
     Name: __expectString(output.Name),
     PrivateLinkConfig:
@@ -3604,7 +3607,7 @@ const deserializeAws_json1_1DescribeLocationEfsResponse = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Ec2Config:
       output.Ec2Config !== undefined && output.Ec2Config !== null
@@ -3622,7 +3625,7 @@ const deserializeAws_json1_1DescribeLocationFsxWindowsResponse = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Domain: __expectString(output.Domain),
     LocationArn: __expectString(output.LocationArn),
@@ -3642,7 +3645,7 @@ const deserializeAws_json1_1DescribeLocationNfsResponse = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LocationArn: __expectString(output.LocationArn),
     LocationUri: __expectString(output.LocationUri),
@@ -3669,7 +3672,7 @@ const deserializeAws_json1_1DescribeLocationObjectStorageResponse = (
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LocationArn: __expectString(output.LocationArn),
     LocationUri: __expectString(output.LocationUri),
@@ -3689,7 +3692,7 @@ const deserializeAws_json1_1DescribeLocationS3Response = (
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LocationArn: __expectString(output.LocationArn),
     LocationUri: __expectString(output.LocationUri),
@@ -3712,7 +3715,7 @@ const deserializeAws_json1_1DescribeLocationSmbResponse = (
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Domain: __expectString(output.Domain),
     LocationArn: __expectString(output.LocationArn),
@@ -3753,7 +3756,7 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
         : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Status: __expectString(output.Status),
     TaskExecutionArn: __expectString(output.TaskExecutionArn),
@@ -3765,7 +3768,7 @@ const deserializeAws_json1_1DescribeTaskResponse = (output: any, context: __Serd
     CloudWatchLogGroupArn: __expectString(output.CloudWatchLogGroupArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     CurrentTaskExecutionArn: __expectString(output.CurrentTaskExecutionArn),
     DestinationLocationArn: __expectString(output.DestinationLocationArn),

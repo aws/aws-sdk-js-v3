@@ -118,9 +118,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4489,7 +4491,7 @@ const deserializeAws_restJson1AppInstanceUserMembershipSummary = (
   return {
     ReadMarkerTimestamp:
       output.ReadMarkerTimestamp !== undefined && output.ReadMarkerTimestamp !== null
-        ? new Date(Math.round(output.ReadMarkerTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadMarkerTimestamp)))
         : undefined,
     Type: __expectString(output.Type),
   } as any;
@@ -4547,15 +4549,15 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
         : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     LastMessageTimestamp:
       output.LastMessageTimestamp !== undefined && output.LastMessageTimestamp !== null
-        ? new Date(Math.round(output.LastMessageTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastMessageTimestamp)))
         : undefined,
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     Metadata: __expectString(output.Metadata),
     Mode: __expectString(output.Mode),
@@ -4573,7 +4575,7 @@ const deserializeAws_restJson1ChannelBan = (output: any, context: __SerdeContext
         : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     Member:
       output.Member !== undefined && output.Member !== null
@@ -4607,7 +4609,7 @@ const deserializeAws_restJson1ChannelMembership = (output: any, context: __Serde
     ChannelArn: __expectString(output.ChannelArn),
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     InvitedBy:
       output.InvitedBy !== undefined && output.InvitedBy !== null
@@ -4615,7 +4617,7 @@ const deserializeAws_restJson1ChannelMembership = (output: any, context: __Serde
         : undefined,
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     Member:
       output.Member !== undefined && output.Member !== null
@@ -4687,15 +4689,15 @@ const deserializeAws_restJson1ChannelMessage = (output: any, context: __SerdeCon
     Content: __expectString(output.Content),
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     LastEditedTimestamp:
       output.LastEditedTimestamp !== undefined && output.LastEditedTimestamp !== null
-        ? new Date(Math.round(output.LastEditedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastEditedTimestamp)))
         : undefined,
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     MessageId: __expectString(output.MessageId),
     Metadata: __expectString(output.Metadata),
@@ -4714,15 +4716,15 @@ const deserializeAws_restJson1ChannelMessageSummary = (output: any, context: __S
     Content: __expectString(output.Content),
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     LastEditedTimestamp:
       output.LastEditedTimestamp !== undefined && output.LastEditedTimestamp !== null
-        ? new Date(Math.round(output.LastEditedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastEditedTimestamp)))
         : undefined,
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     MessageId: __expectString(output.MessageId),
     Metadata: __expectString(output.Metadata),
@@ -4784,7 +4786,7 @@ const deserializeAws_restJson1ChannelModerator = (output: any, context: __SerdeC
         : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     Moderator:
       output.Moderator !== undefined && output.Moderator !== null
@@ -4824,7 +4826,7 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
     ChannelArn: __expectString(output.ChannelArn),
     LastMessageTimestamp:
       output.LastMessageTimestamp !== undefined && output.LastMessageTimestamp !== null
-        ? new Date(Math.round(output.LastMessageTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastMessageTimestamp)))
         : undefined,
     Metadata: __expectString(output.Metadata),
     Mode: __expectString(output.Mode),

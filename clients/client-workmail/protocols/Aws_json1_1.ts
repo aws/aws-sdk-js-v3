@@ -283,8 +283,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6716,11 +6719,11 @@ const deserializeAws_json1_1AccessControlRule = (output: any, context: __SerdeCo
         : undefined,
     DateCreated:
       output.DateCreated !== undefined && output.DateCreated !== null
-        ? new Date(Math.round(output.DateCreated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
         : undefined,
     DateModified:
       output.DateModified !== undefined && output.DateModified !== null
-        ? new Date(Math.round(output.DateModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
         : undefined,
     Description: __expectString(output.Description),
     Effect: __expectString(output.Effect),
@@ -6933,12 +6936,12 @@ const deserializeAws_json1_1DescribeGroupResponse = (output: any, context: __Ser
   return {
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
-        ? new Date(Math.round(output.DisabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     Email: __expectString(output.Email),
     EnabledDate:
       output.EnabledDate !== undefined && output.EnabledDate !== null
-        ? new Date(Math.round(output.EnabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     GroupId: __expectString(output.GroupId),
     Name: __expectString(output.Name),
@@ -6953,7 +6956,9 @@ const deserializeAws_json1_1DescribeMailboxExportJobResponse = (
   return {
     Description: __expectString(output.Description),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     EntityId: __expectString(output.EntityId),
     ErrorInfo: __expectString(output.ErrorInfo),
     EstimatedProgress: __expectInt32(output.EstimatedProgress),
@@ -6964,7 +6969,7 @@ const deserializeAws_json1_1DescribeMailboxExportJobResponse = (
     S3Prefix: __expectString(output.S3Prefix),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     State: __expectString(output.State),
   } as any;
@@ -6979,7 +6984,7 @@ const deserializeAws_json1_1DescribeOrganizationResponse = (
     Alias: __expectString(output.Alias),
     CompletedDate:
       output.CompletedDate !== undefined && output.CompletedDate !== null
-        ? new Date(Math.round(output.CompletedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletedDate)))
         : undefined,
     DefaultMailDomain: __expectString(output.DefaultMailDomain),
     DirectoryId: __expectString(output.DirectoryId),
@@ -7001,12 +7006,12 @@ const deserializeAws_json1_1DescribeResourceResponse = (
         : undefined,
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
-        ? new Date(Math.round(output.DisabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     Email: __expectString(output.Email),
     EnabledDate:
       output.EnabledDate !== undefined && output.EnabledDate !== null
-        ? new Date(Math.round(output.EnabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Name: __expectString(output.Name),
     ResourceId: __expectString(output.ResourceId),
@@ -7019,13 +7024,13 @@ const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __Serd
   return {
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
-        ? new Date(Math.round(output.DisabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     DisplayName: __expectString(output.DisplayName),
     Email: __expectString(output.Email),
     EnabledDate:
       output.EnabledDate !== undefined && output.EnabledDate !== null
-        ? new Date(Math.round(output.EnabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Name: __expectString(output.Name),
     State: __expectString(output.State),
@@ -7226,12 +7231,12 @@ const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Grou
   return {
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
-        ? new Date(Math.round(output.DisabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     Email: __expectString(output.Email),
     EnabledDate:
       output.EnabledDate !== undefined && output.EnabledDate !== null
-        ? new Date(Math.round(output.EnabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
@@ -7448,7 +7453,9 @@ const deserializeAws_json1_1MailboxExportJob = (output: any, context: __SerdeCon
   return {
     Description: __expectString(output.Description),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     EntityId: __expectString(output.EntityId),
     EstimatedProgress: __expectInt32(output.EstimatedProgress),
     JobId: __expectString(output.JobId),
@@ -7456,7 +7463,7 @@ const deserializeAws_json1_1MailboxExportJob = (output: any, context: __SerdeCon
     S3Path: __expectString(output.S3Path),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     State: __expectString(output.State),
   } as any;
@@ -7484,11 +7491,11 @@ const deserializeAws_json1_1Member = (output: any, context: __SerdeContext): Mem
   return {
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
-        ? new Date(Math.round(output.DisabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     EnabledDate:
       output.EnabledDate !== undefined && output.EnabledDate !== null
-        ? new Date(Math.round(output.EnabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
@@ -7536,11 +7543,11 @@ const deserializeAws_json1_1MobileDeviceAccessRule = (output: any, context: __Se
   return {
     DateCreated:
       output.DateCreated !== undefined && output.DateCreated !== null
-        ? new Date(Math.round(output.DateCreated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
         : undefined,
     DateModified:
       output.DateModified !== undefined && output.DateModified !== null
-        ? new Date(Math.round(output.DateModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
         : undefined,
     Description: __expectString(output.Description),
     DeviceModels:
@@ -7718,12 +7725,12 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
   return {
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
-        ? new Date(Math.round(output.DisabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     Email: __expectString(output.Email),
     EnabledDate:
       output.EnabledDate !== undefined && output.EnabledDate !== null
-        ? new Date(Math.round(output.EnabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
@@ -7842,13 +7849,13 @@ const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User 
   return {
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
-        ? new Date(Math.round(output.DisabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     DisplayName: __expectString(output.DisplayName),
     Email: __expectString(output.Email),
     EnabledDate:
       output.EnabledDate !== undefined && output.EnabledDate !== null
-        ? new Date(Math.round(output.EnabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),

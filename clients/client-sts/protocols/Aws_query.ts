@@ -45,9 +45,11 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getValueFromTextNode as __getValueFromTextNode,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1234,7 +1236,7 @@ const deserializeAws_queryCredentials = (output: any, context: __SerdeContext): 
     contents.SessionToken = __expectString(output["SessionToken"]);
   }
   if (output["Expiration"] !== undefined) {
-    contents.Expiration = new Date(output["Expiration"]);
+    contents.Expiration = __expectNonNull(__parseRfc3339DateTime(output["Expiration"]));
   }
   return contents;
 };

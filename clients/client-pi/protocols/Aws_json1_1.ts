@@ -27,7 +27,13 @@ import {
   ResponseResourceMetricKey,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectString as __expectString, limitedParseDouble as __limitedParseDouble } from "@aws-sdk/smithy-client";
+import {
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -463,7 +469,7 @@ const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): 
   return {
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
     Value: __limitedParseDouble(output.Value),
   } as any;
@@ -487,11 +493,11 @@ const deserializeAws_json1_1DescribeDimensionKeysResponse = (
   return {
     AlignedEndTime:
       output.AlignedEndTime !== undefined && output.AlignedEndTime !== null
-        ? new Date(Math.round(output.AlignedEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedEndTime)))
         : undefined,
     AlignedStartTime:
       output.AlignedStartTime !== undefined && output.AlignedStartTime !== null
-        ? new Date(Math.round(output.AlignedStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedStartTime)))
         : undefined,
     Keys:
       output.Keys !== undefined && output.Keys !== null
@@ -586,11 +592,11 @@ const deserializeAws_json1_1GetResourceMetricsResponse = (
   return {
     AlignedEndTime:
       output.AlignedEndTime !== undefined && output.AlignedEndTime !== null
-        ? new Date(Math.round(output.AlignedEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedEndTime)))
         : undefined,
     AlignedStartTime:
       output.AlignedStartTime !== undefined && output.AlignedStartTime !== null
-        ? new Date(Math.round(output.AlignedStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedStartTime)))
         : undefined,
     Identifier: __expectString(output.Identifier),
     MetricList:

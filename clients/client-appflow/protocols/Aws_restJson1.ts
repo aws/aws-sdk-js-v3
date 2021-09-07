@@ -179,9 +179,11 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1313,7 +1315,7 @@ export const deserializeAws_restJson1DescribeFlowCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.createdBy !== undefined && data.createdBy !== null) {
     contents.createdBy = __expectString(data.createdBy);
@@ -1346,7 +1348,7 @@ export const deserializeAws_restJson1DescribeFlowCommand = async (
     contents.lastRunExecutionDetails = deserializeAws_restJson1ExecutionDetails(data.lastRunExecutionDetails, context);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.lastUpdatedBy !== undefined && data.lastUpdatedBy !== null) {
     contents.lastUpdatedBy = __expectString(data.lastUpdatedBy);
@@ -3838,12 +3840,12 @@ const deserializeAws_restJson1ConnectorProfile = (output: any, context: __SerdeC
     connectorType: __expectString(output.connectorType),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     credentialsArn: __expectString(output.credentialsArn),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     privateConnectionProvisioningState:
       output.privateConnectionProvisioningState !== undefined && output.privateConnectionProvisioningState !== null
@@ -4144,7 +4146,7 @@ const deserializeAws_restJson1ExecutionDetails = (output: any, context: __SerdeC
     mostRecentExecutionStatus: __expectString(output.mostRecentExecutionStatus),
     mostRecentExecutionTime:
       output.mostRecentExecutionTime !== undefined && output.mostRecentExecutionTime !== null
-        ? new Date(Math.round(output.mostRecentExecutionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.mostRecentExecutionTime)))
         : undefined,
   } as any;
 };
@@ -4153,11 +4155,11 @@ const deserializeAws_restJson1ExecutionRecord = (output: any, context: __SerdeCo
   return {
     dataPullEndTime:
       output.dataPullEndTime !== undefined && output.dataPullEndTime !== null
-        ? new Date(Math.round(output.dataPullEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.dataPullEndTime)))
         : undefined,
     dataPullStartTime:
       output.dataPullStartTime !== undefined && output.dataPullStartTime !== null
-        ? new Date(Math.round(output.dataPullStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.dataPullStartTime)))
         : undefined,
     executionId: __expectString(output.executionId),
     executionResult:
@@ -4167,11 +4169,11 @@ const deserializeAws_restJson1ExecutionRecord = (output: any, context: __SerdeCo
     executionStatus: __expectString(output.executionStatus),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     startedAt:
       output.startedAt !== undefined && output.startedAt !== null
-        ? new Date(Math.round(output.startedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
         : undefined,
   } as any;
 };
@@ -4217,7 +4219,7 @@ const deserializeAws_restJson1FlowDefinition = (output: any, context: __SerdeCon
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
@@ -4231,7 +4233,7 @@ const deserializeAws_restJson1FlowDefinition = (output: any, context: __SerdeCon
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
     sourceConnectorType: __expectString(output.sourceConnectorType),
@@ -4598,17 +4600,17 @@ const deserializeAws_restJson1ScheduledTriggerProperties = (
     dataPullMode: __expectString(output.dataPullMode),
     firstExecutionFrom:
       output.firstExecutionFrom !== undefined && output.firstExecutionFrom !== null
-        ? new Date(Math.round(output.firstExecutionFrom * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.firstExecutionFrom)))
         : undefined,
     scheduleEndTime:
       output.scheduleEndTime !== undefined && output.scheduleEndTime !== null
-        ? new Date(Math.round(output.scheduleEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scheduleEndTime)))
         : undefined,
     scheduleExpression: __expectString(output.scheduleExpression),
     scheduleOffset: __expectLong(output.scheduleOffset),
     scheduleStartTime:
       output.scheduleStartTime !== undefined && output.scheduleStartTime !== null
-        ? new Date(Math.round(output.scheduleStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scheduleStartTime)))
         : undefined,
     timezone: __expectString(output.timezone),
   } as any;

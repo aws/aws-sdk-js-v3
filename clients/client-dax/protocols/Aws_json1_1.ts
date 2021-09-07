@@ -131,7 +131,13 @@ import {
   UpdateSubnetGroupResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3359,7 +3365,10 @@ const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): E
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
-    Date: output.Date !== undefined && output.Date !== null ? new Date(Math.round(output.Date * 1000)) : undefined,
+    Date:
+      output.Date !== undefined && output.Date !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Date)))
+        : undefined,
     Message: __expectString(output.Message),
     SourceName: __expectString(output.SourceName),
     SourceType: __expectString(output.SourceType),
@@ -3474,7 +3483,7 @@ const deserializeAws_json1_1Node = (output: any, context: __SerdeContext): Node 
         : undefined,
     NodeCreateTime:
       output.NodeCreateTime !== undefined && output.NodeCreateTime !== null
-        ? new Date(Math.round(output.NodeCreateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NodeCreateTime)))
         : undefined,
     NodeId: __expectString(output.NodeId),
     NodeStatus: __expectString(output.NodeStatus),

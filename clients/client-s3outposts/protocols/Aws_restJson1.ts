@@ -13,9 +13,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -442,7 +444,7 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
     CidrBlock: __expectString(output.CidrBlock),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     CustomerOwnedIpv4Pool: __expectString(output.CustomerOwnedIpv4Pool),
     EndpointArn: __expectString(output.EndpointArn),

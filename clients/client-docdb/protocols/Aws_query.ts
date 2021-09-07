@@ -365,11 +365,13 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
@@ -7777,10 +7779,10 @@ const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): 
     contents.Thumbprint = __expectString(output["Thumbprint"]);
   }
   if (output["ValidFrom"] !== undefined) {
-    contents.ValidFrom = new Date(output["ValidFrom"]);
+    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTime(output["ValidFrom"]));
   }
   if (output["ValidTill"] !== undefined) {
-    contents.ValidTill = new Date(output["ValidTill"]);
+    contents.ValidTill = __expectNonNull(__parseRfc3339DateTime(output["ValidTill"]));
   }
   if (output["CertificateArn"] !== undefined) {
     contents.CertificateArn = __expectString(output["CertificateArn"]);
@@ -8011,7 +8013,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.PercentProgress = __expectString(output["PercentProgress"]);
   }
   if (output["EarliestRestorableTime"] !== undefined) {
-    contents.EarliestRestorableTime = new Date(output["EarliestRestorableTime"]);
+    contents.EarliestRestorableTime = __expectNonNull(__parseRfc3339DateTime(output["EarliestRestorableTime"]));
   }
   if (output["Endpoint"] !== undefined) {
     contents.Endpoint = __expectString(output["Endpoint"]);
@@ -8029,7 +8031,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["LatestRestorableTime"] !== undefined) {
-    contents.LatestRestorableTime = new Date(output["LatestRestorableTime"]);
+    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTime(output["LatestRestorableTime"]));
   }
   if (output["Port"] !== undefined) {
     contents.Port = __strictParseInt32(output["Port"]) as number;
@@ -8104,7 +8106,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     );
   }
   if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = new Date(output["ClusterCreateTime"]);
+    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ClusterCreateTime"]));
   }
   if (output.EnabledCloudwatchLogsExports === "") {
     contents.EnabledCloudwatchLogsExports = [];
@@ -8396,7 +8398,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
   }
   if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = new Date(output["SnapshotCreateTime"]);
+    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotCreateTime"]));
   }
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -8411,7 +8413,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = new Date(output["ClusterCreateTime"]);
+    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ClusterCreateTime"]));
   }
   if (output["MasterUsername"] !== undefined) {
     contents.MasterUsername = __expectString(output["MasterUsername"]);
@@ -8689,7 +8691,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.Endpoint = deserializeAws_queryEndpoint(output["Endpoint"], context);
   }
   if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = new Date(output["InstanceCreateTime"]);
+    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTime(output["InstanceCreateTime"]));
   }
   if (output["PreferredBackupWindow"] !== undefined) {
     contents.PreferredBackupWindow = __expectString(output["PreferredBackupWindow"]);
@@ -8725,7 +8727,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     );
   }
   if (output["LatestRestorableTime"] !== undefined) {
-    contents.LatestRestorableTime = new Date(output["LatestRestorableTime"]);
+    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTime(output["LatestRestorableTime"]));
   }
   if (output["EngineVersion"] !== undefined) {
     contents.EngineVersion = __expectString(output["EngineVersion"]);
@@ -9243,7 +9245,7 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
     );
   }
   if (output["Date"] !== undefined) {
-    contents.Date = new Date(output["Date"]);
+    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
   }
   if (output["SourceArn"] !== undefined) {
     contents.SourceArn = __expectString(output["SourceArn"]);
@@ -10110,16 +10112,16 @@ const deserializeAws_queryPendingMaintenanceAction = (
     contents.Action = __expectString(output["Action"]);
   }
   if (output["AutoAppliedAfterDate"] !== undefined) {
-    contents.AutoAppliedAfterDate = new Date(output["AutoAppliedAfterDate"]);
+    contents.AutoAppliedAfterDate = __expectNonNull(__parseRfc3339DateTime(output["AutoAppliedAfterDate"]));
   }
   if (output["ForcedApplyDate"] !== undefined) {
-    contents.ForcedApplyDate = new Date(output["ForcedApplyDate"]);
+    contents.ForcedApplyDate = __expectNonNull(__parseRfc3339DateTime(output["ForcedApplyDate"]));
   }
   if (output["OptInStatus"] !== undefined) {
     contents.OptInStatus = __expectString(output["OptInStatus"]);
   }
   if (output["CurrentApplyDate"] !== undefined) {
-    contents.CurrentApplyDate = new Date(output["CurrentApplyDate"]);
+    contents.CurrentApplyDate = __expectNonNull(__parseRfc3339DateTime(output["CurrentApplyDate"]));
   }
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);

@@ -74,9 +74,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1555,7 +1557,9 @@ export const deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand = as
     );
   }
   if (data.InitiateDeletionTimestamp !== undefined && data.InitiateDeletionTimestamp !== null) {
-    contents.InitiateDeletionTimestamp = new Date(Math.round(data.InitiateDeletionTimestamp * 1000));
+    contents.InitiateDeletionTimestamp = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.InitiateDeletionTimestamp))
+    );
   }
   return Promise.resolve(contents);
 };
@@ -1970,7 +1974,9 @@ export const deserializeAws_restJson1PutAppInstanceRetentionSettingsCommand = as
     );
   }
   if (data.InitiateDeletionTimestamp !== undefined && data.InitiateDeletionTimestamp !== null) {
-    contents.InitiateDeletionTimestamp = new Date(Math.round(data.InitiateDeletionTimestamp * 1000));
+    contents.InitiateDeletionTimestamp = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.InitiateDeletionTimestamp))
+    );
   }
   return Promise.resolve(contents);
 };
@@ -2481,11 +2487,11 @@ const deserializeAws_restJson1AppInstance = (output: any, context: __SerdeContex
     AppInstanceArn: __expectString(output.AppInstanceArn),
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     Metadata: __expectString(output.Metadata),
     Name: __expectString(output.Name),
@@ -2501,7 +2507,7 @@ const deserializeAws_restJson1AppInstanceAdmin = (output: any, context: __SerdeC
     AppInstanceArn: __expectString(output.AppInstanceArn),
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
   } as any;
 };
@@ -2568,11 +2574,11 @@ const deserializeAws_restJson1AppInstanceUser = (output: any, context: __SerdeCo
     AppInstanceUserArn: __expectString(output.AppInstanceUserArn),
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     Metadata: __expectString(output.Metadata),
     Name: __expectString(output.Name),

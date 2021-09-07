@@ -114,7 +114,13 @@ import {
   UntagResourceResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectBoolean as __expectBoolean, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectBoolean as __expectBoolean,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3253,7 +3259,7 @@ const deserializeAws_json1_1Credentials = (output: any, context: __SerdeContext)
     AccessKeyId: __expectString(output.AccessKeyId),
     Expiration:
       output.Expiration !== undefined && output.Expiration !== null
-        ? new Date(Math.round(output.Expiration * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiration)))
         : undefined,
     SecretKey: __expectString(output.SecretKey),
     SessionToken: __expectString(output.SessionToken),
@@ -3384,12 +3390,12 @@ const deserializeAws_json1_1IdentityDescription = (output: any, context: __Serde
   return {
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     IdentityId: __expectString(output.IdentityId),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     Logins:
       output.Logins !== undefined && output.Logins !== null

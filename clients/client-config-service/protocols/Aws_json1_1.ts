@@ -612,7 +612,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -10763,7 +10766,7 @@ const deserializeAws_json1_1AggregatedSourceStatus = (output: any, context: __Se
     LastUpdateStatus: __expectString(output.LastUpdateStatus),
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     SourceId: __expectString(output.SourceId),
     SourceType: __expectString(output.SourceType),
@@ -10795,7 +10798,7 @@ const deserializeAws_json1_1AggregateEvaluationResult = (
     ComplianceType: __expectString(output.ComplianceType),
     ConfigRuleInvokedTime:
       output.ConfigRuleInvokedTime !== undefined && output.ConfigRuleInvokedTime !== null
-        ? new Date(Math.round(output.ConfigRuleInvokedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConfigRuleInvokedTime)))
         : undefined,
     EvaluationResultIdentifier:
       output.EvaluationResultIdentifier !== undefined && output.EvaluationResultIdentifier !== null
@@ -10803,7 +10806,7 @@ const deserializeAws_json1_1AggregateEvaluationResult = (
         : undefined,
     ResultRecordedTime:
       output.ResultRecordedTime !== undefined && output.ResultRecordedTime !== null
-        ? new Date(Math.round(output.ResultRecordedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ResultRecordedTime)))
         : undefined,
   } as any;
 };
@@ -10845,7 +10848,7 @@ const deserializeAws_json1_1AggregationAuthorization = (
     AuthorizedAwsRegion: __expectString(output.AuthorizedAwsRegion),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
   } as any;
 };
@@ -10884,13 +10887,13 @@ const deserializeAws_json1_1BaseConfigurationItem = (output: any, context: __Ser
     configuration: __expectString(output.configuration),
     configurationItemCaptureTime:
       output.configurationItemCaptureTime !== undefined && output.configurationItemCaptureTime !== null
-        ? new Date(Math.round(output.configurationItemCaptureTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.configurationItemCaptureTime)))
         : undefined,
     configurationItemStatus: __expectString(output.configurationItemStatus),
     configurationStateId: __expectString(output.configurationStateId),
     resourceCreationTime:
       output.resourceCreationTime !== undefined && output.resourceCreationTime !== null
-        ? new Date(Math.round(output.resourceCreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.resourceCreationTime)))
         : undefined,
     resourceId: __expectString(output.resourceId),
     resourceName: __expectString(output.resourceName),
@@ -11044,7 +11047,7 @@ const deserializeAws_json1_1ComplianceSummary = (output: any, context: __SerdeCo
   return {
     ComplianceSummaryTimestamp:
       output.ComplianceSummaryTimestamp !== undefined && output.ComplianceSummaryTimestamp !== null
-        ? new Date(Math.round(output.ComplianceSummaryTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ComplianceSummaryTimestamp)))
         : undefined,
     CompliantResourceCount:
       output.CompliantResourceCount !== undefined && output.CompliantResourceCount !== null
@@ -11077,18 +11080,18 @@ const deserializeAws_json1_1ConfigExportDeliveryInfo = (
   return {
     lastAttemptTime:
       output.lastAttemptTime !== undefined && output.lastAttemptTime !== null
-        ? new Date(Math.round(output.lastAttemptTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastAttemptTime)))
         : undefined,
     lastErrorCode: __expectString(output.lastErrorCode),
     lastErrorMessage: __expectString(output.lastErrorMessage),
     lastStatus: __expectString(output.lastStatus),
     lastSuccessfulTime:
       output.lastSuccessfulTime !== undefined && output.lastSuccessfulTime !== null
-        ? new Date(Math.round(output.lastSuccessfulTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastSuccessfulTime)))
         : undefined,
     nextDeliveryTime:
       output.nextDeliveryTime !== undefined && output.nextDeliveryTime !== null
-        ? new Date(Math.round(output.nextDeliveryTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.nextDeliveryTime)))
         : undefined,
   } as any;
 };
@@ -11124,30 +11127,30 @@ const deserializeAws_json1_1ConfigRuleEvaluationStatus = (
     ConfigRuleName: __expectString(output.ConfigRuleName),
     FirstActivatedTime:
       output.FirstActivatedTime !== undefined && output.FirstActivatedTime !== null
-        ? new Date(Math.round(output.FirstActivatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FirstActivatedTime)))
         : undefined,
     FirstEvaluationStarted: __expectBoolean(output.FirstEvaluationStarted),
     LastDeactivatedTime:
       output.LastDeactivatedTime !== undefined && output.LastDeactivatedTime !== null
-        ? new Date(Math.round(output.LastDeactivatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastDeactivatedTime)))
         : undefined,
     LastErrorCode: __expectString(output.LastErrorCode),
     LastErrorMessage: __expectString(output.LastErrorMessage),
     LastFailedEvaluationTime:
       output.LastFailedEvaluationTime !== undefined && output.LastFailedEvaluationTime !== null
-        ? new Date(Math.round(output.LastFailedEvaluationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastFailedEvaluationTime)))
         : undefined,
     LastFailedInvocationTime:
       output.LastFailedInvocationTime !== undefined && output.LastFailedInvocationTime !== null
-        ? new Date(Math.round(output.LastFailedInvocationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastFailedInvocationTime)))
         : undefined,
     LastSuccessfulEvaluationTime:
       output.LastSuccessfulEvaluationTime !== undefined && output.LastSuccessfulEvaluationTime !== null
-        ? new Date(Math.round(output.LastSuccessfulEvaluationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulEvaluationTime)))
         : undefined,
     LastSuccessfulInvocationTime:
       output.LastSuccessfulInvocationTime !== undefined && output.LastSuccessfulInvocationTime !== null
-        ? new Date(Math.round(output.LastSuccessfulInvocationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulInvocationTime)))
         : undefined,
   } as any;
 };
@@ -11196,7 +11199,7 @@ const deserializeAws_json1_1ConfigStreamDeliveryInfo = (
     lastStatus: __expectString(output.lastStatus),
     lastStatusChangeTime:
       output.lastStatusChangeTime !== undefined && output.lastStatusChangeTime !== null
-        ? new Date(Math.round(output.lastStatusChangeTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStatusChangeTime)))
         : undefined,
   } as any;
 };
@@ -11215,11 +11218,11 @@ const deserializeAws_json1_1ConfigurationAggregator = (
     CreatedBy: __expectString(output.CreatedBy),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     OrganizationAggregationSource:
       output.OrganizationAggregationSource !== undefined && output.OrganizationAggregationSource !== null
@@ -11251,7 +11254,7 @@ const deserializeAws_json1_1ConfigurationItem = (output: any, context: __SerdeCo
     configuration: __expectString(output.configuration),
     configurationItemCaptureTime:
       output.configurationItemCaptureTime !== undefined && output.configurationItemCaptureTime !== null
-        ? new Date(Math.round(output.configurationItemCaptureTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.configurationItemCaptureTime)))
         : undefined,
     configurationItemMD5Hash: __expectString(output.configurationItemMD5Hash),
     configurationItemStatus: __expectString(output.configurationItemStatus),
@@ -11266,7 +11269,7 @@ const deserializeAws_json1_1ConfigurationItem = (output: any, context: __SerdeCo
         : undefined,
     resourceCreationTime:
       output.resourceCreationTime !== undefined && output.resourceCreationTime !== null
-        ? new Date(Math.round(output.resourceCreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.resourceCreationTime)))
         : undefined,
     resourceId: __expectString(output.resourceId),
     resourceName: __expectString(output.resourceName),
@@ -11326,16 +11329,16 @@ const deserializeAws_json1_1ConfigurationRecorderStatus = (
     lastErrorMessage: __expectString(output.lastErrorMessage),
     lastStartTime:
       output.lastStartTime !== undefined && output.lastStartTime !== null
-        ? new Date(Math.round(output.lastStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStartTime)))
         : undefined,
     lastStatus: __expectString(output.lastStatus),
     lastStatusChangeTime:
       output.lastStatusChangeTime !== undefined && output.lastStatusChangeTime !== null
-        ? new Date(Math.round(output.lastStatusChangeTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStatusChangeTime)))
         : undefined,
     lastStopTime:
       output.lastStopTime !== undefined && output.lastStopTime !== null
-        ? new Date(Math.round(output.lastStopTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStopTime)))
         : undefined,
     name: __expectString(output.name),
     recording: __expectBoolean(output.recording),
@@ -11394,7 +11397,7 @@ const deserializeAws_json1_1ConformancePackDetail = (output: any, context: __Ser
     DeliveryS3KeyPrefix: __expectString(output.DeliveryS3KeyPrefix),
     LastUpdateRequestedTime:
       output.LastUpdateRequestedTime !== undefined && output.LastUpdateRequestedTime !== null
-        ? new Date(Math.round(output.LastUpdateRequestedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateRequestedTime)))
         : undefined,
   } as any;
 };
@@ -11422,7 +11425,7 @@ const deserializeAws_json1_1ConformancePackEvaluationResult = (
     ComplianceType: __expectString(output.ComplianceType),
     ConfigRuleInvokedTime:
       output.ConfigRuleInvokedTime !== undefined && output.ConfigRuleInvokedTime !== null
-        ? new Date(Math.round(output.ConfigRuleInvokedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConfigRuleInvokedTime)))
         : undefined,
     EvaluationResultIdentifier:
       output.EvaluationResultIdentifier !== undefined && output.EvaluationResultIdentifier !== null
@@ -11430,7 +11433,7 @@ const deserializeAws_json1_1ConformancePackEvaluationResult = (
         : undefined,
     ResultRecordedTime:
       output.ResultRecordedTime !== undefined && output.ResultRecordedTime !== null
-        ? new Date(Math.round(output.ResultRecordedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ResultRecordedTime)))
         : undefined,
   } as any;
 };
@@ -11513,11 +11516,11 @@ const deserializeAws_json1_1ConformancePackStatusDetail = (
     ConformancePackStatusReason: __expectString(output.ConformancePackStatusReason),
     LastUpdateCompletedTime:
       output.LastUpdateCompletedTime !== undefined && output.LastUpdateCompletedTime !== null
-        ? new Date(Math.round(output.LastUpdateCompletedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateCompletedTime)))
         : undefined,
     LastUpdateRequestedTime:
       output.LastUpdateRequestedTime !== undefined && output.LastUpdateRequestedTime !== null
-        ? new Date(Math.round(output.LastUpdateRequestedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateRequestedTime)))
         : undefined,
     StackArn: __expectString(output.StackArn),
   } as any;
@@ -12003,7 +12006,7 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
     ComplianceType: __expectString(output.ComplianceType),
     OrderingTimestamp:
       output.OrderingTimestamp !== undefined && output.OrderingTimestamp !== null
-        ? new Date(Math.round(output.OrderingTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderingTimestamp)))
         : undefined,
   } as any;
 };
@@ -12014,7 +12017,7 @@ const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeCon
     ComplianceType: __expectString(output.ComplianceType),
     ConfigRuleInvokedTime:
       output.ConfigRuleInvokedTime !== undefined && output.ConfigRuleInvokedTime !== null
-        ? new Date(Math.round(output.ConfigRuleInvokedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConfigRuleInvokedTime)))
         : undefined,
     EvaluationResultIdentifier:
       output.EvaluationResultIdentifier !== undefined && output.EvaluationResultIdentifier !== null
@@ -12022,7 +12025,7 @@ const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeCon
         : undefined,
     ResultRecordedTime:
       output.ResultRecordedTime !== undefined && output.ResultRecordedTime !== null
-        ? new Date(Math.round(output.ResultRecordedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ResultRecordedTime)))
         : undefined,
     ResultToken: __expectString(output.ResultToken),
   } as any;
@@ -12039,7 +12042,7 @@ const deserializeAws_json1_1EvaluationResultIdentifier = (
         : undefined,
     OrderingTimestamp:
       output.OrderingTimestamp !== undefined && output.OrderingTimestamp !== null
-        ? new Date(Math.round(output.OrderingTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderingTimestamp)))
         : undefined,
   } as any;
 };
@@ -12713,7 +12716,7 @@ const deserializeAws_json1_1MemberAccountStatus = (output: any, context: __Serde
     ErrorMessage: __expectString(output.ErrorMessage),
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     MemberAccountRuleStatus: __expectString(output.MemberAccountRuleStatus),
   } as any;
@@ -12900,7 +12903,7 @@ const deserializeAws_json1_1OrganizationConfigRule = (output: any, context: __Se
         : undefined,
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     OrganizationConfigRuleArn: __expectString(output.OrganizationConfigRuleArn),
     OrganizationConfigRuleName: __expectString(output.OrganizationConfigRuleName),
@@ -12952,7 +12955,7 @@ const deserializeAws_json1_1OrganizationConfigRuleStatus = (
     ErrorMessage: __expectString(output.ErrorMessage),
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     OrganizationConfigRuleName: __expectString(output.OrganizationConfigRuleName),
     OrganizationRuleStatus: __expectString(output.OrganizationRuleStatus),
@@ -13004,7 +13007,7 @@ const deserializeAws_json1_1OrganizationConformancePack = (
         : undefined,
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     OrganizationConformancePackArn: __expectString(output.OrganizationConformancePackArn),
     OrganizationConformancePackName: __expectString(output.OrganizationConformancePackName),
@@ -13022,7 +13025,7 @@ const deserializeAws_json1_1OrganizationConformancePackDetailedStatus = (
     ErrorMessage: __expectString(output.ErrorMessage),
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -13065,7 +13068,7 @@ const deserializeAws_json1_1OrganizationConformancePackStatus = (
     ErrorMessage: __expectString(output.ErrorMessage),
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     OrganizationConformancePackName: __expectString(output.OrganizationConformancePackName),
     Status: __expectString(output.Status),
@@ -13375,7 +13378,7 @@ const deserializeAws_json1_1RemediationException = (output: any, context: __Serd
     ConfigRuleName: __expectString(output.ConfigRuleName),
     ExpirationTime:
       output.ExpirationTime !== undefined && output.ExpirationTime !== null
-        ? new Date(Math.round(output.ExpirationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTime)))
         : undefined,
     Message: __expectString(output.Message),
     ResourceId: __expectString(output.ResourceId),
@@ -13425,11 +13428,11 @@ const deserializeAws_json1_1RemediationExecutionStatus = (
   return {
     InvocationTime:
       output.InvocationTime !== undefined && output.InvocationTime !== null
-        ? new Date(Math.round(output.InvocationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InvocationTime)))
         : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     ResourceKey:
       output.ResourceKey !== undefined && output.ResourceKey !== null
@@ -13466,12 +13469,12 @@ const deserializeAws_json1_1RemediationExecutionStep = (
     Name: __expectString(output.Name),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     State: __expectString(output.State),
     StopTime:
       output.StopTime !== undefined && output.StopTime !== null
-        ? new Date(Math.round(output.StopTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime)))
         : undefined,
   } as any;
 };
@@ -13564,7 +13567,7 @@ const deserializeAws_json1_1ResourceIdentifier = (output: any, context: __SerdeC
   return {
     resourceDeletionTime:
       output.resourceDeletionTime !== undefined && output.resourceDeletionTime !== null
-        ? new Date(Math.round(output.resourceDeletionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.resourceDeletionTime)))
         : undefined,
     resourceId: __expectString(output.resourceId),
     resourceName: __expectString(output.resourceName),

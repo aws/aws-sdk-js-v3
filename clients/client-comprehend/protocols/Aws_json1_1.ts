@@ -402,9 +402,12 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8151,7 +8154,9 @@ const deserializeAws_json1_1DocumentClassificationJobProperties = (
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     DocumentClassifierArn: __expectString(output.DocumentClassifierArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
@@ -8167,7 +8172,7 @@ const deserializeAws_json1_1DocumentClassificationJobProperties = (
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VpcConfig:
@@ -8242,7 +8247,9 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     DocumentClassifierArn: __expectString(output.DocumentClassifierArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1DocumentClassifierInputDataConfig(output.InputDataConfig, context)
@@ -8258,15 +8265,15 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
     Status: __expectString(output.Status),
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     TrainingEndTime:
       output.TrainingEndTime !== undefined && output.TrainingEndTime !== null
-        ? new Date(Math.round(output.TrainingEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingEndTime)))
         : undefined,
     TrainingStartTime:
       output.TrainingStartTime !== undefined && output.TrainingStartTime !== null
-        ? new Date(Math.round(output.TrainingStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingStartTime)))
         : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VpcConfig:
@@ -8311,7 +8318,9 @@ const deserializeAws_json1_1DominantLanguageDetectionJobProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
@@ -8327,7 +8336,7 @@ const deserializeAws_json1_1DominantLanguageDetectionJobProperties = (
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VpcConfig:
@@ -8355,7 +8364,7 @@ const deserializeAws_json1_1EndpointProperties = (output: any, context: __SerdeC
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     CurrentInferenceUnits: __expectInt32(output.CurrentInferenceUnits),
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
@@ -8363,7 +8372,7 @@ const deserializeAws_json1_1EndpointProperties = (output: any, context: __SerdeC
     EndpointArn: __expectString(output.EndpointArn),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     Message: __expectString(output.Message),
     ModelArn: __expectString(output.ModelArn),
@@ -8389,7 +8398,9 @@ const deserializeAws_json1_1EntitiesDetectionJobProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     EntityRecognizerArn: __expectString(output.EntityRecognizerArn),
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
@@ -8407,7 +8418,7 @@ const deserializeAws_json1_1EntitiesDetectionJobProperties = (
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VpcConfig:
@@ -8582,7 +8593,9 @@ const deserializeAws_json1_1EntityRecognizerProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     EntityRecognizerArn: __expectString(output.EntityRecognizerArn),
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
@@ -8598,15 +8611,15 @@ const deserializeAws_json1_1EntityRecognizerProperties = (
     Status: __expectString(output.Status),
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     TrainingEndTime:
       output.TrainingEndTime !== undefined && output.TrainingEndTime !== null
-        ? new Date(Math.round(output.TrainingEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingEndTime)))
         : undefined,
     TrainingStartTime:
       output.TrainingStartTime !== undefined && output.TrainingStartTime !== null
-        ? new Date(Math.round(output.TrainingStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingStartTime)))
         : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VpcConfig:
@@ -8665,7 +8678,9 @@ const deserializeAws_json1_1EventsDetectionJobProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
@@ -8682,7 +8697,7 @@ const deserializeAws_json1_1EventsDetectionJobProperties = (
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     TargetEventTypes:
       output.TargetEventTypes !== undefined && output.TargetEventTypes !== null
@@ -8758,7 +8773,9 @@ const deserializeAws_json1_1KeyPhrasesDetectionJobProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
@@ -8775,7 +8792,7 @@ const deserializeAws_json1_1KeyPhrasesDetectionJobProperties = (
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VpcConfig:
@@ -9169,7 +9186,9 @@ const deserializeAws_json1_1PiiEntitiesDetectionJobProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
@@ -9191,7 +9210,7 @@ const deserializeAws_json1_1PiiEntitiesDetectionJobProperties = (
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
   } as any;
 };
@@ -9288,7 +9307,9 @@ const deserializeAws_json1_1SentimentDetectionJobProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
@@ -9305,7 +9326,7 @@ const deserializeAws_json1_1SentimentDetectionJobProperties = (
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VpcConfig:
@@ -9597,7 +9618,9 @@ const deserializeAws_json1_1TopicsDetectionJobProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
@@ -9614,7 +9637,7 @@ const deserializeAws_json1_1TopicsDetectionJobProperties = (
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VpcConfig:

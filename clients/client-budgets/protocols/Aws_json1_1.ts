@@ -120,8 +120,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3055,7 +3058,7 @@ const deserializeAws_json1_1ActionHistory = (output: any, context: __SerdeContex
     Status: __expectString(output.Status),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
   } as any;
 };
@@ -3110,7 +3113,7 @@ const deserializeAws_json1_1Budget = (output: any, context: __SerdeContext): Bud
         : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     PlannedBudgetLimits:
       output.PlannedBudgetLimits !== undefined && output.PlannedBudgetLimits !== null
@@ -3657,8 +3660,14 @@ const deserializeAws_json1_1TargetIds = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1TimePeriod = (output: any, context: __SerdeContext): TimePeriod => {
   return {
-    End: output.End !== undefined && output.End !== null ? new Date(Math.round(output.End * 1000)) : undefined,
-    Start: output.Start !== undefined && output.Start !== null ? new Date(Math.round(output.Start * 1000)) : undefined,
+    End:
+      output.End !== undefined && output.End !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.End)))
+        : undefined,
+    Start:
+      output.Start !== undefined && output.Start !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Start)))
+        : undefined,
   } as any;
 };
 

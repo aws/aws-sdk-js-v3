@@ -211,11 +211,13 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5907,7 +5909,7 @@ const deserializeAws_queryPhoneNumberInformation = (output: any, context: __Serd
     NumberCapabilities: undefined,
   };
   if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = new Date(output["CreatedAt"]);
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(output["CreatedAt"]));
   }
   if (output["PhoneNumber"] !== undefined) {
     contents.PhoneNumber = __expectString(output["PhoneNumber"]);

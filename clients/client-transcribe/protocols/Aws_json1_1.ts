@@ -245,8 +245,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4635,11 +4638,11 @@ const deserializeAws_json1_1CallAnalyticsJob = (output: any, context: __SerdeCon
         : undefined,
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
-        ? new Date(Math.round(output.CompletionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     FailureReason: __expectString(output.FailureReason),
@@ -4657,7 +4660,7 @@ const deserializeAws_json1_1CallAnalyticsJob = (output: any, context: __SerdeCon
         : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Transcript:
       output.Transcript !== undefined && output.Transcript !== null
@@ -4709,17 +4712,17 @@ const deserializeAws_json1_1CallAnalyticsJobSummary = (
     CallAnalyticsJobStatus: __expectString(output.CallAnalyticsJobStatus),
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
-        ? new Date(Math.round(output.CompletionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     LanguageCode: __expectString(output.LanguageCode),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
 };
@@ -4729,11 +4732,11 @@ const deserializeAws_json1_1CategoryProperties = (output: any, context: __SerdeC
     CategoryName: __expectString(output.CategoryName),
     CreateTime:
       output.CreateTime !== undefined && output.CreateTime !== null
-        ? new Date(Math.round(output.CreateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime)))
         : undefined,
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     Rules:
       output.Rules !== undefined && output.Rules !== null
@@ -4821,7 +4824,7 @@ const deserializeAws_json1_1CreateMedicalVocabularyResponse = (
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
     VocabularyState: __expectString(output.VocabularyState),
@@ -4836,7 +4839,7 @@ const deserializeAws_json1_1CreateVocabularyFilterResponse = (
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyFilterName: __expectString(output.VocabularyFilterName),
   } as any;
@@ -4851,7 +4854,7 @@ const deserializeAws_json1_1CreateVocabularyResponse = (
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
     VocabularyState: __expectString(output.VocabularyState),
@@ -4930,7 +4933,7 @@ const deserializeAws_json1_1GetMedicalVocabularyResponse = (
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
     VocabularyState: __expectString(output.VocabularyState),
@@ -4958,7 +4961,7 @@ const deserializeAws_json1_1GetVocabularyFilterResponse = (
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyFilterName: __expectString(output.VocabularyFilterName),
   } as any;
@@ -4971,7 +4974,7 @@ const deserializeAws_json1_1GetVocabularyResponse = (output: any, context: __Ser
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
     VocabularyState: __expectString(output.VocabularyState),
@@ -5023,7 +5026,7 @@ const deserializeAws_json1_1LanguageModel = (output: any, context: __SerdeContex
     BaseModelName: __expectString(output.BaseModelName),
     CreateTime:
       output.CreateTime !== undefined && output.CreateTime !== null
-        ? new Date(Math.round(output.CreateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     InputDataConfig:
@@ -5033,7 +5036,7 @@ const deserializeAws_json1_1LanguageModel = (output: any, context: __SerdeContex
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     ModelName: __expectString(output.ModelName),
     ModelStatus: __expectString(output.ModelStatus),
@@ -5200,12 +5203,12 @@ const deserializeAws_json1_1MedicalTranscriptionJob = (
   return {
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
-        ? new Date(Math.round(output.CompletionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     ContentIdentificationType: __expectString(output.ContentIdentificationType),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     LanguageCode: __expectString(output.LanguageCode),
@@ -5223,7 +5226,7 @@ const deserializeAws_json1_1MedicalTranscriptionJob = (
     Specialty: __expectString(output.Specialty),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -5259,12 +5262,12 @@ const deserializeAws_json1_1MedicalTranscriptionJobSummary = (
   return {
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
-        ? new Date(Math.round(output.CompletionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     ContentIdentificationType: __expectString(output.ContentIdentificationType),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     LanguageCode: __expectString(output.LanguageCode),
@@ -5273,7 +5276,7 @@ const deserializeAws_json1_1MedicalTranscriptionJobSummary = (
     Specialty: __expectString(output.Specialty),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
     Type: __expectString(output.Type),
@@ -5522,7 +5525,7 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
   return {
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
-        ? new Date(Math.round(output.CompletionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     ContentRedaction:
       output.ContentRedaction !== undefined && output.ContentRedaction !== null
@@ -5530,7 +5533,7 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
@@ -5560,7 +5563,7 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
         : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -5596,7 +5599,7 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
   return {
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
-        ? new Date(Math.round(output.CompletionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     ContentRedaction:
       output.ContentRedaction !== undefined && output.ContentRedaction !== null
@@ -5604,7 +5607,7 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
@@ -5617,7 +5620,7 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
     OutputLocationType: __expectString(output.OutputLocationType),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     TranscriptionJobName: __expectString(output.TranscriptionJobName),
     TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
@@ -5648,7 +5651,7 @@ const deserializeAws_json1_1UpdateMedicalVocabularyResponse = (
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
     VocabularyState: __expectString(output.VocabularyState),
@@ -5663,7 +5666,7 @@ const deserializeAws_json1_1UpdateVocabularyFilterResponse = (
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyFilterName: __expectString(output.VocabularyFilterName),
   } as any;
@@ -5677,7 +5680,7 @@ const deserializeAws_json1_1UpdateVocabularyResponse = (
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
     VocabularyState: __expectString(output.VocabularyState),
@@ -5700,7 +5703,7 @@ const deserializeAws_json1_1VocabularyFilterInfo = (output: any, context: __Serd
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyFilterName: __expectString(output.VocabularyFilterName),
   } as any;
@@ -5722,7 +5725,7 @@ const deserializeAws_json1_1VocabularyInfo = (output: any, context: __SerdeConte
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
     VocabularyState: __expectString(output.VocabularyState),

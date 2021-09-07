@@ -299,7 +299,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7462,7 +7465,7 @@ const deserializeAws_json1_1ManagedRuleGroupVersion = (
   return {
     LastUpdateTimestamp:
       output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
-        ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
   } as any;
@@ -7528,16 +7531,16 @@ const deserializeAws_json1_1ManagedRuleSetVersion = (output: any, context: __Ser
     Capacity: __expectLong(output.Capacity),
     ExpiryTimestamp:
       output.ExpiryTimestamp !== undefined && output.ExpiryTimestamp !== null
-        ? new Date(Math.round(output.ExpiryTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpiryTimestamp)))
         : undefined,
     ForecastedLifetime: __expectInt32(output.ForecastedLifetime),
     LastUpdateTimestamp:
       output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
-        ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
         : undefined,
     PublishTimestamp:
       output.PublishTimestamp !== undefined && output.PublishTimestamp !== null
-        ? new Date(Math.round(output.PublishTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PublishTimestamp)))
         : undefined,
   } as any;
 };
@@ -7909,7 +7912,7 @@ const deserializeAws_json1_1SampledHTTPRequest = (output: any, context: __SerdeC
     RuleNameWithinRuleGroup: __expectString(output.RuleNameWithinRuleGroup),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
     Weight: __expectLong(output.Weight),
   } as any;
@@ -8094,10 +8097,12 @@ const deserializeAws_json1_1TextTransformations = (output: any, context: __Serde
 const deserializeAws_json1_1TimeWindow = (output: any, context: __SerdeContext): TimeWindow => {
   return {
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
 };
@@ -8120,7 +8125,7 @@ const deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateResponse = (
     ExpiringVersion: __expectString(output.ExpiringVersion),
     ExpiryTimestamp:
       output.ExpiryTimestamp !== undefined && output.ExpiryTimestamp !== null
-        ? new Date(Math.round(output.ExpiryTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpiryTimestamp)))
         : undefined,
     NextLockToken: __expectString(output.NextLockToken),
   } as any;

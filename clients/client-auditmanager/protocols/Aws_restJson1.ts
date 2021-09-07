@@ -187,9 +187,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6373,7 +6375,10 @@ const deserializeAws_restJson1AssessmentEvidenceFolder = (
     controlName: __expectString(output.controlName),
     controlSetId: __expectString(output.controlSetId),
     dataSource: __expectString(output.dataSource),
-    date: output.date !== undefined && output.date !== null ? new Date(Math.round(output.date * 1000)) : undefined,
+    date:
+      output.date !== undefined && output.date !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.date)))
+        : undefined,
     evidenceAwsServiceSourceCount: __expectInt32(output.evidenceAwsServiceSourceCount),
     evidenceByTypeComplianceCheckCount: __expectInt32(output.evidenceByTypeComplianceCheckCount),
     evidenceByTypeComplianceCheckIssuesCount: __expectInt32(output.evidenceByTypeComplianceCheckIssuesCount),
@@ -6427,13 +6432,13 @@ const deserializeAws_restJson1AssessmentFrameworkMetadata = (
     controlsCount: __expectInt32(output.controlsCount),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     logo: __expectString(output.logo),
     name: __expectString(output.name),
@@ -6450,7 +6455,7 @@ const deserializeAws_restJson1AssessmentMetadata = (output: any, context: __Serd
     complianceType: __expectString(output.complianceType),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     delegations:
       output.delegations !== undefined && output.delegations !== null
@@ -6460,7 +6465,7 @@ const deserializeAws_restJson1AssessmentMetadata = (output: any, context: __Serd
     id: __expectString(output.id),
     lastUpdated:
       output.lastUpdated !== undefined && output.lastUpdated !== null
-        ? new Date(Math.round(output.lastUpdated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     name: __expectString(output.name),
     roles:
@@ -6483,7 +6488,7 @@ const deserializeAws_restJson1AssessmentMetadataItem = (
     complianceType: __expectString(output.complianceType),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     delegations:
       output.delegations !== undefined && output.delegations !== null
@@ -6492,7 +6497,7 @@ const deserializeAws_restJson1AssessmentMetadataItem = (
     id: __expectString(output.id),
     lastUpdated:
       output.lastUpdated !== undefined && output.lastUpdated !== null
-        ? new Date(Math.round(output.lastUpdated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     name: __expectString(output.name),
     roles:
@@ -6511,7 +6516,7 @@ const deserializeAws_restJson1AssessmentReport = (output: any, context: __SerdeC
     awsAccountId: __expectString(output.awsAccountId),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
@@ -6555,7 +6560,7 @@ const deserializeAws_restJson1AssessmentReportMetadata = (
     author: __expectString(output.author),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
@@ -6710,7 +6715,7 @@ const deserializeAws_restJson1ChangeLog = (output: any, context: __SerdeContext)
     action: __expectString(output.action),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     createdBy: __expectString(output.createdBy),
     objectName: __expectString(output.objectName),
@@ -6741,14 +6746,14 @@ const deserializeAws_restJson1Control = (output: any, context: __SerdeContext): 
     controlSources: __expectString(output.controlSources),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
     name: __expectString(output.name),
@@ -6767,7 +6772,7 @@ const deserializeAws_restJson1ControlComment = (output: any, context: __SerdeCon
     commentBody: __expectString(output.commentBody),
     postedDate:
       output.postedDate !== undefined && output.postedDate !== null
-        ? new Date(Math.round(output.postedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.postedDate)))
         : undefined,
   } as any;
 };
@@ -6819,12 +6824,12 @@ const deserializeAws_restJson1ControlMetadata = (output: any, context: __SerdeCo
     controlSources: __expectString(output.controlSources),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     id: __expectString(output.id),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     name: __expectString(output.name),
   } as any;
@@ -6895,12 +6900,12 @@ const deserializeAws_restJson1Delegation = (output: any, context: __SerdeContext
     createdBy: __expectString(output.createdBy),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     id: __expectString(output.id),
     lastUpdated:
       output.lastUpdated !== undefined && output.lastUpdated !== null
-        ? new Date(Math.round(output.lastUpdated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     roleType: __expectString(output.roleType),
@@ -6915,7 +6920,7 @@ const deserializeAws_restJson1DelegationMetadata = (output: any, context: __Serd
     controlSetName: __expectString(output.controlSetName),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     id: __expectString(output.id),
     roleArn: __expectString(output.roleArn),
@@ -6967,7 +6972,10 @@ const deserializeAws_restJson1Evidence = (output: any, context: __SerdeContext):
       output.resourcesIncluded !== undefined && output.resourcesIncluded !== null
         ? deserializeAws_restJson1Resources(output.resourcesIncluded, context)
         : undefined,
-    time: output.time !== undefined && output.time !== null ? new Date(Math.round(output.time * 1000)) : undefined,
+    time:
+      output.time !== undefined && output.time !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time)))
+        : undefined,
   } as any;
 };
 
@@ -7030,14 +7038,14 @@ const deserializeAws_restJson1Framework = (output: any, context: __SerdeContext)
     controlSources: __expectString(output.controlSources),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
     logo: __expectString(output.logo),
@@ -7113,7 +7121,7 @@ const deserializeAws_restJson1Notification = (output: any, context: __SerdeConte
     description: __expectString(output.description),
     eventTime:
       output.eventTime !== undefined && output.eventTime !== null
-        ? new Date(Math.round(output.eventTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTime)))
         : undefined,
     id: __expectString(output.id),
     source: __expectString(output.source),

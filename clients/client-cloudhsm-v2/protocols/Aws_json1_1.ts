@@ -62,7 +62,13 @@ import {
   UntagResourceResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectBoolean as __expectBoolean, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectBoolean as __expectBoolean,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1919,15 +1925,15 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
     ClusterId: __expectString(output.ClusterId),
     CopyTimestamp:
       output.CopyTimestamp !== undefined && output.CopyTimestamp !== null
-        ? new Date(Math.round(output.CopyTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CopyTimestamp)))
         : undefined,
     CreateTimestamp:
       output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
-        ? new Date(Math.round(output.CreateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTimestamp)))
         : undefined,
     DeleteTimestamp:
       output.DeleteTimestamp !== undefined && output.DeleteTimestamp !== null
-        ? new Date(Math.round(output.DeleteTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeleteTimestamp)))
         : undefined,
     NeverExpires: __expectBoolean(output.NeverExpires),
     SourceBackup: __expectString(output.SourceBackup),
@@ -2033,7 +2039,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
     ClusterId: __expectString(output.ClusterId),
     CreateTimestamp:
       output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
-        ? new Date(Math.round(output.CreateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTimestamp)))
         : undefined,
     HsmType: __expectString(output.HsmType),
     Hsms:
@@ -2147,7 +2153,7 @@ const deserializeAws_json1_1DestinationBackup = (output: any, context: __SerdeCo
   return {
     CreateTimestamp:
       output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
-        ? new Date(Math.round(output.CreateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTimestamp)))
         : undefined,
     SourceBackup: __expectString(output.SourceBackup),
     SourceCluster: __expectString(output.SourceCluster),

@@ -408,10 +408,12 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -8889,7 +8891,7 @@ export const deserializeAws_restJson1GetCurrentMetricDataCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DataSnapshotTime !== undefined && data.DataSnapshotTime !== null) {
-    contents.DataSnapshotTime = new Date(Math.round(data.DataSnapshotTime * 1000));
+    contents.DataSnapshotTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.DataSnapshotTime)));
   }
   if (data.MetricResults !== undefined && data.MetricResults !== null) {
     contents.MetricResults = deserializeAws_restJson1CurrentMetricResults(data.MetricResults, context);
@@ -15130,12 +15132,12 @@ const deserializeAws_restJson1Credentials = (output: any, context: __SerdeContex
     AccessToken: __expectString(output.AccessToken),
     AccessTokenExpiration:
       output.AccessTokenExpiration !== undefined && output.AccessTokenExpiration !== null
-        ? new Date(Math.round(output.AccessTokenExpiration * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AccessTokenExpiration)))
         : undefined,
     RefreshToken: __expectString(output.RefreshToken),
     RefreshTokenExpiration:
       output.RefreshTokenExpiration !== undefined && output.RefreshTokenExpiration !== null
-        ? new Date(Math.round(output.RefreshTokenExpiration * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RefreshTokenExpiration)))
         : undefined,
   } as any;
 };
@@ -15471,7 +15473,7 @@ const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext):
     Arn: __expectString(output.Arn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Id: __expectString(output.Id),
     IdentityManagementType: __expectString(output.IdentityManagementType),
@@ -15535,7 +15537,7 @@ const deserializeAws_restJson1InstanceSummary = (output: any, context: __SerdeCo
     Arn: __expectString(output.Arn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Id: __expectString(output.Id),
     IdentityManagementType: __expectString(output.IdentityManagementType),
@@ -15965,7 +15967,7 @@ const deserializeAws_restJson1SecurityKey = (output: any, context: __SerdeContex
     AssociationId: __expectString(output.AssociationId),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Key: __expectString(output.Key),
   } as any;

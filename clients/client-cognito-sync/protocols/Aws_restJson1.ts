@@ -64,9 +64,11 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1244,10 +1246,12 @@ export const deserializeAws_restJson1GetBulkPublishDetailsCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.BulkPublishCompleteTime !== undefined && data.BulkPublishCompleteTime !== null) {
-    contents.BulkPublishCompleteTime = new Date(Math.round(data.BulkPublishCompleteTime * 1000));
+    contents.BulkPublishCompleteTime = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.BulkPublishCompleteTime))
+    );
   }
   if (data.BulkPublishStartTime !== undefined && data.BulkPublishStartTime !== null) {
-    contents.BulkPublishStartTime = new Date(Math.round(data.BulkPublishStartTime * 1000));
+    contents.BulkPublishStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.BulkPublishStartTime)));
   }
   if (data.BulkPublishStatus !== undefined && data.BulkPublishStatus !== null) {
     contents.BulkPublishStatus = __expectString(data.BulkPublishStatus);
@@ -2685,7 +2689,7 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
   return {
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DataStorage: __expectLong(output.DataStorage),
     DatasetName: __expectString(output.DatasetName),
@@ -2693,7 +2697,7 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     NumRecords: __expectLong(output.NumRecords),
   } as any;
@@ -2728,7 +2732,7 @@ const deserializeAws_restJson1IdentityPoolUsage = (output: any, context: __Serde
     IdentityPoolId: __expectString(output.IdentityPoolId),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     SyncSessionsCount: __expectLong(output.SyncSessionsCount),
   } as any;
@@ -2753,7 +2757,7 @@ const deserializeAws_restJson1IdentityUsage = (output: any, context: __SerdeCont
     IdentityPoolId: __expectString(output.IdentityPoolId),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
   } as any;
 };
@@ -2783,13 +2787,13 @@ const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): 
   return {
     DeviceLastModifiedDate:
       output.DeviceLastModifiedDate !== undefined && output.DeviceLastModifiedDate !== null
-        ? new Date(Math.round(output.DeviceLastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceLastModifiedDate)))
         : undefined,
     Key: __expectString(output.Key),
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     SyncCount: __expectLong(output.SyncCount),
     Value: __expectString(output.Value),

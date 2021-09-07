@@ -105,6 +105,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
@@ -2489,7 +2490,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
   if (data.CompletedAt !== undefined && data.CompletedAt !== null) {
-    contents.CompletedAt = new Date(data.CompletedAt);
+    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTime(data.CompletedAt));
   }
   if (data.ConfigurationLocationUri !== undefined && data.ConfigurationLocationUri !== null) {
     contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
@@ -2534,7 +2535,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
   }
   if (data.StartedAt !== undefined && data.StartedAt !== null) {
-    contents.StartedAt = new Date(data.StartedAt);
+    contents.StartedAt = __expectNonNull(__parseRfc3339DateTime(data.StartedAt));
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = __expectString(data.State);
@@ -3412,7 +3413,7 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
   if (data.CompletedAt !== undefined && data.CompletedAt !== null) {
-    contents.CompletedAt = new Date(data.CompletedAt);
+    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTime(data.CompletedAt));
   }
   if (data.ConfigurationLocationUri !== undefined && data.ConfigurationLocationUri !== null) {
     contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
@@ -3457,7 +3458,7 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
     contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
   }
   if (data.StartedAt !== undefined && data.StartedAt !== null) {
-    contents.StartedAt = new Date(data.StartedAt);
+    contents.StartedAt = __expectNonNull(__parseRfc3339DateTime(data.StartedAt));
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = __expectString(data.State);
@@ -3559,7 +3560,7 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
     contents.ApplicationId = __expectString(data.ApplicationId);
   }
   if (data.CompletedAt !== undefined && data.CompletedAt !== null) {
-    contents.CompletedAt = new Date(data.CompletedAt);
+    contents.CompletedAt = __expectNonNull(__parseRfc3339DateTime(data.CompletedAt));
   }
   if (data.ConfigurationLocationUri !== undefined && data.ConfigurationLocationUri !== null) {
     contents.ConfigurationLocationUri = __expectString(data.ConfigurationLocationUri);
@@ -3604,7 +3605,7 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
     contents.PercentageComplete = __limitedParseFloat32(data.PercentageComplete);
   }
   if (data.StartedAt !== undefined && data.StartedAt !== null) {
-    contents.StartedAt = new Date(data.StartedAt);
+    contents.StartedAt = __expectNonNull(__parseRfc3339DateTime(data.StartedAt));
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = __expectString(data.State);
@@ -4449,7 +4450,10 @@ const deserializeAws_restJson1DeploymentEvent = (output: any, context: __SerdeCo
   return {
     Description: __expectString(output.Description),
     EventType: __expectString(output.EventType),
-    OccurredAt: output.OccurredAt !== undefined && output.OccurredAt !== null ? new Date(output.OccurredAt) : undefined,
+    OccurredAt:
+      output.OccurredAt !== undefined && output.OccurredAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.OccurredAt))
+        : undefined,
     TriggeredBy: __expectString(output.TriggeredBy),
   } as any;
 };
@@ -4503,7 +4507,9 @@ const deserializeAws_restJson1DeploymentStrategyList = (output: any, context: __
 const deserializeAws_restJson1DeploymentSummary = (output: any, context: __SerdeContext): DeploymentSummary => {
   return {
     CompletedAt:
-      output.CompletedAt !== undefined && output.CompletedAt !== null ? new Date(output.CompletedAt) : undefined,
+      output.CompletedAt !== undefined && output.CompletedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CompletedAt))
+        : undefined,
     ConfigurationName: __expectString(output.ConfigurationName),
     ConfigurationVersion: __expectString(output.ConfigurationVersion),
     DeploymentDurationInMinutes: __expectInt32(output.DeploymentDurationInMinutes),
@@ -4512,7 +4518,10 @@ const deserializeAws_restJson1DeploymentSummary = (output: any, context: __Serde
     GrowthFactor: __limitedParseFloat32(output.GrowthFactor),
     GrowthType: __expectString(output.GrowthType),
     PercentageComplete: __limitedParseFloat32(output.PercentageComplete),
-    StartedAt: output.StartedAt !== undefined && output.StartedAt !== null ? new Date(output.StartedAt) : undefined,
+    StartedAt:
+      output.StartedAt !== undefined && output.StartedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.StartedAt))
+        : undefined,
     State: __expectString(output.State),
   } as any;
 };

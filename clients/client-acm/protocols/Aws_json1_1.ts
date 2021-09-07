@@ -94,7 +94,13 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1981,7 +1987,7 @@ const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeCo
     CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DomainName: __expectString(output.DomainName),
     DomainValidationOptions:
@@ -1995,7 +2001,7 @@ const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeCo
     FailureReason: __expectString(output.FailureReason),
     ImportedAt:
       output.ImportedAt !== undefined && output.ImportedAt !== null
-        ? new Date(Math.round(output.ImportedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImportedAt)))
         : undefined,
     InUseBy:
       output.InUseBy !== undefined && output.InUseBy !== null
@@ -2003,7 +2009,7 @@ const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeCo
         : undefined,
     IssuedAt:
       output.IssuedAt !== undefined && output.IssuedAt !== null
-        ? new Date(Math.round(output.IssuedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.IssuedAt)))
         : undefined,
     Issuer: __expectString(output.Issuer),
     KeyAlgorithm: __expectString(output.KeyAlgorithm),
@@ -2013,11 +2019,11 @@ const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeCo
         : undefined,
     NotAfter:
       output.NotAfter !== undefined && output.NotAfter !== null
-        ? new Date(Math.round(output.NotAfter * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter)))
         : undefined,
     NotBefore:
       output.NotBefore !== undefined && output.NotBefore !== null
-        ? new Date(Math.round(output.NotBefore * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore)))
         : undefined,
     Options:
       output.Options !== undefined && output.Options !== null
@@ -2031,7 +2037,7 @@ const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeCo
     RevocationReason: __expectString(output.RevocationReason),
     RevokedAt:
       output.RevokedAt !== undefined && output.RevokedAt !== null
-        ? new Date(Math.round(output.RevokedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RevokedAt)))
         : undefined,
     Serial: __expectString(output.Serial),
     SignatureAlgorithm: __expectString(output.SignatureAlgorithm),
@@ -2303,7 +2309,7 @@ const deserializeAws_json1_1RenewalSummary = (output: any, context: __SerdeConte
     RenewalStatusReason: __expectString(output.RenewalStatusReason),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };

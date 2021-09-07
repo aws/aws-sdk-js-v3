@@ -494,6 +494,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -21566,7 +21567,10 @@ const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext
   return {
     AccountId: __expectString(output.AccountId),
     InvitationId: __expectString(output.InvitationId),
-    InvitedAt: output.InvitedAt !== undefined && output.InvitedAt !== null ? new Date(output.InvitedAt) : undefined,
+    InvitedAt:
+      output.InvitedAt !== undefined && output.InvitedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.InvitedAt))
+        : undefined,
     MemberStatus: __expectString(output.MemberStatus),
   } as any;
 };
@@ -21701,10 +21705,16 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
     AccountId: __expectString(output.AccountId),
     AdministratorId: __expectString(output.AdministratorId),
     Email: __expectString(output.Email),
-    InvitedAt: output.InvitedAt !== undefined && output.InvitedAt !== null ? new Date(output.InvitedAt) : undefined,
+    InvitedAt:
+      output.InvitedAt !== undefined && output.InvitedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.InvitedAt))
+        : undefined,
     MasterId: __expectString(output.MasterId),
     MemberStatus: __expectString(output.MemberStatus),
-    UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? new Date(output.UpdatedAt) : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
+        : undefined,
   } as any;
 };
 
@@ -22512,7 +22522,7 @@ const deserializeAws_restJson1StandardsControl = (output: any, context: __SerdeC
     ControlStatus: __expectString(output.ControlStatus),
     ControlStatusUpdatedAt:
       output.ControlStatusUpdatedAt !== undefined && output.ControlStatusUpdatedAt !== null
-        ? new Date(output.ControlStatusUpdatedAt)
+        ? __expectNonNull(__parseRfc3339DateTime(output.ControlStatusUpdatedAt))
         : undefined,
     Description: __expectString(output.Description),
     DisabledReason: __expectString(output.DisabledReason),

@@ -22,9 +22,11 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
@@ -493,7 +495,7 @@ export const deserializeAws_restJson1ListChangedBlocksCommand = async (
     contents.ChangedBlocks = deserializeAws_restJson1ChangedBlocks(data.ChangedBlocks, context);
   }
   if (data.ExpiryTime !== undefined && data.ExpiryTime !== null) {
-    contents.ExpiryTime = new Date(Math.round(data.ExpiryTime * 1000));
+    contents.ExpiryTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ExpiryTime)));
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -604,7 +606,7 @@ export const deserializeAws_restJson1ListSnapshotBlocksCommand = async (
     contents.Blocks = deserializeAws_restJson1Blocks(data.Blocks, context);
   }
   if (data.ExpiryTime !== undefined && data.ExpiryTime !== null) {
-    contents.ExpiryTime = new Date(Math.round(data.ExpiryTime * 1000));
+    contents.ExpiryTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ExpiryTime)));
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -831,7 +833,7 @@ export const deserializeAws_restJson1StartSnapshotCommand = async (
     contents.SnapshotId = __expectString(data.SnapshotId);
   }
   if (data.StartTime !== undefined && data.StartTime !== null) {
-    contents.StartTime = new Date(Math.round(data.StartTime * 1000));
+    contents.StartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.StartTime)));
   }
   if (data.Status !== undefined && data.Status !== null) {
     contents.Status = __expectString(data.Status);

@@ -138,8 +138,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2532,10 +2535,12 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     ExpirationTime:
       output.ExpirationTime !== undefined && output.ExpirationTime !== null
-        ? new Date(Math.round(output.ExpirationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTime)))
         : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
@@ -2555,7 +2560,7 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
   } as any;
 };

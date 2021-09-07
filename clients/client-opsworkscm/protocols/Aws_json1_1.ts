@@ -88,7 +88,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2045,7 +2048,7 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
     BackupType: __expectString(output.BackupType),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     Engine: __expectString(output.Engine),
@@ -2282,7 +2285,7 @@ const deserializeAws_json1_1Server = (output: any, context: __SerdeContext): Ser
     CloudFormationStackArn: __expectString(output.CloudFormationStackArn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     CustomDomain: __expectString(output.CustomDomain),
     DisableAutomatedBackup: __expectBoolean(output.DisableAutomatedBackup),
@@ -2320,7 +2323,7 @@ const deserializeAws_json1_1ServerEvent = (output: any, context: __SerdeContext)
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     LogUrl: __expectString(output.LogUrl),
     Message: __expectString(output.Message),

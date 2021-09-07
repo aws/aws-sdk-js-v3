@@ -138,6 +138,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1508,7 +1509,7 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
     contents.Arn = __expectString(data.arn);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
-    contents.CreationTime = new Date(data.creationTime);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
   }
   if (data.latestRevision !== undefined && data.latestRevision !== null) {
     contents.LatestRevision = deserializeAws_restJson1ConfigurationRevision(data.latestRevision, context);
@@ -1969,7 +1970,7 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
     contents.Arn = __expectString(data.arn);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
-    contents.CreationTime = new Date(data.creationTime);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.Description = __expectString(data.description);
@@ -2086,7 +2087,7 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
     contents.Arn = __expectString(data.arn);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
-    contents.CreationTime = new Date(data.creationTime);
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.Description = __expectString(data.description);
@@ -4648,7 +4649,9 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
     ClusterArn: __expectString(output.clusterArn),
     ClusterName: __expectString(output.clusterName),
     CreationTime:
-      output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
+        : undefined,
     CurrentBrokerSoftwareInfo:
       output.currentBrokerSoftwareInfo !== undefined && output.currentBrokerSoftwareInfo !== null
         ? deserializeAws_restJson1BrokerSoftwareInfo(output.currentBrokerSoftwareInfo, context)
@@ -4687,8 +4690,13 @@ const deserializeAws_restJson1ClusterOperationInfo = (output: any, context: __Se
     ClientRequestId: __expectString(output.clientRequestId),
     ClusterArn: __expectString(output.clusterArn),
     CreationTime:
-      output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
-    EndTime: output.endTime !== undefined && output.endTime !== null ? new Date(output.endTime) : undefined,
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
+        : undefined,
+    EndTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.endTime))
+        : undefined,
     ErrorInfo:
       output.errorInfo !== undefined && output.errorInfo !== null
         ? deserializeAws_restJson1ErrorInfo(output.errorInfo, context)
@@ -4747,7 +4755,9 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.arn),
     CreationTime:
-      output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
+        : undefined,
     Description: __expectString(output.description),
     KafkaVersions:
       output.kafkaVersions !== undefined && output.kafkaVersions !== null
@@ -4772,7 +4782,9 @@ const deserializeAws_restJson1ConfigurationInfo = (output: any, context: __Serde
 const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
   return {
     CreationTime:
-      output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
+        : undefined,
     Description: __expectString(output.description),
     Revision: __expectLong(output.revision),
   } as any;

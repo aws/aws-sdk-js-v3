@@ -92,9 +92,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4961,7 +4963,7 @@ const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App 
     buildSpec: __expectString(output.buildSpec),
     createTime:
       output.createTime !== undefined && output.createTime !== null
-        ? new Date(Math.round(output.createTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
         : undefined,
     customHeaders: __expectString(output.customHeaders),
     customRules:
@@ -4992,7 +4994,7 @@ const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App 
         : undefined,
     updateTime:
       output.updateTime !== undefined && output.updateTime !== null
-        ? new Date(Math.round(output.updateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime)))
         : undefined,
   } as any;
 };
@@ -5085,14 +5087,14 @@ const deserializeAws_restJson1BackendEnvironment = (output: any, context: __Serd
     backendEnvironmentArn: __expectString(output.backendEnvironmentArn),
     createTime:
       output.createTime !== undefined && output.createTime !== null
-        ? new Date(Math.round(output.createTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
         : undefined,
     deploymentArtifacts: __expectString(output.deploymentArtifacts),
     environmentName: __expectString(output.environmentName),
     stackName: __expectString(output.stackName),
     updateTime:
       output.updateTime !== undefined && output.updateTime !== null
-        ? new Date(Math.round(output.updateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime)))
         : undefined,
   } as any;
 };
@@ -5122,7 +5124,7 @@ const deserializeAws_restJson1Branch = (output: any, context: __SerdeContext): B
     buildSpec: __expectString(output.buildSpec),
     createTime:
       output.createTime !== undefined && output.createTime !== null
-        ? new Date(Math.round(output.createTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
         : undefined,
     customDomains:
       output.customDomains !== undefined && output.customDomains !== null
@@ -5153,7 +5155,7 @@ const deserializeAws_restJson1Branch = (output: any, context: __SerdeContext): B
     ttl: __expectString(output.ttl),
     updateTime:
       output.updateTime !== undefined && output.updateTime !== null
-        ? new Date(Math.round(output.updateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime)))
         : undefined,
   } as any;
 };
@@ -5288,16 +5290,18 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
     commitMessage: __expectString(output.commitMessage),
     commitTime:
       output.commitTime !== undefined && output.commitTime !== null
-        ? new Date(Math.round(output.commitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.commitTime)))
         : undefined,
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     jobArn: __expectString(output.jobArn),
     jobId: __expectString(output.jobId),
     jobType: __expectString(output.jobType),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -5308,7 +5312,7 @@ const deserializeAws_restJson1ProductionBranch = (output: any, context: __SerdeC
     branchName: __expectString(output.branchName),
     lastDeployTime:
       output.lastDeployTime !== undefined && output.lastDeployTime !== null
-        ? new Date(Math.round(output.lastDeployTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeployTime)))
         : undefined,
     status: __expectString(output.status),
     thumbnailUrl: __expectString(output.thumbnailUrl),
@@ -5332,7 +5336,9 @@ const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Ste
     artifactsUrl: __expectString(output.artifactsUrl),
     context: __expectString(output.context),
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     logUrl: __expectString(output.logUrl),
     screenshots:
       output.screenshots !== undefined && output.screenshots !== null
@@ -5340,7 +5346,7 @@ const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Ste
         : undefined,
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
@@ -5407,12 +5413,12 @@ const deserializeAws_restJson1Webhook = (output: any, context: __SerdeContext): 
     branchName: __expectString(output.branchName),
     createTime:
       output.createTime !== undefined && output.createTime !== null
-        ? new Date(Math.round(output.createTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
         : undefined,
     description: __expectString(output.description),
     updateTime:
       output.updateTime !== undefined && output.updateTime !== null
-        ? new Date(Math.round(output.updateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime)))
         : undefined,
     webhookArn: __expectString(output.webhookArn),
     webhookId: __expectString(output.webhookId),

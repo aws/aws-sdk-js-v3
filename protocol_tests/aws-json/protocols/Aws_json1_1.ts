@@ -57,9 +57,14 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc7231DateTime as __parseRfc7231DateTime,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1316,12 +1321,12 @@ const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext)
     Float: __limitedParseFloat32(output.Float),
     HttpdateTimestamp:
       output.HttpdateTimestamp !== undefined && output.HttpdateTimestamp !== null
-        ? new Date(Math.round(output.HttpdateTimestamp * 1000))
+        ? __expectNonNull(__parseRfc7231DateTime(output.HttpdateTimestamp))
         : undefined,
     Integer: __expectInt32(output.Integer),
     Iso8601Timestamp:
       output.Iso8601Timestamp !== undefined && output.Iso8601Timestamp !== null
-        ? new Date(Math.round(output.Iso8601Timestamp * 1000))
+        ? __expectNonNull(__parseRfc3339DateTime(output.Iso8601Timestamp))
         : undefined,
     JsonValue:
       output.JsonValue !== undefined && output.JsonValue !== null ? new __LazyJsonString(output.JsonValue) : undefined,
@@ -1381,11 +1386,11 @@ const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext)
         : undefined,
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
     UnixTimestamp:
       output.UnixTimestamp !== undefined && output.UnixTimestamp !== null
-        ? new Date(Math.round(output.UnixTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UnixTimestamp)))
         : undefined,
   } as any;
 };
@@ -1555,7 +1560,7 @@ const deserializeAws_json1_1MyUnion = (output: any, context: __SerdeContext): My
   }
   if (output.timestampValue !== undefined && output.timestampValue !== null) {
     return {
-      timestampValue: new Date(Math.round(output.timestampValue * 1000)),
+      timestampValue: __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestampValue))),
     };
   }
   return { $unknown: Object.entries(output)[0] };
