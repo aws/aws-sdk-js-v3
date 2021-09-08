@@ -330,10 +330,6 @@ final class AwsProtocolUtils {
         if (testCase.getId().startsWith("RestJsonMalformedUnion")) {
             return true;
         }
-        //TODO: we don't do any set validation
-        if (testCase.getId().startsWith("RestJsonMalformedSet")) {
-            return true;
-        }
         //TODO: we don't do any list validation
         if (testCase.getId().startsWith("RestJsonBodyMalformedList")) {
             return true;

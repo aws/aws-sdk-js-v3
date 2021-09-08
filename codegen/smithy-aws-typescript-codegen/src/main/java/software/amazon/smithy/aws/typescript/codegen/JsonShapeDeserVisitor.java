@@ -69,14 +69,27 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             potentialFilter = ".filter((e: any) => e != null)";
         }
 
+        if (shape.isSetShape()) {
+            writer.write("const uniqueValues = new Set<any>();");
+        }
+
         writer.openBlock("return (output || [])$L.map((entry: any) => {", "});", potentialFilter, () -> {
             // Short circuit null values from serialization.
             writer.write("if (entry === null) { return null as any; }");
 
-            // Dispatch to the output value provider for any additional handling.
-            writer.write("return $L$L;",
-                    target.accept(getMemberVisitor(shape.getMember(), "entry")),
-                    usesExpect(target) ? " as any" : "");
+            if (shape.isSetShape()) {
+                writer.write("const parsedEntry = $L$L;",
+                        target.accept(getMemberVisitor(shape.getMember(), "entry")),
+                        usesExpect(target) ? " as any" : "");
+                writer.write("if (uniqueValues.has(parsedEntry)) { throw new "
+                                + "TypeError('All elements of the set $S must be unique.'); } else { "
+                                + "uniqueValues.add(parsedEntry)\nreturn parsedEntry; }",
+                        shape.getId());
+            } else {
+                // Dispatch to the output value provider for any additional handling.
+                writer.write("return $L$L;", target.accept(getMemberVisitor(shape.getMember(), "entry")),
+                        usesExpect(target) ? " as any" : "");
+            }
         });
     }
 
