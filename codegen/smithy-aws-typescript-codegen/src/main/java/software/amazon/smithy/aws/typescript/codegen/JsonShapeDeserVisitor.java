@@ -32,6 +32,7 @@ import software.amazon.smithy.model.traits.MediaTypeTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings.ArtifactType;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor;
@@ -62,10 +63,11 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
     protected void deserializeCollection(GenerationContext context, CollectionShape shape) {
         TypeScriptWriter writer = context.getWriter();
         Shape target = context.getModel().expectShape(shape.getMember().getTarget());
+        ArtifactType artifactType = context.getSettings().getArtifactType();
 
         // Filter out null entries if we don't have the sparse trait.
         String potentialFilter = "";
-        if (!shape.hasTrait(SparseTrait.ID)) {
+        if (!shape.hasTrait(SparseTrait.ID) && !artifactType.equals(ArtifactType.SSDK)) {
             potentialFilter = ".filter((e: any) => e != null)";
         }
 
@@ -75,7 +77,15 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
         writer.openBlock("return (output || [])$L.map((entry: any) => {", "});", potentialFilter, () -> {
             // Short circuit null values from serialization.
-            writer.write("if (entry === null) { return null as any; }");
+            writer.openBlock("if (entry === null) {", "}", () -> {
+                // In the SSDK we want to be very strict about not accepting nulls in non-sparse lists.
+                if (!shape.hasTrait(SparseTrait.ID) && artifactType.equals(ArtifactType.SSDK)) {
+                    writer.write("throw new TypeError('All elements of the non-sparse list $S must be non-null.');",
+                                 shape.getId());
+                } else {
+                    writer.write("return null as any;");
+                }
+            });
 
             if (shape.isSetShape()) {
                 writer.write("const parsedEntry = $L$L;",
