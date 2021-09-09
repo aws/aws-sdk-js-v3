@@ -223,6 +223,36 @@ export const expectString = (value: any): string | undefined => {
 };
 
 /**
+ * Asserts a value is a JSON-like object with only one non-null/non-undefined key and
+ * returns it.
+ *
+ * @param value A value that is expected to be an object with exactly one non-null,
+ *              non-undefined key.
+ * @return the value if it's a union, undefined if it's null/undefined, otherwise
+ *  an error is thrown.
+ */
+export const expectUnion = (value: unknown): { [key: string]: any } | undefined => {
+  if (value === null || value === undefined) {
+    return undefined;
+  }
+  const asObject = expectObject(value)!;
+
+  const setKeys = Object.entries(asObject)
+    .filter(([_, v]) => v !== null && v !== undefined)
+    .map(([k, _]) => k);
+
+  if (setKeys.length === 0) {
+    throw new TypeError(`Unions must have exactly one non-null member`);
+  }
+
+  if (setKeys.length > 1) {
+    throw new TypeError(`Unions must have exactly one non-null member. Keys ${setKeys} were not null.`);
+  }
+
+  return asObject;
+};
+
+/**
  * Parses a value into a double. If the value is null or undefined, undefined
  * will be returned. If the value is a string, it will be parsed by the standard
  * parseFloat with one exception: NaN may only be explicitly set as the string
