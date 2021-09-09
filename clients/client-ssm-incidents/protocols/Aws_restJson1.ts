@@ -3993,24 +3993,42 @@ const deserializeAws_restJson1AutomationExecutionSet = (
   output: any,
   context: __SerdeContext
 ): AutomationExecution[] => {
+  const uniqueValues = new Set<any>();
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AutomationExecution(entry, context);
+      const parsedEntry = deserializeAws_restJson1AutomationExecution(entry, context);
+      if (uniqueValues.has(parsedEntry)) {
+        throw new TypeError(
+          'All elements of the set "com.amazonaws.ssmincidents#AutomationExecutionSet" must be unique.'
+        );
+      } else {
+        uniqueValues.add(parsedEntry);
+        return parsedEntry;
+      }
     });
 };
 
 const deserializeAws_restJson1ChatbotSnsConfigurationSet = (output: any, context: __SerdeContext): string[] => {
+  const uniqueValues = new Set<any>();
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return __expectString(entry) as any;
+      const parsedEntry = __expectString(entry) as any;
+      if (uniqueValues.has(parsedEntry)) {
+        throw new TypeError(
+          'All elements of the set "com.amazonaws.ssmincidents#ChatbotSnsConfigurationSet" must be unique.'
+        );
+      } else {
+        uniqueValues.add(parsedEntry);
+        return parsedEntry;
+      }
     });
 };
 
@@ -4033,13 +4051,20 @@ const deserializeAws_restJson1EmptyChatChannel = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1EngagementSet = (output: any, context: __SerdeContext): string[] => {
+  const uniqueValues = new Set<any>();
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return __expectString(entry) as any;
+      const parsedEntry = __expectString(entry) as any;
+      if (uniqueValues.has(parsedEntry)) {
+        throw new TypeError('All elements of the set "com.amazonaws.ssmincidents#EngagementSet" must be unique.');
+      } else {
+        uniqueValues.add(parsedEntry);
+        return parsedEntry;
+      }
     });
 };
 
@@ -4204,13 +4229,22 @@ const deserializeAws_restJson1NotificationTargetSet = (
   output: any,
   context: __SerdeContext
 ): NotificationTargetItem[] => {
+  const uniqueValues = new Set<any>();
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1NotificationTargetItem(entry, context);
+      const parsedEntry = deserializeAws_restJson1NotificationTargetItem(entry, context);
+      if (uniqueValues.has(parsedEntry)) {
+        throw new TypeError(
+          'All elements of the set "com.amazonaws.ssmincidents#NotificationTargetSet" must be unique.'
+        );
+      } else {
+        uniqueValues.add(parsedEntry);
+        return parsedEntry;
+      }
     });
 };
 

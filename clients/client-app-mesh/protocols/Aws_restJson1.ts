@@ -8488,13 +8488,20 @@ const deserializeAws_restJson1PortMapping = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1PortSet = (output: any, context: __SerdeContext): number[] => {
+  const uniqueValues = new Set<any>();
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return __expectInt32(entry) as any;
+      const parsedEntry = __expectInt32(entry) as any;
+      if (uniqueValues.has(parsedEntry)) {
+        throw new TypeError('All elements of the set "com.amazonaws.appmesh#PortSet" must be unique.');
+      } else {
+        uniqueValues.add(parsedEntry);
+        return parsedEntry;
+      }
     });
 };
 

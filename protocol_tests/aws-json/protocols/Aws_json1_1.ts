@@ -1653,13 +1653,20 @@ const deserializeAws_json1_1FooEnumMap = (
 };
 
 const deserializeAws_json1_1FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+  const uniqueValues = new Set<any>();
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return __expectString(entry) as any;
+      const parsedEntry = __expectString(entry) as any;
+      if (uniqueValues.has(parsedEntry)) {
+        throw new TypeError('All elements of the set "aws.protocoltests.shared#FooEnumSet" must be unique.');
+      } else {
+        uniqueValues.add(parsedEntry);
+        return parsedEntry;
+      }
     });
 };
 
