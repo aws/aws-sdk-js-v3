@@ -38,6 +38,7 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   serializeFloat as __serializeFloat,
@@ -995,7 +996,7 @@ const deserializeAws_restJson1ArrayOfArray = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ArrayValue(entry, context);
+      return deserializeAws_restJson1ArrayValue(__expectUnion(entry), context);
     });
 };
 
@@ -1035,7 +1036,7 @@ const deserializeAws_restJson1ArrayValueList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Value(entry, context);
+      return deserializeAws_restJson1Value(__expectUnion(entry), context);
     });
 };
 
@@ -1083,7 +1084,7 @@ const deserializeAws_restJson1DoubleArray = (output: any, context: __SerdeContex
 const deserializeAws_restJson1Field = (output: any, context: __SerdeContext): Field => {
   if (output.arrayValue !== undefined && output.arrayValue !== null) {
     return {
-      arrayValue: deserializeAws_restJson1ArrayValue(output.arrayValue, context),
+      arrayValue: deserializeAws_restJson1ArrayValue(__expectUnion(output.arrayValue), context),
     };
   }
   if (output.blobValue !== undefined && output.blobValue !== null) {
@@ -1116,7 +1117,7 @@ const deserializeAws_restJson1FieldList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Field(entry, context);
+      return deserializeAws_restJson1Field(__expectUnion(entry), context);
     });
 };
 
@@ -1192,7 +1193,7 @@ const deserializeAws_restJson1Row = (output: any, context: __SerdeContext): Valu
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Value(entry, context);
+      return deserializeAws_restJson1Value(__expectUnion(entry), context);
     });
 };
 

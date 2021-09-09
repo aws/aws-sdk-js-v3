@@ -121,6 +121,7 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
@@ -4259,7 +4260,7 @@ const deserializeAws_restJson1ValueWithServiceIds = (output: any, context: __Ser
   return {
     AnnotationValue:
       output.AnnotationValue !== undefined && output.AnnotationValue !== null
-        ? deserializeAws_restJson1AnnotationValue(output.AnnotationValue, context)
+        ? deserializeAws_restJson1AnnotationValue(__expectUnion(output.AnnotationValue), context)
         : undefined,
     ServiceIds:
       output.ServiceIds !== undefined && output.ServiceIds !== null

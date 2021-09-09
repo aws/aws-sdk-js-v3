@@ -329,6 +329,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
@@ -7601,7 +7602,7 @@ const deserializeAws_json1_0AttributeMap = (
     }
     return {
       ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context),
+      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
     };
   }, {});
 };
@@ -8635,7 +8636,7 @@ const deserializeAws_json1_0ItemCollectionKeyAttributeMap = (
     }
     return {
       ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context),
+      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
     };
   }, {});
 };
@@ -8743,7 +8744,7 @@ const deserializeAws_json1_0Key = (output: any, context: __SerdeContext): { [key
     }
     return {
       ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context),
+      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
     };
   }, {});
 };
@@ -8845,7 +8846,7 @@ const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0AttributeValue(entry, context);
+      return deserializeAws_json1_0AttributeValue(__expectUnion(entry), context);
     });
 };
 
@@ -8990,7 +8991,7 @@ const deserializeAws_json1_0MapAttributeValue = (
     }
     return {
       ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context),
+      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
     };
   }, {});
 };
@@ -9118,7 +9119,7 @@ const deserializeAws_json1_0PutItemInputAttributeMap = (
     }
     return {
       ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context),
+      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
     };
   }, {});
 };

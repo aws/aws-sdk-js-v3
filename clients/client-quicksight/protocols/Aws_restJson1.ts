@@ -419,6 +419,7 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
@@ -20848,7 +20849,7 @@ const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext
     DataSourceId: __expectString(output.DataSourceId),
     DataSourceParameters:
       output.DataSourceParameters !== undefined && output.DataSourceParameters !== null
-        ? deserializeAws_restJson1DataSourceParameters(output.DataSourceParameters, context)
+        ? deserializeAws_restJson1DataSourceParameters(__expectUnion(output.DataSourceParameters), context)
         : undefined,
     ErrorInfo:
       output.ErrorInfo !== undefined && output.ErrorInfo !== null
@@ -21013,7 +21014,7 @@ const deserializeAws_restJson1DataSourceParametersList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DataSourceParameters(entry, context);
+      return deserializeAws_restJson1DataSourceParameters(__expectUnion(entry), context);
     });
 };
 
@@ -21510,7 +21511,7 @@ const deserializeAws_restJson1PhysicalTableMap = (
     }
     return {
       ...acc,
-      [key]: deserializeAws_restJson1PhysicalTable(value, context),
+      [key]: deserializeAws_restJson1PhysicalTable(__expectUnion(value), context),
     };
   }, {});
 };
@@ -22171,7 +22172,7 @@ const deserializeAws_restJson1TransformOperationList = (output: any, context: __
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1TransformOperation(entry, context);
+      return deserializeAws_restJson1TransformOperation(__expectUnion(entry), context);
     });
 };
 

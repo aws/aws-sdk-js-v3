@@ -40,6 +40,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -778,7 +779,7 @@ const deserializeAws_json1_0UnionInputOutput = (output: any, context: __SerdeCon
   return {
     contents:
       output.contents !== undefined && output.contents !== null
-        ? deserializeAws_json1_0MyUnion(output.contents, context)
+        ? deserializeAws_json1_0MyUnion(__expectUnion(output.contents), context)
         : undefined,
   } as any;
 };

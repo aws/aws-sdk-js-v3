@@ -152,6 +152,7 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -5659,7 +5660,7 @@ const deserializeAws_restJson1Datastore = (output: any, context: __SerdeContext)
     status: __expectString(output.status),
     storage:
       output.storage !== undefined && output.storage !== null
-        ? deserializeAws_restJson1DatastoreStorage(output.storage, context)
+        ? deserializeAws_restJson1DatastoreStorage(__expectUnion(output.storage), context)
         : undefined,
   } as any;
 };

@@ -97,6 +97,7 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -1559,7 +1560,7 @@ export const deserializeAws_restJson1GetConfigCommand = async (
     contents.configArn = __expectString(data.configArn);
   }
   if (data.configData !== undefined && data.configData !== null) {
-    contents.configData = deserializeAws_restJson1ConfigTypeData(data.configData, context);
+    contents.configData = deserializeAws_restJson1ConfigTypeData(__expectUnion(data.configData), context);
   }
   if (data.configId !== undefined && data.configId !== null) {
     contents.configId = __expectString(data.configId);
@@ -3507,7 +3508,7 @@ const deserializeAws_restJson1Destination = (output: any, context: __SerdeContex
   return {
     configDetails:
       output.configDetails !== undefined && output.configDetails !== null
-        ? deserializeAws_restJson1ConfigDetails(output.configDetails, context)
+        ? deserializeAws_restJson1ConfigDetails(__expectUnion(output.configDetails), context)
         : undefined,
     configId: __expectString(output.configId),
     configType: __expectString(output.configType),
@@ -3694,7 +3695,7 @@ const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): S
   return {
     configDetails:
       output.configDetails !== undefined && output.configDetails !== null
-        ? deserializeAws_restJson1ConfigDetails(output.configDetails, context)
+        ? deserializeAws_restJson1ConfigDetails(__expectUnion(output.configDetails), context)
         : undefined,
     configId: __expectString(output.configId),
     configType: __expectString(output.configType),

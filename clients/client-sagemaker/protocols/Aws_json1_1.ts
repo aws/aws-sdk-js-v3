@@ -1362,6 +1362,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -33195,7 +33196,7 @@ const deserializeAws_json1_1TrialComponentParameters = (
       }
       return {
         ...acc,
-        [key]: deserializeAws_json1_1TrialComponentParameterValue(value, context),
+        [key]: deserializeAws_json1_1TrialComponentParameterValue(__expectUnion(value), context),
       };
     },
     {}

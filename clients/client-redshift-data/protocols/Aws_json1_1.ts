@@ -53,6 +53,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
@@ -1299,7 +1300,7 @@ const deserializeAws_json1_1FieldList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Field(entry, context);
+      return deserializeAws_json1_1Field(__expectUnion(entry), context);
     });
 };
 

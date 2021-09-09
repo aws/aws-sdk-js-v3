@@ -148,6 +148,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3895,7 +3896,7 @@ const deserializeAws_json1_1SubscribeToShardOutput = (output: any, context: __Se
   return {
     EventStream:
       output.EventStream !== undefined && output.EventStream !== null
-        ? deserializeAws_json1_1SubscribeToShardEventStream(output.EventStream, context)
+        ? deserializeAws_json1_1SubscribeToShardEventStream(__expectUnion(output.EventStream), context)
         : undefined,
   } as any;
 };

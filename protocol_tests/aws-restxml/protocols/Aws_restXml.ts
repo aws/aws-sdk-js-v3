@@ -163,6 +163,7 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
@@ -2893,7 +2894,7 @@ export const deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restXmlPayloadWithXmlName(data, context);
   return Promise.resolve(contents);
 };
@@ -2938,7 +2939,7 @@ export const deserializeAws_restXmlHttpPayloadWithStructureCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restXmlNestedPayload(data, context);
   return Promise.resolve(contents);
 };
@@ -2983,7 +2984,7 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restXmlPayloadWithXmlName(data, context);
   return Promise.resolve(contents);
 };
@@ -3028,7 +3029,7 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restXmlPayloadWithXmlNamespace(data, context);
   return Promise.resolve(contents);
 };
@@ -3073,7 +3074,7 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand =
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restXmlPayloadWithXmlNamespaceAndPrefix(data, context);
   return Promise.resolve(contents);
 };
@@ -4230,7 +4231,7 @@ export const deserializeAws_restXmlXmlAttributesOnPayloadCommand = async (
     $metadata: deserializeMetadata(output),
     payload: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.payload = deserializeAws_restXmlXmlAttributesInputOutput(data, context);
   return Promise.resolve(contents);
 };
@@ -5122,7 +5123,7 @@ export const deserializeAws_restXmlXmlUnionsCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["unionValue"] !== undefined) {
-    contents.unionValue = deserializeAws_restXmlXmlUnionShape(data["unionValue"], context);
+    contents.unionValue = deserializeAws_restXmlXmlUnionShape(__expectUnion(data["unionValue"]), context);
   }
   return Promise.resolve(contents);
 };
@@ -6030,7 +6031,7 @@ const deserializeAws_restXmlXmlUnionShape = (output: any, context: __SerdeContex
   }
   if (output["unionValue"] !== undefined) {
     return {
-      unionValue: deserializeAws_restXmlXmlUnionShape(output["unionValue"], context),
+      unionValue: deserializeAws_restXmlXmlUnionShape(__expectUnion(output["unionValue"]), context),
     };
   }
   if (output["structValue"] !== undefined) {

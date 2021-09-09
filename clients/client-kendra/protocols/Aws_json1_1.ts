@@ -290,6 +290,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
@@ -8133,7 +8134,7 @@ const deserializeAws_json1_1DocumentAttribute = (output: any, context: __SerdeCo
     Key: __expectString(output.Key),
     Value:
       output.Value !== undefined && output.Value !== null
-        ? deserializeAws_json1_1DocumentAttributeValue(output.Value, context)
+        ? deserializeAws_json1_1DocumentAttributeValue(__expectUnion(output.Value), context)
         : undefined,
   } as any;
 };
@@ -8188,7 +8189,7 @@ const deserializeAws_json1_1DocumentAttributeValueCountPair = (
     Count: __expectInt32(output.Count),
     DocumentAttributeValue:
       output.DocumentAttributeValue !== undefined && output.DocumentAttributeValue !== null
-        ? deserializeAws_json1_1DocumentAttributeValue(output.DocumentAttributeValue, context)
+        ? deserializeAws_json1_1DocumentAttributeValue(__expectUnion(output.DocumentAttributeValue), context)
         : undefined,
   } as any;
 };
