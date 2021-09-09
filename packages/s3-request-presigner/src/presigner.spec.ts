@@ -108,11 +108,12 @@ describe("s3 presigner", () => {
     expect(signedHeaders).toContain("x-amz-server-side-encryption-customer-algorithm");
   });
 
-  it("should inject host header if not supplied", async () => {
+  it("should inject host header with port if not supplied", async () => {
     const signer = new S3RequestPresigner(s3ResolvedConfig);
-    const signed = await signer.presign(minimalRequest);
+    const port = 12345;
+    const signed = await signer.presign({ ...minimalRequest, headers: {}, port });
     expect(signed.headers).toMatchObject({
-      host: minimalRequest.hostname,
+      host: `${minimalRequest.hostname}:${port}`,
     });
   });
 });

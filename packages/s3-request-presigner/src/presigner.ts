@@ -45,6 +45,9 @@ export class S3RequestPresigner implements RequestPresigner {
     requestToSign.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
     if (!requestToSign.headers["host"]) {
       requestToSign.headers.host = requestToSign.hostname;
+      if (requestToSign.port) {
+        requestToSign.headers.host = `${requestToSign.headers.host}:${requestToSign.port}`;
+      }
     }
     return this.signer.presign(requestToSign, {
       expiresIn: 900,
