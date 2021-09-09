@@ -3132,24 +3132,38 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext): Channel[] => {
+  const uniqueValues = new Set<any>();
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Channel(entry, context);
+      const parsedEntry = deserializeAws_restJson1Channel(entry, context);
+      if (uniqueValues.has(parsedEntry)) {
+        throw new TypeError('All elements of the set "com.amazonaws.codeguruprofiler#Channels" must be unique.');
+      } else {
+        uniqueValues.add(parsedEntry);
+        return parsedEntry;
+      }
     });
 };
 
 const deserializeAws_restJson1EventPublishers = (output: any, context: __SerdeContext): (EventPublisher | string)[] => {
+  const uniqueValues = new Set<any>();
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return __expectString(entry) as any;
+      const parsedEntry = __expectString(entry) as any;
+      if (uniqueValues.has(parsedEntry)) {
+        throw new TypeError('All elements of the set "com.amazonaws.codeguruprofiler#EventPublishers" must be unique.');
+      } else {
+        uniqueValues.add(parsedEntry);
+        return parsedEntry;
+      }
     });
 };
 
