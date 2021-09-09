@@ -172,10 +172,12 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
@@ -2794,7 +2796,9 @@ export const deserializeAws_restJson1BuildBotLocaleCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.lastBuildSubmittedDateTime !== undefined && data.lastBuildSubmittedDateTime !== null) {
-    contents.lastBuildSubmittedDateTime = new Date(Math.round(data.lastBuildSubmittedDateTime * 1000));
+    contents.lastBuildSubmittedDateTime = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.lastBuildSubmittedDateTime))
+    );
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = __expectString(data.localeId);
@@ -2913,7 +2917,7 @@ export const deserializeAws_restJson1CreateBotCommand = async (
     contents.botTags = deserializeAws_restJson1TagMap(data.botTags, context);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.dataPrivacy !== undefined && data.dataPrivacy !== null) {
     contents.dataPrivacy = deserializeAws_restJson1DataPrivacy(data.dataPrivacy, context);
@@ -3060,7 +3064,7 @@ export const deserializeAws_restJson1CreateBotAliasCommand = async (
     );
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -3184,7 +3188,7 @@ export const deserializeAws_restJson1CreateBotLocaleCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -3314,7 +3318,7 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
     );
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -3416,7 +3420,7 @@ export const deserializeAws_restJson1CreateExportCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.exportId !== undefined && data.exportId !== null) {
     contents.exportId = __expectString(data.exportId);
@@ -3547,7 +3551,7 @@ export const deserializeAws_restJson1CreateIntentCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -3910,7 +3914,7 @@ export const deserializeAws_restJson1CreateSlotCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -4050,7 +4054,7 @@ export const deserializeAws_restJson1CreateSlotTypeCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -5310,7 +5314,7 @@ export const deserializeAws_restJson1DescribeBotCommand = async (
     contents.botStatus = __expectString(data.botStatus);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.dataPrivacy !== undefined && data.dataPrivacy !== null) {
     contents.dataPrivacy = deserializeAws_restJson1DataPrivacy(data.dataPrivacy, context);
@@ -5322,7 +5326,7 @@ export const deserializeAws_restJson1DescribeBotCommand = async (
     contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.roleArn = __expectString(data.roleArn);
@@ -5456,13 +5460,13 @@ export const deserializeAws_restJson1DescribeBotAliasCommand = async (
     );
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.sentimentAnalysisSettings !== undefined && data.sentimentAnalysisSettings !== null) {
     contents.sentimentAnalysisSettings = deserializeAws_restJson1SentimentAnalysisSettings(
@@ -5584,7 +5588,7 @@ export const deserializeAws_restJson1DescribeBotLocaleCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -5596,10 +5600,12 @@ export const deserializeAws_restJson1DescribeBotLocaleCommand = async (
     contents.intentsCount = __expectInt32(data.intentsCount);
   }
   if (data.lastBuildSubmittedDateTime !== undefined && data.lastBuildSubmittedDateTime !== null) {
-    contents.lastBuildSubmittedDateTime = new Date(Math.round(data.lastBuildSubmittedDateTime * 1000));
+    contents.lastBuildSubmittedDateTime = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.lastBuildSubmittedDateTime))
+    );
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = __expectString(data.localeId);
@@ -5722,7 +5728,7 @@ export const deserializeAws_restJson1DescribeBotVersionCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.dataPrivacy !== undefined && data.dataPrivacy !== null) {
     contents.dataPrivacy = deserializeAws_restJson1DataPrivacy(data.dataPrivacy, context);
@@ -5831,7 +5837,7 @@ export const deserializeAws_restJson1DescribeExportCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.downloadUrl !== undefined && data.downloadUrl !== null) {
     contents.downloadUrl = __expectString(data.downloadUrl);
@@ -5849,7 +5855,7 @@ export const deserializeAws_restJson1DescribeExportCommand = async (
     contents.fileFormat = __expectString(data.fileFormat);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.resourceSpecification !== undefined && data.resourceSpecification !== null) {
     contents.resourceSpecification = deserializeAws_restJson1ExportResourceSpecification(
@@ -5942,7 +5948,7 @@ export const deserializeAws_restJson1DescribeImportCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.failureReasons !== undefined && data.failureReasons !== null) {
     contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
@@ -5960,7 +5966,7 @@ export const deserializeAws_restJson1DescribeImportCommand = async (
     contents.importedResourceName = __expectString(data.importedResourceName);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.mergeStrategy !== undefined && data.mergeStrategy !== null) {
     contents.mergeStrategy = __expectString(data.mergeStrategy);
@@ -6071,7 +6077,7 @@ export const deserializeAws_restJson1DescribeIntentCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -6107,7 +6113,7 @@ export const deserializeAws_restJson1DescribeIntentCommand = async (
     contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = __expectString(data.localeId);
@@ -6306,7 +6312,7 @@ export const deserializeAws_restJson1DescribeSlotCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -6315,7 +6321,7 @@ export const deserializeAws_restJson1DescribeSlotCommand = async (
     contents.intentId = __expectString(data.intentId);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = __expectString(data.localeId);
@@ -6442,13 +6448,13 @@ export const deserializeAws_restJson1DescribeSlotTypeCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = __expectString(data.localeId);
@@ -7622,7 +7628,7 @@ export const deserializeAws_restJson1StartImportCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.importId !== undefined && data.importId !== null) {
     contents.importId = __expectString(data.importId);
@@ -7899,7 +7905,7 @@ export const deserializeAws_restJson1UpdateBotCommand = async (
     contents.botStatus = __expectString(data.botStatus);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.dataPrivacy !== undefined && data.dataPrivacy !== null) {
     contents.dataPrivacy = deserializeAws_restJson1DataPrivacy(data.dataPrivacy, context);
@@ -7911,7 +7917,7 @@ export const deserializeAws_restJson1UpdateBotCommand = async (
     contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.roleArn = __expectString(data.roleArn);
@@ -8046,13 +8052,13 @@ export const deserializeAws_restJson1UpdateBotAliasCommand = async (
     );
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.sentimentAnalysisSettings !== undefined && data.sentimentAnalysisSettings !== null) {
     contents.sentimentAnalysisSettings = deserializeAws_restJson1SentimentAnalysisSettings(
@@ -8172,7 +8178,7 @@ export const deserializeAws_restJson1UpdateBotLocaleCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -8181,7 +8187,7 @@ export const deserializeAws_restJson1UpdateBotLocaleCommand = async (
     contents.failureReasons = deserializeAws_restJson1FailureReasons(data.failureReasons, context);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = __expectString(data.localeId);
@@ -8293,7 +8299,7 @@ export const deserializeAws_restJson1UpdateExportCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.exportId !== undefined && data.exportId !== null) {
     contents.exportId = __expectString(data.exportId);
@@ -8305,7 +8311,7 @@ export const deserializeAws_restJson1UpdateExportCommand = async (
     contents.fileFormat = __expectString(data.fileFormat);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.resourceSpecification !== undefined && data.resourceSpecification !== null) {
     contents.resourceSpecification = deserializeAws_restJson1ExportResourceSpecification(
@@ -8429,7 +8435,7 @@ export const deserializeAws_restJson1UpdateIntentCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -8465,7 +8471,7 @@ export const deserializeAws_restJson1UpdateIntentCommand = async (
     contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = __expectString(data.localeId);
@@ -8692,7 +8698,7 @@ export const deserializeAws_restJson1UpdateSlotCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -8701,7 +8707,7 @@ export const deserializeAws_restJson1UpdateSlotCommand = async (
     contents.intentId = __expectString(data.intentId);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = __expectString(data.localeId);
@@ -8836,13 +8842,13 @@ export const deserializeAws_restJson1UpdateSlotTypeCommand = async (
     contents.botVersion = __expectString(data.botVersion);
   }
   if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
-    contents.creationDateTime = new Date(Math.round(data.creationDateTime * 1000));
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
-    contents.lastUpdatedDateTime = new Date(Math.round(data.lastUpdatedDateTime * 1000));
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = __expectString(data.localeId);
@@ -10084,10 +10090,12 @@ const deserializeAws_restJson1BotAliasHistoryEvent = (output: any, context: __Se
   return {
     botVersion: __expectString(output.botVersion),
     endDate:
-      output.endDate !== undefined && output.endDate !== null ? new Date(Math.round(output.endDate * 1000)) : undefined,
+      output.endDate !== undefined && output.endDate !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endDate)))
+        : undefined,
     startDate:
       output.startDate !== undefined && output.startDate !== null
-        ? new Date(Math.round(output.startDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate)))
         : undefined,
   } as any;
 };
@@ -10145,12 +10153,12 @@ const deserializeAws_restJson1BotAliasSummary = (output: any, context: __SerdeCo
     botVersion: __expectString(output.botVersion),
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     description: __expectString(output.description),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
   } as any;
 };
@@ -10215,7 +10223,7 @@ const deserializeAws_restJson1BotLocaleHistoryEvent = (output: any, context: __S
     event: __expectString(output.event),
     eventDate:
       output.eventDate !== undefined && output.eventDate !== null
-        ? new Date(Math.round(output.eventDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventDate)))
         : undefined,
   } as any;
 };
@@ -10256,11 +10264,11 @@ const deserializeAws_restJson1BotLocaleSummary = (output: any, context: __SerdeC
     description: __expectString(output.description),
     lastBuildSubmittedDateTime:
       output.lastBuildSubmittedDateTime !== undefined && output.lastBuildSubmittedDateTime !== null
-        ? new Date(Math.round(output.lastBuildSubmittedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastBuildSubmittedDateTime)))
         : undefined,
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     localeId: __expectString(output.localeId),
     localeName: __expectString(output.localeName),
@@ -10286,7 +10294,7 @@ const deserializeAws_restJson1BotSummary = (output: any, context: __SerdeContext
     description: __expectString(output.description),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     latestBotVersion: __expectString(output.latestBotVersion),
   } as any;
@@ -10337,7 +10345,7 @@ const deserializeAws_restJson1BotVersionSummary = (output: any, context: __Serde
     botVersion: __expectString(output.botVersion),
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     description: __expectString(output.description),
   } as any;
@@ -10493,14 +10501,14 @@ const deserializeAws_restJson1ExportSummary = (output: any, context: __SerdeCont
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     exportId: __expectString(output.exportId),
     exportStatus: __expectString(output.exportStatus),
     fileFormat: __expectString(output.fileFormat),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     resourceSpecification:
       output.resourceSpecification !== undefined && output.resourceSpecification !== null
@@ -10572,7 +10580,7 @@ const deserializeAws_restJson1ImportSummary = (output: any, context: __SerdeCont
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     importId: __expectString(output.importId),
     importStatus: __expectString(output.importStatus),
@@ -10580,7 +10588,7 @@ const deserializeAws_restJson1ImportSummary = (output: any, context: __SerdeCont
     importedResourceName: __expectString(output.importedResourceName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     mergeStrategy: __expectString(output.mergeStrategy),
   } as any;
@@ -10652,7 +10660,7 @@ const deserializeAws_restJson1IntentSummary = (output: any, context: __SerdeCont
     intentName: __expectString(output.intentName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     outputContexts:
       output.outputContexts !== undefined && output.outputContexts !== null
@@ -10897,7 +10905,7 @@ const deserializeAws_restJson1SlotSummary = (output: any, context: __SerdeContex
     description: __expectString(output.description),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     slotConstraint: __expectString(output.slotConstraint),
     slotId: __expectString(output.slotId),
@@ -10926,7 +10934,7 @@ const deserializeAws_restJson1SlotTypeSummary = (output: any, context: __SerdeCo
     description: __expectString(output.description),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     parentSlotTypeSignature: __expectString(output.parentSlotTypeSignature),
     slotTypeId: __expectString(output.slotTypeId),

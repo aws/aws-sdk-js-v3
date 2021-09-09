@@ -54,8 +54,8 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         super(context);
     }
 
-    private DocumentMemberDeserVisitor getMemberVisitor(String dataSource) {
-        return new JsonMemberDeserVisitor(getContext(), dataSource, Format.EPOCH_SECONDS);
+    private DocumentMemberDeserVisitor getMemberVisitor(MemberShape memberShape, String dataSource) {
+        return new JsonMemberDeserVisitor(getContext(), memberShape, dataSource, Format.EPOCH_SECONDS);
     }
 
     @Override
@@ -74,7 +74,9 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             writer.write("if (entry === null) { return null as any; }");
 
             // Dispatch to the output value provider for any additional handling.
-            writer.write("return $L$L;", target.accept(getMemberVisitor("entry")), usesExpect(target) ? " as any" : "");
+            writer.write("return $L$L;",
+                    target.accept(getMemberVisitor(shape.getMember(), "entry")),
+                    usesExpect(target) ? " as any" : "");
         });
     }
 
@@ -112,7 +114,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 writer.openBlock("return {", "};", () -> {
                     writer.write("...acc,");
                     // Dispatch to the output value provider for any additional handling.
-                    writer.write("[key]: $L$L", target.accept(getMemberVisitor("value")),
+                    writer.write("[key]: $L$L", target.accept(getMemberVisitor(shape.getValue(), "value")),
                             usesExpect(target) ? " as any" : "");
                 });
             }
@@ -138,12 +140,14 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 if (usesExpect(target)) {
                     // Booleans and numbers will call expectBoolean/expectNumber which will handle
                     // null/undefined properly.
-                    writer.write("$L: $L,", memberName, target.accept(getMemberVisitor("output." + locationName)));
+                    writer.write("$L: $L,",
+                            memberName,
+                            target.accept(getMemberVisitor(memberShape, "output." + locationName)));
                 } else {
                     writer.write("$1L: (output.$2L !== undefined && output.$2L !== null)"
                                     + " ? $3L: undefined,", memberName, locationName,
                             // Dispatch to the output value provider for any additional handling.
-                            target.accept(getMemberVisitor("output." + locationName)));
+                            target.accept(getMemberVisitor(memberShape, "output." + locationName)));
                 }
             });
         });
@@ -173,7 +177,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                     .map(JsonNameTrait::getValue)
                     .orElse(memberName);
 
-            String memberValue = target.accept(getMemberVisitor("output." + locationName));
+            String memberValue = target.accept(getMemberVisitor(memberShape, "output." + locationName));
             if (usesExpect(target)) {
                 // Booleans and numbers will call expectBoolean/expectNumber which will handle
                 // null/undefined properly.

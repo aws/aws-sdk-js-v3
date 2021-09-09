@@ -148,8 +148,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3094,18 +3097,18 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? new Date(Math.round(output.FinishedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
         : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     InvalidRecordCount: __expectLong(output.InvalidRecordCount),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     MLModelId: __expectString(output.MLModelId),
     Message: __expectString(output.Message),
@@ -3113,7 +3116,7 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
     OutputUri: __expectString(output.OutputUri),
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
-        ? new Date(Math.round(output.StartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
         : undefined,
     Status: __expectString(output.Status),
     TotalRecordCount: __expectLong(output.TotalRecordCount),
@@ -3198,7 +3201,7 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     DataLocationS3: __expectString(output.DataLocationS3),
@@ -3207,11 +3210,11 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
     DataSourceId: __expectString(output.DataSourceId),
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? new Date(Math.round(output.FinishedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
         : undefined,
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
@@ -3227,7 +3230,7 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
     RoleARN: __expectString(output.RoleARN),
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
-        ? new Date(Math.round(output.StartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -3371,19 +3374,19 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     EvaluationDataSourceId: __expectString(output.EvaluationDataSourceId),
     EvaluationId: __expectString(output.EvaluationId),
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? new Date(Math.round(output.FinishedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
         : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     MLModelId: __expectString(output.MLModelId),
     Message: __expectString(output.Message),
@@ -3394,7 +3397,7 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
         : undefined,
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
-        ? new Date(Math.round(output.StartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -3421,18 +3424,18 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? new Date(Math.round(output.FinishedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
         : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     InvalidRecordCount: __expectLong(output.InvalidRecordCount),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     LogUri: __expectString(output.LogUri),
     MLModelId: __expectString(output.MLModelId),
@@ -3441,7 +3444,7 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
     OutputUri: __expectString(output.OutputUri),
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
-        ? new Date(Math.round(output.StartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
         : undefined,
     Status: __expectString(output.Status),
     TotalRecordCount: __expectLong(output.TotalRecordCount),
@@ -3454,7 +3457,7 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     DataLocationS3: __expectString(output.DataLocationS3),
@@ -3464,11 +3467,11 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
     DataSourceSchema: __expectString(output.DataSourceSchema),
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? new Date(Math.round(output.FinishedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
         : undefined,
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     LogUri: __expectString(output.LogUri),
     Message: __expectString(output.Message),
@@ -3485,7 +3488,7 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
     RoleARN: __expectString(output.RoleARN),
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
-        ? new Date(Math.round(output.StartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -3496,19 +3499,19 @@ const deserializeAws_json1_1GetEvaluationOutput = (output: any, context: __Serde
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     EvaluationDataSourceId: __expectString(output.EvaluationDataSourceId),
     EvaluationId: __expectString(output.EvaluationId),
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? new Date(Math.round(output.FinishedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
         : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     LogUri: __expectString(output.LogUri),
     MLModelId: __expectString(output.MLModelId),
@@ -3520,7 +3523,7 @@ const deserializeAws_json1_1GetEvaluationOutput = (output: any, context: __Serde
         : undefined,
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
-        ? new Date(Math.round(output.StartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -3531,7 +3534,7 @@ const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeCon
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     EndpointInfo:
@@ -3540,12 +3543,12 @@ const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeCon
         : undefined,
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? new Date(Math.round(output.FinishedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
         : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     LogUri: __expectString(output.LogUri),
     MLModelId: __expectString(output.MLModelId),
@@ -3557,12 +3560,12 @@ const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeCon
     ScoreThreshold: __limitedParseFloat32(output.ScoreThreshold),
     ScoreThresholdLastUpdatedAt:
       output.ScoreThresholdLastUpdatedAt !== undefined && output.ScoreThresholdLastUpdatedAt !== null
-        ? new Date(Math.round(output.ScoreThresholdLastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ScoreThresholdLastUpdatedAt)))
         : undefined,
     SizeInBytes: __expectLong(output.SizeInBytes),
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
-        ? new Date(Math.round(output.StartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
         : undefined,
     Status: __expectString(output.Status),
     TrainingDataSourceId: __expectString(output.TrainingDataSourceId),
@@ -3619,7 +3622,7 @@ const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): ML
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     EndpointInfo:
@@ -3628,12 +3631,12 @@ const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): ML
         : undefined,
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? new Date(Math.round(output.FinishedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
         : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     MLModelId: __expectString(output.MLModelId),
     MLModelType: __expectString(output.MLModelType),
@@ -3642,12 +3645,12 @@ const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): ML
     ScoreThreshold: __limitedParseFloat32(output.ScoreThreshold),
     ScoreThresholdLastUpdatedAt:
       output.ScoreThresholdLastUpdatedAt !== undefined && output.ScoreThresholdLastUpdatedAt !== null
-        ? new Date(Math.round(output.ScoreThresholdLastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ScoreThresholdLastUpdatedAt)))
         : undefined,
     SizeInBytes: __expectLong(output.SizeInBytes),
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
-        ? new Date(Math.round(output.StartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
         : undefined,
     Status: __expectString(output.Status),
     TrainingDataSourceId: __expectString(output.TrainingDataSourceId),
@@ -3751,7 +3754,7 @@ const deserializeAws_json1_1RealtimeEndpointInfo = (output: any, context: __Serd
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     EndpointStatus: __expectString(output.EndpointStatus),
     EndpointUrl: __expectString(output.EndpointUrl),

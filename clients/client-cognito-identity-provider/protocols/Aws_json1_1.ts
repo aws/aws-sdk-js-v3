@@ -578,7 +578,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -15837,11 +15840,11 @@ const deserializeAws_json1_1AdminGetUserResponse = (output: any, context: __Serd
         : undefined,
     UserCreateDate:
       output.UserCreateDate !== undefined && output.UserCreateDate !== null
-        ? new Date(Math.round(output.UserCreateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserCreateDate)))
         : undefined,
     UserLastModifiedDate:
       output.UserLastModifiedDate !== undefined && output.UserLastModifiedDate !== null
-        ? new Date(Math.round(output.UserLastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserLastModifiedDate)))
         : undefined,
     UserMFASettingList:
       output.UserMFASettingList !== undefined && output.UserMFASettingList !== null
@@ -16102,7 +16105,7 @@ const deserializeAws_json1_1AuthEventType = (output: any, context: __SerdeContex
         : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     EventContextData:
       output.EventContextData !== undefined && output.EventContextData !== null
@@ -16514,16 +16517,16 @@ const deserializeAws_json1_1DeviceType = (output: any, context: __SerdeContext):
         : undefined,
     DeviceCreateDate:
       output.DeviceCreateDate !== undefined && output.DeviceCreateDate !== null
-        ? new Date(Math.round(output.DeviceCreateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceCreateDate)))
         : undefined,
     DeviceKey: __expectString(output.DeviceKey),
     DeviceLastAuthenticatedDate:
       output.DeviceLastAuthenticatedDate !== undefined && output.DeviceLastAuthenticatedDate !== null
-        ? new Date(Math.round(output.DeviceLastAuthenticatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceLastAuthenticatedDate)))
         : undefined,
     DeviceLastModifiedDate:
       output.DeviceLastModifiedDate !== undefined && output.DeviceLastModifiedDate !== null
-        ? new Date(Math.round(output.DeviceLastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceLastModifiedDate)))
         : undefined,
   } as any;
 };
@@ -16586,7 +16589,7 @@ const deserializeAws_json1_1EventFeedbackType = (output: any, context: __SerdeCo
   return {
     FeedbackDate:
       output.FeedbackDate !== undefined && output.FeedbackDate !== null
-        ? new Date(Math.round(output.FeedbackDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FeedbackDate)))
         : undefined,
     FeedbackValue: __expectString(output.FeedbackValue),
     Provider: __expectString(output.Provider),
@@ -16775,13 +16778,13 @@ const deserializeAws_json1_1GroupType = (output: any, context: __SerdeContext): 
   return {
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     Description: __expectString(output.Description),
     GroupName: __expectString(output.GroupName),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     Precedence: __expectInt32(output.Precedence),
     RoleArn: __expectString(output.RoleArn),
@@ -16797,7 +16800,7 @@ const deserializeAws_json1_1IdentityProviderType = (output: any, context: __Serd
         : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     IdpIdentifiers:
       output.IdpIdentifiers !== undefined && output.IdpIdentifiers !== null
@@ -16805,7 +16808,7 @@ const deserializeAws_json1_1IdentityProviderType = (output: any, context: __Serd
         : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     ProviderDetails:
       output.ProviderDetails !== undefined && output.ProviderDetails !== null
@@ -17223,11 +17226,11 @@ const deserializeAws_json1_1ProviderDescription = (output: any, context: __Serde
   return {
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     ProviderName: __expectString(output.ProviderName),
     ProviderType: __expectString(output.ProviderType),
@@ -17382,7 +17385,7 @@ const deserializeAws_json1_1RiskConfigurationType = (output: any, context: __Ser
         : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     RiskExceptionConfiguration:
       output.RiskExceptionConfiguration !== undefined && output.RiskExceptionConfiguration !== null
@@ -17654,12 +17657,12 @@ const deserializeAws_json1_1UICustomizationType = (output: any, context: __Serde
     ClientId: __expectString(output.ClientId),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     ImageUrl: __expectString(output.ImageUrl),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     UserPoolId: __expectString(output.UserPoolId),
   } as any;
@@ -17829,12 +17832,12 @@ const deserializeAws_json1_1UserImportJobType = (output: any, context: __SerdeCo
     CloudWatchLogsRoleArn: __expectString(output.CloudWatchLogsRoleArn),
     CompletionDate:
       output.CompletionDate !== undefined && output.CompletionDate !== null
-        ? new Date(Math.round(output.CompletionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
     CompletionMessage: __expectString(output.CompletionMessage),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     FailedUsers: __expectLong(output.FailedUsers),
     ImportedUsers: __expectLong(output.ImportedUsers),
@@ -17844,7 +17847,7 @@ const deserializeAws_json1_1UserImportJobType = (output: any, context: __SerdeCo
     SkippedUsers: __expectLong(output.SkippedUsers),
     StartDate:
       output.StartDate !== undefined && output.StartDate !== null
-        ? new Date(Math.round(output.StartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDate)))
         : undefined,
     Status: __expectString(output.Status),
     UserPoolId: __expectString(output.UserPoolId),
@@ -17983,7 +17986,7 @@ const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeC
     ClientSecret: __expectString(output.ClientSecret),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DefaultRedirectURI: __expectString(output.DefaultRedirectURI),
     EnableTokenRevocation: __expectBoolean(output.EnableTokenRevocation),
@@ -17994,7 +17997,7 @@ const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeC
     IdTokenValidity: __expectInt32(output.IdTokenValidity),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     LogoutURLs:
       output.LogoutURLs !== undefined && output.LogoutURLs !== null
@@ -18029,7 +18032,7 @@ const deserializeAws_json1_1UserPoolDescriptionType = (
   return {
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     Id: __expectString(output.Id),
     LambdaConfig:
@@ -18038,7 +18041,7 @@ const deserializeAws_json1_1UserPoolDescriptionType = (
         : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
@@ -18107,7 +18110,7 @@ const deserializeAws_json1_1UserPoolType = (output: any, context: __SerdeContext
         : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     CustomDomain: __expectString(output.CustomDomain),
     DeviceConfiguration:
@@ -18130,7 +18133,7 @@ const deserializeAws_json1_1UserPoolType = (output: any, context: __SerdeContext
         : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
-        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     MfaConfiguration: __expectString(output.MfaConfiguration),
     Name: __expectString(output.Name),
@@ -18197,11 +18200,11 @@ const deserializeAws_json1_1UserType = (output: any, context: __SerdeContext): U
         : undefined,
     UserCreateDate:
       output.UserCreateDate !== undefined && output.UserCreateDate !== null
-        ? new Date(Math.round(output.UserCreateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserCreateDate)))
         : undefined,
     UserLastModifiedDate:
       output.UserLastModifiedDate !== undefined && output.UserLastModifiedDate !== null
-        ? new Date(Math.round(output.UserLastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UserLastModifiedDate)))
         : undefined,
     UserStatus: __expectString(output.UserStatus),
     Username: __expectString(output.Username),

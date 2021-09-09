@@ -132,10 +132,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3079,11 +3081,11 @@ const deserializeAws_restJson1AnomalyReportedTimeRange = (
   return {
     CloseTime:
       output.CloseTime !== undefined && output.CloseTime !== null
-        ? new Date(Math.round(output.CloseTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CloseTime)))
         : undefined,
     OpenTime:
       output.OpenTime !== undefined && output.OpenTime !== null
-        ? new Date(Math.round(output.OpenTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OpenTime)))
         : undefined,
   } as any;
 };
@@ -3100,10 +3102,12 @@ const deserializeAws_restJson1AnomalySourceDetails = (output: any, context: __Se
 const deserializeAws_restJson1AnomalyTimeRange = (output: any, context: __SerdeContext): AnomalyTimeRange => {
   return {
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
 };
@@ -3263,10 +3267,12 @@ const deserializeAws_restJson1CostEstimationTimeRange = (
 ): CostEstimationTimeRange => {
   return {
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
 };
@@ -3286,7 +3292,10 @@ const deserializeAws_restJson1Event = (output: any, context: __SerdeContext): Ev
       output.Resources !== undefined && output.Resources !== null
         ? deserializeAws_restJson1EventResources(output.Resources, context)
         : undefined,
-    Time: output.Time !== undefined && output.Time !== null ? new Date(Math.round(output.Time * 1000)) : undefined,
+    Time:
+      output.Time !== undefined && output.Time !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Time)))
+        : undefined,
   } as any;
 };
 
@@ -3338,10 +3347,12 @@ const deserializeAws_restJson1InsightHealth = (output: any, context: __SerdeCont
 const deserializeAws_restJson1InsightTimeRange = (output: any, context: __SerdeContext): InsightTimeRange => {
   return {
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
 };
@@ -3377,10 +3388,12 @@ const deserializeAws_restJson1OpsCenterIntegration = (output: any, context: __Se
 const deserializeAws_restJson1PredictionTimeRange = (output: any, context: __SerdeContext): PredictionTimeRange => {
   return {
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
 };
@@ -3428,7 +3441,7 @@ const deserializeAws_restJson1ProactiveAnomaly = (output: any, context: __SerdeC
     Status: __expectString(output.Status),
     UpdateTime:
       output.UpdateTime !== undefined && output.UpdateTime !== null
-        ? new Date(Math.round(output.UpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateTime)))
         : undefined,
   } as any;
 };
@@ -3465,7 +3478,7 @@ const deserializeAws_restJson1ProactiveAnomalySummary = (
     Status: __expectString(output.Status),
     UpdateTime:
       output.UpdateTime !== undefined && output.UpdateTime !== null
-        ? new Date(Math.round(output.UpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateTime)))
         : undefined,
   } as any;
 };

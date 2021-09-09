@@ -106,10 +106,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
@@ -1169,7 +1171,7 @@ export const deserializeAws_restJson1CreateComponentVersionCommand = async (
     contents.componentVersion = __expectString(data.componentVersion);
   }
   if (data.creationTimestamp !== undefined && data.creationTimestamp !== null) {
-    contents.creationTimestamp = new Date(Math.round(data.creationTimestamp * 1000));
+    contents.creationTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTimestamp)));
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = deserializeAws_restJson1CloudComponentStatus(data.status, context);
@@ -1577,7 +1579,7 @@ export const deserializeAws_restJson1DescribeComponentCommand = async (
     contents.componentVersion = __expectString(data.componentVersion);
   }
   if (data.creationTimestamp !== undefined && data.creationTimestamp !== null) {
-    contents.creationTimestamp = new Date(Math.round(data.creationTimestamp * 1000));
+    contents.creationTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTimestamp)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -1876,7 +1878,9 @@ export const deserializeAws_restJson1GetCoreDeviceCommand = async (
     contents.coreVersion = __expectString(data.coreVersion);
   }
   if (data.lastStatusUpdateTimestamp !== undefined && data.lastStatusUpdateTimestamp !== null) {
-    contents.lastStatusUpdateTimestamp = new Date(Math.round(data.lastStatusUpdateTimestamp * 1000));
+    contents.lastStatusUpdateTimestamp = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.lastStatusUpdateTimestamp))
+    );
   }
   if (data.platform !== undefined && data.platform !== null) {
     contents.platform = __expectString(data.platform);
@@ -1987,7 +1991,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     contents.components = deserializeAws_restJson1ComponentDeploymentSpecifications(data.components, context);
   }
   if (data.creationTimestamp !== undefined && data.creationTimestamp !== null) {
-    contents.creationTimestamp = new Date(Math.round(data.creationTimestamp * 1000));
+    contents.creationTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTimestamp)));
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
     contents.deploymentId = __expectString(data.deploymentId);
@@ -3787,7 +3791,7 @@ const deserializeAws_restJson1AssociatedClientDevice = (
   return {
     associationTimestamp:
       output.associationTimestamp !== undefined && output.associationTimestamp !== null
-        ? new Date(Math.round(output.associationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.associationTimestamp)))
         : undefined,
     thingName: __expectString(output.thingName),
   } as any;
@@ -3897,7 +3901,7 @@ const deserializeAws_restJson1ComponentLatestVersion = (
     componentVersion: __expectString(output.componentVersion),
     creationTimestamp:
       output.creationTimestamp !== undefined && output.creationTimestamp !== null
-        ? new Date(Math.round(output.creationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTimestamp)))
         : undefined,
     description: __expectString(output.description),
     platforms:
@@ -3980,7 +3984,7 @@ const deserializeAws_restJson1CoreDevice = (output: any, context: __SerdeContext
     coreDeviceThingName: __expectString(output.coreDeviceThingName),
     lastStatusUpdateTimestamp:
       output.lastStatusUpdateTimestamp !== undefined && output.lastStatusUpdateTimestamp !== null
-        ? new Date(Math.round(output.lastStatusUpdateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStatusUpdateTimestamp)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -4001,7 +4005,7 @@ const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext
   return {
     creationTimestamp:
       output.creationTimestamp !== undefined && output.creationTimestamp !== null
-        ? new Date(Math.round(output.creationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTimestamp)))
         : undefined,
     deploymentId: __expectString(output.deploymentId),
     deploymentName: __expectString(output.deploymentName),
@@ -4106,7 +4110,7 @@ const deserializeAws_restJson1EffectiveDeployment = (output: any, context: __Ser
     coreDeviceExecutionStatus: __expectString(output.coreDeviceExecutionStatus),
     creationTimestamp:
       output.creationTimestamp !== undefined && output.creationTimestamp !== null
-        ? new Date(Math.round(output.creationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTimestamp)))
         : undefined,
     deploymentId: __expectString(output.deploymentId),
     deploymentName: __expectString(output.deploymentName),
@@ -4115,7 +4119,7 @@ const deserializeAws_restJson1EffectiveDeployment = (output: any, context: __Ser
     iotJobId: __expectString(output.iotJobId),
     modifiedTimestamp:
       output.modifiedTimestamp !== undefined && output.modifiedTimestamp !== null
-        ? new Date(Math.round(output.modifiedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedTimestamp)))
         : undefined,
     reason: __expectString(output.reason),
     targetArn: __expectString(output.targetArn),

@@ -166,7 +166,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3184,7 +3187,7 @@ const deserializeAws_json1_1ApplicationDetail = (output: any, context: __SerdeCo
         : undefined,
     CreateTimestamp:
       output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
-        ? new Date(Math.round(output.CreateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTimestamp)))
         : undefined,
     InputDescriptions:
       output.InputDescriptions !== undefined && output.InputDescriptions !== null
@@ -3192,7 +3195,7 @@ const deserializeAws_json1_1ApplicationDetail = (output: any, context: __SerdeCo
         : undefined,
     LastUpdateTimestamp:
       output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
-        ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
         : undefined,
     OutputDescriptions:
       output.OutputDescriptions !== undefined && output.OutputDescriptions !== null

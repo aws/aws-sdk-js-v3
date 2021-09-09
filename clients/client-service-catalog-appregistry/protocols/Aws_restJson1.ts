@@ -75,6 +75,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1424,7 +1425,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.associatedResourceCount = __expectInt32(data.associatedResourceCount);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
-    contents.creationTime = new Date(data.creationTime);
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -1436,7 +1437,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.integrations = deserializeAws_restJson1Integrations(data.integrations, context);
   }
   if (data.lastUpdateTime !== undefined && data.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(data.lastUpdateTime);
+    contents.lastUpdateTime = __expectNonNull(__parseRfc3339DateTime(data.lastUpdateTime));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -1597,7 +1598,7 @@ export const deserializeAws_restJson1GetAttributeGroupCommand = async (
     contents.attributes = __expectString(data.attributes);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
-    contents.creationTime = new Date(data.creationTime);
+    contents.creationTime = __expectNonNull(__parseRfc3339DateTime(data.creationTime));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -1606,7 +1607,7 @@ export const deserializeAws_restJson1GetAttributeGroupCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.lastUpdateTime !== undefined && data.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(data.lastUpdateTime);
+    contents.lastUpdateTime = __expectNonNull(__parseRfc3339DateTime(data.lastUpdateTime));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -2489,12 +2490,14 @@ const deserializeAws_restJson1Application = (output: any, context: __SerdeContex
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
+        : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(output.lastUpdateTime)
+        ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime))
         : undefined,
     name: __expectString(output.name),
     tags:
@@ -2519,12 +2522,14 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
+        : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(output.lastUpdateTime)
+        ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime))
         : undefined,
     name: __expectString(output.name),
   } as any;
@@ -2534,12 +2539,14 @@ const deserializeAws_restJson1AttributeGroup = (output: any, context: __SerdeCon
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
+        : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(output.lastUpdateTime)
+        ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime))
         : undefined,
     name: __expectString(output.name),
     tags:
@@ -2578,12 +2585,14 @@ const deserializeAws_restJson1AttributeGroupSummary = (output: any, context: __S
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
+        : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(output.lastUpdateTime)
+        ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime))
         : undefined,
     name: __expectString(output.name),
   } as any;
@@ -2603,7 +2612,7 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
     arn: __expectString(output.arn),
     associationTime:
       output.associationTime !== undefined && output.associationTime !== null
-        ? new Date(output.associationTime)
+        ? __expectNonNull(__parseRfc3339DateTime(output.associationTime))
         : undefined,
     integrations:
       output.integrations !== undefined && output.integrations !== null

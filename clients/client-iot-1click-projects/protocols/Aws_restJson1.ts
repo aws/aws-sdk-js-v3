@@ -42,9 +42,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2073,13 +2075,13 @@ const deserializeAws_restJson1PlacementDescription = (output: any, context: __Se
         : undefined,
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     placementName: __expectString(output.placementName),
     projectName: __expectString(output.projectName),
     updatedDate:
       output.updatedDate !== undefined && output.updatedDate !== null
-        ? new Date(Math.round(output.updatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
         : undefined,
   } as any;
 };
@@ -2088,13 +2090,13 @@ const deserializeAws_restJson1PlacementSummary = (output: any, context: __SerdeC
   return {
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     placementName: __expectString(output.placementName),
     projectName: __expectString(output.projectName),
     updatedDate:
       output.updatedDate !== undefined && output.updatedDate !== null
-        ? new Date(Math.round(output.updatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
         : undefined,
   } as any;
 };
@@ -2128,7 +2130,7 @@ const deserializeAws_restJson1ProjectDescription = (output: any, context: __Serd
     arn: __expectString(output.arn),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     placementTemplate:
@@ -2142,7 +2144,7 @@ const deserializeAws_restJson1ProjectDescription = (output: any, context: __Serd
         : undefined,
     updatedDate:
       output.updatedDate !== undefined && output.updatedDate !== null
-        ? new Date(Math.round(output.updatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
         : undefined,
   } as any;
 };
@@ -2152,7 +2154,7 @@ const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeCon
     arn: __expectString(output.arn),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     projectName: __expectString(output.projectName),
     tags:
@@ -2161,7 +2163,7 @@ const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeCon
         : undefined,
     updatedDate:
       output.updatedDate !== undefined && output.updatedDate !== null
-        ? new Date(Math.round(output.updatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
         : undefined,
   } as any;
 };

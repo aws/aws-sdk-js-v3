@@ -78,8 +78,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1686,7 +1689,7 @@ const deserializeAws_json1_1ScalableTarget = (output: any, context: __SerdeConte
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     MaxCapacity: __expectInt32(output.MaxCapacity),
     MinCapacity: __expectInt32(output.MinCapacity),
@@ -1737,13 +1740,15 @@ const deserializeAws_json1_1ScalingActivity = (output: any, context: __SerdeCont
     Description: __expectString(output.Description),
     Details: __expectString(output.Details),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     ResourceId: __expectString(output.ResourceId),
     ScalableDimension: __expectString(output.ScalableDimension),
     ServiceNamespace: __expectString(output.ServiceNamespace),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     StatusCode: __expectString(output.StatusCode),
     StatusMessage: __expectString(output.StatusMessage),
@@ -1769,7 +1774,7 @@ const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContex
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     PolicyARN: __expectString(output.PolicyARN),
     PolicyName: __expectString(output.PolicyName),
@@ -1796,10 +1801,12 @@ const deserializeAws_json1_1ScheduledAction = (output: any, context: __SerdeCont
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     ResourceId: __expectString(output.ResourceId),
     ScalableDimension: __expectString(output.ScalableDimension),
     ScalableTargetAction:
@@ -1812,7 +1819,7 @@ const deserializeAws_json1_1ScheduledAction = (output: any, context: __SerdeCont
     ServiceNamespace: __expectString(output.ServiceNamespace),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Timezone: __expectString(output.Timezone),
   } as any;

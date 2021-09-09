@@ -133,9 +133,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4764,7 +4766,7 @@ const deserializeAws_restJson1Addon = (output: any, context: __SerdeContext): Ad
     clusterName: __expectString(output.clusterName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     health:
       output.health !== undefined && output.health !== null
@@ -4772,7 +4774,7 @@ const deserializeAws_restJson1Addon = (output: any, context: __SerdeContext): Ad
         : undefined,
     modifiedAt:
       output.modifiedAt !== undefined && output.modifiedAt !== null
-        ? new Date(Math.round(output.modifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt)))
         : undefined,
     serviceAccountRoleArn: __expectString(output.serviceAccountRoleArn),
     status: __expectString(output.status),
@@ -4894,7 +4896,7 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
     clientRequestToken: __expectString(output.clientRequestToken),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     encryptionConfig:
       output.encryptionConfig !== undefined && output.encryptionConfig !== null
@@ -5002,7 +5004,7 @@ const deserializeAws_restJson1FargateProfile = (output: any, context: __SerdeCon
     clusterName: __expectString(output.clusterName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     fargateProfileArn: __expectString(output.fargateProfileArn),
     fargateProfileName: __expectString(output.fargateProfileName),
@@ -5212,7 +5214,7 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
     clusterName: __expectString(output.clusterName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     diskSize: __expectInt32(output.diskSize),
     health:
@@ -5233,7 +5235,7 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
         : undefined,
     modifiedAt:
       output.modifiedAt !== undefined && output.modifiedAt !== null
-        ? new Date(Math.round(output.modifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt)))
         : undefined,
     nodeRole: __expectString(output.nodeRole),
     nodegroupArn: __expectString(output.nodegroupArn),
@@ -5415,7 +5417,7 @@ const deserializeAws_restJson1Update = (output: any, context: __SerdeContext): U
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     errors:
       output.errors !== undefined && output.errors !== null

@@ -128,8 +128,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3103,13 +3106,15 @@ const deserializeAws_json1_1RequestedServiceQuotaChange = (
   return {
     CaseId: __expectString(output.CaseId),
     Created:
-      output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
+      output.Created !== undefined && output.Created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Created)))
+        : undefined,
     DesiredValue: __limitedParseDouble(output.DesiredValue),
     GlobalQuota: __expectBoolean(output.GlobalQuota),
     Id: __expectString(output.Id),
     LastUpdated:
       output.LastUpdated !== undefined && output.LastUpdated !== null
-        ? new Date(Math.round(output.LastUpdated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
         : undefined,
     QuotaArn: __expectString(output.QuotaArn),
     QuotaCode: __expectString(output.QuotaCode),

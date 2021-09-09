@@ -147,6 +147,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3201,7 +3202,7 @@ export const deserializeAws_restJson1CreateApiCommand = async (
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.Description = __expectString(data.description);
@@ -3528,7 +3529,7 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
     contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
     contents.DeploymentId = __expectString(data.deploymentId);
@@ -4327,7 +4328,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.ClientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.defaultRouteSettings !== undefined && data.defaultRouteSettings !== null) {
     contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
@@ -4342,7 +4343,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.LastDeploymentStatusMessage = __expectString(data.lastDeploymentStatusMessage);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.LastUpdatedDate = new Date(data.lastUpdatedDate);
+    contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTime(data.lastUpdatedDate));
   }
   if (data.routeSettings !== undefined && data.routeSettings !== null) {
     contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
@@ -4441,7 +4442,7 @@ export const deserializeAws_restJson1CreateVpcLinkCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = __expectString(data.name);
@@ -5579,7 +5580,7 @@ export const deserializeAws_restJson1GetApiCommand = async (
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.Description = __expectString(data.description);
@@ -6091,7 +6092,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
     contents.DeploymentId = __expectString(data.deploymentId);
@@ -7358,7 +7359,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.ClientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.defaultRouteSettings !== undefined && data.defaultRouteSettings !== null) {
     contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
@@ -7373,7 +7374,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.LastDeploymentStatusMessage = __expectString(data.lastDeploymentStatusMessage);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.LastUpdatedDate = new Date(data.lastUpdatedDate);
+    contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTime(data.lastUpdatedDate));
   }
   if (data.routeSettings !== undefined && data.routeSettings !== null) {
     contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
@@ -7610,7 +7611,7 @@ export const deserializeAws_restJson1GetVpcLinkCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = __expectString(data.name);
@@ -7794,7 +7795,7 @@ export const deserializeAws_restJson1ImportApiCommand = async (
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.Description = __expectString(data.description);
@@ -7933,7 +7934,7 @@ export const deserializeAws_restJson1ReimportApiCommand = async (
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.Description = __expectString(data.description);
@@ -8281,7 +8282,7 @@ export const deserializeAws_restJson1UpdateApiCommand = async (
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.Description = __expectString(data.description);
@@ -8608,7 +8609,7 @@ export const deserializeAws_restJson1UpdateDeploymentCommand = async (
     contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
     contents.DeploymentId = __expectString(data.deploymentId);
@@ -9399,7 +9400,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.ClientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.defaultRouteSettings !== undefined && data.defaultRouteSettings !== null) {
     contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
@@ -9414,7 +9415,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.LastDeploymentStatusMessage = __expectString(data.lastDeploymentStatusMessage);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.LastUpdatedDate = new Date(data.lastUpdatedDate);
+    contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTime(data.lastUpdatedDate));
   }
   if (data.routeSettings !== undefined && data.routeSettings !== null) {
     contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
@@ -9513,7 +9514,7 @@ export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.CreatedDate = new Date(data.createdDate);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(data.createdDate));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = __expectString(data.name);
@@ -10170,7 +10171,9 @@ const deserializeAws_restJson1Api = (output: any, context: __SerdeContext): Api 
         ? deserializeAws_restJson1Cors(output.corsConfiguration, context)
         : undefined,
     CreatedDate:
-      output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
+      output.createdDate !== undefined && output.createdDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdDate))
+        : undefined,
     Description: __expectString(output.description),
     DisableExecuteApiEndpoint: __expectBoolean(output.disableExecuteApiEndpoint),
     DisableSchemaValidation: __expectBoolean(output.disableSchemaValidation),
@@ -10295,7 +10298,9 @@ const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext
   return {
     AutoDeployed: __expectBoolean(output.autoDeployed),
     CreatedDate:
-      output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
+      output.createdDate !== undefined && output.createdDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdDate))
+        : undefined,
     DeploymentId: __expectString(output.deploymentId),
     DeploymentStatus: __expectString(output.deploymentStatus),
     DeploymentStatusMessage: __expectString(output.deploymentStatusMessage),
@@ -10332,7 +10337,7 @@ const deserializeAws_restJson1DomainNameConfiguration = (
     CertificateName: __expectString(output.certificateName),
     CertificateUploadDate:
       output.certificateUploadDate !== undefined && output.certificateUploadDate !== null
-        ? new Date(output.certificateUploadDate)
+        ? __expectNonNull(__parseRfc3339DateTime(output.certificateUploadDate))
         : undefined,
     DomainNameStatus: __expectString(output.domainNameStatus),
     DomainNameStatusMessage: __expectString(output.domainNameStatusMessage),
@@ -10611,7 +10616,9 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
     AutoDeploy: __expectBoolean(output.autoDeploy),
     ClientCertificateId: __expectString(output.clientCertificateId),
     CreatedDate:
-      output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
+      output.createdDate !== undefined && output.createdDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdDate))
+        : undefined,
     DefaultRouteSettings:
       output.defaultRouteSettings !== undefined && output.defaultRouteSettings !== null
         ? deserializeAws_restJson1RouteSettings(output.defaultRouteSettings, context)
@@ -10621,7 +10628,7 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
     LastDeploymentStatusMessage: __expectString(output.lastDeploymentStatusMessage),
     LastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? new Date(output.lastUpdatedDate)
+        ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdatedDate))
         : undefined,
     RouteSettings:
       output.routeSettings !== undefined && output.routeSettings !== null
@@ -10695,7 +10702,9 @@ const deserializeAws_restJson1TlsConfig = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1VpcLink = (output: any, context: __SerdeContext): VpcLink => {
   return {
     CreatedDate:
-      output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
+      output.createdDate !== undefined && output.createdDate !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdDate))
+        : undefined,
     Name: __expectString(output.name),
     SecurityGroupIds:
       output.securityGroupIds !== undefined && output.securityGroupIds !== null

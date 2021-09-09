@@ -92,7 +92,13 @@ import {
   UnsupportedLocale,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectInt32 as __expectInt32, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1541,7 +1547,7 @@ const deserializeAws_json1_1AffectedEntity = (output: any, context: __SerdeConte
     eventArn: __expectString(output.eventArn),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     statusCode: __expectString(output.statusCode),
     tags:
@@ -1810,19 +1816,21 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
     arn: __expectString(output.arn),
     availabilityZone: __expectString(output.availabilityZone),
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     eventScopeCode: __expectString(output.eventScopeCode),
     eventTypeCategory: __expectString(output.eventTypeCategory),
     eventTypeCode: __expectString(output.eventTypeCode),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     region: __expectString(output.region),
     service: __expectString(output.service),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     statusCode: __expectString(output.statusCode),
   } as any;
@@ -1941,19 +1949,21 @@ const deserializeAws_json1_1OrganizationEvent = (output: any, context: __SerdeCo
   return {
     arn: __expectString(output.arn),
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     eventScopeCode: __expectString(output.eventScopeCode),
     eventTypeCategory: __expectString(output.eventTypeCategory),
     eventTypeCode: __expectString(output.eventTypeCode),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     region: __expectString(output.region),
     service: __expectString(output.service),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     statusCode: __expectString(output.statusCode),
   } as any;

@@ -100,9 +100,11 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1356,7 +1358,7 @@ export const deserializeAws_restJson1CreateDomainCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
+    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
   if (data.DeadLetterQueueUrl !== undefined && data.DeadLetterQueueUrl !== null) {
     contents.DeadLetterQueueUrl = __expectString(data.DeadLetterQueueUrl);
@@ -1371,7 +1373,7 @@ export const deserializeAws_restJson1CreateDomainCommand = async (
     contents.DomainName = __expectString(data.DomainName);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
+    contents.LastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedAt)));
   }
   if (data.Matching !== undefined && data.Matching !== null) {
     contents.Matching = deserializeAws_restJson1MatchingResponse(data.Matching, context);
@@ -2081,7 +2083,7 @@ export const deserializeAws_restJson1GetDomainCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
+    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
   if (data.DeadLetterQueueUrl !== undefined && data.DeadLetterQueueUrl !== null) {
     contents.DeadLetterQueueUrl = __expectString(data.DeadLetterQueueUrl);
@@ -2096,7 +2098,7 @@ export const deserializeAws_restJson1GetDomainCommand = async (
     contents.DomainName = __expectString(data.DomainName);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
+    contents.LastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedAt)));
   }
   if (data.Matching !== undefined && data.Matching !== null) {
     contents.Matching = deserializeAws_restJson1MatchingResponse(data.Matching, context);
@@ -2197,13 +2199,13 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
+    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
     contents.DomainName = __expectString(data.DomainName);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
+    contents.LastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedAt)));
   }
   if (data.ObjectTypeName !== undefined && data.ObjectTypeName !== null) {
     contents.ObjectTypeName = __expectString(data.ObjectTypeName);
@@ -2302,7 +2304,7 @@ export const deserializeAws_restJson1GetMatchesCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.MatchGenerationDate !== undefined && data.MatchGenerationDate !== null) {
-    contents.MatchGenerationDate = new Date(Math.round(data.MatchGenerationDate * 1000));
+    contents.MatchGenerationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.MatchGenerationDate)));
   }
   if (data.Matches !== undefined && data.Matches !== null) {
     contents.Matches = deserializeAws_restJson1MatchesList(data.Matches, context);
@@ -2411,7 +2413,7 @@ export const deserializeAws_restJson1GetProfileObjectTypeCommand = async (
     contents.AllowProfileCreation = __expectBoolean(data.AllowProfileCreation);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
+    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
@@ -2429,7 +2431,7 @@ export const deserializeAws_restJson1GetProfileObjectTypeCommand = async (
     contents.Keys = deserializeAws_restJson1KeyMap(data.Keys, context);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
+    contents.LastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedAt)));
   }
   if (data.ObjectTypeName !== undefined && data.ObjectTypeName !== null) {
     contents.ObjectTypeName = __expectString(data.ObjectTypeName);
@@ -3333,13 +3335,13 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
+    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
     contents.DomainName = __expectString(data.DomainName);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
+    contents.LastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedAt)));
   }
   if (data.ObjectTypeName !== undefined && data.ObjectTypeName !== null) {
     contents.ObjectTypeName = __expectString(data.ObjectTypeName);
@@ -3535,7 +3537,7 @@ export const deserializeAws_restJson1PutProfileObjectTypeCommand = async (
     contents.AllowProfileCreation = __expectBoolean(data.AllowProfileCreation);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
+    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
@@ -3553,7 +3555,7 @@ export const deserializeAws_restJson1PutProfileObjectTypeCommand = async (
     contents.Keys = deserializeAws_restJson1KeyMap(data.Keys, context);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
+    contents.LastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedAt)));
   }
   if (data.ObjectTypeName !== undefined && data.ObjectTypeName !== null) {
     contents.ObjectTypeName = __expectString(data.ObjectTypeName);
@@ -3881,7 +3883,7 @@ export const deserializeAws_restJson1UpdateDomainCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
+    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
   }
   if (data.DeadLetterQueueUrl !== undefined && data.DeadLetterQueueUrl !== null) {
     contents.DeadLetterQueueUrl = __expectString(data.DeadLetterQueueUrl);
@@ -3896,7 +3898,7 @@ export const deserializeAws_restJson1UpdateDomainCommand = async (
     contents.DomainName = __expectString(data.DomainName);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
+    contents.LastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedAt)));
   }
   if (data.Matching !== undefined && data.Matching !== null) {
     contents.Matching = deserializeAws_restJson1MatchingResponse(data.Matching, context);
@@ -4695,12 +4697,12 @@ const deserializeAws_restJson1ListDomainItem = (output: any, context: __SerdeCon
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DomainName: __expectString(output.DomainName),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -4713,12 +4715,12 @@ const deserializeAws_restJson1ListIntegrationItem = (output: any, context: __Ser
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DomainName: __expectString(output.DomainName),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     ObjectTypeName: __expectString(output.ObjectTypeName),
     Tags:
@@ -4747,12 +4749,12 @@ const deserializeAws_restJson1ListProfileObjectTypeItem = (
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     ObjectTypeName: __expectString(output.ObjectTypeName),
     Tags:

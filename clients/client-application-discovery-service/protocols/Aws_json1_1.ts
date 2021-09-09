@@ -151,7 +151,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3544,7 +3547,7 @@ const deserializeAws_json1_1ConfigurationTag = (output: any, context: __SerdeCon
     key: __expectString(output.key),
     timeOfCreation:
       output.timeOfCreation !== undefined && output.timeOfCreation !== null
-        ? new Date(Math.round(output.timeOfCreation * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timeOfCreation)))
         : undefined,
     value: __expectString(output.value),
   } as any;
@@ -3581,13 +3584,13 @@ const deserializeAws_json1_1ContinuousExportDescription = (
         : undefined,
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     status: __expectString(output.status),
     statusDetail: __expectString(output.statusDetail),
     stopTime:
       output.stopTime !== undefined && output.stopTime !== null
-        ? new Date(Math.round(output.stopTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopTime)))
         : undefined,
   } as any;
 };
@@ -3789,17 +3792,17 @@ const deserializeAws_json1_1ExportInfo = (output: any, context: __SerdeContext):
     exportId: __expectString(output.exportId),
     exportRequestTime:
       output.exportRequestTime !== undefined && output.exportRequestTime !== null
-        ? new Date(Math.round(output.exportRequestTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.exportRequestTime)))
         : undefined,
     exportStatus: __expectString(output.exportStatus),
     isTruncated: __expectBoolean(output.isTruncated),
     requestedEndTime:
       output.requestedEndTime !== undefined && output.requestedEndTime !== null
-        ? new Date(Math.round(output.requestedEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedEndTime)))
         : undefined,
     requestedStartTime:
       output.requestedStartTime !== undefined && output.requestedStartTime !== null
-        ? new Date(Math.round(output.requestedStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedStartTime)))
         : undefined,
     statusMessage: __expectString(output.statusMessage),
   } as any;
@@ -3853,15 +3856,15 @@ const deserializeAws_json1_1ImportTask = (output: any, context: __SerdeContext):
     errorsAndFailedEntriesZip: __expectString(output.errorsAndFailedEntriesZip),
     importCompletionTime:
       output.importCompletionTime !== undefined && output.importCompletionTime !== null
-        ? new Date(Math.round(output.importCompletionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.importCompletionTime)))
         : undefined,
     importDeletedTime:
       output.importDeletedTime !== undefined && output.importDeletedTime !== null
-        ? new Date(Math.round(output.importDeletedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.importDeletedTime)))
         : undefined,
     importRequestTime:
       output.importRequestTime !== undefined && output.importRequestTime !== null
-        ? new Date(Math.round(output.importRequestTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.importRequestTime)))
         : undefined,
     importTaskId: __expectString(output.importTaskId),
     importUrl: __expectString(output.importUrl),
@@ -4014,7 +4017,7 @@ const deserializeAws_json1_1StartContinuousExportResponse = (
         : undefined,
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
   } as any;
 };
@@ -4059,11 +4062,11 @@ const deserializeAws_json1_1StopContinuousExportResponse = (
   return {
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     stopTime:
       output.stopTime !== undefined && output.stopTime !== null
-        ? new Date(Math.round(output.stopTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopTime)))
         : undefined,
   } as any;
 };

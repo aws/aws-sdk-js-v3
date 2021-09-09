@@ -115,10 +115,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1162,7 +1164,7 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
     contents.AvailabilityZoneName = __expectString(data.AvailabilityZoneName);
   }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
+    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
   }
   if (data.CreationToken !== undefined && data.CreationToken !== null) {
     contents.CreationToken = __expectString(data.CreationToken);
@@ -3269,7 +3271,7 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
     contents.AvailabilityZoneName = __expectString(data.AvailabilityZoneName);
   }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
+    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
   }
   if (data.CreationToken !== undefined && data.CreationToken !== null) {
     contents.CreationToken = __expectString(data.CreationToken);
@@ -4164,7 +4166,7 @@ const deserializeAws_restJson1FileSystemDescription = (output: any, context: __S
     AvailabilityZoneName: __expectString(output.AvailabilityZoneName),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     CreationToken: __expectString(output.CreationToken),
     Encrypted: __expectBoolean(output.Encrypted),
@@ -4207,7 +4209,7 @@ const deserializeAws_restJson1FileSystemSize = (output: any, context: __SerdeCon
   return {
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
     Value: __expectLong(output.Value),
     ValueInIA: __expectLong(output.ValueInIA),

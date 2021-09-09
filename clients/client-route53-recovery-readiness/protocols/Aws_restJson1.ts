@@ -107,6 +107,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1991,7 +1992,7 @@ export const deserializeAws_restJson1GetArchitectureRecommendationsCommand = asy
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.lastAuditTimestamp !== undefined && data.lastAuditTimestamp !== null) {
-    contents.LastAuditTimestamp = new Date(data.lastAuditTimestamp);
+    contents.LastAuditTimestamp = __expectNonNull(__parseRfc3339DateTime(data.lastAuditTimestamp));
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -4431,7 +4432,7 @@ const deserializeAws_restJson1ResourceResult = (output: any, context: __SerdeCon
     ComponentId: __expectString(output.componentId),
     LastCheckedTimestamp:
       output.lastCheckedTimestamp !== undefined && output.lastCheckedTimestamp !== null
-        ? new Date(output.lastCheckedTimestamp)
+        ? __expectNonNull(__parseRfc3339DateTime(output.lastCheckedTimestamp))
         : undefined,
     Readiness: __expectString(output.readiness),
     ResourceArn: __expectString(output.resourceArn),
@@ -4458,7 +4459,7 @@ const deserializeAws_restJson1RuleResult = (output: any, context: __SerdeContext
   return {
     LastCheckedTimestamp:
       output.lastCheckedTimestamp !== undefined && output.lastCheckedTimestamp !== null
-        ? new Date(output.lastCheckedTimestamp)
+        ? __expectNonNull(__parseRfc3339DateTime(output.lastCheckedTimestamp))
         : undefined,
     Messages:
       output.messages !== undefined && output.messages !== null

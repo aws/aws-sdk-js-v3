@@ -519,7 +519,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -10173,7 +10176,7 @@ const deserializeAws_json1_1PortfolioDetail = (output: any, context: __SerdeCont
     ARN: __expectString(output.ARN),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     DisplayName: __expectString(output.DisplayName),
@@ -10277,7 +10280,7 @@ const deserializeAws_json1_1ProductViewDetail = (output: any, context: __SerdeCo
   return {
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     ProductARN: __expectString(output.ProductARN),
     ProductViewSummary:
@@ -10334,7 +10337,7 @@ const deserializeAws_json1_1ProvisionedProductAttribute = (
     Arn: __expectString(output.Arn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Id: __expectString(output.Id),
     IdempotencyToken: __expectString(output.IdempotencyToken),
@@ -10379,7 +10382,7 @@ const deserializeAws_json1_1ProvisionedProductDetail = (
     Arn: __expectString(output.Arn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Id: __expectString(output.Id),
     IdempotencyToken: __expectString(output.IdempotencyToken),
@@ -10417,7 +10420,7 @@ const deserializeAws_json1_1ProvisionedProductPlanDetails = (
   return {
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     NotificationArns:
       output.NotificationArns !== undefined && output.NotificationArns !== null
@@ -10441,7 +10444,7 @@ const deserializeAws_json1_1ProvisionedProductPlanDetails = (
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     UpdatedTime:
       output.UpdatedTime !== undefined && output.UpdatedTime !== null
-        ? new Date(Math.round(output.UpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTime)))
         : undefined,
   } as any;
 };
@@ -10493,7 +10496,7 @@ const deserializeAws_json1_1ProvisioningArtifact = (output: any, context: __Serd
   return {
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     Guidance: __expectString(output.Guidance),
@@ -10510,7 +10513,7 @@ const deserializeAws_json1_1ProvisioningArtifactDetail = (
     Active: __expectBoolean(output.Active),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     Guidance: __expectString(output.Guidance),
@@ -10652,7 +10655,7 @@ const deserializeAws_json1_1ProvisioningArtifactSummary = (
   return {
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
@@ -10707,7 +10710,7 @@ const deserializeAws_json1_1RecordDetail = (output: any, context: __SerdeContext
   return {
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     LaunchRoleArn: __expectString(output.LaunchRoleArn),
     PathId: __expectString(output.PathId),
@@ -10729,7 +10732,7 @@ const deserializeAws_json1_1RecordDetail = (output: any, context: __SerdeContext
     Status: __expectString(output.Status),
     UpdatedTime:
       output.UpdatedTime !== undefined && output.UpdatedTime !== null
-        ? new Date(Math.round(output.UpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTime)))
         : undefined,
   } as any;
 };
@@ -10863,7 +10866,7 @@ const deserializeAws_json1_1ResourceDetail = (output: any, context: __SerdeConte
     ARN: __expectString(output.ARN),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),

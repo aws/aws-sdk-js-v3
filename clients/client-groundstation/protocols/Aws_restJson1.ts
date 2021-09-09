@@ -94,10 +94,12 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1448,7 +1450,7 @@ export const deserializeAws_restJson1DescribeContactCommand = async (
     contents.dataflowList = deserializeAws_restJson1DataflowList(data.dataflowList, context);
   }
   if (data.endTime !== undefined && data.endTime !== null) {
-    contents.endTime = new Date(Math.round(data.endTime * 1000));
+    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
   }
   if (data.errorMessage !== undefined && data.errorMessage !== null) {
     contents.errorMessage = __expectString(data.errorMessage);
@@ -1463,10 +1465,10 @@ export const deserializeAws_restJson1DescribeContactCommand = async (
     contents.missionProfileArn = __expectString(data.missionProfileArn);
   }
   if (data.postPassEndTime !== undefined && data.postPassEndTime !== null) {
-    contents.postPassEndTime = new Date(Math.round(data.postPassEndTime * 1000));
+    contents.postPassEndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.postPassEndTime)));
   }
   if (data.prePassStartTime !== undefined && data.prePassStartTime !== null) {
-    contents.prePassStartTime = new Date(Math.round(data.prePassStartTime * 1000));
+    contents.prePassStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.prePassStartTime)));
   }
   if (data.region !== undefined && data.region !== null) {
     contents.region = __expectString(data.region);
@@ -1475,7 +1477,7 @@ export const deserializeAws_restJson1DescribeContactCommand = async (
     contents.satelliteArn = __expectString(data.satelliteArn);
   }
   if (data.startTime !== undefined && data.startTime !== null) {
-    contents.startTime = new Date(Math.round(data.startTime * 1000));
+    contents.startTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startTime)));
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
@@ -3354,7 +3356,9 @@ const deserializeAws_restJson1ContactData = (output: any, context: __SerdeContex
     contactId: __expectString(output.contactId),
     contactStatus: __expectString(output.contactStatus),
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     errorMessage: __expectString(output.errorMessage),
     groundStation: __expectString(output.groundStation),
     maximumElevation:
@@ -3364,17 +3368,17 @@ const deserializeAws_restJson1ContactData = (output: any, context: __SerdeContex
     missionProfileArn: __expectString(output.missionProfileArn),
     postPassEndTime:
       output.postPassEndTime !== undefined && output.postPassEndTime !== null
-        ? new Date(Math.round(output.postPassEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.postPassEndTime)))
         : undefined,
     prePassStartTime:
       output.prePassStartTime !== undefined && output.prePassStartTime !== null
-        ? new Date(Math.round(output.prePassStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.prePassStartTime)))
         : undefined,
     region: __expectString(output.region),
     satelliteArn: __expectString(output.satelliteArn),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     tags:
       output.tags !== undefined && output.tags !== null

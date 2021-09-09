@@ -208,7 +208,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3903,32 +3906,32 @@ const deserializeAws_json1_1Assignment = (output: any, context: __SerdeContext):
   return {
     AcceptTime:
       output.AcceptTime !== undefined && output.AcceptTime !== null
-        ? new Date(Math.round(output.AcceptTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AcceptTime)))
         : undefined,
     Answer: __expectString(output.Answer),
     ApprovalTime:
       output.ApprovalTime !== undefined && output.ApprovalTime !== null
-        ? new Date(Math.round(output.ApprovalTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApprovalTime)))
         : undefined,
     AssignmentId: __expectString(output.AssignmentId),
     AssignmentStatus: __expectString(output.AssignmentStatus),
     AutoApprovalTime:
       output.AutoApprovalTime !== undefined && output.AutoApprovalTime !== null
-        ? new Date(Math.round(output.AutoApprovalTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AutoApprovalTime)))
         : undefined,
     Deadline:
       output.Deadline !== undefined && output.Deadline !== null
-        ? new Date(Math.round(output.Deadline * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Deadline)))
         : undefined,
     HITId: __expectString(output.HITId),
     RejectionTime:
       output.RejectionTime !== undefined && output.RejectionTime !== null
-        ? new Date(Math.round(output.RejectionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RejectionTime)))
         : undefined,
     RequesterFeedback: __expectString(output.RequesterFeedback),
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     WorkerId: __expectString(output.WorkerId),
   } as any;
@@ -3958,7 +3961,7 @@ const deserializeAws_json1_1BonusPayment = (output: any, context: __SerdeContext
     BonusAmount: __expectString(output.BonusAmount),
     GrantTime:
       output.GrantTime !== undefined && output.GrantTime !== null
-        ? new Date(Math.round(output.GrantTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.GrantTime)))
         : undefined,
     Reason: __expectString(output.Reason),
     WorkerId: __expectString(output.WorkerId),
@@ -4113,12 +4116,12 @@ const deserializeAws_json1_1HIT = (output: any, context: __SerdeContext): HIT =>
     AutoApprovalDelayInSeconds: __expectLong(output.AutoApprovalDelayInSeconds),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     Expiration:
       output.Expiration !== undefined && output.Expiration !== null
-        ? new Date(Math.round(output.Expiration * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiration)))
         : undefined,
     HITGroupId: __expectString(output.HITGroupId),
     HITId: __expectString(output.HITId),
@@ -4415,7 +4418,7 @@ const deserializeAws_json1_1Qualification = (output: any, context: __SerdeContex
   return {
     GrantTime:
       output.GrantTime !== undefined && output.GrantTime !== null
-        ? new Date(Math.round(output.GrantTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.GrantTime)))
         : undefined,
     IntegerValue: __expectInt32(output.IntegerValue),
     LocaleValue:
@@ -4446,7 +4449,7 @@ const deserializeAws_json1_1QualificationRequest = (output: any, context: __Serd
     QualificationTypeId: __expectString(output.QualificationTypeId),
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? new Date(Math.round(output.SubmitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
     Test: __expectString(output.Test),
     WorkerId: __expectString(output.WorkerId),
@@ -4508,7 +4511,7 @@ const deserializeAws_json1_1QualificationType = (output: any, context: __SerdeCo
     AutoGrantedValue: __expectInt32(output.AutoGrantedValue),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     IsRequestable: __expectBoolean(output.IsRequestable),
@@ -4560,7 +4563,7 @@ const deserializeAws_json1_1ReviewActionDetail = (output: any, context: __SerdeC
     ActionName: __expectString(output.ActionName),
     CompleteTime:
       output.CompleteTime !== undefined && output.CompleteTime !== null
-        ? new Date(Math.round(output.CompleteTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompleteTime)))
         : undefined,
     ErrorCode: __expectString(output.ErrorCode),
     Result: __expectString(output.Result),

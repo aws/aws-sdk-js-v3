@@ -51,9 +51,11 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -681,10 +683,10 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
     contents.deviceType = __expectString(data.deviceType);
   }
   if (data.lastReachedOutAt !== undefined && data.lastReachedOutAt !== null) {
-    contents.lastReachedOutAt = new Date(Math.round(data.lastReachedOutAt * 1000));
+    contents.lastReachedOutAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastReachedOutAt)));
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.managedDeviceArn !== undefined && data.managedDeviceArn !== null) {
     contents.managedDeviceArn = __expectString(data.managedDeviceArn);
@@ -884,13 +886,13 @@ export const deserializeAws_restJson1DescribeExecutionCommand = async (
     contents.executionId = __expectString(data.executionId);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.managedDeviceId !== undefined && data.managedDeviceId !== null) {
     contents.managedDeviceId = __expectString(data.managedDeviceId);
   }
   if (data.startedAt !== undefined && data.startedAt !== null) {
-    contents.startedAt = new Date(Math.round(data.startedAt * 1000));
+    contents.startedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startedAt)));
   }
   if (data.state !== undefined && data.state !== null) {
     contents.state = __expectString(data.state);
@@ -991,16 +993,16 @@ export const deserializeAws_restJson1DescribeTaskCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.completedAt !== undefined && data.completedAt !== null) {
-    contents.completedAt = new Date(Math.round(data.completedAt * 1000));
+    contents.completedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.completedAt)));
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.state !== undefined && data.state !== null) {
     contents.state = __expectString(data.state);
@@ -1856,7 +1858,7 @@ const deserializeAws_restJson1EbsInstanceBlockDevice = (
   return {
     attachTime:
       output.attachTime !== undefined && output.attachTime !== null
-        ? new Date(Math.round(output.attachTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.attachTime)))
         : undefined,
     deleteOnTermination: __expectBoolean(output.deleteOnTermination),
     status: __expectString(output.status),
@@ -1897,7 +1899,7 @@ const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext):
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     imageId: __expectString(output.imageId),
     instanceId: __expectString(output.instanceId),
@@ -1915,7 +1917,7 @@ const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext):
         : undefined,
     updatedAt:
       output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(Math.round(output.updatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
         : undefined,
   } as any;
 };
@@ -1962,7 +1964,7 @@ const deserializeAws_restJson1InstanceSummary = (output: any, context: __SerdeCo
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
   } as any;
 };

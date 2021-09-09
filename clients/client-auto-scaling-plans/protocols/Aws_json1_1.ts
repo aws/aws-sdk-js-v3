@@ -51,8 +51,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1090,7 +1093,7 @@ const deserializeAws_json1_1Datapoint = (output: any, context: __SerdeContext): 
   return {
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
     Value: __limitedParseDouble(output.Value),
   } as any;
@@ -1270,7 +1273,7 @@ const deserializeAws_json1_1ScalingPlan = (output: any, context: __SerdeContext)
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ScalingInstructions:
       output.ScalingInstructions !== undefined && output.ScalingInstructions !== null
@@ -1282,7 +1285,7 @@ const deserializeAws_json1_1ScalingPlan = (output: any, context: __SerdeContext)
     StatusMessage: __expectString(output.StatusMessage),
     StatusStartTime:
       output.StatusStartTime !== undefined && output.StatusStartTime !== null
-        ? new Date(Math.round(output.StatusStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StatusStartTime)))
         : undefined,
   } as any;
 };

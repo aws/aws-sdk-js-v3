@@ -201,8 +201,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3779,7 +3782,9 @@ const deserializeAws_json1_1AttackDetail = (output: any, context: __SerdeContext
         ? deserializeAws_json1_1AttackProperties(output.AttackProperties, context)
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     Mitigations:
       output.Mitigations !== undefined && output.Mitigations !== null
         ? deserializeAws_json1_1MitigationList(output.Mitigations, context)
@@ -3787,7 +3792,7 @@ const deserializeAws_json1_1AttackDetail = (output: any, context: __SerdeContext
     ResourceArn: __expectString(output.ResourceArn),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     SubResources:
       output.SubResources !== undefined && output.SubResources !== null
@@ -3866,11 +3871,13 @@ const deserializeAws_json1_1AttackSummary = (output: any, context: __SerdeContex
         ? deserializeAws_json1_1AttackVectorDescriptionList(output.AttackVectors, context)
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     ResourceArn: __expectString(output.ResourceArn),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
 };
@@ -4485,7 +4492,9 @@ const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext
   return {
     AutoRenew: __expectString(output.AutoRenew),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     Limits:
       output.Limits !== undefined && output.Limits !== null
         ? deserializeAws_json1_1Limits(output.Limits, context)
@@ -4493,7 +4502,7 @@ const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext
     ProactiveEngagementStatus: __expectString(output.ProactiveEngagementStatus),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     SubscriptionArn: __expectString(output.SubscriptionArn),
     SubscriptionLimits:
@@ -4589,11 +4598,11 @@ const deserializeAws_json1_1TimeRange = (output: any, context: __SerdeContext): 
   return {
     FromInclusive:
       output.FromInclusive !== undefined && output.FromInclusive !== null
-        ? new Date(Math.round(output.FromInclusive * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FromInclusive)))
         : undefined,
     ToExclusive:
       output.ToExclusive !== undefined && output.ToExclusive !== null
-        ? new Date(Math.round(output.ToExclusive * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ToExclusive)))
         : undefined,
   } as any;
 };

@@ -213,7 +213,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4568,7 +4571,7 @@ const deserializeAws_json1_1AdministrativeAction = (output: any, context: __Serd
     ProgressPercent: __expectInt32(output.ProgressPercent),
     RequestTime:
       output.RequestTime !== undefined && output.RequestTime !== null
-        ? new Date(Math.round(output.RequestTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestTime)))
         : undefined,
     Status: __expectString(output.Status),
     TargetFileSystemValues:
@@ -4637,7 +4640,7 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
     BackupId: __expectString(output.BackupId),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DirectoryInformation:
       output.DirectoryInformation !== undefined && output.DirectoryInformation !== null
@@ -4854,10 +4857,12 @@ const deserializeAws_json1_1DataRepositoryTask = (output: any, context: __SerdeC
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     FailureDetails:
       output.FailureDetails !== undefined && output.FailureDetails !== null
         ? deserializeAws_json1_1DataRepositoryTaskFailureDetails(output.FailureDetails, context)
@@ -4875,7 +4880,7 @@ const deserializeAws_json1_1DataRepositoryTask = (output: any, context: __SerdeC
     ResourceARN: __expectString(output.ResourceARN),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -4954,7 +4959,7 @@ const deserializeAws_json1_1DataRepositoryTaskStatus = (
     FailedCount: __expectLong(output.FailedCount),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     SucceededCount: __expectLong(output.SucceededCount),
     TotalCount: __expectLong(output.TotalCount),
@@ -5162,7 +5167,7 @@ const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext):
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DNSName: __expectString(output.DNSName),
     FailureDetails:
@@ -5550,7 +5555,7 @@ const deserializeAws_json1_1StorageVirtualMachine = (output: any, context: __Ser
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Endpoints:
       output.Endpoints !== undefined && output.Endpoints !== null
@@ -5731,7 +5736,7 @@ const deserializeAws_json1_1Volume = (output: any, context: __SerdeContext): Vol
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FileSystemId: __expectString(output.FileSystemId),
     Lifecycle: __expectString(output.Lifecycle),

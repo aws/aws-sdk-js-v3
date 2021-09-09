@@ -195,7 +195,12 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -4091,7 +4096,7 @@ const deserializeAws_json1_1AccountAssignmentOperationStatus = (
   return {
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     PermissionSetArn: __expectString(output.PermissionSetArn),
@@ -4125,7 +4130,7 @@ const deserializeAws_json1_1AccountAssignmentOperationStatusMetadata = (
   return {
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     RequestId: __expectString(output.RequestId),
     Status: __expectString(output.Status),
@@ -4493,7 +4498,7 @@ const deserializeAws_json1_1PermissionSet = (output: any, context: __SerdeContex
   return {
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     Description: __expectString(output.Description),
     Name: __expectString(output.Name),
@@ -4522,7 +4527,7 @@ const deserializeAws_json1_1PermissionSetProvisioningStatus = (
     AccountId: __expectString(output.AccountId),
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     PermissionSetArn: __expectString(output.PermissionSetArn),
@@ -4552,7 +4557,7 @@ const deserializeAws_json1_1PermissionSetProvisioningStatusMetadata = (
   return {
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     RequestId: __expectString(output.RequestId),
     Status: __expectString(output.Status),

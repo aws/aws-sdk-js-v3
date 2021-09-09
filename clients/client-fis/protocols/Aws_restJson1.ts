@@ -65,9 +65,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1822,16 +1824,18 @@ const deserializeAws_restJson1Experiment = (output: any, context: __SerdeContext
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     experimentTemplateId: __expectString(output.experimentTemplateId),
     id: __expectString(output.id),
     roleArn: __expectString(output.roleArn),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     state:
       output.state !== undefined && output.state !== null
@@ -1973,7 +1977,7 @@ const deserializeAws_restJson1ExperimentSummary = (output: any, context: __Serde
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     experimentTemplateId: __expectString(output.experimentTemplateId),
     id: __expectString(output.id),
@@ -2079,13 +2083,13 @@ const deserializeAws_restJson1ExperimentTemplate = (output: any, context: __Serd
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     stopConditions:
@@ -2218,13 +2222,13 @@ const deserializeAws_restJson1ExperimentTemplateSummary = (
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     tags:
       output.tags !== undefined && output.tags !== null

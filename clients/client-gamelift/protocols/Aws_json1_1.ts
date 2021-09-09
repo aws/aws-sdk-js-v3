@@ -529,9 +529,12 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -11560,12 +11563,12 @@ const deserializeAws_json1_1Alias = (output: any, context: __SerdeContext): Alia
     AliasId: __expectString(output.AliasId),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     Name: __expectString(output.Name),
     RoutingStrategy:
@@ -11613,7 +11616,7 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
     BuildId: __expectString(output.BuildId),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Name: __expectString(output.Name),
     OperatingSystem: __expectString(output.OperatingSystem),
@@ -12269,7 +12272,7 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
     EventId: __expectString(output.EventId),
     EventTime:
       output.EventTime !== undefined && output.EventTime !== null
-        ? new Date(Math.round(output.EventTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime)))
         : undefined,
     Message: __expectString(output.Message),
     PreSignedLogUrl: __expectString(output.PreSignedLogUrl),
@@ -12318,7 +12321,7 @@ const deserializeAws_json1_1FleetAttributes = (output: any, context: __SerdeCont
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     FleetArn: __expectString(output.FleetArn),
@@ -12352,7 +12355,7 @@ const deserializeAws_json1_1FleetAttributes = (output: any, context: __SerdeCont
         : undefined,
     TerminationTime:
       output.TerminationTime !== undefined && output.TerminationTime !== null
-        ? new Date(Math.round(output.TerminationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TerminationTime)))
         : undefined,
   } as any;
 };
@@ -12464,15 +12467,15 @@ const deserializeAws_json1_1GameServer = (output: any, context: __SerdeContext):
     InstanceId: __expectString(output.InstanceId),
     LastClaimTime:
       output.LastClaimTime !== undefined && output.LastClaimTime !== null
-        ? new Date(Math.round(output.LastClaimTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastClaimTime)))
         : undefined,
     LastHealthCheckTime:
       output.LastHealthCheckTime !== undefined && output.LastHealthCheckTime !== null
-        ? new Date(Math.round(output.LastHealthCheckTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastHealthCheckTime)))
         : undefined,
     RegistrationTime:
       output.RegistrationTime !== undefined && output.RegistrationTime !== null
-        ? new Date(Math.round(output.RegistrationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RegistrationTime)))
         : undefined,
     UtilizationStatus: __expectString(output.UtilizationStatus),
   } as any;
@@ -12484,7 +12487,7 @@ const deserializeAws_json1_1GameServerGroup = (output: any, context: __SerdeCont
     BalancingStrategy: __expectString(output.BalancingStrategy),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     GameServerGroupArn: __expectString(output.GameServerGroupArn),
     GameServerGroupName: __expectString(output.GameServerGroupName),
@@ -12495,7 +12498,7 @@ const deserializeAws_json1_1GameServerGroup = (output: any, context: __SerdeCont
         : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     RoleArn: __expectString(output.RoleArn),
     Status: __expectString(output.Status),
@@ -12567,7 +12570,7 @@ const deserializeAws_json1_1GameSession = (output: any, context: __SerdeContext)
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     CreatorId: __expectString(output.CreatorId),
     CurrentPlayerSessionCount: __expectInt32(output.CurrentPlayerSessionCount),
@@ -12591,7 +12594,7 @@ const deserializeAws_json1_1GameSession = (output: any, context: __SerdeContext)
     StatusReason: __expectString(output.StatusReason),
     TerminationTime:
       output.TerminationTime !== undefined && output.TerminationTime !== null
-        ? new Date(Math.round(output.TerminationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TerminationTime)))
         : undefined,
   } as any;
 };
@@ -12657,7 +12660,9 @@ const deserializeAws_json1_1GameSessionPlacement = (output: any, context: __Serd
   return {
     DnsName: __expectString(output.DnsName),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     GameProperties:
       output.GameProperties !== undefined && output.GameProperties !== null
         ? deserializeAws_json1_1GamePropertyList(output.GameProperties, context)
@@ -12683,7 +12688,7 @@ const deserializeAws_json1_1GameSessionPlacement = (output: any, context: __Serd
     Port: __expectInt32(output.Port),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -12783,7 +12788,7 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DnsName: __expectString(output.DnsName),
     FleetArn: __expectString(output.FleetArn),
@@ -13082,7 +13087,7 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
     ConfigurationArn: __expectString(output.ConfigurationArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     CustomEventData: __expectString(output.CustomEventData),
     Description: __expectString(output.Description),
@@ -13122,7 +13127,7 @@ const deserializeAws_json1_1MatchmakingRuleSet = (output: any, context: __SerdeC
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     RuleSetArn: __expectString(output.RuleSetArn),
     RuleSetBody: __expectString(output.RuleSetBody),
@@ -13146,7 +13151,9 @@ const deserializeAws_json1_1MatchmakingTicket = (output: any, context: __SerdeCo
     ConfigurationArn: __expectString(output.ConfigurationArn),
     ConfigurationName: __expectString(output.ConfigurationName),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     EstimatedWaitTime: __expectInt32(output.EstimatedWaitTime),
     GameSessionConnectionInfo:
       output.GameSessionConnectionInfo !== undefined && output.GameSessionConnectionInfo !== null
@@ -13158,7 +13165,7 @@ const deserializeAws_json1_1MatchmakingTicket = (output: any, context: __SerdeCo
         : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
@@ -13301,7 +13308,7 @@ const deserializeAws_json1_1PlayerSession = (output: any, context: __SerdeContex
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DnsName: __expectString(output.DnsName),
     FleetArn: __expectString(output.FleetArn),
@@ -13315,7 +13322,7 @@ const deserializeAws_json1_1PlayerSession = (output: any, context: __SerdeContex
     Status: __expectString(output.Status),
     TerminationTime:
       output.TerminationTime !== undefined && output.TerminationTime !== null
-        ? new Date(Math.round(output.TerminationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TerminationTime)))
         : undefined,
   } as any;
 };
@@ -13494,7 +13501,7 @@ const deserializeAws_json1_1Script = (output: any, context: __SerdeContext): Scr
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Name: __expectString(output.Name),
     ScriptArn: __expectString(output.ScriptArn),
@@ -13855,11 +13862,11 @@ const deserializeAws_json1_1VpcPeeringAuthorization = (
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ExpirationTime:
       output.ExpirationTime !== undefined && output.ExpirationTime !== null
-        ? new Date(Math.round(output.ExpirationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTime)))
         : undefined,
     GameLiftAwsAccountId: __expectString(output.GameLiftAwsAccountId),
     PeerVpcAwsAccountId: __expectString(output.PeerVpcAwsAccountId),

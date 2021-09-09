@@ -30,7 +30,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -753,7 +756,7 @@ const deserializeAws_json1_0StreamDescription = (output: any, context: __SerdeCo
   return {
     CreationRequestDateTime:
       output.CreationRequestDateTime !== undefined && output.CreationRequestDateTime !== null
-        ? new Date(Math.round(output.CreationRequestDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationRequestDateTime)))
         : undefined,
     KeySchema:
       output.KeySchema !== undefined && output.KeySchema !== null
@@ -787,7 +790,7 @@ const deserializeAws_json1_0StreamRecord = (output: any, context: __SerdeContext
   return {
     ApproximateCreationDateTime:
       output.ApproximateCreationDateTime !== undefined && output.ApproximateCreationDateTime !== null
-        ? new Date(Math.round(output.ApproximateCreationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApproximateCreationDateTime)))
         : undefined,
     Keys:
       output.Keys !== undefined && output.Keys !== null

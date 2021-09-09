@@ -49,8 +49,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -657,7 +659,7 @@ export const deserializeAws_restJson1DescribeNotificationRuleCommand = async (
     contents.CreatedBy = __expectString(data.CreatedBy);
   }
   if (data.CreatedTimestamp !== undefined && data.CreatedTimestamp !== null) {
-    contents.CreatedTimestamp = new Date(Math.round(data.CreatedTimestamp * 1000));
+    contents.CreatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTimestamp)));
   }
   if (data.DetailType !== undefined && data.DetailType !== null) {
     contents.DetailType = __expectString(data.DetailType);
@@ -666,7 +668,7 @@ export const deserializeAws_restJson1DescribeNotificationRuleCommand = async (
     contents.EventTypes = deserializeAws_restJson1EventTypeBatch(data.EventTypes, context);
   }
   if (data.LastModifiedTimestamp !== undefined && data.LastModifiedTimestamp !== null) {
-    contents.LastModifiedTimestamp = new Date(Math.round(data.LastModifiedTimestamp * 1000));
+    contents.LastModifiedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTimestamp)));
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = __expectString(data.Name);

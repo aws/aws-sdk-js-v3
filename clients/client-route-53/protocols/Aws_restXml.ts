@@ -306,6 +306,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
@@ -9391,7 +9392,7 @@ const deserializeAws_restXmlChangeInfo = (output: any, context: __SerdeContext):
     contents.Status = __expectString(output["Status"]);
   }
   if (output["SubmittedAt"] !== undefined) {
-    contents.SubmittedAt = new Date(output["SubmittedAt"]);
+    contents.SubmittedAt = __expectNonNull(__parseRfc3339DateTime(output["SubmittedAt"]));
   }
   if (output["Comment"] !== undefined) {
     contents.Comment = __expectString(output["Comment"]);
@@ -9977,10 +9978,10 @@ const deserializeAws_restXmlKeySigningKey = (output: any, context: __SerdeContex
     contents.StatusMessage = __expectString(output["StatusMessage"]);
   }
   if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = new Date(output["CreatedDate"]);
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["CreatedDate"]));
   }
   if (output["LastModifiedDate"] !== undefined) {
-    contents.LastModifiedDate = new Date(output["LastModifiedDate"]);
+    contents.LastModifiedDate = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedDate"]));
   }
   return contents;
 };
@@ -10204,7 +10205,7 @@ const deserializeAws_restXmlStatusReport = (output: any, context: __SerdeContext
     contents.Status = __expectString(output["Status"]);
   }
   if (output["CheckedTime"] !== undefined) {
-    contents.CheckedTime = new Date(output["CheckedTime"]);
+    contents.CheckedTime = __expectNonNull(__parseRfc3339DateTime(output["CheckedTime"]));
   }
   return contents;
 };

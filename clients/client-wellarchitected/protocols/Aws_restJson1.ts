@@ -97,9 +97,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4584,7 +4586,7 @@ const deserializeAws_restJson1LensReview = (output: any, context: __SerdeContext
         : undefined,
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -4619,7 +4621,7 @@ const deserializeAws_restJson1LensReviewSummary = (output: any, context: __Serde
         : undefined,
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -4660,7 +4662,7 @@ const deserializeAws_restJson1Milestone = (output: any, context: __SerdeContext)
     MilestoneNumber: __expectInt32(output.MilestoneNumber),
     RecordedAt:
       output.RecordedAt !== undefined && output.RecordedAt !== null
-        ? new Date(Math.round(output.RecordedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RecordedAt)))
         : undefined,
     Workload:
       output.Workload !== undefined && output.Workload !== null
@@ -4686,7 +4688,7 @@ const deserializeAws_restJson1MilestoneSummary = (output: any, context: __SerdeC
     MilestoneNumber: __expectInt32(output.MilestoneNumber),
     RecordedAt:
       output.RecordedAt !== undefined && output.RecordedAt !== null
-        ? new Date(Math.round(output.RecordedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RecordedAt)))
         : undefined,
     WorkloadSummary:
       output.WorkloadSummary !== undefined && output.WorkloadSummary !== null
@@ -4917,7 +4919,7 @@ const deserializeAws_restJson1Workload = (output: any, context: __SerdeContext):
     ReviewOwner: __expectString(output.ReviewOwner),
     ReviewRestrictionDate:
       output.ReviewRestrictionDate !== undefined && output.ReviewRestrictionDate !== null
-        ? new Date(Math.round(output.ReviewRestrictionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReviewRestrictionDate)))
         : undefined,
     RiskCounts:
       output.RiskCounts !== undefined && output.RiskCounts !== null
@@ -4930,7 +4932,7 @@ const deserializeAws_restJson1Workload = (output: any, context: __SerdeContext):
         : undefined,
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
     WorkloadArn: __expectString(output.WorkloadArn),
     WorkloadId: __expectString(output.WorkloadId),
@@ -5053,7 +5055,7 @@ const deserializeAws_restJson1WorkloadSummary = (output: any, context: __SerdeCo
         : undefined,
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
     WorkloadArn: __expectString(output.WorkloadArn),
     WorkloadId: __expectString(output.WorkloadId),

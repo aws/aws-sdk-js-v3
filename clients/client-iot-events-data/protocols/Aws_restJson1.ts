@@ -59,9 +59,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1649,12 +1651,12 @@ const deserializeAws_restJson1Alarm = (output: any, context: __SerdeContext): Al
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     keyValue: __expectString(output.keyValue),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     severity: __expectInt32(output.severity),
   } as any;
@@ -1695,12 +1697,12 @@ const deserializeAws_restJson1AlarmSummary = (output: any, context: __SerdeConte
     alarmModelVersion: __expectString(output.alarmModelVersion),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     keyValue: __expectString(output.keyValue),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     stateName: __expectString(output.stateName),
   } as any;
@@ -1811,14 +1813,14 @@ const deserializeAws_restJson1Detector = (output: any, context: __SerdeContext):
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     detectorModelName: __expectString(output.detectorModelName),
     detectorModelVersion: __expectString(output.detectorModelVersion),
     keyValue: __expectString(output.keyValue),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     state:
       output.state !== undefined && output.state !== null
@@ -1862,14 +1864,14 @@ const deserializeAws_restJson1DetectorSummary = (output: any, context: __SerdeCo
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     detectorModelName: __expectString(output.detectorModelName),
     detectorModelVersion: __expectString(output.detectorModelVersion),
     keyValue: __expectString(output.keyValue),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     state:
       output.state !== undefined && output.state !== null
@@ -1956,7 +1958,7 @@ const deserializeAws_restJson1Timer = (output: any, context: __SerdeContext): Ti
     name: __expectString(output.name),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
-        ? new Date(Math.round(output.timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp)))
         : undefined,
   } as any;
 };

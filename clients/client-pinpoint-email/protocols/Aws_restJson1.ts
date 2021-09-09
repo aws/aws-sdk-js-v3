@@ -200,10 +200,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2775,7 +2777,9 @@ export const deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = 
     );
   }
   if (data.SubscriptionExpiryDate !== undefined && data.SubscriptionExpiryDate !== null) {
-    contents.SubscriptionExpiryDate = new Date(Math.round(data.SubscriptionExpiryDate * 1000));
+    contents.SubscriptionExpiryDate = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.SubscriptionExpiryDate))
+    );
   }
   return Promise.resolve(contents);
 };
@@ -5213,7 +5217,7 @@ const deserializeAws_restJson1BlacklistEntry = (output: any, context: __SerdeCon
     Description: __expectString(output.Description),
     ListingTime:
       output.ListingTime !== undefined && output.ListingTime !== null
-        ? new Date(Math.round(output.ListingTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ListingTime)))
         : undefined,
     RblName: __expectString(output.RblName),
   } as any;
@@ -5287,7 +5291,7 @@ const deserializeAws_restJson1DailyVolume = (output: any, context: __SerdeContex
         : undefined,
     StartDate:
       output.StartDate !== undefined && output.StartDate !== null
-        ? new Date(Math.round(output.StartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDate)))
         : undefined,
     VolumeStatistics:
       output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
@@ -5334,7 +5338,7 @@ const deserializeAws_restJson1DeliverabilityTestReport = (
   return {
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
-        ? new Date(Math.round(output.CreateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate)))
         : undefined,
     DeliverabilityTestStatus: __expectString(output.DeliverabilityTestStatus),
     FromEmailAddress: __expectString(output.FromEmailAddress),
@@ -5400,14 +5404,14 @@ const deserializeAws_restJson1DomainDeliverabilityCampaign = (
         : undefined,
     FirstSeenDateTime:
       output.FirstSeenDateTime !== undefined && output.FirstSeenDateTime !== null
-        ? new Date(Math.round(output.FirstSeenDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FirstSeenDateTime)))
         : undefined,
     FromAddress: __expectString(output.FromAddress),
     ImageUrl: __expectString(output.ImageUrl),
     InboxCount: __expectLong(output.InboxCount),
     LastSeenDateTime:
       output.LastSeenDateTime !== undefined && output.LastSeenDateTime !== null
-        ? new Date(Math.round(output.LastSeenDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenDateTime)))
         : undefined,
     ProjectedVolume: __expectLong(output.ProjectedVolume),
     ReadDeleteRate: __limitedParseDouble(output.ReadDeleteRate),
@@ -5447,7 +5451,7 @@ const deserializeAws_restJson1DomainDeliverabilityTrackingOption = (
         : undefined,
     SubscriptionStartDate:
       output.SubscriptionStartDate !== undefined && output.SubscriptionStartDate !== null
-        ? new Date(Math.round(output.SubscriptionStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubscriptionStartDate)))
         : undefined,
   } as any;
 };
@@ -5685,7 +5689,7 @@ const deserializeAws_restJson1ReputationOptions = (output: any, context: __Serde
   return {
     LastFreshStart:
       output.LastFreshStart !== undefined && output.LastFreshStart !== null
-        ? new Date(Math.round(output.LastFreshStart * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastFreshStart)))
         : undefined,
     ReputationMetricsEnabled: __expectBoolean(output.ReputationMetricsEnabled),
   } as any;

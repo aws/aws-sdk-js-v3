@@ -42,9 +42,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1547,7 +1549,7 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
     Arn: __expectString(output.Arn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DagS3Path: __expectString(output.DagS3Path),
     EnvironmentClass: __expectString(output.EnvironmentClass),
@@ -1601,7 +1603,7 @@ const deserializeAws_restJson1LastUpdate = (output: any, context: __SerdeContext
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Error:
       output.Error !== undefined && output.Error !== null

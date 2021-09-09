@@ -108,9 +108,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1664,10 +1666,10 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.FirstAccessedTime !== undefined && data.FirstAccessedTime !== null) {
-    contents.FirstAccessedTime = new Date(Math.round(data.FirstAccessedTime * 1000));
+    contents.FirstAccessedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.FirstAccessedTime)));
   }
   if (data.LastAccessedTime !== undefined && data.LastAccessedTime !== null) {
-    contents.LastAccessedTime = new Date(Math.round(data.LastAccessedTime * 1000));
+    contents.LastAccessedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastAccessedTime)));
   }
   if (data.Manufacturer !== undefined && data.Manufacturer !== null) {
     contents.Manufacturer = __expectString(data.Manufacturer);
@@ -1869,7 +1871,7 @@ export const deserializeAws_restJson1DescribeDomainCommand = async (
     contents.AcmCertificateArn = __expectString(data.AcmCertificateArn);
   }
   if (data.CreatedTime !== undefined && data.CreatedTime !== null) {
-    contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
+    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
   }
   if (data.DisplayName !== undefined && data.DisplayName !== null) {
     contents.DisplayName = __expectString(data.DisplayName);
@@ -1975,7 +1977,7 @@ export const deserializeAws_restJson1DescribeFleetMetadataCommand = async (
     contents.CompanyCode = __expectString(data.CompanyCode);
   }
   if (data.CreatedTime !== undefined && data.CreatedTime !== null) {
-    contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
+    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
   }
   if (data.DisplayName !== undefined && data.DisplayName !== null) {
     contents.DisplayName = __expectString(data.DisplayName);
@@ -1987,7 +1989,7 @@ export const deserializeAws_restJson1DescribeFleetMetadataCommand = async (
     contents.FleetStatus = __expectString(data.FleetStatus);
   }
   if (data.LastUpdatedTime !== undefined && data.LastUpdatedTime !== null) {
-    contents.LastUpdatedTime = new Date(Math.round(data.LastUpdatedTime * 1000));
+    contents.LastUpdatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTime)));
   }
   if (data.OptimizeForEndUserLocation !== undefined && data.OptimizeForEndUserLocation !== null) {
     contents.OptimizeForEndUserLocation = __expectBoolean(data.OptimizeForEndUserLocation);
@@ -2180,7 +2182,7 @@ export const deserializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand 
     contents.Certificate = __expectString(data.Certificate);
   }
   if (data.CreatedTime !== undefined && data.CreatedTime !== null) {
-    contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
+    contents.CreatedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTime)));
   }
   if (data.DisplayName !== undefined && data.DisplayName !== null) {
     contents.DisplayName = __expectString(data.DisplayName);
@@ -4021,7 +4023,7 @@ const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeCont
   return {
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DisplayName: __expectString(output.DisplayName),
     DomainName: __expectString(output.DomainName),
@@ -4045,7 +4047,7 @@ const deserializeAws_restJson1FleetSummary = (output: any, context: __SerdeConte
     CompanyCode: __expectString(output.CompanyCode),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DisplayName: __expectString(output.DisplayName),
     FleetArn: __expectString(output.FleetArn),
@@ -4053,7 +4055,7 @@ const deserializeAws_restJson1FleetSummary = (output: any, context: __SerdeConte
     FleetStatus: __expectString(output.FleetStatus),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
-        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -4130,7 +4132,7 @@ const deserializeAws_restJson1WebsiteAuthorizationProviderSummary = (
     AuthorizationProviderType: __expectString(output.AuthorizationProviderType),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DomainName: __expectString(output.DomainName),
   } as any;
@@ -4140,7 +4142,7 @@ const deserializeAws_restJson1WebsiteCaSummary = (output: any, context: __SerdeC
   return {
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DisplayName: __expectString(output.DisplayName),
     WebsiteCaId: __expectString(output.WebsiteCaId),

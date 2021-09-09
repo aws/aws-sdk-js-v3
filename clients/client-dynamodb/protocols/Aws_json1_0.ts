@@ -326,8 +326,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -7564,7 +7567,7 @@ const deserializeAws_json1_0ArchivalSummary = (output: any, context: __SerdeCont
     ArchivalBackupArn: __expectString(output.ArchivalBackupArn),
     ArchivalDateTime:
       output.ArchivalDateTime !== undefined && output.ArchivalDateTime !== null
-        ? new Date(Math.round(output.ArchivalDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ArchivalDateTime)))
         : undefined,
     ArchivalReason: __expectString(output.ArchivalReason),
   } as any;
@@ -7741,11 +7744,11 @@ const deserializeAws_json1_0BackupDetails = (output: any, context: __SerdeContex
     BackupArn: __expectString(output.BackupArn),
     BackupCreationDateTime:
       output.BackupCreationDateTime !== undefined && output.BackupCreationDateTime !== null
-        ? new Date(Math.round(output.BackupCreationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.BackupCreationDateTime)))
         : undefined,
     BackupExpiryDateTime:
       output.BackupExpiryDateTime !== undefined && output.BackupExpiryDateTime !== null
-        ? new Date(Math.round(output.BackupExpiryDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.BackupExpiryDateTime)))
         : undefined,
     BackupName: __expectString(output.BackupName),
     BackupSizeBytes: __expectLong(output.BackupSizeBytes),
@@ -7785,11 +7788,11 @@ const deserializeAws_json1_0BackupSummary = (output: any, context: __SerdeContex
     BackupArn: __expectString(output.BackupArn),
     BackupCreationDateTime:
       output.BackupCreationDateTime !== undefined && output.BackupCreationDateTime !== null
-        ? new Date(Math.round(output.BackupCreationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.BackupCreationDateTime)))
         : undefined,
     BackupExpiryDateTime:
       output.BackupExpiryDateTime !== undefined && output.BackupExpiryDateTime !== null
-        ? new Date(Math.round(output.BackupExpiryDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.BackupExpiryDateTime)))
         : undefined,
     BackupName: __expectString(output.BackupName),
     BackupSizeBytes: __expectLong(output.BackupSizeBytes),
@@ -7921,7 +7924,7 @@ const deserializeAws_json1_0BillingModeSummary = (output: any, context: __SerdeC
     BillingMode: __expectString(output.BillingMode),
     LastUpdateToPayPerRequestDateTime:
       output.LastUpdateToPayPerRequestDateTime !== undefined && output.LastUpdateToPayPerRequestDateTime !== null
-        ? new Date(Math.round(output.LastUpdateToPayPerRequestDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateToPayPerRequestDateTime)))
         : undefined,
   } as any;
 };
@@ -8175,7 +8178,7 @@ const deserializeAws_json1_0DescribeContributorInsightsOutput = (
     IndexName: __expectString(output.IndexName),
     LastUpdateDateTime:
       output.LastUpdateDateTime !== undefined && output.LastUpdateDateTime !== null
-        ? new Date(Math.round(output.LastUpdateDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateDateTime)))
         : undefined,
     TableName: __expectString(output.TableName),
   } as any;
@@ -8342,14 +8345,16 @@ const deserializeAws_json1_0ExportDescription = (output: any, context: __SerdeCo
     BilledSizeBytes: __expectLong(output.BilledSizeBytes),
     ClientToken: __expectString(output.ClientToken),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     ExportArn: __expectString(output.ExportArn),
     ExportFormat: __expectString(output.ExportFormat),
     ExportManifest: __expectString(output.ExportManifest),
     ExportStatus: __expectString(output.ExportStatus),
     ExportTime:
       output.ExportTime !== undefined && output.ExportTime !== null
-        ? new Date(Math.round(output.ExportTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExportTime)))
         : undefined,
     FailureCode: __expectString(output.FailureCode),
     FailureMessage: __expectString(output.FailureMessage),
@@ -8361,7 +8366,7 @@ const deserializeAws_json1_0ExportDescription = (output: any, context: __SerdeCo
     S3SseKmsKeyId: __expectString(output.S3SseKmsKeyId),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     TableArn: __expectString(output.TableArn),
     TableId: __expectString(output.TableId),
@@ -8540,7 +8545,7 @@ const deserializeAws_json1_0GlobalTableDescription = (output: any, context: __Se
   return {
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
-        ? new Date(Math.round(output.CreationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDateTime)))
         : undefined,
     GlobalTableArn: __expectString(output.GlobalTableArn),
     GlobalTableName: __expectString(output.GlobalTableName),
@@ -9030,11 +9035,11 @@ const deserializeAws_json1_0PointInTimeRecoveryDescription = (
   return {
     EarliestRestorableDateTime:
       output.EarliestRestorableDateTime !== undefined && output.EarliestRestorableDateTime !== null
-        ? new Date(Math.round(output.EarliestRestorableDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EarliestRestorableDateTime)))
         : undefined,
     LatestRestorableDateTime:
       output.LatestRestorableDateTime !== undefined && output.LatestRestorableDateTime !== null
-        ? new Date(Math.round(output.LatestRestorableDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestRestorableDateTime)))
         : undefined,
     PointInTimeRecoveryStatus: __expectString(output.PointInTimeRecoveryStatus),
   } as any;
@@ -9073,11 +9078,11 @@ const deserializeAws_json1_0ProvisionedThroughputDescription = (
   return {
     LastDecreaseDateTime:
       output.LastDecreaseDateTime !== undefined && output.LastDecreaseDateTime !== null
-        ? new Date(Math.round(output.LastDecreaseDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastDecreaseDateTime)))
         : undefined,
     LastIncreaseDateTime:
       output.LastIncreaseDateTime !== undefined && output.LastIncreaseDateTime !== null
-        ? new Date(Math.round(output.LastIncreaseDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastIncreaseDateTime)))
         : undefined,
     NumberOfDecreasesToday: __expectLong(output.NumberOfDecreasesToday),
     ReadCapacityUnits: __expectLong(output.ReadCapacityUnits),
@@ -9239,7 +9244,7 @@ const deserializeAws_json1_0ReplicaDescription = (output: any, context: __SerdeC
     RegionName: __expectString(output.RegionName),
     ReplicaInaccessibleDateTime:
       output.ReplicaInaccessibleDateTime !== undefined && output.ReplicaInaccessibleDateTime !== null
-        ? new Date(Math.round(output.ReplicaInaccessibleDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReplicaInaccessibleDateTime)))
         : undefined,
     ReplicaStatus: __expectString(output.ReplicaStatus),
     ReplicaStatusDescription: __expectString(output.ReplicaStatusDescription),
@@ -9465,7 +9470,7 @@ const deserializeAws_json1_0RestoreSummary = (output: any, context: __SerdeConte
   return {
     RestoreDateTime:
       output.RestoreDateTime !== undefined && output.RestoreDateTime !== null
-        ? new Date(Math.round(output.RestoreDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RestoreDateTime)))
         : undefined,
     RestoreInProgress: __expectBoolean(output.RestoreInProgress),
     SourceBackupArn: __expectString(output.SourceBackupArn),
@@ -9546,7 +9551,7 @@ const deserializeAws_json1_0SourceTableDetails = (output: any, context: __SerdeC
     TableArn: __expectString(output.TableArn),
     TableCreationDateTime:
       output.TableCreationDateTime !== undefined && output.TableCreationDateTime !== null
-        ? new Date(Math.round(output.TableCreationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TableCreationDateTime)))
         : undefined,
     TableId: __expectString(output.TableId),
     TableName: __expectString(output.TableName),
@@ -9586,7 +9591,7 @@ const deserializeAws_json1_0SSEDescription = (output: any, context: __SerdeConte
   return {
     InaccessibleEncryptionDateTime:
       output.InaccessibleEncryptionDateTime !== undefined && output.InaccessibleEncryptionDateTime !== null
-        ? new Date(Math.round(output.InaccessibleEncryptionDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InaccessibleEncryptionDateTime)))
         : undefined,
     KMSMasterKeyArn: __expectString(output.KMSMasterKeyArn),
     SSEType: __expectString(output.SSEType),
@@ -9651,7 +9656,7 @@ const deserializeAws_json1_0TableDescription = (output: any, context: __SerdeCon
         : undefined,
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
-        ? new Date(Math.round(output.CreationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDateTime)))
         : undefined,
     GlobalSecondaryIndexes:
       output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null

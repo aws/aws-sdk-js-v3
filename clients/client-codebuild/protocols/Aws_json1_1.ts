@@ -244,8 +244,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4872,7 +4875,9 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
         : undefined,
     encryptionKey: __expectString(output.encryptionKey),
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     environment:
       output.environment !== undefined && output.environment !== null
         ? deserializeAws_json1_1ProjectEnvironment(output.environment, context)
@@ -4926,7 +4931,7 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
     sourceVersion: __expectString(output.sourceVersion),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     timeoutInMinutes: __expectInt32(output.timeoutInMinutes),
     vpcConfig:
@@ -4986,7 +4991,9 @@ const deserializeAws_json1_1BuildBatch = (output: any, context: __SerdeContext):
     debugSessionEnabled: __expectBoolean(output.debugSessionEnabled),
     encryptionKey: __expectString(output.encryptionKey),
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     environment:
       output.environment !== undefined && output.environment !== null
         ? deserializeAws_json1_1ProjectEnvironment(output.environment, context)
@@ -5028,7 +5035,7 @@ const deserializeAws_json1_1BuildBatch = (output: any, context: __SerdeContext):
     sourceVersion: __expectString(output.sourceVersion),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     vpcConfig:
       output.vpcConfig !== undefined && output.vpcConfig !== null
@@ -5067,12 +5074,14 @@ const deserializeAws_json1_1BuildBatchPhase = (output: any, context: __SerdeCont
         : undefined,
     durationInSeconds: __expectLong(output.durationInSeconds),
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     phaseStatus: __expectString(output.phaseStatus),
     phaseType: __expectString(output.phaseType),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
   } as any;
 };
@@ -5144,12 +5153,14 @@ const deserializeAws_json1_1BuildPhase = (output: any, context: __SerdeContext):
         : undefined,
     durationInSeconds: __expectLong(output.durationInSeconds),
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     phaseStatus: __expectString(output.phaseStatus),
     phaseType: __expectString(output.phaseType),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
   } as any;
 };
@@ -5226,7 +5237,7 @@ const deserializeAws_json1_1BuildSummary = (output: any, context: __SerdeContext
         : undefined,
     requestedOn:
       output.requestedOn !== undefined && output.requestedOn !== null
-        ? new Date(Math.round(output.requestedOn * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedOn)))
         : undefined,
     secondaryArtifacts:
       output.secondaryArtifacts !== undefined && output.secondaryArtifacts !== null
@@ -5249,7 +5260,9 @@ const deserializeAws_json1_1CodeCoverage = (output: any, context: __SerdeContext
     branchesCovered: __expectInt32(output.branchesCovered),
     branchesMissed: __expectInt32(output.branchesMissed),
     expired:
-      output.expired !== undefined && output.expired !== null ? new Date(Math.round(output.expired * 1000)) : undefined,
+      output.expired !== undefined && output.expired !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired)))
+        : undefined,
     filePath: __expectString(output.filePath),
     id: __expectString(output.id),
     lineCoveragePercentage: __limitedParseDouble(output.lineCoveragePercentage),
@@ -5830,7 +5843,9 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
         : undefined,
     concurrentBuildLimit: __expectInt32(output.concurrentBuildLimit),
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     description: __expectString(output.description),
     encryptionKey: __expectString(output.encryptionKey),
     environment:
@@ -5843,7 +5858,7 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
         : undefined,
     lastModified:
       output.lastModified !== undefined && output.lastModified !== null
-        ? new Date(Math.round(output.lastModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModified)))
         : undefined,
     logsConfig:
       output.logsConfig !== undefined && output.logsConfig !== null
@@ -6117,10 +6132,14 @@ const deserializeAws_json1_1Report = (output: any, context: __SerdeContext): Rep
         ? deserializeAws_json1_1CodeCoverageReportSummary(output.codeCoverageSummary, context)
         : undefined,
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     executionId: __expectString(output.executionId),
     expired:
-      output.expired !== undefined && output.expired !== null ? new Date(Math.round(output.expired * 1000)) : undefined,
+      output.expired !== undefined && output.expired !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired)))
+        : undefined,
     exportConfig:
       output.exportConfig !== undefined && output.exportConfig !== null
         ? deserializeAws_json1_1ReportExportConfig(output.exportConfig, context)
@@ -6162,14 +6181,16 @@ const deserializeAws_json1_1ReportGroup = (output: any, context: __SerdeContext)
   return {
     arn: __expectString(output.arn),
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     exportConfig:
       output.exportConfig !== undefined && output.exportConfig !== null
         ? deserializeAws_json1_1ReportExportConfig(output.exportConfig, context)
         : undefined,
     lastModified:
       output.lastModified !== undefined && output.lastModified !== null
-        ? new Date(Math.round(output.lastModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModified)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -6439,7 +6460,9 @@ const deserializeAws_json1_1TestCase = (output: any, context: __SerdeContext): T
   return {
     durationInNanoSeconds: __expectLong(output.durationInNanoSeconds),
     expired:
-      output.expired !== undefined && output.expired !== null ? new Date(Math.round(output.expired * 1000)) : undefined,
+      output.expired !== undefined && output.expired !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired)))
+        : undefined,
     message: __expectString(output.message),
     name: __expectString(output.name),
     prefix: __expectString(output.prefix),
@@ -6536,7 +6559,7 @@ const deserializeAws_json1_1Webhook = (output: any, context: __SerdeContext): We
         : undefined,
     lastModifiedSecret:
       output.lastModifiedSecret !== undefined && output.lastModifiedSecret !== null
-        ? new Date(Math.round(output.lastModifiedSecret * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedSecret)))
         : undefined,
     payloadUrl: __expectString(output.payloadUrl),
     secret: __expectString(output.secret),

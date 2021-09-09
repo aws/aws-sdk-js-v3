@@ -36,8 +36,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -972,11 +974,11 @@ const deserializeAws_restJson1Fragment = (output: any, context: __SerdeContext):
     FragmentSizeInBytes: __expectLong(output.FragmentSizeInBytes),
     ProducerTimestamp:
       output.ProducerTimestamp !== undefined && output.ProducerTimestamp !== null
-        ? new Date(Math.round(output.ProducerTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ProducerTimestamp)))
         : undefined,
     ServerTimestamp:
       output.ServerTimestamp !== undefined && output.ServerTimestamp !== null
-        ? new Date(Math.round(output.ServerTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ServerTimestamp)))
         : undefined,
   } as any;
 };

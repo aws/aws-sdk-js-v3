@@ -242,8 +242,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4873,7 +4876,7 @@ const deserializeAws_json1_1Algorithm = (output: any, context: __SerdeContext): 
         : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     defaultHyperParameterRanges:
       output.defaultHyperParameterRanges !== undefined && output.defaultHyperParameterRanges !== null
@@ -4889,7 +4892,7 @@ const deserializeAws_json1_1Algorithm = (output: any, context: __SerdeContext): 
         : undefined,
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     roleArn: __expectString(output.roleArn),
@@ -4940,7 +4943,7 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
         : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     filterArn: __expectString(output.filterArn),
@@ -4955,7 +4958,7 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
         : undefined,
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     numResults: __expectInt32(output.numResults),
     roleArn: __expectString(output.roleArn),
@@ -5016,13 +5019,13 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
     batchInferenceJobArn: __expectString(output.batchInferenceJobArn),
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     solutionVersionArn: __expectString(output.solutionVersionArn),
     status: __expectString(output.status),
@@ -5038,12 +5041,12 @@ const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): C
         : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     latestCampaignUpdate:
       output.latestCampaignUpdate !== undefined && output.latestCampaignUpdate !== null
@@ -5081,12 +5084,12 @@ const deserializeAws_json1_1CampaignSummary = (output: any, context: __SerdeCont
     campaignArn: __expectString(output.campaignArn),
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -5101,12 +5104,12 @@ const deserializeAws_json1_1CampaignUpdateSummary = (output: any, context: __Ser
         : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     minProvisionedTPS: __expectInt32(output.minProvisionedTPS),
     solutionVersionArn: __expectString(output.solutionVersionArn),
@@ -5266,14 +5269,14 @@ const deserializeAws_json1_1Dataset = (output: any, context: __SerdeContext): Da
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetArn: __expectString(output.datasetArn),
     datasetGroupArn: __expectString(output.datasetGroupArn),
     datasetType: __expectString(output.datasetType),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     schemaArn: __expectString(output.schemaArn),
@@ -5285,7 +5288,7 @@ const deserializeAws_json1_1DatasetExportJob = (output: any, context: __SerdeCon
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetArn: __expectString(output.datasetArn),
     datasetExportJobArn: __expectString(output.datasetExportJobArn),
@@ -5298,7 +5301,7 @@ const deserializeAws_json1_1DatasetExportJob = (output: any, context: __SerdeCon
         : undefined,
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     status: __expectString(output.status),
@@ -5332,14 +5335,14 @@ const deserializeAws_json1_1DatasetExportJobSummary = (
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetExportJobArn: __expectString(output.datasetExportJobArn),
     failureReason: __expectString(output.failureReason),
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -5349,14 +5352,14 @@ const deserializeAws_json1_1DatasetGroup = (output: any, context: __SerdeContext
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     failureReason: __expectString(output.failureReason),
     kmsKeyArn: __expectString(output.kmsKeyArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     roleArn: __expectString(output.roleArn),
@@ -5379,13 +5382,13 @@ const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __Serde
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -5396,7 +5399,7 @@ const deserializeAws_json1_1DatasetImportJob = (output: any, context: __SerdeCon
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     dataSource:
       output.dataSource !== undefined && output.dataSource !== null
@@ -5408,7 +5411,7 @@ const deserializeAws_json1_1DatasetImportJob = (output: any, context: __SerdeCon
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     status: __expectString(output.status),
@@ -5433,14 +5436,14 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetImportJobArn: __expectString(output.datasetImportJobArn),
     failureReason: __expectString(output.failureReason),
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -5461,11 +5464,11 @@ const deserializeAws_json1_1DatasetSchema = (output: any, context: __SerdeContex
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     schema: __expectString(output.schema),
@@ -5477,11 +5480,11 @@ const deserializeAws_json1_1DatasetSchemaSummary = (output: any, context: __Serd
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     schemaArn: __expectString(output.schemaArn),
@@ -5492,13 +5495,13 @@ const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeConte
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetArn: __expectString(output.datasetArn),
     datasetType: __expectString(output.datasetType),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -5775,13 +5778,13 @@ const deserializeAws_json1_1EventTracker = (output: any, context: __SerdeContext
     accountId: __expectString(output.accountId),
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     eventTrackerArn: __expectString(output.eventTrackerArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -5804,12 +5807,12 @@ const deserializeAws_json1_1EventTrackerSummary = (output: any, context: __Serde
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     eventTrackerArn: __expectString(output.eventTrackerArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -5820,7 +5823,7 @@ const deserializeAws_json1_1FeatureTransformation = (output: any, context: __Ser
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     defaultParameters:
       output.defaultParameters !== undefined && output.defaultParameters !== null
@@ -5829,7 +5832,7 @@ const deserializeAws_json1_1FeatureTransformation = (output: any, context: __Ser
     featureTransformationArn: __expectString(output.featureTransformationArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -5870,7 +5873,7 @@ const deserializeAws_json1_1Filter = (output: any, context: __SerdeContext): Fil
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     failureReason: __expectString(output.failureReason),
@@ -5878,7 +5881,7 @@ const deserializeAws_json1_1Filter = (output: any, context: __SerdeContext): Fil
     filterExpression: __expectString(output.filterExpression),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -5900,14 +5903,14 @@ const deserializeAws_json1_1FilterSummary = (output: any, context: __SerdeContex
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     failureReason: __expectString(output.failureReason),
     filterArn: __expectString(output.filterArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -6196,13 +6199,13 @@ const deserializeAws_json1_1Recipe = (output: any, context: __SerdeContext): Rec
     algorithmArn: __expectString(output.algorithmArn),
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     description: __expectString(output.description),
     featureTransformationArn: __expectString(output.featureTransformationArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     recipeArn: __expectString(output.recipeArn),
@@ -6226,11 +6229,11 @@ const deserializeAws_json1_1RecipeSummary = (output: any, context: __SerdeContex
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     recipeArn: __expectString(output.recipeArn),
@@ -6300,13 +6303,13 @@ const deserializeAws_json1_1Solution = (output: any, context: __SerdeContext): S
         : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     eventType: __expectString(output.eventType),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     latestSolutionVersion:
       output.latestSolutionVersion !== undefined && output.latestSolutionVersion !== null
@@ -6366,11 +6369,11 @@ const deserializeAws_json1_1SolutionSummary = (output: any, context: __SerdeCont
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     solutionArn: __expectString(output.solutionArn),
@@ -6382,14 +6385,14 @@ const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeCont
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     eventType: __expectString(output.eventType),
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     performAutoML: __expectBoolean(output.performAutoML),
     performHPO: __expectBoolean(output.performHPO),
@@ -6425,12 +6428,12 @@ const deserializeAws_json1_1SolutionVersionSummary = (output: any, context: __Se
   return {
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? new Date(Math.round(output.creationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     solutionVersionArn: __expectString(output.solutionVersionArn),
     status: __expectString(output.status),

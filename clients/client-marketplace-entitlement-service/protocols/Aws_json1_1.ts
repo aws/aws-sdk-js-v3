@@ -13,8 +13,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -198,7 +201,7 @@ const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext)
     Dimension: __expectString(output.Dimension),
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
-        ? new Date(Math.round(output.ExpirationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationDate)))
         : undefined,
     ProductCode: __expectString(output.ProductCode),
     Value:

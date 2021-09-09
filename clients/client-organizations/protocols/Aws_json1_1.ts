@@ -277,7 +277,13 @@ import {
   UpdatePolicyResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectBoolean as __expectBoolean, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectBoolean as __expectBoolean,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -7726,7 +7732,7 @@ const deserializeAws_json1_1Account = (output: any, context: __SerdeContext): Ac
     JoinedMethod: __expectString(output.JoinedMethod),
     JoinedTimestamp:
       output.JoinedTimestamp !== undefined && output.JoinedTimestamp !== null
-        ? new Date(Math.round(output.JoinedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.JoinedTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
@@ -7868,14 +7874,14 @@ const deserializeAws_json1_1CreateAccountStatus = (output: any, context: __Serde
     AccountName: __expectString(output.AccountName),
     CompletedTimestamp:
       output.CompletedTimestamp !== undefined && output.CompletedTimestamp !== null
-        ? new Date(Math.round(output.CompletedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletedTimestamp)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     GovCloudAccountId: __expectString(output.GovCloudAccountId),
     Id: __expectString(output.Id),
     RequestedTimestamp:
       output.RequestedTimestamp !== undefined && output.RequestedTimestamp !== null
-        ? new Date(Math.round(output.RequestedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestedTimestamp)))
         : undefined,
     State: __expectString(output.State),
   } as any;
@@ -7963,14 +7969,14 @@ const deserializeAws_json1_1DelegatedAdministrator = (output: any, context: __Se
     Arn: __expectString(output.Arn),
     DelegationEnabledDate:
       output.DelegationEnabledDate !== undefined && output.DelegationEnabledDate !== null
-        ? new Date(Math.round(output.DelegationEnabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DelegationEnabledDate)))
         : undefined,
     Email: __expectString(output.Email),
     Id: __expectString(output.Id),
     JoinedMethod: __expectString(output.JoinedMethod),
     JoinedTimestamp:
       output.JoinedTimestamp !== undefined && output.JoinedTimestamp !== null
-        ? new Date(Math.round(output.JoinedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.JoinedTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
@@ -7995,7 +8001,7 @@ const deserializeAws_json1_1DelegatedService = (output: any, context: __SerdeCon
   return {
     DelegationEnabledDate:
       output.DelegationEnabledDate !== undefined && output.DelegationEnabledDate !== null
-        ? new Date(Math.round(output.DelegationEnabledDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DelegationEnabledDate)))
         : undefined,
     ServicePrincipal: __expectString(output.ServicePrincipal),
   } as any;
@@ -8161,7 +8167,7 @@ const deserializeAws_json1_1EffectivePolicy = (output: any, context: __SerdeCont
   return {
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     PolicyContent: __expectString(output.PolicyContent),
     PolicyType: __expectString(output.PolicyType),
@@ -8197,7 +8203,7 @@ const deserializeAws_json1_1EnabledServicePrincipal = (
   return {
     DateEnabled:
       output.DateEnabled !== undefined && output.DateEnabled !== null
-        ? new Date(Math.round(output.DateEnabled * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateEnabled)))
         : undefined,
     ServicePrincipal: __expectString(output.ServicePrincipal),
   } as any;
@@ -8242,7 +8248,7 @@ const deserializeAws_json1_1Handshake = (output: any, context: __SerdeContext): 
     Arn: __expectString(output.Arn),
     ExpirationTimestamp:
       output.ExpirationTimestamp !== undefined && output.ExpirationTimestamp !== null
-        ? new Date(Math.round(output.ExpirationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTimestamp)))
         : undefined,
     Id: __expectString(output.Id),
     Parties:
@@ -8251,7 +8257,7 @@ const deserializeAws_json1_1Handshake = (output: any, context: __SerdeContext): 
         : undefined,
     RequestedTimestamp:
       output.RequestedTimestamp !== undefined && output.RequestedTimestamp !== null
-        ? new Date(Math.round(output.RequestedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestedTimestamp)))
         : undefined,
     Resources:
       output.Resources !== undefined && output.Resources !== null

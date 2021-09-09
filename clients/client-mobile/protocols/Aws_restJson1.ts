@@ -25,9 +25,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1360,11 +1362,11 @@ const deserializeAws_restJson1ProjectDetails = (output: any, context: __SerdeCon
     consoleUrl: __expectString(output.consoleUrl),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? new Date(Math.round(output.lastUpdatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
         : undefined,
     name: __expectString(output.name),
     projectId: __expectString(output.projectId),

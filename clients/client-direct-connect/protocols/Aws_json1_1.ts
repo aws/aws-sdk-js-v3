@@ -311,7 +311,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6058,7 +6061,7 @@ const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext):
     lagId: __expectString(output.lagId),
     loaIssueTime:
       output.loaIssueTime !== undefined && output.loaIssueTime !== null
-        ? new Date(Math.round(output.loaIssueTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.loaIssueTime)))
         : undefined,
     location: __expectString(output.location),
     macSecCapable: __expectBoolean(output.macSecCapable),
@@ -6497,7 +6500,7 @@ const deserializeAws_json1_1Interconnect = (output: any, context: __SerdeContext
     lagId: __expectString(output.lagId),
     loaIssueTime:
       output.loaIssueTime !== undefined && output.loaIssueTime !== null
-        ? new Date(Math.round(output.loaIssueTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.loaIssueTime)))
         : undefined,
     location: __expectString(output.location),
     providerName: __expectString(output.providerName),
@@ -6880,11 +6883,13 @@ const deserializeAws_json1_1VirtualInterfaceTestHistory = (
         ? deserializeAws_json1_1BGPPeerIdList(output.bgpPeers, context)
         : undefined,
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     ownerAccount: __expectString(output.ownerAccount),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     status: __expectString(output.status),
     testDurationInMinutes: __expectInt32(output.testDurationInMinutes),

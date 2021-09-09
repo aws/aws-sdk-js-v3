@@ -84,7 +84,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2139,7 +2142,7 @@ const deserializeAws_json1_1ParallelDataProperties = (output: any, context: __Se
     Arn: __expectString(output.Arn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     EncryptionKey:
@@ -2151,11 +2154,11 @@ const deserializeAws_json1_1ParallelDataProperties = (output: any, context: __Se
     ImportedRecordCount: __expectLong(output.ImportedRecordCount),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     LatestUpdateAttemptAt:
       output.LatestUpdateAttemptAt !== undefined && output.LatestUpdateAttemptAt !== null
-        ? new Date(Math.round(output.LatestUpdateAttemptAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestUpdateAttemptAt)))
         : undefined,
     LatestUpdateAttemptStatus: __expectString(output.LatestUpdateAttemptStatus),
     Message: __expectString(output.Message),
@@ -2270,7 +2273,7 @@ const deserializeAws_json1_1TerminologyProperties = (output: any, context: __Ser
     Arn: __expectString(output.Arn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     EncryptionKey:
@@ -2279,7 +2282,7 @@ const deserializeAws_json1_1TerminologyProperties = (output: any, context: __Ser
         : undefined,
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     Name: __expectString(output.Name),
     SizeBytes: __expectInt32(output.SizeBytes),
@@ -2333,7 +2336,9 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
@@ -2357,7 +2362,7 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
     SourceLanguageCode: __expectString(output.SourceLanguageCode),
     SubmittedTime:
       output.SubmittedTime !== undefined && output.SubmittedTime !== null
-        ? new Date(Math.round(output.SubmittedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedTime)))
         : undefined,
     TargetLanguageCodes:
       output.TargetLanguageCodes !== undefined && output.TargetLanguageCodes !== null
@@ -2423,7 +2428,7 @@ const deserializeAws_json1_1UpdateParallelDataResponse = (
   return {
     LatestUpdateAttemptAt:
       output.LatestUpdateAttemptAt !== undefined && output.LatestUpdateAttemptAt !== null
-        ? new Date(Math.round(output.LatestUpdateAttemptAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestUpdateAttemptAt)))
         : undefined,
     LatestUpdateAttemptStatus: __expectString(output.LatestUpdateAttemptStatus),
     Name: __expectString(output.Name),

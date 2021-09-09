@@ -198,7 +198,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4174,7 +4177,7 @@ const deserializeAws_json1_1EntityDescription = (output: any, context: __SerdeCo
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     definition:
       output.definition !== undefined && output.definition !== null
@@ -4203,7 +4206,7 @@ const deserializeAws_json1_1FlowExecutionMessage = (output: any, context: __Serd
     payload: __expectString(output.payload),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
-        ? new Date(Math.round(output.timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp)))
         : undefined,
   } as any;
 };
@@ -4234,7 +4237,7 @@ const deserializeAws_json1_1FlowExecutionSummary = (output: any, context: __Serd
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     flowExecutionId: __expectString(output.flowExecutionId),
     flowTemplateId: __expectString(output.flowTemplateId),
@@ -4242,7 +4245,7 @@ const deserializeAws_json1_1FlowExecutionSummary = (output: any, context: __Serd
     systemInstanceId: __expectString(output.systemInstanceId),
     updatedAt:
       output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(Math.round(output.updatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
         : undefined,
   } as any;
 };
@@ -4280,7 +4283,7 @@ const deserializeAws_json1_1FlowTemplateSummary = (output: any, context: __Serde
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     id: __expectString(output.id),
     revisionNumber: __expectLong(output.revisionNumber),
@@ -4378,7 +4381,7 @@ const deserializeAws_json1_1GetUploadStatusResponse = (
   return {
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     failureReason:
       output.failureReason !== undefined && output.failureReason !== null
@@ -4602,7 +4605,7 @@ const deserializeAws_json1_1SystemInstanceSummary = (output: any, context: __Ser
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     greengrassGroupId: __expectString(output.greengrassGroupId),
     greengrassGroupName: __expectString(output.greengrassGroupName),
@@ -4612,7 +4615,7 @@ const deserializeAws_json1_1SystemInstanceSummary = (output: any, context: __Ser
     target: __expectString(output.target),
     updatedAt:
       output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(Math.round(output.updatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
         : undefined,
   } as any;
 };
@@ -4653,7 +4656,7 @@ const deserializeAws_json1_1SystemTemplateSummary = (output: any, context: __Ser
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     id: __expectString(output.id),
     revisionNumber: __expectLong(output.revisionNumber),

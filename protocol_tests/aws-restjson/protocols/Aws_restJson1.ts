@@ -149,6 +149,7 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
@@ -156,6 +157,9 @@ import {
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   parseBoolean as __parseBoolean,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc7231DateTime as __parseRfc7231DateTime,
   serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
   strictParseByte as __strictParseByte,
@@ -2858,7 +2862,7 @@ export const deserializeAws_restJson1InputAndOutputWithHeadersCommand = async (
   }
   if (output.headers["x-timestamplist"] !== undefined) {
     contents.headerTimestampList = __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
-      (_entry) => new Date(_entry.trim()) as any
+      (_entry) => __expectNonNull(__parseRfc7231DateTime(_entry.trim())) as any
     );
   }
   if (output.headers["x-enum"] !== undefined) {
@@ -3192,16 +3196,16 @@ export const deserializeAws_restJson1JsonTimestampsCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dateTime !== undefined && data.dateTime !== null) {
-    contents.dateTime = new Date(Math.round(data.dateTime * 1000));
+    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(data.dateTime));
   }
   if (data.epochSeconds !== undefined && data.epochSeconds !== null) {
-    contents.epochSeconds = new Date(Math.round(data.epochSeconds * 1000));
+    contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.epochSeconds)));
   }
   if (data.httpDate !== undefined && data.httpDate !== null) {
-    contents.httpDate = new Date(Math.round(data.httpDate * 1000));
+    contents.httpDate = __expectNonNull(__parseRfc7231DateTime(data.httpDate));
   }
   if (data.normal !== undefined && data.normal !== null) {
-    contents.normal = new Date(Math.round(data.normal * 1000));
+    contents.normal = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.normal)));
   }
   return Promise.resolve(contents);
 };
@@ -3992,25 +3996,25 @@ export const deserializeAws_restJson1TimestampFormatHeadersCommand = async (
     targetHttpDate: undefined,
   };
   if (output.headers["x-memberepochseconds"] !== undefined) {
-    contents.memberEpochSeconds = new Date(Math.round(parseInt(output.headers["x-memberepochseconds"], 10) * 1000));
+    contents.memberEpochSeconds = __expectNonNull(__parseEpochTimestamp(output.headers["x-memberepochseconds"]));
   }
   if (output.headers["x-memberhttpdate"] !== undefined) {
-    contents.memberHttpDate = new Date(output.headers["x-memberhttpdate"]);
+    contents.memberHttpDate = __expectNonNull(__parseRfc7231DateTime(output.headers["x-memberhttpdate"]));
   }
   if (output.headers["x-memberdatetime"] !== undefined) {
-    contents.memberDateTime = new Date(output.headers["x-memberdatetime"]);
+    contents.memberDateTime = __expectNonNull(__parseRfc3339DateTime(output.headers["x-memberdatetime"]));
   }
   if (output.headers["x-defaultformat"] !== undefined) {
-    contents.defaultFormat = new Date(output.headers["x-defaultformat"]);
+    contents.defaultFormat = __expectNonNull(__parseRfc7231DateTime(output.headers["x-defaultformat"]));
   }
   if (output.headers["x-targetepochseconds"] !== undefined) {
-    contents.targetEpochSeconds = new Date(Math.round(parseInt(output.headers["x-targetepochseconds"], 10) * 1000));
+    contents.targetEpochSeconds = __expectNonNull(__parseEpochTimestamp(output.headers["x-targetepochseconds"]));
   }
   if (output.headers["x-targethttpdate"] !== undefined) {
-    contents.targetHttpDate = new Date(output.headers["x-targethttpdate"]);
+    contents.targetHttpDate = __expectNonNull(__parseRfc7231DateTime(output.headers["x-targethttpdate"]));
   }
   if (output.headers["x-targetdatetime"] !== undefined) {
-    contents.targetDateTime = new Date(output.headers["x-targetdatetime"]);
+    contents.targetDateTime = __expectNonNull(__parseRfc3339DateTime(output.headers["x-targetdatetime"]));
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4548,7 +4552,7 @@ const deserializeAws_restJson1MyUnion = (output: any, context: __SerdeContext): 
   }
   if (output.timestampValue !== undefined && output.timestampValue !== null) {
     return {
-      timestampValue: new Date(Math.round(output.timestampValue * 1000)),
+      timestampValue: __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestampValue))),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -4800,7 +4804,7 @@ const deserializeAws_restJson1TimestampList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return new Date(Math.round(entry * 1000));
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
     });
 };
 

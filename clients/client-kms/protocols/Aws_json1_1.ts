@@ -225,7 +225,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6643,11 +6646,11 @@ const deserializeAws_json1_1AliasListEntry = (output: any, context: __SerdeConte
     AliasName: __expectString(output.AliasName),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     LastUpdatedDate:
       output.LastUpdatedDate !== undefined && output.LastUpdatedDate !== null
-        ? new Date(Math.round(output.LastUpdatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDate)))
         : undefined,
     TargetKeyId: __expectString(output.TargetKeyId),
   } as any;
@@ -6805,7 +6808,7 @@ const deserializeAws_json1_1CustomKeyStoresListEntry = (
     ConnectionState: __expectString(output.ConnectionState),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     CustomKeyStoreId: __expectString(output.CustomKeyStoreId),
     CustomKeyStoreName: __expectString(output.CustomKeyStoreName),
@@ -7021,7 +7024,7 @@ const deserializeAws_json1_1GetParametersForImportResponse = (
     KeyId: __expectString(output.KeyId),
     ParametersValidTo:
       output.ParametersValidTo !== undefined && output.ParametersValidTo !== null
-        ? new Date(Math.round(output.ParametersValidTo * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ParametersValidTo)))
         : undefined,
     PublicKey:
       output.PublicKey !== undefined && output.PublicKey !== null ? context.base64Decoder(output.PublicKey) : undefined,
@@ -7079,7 +7082,7 @@ const deserializeAws_json1_1GrantListEntry = (output: any, context: __SerdeConte
         : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     GrantId: __expectString(output.GrantId),
     GranteePrincipal: __expectString(output.GranteePrincipal),
@@ -7230,13 +7233,13 @@ const deserializeAws_json1_1KeyMetadata = (output: any, context: __SerdeContext)
     CloudHsmClusterId: __expectString(output.CloudHsmClusterId),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     CustomKeyStoreId: __expectString(output.CustomKeyStoreId),
     CustomerMasterKeySpec: __expectString(output.CustomerMasterKeySpec),
     DeletionDate:
       output.DeletionDate !== undefined && output.DeletionDate !== null
-        ? new Date(Math.round(output.DeletionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
         : undefined,
     Description: __expectString(output.Description),
     Enabled: __expectBoolean(output.Enabled),
@@ -7262,7 +7265,9 @@ const deserializeAws_json1_1KeyMetadata = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1SigningAlgorithmSpecList(output.SigningAlgorithms, context)
         : undefined,
     ValidTo:
-      output.ValidTo !== undefined && output.ValidTo !== null ? new Date(Math.round(output.ValidTo * 1000)) : undefined,
+      output.ValidTo !== undefined && output.ValidTo !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ValidTo)))
+        : undefined,
   } as any;
 };
 
@@ -7461,7 +7466,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
   return {
     DeletionDate:
       output.DeletionDate !== undefined && output.DeletionDate !== null
-        ? new Date(Math.round(output.DeletionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
         : undefined,
     KeyId: __expectString(output.KeyId),
     KeyState: __expectString(output.KeyState),

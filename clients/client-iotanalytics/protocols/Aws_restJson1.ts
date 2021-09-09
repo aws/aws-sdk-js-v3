@@ -149,10 +149,12 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2803,7 +2805,7 @@ export const deserializeAws_restJson1GetDatasetContentCommand = async (
     contents.status = deserializeAws_restJson1DatasetContentStatus(data.status, context);
   }
   if (data.timestamp !== undefined && data.timestamp !== null) {
-    contents.timestamp = new Date(Math.round(data.timestamp * 1000));
+    contents.timestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.timestamp)));
   }
   return Promise.resolve(contents);
 };
@@ -5189,15 +5191,15 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
     arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     lastMessageArrivalTime:
       output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
-        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastMessageArrivalTime)))
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     name: __expectString(output.name),
     retentionPeriod:
@@ -5275,15 +5277,15 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     lastMessageArrivalTime:
       output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
-        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastMessageArrivalTime)))
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -5382,11 +5384,11 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     lateDataRules:
       output.lateDataRules !== undefined && output.lateDataRules !== null
@@ -5523,15 +5525,15 @@ const deserializeAws_restJson1DatasetContentSummary = (output: any, context: __S
   return {
     completionTime:
       output.completionTime !== undefined && output.completionTime !== null
-        ? new Date(Math.round(output.completionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completionTime)))
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     scheduleTime:
       output.scheduleTime !== undefined && output.scheduleTime !== null
-        ? new Date(Math.round(output.scheduleTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scheduleTime)))
         : undefined,
     status:
       output.status !== undefined && output.status !== null
@@ -5587,12 +5589,12 @@ const deserializeAws_restJson1DatasetSummary = (output: any, context: __SerdeCon
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     datasetName: __expectString(output.datasetName),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     status: __expectString(output.status),
     triggers:
@@ -5631,7 +5633,7 @@ const deserializeAws_restJson1Datastore = (output: any, context: __SerdeContext)
     arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     datastorePartitions:
       output.datastorePartitions !== undefined && output.datastorePartitions !== null
@@ -5643,11 +5645,11 @@ const deserializeAws_restJson1Datastore = (output: any, context: __SerdeContext)
         : undefined,
     lastMessageArrivalTime:
       output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
-        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastMessageArrivalTime)))
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     name: __expectString(output.name),
     retentionPeriod:
@@ -5787,7 +5789,7 @@ const deserializeAws_restJson1DatastoreSummary = (output: any, context: __SerdeC
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     datastoreName: __expectString(output.datastoreName),
     datastorePartitions:
@@ -5801,11 +5803,11 @@ const deserializeAws_restJson1DatastoreSummary = (output: any, context: __SerdeC
     fileFormatType: __expectString(output.fileFormatType),
     lastMessageArrivalTime:
       output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
-        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastMessageArrivalTime)))
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -5857,7 +5859,7 @@ const deserializeAws_restJson1EstimatedResourceSize = (output: any, context: __S
   return {
     estimatedOn:
       output.estimatedOn !== undefined && output.estimatedOn !== null
-        ? new Date(Math.round(output.estimatedOn * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.estimatedOn)))
         : undefined,
     estimatedSizeInBytes: __limitedParseDouble(output.estimatedSizeInBytes),
   } as any;
@@ -6042,11 +6044,11 @@ const deserializeAws_restJson1Pipeline = (output: any, context: __SerdeContext):
     arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     name: __expectString(output.name),
     reprocessingSummaries:
@@ -6127,11 +6129,11 @@ const deserializeAws_restJson1PipelineSummary = (output: any, context: __SerdeCo
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     pipelineName: __expectString(output.pipelineName),
     reprocessingSummaries:
@@ -6190,7 +6192,7 @@ const deserializeAws_restJson1ReprocessingSummary = (output: any, context: __Ser
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     id: __expectString(output.id),
     status: __expectString(output.status),

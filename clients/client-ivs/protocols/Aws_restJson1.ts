@@ -81,6 +81,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3167,7 +3168,10 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
     channelArn: __expectString(output.channelArn),
     health: __expectString(output.health),
     playbackUrl: __expectString(output.playbackUrl),
-    startTime: output.startTime !== undefined && output.startTime !== null ? new Date(output.startTime) : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.startTime))
+        : undefined,
     state: __expectString(output.state),
     viewerCount: __expectLong(output.viewerCount),
   } as any;
@@ -3233,7 +3237,10 @@ const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeCont
   return {
     channelArn: __expectString(output.channelArn),
     health: __expectString(output.health),
-    startTime: output.startTime !== undefined && output.startTime !== null ? new Date(output.startTime) : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.startTime))
+        : undefined,
     state: __expectString(output.state),
     viewerCount: __expectLong(output.viewerCount),
   } as any;

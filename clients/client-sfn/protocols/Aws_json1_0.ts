@@ -155,7 +155,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2797,7 +2800,7 @@ const deserializeAws_json1_0ActivityListItem = (output: any, context: __SerdeCon
     activityArn: __expectString(output.activityArn),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     name: __expectString(output.name),
   } as any;
@@ -2897,7 +2900,7 @@ const deserializeAws_json1_0CreateActivityOutput = (output: any, context: __Serd
     activityArn: __expectString(output.activityArn),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
   } as any;
 };
@@ -2909,7 +2912,7 @@ const deserializeAws_json1_0CreateStateMachineOutput = (
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     stateMachineArn: __expectString(output.stateMachineArn),
   } as any;
@@ -2931,7 +2934,7 @@ const deserializeAws_json1_0DescribeActivityOutput = (output: any, context: __Se
     activityArn: __expectString(output.activityArn),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     name: __expectString(output.name),
   } as any;
@@ -2956,13 +2959,13 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
         : undefined,
     startDate:
       output.startDate !== undefined && output.startDate !== null
-        ? new Date(Math.round(output.startDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate)))
         : undefined,
     stateMachineArn: __expectString(output.stateMachineArn),
     status: __expectString(output.status),
     stopDate:
       output.stopDate !== undefined && output.stopDate !== null
-        ? new Date(Math.round(output.stopDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopDate)))
         : undefined,
     traceHeader: __expectString(output.traceHeader),
   } as any;
@@ -2987,7 +2990,7 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
         : undefined,
     updateDate:
       output.updateDate !== undefined && output.updateDate !== null
-        ? new Date(Math.round(output.updateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateDate)))
         : undefined,
   } as any;
 };
@@ -2999,7 +3002,7 @@ const deserializeAws_json1_0DescribeStateMachineOutput = (
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     definition: __expectString(output.definition),
     loggingConfiguration:
@@ -3073,13 +3076,13 @@ const deserializeAws_json1_0ExecutionListItem = (output: any, context: __SerdeCo
     name: __expectString(output.name),
     startDate:
       output.startDate !== undefined && output.startDate !== null
-        ? new Date(Math.round(output.startDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate)))
         : undefined,
     stateMachineArn: __expectString(output.stateMachineArn),
     status: __expectString(output.status),
     stopDate:
       output.stopDate !== undefined && output.stopDate !== null
-        ? new Date(Math.round(output.stopDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopDate)))
         : undefined,
   } as any;
 };
@@ -3283,7 +3286,7 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
         : undefined,
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
-        ? new Date(Math.round(output.timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp)))
         : undefined,
     type: __expectString(output.type),
   } as any;
@@ -3562,7 +3565,7 @@ const deserializeAws_json1_0StartExecutionOutput = (output: any, context: __Serd
     executionArn: __expectString(output.executionArn),
     startDate:
       output.startDate !== undefined && output.startDate !== null
-        ? new Date(Math.round(output.startDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate)))
         : undefined,
   } as any;
 };
@@ -3592,13 +3595,13 @@ const deserializeAws_json1_0StartSyncExecutionOutput = (
         : undefined,
     startDate:
       output.startDate !== undefined && output.startDate !== null
-        ? new Date(Math.round(output.startDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startDate)))
         : undefined,
     stateMachineArn: __expectString(output.stateMachineArn),
     status: __expectString(output.status),
     stopDate:
       output.stopDate !== undefined && output.stopDate !== null
-        ? new Date(Math.round(output.stopDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopDate)))
         : undefined,
     traceHeader: __expectString(output.traceHeader),
   } as any;
@@ -3680,7 +3683,7 @@ const deserializeAws_json1_0StateMachineListItem = (output: any, context: __Serd
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     name: __expectString(output.name),
     stateMachineArn: __expectString(output.stateMachineArn),
@@ -3701,7 +3704,7 @@ const deserializeAws_json1_0StopExecutionOutput = (output: any, context: __Serde
   return {
     stopDate:
       output.stopDate !== undefined && output.stopDate !== null
-        ? new Date(Math.round(output.stopDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopDate)))
         : undefined,
   } as any;
 };
@@ -3863,7 +3866,7 @@ const deserializeAws_json1_0UpdateStateMachineOutput = (
   return {
     updateDate:
       output.updateDate !== undefined && output.updateDate !== null
-        ? new Date(Math.round(output.updateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateDate)))
         : undefined,
   } as any;
 };

@@ -455,8 +455,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8669,7 +8672,7 @@ const deserializeAws_json1_1CachediSCSIVolume = (output: any, context: __SerdeCo
   return {
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     KMSKey: __expectString(output.KMSKey),
     SourceSnapshotId: __expectString(output.SourceSnapshotId),
@@ -8908,7 +8911,7 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput = (
     GatewayARN: __expectString(output.GatewayARN),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Status: __expectString(output.Status),
   } as any;
@@ -9855,7 +9858,7 @@ const deserializeAws_json1_1StorediSCSIVolume = (output: any, context: __SerdeCo
   return {
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
-        ? new Date(Math.round(output.CreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     KMSKey: __expectString(output.KMSKey),
     PreservedExistingData: __expectBoolean(output.PreservedExistingData),
@@ -9925,19 +9928,19 @@ const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape 
     KMSKey: __expectString(output.KMSKey),
     PoolEntryDate:
       output.PoolEntryDate !== undefined && output.PoolEntryDate !== null
-        ? new Date(Math.round(output.PoolEntryDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PoolEntryDate)))
         : undefined,
     PoolId: __expectString(output.PoolId),
     Progress: __limitedParseDouble(output.Progress),
     RetentionStartDate:
       output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
-        ? new Date(Math.round(output.RetentionStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RetentionStartDate)))
         : undefined,
     TapeARN: __expectString(output.TapeARN),
     TapeBarcode: __expectString(output.TapeBarcode),
     TapeCreatedDate:
       output.TapeCreatedDate !== undefined && output.TapeCreatedDate !== null
-        ? new Date(Math.round(output.TapeCreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TapeCreatedDate)))
         : undefined,
     TapeSizeInBytes: __expectLong(output.TapeSizeInBytes),
     TapeStatus: __expectString(output.TapeStatus),
@@ -9951,24 +9954,24 @@ const deserializeAws_json1_1TapeArchive = (output: any, context: __SerdeContext)
   return {
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
-        ? new Date(Math.round(output.CompletionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     KMSKey: __expectString(output.KMSKey),
     PoolEntryDate:
       output.PoolEntryDate !== undefined && output.PoolEntryDate !== null
-        ? new Date(Math.round(output.PoolEntryDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PoolEntryDate)))
         : undefined,
     PoolId: __expectString(output.PoolId),
     RetentionStartDate:
       output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
-        ? new Date(Math.round(output.RetentionStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RetentionStartDate)))
         : undefined,
     RetrievedTo: __expectString(output.RetrievedTo),
     TapeARN: __expectString(output.TapeARN),
     TapeBarcode: __expectString(output.TapeBarcode),
     TapeCreatedDate:
       output.TapeCreatedDate !== undefined && output.TapeCreatedDate !== null
-        ? new Date(Math.round(output.TapeCreatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TapeCreatedDate)))
         : undefined,
     TapeSizeInBytes: __expectLong(output.TapeSizeInBytes),
     TapeStatus: __expectString(output.TapeStatus),
@@ -10004,12 +10007,12 @@ const deserializeAws_json1_1TapeInfo = (output: any, context: __SerdeContext): T
     GatewayARN: __expectString(output.GatewayARN),
     PoolEntryDate:
       output.PoolEntryDate !== undefined && output.PoolEntryDate !== null
-        ? new Date(Math.round(output.PoolEntryDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PoolEntryDate)))
         : undefined,
     PoolId: __expectString(output.PoolId),
     RetentionStartDate:
       output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
-        ? new Date(Math.round(output.RetentionStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RetentionStartDate)))
         : undefined,
     TapeARN: __expectString(output.TapeARN),
     TapeBarcode: __expectString(output.TapeBarcode),
@@ -10034,7 +10037,7 @@ const deserializeAws_json1_1TapeRecoveryPointInfo = (output: any, context: __Ser
     TapeARN: __expectString(output.TapeARN),
     TapeRecoveryPointTime:
       output.TapeRecoveryPointTime !== undefined && output.TapeRecoveryPointTime !== null
-        ? new Date(Math.round(output.TapeRecoveryPointTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TapeRecoveryPointTime)))
         : undefined,
     TapeSizeInBytes: __expectLong(output.TapeSizeInBytes),
     TapeStatus: __expectString(output.TapeStatus),

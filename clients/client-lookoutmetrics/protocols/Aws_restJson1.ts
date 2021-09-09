@@ -107,10 +107,12 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1721,7 +1723,7 @@ export const deserializeAws_restJson1DescribeAnomalyDetectorCommand = async (
     contents.AnomalyDetectorName = __expectString(data.AnomalyDetectorName);
   }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
+    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
   }
   if (data.FailureReason !== undefined && data.FailureReason !== null) {
     contents.FailureReason = __expectString(data.FailureReason);
@@ -1730,7 +1732,7 @@ export const deserializeAws_restJson1DescribeAnomalyDetectorCommand = async (
     contents.KmsKeyArn = __expectString(data.KmsKeyArn);
   }
   if (data.LastModificationTime !== undefined && data.LastModificationTime !== null) {
-    contents.LastModificationTime = new Date(Math.round(data.LastModificationTime * 1000));
+    contents.LastModificationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModificationTime)));
   }
   if (data.Status !== undefined && data.Status !== null) {
     contents.Status = __expectString(data.Status);
@@ -1835,13 +1837,13 @@ export const deserializeAws_restJson1DescribeMetricSetCommand = async (
     contents.AnomalyDetectorArn = __expectString(data.AnomalyDetectorArn);
   }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
+    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
   }
   if (data.DimensionList !== undefined && data.DimensionList !== null) {
     contents.DimensionList = deserializeAws_restJson1DimensionList(data.DimensionList, context);
   }
   if (data.LastModificationTime !== undefined && data.LastModificationTime !== null) {
-    contents.LastModificationTime = new Date(Math.round(data.LastModificationTime * 1000));
+    contents.LastModificationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModificationTime)));
   }
   if (data.MetricList !== undefined && data.MetricList !== null) {
     contents.MetricList = deserializeAws_restJson1MetricList(data.MetricList, context);
@@ -3661,11 +3663,11 @@ const deserializeAws_restJson1Alert = (output: any, context: __SerdeContext): Al
     AnomalyDetectorArn: __expectString(output.AnomalyDetectorArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
   } as any;
 };
@@ -3680,11 +3682,11 @@ const deserializeAws_restJson1AlertSummary = (output: any, context: __SerdeConte
     AnomalyDetectorArn: __expectString(output.AnomalyDetectorArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -3723,11 +3725,11 @@ const deserializeAws_restJson1AnomalyDetectorSummary = (
     AnomalyDetectorName: __expectString(output.AnomalyDetectorName),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Status: __expectString(output.Status),
     Tags:
@@ -4062,11 +4064,11 @@ const deserializeAws_restJson1MetricSetSummary = (output: any, context: __SerdeC
     AnomalyDetectorArn: __expectString(output.AnomalyDetectorArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? new Date(Math.round(output.LastModificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     MetricSetArn: __expectString(output.MetricSetArn),
     MetricSetDescription: __expectString(output.MetricSetDescription),

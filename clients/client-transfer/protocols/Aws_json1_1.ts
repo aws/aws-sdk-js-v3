@@ -154,7 +154,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4837,7 +4840,7 @@ const deserializeAws_json1_1SshPublicKey = (output: any, context: __SerdeContext
   return {
     DateImported:
       output.DateImported !== undefined && output.DateImported !== null
-        ? new Date(Math.round(output.DateImported * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateImported)))
         : undefined,
     SshPublicKeyBody: __expectString(output.SshPublicKeyBody),
     SshPublicKeyId: __expectString(output.SshPublicKeyId),

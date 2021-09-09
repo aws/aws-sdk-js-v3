@@ -277,7 +277,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4403,11 +4406,11 @@ const deserializeAws_json1_0ActivityTypeInfo = (output: any, context: __SerdeCon
         : undefined,
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     deprecationDate:
       output.deprecationDate !== undefined && output.deprecationDate !== null
-        ? new Date(Math.round(output.deprecationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deprecationDate)))
         : undefined,
     description: __expectString(output.description),
     status: __expectString(output.status),
@@ -4912,7 +4915,7 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
     eventId: __expectLong(output.eventId),
     eventTimestamp:
       output.eventTimestamp !== undefined && output.eventTimestamp !== null
-        ? new Date(Math.round(output.eventTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTimestamp)))
         : undefined,
     eventType: __expectString(output.eventType),
     externalWorkflowExecutionCancelRequestedEventAttributes:
@@ -5652,7 +5655,7 @@ const deserializeAws_json1_0WorkflowExecutionDetail = (
         : undefined,
     latestActivityTaskTimestamp:
       output.latestActivityTaskTimestamp !== undefined && output.latestActivityTaskTimestamp !== null
-        ? new Date(Math.round(output.latestActivityTaskTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.latestActivityTaskTimestamp)))
         : undefined,
     latestExecutionContext: __expectString(output.latestExecutionContext),
     openCounts:
@@ -5679,7 +5682,7 @@ const deserializeAws_json1_0WorkflowExecutionInfo = (output: any, context: __Ser
     closeStatus: __expectString(output.closeStatus),
     closeTimestamp:
       output.closeTimestamp !== undefined && output.closeTimestamp !== null
-        ? new Date(Math.round(output.closeTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.closeTimestamp)))
         : undefined,
     execution:
       output.execution !== undefined && output.execution !== null
@@ -5692,7 +5695,7 @@ const deserializeAws_json1_0WorkflowExecutionInfo = (output: any, context: __Ser
         : undefined,
     startTimestamp:
       output.startTimestamp !== undefined && output.startTimestamp !== null
-        ? new Date(Math.round(output.startTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTimestamp)))
         : undefined,
     tagList:
       output.tagList !== undefined && output.tagList !== null
@@ -5852,11 +5855,11 @@ const deserializeAws_json1_0WorkflowTypeInfo = (output: any, context: __SerdeCon
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     deprecationDate:
       output.deprecationDate !== undefined && output.deprecationDate !== null
-        ? new Date(Math.round(output.deprecationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deprecationDate)))
         : undefined,
     description: __expectString(output.description),
     status: __expectString(output.status),

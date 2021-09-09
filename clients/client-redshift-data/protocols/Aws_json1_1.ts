@@ -50,8 +50,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1123,7 +1126,7 @@ const deserializeAws_json1_1BatchExecuteStatementOutput = (
     ClusterIdentifier: __expectString(output.ClusterIdentifier),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Database: __expectString(output.Database),
     DbUser: __expectString(output.DbUser),
@@ -1200,7 +1203,7 @@ const deserializeAws_json1_1DescribeStatementResponse = (
     ClusterIdentifier: __expectString(output.ClusterIdentifier),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Database: __expectString(output.Database),
     DbUser: __expectString(output.DbUser),
@@ -1225,7 +1228,7 @@ const deserializeAws_json1_1DescribeStatementResponse = (
         : undefined,
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -1256,7 +1259,7 @@ const deserializeAws_json1_1ExecuteStatementOutput = (output: any, context: __Se
     ClusterIdentifier: __expectString(output.ClusterIdentifier),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Database: __expectString(output.Database),
     DbUser: __expectString(output.DbUser),
@@ -1421,7 +1424,7 @@ const deserializeAws_json1_1StatementData = (output: any, context: __SerdeContex
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Id: __expectString(output.Id),
     IsBatchStatement: __expectBoolean(output.IsBatchStatement),
@@ -1439,7 +1442,7 @@ const deserializeAws_json1_1StatementData = (output: any, context: __SerdeContex
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };
@@ -1470,7 +1473,7 @@ const deserializeAws_json1_1SubStatementData = (output: any, context: __SerdeCon
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Duration: __expectLong(output.Duration),
     Error: __expectString(output.Error),
@@ -1483,7 +1486,7 @@ const deserializeAws_json1_1SubStatementData = (output: any, context: __SerdeCon
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? new Date(Math.round(output.UpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
 };

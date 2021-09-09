@@ -118,9 +118,11 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1542,7 +1544,7 @@ export const deserializeAws_restJson1GetInsightImpactGraphCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.EndTime !== undefined && data.EndTime !== null) {
-    contents.EndTime = new Date(Math.round(data.EndTime * 1000));
+    contents.EndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.EndTime)));
   }
   if (data.InsightId !== undefined && data.InsightId !== null) {
     contents.InsightId = __expectString(data.InsightId);
@@ -1551,16 +1553,16 @@ export const deserializeAws_restJson1GetInsightImpactGraphCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.ServiceGraphEndTime !== undefined && data.ServiceGraphEndTime !== null) {
-    contents.ServiceGraphEndTime = new Date(Math.round(data.ServiceGraphEndTime * 1000));
+    contents.ServiceGraphEndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ServiceGraphEndTime)));
   }
   if (data.ServiceGraphStartTime !== undefined && data.ServiceGraphStartTime !== null) {
-    contents.ServiceGraphStartTime = new Date(Math.round(data.ServiceGraphStartTime * 1000));
+    contents.ServiceGraphStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ServiceGraphStartTime)));
   }
   if (data.Services !== undefined && data.Services !== null) {
     contents.Services = deserializeAws_restJson1InsightImpactGraphServiceList(data.Services, context);
   }
   if (data.StartTime !== undefined && data.StartTime !== null) {
-    contents.StartTime = new Date(Math.round(data.StartTime * 1000));
+    contents.StartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.StartTime)));
   }
   return Promise.resolve(contents);
 };
@@ -1829,7 +1831,7 @@ export const deserializeAws_restJson1GetSamplingTargetsCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LastRuleModification !== undefined && data.LastRuleModification !== null) {
-    contents.LastRuleModification = new Date(Math.round(data.LastRuleModification * 1000));
+    contents.LastRuleModification = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastRuleModification)));
   }
   if (data.SamplingTargetDocuments !== undefined && data.SamplingTargetDocuments !== null) {
     contents.SamplingTargetDocuments = deserializeAws_restJson1SamplingTargetDocumentList(
@@ -1911,7 +1913,7 @@ export const deserializeAws_restJson1GetServiceGraphCommand = async (
     contents.ContainsOldGroupVersions = __expectBoolean(data.ContainsOldGroupVersions);
   }
   if (data.EndTime !== undefined && data.EndTime !== null) {
-    contents.EndTime = new Date(Math.round(data.EndTime * 1000));
+    contents.EndTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.EndTime)));
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -1920,7 +1922,7 @@ export const deserializeAws_restJson1GetServiceGraphCommand = async (
     contents.Services = deserializeAws_restJson1ServiceList(data.Services, context);
   }
   if (data.StartTime !== undefined && data.StartTime !== null) {
-    contents.StartTime = new Date(Math.round(data.StartTime * 1000));
+    contents.StartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.StartTime)));
   }
   return Promise.resolve(contents);
 };
@@ -2127,7 +2129,7 @@ export const deserializeAws_restJson1GetTraceSummariesCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ApproximateTime !== undefined && data.ApproximateTime !== null) {
-    contents.ApproximateTime = new Date(Math.round(data.ApproximateTime * 1000));
+    contents.ApproximateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ApproximateTime)));
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -3123,7 +3125,9 @@ const deserializeAws_restJson1Edge = (output: any, context: __SerdeContext): Edg
         ? deserializeAws_restJson1AliasList(output.Aliases, context)
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     ReferenceId: __expectInt32(output.ReferenceId),
     ResponseTimeHistogram:
       output.ResponseTimeHistogram !== undefined && output.ResponseTimeHistogram !== null
@@ -3131,7 +3135,7 @@ const deserializeAws_restJson1Edge = (output: any, context: __SerdeContext): Edg
         : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     SummaryStatistics:
       output.SummaryStatistics !== undefined && output.SummaryStatistics !== null
@@ -3425,7 +3429,9 @@ const deserializeAws_restJson1Insight = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1RequestImpactStatistics(output.ClientRequestImpactStatistics, context)
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     GroupARN: __expectString(output.GroupARN),
     GroupName: __expectString(output.GroupName),
     InsightId: __expectString(output.InsightId),
@@ -3440,7 +3446,7 @@ const deserializeAws_restJson1Insight = (output: any, context: __SerdeContext): 
         : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     State: __expectString(output.State),
     Summary: __expectString(output.Summary),
@@ -3473,7 +3479,7 @@ const deserializeAws_restJson1InsightEvent = (output: any, context: __SerdeConte
         : undefined,
     EventTime:
       output.EventTime !== undefined && output.EventTime !== null
-        ? new Date(Math.round(output.EventTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime)))
         : undefined,
     RootCauseServiceRequestImpactStatistics:
       output.RootCauseServiceRequestImpactStatistics !== undefined &&
@@ -3574,13 +3580,15 @@ const deserializeAws_restJson1InsightSummary = (output: any, context: __SerdeCon
         ? deserializeAws_restJson1RequestImpactStatistics(output.ClientRequestImpactStatistics, context)
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     GroupARN: __expectString(output.GroupARN),
     GroupName: __expectString(output.GroupName),
     InsightId: __expectString(output.InsightId),
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     RootCauseServiceId:
       output.RootCauseServiceId !== undefined && output.RootCauseServiceId !== null
@@ -3593,7 +3601,7 @@ const deserializeAws_restJson1InsightSummary = (output: any, context: __SerdeCon
         : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     State: __expectString(output.State),
     Summary: __expectString(output.Summary),
@@ -3764,11 +3772,11 @@ const deserializeAws_restJson1SamplingRuleRecord = (output: any, context: __Serd
   return {
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     ModifiedAt:
       output.ModifiedAt !== undefined && output.ModifiedAt !== null
-        ? new Date(Math.round(output.ModifiedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedAt)))
         : undefined,
     SamplingRule:
       output.SamplingRule !== undefined && output.SamplingRule !== null
@@ -3799,7 +3807,7 @@ const deserializeAws_restJson1SamplingStatisticSummary = (
     SampledCount: __expectInt32(output.SampledCount),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
   } as any;
 };
@@ -3828,7 +3836,7 @@ const deserializeAws_restJson1SamplingTargetDocument = (
     ReservoirQuota: __expectInt32(output.ReservoirQuota),
     ReservoirQuotaTTL:
       output.ReservoirQuotaTTL !== undefined && output.ReservoirQuotaTTL !== null
-        ? new Date(Math.round(output.ReservoirQuotaTTL * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReservoirQuotaTTL)))
         : undefined,
     RuleName: __expectString(output.RuleName),
   } as any;
@@ -3878,7 +3886,9 @@ const deserializeAws_restJson1Service = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1EdgeList(output.Edges, context)
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
     Name: __expectString(output.Name),
     Names:
       output.Names !== undefined && output.Names !== null
@@ -3892,7 +3902,7 @@ const deserializeAws_restJson1Service = (output: any, context: __SerdeContext): 
     Root: __expectBoolean(output.Root),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     State: __expectString(output.State),
     SummaryStatistics:
@@ -4005,7 +4015,7 @@ const deserializeAws_restJson1TimeSeriesServiceStatistics = (
         : undefined,
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
-        ? new Date(Math.round(output.Timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
   } as any;
 };
@@ -4121,7 +4131,7 @@ const deserializeAws_restJson1TraceSummary = (output: any, context: __SerdeConte
     IsPartial: __expectBoolean(output.IsPartial),
     MatchedEventTime:
       output.MatchedEventTime !== undefined && output.MatchedEventTime !== null
-        ? new Date(Math.round(output.MatchedEventTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.MatchedEventTime)))
         : undefined,
     ResourceARNs:
       output.ResourceARNs !== undefined && output.ResourceARNs !== null

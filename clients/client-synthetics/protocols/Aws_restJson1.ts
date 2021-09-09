@@ -51,9 +51,11 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1753,10 +1755,12 @@ const deserializeAws_restJson1CanaryRunTimeline = (output: any, context: __Serde
   return {
     Completed:
       output.Completed !== undefined && output.Completed !== null
-        ? new Date(Math.round(output.Completed * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Completed)))
         : undefined,
     Started:
-      output.Started !== undefined && output.Started !== null ? new Date(Math.round(output.Started * 1000)) : undefined,
+      output.Started !== undefined && output.Started !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Started)))
+        : undefined,
   } as any;
 };
 
@@ -1778,18 +1782,20 @@ const deserializeAws_restJson1CanaryStatus = (output: any, context: __SerdeConte
 const deserializeAws_restJson1CanaryTimeline = (output: any, context: __SerdeContext): CanaryTimeline => {
   return {
     Created:
-      output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
+      output.Created !== undefined && output.Created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Created)))
+        : undefined,
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
-        ? new Date(Math.round(output.LastModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
         : undefined,
     LastStarted:
       output.LastStarted !== undefined && output.LastStarted !== null
-        ? new Date(Math.round(output.LastStarted * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastStarted)))
         : undefined,
     LastStopped:
       output.LastStopped !== undefined && output.LastStopped !== null
-        ? new Date(Math.round(output.LastStopped * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastStopped)))
         : undefined,
   } as any;
 };
@@ -1798,12 +1804,12 @@ const deserializeAws_restJson1RuntimeVersion = (output: any, context: __SerdeCon
   return {
     DeprecationDate:
       output.DeprecationDate !== undefined && output.DeprecationDate !== null
-        ? new Date(Math.round(output.DeprecationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeprecationDate)))
         : undefined,
     Description: __expectString(output.Description),
     ReleaseDate:
       output.ReleaseDate !== undefined && output.ReleaseDate !== null
-        ? new Date(Math.round(output.ReleaseDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReleaseDate)))
         : undefined,
     VersionName: __expectString(output.VersionName),
   } as any;

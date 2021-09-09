@@ -614,7 +614,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -17760,11 +17763,11 @@ const deserializeAws_json1_1ApprovalRule = (output: any, context: __SerdeContext
     approvalRuleName: __expectString(output.approvalRuleName),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
-        ? new Date(Math.round(output.lastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
     lastModifiedUser: __expectString(output.lastModifiedUser),
     originApprovalRuleTemplate:
@@ -17873,11 +17876,11 @@ const deserializeAws_json1_1ApprovalRuleTemplate = (output: any, context: __Serd
     approvalRuleTemplateName: __expectString(output.approvalRuleTemplateName),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
-        ? new Date(Math.round(output.lastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
     lastModifiedUser: __expectString(output.lastModifiedUser),
     ruleContentSha256: __expectString(output.ruleContentSha256),
@@ -18285,13 +18288,13 @@ const deserializeAws_json1_1Comment = (output: any, context: __SerdeContext): Co
     content: __expectString(output.content),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     deleted: __expectBoolean(output.deleted),
     inReplyTo: __expectString(output.inReplyTo),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
-        ? new Date(Math.round(output.lastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
     reactionCounts:
       output.reactionCounts !== undefined && output.reactionCounts !== null
@@ -20362,12 +20365,12 @@ const deserializeAws_json1_1PullRequest = (output: any, context: __SerdeContext)
     clientRequestToken: __expectString(output.clientRequestToken),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     description: __expectString(output.description),
     lastActivityDate:
       output.lastActivityDate !== undefined && output.lastActivityDate !== null
-        ? new Date(Math.round(output.lastActivityDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastActivityDate)))
         : undefined,
     pullRequestId: __expectString(output.pullRequestId),
     pullRequestStatus: __expectString(output.pullRequestStatus),
@@ -20445,7 +20448,7 @@ const deserializeAws_json1_1PullRequestEvent = (output: any, context: __SerdeCon
         : undefined,
     eventDate:
       output.eventDate !== undefined && output.eventDate !== null
-        ? new Date(Math.round(output.eventDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventDate)))
         : undefined,
     pullRequestCreatedEventMetadata:
       output.pullRequestCreatedEventMetadata !== undefined && output.pullRequestCreatedEventMetadata !== null
@@ -20752,12 +20755,12 @@ const deserializeAws_json1_1RepositoryMetadata = (output: any, context: __SerdeC
     cloneUrlSsh: __expectString(output.cloneUrlSsh),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     defaultBranch: __expectString(output.defaultBranch),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
-        ? new Date(Math.round(output.lastModifiedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))
         : undefined,
     repositoryDescription: __expectString(output.repositoryDescription),
     repositoryId: __expectString(output.repositoryId),

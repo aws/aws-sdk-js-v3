@@ -337,10 +337,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5010,13 +5012,13 @@ export const deserializeAws_restJson1GetContactCommand = async (
     contents.ContactListName = __expectString(data.ContactListName);
   }
   if (data.CreatedTimestamp !== undefined && data.CreatedTimestamp !== null) {
-    contents.CreatedTimestamp = new Date(Math.round(data.CreatedTimestamp * 1000));
+    contents.CreatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTimestamp)));
   }
   if (data.EmailAddress !== undefined && data.EmailAddress !== null) {
     contents.EmailAddress = __expectString(data.EmailAddress);
   }
   if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
-    contents.LastUpdatedTimestamp = new Date(Math.round(data.LastUpdatedTimestamp * 1000));
+    contents.LastUpdatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTimestamp)));
   }
   if (data.TopicDefaultPreferences !== undefined && data.TopicDefaultPreferences !== null) {
     contents.TopicDefaultPreferences = deserializeAws_restJson1TopicPreferenceList(
@@ -5107,13 +5109,13 @@ export const deserializeAws_restJson1GetContactListCommand = async (
     contents.ContactListName = __expectString(data.ContactListName);
   }
   if (data.CreatedTimestamp !== undefined && data.CreatedTimestamp !== null) {
-    contents.CreatedTimestamp = new Date(Math.round(data.CreatedTimestamp * 1000));
+    contents.CreatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTimestamp)));
   }
   if (data.Description !== undefined && data.Description !== null) {
     contents.Description = __expectString(data.Description);
   }
   if (data.LastUpdatedTimestamp !== undefined && data.LastUpdatedTimestamp !== null) {
-    contents.LastUpdatedTimestamp = new Date(Math.round(data.LastUpdatedTimestamp * 1000));
+    contents.LastUpdatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedTimestamp)));
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
@@ -5449,7 +5451,9 @@ export const deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = 
     );
   }
   if (data.SubscriptionExpiryDate !== undefined && data.SubscriptionExpiryDate !== null) {
-    contents.SubscriptionExpiryDate = new Date(Math.round(data.SubscriptionExpiryDate * 1000));
+    contents.SubscriptionExpiryDate = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.SubscriptionExpiryDate))
+    );
   }
   return Promise.resolve(contents);
 };
@@ -6012,10 +6016,10 @@ export const deserializeAws_restJson1GetImportJobCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CompletedTimestamp !== undefined && data.CompletedTimestamp !== null) {
-    contents.CompletedTimestamp = new Date(Math.round(data.CompletedTimestamp * 1000));
+    contents.CompletedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletedTimestamp)));
   }
   if (data.CreatedTimestamp !== undefined && data.CreatedTimestamp !== null) {
-    contents.CreatedTimestamp = new Date(Math.round(data.CreatedTimestamp * 1000));
+    contents.CreatedTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedTimestamp)));
   }
   if (data.FailedRecordsCount !== undefined && data.FailedRecordsCount !== null) {
     contents.FailedRecordsCount = __expectInt32(data.FailedRecordsCount);
@@ -9947,7 +9951,7 @@ const deserializeAws_restJson1BlacklistEntry = (output: any, context: __SerdeCon
     Description: __expectString(output.Description),
     ListingTime:
       output.ListingTime !== undefined && output.ListingTime !== null
-        ? new Date(Math.round(output.ListingTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ListingTime)))
         : undefined,
     RblName: __expectString(output.RblName),
   } as any;
@@ -10040,7 +10044,7 @@ const deserializeAws_restJson1Contact = (output: any, context: __SerdeContext): 
     EmailAddress: __expectString(output.EmailAddress),
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     TopicDefaultPreferences:
       output.TopicDefaultPreferences !== undefined && output.TopicDefaultPreferences !== null
@@ -10059,7 +10063,7 @@ const deserializeAws_restJson1ContactList = (output: any, context: __SerdeContex
     ContactListName: __expectString(output.ContactListName),
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
   } as any;
 };
@@ -10109,7 +10113,7 @@ const deserializeAws_restJson1DailyVolume = (output: any, context: __SerdeContex
         : undefined,
     StartDate:
       output.StartDate !== undefined && output.StartDate !== null
-        ? new Date(Math.round(output.StartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDate)))
         : undefined,
     VolumeStatistics:
       output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
@@ -10156,7 +10160,7 @@ const deserializeAws_restJson1DeliverabilityTestReport = (
   return {
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
-        ? new Date(Math.round(output.CreateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate)))
         : undefined,
     DeliverabilityTestStatus: __expectString(output.DeliverabilityTestStatus),
     FromEmailAddress: __expectString(output.FromEmailAddress),
@@ -10223,14 +10227,14 @@ const deserializeAws_restJson1DomainDeliverabilityCampaign = (
         : undefined,
     FirstSeenDateTime:
       output.FirstSeenDateTime !== undefined && output.FirstSeenDateTime !== null
-        ? new Date(Math.round(output.FirstSeenDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FirstSeenDateTime)))
         : undefined,
     FromAddress: __expectString(output.FromAddress),
     ImageUrl: __expectString(output.ImageUrl),
     InboxCount: __expectLong(output.InboxCount),
     LastSeenDateTime:
       output.LastSeenDateTime !== undefined && output.LastSeenDateTime !== null
-        ? new Date(Math.round(output.LastSeenDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenDateTime)))
         : undefined,
     ProjectedVolume: __expectLong(output.ProjectedVolume),
     ReadDeleteRate: __limitedParseDouble(output.ReadDeleteRate),
@@ -10270,7 +10274,7 @@ const deserializeAws_restJson1DomainDeliverabilityTrackingOption = (
         : undefined,
     SubscriptionStartDate:
       output.SubscriptionStartDate !== undefined && output.SubscriptionStartDate !== null
-        ? new Date(Math.round(output.SubscriptionStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubscriptionStartDate)))
         : undefined,
   } as any;
 };
@@ -10322,7 +10326,7 @@ const deserializeAws_restJson1EmailTemplateMetadata = (output: any, context: __S
   return {
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     TemplateName: __expectString(output.TemplateName),
   } as any;
@@ -10452,7 +10456,7 @@ const deserializeAws_restJson1ImportJobSummary = (output: any, context: __SerdeC
   return {
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     ImportDestination:
       output.ImportDestination !== undefined && output.ImportDestination !== null
@@ -10627,7 +10631,7 @@ const deserializeAws_restJson1ReputationOptions = (output: any, context: __Serde
   return {
     LastFreshStart:
       output.LastFreshStart !== undefined && output.LastFreshStart !== null
-        ? new Date(Math.round(output.LastFreshStart * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastFreshStart)))
         : undefined,
     ReputationMetricsEnabled: __expectBoolean(output.ReputationMetricsEnabled),
   } as any;
@@ -10669,7 +10673,7 @@ const deserializeAws_restJson1SuppressedDestination = (output: any, context: __S
     EmailAddress: __expectString(output.EmailAddress),
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     Reason: __expectString(output.Reason),
   } as any;
@@ -10707,7 +10711,7 @@ const deserializeAws_restJson1SuppressedDestinationSummary = (
     EmailAddress: __expectString(output.EmailAddress),
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
-        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
     Reason: __expectString(output.Reason),
   } as any;

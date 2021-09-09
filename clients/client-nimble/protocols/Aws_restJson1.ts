@@ -169,6 +169,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7251,16 +7252,25 @@ const deserializeAws_restJson1EC2SubnetIdList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1Eula = (output: any, context: __SerdeContext): Eula => {
   return {
     content: __expectString(output.content),
-    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
+        : undefined,
     eulaId: __expectString(output.eulaId),
     name: __expectString(output.name),
-    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
+        : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1EulaAcceptance = (output: any, context: __SerdeContext): EulaAcceptance => {
   return {
-    acceptedAt: output.acceptedAt !== undefined && output.acceptedAt !== null ? new Date(output.acceptedAt) : undefined,
+    acceptedAt:
+      output.acceptedAt !== undefined && output.acceptedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.acceptedAt))
+        : undefined,
     acceptedBy: __expectString(output.acceptedBy),
     accepteeId: __expectString(output.accepteeId),
     eulaAcceptanceId: __expectString(output.eulaAcceptanceId),
@@ -7316,7 +7326,10 @@ const deserializeAws_restJson1ExceptionContext = (output: any, context: __SerdeC
 const deserializeAws_restJson1LaunchProfile = (output: any, context: __SerdeContext): LaunchProfile => {
   return {
     arn: __expectString(output.arn),
-    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
+        : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     ec2SubnetIds:
@@ -7344,7 +7357,10 @@ const deserializeAws_restJson1LaunchProfile = (output: any, context: __SerdeCont
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
+        : undefined,
     updatedBy: __expectString(output.updatedBy),
   } as any;
 };
@@ -7616,7 +7632,10 @@ const deserializeAws_restJson1StreamingInstanceTypeList = (
 const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeContext): StreamingSession => {
   return {
     arn: __expectString(output.arn),
-    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
+        : undefined,
     createdBy: __expectString(output.createdBy),
     ec2InstanceType: __expectString(output.ec2InstanceType),
     launchProfileId: __expectString(output.launchProfileId),
@@ -7631,8 +7650,13 @@ const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeC
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
     terminateAt:
-      output.terminateAt !== undefined && output.terminateAt !== null ? new Date(output.terminateAt) : undefined,
-    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
+      output.terminateAt !== undefined && output.terminateAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.terminateAt))
+        : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
+        : undefined,
     updatedBy: __expectString(output.updatedBy),
   } as any;
 };
@@ -7653,9 +7677,15 @@ const deserializeAws_restJson1StreamingSessionStream = (
   context: __SerdeContext
 ): StreamingSessionStream => {
   return {
-    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
+        : undefined,
     createdBy: __expectString(output.createdBy),
-    expiresAt: output.expiresAt !== undefined && output.expiresAt !== null ? new Date(output.expiresAt) : undefined,
+    expiresAt:
+      output.expiresAt !== undefined && output.expiresAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.expiresAt))
+        : undefined,
     ownedBy: __expectString(output.ownedBy),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
@@ -7668,7 +7698,10 @@ const deserializeAws_restJson1Studio = (output: any, context: __SerdeContext): S
   return {
     adminRoleArn: __expectString(output.adminRoleArn),
     arn: __expectString(output.arn),
-    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
+        : undefined,
     displayName: __expectString(output.displayName),
     homeRegion: __expectString(output.homeRegion),
     ssoClientId: __expectString(output.ssoClientId),
@@ -7686,7 +7719,10 @@ const deserializeAws_restJson1Studio = (output: any, context: __SerdeContext): S
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
+        : undefined,
     userRoleArn: __expectString(output.userRoleArn),
   } as any;
 };
@@ -7698,7 +7734,10 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_restJson1StudioComponentConfiguration(output.configuration, context)
         : undefined,
-    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
+        : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     ec2SecurityGroupIds:
@@ -7724,7 +7763,10 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
     type: __expectString(output.type),
-    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
+        : undefined,
     updatedBy: __expectString(output.updatedBy),
   } as any;
 };
@@ -7820,14 +7862,20 @@ const deserializeAws_restJson1StudioComponentSummary = (
   context: __SerdeContext
 ): StudioComponentSummary => {
   return {
-    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
+        : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     name: __expectString(output.name),
     studioComponentId: __expectString(output.studioComponentId),
     subtype: __expectString(output.subtype),
     type: __expectString(output.type),
-    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
+        : undefined,
     updatedBy: __expectString(output.updatedBy),
   } as any;
 };

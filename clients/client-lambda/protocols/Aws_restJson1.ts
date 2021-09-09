@@ -239,10 +239,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2874,7 +2876,7 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     );
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
+    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
   }
   if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
     contents.LastProcessingResult = __expectString(data.LastProcessingResult);
@@ -2910,7 +2912,9 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     contents.StartingPosition = __expectString(data.StartingPosition);
   }
   if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
-    contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
+    contents.StartingPositionTimestamp = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.StartingPositionTimestamp))
+    );
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = __expectString(data.State);
@@ -3443,7 +3447,7 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     );
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
+    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
   }
   if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
     contents.LastProcessingResult = __expectString(data.LastProcessingResult);
@@ -3479,7 +3483,9 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     contents.StartingPosition = __expectString(data.StartingPosition);
   }
   if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
-    contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
+    contents.StartingPositionTimestamp = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.StartingPositionTimestamp))
+    );
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = __expectString(data.State);
@@ -4342,7 +4348,7 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     );
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
+    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
   }
   if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
     contents.LastProcessingResult = __expectString(data.LastProcessingResult);
@@ -4378,7 +4384,9 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     contents.StartingPosition = __expectString(data.StartingPosition);
   }
   if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
-    contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
+    contents.StartingPositionTimestamp = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.StartingPositionTimestamp))
+    );
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = __expectString(data.State);
@@ -4934,7 +4942,7 @@ export const deserializeAws_restJson1GetFunctionEventInvokeConfigCommand = async
     contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
+    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
   }
   if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
     contents.MaximumEventAgeInSeconds = __expectInt32(data.MaximumEventAgeInSeconds);
@@ -7280,7 +7288,7 @@ export const deserializeAws_restJson1PutFunctionEventInvokeConfigCommand = async
     contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
+    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
   }
   if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
     contents.MaximumEventAgeInSeconds = __expectInt32(data.MaximumEventAgeInSeconds);
@@ -8049,7 +8057,7 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     );
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
+    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
   }
   if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
     contents.LastProcessingResult = __expectString(data.LastProcessingResult);
@@ -8085,7 +8093,9 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     contents.StartingPosition = __expectString(data.StartingPosition);
   }
   if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
-    contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
+    contents.StartingPositionTimestamp = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.StartingPositionTimestamp))
+    );
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = __expectString(data.State);
@@ -8691,7 +8701,7 @@ export const deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = as
     contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
+    contents.LastModified = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModified)));
   }
   if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
     contents.MaximumEventAgeInSeconds = __expectInt32(data.MaximumEventAgeInSeconds);
@@ -10061,7 +10071,7 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
         : undefined,
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
-        ? new Date(Math.round(output.LastModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
         : undefined,
     LastProcessingResult: __expectString(output.LastProcessingResult),
     MaximumBatchingWindowInSeconds: __expectInt32(output.MaximumBatchingWindowInSeconds),
@@ -10083,7 +10093,7 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
     StartingPosition: __expectString(output.StartingPosition),
     StartingPositionTimestamp:
       output.StartingPositionTimestamp !== undefined && output.StartingPositionTimestamp !== null
-        ? new Date(Math.round(output.StartingPositionTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartingPositionTimestamp)))
         : undefined,
     State: __expectString(output.State),
     StateTransitionReason: __expectString(output.StateTransitionReason),
@@ -10217,7 +10227,7 @@ const deserializeAws_restJson1FunctionEventInvokeConfig = (
     FunctionArn: __expectString(output.FunctionArn),
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
-        ? new Date(Math.round(output.LastModified * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
         : undefined,
     MaximumEventAgeInSeconds: __expectInt32(output.MaximumEventAgeInSeconds),
     MaximumRetryAttempts: __expectInt32(output.MaximumRetryAttempts),

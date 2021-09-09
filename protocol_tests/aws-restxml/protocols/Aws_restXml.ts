@@ -167,6 +167,9 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc7231DateTime as __parseRfc7231DateTime,
   splitEvery as __splitEvery,
   strictParseByte as __strictParseByte,
   strictParseDouble as __strictParseDouble,
@@ -3497,7 +3500,7 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
   }
   if (output.headers["x-timestamplist"] !== undefined) {
     contents.headerTimestampList = __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
-      (_entry) => new Date(_entry.trim()) as any
+      (_entry) => __expectNonNull(__parseRfc7231DateTime(_entry.trim())) as any
     );
   }
   if (output.headers["x-enum"] !== undefined) {
@@ -4112,25 +4115,25 @@ export const deserializeAws_restXmlTimestampFormatHeadersCommand = async (
     targetHttpDate: undefined,
   };
   if (output.headers["x-memberepochseconds"] !== undefined) {
-    contents.memberEpochSeconds = new Date(Math.round(parseInt(output.headers["x-memberepochseconds"], 10) * 1000));
+    contents.memberEpochSeconds = __expectNonNull(__parseEpochTimestamp(output.headers["x-memberepochseconds"]));
   }
   if (output.headers["x-memberhttpdate"] !== undefined) {
-    contents.memberHttpDate = new Date(output.headers["x-memberhttpdate"]);
+    contents.memberHttpDate = __expectNonNull(__parseRfc7231DateTime(output.headers["x-memberhttpdate"]));
   }
   if (output.headers["x-memberdatetime"] !== undefined) {
-    contents.memberDateTime = new Date(output.headers["x-memberdatetime"]);
+    contents.memberDateTime = __expectNonNull(__parseRfc3339DateTime(output.headers["x-memberdatetime"]));
   }
   if (output.headers["x-defaultformat"] !== undefined) {
-    contents.defaultFormat = new Date(output.headers["x-defaultformat"]);
+    contents.defaultFormat = __expectNonNull(__parseRfc7231DateTime(output.headers["x-defaultformat"]));
   }
   if (output.headers["x-targetepochseconds"] !== undefined) {
-    contents.targetEpochSeconds = new Date(Math.round(parseInt(output.headers["x-targetepochseconds"], 10) * 1000));
+    contents.targetEpochSeconds = __expectNonNull(__parseEpochTimestamp(output.headers["x-targetepochseconds"]));
   }
   if (output.headers["x-targethttpdate"] !== undefined) {
-    contents.targetHttpDate = new Date(output.headers["x-targethttpdate"]);
+    contents.targetHttpDate = __expectNonNull(__parseRfc7231DateTime(output.headers["x-targethttpdate"]));
   }
   if (output.headers["x-targetdatetime"] !== undefined) {
-    contents.targetDateTime = new Date(output.headers["x-targetdatetime"]);
+    contents.targetDateTime = __expectNonNull(__parseRfc3339DateTime(output.headers["x-targetdatetime"]));
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5063,16 +5066,16 @@ export const deserializeAws_restXmlXmlTimestampsCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["dateTime"] !== undefined) {
-    contents.dateTime = new Date(data["dateTime"]);
+    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(data["dateTime"]));
   }
   if (data["epochSeconds"] !== undefined) {
-    contents.epochSeconds = new Date(data["epochSeconds"]);
+    contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(data["epochSeconds"]));
   }
   if (data["httpDate"] !== undefined) {
-    contents.httpDate = new Date(data["httpDate"]);
+    contents.httpDate = __expectNonNull(__parseRfc7231DateTime(data["httpDate"]));
   }
   if (data["normal"] !== undefined) {
-    contents.normal = new Date(data["normal"]);
+    contents.normal = __expectNonNull(__parseRfc3339DateTime(data["normal"]));
   }
   return Promise.resolve(contents);
 };
@@ -6147,7 +6150,7 @@ const deserializeAws_restXmlTimestampList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return new Date(entry);
+      return __expectNonNull(__parseRfc3339DateTime(entry));
     });
 };
 

@@ -120,10 +120,12 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1671,7 +1673,7 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
     contents.clarificationPrompt = deserializeAws_restJson1Prompt(data.clarificationPrompt, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -1692,7 +1694,7 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
     contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.locale !== undefined && data.locale !== null) {
     contents.locale = __expectString(data.locale);
@@ -1828,7 +1830,7 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
     contents.confirmationPrompt = deserializeAws_restJson1Prompt(data.confirmationPrompt, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -1849,7 +1851,7 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
     contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -1977,7 +1979,7 @@ export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
     contents.checksum = __expectString(data.checksum);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -1986,7 +1988,7 @@ export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
     contents.enumerationValues = deserializeAws_restJson1EnumerationValues(data.enumerationValues, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -2923,7 +2925,7 @@ export const deserializeAws_restJson1GetBotCommand = async (
     contents.clarificationPrompt = deserializeAws_restJson1Prompt(data.clarificationPrompt, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -2944,7 +2946,7 @@ export const deserializeAws_restJson1GetBotCommand = async (
     contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.locale !== undefined && data.locale !== null) {
     contents.locale = __expectString(data.locale);
@@ -3060,13 +3062,13 @@ export const deserializeAws_restJson1GetBotAliasCommand = async (
     contents.conversationLogs = deserializeAws_restJson1ConversationLogsResponse(data.conversationLogs, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -3240,7 +3242,7 @@ export const deserializeAws_restJson1GetBotChannelAssociationCommand = async (
     contents.botName = __expectString(data.botName);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -3924,7 +3926,7 @@ export const deserializeAws_restJson1GetImportCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = deserializeAws_restJson1StringList(data.failureReason, context);
@@ -4047,7 +4049,7 @@ export const deserializeAws_restJson1GetIntentCommand = async (
     contents.confirmationPrompt = deserializeAws_restJson1Prompt(data.confirmationPrompt, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -4068,7 +4070,7 @@ export const deserializeAws_restJson1GetIntentCommand = async (
     contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -4355,7 +4357,7 @@ export const deserializeAws_restJson1GetMigrationCommand = async (
     contents.migrationStrategy = __expectString(data.migrationStrategy);
   }
   if (data.migrationTimestamp !== undefined && data.migrationTimestamp !== null) {
-    contents.migrationTimestamp = new Date(Math.round(data.migrationTimestamp * 1000));
+    contents.migrationTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.migrationTimestamp)));
   }
   if (data.v1BotLocale !== undefined && data.v1BotLocale !== null) {
     contents.v1BotLocale = __expectString(data.v1BotLocale);
@@ -4536,7 +4538,7 @@ export const deserializeAws_restJson1GetSlotTypeCommand = async (
     contents.checksum = __expectString(data.checksum);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -4545,7 +4547,7 @@ export const deserializeAws_restJson1GetSlotTypeCommand = async (
     contents.enumerationValues = deserializeAws_restJson1EnumerationValues(data.enumerationValues, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -4996,7 +4998,7 @@ export const deserializeAws_restJson1PutBotCommand = async (
     contents.createVersion = __expectBoolean(data.createVersion);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -5017,7 +5019,7 @@ export const deserializeAws_restJson1PutBotCommand = async (
     contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.locale !== undefined && data.locale !== null) {
     contents.locale = __expectString(data.locale);
@@ -5145,13 +5147,13 @@ export const deserializeAws_restJson1PutBotAliasCommand = async (
     contents.conversationLogs = deserializeAws_restJson1ConversationLogsResponse(data.conversationLogs, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -5274,7 +5276,7 @@ export const deserializeAws_restJson1PutIntentCommand = async (
     contents.createVersion = __expectBoolean(data.createVersion);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -5295,7 +5297,7 @@ export const deserializeAws_restJson1PutIntentCommand = async (
     contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -5419,7 +5421,7 @@ export const deserializeAws_restJson1PutSlotTypeCommand = async (
     contents.createVersion = __expectBoolean(data.createVersion);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
@@ -5428,7 +5430,7 @@ export const deserializeAws_restJson1PutSlotTypeCommand = async (
     contents.enumerationValues = deserializeAws_restJson1EnumerationValues(data.enumerationValues, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
+    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -5539,7 +5541,7 @@ export const deserializeAws_restJson1StartImportCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
+    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
   }
   if (data.importId !== undefined && data.importId !== null) {
     contents.importId = __expectString(data.importId);
@@ -5641,7 +5643,7 @@ export const deserializeAws_restJson1StartMigrationCommand = async (
     contents.migrationStrategy = __expectString(data.migrationStrategy);
   }
   if (data.migrationTimestamp !== undefined && data.migrationTimestamp !== null) {
-    contents.migrationTimestamp = new Date(Math.round(data.migrationTimestamp * 1000));
+    contents.migrationTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.migrationTimestamp)));
   }
   if (data.v1BotLocale !== undefined && data.v1BotLocale !== null) {
     contents.v1BotLocale = __expectString(data.v1BotLocale);
@@ -6375,12 +6377,12 @@ const deserializeAws_restJson1BotAliasMetadata = (output: any, context: __SerdeC
         : undefined,
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? new Date(Math.round(output.lastUpdatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
         : undefined,
     name: __expectString(output.name),
   } as any;
@@ -6407,7 +6409,7 @@ const deserializeAws_restJson1BotChannelAssociation = (output: any, context: __S
     botName: __expectString(output.botName),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     failureReason: __expectString(output.failureReason),
@@ -6435,12 +6437,12 @@ const deserializeAws_restJson1BotMetadata = (output: any, context: __SerdeContex
   return {
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? new Date(Math.round(output.lastUpdatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -6645,12 +6647,12 @@ const deserializeAws_restJson1IntentMetadata = (output: any, context: __SerdeCon
   return {
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? new Date(Math.round(output.lastUpdatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
         : undefined,
     name: __expectString(output.name),
     version: __expectString(output.version),
@@ -6818,7 +6820,7 @@ const deserializeAws_restJson1MigrationSummary = (output: any, context: __SerdeC
     migrationStrategy: __expectString(output.migrationStrategy),
     migrationTimestamp:
       output.migrationTimestamp !== undefined && output.migrationTimestamp !== null
-        ? new Date(Math.round(output.migrationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.migrationTimestamp)))
         : undefined,
     v1BotLocale: __expectString(output.v1BotLocale),
     v1BotName: __expectString(output.v1BotName),
@@ -6965,12 +6967,12 @@ const deserializeAws_restJson1SlotTypeMetadata = (output: any, context: __SerdeC
   return {
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(Math.round(output.createdDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? new Date(Math.round(output.lastUpdatedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
         : undefined,
     name: __expectString(output.name),
     version: __expectString(output.version),
@@ -7064,11 +7066,11 @@ const deserializeAws_restJson1UtteranceData = (output: any, context: __SerdeCont
     distinctUsers: __expectInt32(output.distinctUsers),
     firstUtteredDate:
       output.firstUtteredDate !== undefined && output.firstUtteredDate !== null
-        ? new Date(Math.round(output.firstUtteredDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.firstUtteredDate)))
         : undefined,
     lastUtteredDate:
       output.lastUtteredDate !== undefined && output.lastUtteredDate !== null
-        ? new Date(Math.round(output.lastUtteredDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUtteredDate)))
         : undefined,
     utteranceString: __expectString(output.utteranceString),
   } as any;

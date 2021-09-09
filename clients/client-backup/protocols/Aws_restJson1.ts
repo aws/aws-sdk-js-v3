@@ -198,9 +198,11 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2298,7 +2300,7 @@ export const deserializeAws_restJson1CreateBackupPlanCommand = async (
     contents.BackupPlanId = __expectString(data.BackupPlanId);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   if (data.VersionId !== undefined && data.VersionId !== null) {
     contents.VersionId = __expectString(data.VersionId);
@@ -2393,7 +2395,7 @@ export const deserializeAws_restJson1CreateBackupSelectionCommand = async (
     contents.BackupPlanId = __expectString(data.BackupPlanId);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   if (data.SelectionId !== undefined && data.SelectionId !== null) {
     contents.SelectionId = __expectString(data.SelectionId);
@@ -2491,7 +2493,7 @@ export const deserializeAws_restJson1CreateBackupVaultCommand = async (
     contents.BackupVaultName = __expectString(data.BackupVaultName);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   return Promise.resolve(contents);
 };
@@ -2769,7 +2771,7 @@ export const deserializeAws_restJson1DeleteBackupPlanCommand = async (
     contents.BackupPlanId = __expectString(data.BackupPlanId);
   }
   if (data.DeletionDate !== undefined && data.DeletionDate !== null) {
-    contents.DeletionDate = new Date(Math.round(data.DeletionDate * 1000));
+    contents.DeletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.DeletionDate)));
   }
   if (data.VersionId !== undefined && data.VersionId !== null) {
     contents.VersionId = __expectString(data.VersionId);
@@ -3467,16 +3469,18 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
     contents.BytesTransferred = __expectLong(data.BytesTransferred);
   }
   if (data.CompletionDate !== undefined && data.CompletionDate !== null) {
-    contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
+    contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
   }
   if (data.CreatedBy !== undefined && data.CreatedBy !== null) {
     contents.CreatedBy = deserializeAws_restJson1RecoveryPointCreator(data.CreatedBy, context);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   if (data.ExpectedCompletionDate !== undefined && data.ExpectedCompletionDate !== null) {
-    contents.ExpectedCompletionDate = new Date(Math.round(data.ExpectedCompletionDate * 1000));
+    contents.ExpectedCompletionDate = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.ExpectedCompletionDate))
+    );
   }
   if (data.IamRoleArn !== undefined && data.IamRoleArn !== null) {
     contents.IamRoleArn = __expectString(data.IamRoleArn);
@@ -3494,7 +3498,7 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
     contents.ResourceType = __expectString(data.ResourceType);
   }
   if (data.StartBy !== undefined && data.StartBy !== null) {
-    contents.StartBy = new Date(Math.round(data.StartBy * 1000));
+    contents.StartBy = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.StartBy)));
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = __expectString(data.State);
@@ -3598,7 +3602,7 @@ export const deserializeAws_restJson1DescribeBackupVaultCommand = async (
     contents.BackupVaultName = __expectString(data.BackupVaultName);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   if (data.CreatorRequestId !== undefined && data.CreatorRequestId !== null) {
     contents.CreatorRequestId = __expectString(data.CreatorRequestId);
@@ -3772,7 +3776,7 @@ export const deserializeAws_restJson1DescribeFrameworkCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
+    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
   }
   if (data.DeploymentStatus !== undefined && data.DeploymentStatus !== null) {
     contents.DeploymentStatus = __expectString(data.DeploymentStatus);
@@ -3876,7 +3880,7 @@ export const deserializeAws_restJson1DescribeGlobalSettingsCommand = async (
     contents.GlobalSettings = deserializeAws_restJson1GlobalSettings(data.GlobalSettings, context);
   }
   if (data.LastUpdateTime !== undefined && data.LastUpdateTime !== null) {
-    contents.LastUpdateTime = new Date(Math.round(data.LastUpdateTime * 1000));
+    contents.LastUpdateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdateTime)));
   }
   return Promise.resolve(contents);
 };
@@ -3941,7 +3945,7 @@ export const deserializeAws_restJson1DescribeProtectedResourceCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.LastBackupTime !== undefined && data.LastBackupTime !== null) {
-    contents.LastBackupTime = new Date(Math.round(data.LastBackupTime * 1000));
+    contents.LastBackupTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastBackupTime)));
   }
   if (data.ResourceArn !== undefined && data.ResourceArn !== null) {
     contents.ResourceArn = __expectString(data.ResourceArn);
@@ -4056,13 +4060,13 @@ export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
     contents.CalculatedLifecycle = deserializeAws_restJson1CalculatedLifecycle(data.CalculatedLifecycle, context);
   }
   if (data.CompletionDate !== undefined && data.CompletionDate !== null) {
-    contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
+    contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
   }
   if (data.CreatedBy !== undefined && data.CreatedBy !== null) {
     contents.CreatedBy = deserializeAws_restJson1RecoveryPointCreator(data.CreatedBy, context);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   if (data.EncryptionKeyArn !== undefined && data.EncryptionKeyArn !== null) {
     contents.EncryptionKeyArn = __expectString(data.EncryptionKeyArn);
@@ -4074,7 +4078,7 @@ export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
     contents.IsEncrypted = __expectBoolean(data.IsEncrypted);
   }
   if (data.LastRestoreTime !== undefined && data.LastRestoreTime !== null) {
-    contents.LastRestoreTime = new Date(Math.round(data.LastRestoreTime * 1000));
+    contents.LastRestoreTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastRestoreTime)));
   }
   if (data.Lifecycle !== undefined && data.Lifecycle !== null) {
     contents.Lifecycle = deserializeAws_restJson1Lifecycle(data.Lifecycle, context);
@@ -4403,13 +4407,13 @@ export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
     contents.BackupSizeInBytes = __expectLong(data.BackupSizeInBytes);
   }
   if (data.CompletionDate !== undefined && data.CompletionDate !== null) {
-    contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
+    contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
   }
   if (data.CreatedResourceArn !== undefined && data.CreatedResourceArn !== null) {
     contents.CreatedResourceArn = __expectString(data.CreatedResourceArn);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   if (data.ExpectedCompletionTimeMinutes !== undefined && data.ExpectedCompletionTimeMinutes !== null) {
     contents.ExpectedCompletionTimeMinutes = __expectLong(data.ExpectedCompletionTimeMinutes);
@@ -4713,16 +4717,16 @@ export const deserializeAws_restJson1GetBackupPlanCommand = async (
     contents.BackupPlanId = __expectString(data.BackupPlanId);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   if (data.CreatorRequestId !== undefined && data.CreatorRequestId !== null) {
     contents.CreatorRequestId = __expectString(data.CreatorRequestId);
   }
   if (data.DeletionDate !== undefined && data.DeletionDate !== null) {
-    contents.DeletionDate = new Date(Math.round(data.DeletionDate * 1000));
+    contents.DeletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.DeletionDate)));
   }
   if (data.LastExecutionDate !== undefined && data.LastExecutionDate !== null) {
-    contents.LastExecutionDate = new Date(Math.round(data.LastExecutionDate * 1000));
+    contents.LastExecutionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastExecutionDate)));
   }
   if (data.VersionId !== undefined && data.VersionId !== null) {
     contents.VersionId = __expectString(data.VersionId);
@@ -4980,7 +4984,7 @@ export const deserializeAws_restJson1GetBackupSelectionCommand = async (
     contents.BackupSelection = deserializeAws_restJson1BackupSelection(data.BackupSelection, context);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   if (data.CreatorRequestId !== undefined && data.CreatorRequestId !== null) {
     contents.CreatorRequestId = __expectString(data.CreatorRequestId);
@@ -6695,7 +6699,7 @@ export const deserializeAws_restJson1StartBackupJobCommand = async (
     contents.BackupJobId = __expectString(data.BackupJobId);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   if (data.RecoveryPointArn !== undefined && data.RecoveryPointArn !== null) {
     contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
@@ -6797,7 +6801,7 @@ export const deserializeAws_restJson1StartCopyJobCommand = async (
     contents.CopyJobId = __expectString(data.CopyJobId);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   return Promise.resolve(contents);
 };
@@ -7307,7 +7311,7 @@ export const deserializeAws_restJson1UpdateBackupPlanCommand = async (
     contents.BackupPlanId = __expectString(data.BackupPlanId);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
   if (data.VersionId !== undefined && data.VersionId !== null) {
     contents.VersionId = __expectString(data.VersionId);
@@ -7391,7 +7395,7 @@ export const deserializeAws_restJson1UpdateFrameworkCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
+    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
   }
   if (data.FrameworkArn !== undefined && data.FrameworkArn !== null) {
     contents.FrameworkArn = __expectString(data.FrameworkArn);
@@ -7727,7 +7731,7 @@ export const deserializeAws_restJson1UpdateReportPlanCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
+    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
   }
   if (data.ReportPlanArn !== undefined && data.ReportPlanArn !== null) {
     contents.ReportPlanArn = __expectString(data.ReportPlanArn);
@@ -8490,7 +8494,7 @@ const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext)
     BytesTransferred: __expectLong(output.BytesTransferred),
     CompletionDate:
       output.CompletionDate !== undefined && output.CompletionDate !== null
-        ? new Date(Math.round(output.CompletionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
     CreatedBy:
       output.CreatedBy !== undefined && output.CreatedBy !== null
@@ -8498,11 +8502,11 @@ const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext)
         : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     ExpectedCompletionDate:
       output.ExpectedCompletionDate !== undefined && output.ExpectedCompletionDate !== null
-        ? new Date(Math.round(output.ExpectedCompletionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpectedCompletionDate)))
         : undefined,
     IamRoleArn: __expectString(output.IamRoleArn),
     PercentDone: __expectString(output.PercentDone),
@@ -8510,7 +8514,9 @@ const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext)
     ResourceArn: __expectString(output.ResourceArn),
     ResourceType: __expectString(output.ResourceType),
     StartBy:
-      output.StartBy !== undefined && output.StartBy !== null ? new Date(Math.round(output.StartBy * 1000)) : undefined,
+      output.StartBy !== undefined && output.StartBy !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartBy)))
+        : undefined,
     State: __expectString(output.State),
     StatusMessage: __expectString(output.StatusMessage),
   } as any;
@@ -8575,16 +8581,16 @@ const deserializeAws_restJson1BackupPlansListMember = (output: any, context: __S
     BackupPlanName: __expectString(output.BackupPlanName),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     CreatorRequestId: __expectString(output.CreatorRequestId),
     DeletionDate:
       output.DeletionDate !== undefined && output.DeletionDate !== null
-        ? new Date(Math.round(output.DeletionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
         : undefined,
     LastExecutionDate:
       output.LastExecutionDate !== undefined && output.LastExecutionDate !== null
-        ? new Date(Math.round(output.LastExecutionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastExecutionDate)))
         : undefined,
     VersionId: __expectString(output.VersionId),
   } as any;
@@ -8700,7 +8706,7 @@ const deserializeAws_restJson1BackupSelectionsListMember = (
     BackupPlanId: __expectString(output.BackupPlanId),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     CreatorRequestId: __expectString(output.CreatorRequestId),
     IamRoleArn: __expectString(output.IamRoleArn),
@@ -8740,7 +8746,7 @@ const deserializeAws_restJson1BackupVaultListMember = (output: any, context: __S
     BackupVaultName: __expectString(output.BackupVaultName),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     CreatorRequestId: __expectString(output.CreatorRequestId),
     EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
@@ -8752,11 +8758,11 @@ const deserializeAws_restJson1CalculatedLifecycle = (output: any, context: __Ser
   return {
     DeleteAt:
       output.DeleteAt !== undefined && output.DeleteAt !== null
-        ? new Date(Math.round(output.DeleteAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeleteAt)))
         : undefined,
     MoveToColdStorageAt:
       output.MoveToColdStorageAt !== undefined && output.MoveToColdStorageAt !== null
-        ? new Date(Math.round(output.MoveToColdStorageAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.MoveToColdStorageAt)))
         : undefined,
   } as any;
 };
@@ -8845,7 +8851,7 @@ const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): 
     BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
     CompletionDate:
       output.CompletionDate !== undefined && output.CompletionDate !== null
-        ? new Date(Math.round(output.CompletionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
     CopyJobId: __expectString(output.CopyJobId),
     CreatedBy:
@@ -8854,7 +8860,7 @@ const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): 
         : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DestinationBackupVaultArn: __expectString(output.DestinationBackupVaultArn),
     DestinationRecoveryPointArn: __expectString(output.DestinationRecoveryPointArn),
@@ -8894,7 +8900,7 @@ const deserializeAws_restJson1Framework = (output: any, context: __SerdeContext)
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DeploymentStatus: __expectString(output.DeploymentStatus),
     FrameworkArn: __expectString(output.FrameworkArn),
@@ -8986,7 +8992,7 @@ const deserializeAws_restJson1ProtectedResource = (output: any, context: __Serde
   return {
     LastBackupTime:
       output.LastBackupTime !== undefined && output.LastBackupTime !== null
-        ? new Date(Math.round(output.LastBackupTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastBackupTime)))
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
     ResourceType: __expectString(output.ResourceType),
@@ -9018,7 +9024,7 @@ const deserializeAws_restJson1RecoveryPointByBackupVault = (
         : undefined,
     CompletionDate:
       output.CompletionDate !== undefined && output.CompletionDate !== null
-        ? new Date(Math.round(output.CompletionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
     CreatedBy:
       output.CreatedBy !== undefined && output.CreatedBy !== null
@@ -9026,14 +9032,14 @@ const deserializeAws_restJson1RecoveryPointByBackupVault = (
         : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
     IamRoleArn: __expectString(output.IamRoleArn),
     IsEncrypted: __expectBoolean(output.IsEncrypted),
     LastRestoreTime:
       output.LastRestoreTime !== undefined && output.LastRestoreTime !== null
-        ? new Date(Math.round(output.LastRestoreTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRestoreTime)))
         : undefined,
     Lifecycle:
       output.Lifecycle !== undefined && output.Lifecycle !== null
@@ -9071,7 +9077,7 @@ const deserializeAws_restJson1RecoveryPointByResource = (
     BackupVaultName: __expectString(output.BackupVaultName),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
     RecoveryPointArn: __expectString(output.RecoveryPointArn),
@@ -9128,11 +9134,11 @@ const deserializeAws_restJson1ReportJob = (output: any, context: __SerdeContext)
   return {
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
-        ? new Date(Math.round(output.CompletionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ReportDestination:
       output.ReportDestination !== undefined && output.ReportDestination !== null
@@ -9161,16 +9167,16 @@ const deserializeAws_restJson1ReportPlan = (output: any, context: __SerdeContext
   return {
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
-        ? new Date(Math.round(output.CreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DeploymentStatus: __expectString(output.DeploymentStatus),
     LastAttemptedExecutionTime:
       output.LastAttemptedExecutionTime !== undefined && output.LastAttemptedExecutionTime !== null
-        ? new Date(Math.round(output.LastAttemptedExecutionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAttemptedExecutionTime)))
         : undefined,
     LastSuccessfulExecutionTime:
       output.LastSuccessfulExecutionTime !== undefined && output.LastSuccessfulExecutionTime !== null
-        ? new Date(Math.round(output.LastSuccessfulExecutionTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulExecutionTime)))
         : undefined,
     ReportDeliveryChannel:
       output.ReportDeliveryChannel !== undefined && output.ReportDeliveryChannel !== null
@@ -9268,12 +9274,12 @@ const deserializeAws_restJson1RestoreJobsListMember = (output: any, context: __S
     BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
     CompletionDate:
       output.CompletionDate !== undefined && output.CompletionDate !== null
-        ? new Date(Math.round(output.CompletionDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
     CreatedResourceArn: __expectString(output.CreatedResourceArn),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     ExpectedCompletionTimeMinutes: __expectLong(output.ExpectedCompletionTimeMinutes),
     IamRoleArn: __expectString(output.IamRoleArn),

@@ -18,9 +18,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -473,7 +475,7 @@ const deserializeAws_restJson1ChangesetInfo = (output: any, context: __SerdeCont
         : undefined,
     createTimestamp:
       output.createTimestamp !== undefined && output.createTimestamp !== null
-        ? new Date(Math.round(output.createTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTimestamp)))
         : undefined,
     datasetId: __expectString(output.datasetId),
     errorInfo:

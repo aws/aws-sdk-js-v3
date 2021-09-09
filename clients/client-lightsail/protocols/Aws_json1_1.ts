@@ -802,9 +802,12 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -20053,7 +20056,7 @@ const deserializeAws_json1_1AccessKey = (output: any, context: __SerdeContext): 
     accessKeyId: __expectString(output.accessKeyId),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     lastUsed:
       output.lastUsed !== undefined && output.lastUsed !== null
@@ -20068,7 +20071,7 @@ const deserializeAws_json1_1AccessKeyLastUsed = (output: any, context: __SerdeCo
   return {
     lastUsedDate:
       output.lastUsedDate !== undefined && output.lastUsedDate !== null
-        ? new Date(Math.round(output.lastUsedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUsedDate)))
         : undefined,
     region: __expectString(output.region),
     serviceName: __expectString(output.serviceName),
@@ -20146,7 +20149,7 @@ const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alar
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     datapointsToAlarm: __expectInt32(output.datapointsToAlarm),
     evaluationPeriods: __expectInt32(output.evaluationPeriods),
@@ -20272,7 +20275,7 @@ const deserializeAws_json1_1AutoSnapshotDetails = (output: any, context: __Serde
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     date: __expectString(output.date),
     fromAttachedDisks:
@@ -20351,7 +20354,7 @@ const deserializeAws_json1_1Bucket = (output: any, context: __SerdeContext): Buc
     bundleId: __expectString(output.bundleId),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     location:
       output.location !== undefined && output.location !== null
@@ -20502,7 +20505,7 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     domainName: __expectString(output.domainName),
     domainValidationRecords:
@@ -20513,18 +20516,18 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
     inUseResourceCount: __expectInt32(output.inUseResourceCount),
     issuedAt:
       output.issuedAt !== undefined && output.issuedAt !== null
-        ? new Date(Math.round(output.issuedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.issuedAt)))
         : undefined,
     issuerCA: __expectString(output.issuerCA),
     keyAlgorithm: __expectString(output.keyAlgorithm),
     name: __expectString(output.name),
     notAfter:
       output.notAfter !== undefined && output.notAfter !== null
-        ? new Date(Math.round(output.notAfter * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notAfter)))
         : undefined,
     notBefore:
       output.notBefore !== undefined && output.notBefore !== null
-        ? new Date(Math.round(output.notBefore * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notBefore)))
         : undefined,
     renewalSummary:
       output.renewalSummary !== undefined && output.renewalSummary !== null
@@ -20534,7 +20537,7 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
     revocationReason: __expectString(output.revocationReason),
     revokedAt:
       output.revokedAt !== undefined && output.revokedAt !== null
-        ? new Date(Math.round(output.revokedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revokedAt)))
         : undefined,
     serialNumber: __expectString(output.serialNumber),
     status: __expectString(output.status),
@@ -20597,7 +20600,7 @@ const deserializeAws_json1_1CloudFormationStackRecord = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     destinationInfo:
       output.destinationInfo !== undefined && output.destinationInfo !== null
@@ -20662,7 +20665,7 @@ const deserializeAws_json1_1ContactMethod = (output: any, context: __SerdeContex
     contactEndpoint: __expectString(output.contactEndpoint),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     location:
       output.location !== undefined && output.location !== null
@@ -20723,7 +20726,7 @@ const deserializeAws_json1_1ContainerImage = (output: any, context: __SerdeConte
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     digest: __expectString(output.digest),
     image: __expectString(output.image),
@@ -20759,7 +20762,7 @@ const deserializeAws_json1_1ContainerService = (output: any, context: __SerdeCon
     containerServiceName: __expectString(output.containerServiceName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     currentDeployment:
       output.currentDeployment !== undefined && output.currentDeployment !== null
@@ -20808,7 +20811,7 @@ const deserializeAws_json1_1ContainerServiceDeployment = (
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     publicEndpoint:
       output.publicEndpoint !== undefined && output.publicEndpoint !== null
@@ -20879,7 +20882,7 @@ const deserializeAws_json1_1ContainerServiceLogEvent = (
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     message: __expectString(output.message),
   } as any;
@@ -20986,7 +20989,7 @@ const deserializeAws_json1_1ContainerServiceRegistryLogin = (
   return {
     expiresAt:
       output.expiresAt !== undefined && output.expiresAt !== null
-        ? new Date(Math.round(output.expiresAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiresAt)))
         : undefined,
     password: __expectString(output.password),
     registry: __expectString(output.registry),
@@ -21611,7 +21614,7 @@ const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk 
     attachmentState: __expectString(output.attachmentState),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     gbInUse: __expectInt32(output.gbInUse),
     iops: __expectInt32(output.iops),
@@ -21670,7 +21673,7 @@ const deserializeAws_json1_1DiskSnapshot = (output: any, context: __SerdeContext
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     fromDiskArn: __expectString(output.fromDiskArn),
     fromDiskName: __expectString(output.fromDiskName),
@@ -21748,7 +21751,7 @@ const deserializeAws_json1_1Domain = (output: any, context: __SerdeContext): Dom
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     domainEntries:
       output.domainEntries !== undefined && output.domainEntries !== null
@@ -21876,7 +21879,7 @@ const deserializeAws_json1_1ExportSnapshotRecord = (output: any, context: __Serd
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     destinationInfo:
       output.destinationInfo !== undefined && output.destinationInfo !== null
@@ -21918,7 +21921,7 @@ const deserializeAws_json1_1ExportSnapshotRecordSourceInfo = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     diskSnapshotInfo:
       output.diskSnapshotInfo !== undefined && output.diskSnapshotInfo !== null
@@ -22199,7 +22202,7 @@ const deserializeAws_json1_1GetDistributionLatestCacheResetResult = (
   return {
     createTime:
       output.createTime !== undefined && output.createTime !== null
-        ? new Date(Math.round(output.createTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
         : undefined,
     status: __expectString(output.status),
   } as any;
@@ -22527,7 +22530,7 @@ const deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordResult = (
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     masterUserPassword: __expectString(output.masterUserPassword),
   } as any;
@@ -22656,16 +22659,16 @@ const deserializeAws_json1_1HostKeyAttributes = (output: any, context: __SerdeCo
     fingerprintSHA256: __expectString(output.fingerprintSHA256),
     notValidAfter:
       output.notValidAfter !== undefined && output.notValidAfter !== null
-        ? new Date(Math.round(output.notValidAfter * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notValidAfter)))
         : undefined,
     notValidBefore:
       output.notValidBefore !== undefined && output.notValidBefore !== null
-        ? new Date(Math.round(output.notValidBefore * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notValidBefore)))
         : undefined,
     publicKey: __expectString(output.publicKey),
     witnessedAt:
       output.witnessedAt !== undefined && output.witnessedAt !== null
-        ? new Date(Math.round(output.witnessedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.witnessedAt)))
         : undefined,
   } as any;
 };
@@ -22702,7 +22705,7 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
     bundleId: __expectString(output.bundleId),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     hardware:
       output.hardware !== undefined && output.hardware !== null
@@ -22745,7 +22748,7 @@ const deserializeAws_json1_1InstanceAccessDetails = (output: any, context: __Ser
     certKey: __expectString(output.certKey),
     expiresAt:
       output.expiresAt !== undefined && output.expiresAt !== null
-        ? new Date(Math.round(output.expiresAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiresAt)))
         : undefined,
     hostKeys:
       output.hostKeys !== undefined && output.hostKeys !== null
@@ -22907,7 +22910,7 @@ const deserializeAws_json1_1InstanceSnapshot = (output: any, context: __SerdeCon
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     fromAttachedDisks:
       output.fromAttachedDisks !== undefined && output.fromAttachedDisks !== null
@@ -22995,7 +22998,7 @@ const deserializeAws_json1_1KeyPair = (output: any, context: __SerdeContext): Ke
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     fingerprint: __expectString(output.fingerprint),
     location:
@@ -23043,7 +23046,7 @@ const deserializeAws_json1_1LightsailDistribution = (output: any, context: __Ser
     certificateName: __expectString(output.certificateName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     defaultCacheBehavior:
       output.defaultCacheBehavior !== undefined && output.defaultCacheBehavior !== null
@@ -23081,7 +23084,7 @@ const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     dnsName: __expectString(output.dnsName),
     healthCheckPath: __expectString(output.healthCheckPath),
@@ -23152,7 +23155,7 @@ const deserializeAws_json1_1LoadBalancerTlsCertificate = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     domainName: __expectString(output.domainName),
     domainValidationRecords:
@@ -23166,7 +23169,7 @@ const deserializeAws_json1_1LoadBalancerTlsCertificate = (
     isAttached: __expectBoolean(output.isAttached),
     issuedAt:
       output.issuedAt !== undefined && output.issuedAt !== null
-        ? new Date(Math.round(output.issuedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.issuedAt)))
         : undefined,
     issuer: __expectString(output.issuer),
     keyAlgorithm: __expectString(output.keyAlgorithm),
@@ -23178,11 +23181,11 @@ const deserializeAws_json1_1LoadBalancerTlsCertificate = (
     name: __expectString(output.name),
     notAfter:
       output.notAfter !== undefined && output.notAfter !== null
-        ? new Date(Math.round(output.notAfter * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notAfter)))
         : undefined,
     notBefore:
       output.notBefore !== undefined && output.notBefore !== null
-        ? new Date(Math.round(output.notBefore * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.notBefore)))
         : undefined,
     renewalSummary:
       output.renewalSummary !== undefined && output.renewalSummary !== null
@@ -23192,7 +23195,7 @@ const deserializeAws_json1_1LoadBalancerTlsCertificate = (
     revocationReason: __expectString(output.revocationReason),
     revokedAt:
       output.revokedAt !== undefined && output.revokedAt !== null
-        ? new Date(Math.round(output.revokedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revokedAt)))
         : undefined,
     serial: __expectString(output.serial),
     signatureAlgorithm: __expectString(output.signatureAlgorithm),
@@ -23319,7 +23322,7 @@ const deserializeAws_json1_1LogEvent = (output: any, context: __SerdeContext): L
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     message: __expectString(output.message),
   } as any;
@@ -23345,7 +23348,7 @@ const deserializeAws_json1_1MetricDatapoint = (output: any, context: __SerdeCont
     sum: __limitedParseDouble(output.sum),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
-        ? new Date(Math.round(output.timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp)))
         : undefined,
     unit: __expectString(output.unit),
   } as any;
@@ -23415,7 +23418,7 @@ const deserializeAws_json1_1Operation = (output: any, context: __SerdeContext): 
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     errorCode: __expectString(output.errorCode),
     errorDetails: __expectString(output.errorDetails),
@@ -23432,7 +23435,7 @@ const deserializeAws_json1_1Operation = (output: any, context: __SerdeContext): 
     status: __expectString(output.status),
     statusChangedAt:
       output.statusChangedAt !== undefined && output.statusChangedAt !== null
-        ? new Date(Math.round(output.statusChangedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.statusChangedAt)))
         : undefined,
   } as any;
 };
@@ -23504,7 +23507,7 @@ const deserializeAws_json1_1PendingMaintenanceAction = (
     action: __expectString(output.action),
     currentApplyDate:
       output.currentApplyDate !== undefined && output.currentApplyDate !== null
-        ? new Date(Math.round(output.currentApplyDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.currentApplyDate)))
         : undefined,
     description: __expectString(output.description),
   } as any;
@@ -23663,7 +23666,7 @@ const deserializeAws_json1_1RelationalDatabase = (output: any, context: __SerdeC
     caCertificateIdentifier: __expectString(output.caCertificateIdentifier),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     engine: __expectString(output.engine),
     engineVersion: __expectString(output.engineVersion),
@@ -23673,7 +23676,7 @@ const deserializeAws_json1_1RelationalDatabase = (output: any, context: __SerdeC
         : undefined,
     latestRestorableTime:
       output.latestRestorableTime !== undefined && output.latestRestorableTime !== null
-        ? new Date(Math.round(output.latestRestorableTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.latestRestorableTime)))
         : undefined,
     location:
       output.location !== undefined && output.location !== null
@@ -23787,7 +23790,7 @@ const deserializeAws_json1_1RelationalDatabaseEvent = (
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     eventCategories:
       output.eventCategories !== undefined && output.eventCategories !== null
@@ -23872,7 +23875,7 @@ const deserializeAws_json1_1RelationalDatabaseSnapshot = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     engine: __expectString(output.engine),
     engineVersion: __expectString(output.engineVersion),
@@ -23929,7 +23932,7 @@ const deserializeAws_json1_1RenewalSummary = (output: any, context: __SerdeConte
     renewalStatusReason: __expectString(output.renewalStatusReason),
     updatedAt:
       output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(Math.round(output.updatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
         : undefined,
   } as any;
 };
@@ -23941,7 +23944,7 @@ const deserializeAws_json1_1ResetDistributionCacheResult = (
   return {
     createTime:
       output.createTime !== undefined && output.createTime !== null
-        ? new Date(Math.round(output.createTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
         : undefined,
     operation:
       output.operation !== undefined && output.operation !== null
@@ -24045,7 +24048,7 @@ const deserializeAws_json1_1StaticIp = (output: any, context: __SerdeContext): S
     attachedTo: __expectString(output.attachedTo),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     ipAddress: __expectString(output.ipAddress),
     isAttached: __expectBoolean(output.isAttached),

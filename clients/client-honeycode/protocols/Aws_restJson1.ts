@@ -73,9 +73,11 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2633,7 +2635,7 @@ const deserializeAws_restJson1TableDataImportJobMetadata = (
         : undefined,
     submitTime:
       output.submitTime !== undefined && output.submitTime !== null
-        ? new Date(Math.round(output.submitTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.submitTime)))
         : undefined,
     submitter:
       output.submitter !== undefined && output.submitter !== null

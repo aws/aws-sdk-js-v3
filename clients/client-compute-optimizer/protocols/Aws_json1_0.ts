@@ -138,8 +138,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2500,7 +2503,7 @@ const deserializeAws_json1_0AccountEnrollmentStatus = (
     accountId: __expectString(output.accountId),
     lastUpdatedTimestamp:
       output.lastUpdatedTimestamp !== undefined && output.lastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.lastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTimestamp)))
         : undefined,
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
@@ -2548,7 +2551,7 @@ const deserializeAws_json1_0AutoScalingGroupRecommendation = (
     finding: __expectString(output.finding),
     lastRefreshTimestamp:
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
-        ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
         : undefined,
     lookBackPeriodInDays: __limitedParseDouble(output.lookBackPeriodInDays),
     recommendationOptions:
@@ -2784,7 +2787,7 @@ const deserializeAws_json1_0GetEnrollmentStatusResponse = (
   return {
     lastUpdatedTimestamp:
       output.lastUpdatedTimestamp !== undefined && output.lastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.lastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTimestamp)))
         : undefined,
     memberAccountsEnrolled: __expectBoolean(output.memberAccountsEnrolled),
     numberOfMemberAccountsOptedIn: __expectInt32(output.numberOfMemberAccountsOptedIn),
@@ -2854,7 +2857,7 @@ const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __Se
     instanceName: __expectString(output.instanceName),
     lastRefreshTimestamp:
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
-        ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
         : undefined,
     lookBackPeriodInDays: __limitedParseDouble(output.lookBackPeriodInDays),
     recommendationOptions:
@@ -3006,7 +3009,7 @@ const deserializeAws_json1_0LambdaFunctionRecommendation = (
     functionVersion: __expectString(output.functionVersion),
     lastRefreshTimestamp:
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
-        ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
         : undefined,
     lookbackPeriodInDays: __limitedParseDouble(output.lookbackPeriodInDays),
     memorySizeRecommendationOptions:
@@ -3187,7 +3190,7 @@ const deserializeAws_json1_0RecommendationExportJob = (
   return {
     creationTimestamp:
       output.creationTimestamp !== undefined && output.creationTimestamp !== null
-        ? new Date(Math.round(output.creationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTimestamp)))
         : undefined,
     destination:
       output.destination !== undefined && output.destination !== null
@@ -3197,7 +3200,7 @@ const deserializeAws_json1_0RecommendationExportJob = (
     jobId: __expectString(output.jobId),
     lastUpdatedTimestamp:
       output.lastUpdatedTimestamp !== undefined && output.lastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.lastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTimestamp)))
         : undefined,
     resourceType: __expectString(output.resourceType),
     status: __expectString(output.status),
@@ -3364,7 +3367,7 @@ const deserializeAws_json1_0Timestamps = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return new Date(Math.round(entry * 1000));
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
     });
 };
 
@@ -3418,7 +3421,7 @@ const deserializeAws_json1_0VolumeRecommendation = (output: any, context: __Serd
     finding: __expectString(output.finding),
     lastRefreshTimestamp:
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
-        ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
         : undefined,
     lookBackPeriodInDays: __limitedParseDouble(output.lookBackPeriodInDays),
     utilizationMetrics:

@@ -143,9 +143,11 @@ import {
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6105,7 +6107,7 @@ const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext):
         : undefined,
     TimeStamp:
       output.TimeStamp !== undefined && output.TimeStamp !== null
-        ? new Date(Math.round(output.TimeStamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TimeStamp)))
         : undefined,
     Type: __expectString(output.Type),
   } as any;
@@ -6120,7 +6122,7 @@ const deserializeAws_restJson1Comment = (output: any, context: __SerdeContext): 
         : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     ParentId: __expectString(output.ParentId),
     RecipientId: __expectString(output.RecipientId),
@@ -6152,7 +6154,7 @@ const deserializeAws_restJson1CommentMetadata = (output: any, context: __SerdeCo
         : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     RecipientId: __expectString(output.RecipientId),
   } as any;
@@ -6174,7 +6176,7 @@ const deserializeAws_restJson1DocumentMetadata = (output: any, context: __SerdeC
   return {
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     CreatorId: __expectString(output.CreatorId),
     Id: __expectString(output.Id),
@@ -6188,7 +6190,7 @@ const deserializeAws_restJson1DocumentMetadata = (output: any, context: __SerdeC
         : undefined,
     ModifiedTimestamp:
       output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
-        ? new Date(Math.round(output.ModifiedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
         : undefined,
     ParentFolderId: __expectString(output.ParentFolderId),
     ResourceState: __expectString(output.ResourceState),
@@ -6249,22 +6251,22 @@ const deserializeAws_restJson1DocumentVersionMetadata = (
   return {
     ContentCreatedTimestamp:
       output.ContentCreatedTimestamp !== undefined && output.ContentCreatedTimestamp !== null
-        ? new Date(Math.round(output.ContentCreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ContentCreatedTimestamp)))
         : undefined,
     ContentModifiedTimestamp:
       output.ContentModifiedTimestamp !== undefined && output.ContentModifiedTimestamp !== null
-        ? new Date(Math.round(output.ContentModifiedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ContentModifiedTimestamp)))
         : undefined,
     ContentType: __expectString(output.ContentType),
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     CreatorId: __expectString(output.CreatorId),
     Id: __expectString(output.Id),
     ModifiedTimestamp:
       output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
-        ? new Date(Math.round(output.ModifiedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
     Signature: __expectString(output.Signature),
@@ -6310,7 +6312,7 @@ const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeCon
   return {
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     CreatorId: __expectString(output.CreatorId),
     Id: __expectString(output.Id),
@@ -6321,7 +6323,7 @@ const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeCon
     LatestVersionSize: __expectLong(output.LatestVersionSize),
     ModifiedTimestamp:
       output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
-        ? new Date(Math.round(output.ModifiedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
     ParentFolderId: __expectString(output.ParentFolderId),
@@ -6554,7 +6556,7 @@ const deserializeAws_restJson1User = (output: any, context: __SerdeContext): Use
   return {
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
-        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EmailAddress: __expectString(output.EmailAddress),
     GivenName: __expectString(output.GivenName),
@@ -6562,7 +6564,7 @@ const deserializeAws_restJson1User = (output: any, context: __SerdeContext): Use
     Locale: __expectString(output.Locale),
     ModifiedTimestamp:
       output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
-        ? new Date(Math.round(output.ModifiedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
         : undefined,
     OrganizationId: __expectString(output.OrganizationId),
     RecycleBinFolderId: __expectString(output.RecycleBinFolderId),

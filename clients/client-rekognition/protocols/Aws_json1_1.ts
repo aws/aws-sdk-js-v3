@@ -335,8 +335,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -8065,7 +8068,7 @@ const deserializeAws_json1_1DescribeCollectionResponse = (
     CollectionARN: __expectString(output.CollectionARN),
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
-        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
     FaceCount: __expectLong(output.FaceCount),
     FaceModelVersion: __expectString(output.FaceModelVersion),
@@ -8105,7 +8108,7 @@ const deserializeAws_json1_1DescribeStreamProcessorResponse = (
   return {
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
-        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
     Input:
       output.Input !== undefined && output.Input !== null
@@ -8113,7 +8116,7 @@ const deserializeAws_json1_1DescribeStreamProcessorResponse = (
         : undefined,
     LastUpdateTimestamp:
       output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
-        ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
     Output:
@@ -9115,7 +9118,7 @@ const deserializeAws_json1_1ProjectDescription = (output: any, context: __SerdeC
   return {
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
-        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
     ProjectArn: __expectString(output.ProjectArn),
     Status: __expectString(output.Status),
@@ -9141,7 +9144,7 @@ const deserializeAws_json1_1ProjectVersionDescription = (
     BillableTrainingTimeInSeconds: __expectLong(output.BillableTrainingTimeInSeconds),
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
-        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
     EvaluationResult:
       output.EvaluationResult !== undefined && output.EvaluationResult !== null
@@ -9170,7 +9173,7 @@ const deserializeAws_json1_1ProjectVersionDescription = (
         : undefined,
     TrainingEndTimestamp:
       output.TrainingEndTimestamp !== undefined && output.TrainingEndTimestamp !== null
-        ? new Date(Math.round(output.TrainingEndTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingEndTimestamp)))
         : undefined,
   } as any;
 };

@@ -266,7 +266,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6597,7 +6600,7 @@ const deserializeAws_json1_1AutomatedDiscoveryInformation = (
   return {
     LastRunTime:
       output.LastRunTime !== undefined && output.LastRunTime !== null
-        ? new Date(Math.round(output.LastRunTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRunTime)))
         : undefined,
   } as any;
 };
@@ -7189,7 +7192,7 @@ const deserializeAws_json1_1LicenseConfigurationAssociation = (
     AmiAssociationScope: __expectString(output.AmiAssociationScope),
     AssociationTime:
       output.AssociationTime !== undefined && output.AssociationTime !== null
-        ? new Date(Math.round(output.AssociationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AssociationTime)))
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
     ResourceOwnerId: __expectString(output.ResourceOwnerId),
@@ -7229,7 +7232,7 @@ const deserializeAws_json1_1LicenseConfigurationUsage = (
   return {
     AssociationTime:
       output.AssociationTime !== undefined && output.AssociationTime !== null
-        ? new Date(Math.round(output.AssociationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AssociationTime)))
         : undefined,
     ConsumedLicenses: __expectLong(output.ConsumedLicenses),
     ResourceArn: __expectString(output.ResourceArn),
@@ -7272,7 +7275,7 @@ const deserializeAws_json1_1LicenseOperationFailure = (
     ErrorMessage: __expectString(output.ErrorMessage),
     FailureTime:
       output.FailureTime !== undefined && output.FailureTime !== null
-        ? new Date(Math.round(output.FailureTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FailureTime)))
         : undefined,
     MetadataList:
       output.MetadataList !== undefined && output.MetadataList !== null

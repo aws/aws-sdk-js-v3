@@ -220,8 +220,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5790,7 +5793,10 @@ const deserializeAws_json1_1EngineVersionInfoList = (output: any, context: __Ser
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
-    Date: output.Date !== undefined && output.Date !== null ? new Date(Math.round(output.Date * 1000)) : undefined,
+    Date:
+      output.Date !== undefined && output.Date !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Date)))
+        : undefined,
     Message: __expectString(output.Message),
     SourceName: __expectString(output.SourceName),
     SourceType: __expectString(output.SourceType),
@@ -5955,7 +5961,7 @@ const deserializeAws_json1_1Node = (output: any, context: __SerdeContext): Node 
     AvailabilityZone: __expectString(output.AvailabilityZone),
     CreateTime:
       output.CreateTime !== undefined && output.CreateTime !== null
-        ? new Date(Math.round(output.CreateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime)))
         : undefined,
     Endpoint:
       output.Endpoint !== undefined && output.Endpoint !== null
@@ -6163,14 +6169,14 @@ const deserializeAws_json1_1ServiceUpdate = (output: any, context: __SerdeContex
   return {
     AutoUpdateStartDate:
       output.AutoUpdateStartDate !== undefined && output.AutoUpdateStartDate !== null
-        ? new Date(Math.round(output.AutoUpdateStartDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AutoUpdateStartDate)))
         : undefined,
     ClusterName: __expectString(output.ClusterName),
     Description: __expectString(output.Description),
     NodesUpdated: __expectString(output.NodesUpdated),
     ReleaseDate:
       output.ReleaseDate !== undefined && output.ReleaseDate !== null
-        ? new Date(Math.round(output.ReleaseDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReleaseDate)))
         : undefined,
     ServiceUpdateName: __expectString(output.ServiceUpdateName),
     Status: __expectString(output.Status),
@@ -6228,7 +6234,7 @@ const deserializeAws_json1_1ShardDetail = (output: any, context: __SerdeContext)
     Size: __expectString(output.Size),
     SnapshotCreationTime:
       output.SnapshotCreationTime !== undefined && output.SnapshotCreationTime !== null
-        ? new Date(Math.round(output.SnapshotCreationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SnapshotCreationTime)))
         : undefined,
   } as any;
 };

@@ -59,8 +59,8 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         super(context);
     }
 
-    private DocumentMemberDeserVisitor getMemberVisitor(String dataSource) {
-        return new XmlMemberDeserVisitor(getContext(), dataSource, Format.DATE_TIME);
+    private DocumentMemberDeserVisitor getMemberVisitor(MemberShape memberShape, String dataSource) {
+        return new XmlMemberDeserVisitor(getContext(), memberShape, dataSource, Format.DATE_TIME);
     }
 
     @Override
@@ -80,7 +80,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             writer.write("if (entry === null) { return null as any; }");
 
             String dataSource = getUnnamedTargetWrapper(context, target, "entry");
-            writer.write("return $L$L;", target.accept(getMemberVisitor(dataSource)),
+            writer.write("return $L$L;", target.accept(getMemberVisitor(shape.getMember(), dataSource)),
                     usesExpect(target) ? " as any" : "");
         });
     }
@@ -136,7 +136,9 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             writer.openBlock("return {", "};", () -> {
                 writer.write("...acc,");
                 // Dispatch to the output value provider for any additional handling.
-                writer.write("[pair[$S]]: $L$L", keyLocation, target.accept(getMemberVisitor(dataSource)),
+                writer.write("[pair[$S]]: $L$L",
+                        keyLocation,
+                        target.accept(getMemberVisitor(shape.getValue(), dataSource)),
                         usesExpect(target) ? " as any" : "");
             });
         });
@@ -234,7 +236,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 .collect(Collectors.joining(" && "));
         writer.openBlock("if ($L) {", "}", validationStatement, () -> {
             String dataSource = getNamedTargetWrapper(context, target, source);
-            statementBodyGenerator.accept(dataSource, getMemberVisitor(dataSource));
+            statementBodyGenerator.accept(dataSource, getMemberVisitor(memberShape, dataSource));
         });
     }
 

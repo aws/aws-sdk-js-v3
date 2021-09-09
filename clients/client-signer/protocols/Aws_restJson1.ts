@@ -79,9 +79,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -873,10 +875,10 @@ export const deserializeAws_restJson1DescribeSigningJobCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.completedAt !== undefined && data.completedAt !== null) {
-    contents.completedAt = new Date(Math.round(data.completedAt * 1000));
+    contents.completedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.completedAt)));
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.jobId !== undefined && data.jobId !== null) {
     contents.jobId = __expectString(data.jobId);
@@ -909,7 +911,7 @@ export const deserializeAws_restJson1DescribeSigningJobCommand = async (
     contents.revocationRecord = deserializeAws_restJson1SigningJobRevocationRecord(data.revocationRecord, context);
   }
   if (data.signatureExpiresAt !== undefined && data.signatureExpiresAt !== null) {
-    contents.signatureExpiresAt = new Date(Math.round(data.signatureExpiresAt * 1000));
+    contents.signatureExpiresAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.signatureExpiresAt)));
   }
   if (data.signedObject !== undefined && data.signedObject !== null) {
     contents.signedObject = deserializeAws_restJson1SignedObject(data.signedObject, context);
@@ -2715,7 +2717,7 @@ const deserializeAws_restJson1SigningJob = (output: any, context: __SerdeContext
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     isRevoked: __expectBoolean(output.isRevoked),
     jobId: __expectString(output.jobId),
@@ -2727,7 +2729,7 @@ const deserializeAws_restJson1SigningJob = (output: any, context: __SerdeContext
     profileVersion: __expectString(output.profileVersion),
     signatureExpiresAt:
       output.signatureExpiresAt !== undefined && output.signatureExpiresAt !== null
-        ? new Date(Math.round(output.signatureExpiresAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.signatureExpiresAt)))
         : undefined,
     signedObject:
       output.signedObject !== undefined && output.signedObject !== null
@@ -2753,7 +2755,7 @@ const deserializeAws_restJson1SigningJobRevocationRecord = (
     reason: __expectString(output.reason),
     revokedAt:
       output.revokedAt !== undefined && output.revokedAt !== null
-        ? new Date(Math.round(output.revokedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revokedAt)))
         : undefined,
     revokedBy: __expectString(output.revokedBy),
   } as any;
@@ -2867,11 +2869,11 @@ const deserializeAws_restJson1SigningProfileRevocationRecord = (
   return {
     revocationEffectiveFrom:
       output.revocationEffectiveFrom !== undefined && output.revocationEffectiveFrom !== null
-        ? new Date(Math.round(output.revocationEffectiveFrom * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revocationEffectiveFrom)))
         : undefined,
     revokedAt:
       output.revokedAt !== undefined && output.revokedAt !== null
-        ? new Date(Math.round(output.revokedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revokedAt)))
         : undefined,
     revokedBy: __expectString(output.revokedBy),
   } as any;

@@ -107,9 +107,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3971,13 +3973,13 @@ const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext)
   return {
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     external: __expectBoolean(output.external),
     id: __expectString(output.id),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     resourceShareArn: __expectString(output.resourceShareArn),
   } as any;
@@ -3999,11 +4001,11 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
     arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     resourceGroupArn: __expectString(output.resourceGroupArn),
     resourceShareArn: __expectString(output.resourceShareArn),
@@ -4029,12 +4031,12 @@ const deserializeAws_restJson1ResourceShare = (output: any, context: __SerdeCont
     allowExternalPrincipals: __expectBoolean(output.allowExternalPrincipals),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     featureSet: __expectString(output.featureSet),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     name: __expectString(output.name),
     owningAccountId: __expectString(output.owningAccountId),
@@ -4057,12 +4059,12 @@ const deserializeAws_restJson1ResourceShareAssociation = (
     associationType: __expectString(output.associationType),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     external: __expectBoolean(output.external),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     resourceShareArn: __expectString(output.resourceShareArn),
     resourceShareName: __expectString(output.resourceShareName),
@@ -4092,7 +4094,7 @@ const deserializeAws_restJson1ResourceShareInvitation = (
   return {
     invitationTimestamp:
       output.invitationTimestamp !== undefined && output.invitationTimestamp !== null
-        ? new Date(Math.round(output.invitationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.invitationTimestamp)))
         : undefined,
     receiverAccountId: __expectString(output.receiverAccountId),
     receiverArn: __expectString(output.receiverArn),
@@ -4141,13 +4143,13 @@ const deserializeAws_restJson1ResourceSharePermissionDetail = (
     arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     defaultVersion: __expectBoolean(output.defaultVersion),
     isResourceTypeDefault: __expectBoolean(output.isResourceTypeDefault),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     name: __expectString(output.name),
     permission: __expectString(output.permission),
@@ -4178,13 +4180,13 @@ const deserializeAws_restJson1ResourceSharePermissionSummary = (
     arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
-        ? new Date(Math.round(output.creationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     defaultVersion: __expectBoolean(output.defaultVersion),
     isResourceTypeDefault: __expectBoolean(output.isResourceTypeDefault),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
-        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     name: __expectString(output.name),
     resourceType: __expectString(output.resourceType),

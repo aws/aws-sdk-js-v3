@@ -79,6 +79,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -975,7 +976,7 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
     contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
   }
   if (data.created !== undefined && data.created !== null) {
-    contents.Created = new Date(data.created);
+    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
   }
   if (data.id !== undefined && data.id !== null) {
     contents.Id = __expectString(data.id);
@@ -1501,7 +1502,7 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
     contents.Configurations = deserializeAws_restJson1Configurations(data.configurations, context);
   }
   if (data.created !== undefined && data.created !== null) {
-    contents.Created = new Date(data.created);
+    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
   }
   if (data.deploymentMode !== undefined && data.deploymentMode !== null) {
     contents.DeploymentMode = __expectString(data.deploymentMode);
@@ -1819,7 +1820,7 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
     contents.AuthenticationStrategy = __expectString(data.authenticationStrategy);
   }
   if (data.created !== undefined && data.created !== null) {
-    contents.Created = new Date(data.created);
+    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
   }
   if (data.description !== undefined && data.description !== null) {
     contents.Description = __expectString(data.description);
@@ -1925,7 +1926,7 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
     contents.ConfigurationId = __expectString(data.configurationId);
   }
   if (data.created !== undefined && data.created !== null) {
-    contents.Created = new Date(data.created);
+    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
   }
   if (data.data !== undefined && data.data !== null) {
     contents.Data = __expectString(data.data);
@@ -2729,7 +2730,7 @@ export const deserializeAws_restJson1UpdateConfigurationCommand = async (
     contents.Arn = __expectString(data.arn);
   }
   if (data.created !== undefined && data.created !== null) {
-    contents.Created = new Date(data.created);
+    contents.Created = __expectNonNull(__parseRfc3339DateTime(data.created));
   }
   if (data.id !== undefined && data.id !== null) {
     contents.Id = __expectString(data.id);
@@ -3344,7 +3345,10 @@ const deserializeAws_restJson1BrokerSummary = (output: any, context: __SerdeCont
     BrokerId: __expectString(output.brokerId),
     BrokerName: __expectString(output.brokerName),
     BrokerState: __expectString(output.brokerState),
-    Created: output.created !== undefined && output.created !== null ? new Date(output.created) : undefined,
+    Created:
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.created))
+        : undefined,
     DeploymentMode: __expectString(output.deploymentMode),
     EngineType: __expectString(output.engineType),
     HostInstanceType: __expectString(output.hostInstanceType),
@@ -3355,7 +3359,10 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.arn),
     AuthenticationStrategy: __expectString(output.authenticationStrategy),
-    Created: output.created !== undefined && output.created !== null ? new Date(output.created) : undefined,
+    Created:
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.created))
+        : undefined,
     Description: __expectString(output.description),
     EngineType: __expectString(output.engineType),
     EngineVersion: __expectString(output.engineVersion),
@@ -3381,7 +3388,10 @@ const deserializeAws_restJson1ConfigurationId = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
   return {
-    Created: output.created !== undefined && output.created !== null ? new Date(output.created) : undefined,
+    Created:
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.created))
+        : undefined,
     Description: __expectString(output.description),
     Revision: __expectInt32(output.revision),
   } as any;

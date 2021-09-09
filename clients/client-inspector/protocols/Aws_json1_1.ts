@@ -232,8 +232,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4707,11 +4710,11 @@ const deserializeAws_json1_1AssessmentRun = (output: any, context: __SerdeContex
     assessmentTemplateArn: __expectString(output.assessmentTemplateArn),
     completedAt:
       output.completedAt !== undefined && output.completedAt !== null
-        ? new Date(Math.round(output.completedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completedAt)))
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     dataCollected: __expectBoolean(output.dataCollected),
     durationInSeconds: __expectInt32(output.durationInSeconds),
@@ -4730,12 +4733,12 @@ const deserializeAws_json1_1AssessmentRun = (output: any, context: __SerdeContex
         : undefined,
     startedAt:
       output.startedAt !== undefined && output.startedAt !== null
-        ? new Date(Math.round(output.startedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
         : undefined,
     state: __expectString(output.state),
     stateChangedAt:
       output.stateChangedAt !== undefined && output.stateChangedAt !== null
-        ? new Date(Math.round(output.stateChangedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stateChangedAt)))
         : undefined,
     stateChanges:
       output.stateChanges !== undefined && output.stateChanges !== null
@@ -4831,7 +4834,10 @@ const deserializeAws_json1_1AssessmentRunNotification = (
   context: __SerdeContext
 ): AssessmentRunNotification => {
   return {
-    date: output.date !== undefined && output.date !== null ? new Date(Math.round(output.date * 1000)) : undefined,
+    date:
+      output.date !== undefined && output.date !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.date)))
+        : undefined,
     error: __expectBoolean(output.error),
     event: __expectString(output.event),
     message: __expectString(output.message),
@@ -4862,7 +4868,7 @@ const deserializeAws_json1_1AssessmentRunStateChange = (
     state: __expectString(output.state),
     stateChangedAt:
       output.stateChangedAt !== undefined && output.stateChangedAt !== null
-        ? new Date(Math.round(output.stateChangedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stateChangedAt)))
         : undefined,
   } as any;
 };
@@ -4886,13 +4892,13 @@ const deserializeAws_json1_1AssessmentTarget = (output: any, context: __SerdeCon
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     name: __expectString(output.name),
     resourceGroupArn: __expectString(output.resourceGroupArn),
     updatedAt:
       output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(Math.round(output.updatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
         : undefined,
   } as any;
 };
@@ -4915,7 +4921,7 @@ const deserializeAws_json1_1AssessmentTemplate = (output: any, context: __SerdeC
     assessmentTargetArn: __expectString(output.assessmentTargetArn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     durationInSeconds: __expectInt32(output.durationInSeconds),
     lastAssessmentRunArn: __expectString(output.lastAssessmentRunArn),
@@ -5085,7 +5091,7 @@ const deserializeAws_json1_1DescribeCrossAccountAccessRoleResponse = (
   return {
     registeredAt:
       output.registeredAt !== undefined && output.registeredAt !== null
-        ? new Date(Math.round(output.registeredAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.registeredAt)))
         : undefined,
     roleArn: __expectString(output.roleArn),
     valid: __expectBoolean(output.valid),
@@ -5161,7 +5167,7 @@ const deserializeAws_json1_1EventSubscription = (output: any, context: __SerdeCo
     event: __expectString(output.event),
     subscribedAt:
       output.subscribedAt !== undefined && output.subscribedAt !== null
-        ? new Date(Math.round(output.subscribedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.subscribedAt)))
         : undefined,
   } as any;
 };
@@ -5270,7 +5276,7 @@ const deserializeAws_json1_1Finding = (output: any, context: __SerdeContext): Fi
     confidence: __expectInt32(output.confidence),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
@@ -5287,7 +5293,7 @@ const deserializeAws_json1_1Finding = (output: any, context: __SerdeContext): Fi
     title: __expectString(output.title),
     updatedAt:
       output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(Math.round(output.updatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
         : undefined,
     userAttributes:
       output.userAttributes !== undefined && output.userAttributes !== null
@@ -5628,7 +5634,7 @@ const deserializeAws_json1_1ResourceGroup = (output: any, context: __SerdeContex
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     tags:
       output.tags !== undefined && output.tags !== null

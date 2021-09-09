@@ -212,10 +212,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -4198,7 +4200,9 @@ export const deserializeAws_restJson1DescribeAccessPolicyCommand = async (
     contents.accessPolicyArn = __expectString(data.accessPolicyArn);
   }
   if (data.accessPolicyCreationDate !== undefined && data.accessPolicyCreationDate !== null) {
-    contents.accessPolicyCreationDate = new Date(Math.round(data.accessPolicyCreationDate * 1000));
+    contents.accessPolicyCreationDate = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.accessPolicyCreationDate))
+    );
   }
   if (data.accessPolicyId !== undefined && data.accessPolicyId !== null) {
     contents.accessPolicyId = __expectString(data.accessPolicyId);
@@ -4207,7 +4211,9 @@ export const deserializeAws_restJson1DescribeAccessPolicyCommand = async (
     contents.accessPolicyIdentity = deserializeAws_restJson1Identity(data.accessPolicyIdentity, context);
   }
   if (data.accessPolicyLastUpdateDate !== undefined && data.accessPolicyLastUpdateDate !== null) {
-    contents.accessPolicyLastUpdateDate = new Date(Math.round(data.accessPolicyLastUpdateDate * 1000));
+    contents.accessPolicyLastUpdateDate = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.accessPolicyLastUpdateDate))
+    );
   }
   if (data.accessPolicyPermission !== undefined && data.accessPolicyPermission !== null) {
     contents.accessPolicyPermission = __expectString(data.accessPolicyPermission);
@@ -4307,7 +4313,7 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
     contents.assetCompositeModels = deserializeAws_restJson1AssetCompositeModels(data.assetCompositeModels, context);
   }
   if (data.assetCreationDate !== undefined && data.assetCreationDate !== null) {
-    contents.assetCreationDate = new Date(Math.round(data.assetCreationDate * 1000));
+    contents.assetCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.assetCreationDate)));
   }
   if (data.assetHierarchies !== undefined && data.assetHierarchies !== null) {
     contents.assetHierarchies = deserializeAws_restJson1AssetHierarchies(data.assetHierarchies, context);
@@ -4316,7 +4322,7 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
     contents.assetId = __expectString(data.assetId);
   }
   if (data.assetLastUpdateDate !== undefined && data.assetLastUpdateDate !== null) {
-    contents.assetLastUpdateDate = new Date(Math.round(data.assetLastUpdateDate * 1000));
+    contents.assetLastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.assetLastUpdateDate)));
   }
   if (data.assetModelId !== undefined && data.assetModelId !== null) {
     contents.assetModelId = __expectString(data.assetModelId);
@@ -4425,7 +4431,9 @@ export const deserializeAws_restJson1DescribeAssetModelCommand = async (
     );
   }
   if (data.assetModelCreationDate !== undefined && data.assetModelCreationDate !== null) {
-    contents.assetModelCreationDate = new Date(Math.round(data.assetModelCreationDate * 1000));
+    contents.assetModelCreationDate = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.assetModelCreationDate))
+    );
   }
   if (data.assetModelDescription !== undefined && data.assetModelDescription !== null) {
     contents.assetModelDescription = __expectString(data.assetModelDescription);
@@ -4437,7 +4445,9 @@ export const deserializeAws_restJson1DescribeAssetModelCommand = async (
     contents.assetModelId = __expectString(data.assetModelId);
   }
   if (data.assetModelLastUpdateDate !== undefined && data.assetModelLastUpdateDate !== null) {
-    contents.assetModelLastUpdateDate = new Date(Math.round(data.assetModelLastUpdateDate * 1000));
+    contents.assetModelLastUpdateDate = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.assetModelLastUpdateDate))
+    );
   }
   if (data.assetModelName !== undefined && data.assetModelName !== null) {
     contents.assetModelName = __expectString(data.assetModelName);
@@ -4630,7 +4640,7 @@ export const deserializeAws_restJson1DescribeDashboardCommand = async (
     contents.dashboardArn = __expectString(data.dashboardArn);
   }
   if (data.dashboardCreationDate !== undefined && data.dashboardCreationDate !== null) {
-    contents.dashboardCreationDate = new Date(Math.round(data.dashboardCreationDate * 1000));
+    contents.dashboardCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.dashboardCreationDate)));
   }
   if (data.dashboardDefinition !== undefined && data.dashboardDefinition !== null) {
     contents.dashboardDefinition = __expectString(data.dashboardDefinition);
@@ -4642,7 +4652,9 @@ export const deserializeAws_restJson1DescribeDashboardCommand = async (
     contents.dashboardId = __expectString(data.dashboardId);
   }
   if (data.dashboardLastUpdateDate !== undefined && data.dashboardLastUpdateDate !== null) {
-    contents.dashboardLastUpdateDate = new Date(Math.round(data.dashboardLastUpdateDate * 1000));
+    contents.dashboardLastUpdateDate = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.dashboardLastUpdateDate))
+    );
   }
   if (data.dashboardName !== undefined && data.dashboardName !== null) {
     contents.dashboardName = __expectString(data.dashboardName);
@@ -4812,7 +4824,7 @@ export const deserializeAws_restJson1DescribeGatewayCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationDate !== undefined && data.creationDate !== null) {
-    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+    contents.creationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDate)));
   }
   if (data.gatewayArn !== undefined && data.gatewayArn !== null) {
     contents.gatewayArn = __expectString(data.gatewayArn);
@@ -4833,7 +4845,7 @@ export const deserializeAws_restJson1DescribeGatewayCommand = async (
     contents.gatewayPlatform = deserializeAws_restJson1GatewayPlatform(data.gatewayPlatform, context);
   }
   if (data.lastUpdateDate !== undefined && data.lastUpdateDate !== null) {
-    contents.lastUpdateDate = new Date(Math.round(data.lastUpdateDate * 1000));
+    contents.lastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdateDate)));
   }
   return Promise.resolve(contents);
 };
@@ -5114,7 +5126,7 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
     contents.portalContactEmail = __expectString(data.portalContactEmail);
   }
   if (data.portalCreationDate !== undefined && data.portalCreationDate !== null) {
-    contents.portalCreationDate = new Date(Math.round(data.portalCreationDate * 1000));
+    contents.portalCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.portalCreationDate)));
   }
   if (data.portalDescription !== undefined && data.portalDescription !== null) {
     contents.portalDescription = __expectString(data.portalDescription);
@@ -5123,7 +5135,7 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
     contents.portalId = __expectString(data.portalId);
   }
   if (data.portalLastUpdateDate !== undefined && data.portalLastUpdateDate !== null) {
-    contents.portalLastUpdateDate = new Date(Math.round(data.portalLastUpdateDate * 1000));
+    contents.portalLastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.portalLastUpdateDate)));
   }
   if (data.portalLogoImageLocation !== undefined && data.portalLogoImageLocation !== null) {
     contents.portalLogoImageLocation = deserializeAws_restJson1ImageLocation(data.portalLogoImageLocation, context);
@@ -5229,7 +5241,7 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
     contents.projectArn = __expectString(data.projectArn);
   }
   if (data.projectCreationDate !== undefined && data.projectCreationDate !== null) {
-    contents.projectCreationDate = new Date(Math.round(data.projectCreationDate * 1000));
+    contents.projectCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.projectCreationDate)));
   }
   if (data.projectDescription !== undefined && data.projectDescription !== null) {
     contents.projectDescription = __expectString(data.projectDescription);
@@ -5238,7 +5250,7 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
     contents.projectId = __expectString(data.projectId);
   }
   if (data.projectLastUpdateDate !== undefined && data.projectLastUpdateDate !== null) {
-    contents.projectLastUpdateDate = new Date(Math.round(data.projectLastUpdateDate * 1000));
+    contents.projectLastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.projectLastUpdateDate)));
   }
   if (data.projectName !== undefined && data.projectName !== null) {
     contents.projectName = __expectString(data.projectName);
@@ -5326,7 +5338,7 @@ export const deserializeAws_restJson1DescribeStorageConfigurationCommand = async
     contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
   }
   if (data.lastUpdateDate !== undefined && data.lastUpdateDate !== null) {
-    contents.lastUpdateDate = new Date(Math.round(data.lastUpdateDate * 1000));
+    contents.lastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdateDate)));
   }
   if (data.multiLayerStorage !== undefined && data.multiLayerStorage !== null) {
     contents.multiLayerStorage = deserializeAws_restJson1MultiLayerStorage(data.multiLayerStorage, context);
@@ -8727,7 +8739,7 @@ const deserializeAws_restJson1AccessPolicySummary = (output: any, context: __Ser
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     id: __expectString(output.id),
     identity:
@@ -8736,7 +8748,7 @@ const deserializeAws_restJson1AccessPolicySummary = (output: any, context: __Ser
         : undefined,
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
-        ? new Date(Math.round(output.lastUpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
         : undefined,
     permission: __expectString(output.permission),
     resource:
@@ -8751,7 +8763,7 @@ const deserializeAws_restJson1AggregatedValue = (output: any, context: __SerdeCo
     quality: __expectString(output.quality),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
-        ? new Date(Math.round(output.timestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp)))
         : undefined,
     value:
       output.value !== undefined && output.value !== null
@@ -8955,13 +8967,13 @@ const deserializeAws_restJson1AssetModelSummary = (output: any, context: __Serde
     arn: __expectString(output.arn),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
-        ? new Date(Math.round(output.lastUpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
         : undefined,
     name: __expectString(output.name),
     status:
@@ -9079,7 +9091,7 @@ const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeConte
     assetModelId: __expectString(output.assetModelId),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     hierarchies:
       output.hierarchies !== undefined && output.hierarchies !== null
@@ -9088,7 +9100,7 @@ const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeConte
     id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
-        ? new Date(Math.round(output.lastUpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
         : undefined,
     name: __expectString(output.name),
     status:
@@ -9121,7 +9133,7 @@ const deserializeAws_restJson1AssociatedAssetsSummary = (
     assetModelId: __expectString(output.assetModelId),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     hierarchies:
       output.hierarchies !== undefined && output.hierarchies !== null
@@ -9130,7 +9142,7 @@ const deserializeAws_restJson1AssociatedAssetsSummary = (
     id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
-        ? new Date(Math.round(output.lastUpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
         : undefined,
     name: __expectString(output.name),
     status:
@@ -9288,13 +9300,13 @@ const deserializeAws_restJson1DashboardSummary = (output: any, context: __SerdeC
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
-        ? new Date(Math.round(output.lastUpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
         : undefined,
     name: __expectString(output.name),
   } as any;
@@ -9408,7 +9420,7 @@ const deserializeAws_restJson1GatewaySummary = (output: any, context: __SerdeCon
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     gatewayCapabilitySummaries:
       output.gatewayCapabilitySummaries !== undefined && output.gatewayCapabilitySummaries !== null
@@ -9422,7 +9434,7 @@ const deserializeAws_restJson1GatewaySummary = (output: any, context: __SerdeCon
         : undefined,
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
-        ? new Date(Math.round(output.lastUpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
         : undefined,
   } as any;
 };
@@ -9625,13 +9637,13 @@ const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeCont
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
-        ? new Date(Math.round(output.lastUpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
         : undefined,
     name: __expectString(output.name),
     roleArn: __expectString(output.roleArn),
@@ -9664,13 +9676,13 @@ const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeCon
   return {
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
-        ? new Date(Math.round(output.creationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
-        ? new Date(Math.round(output.lastUpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateDate)))
         : undefined,
     name: __expectString(output.name),
   } as any;

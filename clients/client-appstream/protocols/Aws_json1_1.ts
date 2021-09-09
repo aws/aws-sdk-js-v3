@@ -246,7 +246,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5624,7 +5627,9 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLResult = (
 ): CreateImageBuilderStreamingURLResult => {
   return {
     Expires:
-      output.Expires !== undefined && output.Expires !== null ? new Date(Math.round(output.Expires * 1000)) : undefined,
+      output.Expires !== undefined && output.Expires !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expires)))
+        : undefined,
     StreamingURL: __expectString(output.StreamingURL),
   } as any;
 };
@@ -5644,7 +5649,9 @@ const deserializeAws_json1_1CreateStreamingURLResult = (
 ): CreateStreamingURLResult => {
   return {
     Expires:
-      output.Expires !== undefined && output.Expires !== null ? new Date(Math.round(output.Expires * 1000)) : undefined,
+      output.Expires !== undefined && output.Expires !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expires)))
+        : undefined,
     StreamingURL: __expectString(output.StreamingURL),
   } as any;
 };
@@ -5850,7 +5857,7 @@ const deserializeAws_json1_1DirectoryConfig = (output: any, context: __SerdeCont
   return {
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DirectoryName: __expectString(output.DirectoryName),
     OrganizationalUnitDistinguishedNames:
@@ -5935,7 +5942,7 @@ const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Flee
         : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     DisconnectTimeoutInSeconds: __expectInt32(output.DisconnectTimeoutInSeconds),
@@ -6006,7 +6013,7 @@ const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Imag
     BaseImageArn: __expectString(output.BaseImageArn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     DisplayName: __expectString(output.DisplayName),
@@ -6024,7 +6031,7 @@ const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Imag
     Platform: __expectString(output.Platform),
     PublicBaseImageReleasedDate:
       output.PublicBaseImageReleasedDate !== undefined && output.PublicBaseImageReleasedDate !== null
-        ? new Date(Math.round(output.PublicBaseImageReleasedDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PublicBaseImageReleasedDate)))
         : undefined,
     State: __expectString(output.State),
     StateChangeReason:
@@ -6045,7 +6052,7 @@ const deserializeAws_json1_1ImageBuilder = (output: any, context: __SerdeContext
     Arn: __expectString(output.Arn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     DisplayName: __expectString(output.DisplayName),
@@ -6293,7 +6300,7 @@ const deserializeAws_json1_1ResourceError = (output: any, context: __SerdeContex
     ErrorMessage: __expectString(output.ErrorMessage),
     ErrorTimestamp:
       output.ErrorTimestamp !== undefined && output.ErrorTimestamp !== null
-        ? new Date(Math.round(output.ErrorTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ErrorTimestamp)))
         : undefined,
   } as any;
 };
@@ -6362,7 +6369,7 @@ const deserializeAws_json1_1Session = (output: any, context: __SerdeContext): Se
     Id: __expectString(output.Id),
     MaxExpirationTime:
       output.MaxExpirationTime !== undefined && output.MaxExpirationTime !== null
-        ? new Date(Math.round(output.MaxExpirationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.MaxExpirationTime)))
         : undefined,
     NetworkAccessConfiguration:
       output.NetworkAccessConfiguration !== undefined && output.NetworkAccessConfiguration !== null
@@ -6371,7 +6378,7 @@ const deserializeAws_json1_1Session = (output: any, context: __SerdeContext): Se
     StackName: __expectString(output.StackName),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     State: __expectString(output.State),
     UserId: __expectString(output.UserId),
@@ -6426,7 +6433,7 @@ const deserializeAws_json1_1Stack = (output: any, context: __SerdeContext): Stac
     Arn: __expectString(output.Arn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     DisplayName: __expectString(output.DisplayName),
@@ -6618,7 +6625,7 @@ const deserializeAws_json1_1UsageReportSubscription = (
   return {
     LastGeneratedReportDate:
       output.LastGeneratedReportDate !== undefined && output.LastGeneratedReportDate !== null
-        ? new Date(Math.round(output.LastGeneratedReportDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastGeneratedReportDate)))
         : undefined,
     S3BucketName: __expectString(output.S3BucketName),
     Schedule: __expectString(output.Schedule),
@@ -6649,7 +6656,7 @@ const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User 
     AuthenticationType: __expectString(output.AuthenticationType),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
-        ? new Date(Math.round(output.CreatedTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Enabled: __expectBoolean(output.Enabled),
     FirstName: __expectString(output.FirstName),

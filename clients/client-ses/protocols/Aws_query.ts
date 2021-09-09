@@ -430,11 +430,13 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseFloat as __strictParseFloat,
   strictParseLong as __strictParseLong,
 } from "@aws-sdk/smithy-client";
@@ -9714,7 +9716,7 @@ const deserializeAws_queryReceiptRuleSetMetadata = (output: any, context: __Serd
     contents.Name = __expectString(output["Name"]);
   }
   if (output["CreatedTimestamp"] !== undefined) {
-    contents.CreatedTimestamp = new Date(output["CreatedTimestamp"]);
+    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["CreatedTimestamp"]));
   }
   return contents;
 };
@@ -9773,7 +9775,7 @@ const deserializeAws_queryReputationOptions = (output: any, context: __SerdeCont
     contents.ReputationMetricsEnabled = __parseBoolean(output["ReputationMetricsEnabled"]);
   }
   if (output["LastFreshStart"] !== undefined) {
-    contents.LastFreshStart = new Date(output["LastFreshStart"]);
+    contents.LastFreshStart = __expectNonNull(__parseRfc3339DateTime(output["LastFreshStart"]));
   }
   return contents;
 };
@@ -9885,7 +9887,7 @@ const deserializeAws_querySendDataPoint = (output: any, context: __SerdeContext)
     Rejects: undefined,
   };
   if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = new Date(output["Timestamp"]);
+    contents.Timestamp = __expectNonNull(__parseRfc3339DateTime(output["Timestamp"]));
   }
   if (output["DeliveryAttempts"] !== undefined) {
     contents.DeliveryAttempts = __strictParseLong(output["DeliveryAttempts"]) as number;
@@ -10088,7 +10090,7 @@ const deserializeAws_queryTemplateMetadata = (output: any, context: __SerdeConte
     contents.Name = __expectString(output["Name"]);
   }
   if (output["CreatedTimestamp"] !== undefined) {
-    contents.CreatedTimestamp = new Date(output["CreatedTimestamp"]);
+    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["CreatedTimestamp"]));
   }
   return contents;
 };

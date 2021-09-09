@@ -395,8 +395,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -8797,7 +8800,9 @@ const deserializeAws_json1_1CreateTestGridUrlResult = (
 ): CreateTestGridUrlResult => {
   return {
     expires:
-      output.expires !== undefined && output.expires !== null ? new Date(Math.round(output.expires * 1000)) : undefined,
+      output.expires !== undefined && output.expires !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expires)))
+        : undefined,
     url: __expectString(output.url),
   } as any;
 };
@@ -9386,7 +9391,9 @@ const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job =>
         ? deserializeAws_json1_1Counters(output.counters, context)
         : undefined,
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     device:
       output.device !== undefined && output.device !== null
         ? deserializeAws_json1_1Device(output.device, context)
@@ -9400,10 +9407,14 @@ const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job =>
     name: __expectString(output.name),
     result: __expectString(output.result),
     started:
-      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+      output.started !== undefined && output.started !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
+        : undefined,
     status: __expectString(output.status),
     stopped:
-      output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined,
+      output.stopped !== undefined && output.stopped !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped)))
+        : undefined,
     type: __expectString(output.type),
     videoCapture: __expectBoolean(output.videoCapture),
     videoEndpoint: __expectString(output.videoEndpoint),
@@ -9813,7 +9824,7 @@ const deserializeAws_json1_1OfferingStatus = (output: any, context: __SerdeConte
   return {
     effectiveOn:
       output.effectiveOn !== undefined && output.effectiveOn !== null
-        ? new Date(Math.round(output.effectiveOn * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.effectiveOn)))
         : undefined,
     offering:
       output.offering !== undefined && output.offering !== null
@@ -9847,7 +9858,7 @@ const deserializeAws_json1_1OfferingTransaction = (output: any, context: __Serde
         : undefined,
     createdOn:
       output.createdOn !== undefined && output.createdOn !== null
-        ? new Date(Math.round(output.createdOn * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdOn)))
         : undefined,
     offeringPromotionId: __expectString(output.offeringPromotionId),
     offeringStatus:
@@ -9929,7 +9940,9 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
   return {
     arn: __expectString(output.arn),
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     defaultJobTimeoutMinutes: __expectInt32(output.defaultJobTimeoutMinutes),
     name: __expectString(output.name),
   } as any;
@@ -10006,7 +10019,9 @@ const deserializeAws_json1_1RemoteAccessSession = (output: any, context: __Serde
     billingMethod: __expectString(output.billingMethod),
     clientId: __expectString(output.clientId),
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     device:
       output.device !== undefined && output.device !== null
         ? deserializeAws_json1_1Device(output.device, context)
@@ -10028,10 +10043,14 @@ const deserializeAws_json1_1RemoteAccessSession = (output: any, context: __Serde
     result: __expectString(output.result),
     skipAppResign: __expectBoolean(output.skipAppResign),
     started:
-      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+      output.started !== undefined && output.started !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
+        : undefined,
     status: __expectString(output.status),
     stopped:
-      output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined,
+      output.stopped !== undefined && output.stopped !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped)))
+        : undefined,
   } as any;
 };
 
@@ -10092,7 +10111,9 @@ const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run =>
         ? deserializeAws_json1_1Counters(output.counters, context)
         : undefined,
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     customerArtifactPaths:
       output.customerArtifactPaths !== undefined && output.customerArtifactPaths !== null
         ? deserializeAws_json1_1CustomerArtifactPaths(output.customerArtifactPaths, context)
@@ -10130,10 +10151,14 @@ const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run =>
     seed: __expectInt32(output.seed),
     skipAppResign: __expectBoolean(output.skipAppResign),
     started:
-      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+      output.started !== undefined && output.started !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
+        : undefined,
     status: __expectString(output.status),
     stopped:
-      output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined,
+      output.stopped !== undefined && output.stopped !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped)))
+        : undefined,
     testSpecArn: __expectString(output.testSpecArn),
     totalJobs: __expectInt32(output.totalJobs),
     type: __expectString(output.type),
@@ -10240,7 +10265,9 @@ const deserializeAws_json1_1Suite = (output: any, context: __SerdeContext): Suit
         ? deserializeAws_json1_1Counters(output.counters, context)
         : undefined,
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     deviceMinutes:
       output.deviceMinutes !== undefined && output.deviceMinutes !== null
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
@@ -10249,10 +10276,14 @@ const deserializeAws_json1_1Suite = (output: any, context: __SerdeContext): Suit
     name: __expectString(output.name),
     result: __expectString(output.result),
     started:
-      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+      output.started !== undefined && output.started !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
+        : undefined,
     status: __expectString(output.status),
     stopped:
-      output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined,
+      output.stopped !== undefined && output.stopped !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped)))
+        : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -10312,7 +10343,9 @@ const deserializeAws_json1_1Test = (output: any, context: __SerdeContext): Test 
         ? deserializeAws_json1_1Counters(output.counters, context)
         : undefined,
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     deviceMinutes:
       output.deviceMinutes !== undefined && output.deviceMinutes !== null
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
@@ -10321,10 +10354,14 @@ const deserializeAws_json1_1Test = (output: any, context: __SerdeContext): Test 
     name: __expectString(output.name),
     result: __expectString(output.result),
     started:
-      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+      output.started !== undefined && output.started !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
+        : undefined,
     status: __expectString(output.status),
     stopped:
-      output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined,
+      output.stopped !== undefined && output.stopped !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped)))
+        : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -10333,7 +10370,9 @@ const deserializeAws_json1_1TestGridProject = (output: any, context: __SerdeCont
   return {
     arn: __expectString(output.arn),
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     description: __expectString(output.description),
     name: __expectString(output.name),
     vpcConfig:
@@ -10359,8 +10398,13 @@ const deserializeAws_json1_1TestGridSession = (output: any, context: __SerdeCont
     arn: __expectString(output.arn),
     billingMinutes: __limitedParseDouble(output.billingMinutes),
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
-    ended: output.ended !== undefined && output.ended !== null ? new Date(Math.round(output.ended * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
+    ended:
+      output.ended !== undefined && output.ended !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ended)))
+        : undefined,
     seleniumProperties: __expectString(output.seleniumProperties),
     status: __expectString(output.status),
   } as any;
@@ -10372,7 +10416,9 @@ const deserializeAws_json1_1TestGridSessionAction = (output: any, context: __Ser
     duration: __expectLong(output.duration),
     requestMethod: __expectString(output.requestMethod),
     started:
-      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+      output.started !== undefined && output.started !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
+        : undefined,
     statusCode: __expectString(output.statusCode),
   } as any;
 };
@@ -10602,7 +10648,9 @@ const deserializeAws_json1_1Upload = (output: any, context: __SerdeContext): Upl
     category: __expectString(output.category),
     contentType: __expectString(output.contentType),
     created:
-      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+      output.created !== undefined && output.created !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
+        : undefined,
     message: __expectString(output.message),
     metadata: __expectString(output.metadata),
     name: __expectString(output.name),

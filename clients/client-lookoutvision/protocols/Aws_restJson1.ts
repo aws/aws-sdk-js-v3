@@ -54,10 +54,12 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2854,7 +2856,7 @@ const deserializeAws_restJson1DatasetDescription = (output: any, context: __Serd
   return {
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
-        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
     DatasetType: __expectString(output.DatasetType),
     ImageStats:
@@ -2863,7 +2865,7 @@ const deserializeAws_restJson1DatasetDescription = (output: any, context: __Serd
         : undefined,
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
-        ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     ProjectName: __expectString(output.ProjectName),
     Status: __expectString(output.Status),
@@ -2895,7 +2897,7 @@ const deserializeAws_restJson1DatasetMetadata = (output: any, context: __SerdeCo
   return {
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
-        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
     DatasetType: __expectString(output.DatasetType),
     Status: __expectString(output.Status),
@@ -2935,12 +2937,12 @@ const deserializeAws_restJson1ModelDescription = (output: any, context: __SerdeC
   return {
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
-        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
     Description: __expectString(output.Description),
     EvaluationEndTimestamp:
       output.EvaluationEndTimestamp !== undefined && output.EvaluationEndTimestamp !== null
-        ? new Date(Math.round(output.EvaluationEndTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EvaluationEndTimestamp)))
         : undefined,
     EvaluationManifest:
       output.EvaluationManifest !== undefined && output.EvaluationManifest !== null
@@ -2970,7 +2972,7 @@ const deserializeAws_restJson1ModelMetadata = (output: any, context: __SerdeCont
   return {
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
-        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
     Description: __expectString(output.Description),
     ModelArn: __expectString(output.ModelArn),
@@ -3023,7 +3025,7 @@ const deserializeAws_restJson1ProjectDescription = (output: any, context: __Serd
   return {
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
-        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
     Datasets:
       output.Datasets !== undefined && output.Datasets !== null
@@ -3038,7 +3040,7 @@ const deserializeAws_restJson1ProjectMetadata = (output: any, context: __SerdeCo
   return {
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
-        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
         : undefined,
     ProjectArn: __expectString(output.ProjectArn),
     ProjectName: __expectString(output.ProjectName),

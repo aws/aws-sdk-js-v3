@@ -45,9 +45,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -507,7 +509,7 @@ export const deserializeAws_restJson1CreateSuiteDefinitionCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.suiteDefinitionArn !== undefined && data.suiteDefinitionArn !== null) {
     contents.suiteDefinitionArn = __expectString(data.suiteDefinitionArn);
@@ -645,10 +647,10 @@ export const deserializeAws_restJson1GetSuiteDefinitionCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.lastModifiedAt !== undefined && data.lastModifiedAt !== null) {
-    contents.lastModifiedAt = new Date(Math.round(data.lastModifiedAt * 1000));
+    contents.lastModifiedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastModifiedAt)));
   }
   if (data.latestVersion !== undefined && data.latestVersion !== null) {
     contents.latestVersion = __expectString(data.latestVersion);
@@ -750,13 +752,13 @@ export const deserializeAws_restJson1GetSuiteRunCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.endTime !== undefined && data.endTime !== null) {
-    contents.endTime = new Date(Math.round(data.endTime * 1000));
+    contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
   }
   if (data.errorReason !== undefined && data.errorReason !== null) {
     contents.errorReason = __expectString(data.errorReason);
   }
   if (data.startTime !== undefined && data.startTime !== null) {
-    contents.startTime = new Date(Math.round(data.startTime * 1000));
+    contents.startTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.startTime)));
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -1132,7 +1134,7 @@ export const deserializeAws_restJson1StartSuiteRunCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.suiteRunArn !== undefined && data.suiteRunArn !== null) {
     contents.suiteRunArn = __expectString(data.suiteRunArn);
@@ -1415,10 +1417,10 @@ export const deserializeAws_restJson1UpdateSuiteDefinitionCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.suiteDefinitionArn !== undefined && data.suiteDefinitionArn !== null) {
     contents.suiteDefinitionArn = __expectString(data.suiteDefinitionArn);
@@ -1694,7 +1696,7 @@ const deserializeAws_restJson1SuiteDefinitionInformation = (
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     defaultDevices:
       output.defaultDevices !== undefined && output.defaultDevices !== null
@@ -1737,14 +1739,17 @@ const deserializeAws_restJson1SuiteRunInformation = (output: any, context: __Ser
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
-    endAt: output.endAt !== undefined && output.endAt !== null ? new Date(Math.round(output.endAt * 1000)) : undefined,
+    endAt:
+      output.endAt !== undefined && output.endAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endAt)))
+        : undefined,
     failed: __expectInt32(output.failed),
     passed: __expectInt32(output.passed),
     startedAt:
       output.startedAt !== undefined && output.startedAt !== null
-        ? new Date(Math.round(output.startedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
         : undefined,
     status: __expectString(output.status),
     suiteDefinitionId: __expectString(output.suiteDefinitionId),
@@ -1780,12 +1785,14 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 const deserializeAws_restJson1TestCaseRun = (output: any, context: __SerdeContext): TestCaseRun => {
   return {
     endTime:
-      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     failure: __expectString(output.failure),
     logUrl: __expectString(output.logUrl),
     startTime:
       output.startTime !== undefined && output.startTime !== null
-        ? new Date(Math.round(output.startTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     status: __expectString(output.status),
     testCaseDefinitionId: __expectString(output.testCaseDefinitionId),

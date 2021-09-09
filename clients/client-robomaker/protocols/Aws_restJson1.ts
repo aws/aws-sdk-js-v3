@@ -236,10 +236,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2394,7 +2396,7 @@ export const deserializeAws_restJson1CreateDeploymentJobCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.deploymentApplicationConfigs !== undefined && data.deploymentApplicationConfigs !== null) {
     contents.deploymentApplicationConfigs = deserializeAws_restJson1DeploymentApplicationConfigs(
@@ -2527,7 +2529,7 @@ export const deserializeAws_restJson1CreateFleetCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -2623,7 +2625,7 @@ export const deserializeAws_restJson1CreateRobotCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.greengrassGroupId !== undefined && data.greengrassGroupId !== null) {
     contents.greengrassGroupId = __expectString(data.greengrassGroupId);
@@ -2729,7 +2731,7 @@ export const deserializeAws_restJson1CreateRobotApplicationCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -2851,7 +2853,7 @@ export const deserializeAws_restJson1CreateRobotApplicationVersionCommand = asyn
     contents.arn = __expectString(data.arn);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -2965,7 +2967,7 @@ export const deserializeAws_restJson1CreateSimulationApplicationCommand = async 
     contents.arn = __expectString(data.arn);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -3098,7 +3100,7 @@ export const deserializeAws_restJson1CreateSimulationApplicationVersionCommand =
     contents.arn = __expectString(data.arn);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -3247,10 +3249,10 @@ export const deserializeAws_restJson1CreateSimulationJobCommand = async (
     contents.iamRole = __expectString(data.iamRole);
   }
   if (data.lastStartedAt !== undefined && data.lastStartedAt !== null) {
-    contents.lastStartedAt = new Date(Math.round(data.lastStartedAt * 1000));
+    contents.lastStartedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartedAt)));
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.loggingConfig !== undefined && data.loggingConfig !== null) {
     contents.loggingConfig = deserializeAws_restJson1LoggingConfig(data.loggingConfig, context);
@@ -3396,7 +3398,7 @@ export const deserializeAws_restJson1CreateWorldExportJobCommand = async (
     contents.clientRequestToken = __expectString(data.clientRequestToken);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.failureCode !== undefined && data.failureCode !== null) {
     contents.failureCode = __expectString(data.failureCode);
@@ -3520,7 +3522,7 @@ export const deserializeAws_restJson1CreateWorldGenerationJobCommand = async (
     contents.clientRequestToken = __expectString(data.clientRequestToken);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.failureCode !== undefined && data.failureCode !== null) {
     contents.failureCode = __expectString(data.failureCode);
@@ -3651,7 +3653,7 @@ export const deserializeAws_restJson1CreateWorldTemplateCommand = async (
     contents.clientRequestToken = __expectString(data.clientRequestToken);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -4190,7 +4192,7 @@ export const deserializeAws_restJson1DescribeDeploymentJobCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.deploymentApplicationConfigs !== undefined && data.deploymentApplicationConfigs !== null) {
     contents.deploymentApplicationConfigs = deserializeAws_restJson1DeploymentApplicationConfigs(
@@ -4309,7 +4311,7 @@ export const deserializeAws_restJson1DescribeFleetCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.lastDeploymentJob !== undefined && data.lastDeploymentJob !== null) {
     contents.lastDeploymentJob = __expectString(data.lastDeploymentJob);
@@ -4318,7 +4320,7 @@ export const deserializeAws_restJson1DescribeFleetCommand = async (
     contents.lastDeploymentStatus = __expectString(data.lastDeploymentStatus);
   }
   if (data.lastDeploymentTime !== undefined && data.lastDeploymentTime !== null) {
-    contents.lastDeploymentTime = new Date(Math.round(data.lastDeploymentTime * 1000));
+    contents.lastDeploymentTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastDeploymentTime)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -4421,7 +4423,7 @@ export const deserializeAws_restJson1DescribeRobotCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.fleetArn !== undefined && data.fleetArn !== null) {
     contents.fleetArn = __expectString(data.fleetArn);
@@ -4433,7 +4435,7 @@ export const deserializeAws_restJson1DescribeRobotCommand = async (
     contents.lastDeploymentJob = __expectString(data.lastDeploymentJob);
   }
   if (data.lastDeploymentTime !== undefined && data.lastDeploymentTime !== null) {
-    contents.lastDeploymentTime = new Date(Math.round(data.lastDeploymentTime * 1000));
+    contents.lastDeploymentTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastDeploymentTime)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -4531,7 +4533,7 @@ export const deserializeAws_restJson1DescribeRobotApplicationCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -4640,7 +4642,7 @@ export const deserializeAws_restJson1DescribeSimulationApplicationCommand = asyn
     contents.arn = __expectString(data.arn);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -4790,10 +4792,10 @@ export const deserializeAws_restJson1DescribeSimulationJobCommand = async (
     contents.iamRole = __expectString(data.iamRole);
   }
   if (data.lastStartedAt !== undefined && data.lastStartedAt !== null) {
-    contents.lastStartedAt = new Date(Math.round(data.lastStartedAt * 1000));
+    contents.lastStartedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartedAt)));
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.loggingConfig !== undefined && data.loggingConfig !== null) {
     contents.loggingConfig = deserializeAws_restJson1LoggingConfig(data.loggingConfig, context);
@@ -4928,7 +4930,7 @@ export const deserializeAws_restJson1DescribeSimulationJobBatchCommand = async (
     contents.clientRequestToken = __expectString(data.clientRequestToken);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.createdRequests !== undefined && data.createdRequests !== null) {
     contents.createdRequests = deserializeAws_restJson1SimulationJobSummaries(data.createdRequests, context);
@@ -4943,7 +4945,7 @@ export const deserializeAws_restJson1DescribeSimulationJobBatchCommand = async (
     contents.failureReason = __expectString(data.failureReason);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.pendingRequests !== undefined && data.pendingRequests !== null) {
     contents.pendingRequests = deserializeAws_restJson1CreateSimulationJobRequests(data.pendingRequests, context);
@@ -5031,7 +5033,7 @@ export const deserializeAws_restJson1DescribeWorldCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.generationJob !== undefined && data.generationJob !== null) {
     contents.generationJob = __expectString(data.generationJob);
@@ -5137,7 +5139,7 @@ export const deserializeAws_restJson1DescribeWorldExportJobCommand = async (
     contents.clientRequestToken = __expectString(data.clientRequestToken);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.failureCode !== undefined && data.failureCode !== null) {
     contents.failureCode = __expectString(data.failureCode);
@@ -5253,7 +5255,7 @@ export const deserializeAws_restJson1DescribeWorldGenerationJobCommand = async (
     contents.clientRequestToken = __expectString(data.clientRequestToken);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.failureCode !== undefined && data.failureCode !== null) {
     contents.failureCode = __expectString(data.failureCode);
@@ -5368,10 +5370,10 @@ export const deserializeAws_restJson1DescribeWorldTemplateCommand = async (
     contents.clientRequestToken = __expectString(data.clientRequestToken);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -6669,7 +6671,7 @@ export const deserializeAws_restJson1StartSimulationJobBatchCommand = async (
     contents.clientRequestToken = __expectString(data.clientRequestToken);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.createdRequests !== undefined && data.createdRequests !== null) {
     contents.createdRequests = deserializeAws_restJson1SimulationJobSummaries(data.createdRequests, context);
@@ -6787,7 +6789,7 @@ export const deserializeAws_restJson1SyncDeploymentJobCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.deploymentApplicationConfigs !== undefined && data.deploymentApplicationConfigs !== null) {
     contents.deploymentApplicationConfigs = deserializeAws_restJson1DeploymentApplicationConfigs(
@@ -7070,7 +7072,7 @@ export const deserializeAws_restJson1UpdateRobotApplicationCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -7183,7 +7185,7 @@ export const deserializeAws_restJson1UpdateSimulationApplicationCommand = async 
     contents.arn = __expectString(data.arn);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -7300,10 +7302,10 @@ export const deserializeAws_restJson1UpdateWorldTemplateCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+    contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -8198,7 +8200,7 @@ const deserializeAws_restJson1DeploymentJob = (output: any, context: __SerdeCont
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     deploymentApplicationConfigs:
       output.deploymentApplicationConfigs !== undefined && output.deploymentApplicationConfigs !== null
@@ -8264,7 +8266,7 @@ const deserializeAws_restJson1FailedCreateSimulationJobRequest = (
   return {
     failedAt:
       output.failedAt !== undefined && output.failedAt !== null
-        ? new Date(Math.round(output.failedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.failedAt)))
         : undefined,
     failureCode: __expectString(output.failureCode),
     failureReason: __expectString(output.failureReason),
@@ -8318,13 +8320,13 @@ const deserializeAws_restJson1Fleet = (output: any, context: __SerdeContext): Fl
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     lastDeploymentJob: __expectString(output.lastDeploymentJob),
     lastDeploymentStatus: __expectString(output.lastDeploymentStatus),
     lastDeploymentTime:
       output.lastDeploymentTime !== undefined && output.lastDeploymentTime !== null
-        ? new Date(Math.round(output.lastDeploymentTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentTime)))
         : undefined,
     name: __expectString(output.name),
   } as any;
@@ -8428,14 +8430,14 @@ const deserializeAws_restJson1Robot = (output: any, context: __SerdeContext): Ro
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     fleetArn: __expectString(output.fleetArn),
     greenGrassGroupId: __expectString(output.greenGrassGroupId),
     lastDeploymentJob: __expectString(output.lastDeploymentJob),
     lastDeploymentTime:
       output.lastDeploymentTime !== undefined && output.lastDeploymentTime !== null
-        ? new Date(Math.round(output.lastDeploymentTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentTime)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
@@ -8513,7 +8515,7 @@ const deserializeAws_restJson1RobotApplicationSummary = (
     arn: __expectString(output.arn),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     name: __expectString(output.name),
     robotSoftwareSuite:
@@ -8529,11 +8531,11 @@ const deserializeAws_restJson1RobotDeployment = (output: any, context: __SerdeCo
     arn: __expectString(output.arn),
     deploymentFinishTime:
       output.deploymentFinishTime !== undefined && output.deploymentFinishTime !== null
-        ? new Date(Math.round(output.deploymentFinishTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deploymentFinishTime)))
         : undefined,
     deploymentStartTime:
       output.deploymentStartTime !== undefined && output.deploymentStartTime !== null
-        ? new Date(Math.round(output.deploymentStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deploymentStartTime)))
         : undefined,
     failureCode: __expectString(output.failureCode),
     failureReason: __expectString(output.failureReason),
@@ -8697,7 +8699,7 @@ const deserializeAws_restJson1SimulationApplicationSummary = (
     arn: __expectString(output.arn),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     name: __expectString(output.name),
     robotSoftwareSuite:
@@ -8730,11 +8732,11 @@ const deserializeAws_restJson1SimulationJob = (output: any, context: __SerdeCont
     iamRole: __expectString(output.iamRole),
     lastStartedAt:
       output.lastStartedAt !== undefined && output.lastStartedAt !== null
-        ? new Date(Math.round(output.lastStartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStartedAt)))
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     loggingConfig:
       output.loggingConfig !== undefined && output.loggingConfig !== null
@@ -8793,13 +8795,13 @@ const deserializeAws_restJson1SimulationJobBatchSummary = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     createdRequestCount: __expectInt32(output.createdRequestCount),
     failedRequestCount: __expectInt32(output.failedRequestCount),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     pendingRequestCount: __expectInt32(output.pendingRequestCount),
     status: __expectString(output.status),
@@ -8881,7 +8883,7 @@ const deserializeAws_restJson1SimulationJobSummary = (output: any, context: __Se
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     name: __expectString(output.name),
     robotApplicationNames:
@@ -8965,11 +8967,11 @@ const deserializeAws_restJson1TemplateSummary = (output: any, context: __SerdeCo
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     name: __expectString(output.name),
     version: __expectString(output.version),
@@ -9088,7 +9090,7 @@ const deserializeAws_restJson1WorldExportJobSummary = (output: any, context: __S
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     status: __expectString(output.status),
     worlds:
@@ -9139,7 +9141,7 @@ const deserializeAws_restJson1WorldGenerationJobSummary = (
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     failedWorldCount: __expectInt32(output.failedWorldCount),
     status: __expectString(output.status),
@@ -9168,7 +9170,7 @@ const deserializeAws_restJson1WorldSummary = (output: any, context: __SerdeConte
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     generationJob: __expectString(output.generationJob),
     template: __expectString(output.template),

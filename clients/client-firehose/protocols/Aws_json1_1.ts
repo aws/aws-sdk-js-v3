@@ -132,8 +132,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2535,7 +2538,7 @@ const deserializeAws_json1_1DeliveryStreamDescription = (
   return {
     CreateTimestamp:
       output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
-        ? new Date(Math.round(output.CreateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTimestamp)))
         : undefined,
     DeliveryStreamARN: __expectString(output.DeliveryStreamARN),
     DeliveryStreamEncryptionConfiguration:
@@ -2560,7 +2563,7 @@ const deserializeAws_json1_1DeliveryStreamDescription = (
     HasMoreDestinations: __expectBoolean(output.HasMoreDestinations),
     LastUpdateTimestamp:
       output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
-        ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
         : undefined,
     Source:
       output.Source !== undefined && output.Source !== null
@@ -2949,7 +2952,7 @@ const deserializeAws_json1_1KinesisStreamSourceDescription = (
   return {
     DeliveryStartTimestamp:
       output.DeliveryStartTimestamp !== undefined && output.DeliveryStartTimestamp !== null
-        ? new Date(Math.round(output.DeliveryStartTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryStartTimestamp)))
         : undefined,
     KinesisStreamARN: __expectString(output.KinesisStreamARN),
     RoleARN: __expectString(output.RoleARN),

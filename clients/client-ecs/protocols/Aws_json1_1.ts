@@ -349,8 +349,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
@@ -8329,7 +8332,7 @@ const deserializeAws_json1_1ContainerInstance = (output: any, context: __SerdeCo
     pendingTasksCount: __expectInt32(output.pendingTasksCount),
     registeredAt:
       output.registeredAt !== undefined && output.registeredAt !== null
-        ? new Date(Math.round(output.registeredAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.registeredAt)))
         : undefined,
     registeredResources:
       output.registeredResources !== undefined && output.registeredResources !== null
@@ -8520,7 +8523,7 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     desiredCount: __expectInt32(output.desiredCount),
     failedTasks: __expectInt32(output.failedTasks),
@@ -8539,7 +8542,7 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
     taskDefinition: __expectString(output.taskDefinition),
     updatedAt:
       output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(Math.round(output.updatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
         : undefined,
   } as any;
 };
@@ -9259,7 +9262,7 @@ const deserializeAws_json1_1ManagedAgent = (output: any, context: __SerdeContext
   return {
     lastStartedAt:
       output.lastStartedAt !== undefined && output.lastStartedAt !== null
-        ? new Date(Math.round(output.lastStartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStartedAt)))
         : undefined,
     lastStatus: __expectString(output.lastStatus),
     name: __expectString(output.name),
@@ -9667,7 +9670,7 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
     clusterArn: __expectString(output.clusterArn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     createdBy: __expectString(output.createdBy),
     deploymentConfiguration:
@@ -9734,7 +9737,7 @@ const deserializeAws_json1_1ServiceEvent = (output: any, context: __SerdeContext
   return {
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     id: __expectString(output.id),
     message: __expectString(output.message),
@@ -9983,7 +9986,7 @@ const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task 
     connectivity: __expectString(output.connectivity),
     connectivityAt:
       output.connectivityAt !== undefined && output.connectivityAt !== null
-        ? new Date(Math.round(output.connectivityAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.connectivityAt)))
         : undefined,
     containerInstanceArn: __expectString(output.containerInstanceArn),
     containers:
@@ -9993,7 +9996,7 @@ const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task 
     cpu: __expectString(output.cpu),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     desiredStatus: __expectString(output.desiredStatus),
     enableExecuteCommand: __expectBoolean(output.enableExecuteCommand),
@@ -10003,7 +10006,7 @@ const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task 
         : undefined,
     executionStoppedAt:
       output.executionStoppedAt !== undefined && output.executionStoppedAt !== null
-        ? new Date(Math.round(output.executionStoppedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.executionStoppedAt)))
         : undefined,
     group: __expectString(output.group),
     healthStatus: __expectString(output.healthStatus),
@@ -10021,26 +10024,26 @@ const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task 
     platformVersion: __expectString(output.platformVersion),
     pullStartedAt:
       output.pullStartedAt !== undefined && output.pullStartedAt !== null
-        ? new Date(Math.round(output.pullStartedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.pullStartedAt)))
         : undefined,
     pullStoppedAt:
       output.pullStoppedAt !== undefined && output.pullStoppedAt !== null
-        ? new Date(Math.round(output.pullStoppedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.pullStoppedAt)))
         : undefined,
     startedAt:
       output.startedAt !== undefined && output.startedAt !== null
-        ? new Date(Math.round(output.startedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
         : undefined,
     startedBy: __expectString(output.startedBy),
     stopCode: __expectString(output.stopCode),
     stoppedAt:
       output.stoppedAt !== undefined && output.stoppedAt !== null
-        ? new Date(Math.round(output.stoppedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stoppedAt)))
         : undefined,
     stoppedReason: __expectString(output.stoppedReason),
     stoppingAt:
       output.stoppingAt !== undefined && output.stoppingAt !== null
-        ? new Date(Math.round(output.stoppingAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stoppingAt)))
         : undefined,
     tags:
       output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
@@ -10063,7 +10066,7 @@ const deserializeAws_json1_1TaskDefinition = (output: any, context: __SerdeConte
     cpu: __expectString(output.cpu),
     deregisteredAt:
       output.deregisteredAt !== undefined && output.deregisteredAt !== null
-        ? new Date(Math.round(output.deregisteredAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deregisteredAt)))
         : undefined,
     ephemeralStorage:
       output.ephemeralStorage !== undefined && output.ephemeralStorage !== null
@@ -10089,7 +10092,7 @@ const deserializeAws_json1_1TaskDefinition = (output: any, context: __SerdeConte
         : undefined,
     registeredAt:
       output.registeredAt !== undefined && output.registeredAt !== null
-        ? new Date(Math.round(output.registeredAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.registeredAt)))
         : undefined,
     registeredBy: __expectString(output.registeredBy),
     requiresAttributes:
@@ -10177,7 +10180,7 @@ const deserializeAws_json1_1TaskSet = (output: any, context: __SerdeContext): Ta
     computedDesiredCount: __expectInt32(output.computedDesiredCount),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(Math.round(output.createdAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     externalId: __expectString(output.externalId),
     id: __expectString(output.id),
@@ -10205,7 +10208,7 @@ const deserializeAws_json1_1TaskSet = (output: any, context: __SerdeContext): Ta
     stabilityStatus: __expectString(output.stabilityStatus),
     stabilityStatusAt:
       output.stabilityStatusAt !== undefined && output.stabilityStatusAt !== null
-        ? new Date(Math.round(output.stabilityStatusAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stabilityStatusAt)))
         : undefined,
     startedBy: __expectString(output.startedBy),
     status: __expectString(output.status),
@@ -10215,7 +10218,7 @@ const deserializeAws_json1_1TaskSet = (output: any, context: __SerdeContext): Ta
     taskSetArn: __expectString(output.taskSetArn),
     updatedAt:
       output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(Math.round(output.updatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
         : undefined,
   } as any;
 };

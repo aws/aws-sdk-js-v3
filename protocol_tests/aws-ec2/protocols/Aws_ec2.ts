@@ -70,11 +70,15 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc7231DateTime as __parseRfc7231DateTime,
   serializeFloat as __serializeFloat,
   strictParseByte as __strictParseByte,
   strictParseFloat as __strictParseFloat,
@@ -2011,16 +2015,16 @@ const deserializeAws_ec2XmlTimestampsOutput = (output: any, context: __SerdeCont
     httpDate: undefined,
   };
   if (output["normal"] !== undefined) {
-    contents.normal = new Date(output["normal"]);
+    contents.normal = __expectNonNull(__parseRfc3339DateTime(output["normal"]));
   }
   if (output["dateTime"] !== undefined) {
-    contents.dateTime = new Date(output["dateTime"]);
+    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(output["dateTime"]));
   }
   if (output["epochSeconds"] !== undefined) {
-    contents.epochSeconds = new Date(output["epochSeconds"]);
+    contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(output["epochSeconds"]));
   }
   if (output["httpDate"] !== undefined) {
-    contents.httpDate = new Date(output["httpDate"]);
+    contents.httpDate = __expectNonNull(__parseRfc7231DateTime(output["httpDate"]));
   }
   return contents;
 };
@@ -2121,7 +2125,7 @@ const deserializeAws_ec2TimestampList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return new Date(entry);
+      return __expectNonNull(__parseRfc3339DateTime(entry));
     });
 };
 

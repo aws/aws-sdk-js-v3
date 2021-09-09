@@ -214,10 +214,12 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5628,7 +5630,9 @@ const deserializeAws_restJson1AutoTuneMaintenanceSchedule = (
         ? deserializeAws_restJson1Duration(output.Duration, context)
         : undefined,
     StartAt:
-      output.StartAt !== undefined && output.StartAt !== null ? new Date(Math.round(output.StartAt * 1000)) : undefined,
+      output.StartAt !== undefined && output.StartAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartAt)))
+        : undefined,
   } as any;
 };
 
@@ -5681,14 +5685,14 @@ const deserializeAws_restJson1AutoTuneStatus = (output: any, context: __SerdeCon
   return {
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     ErrorMessage: __expectString(output.ErrorMessage),
     PendingDeletion: __expectBoolean(output.PendingDeletion),
     State: __expectString(output.State),
     UpdateDate:
       output.UpdateDate !== undefined && output.UpdateDate !== null
-        ? new Date(Math.round(output.UpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDate)))
         : undefined,
     UpdateVersion: __expectInt32(output.UpdateVersion),
   } as any;
@@ -5807,7 +5811,7 @@ const deserializeAws_restJson1DomainPackageDetails = (output: any, context: __Se
         : undefined,
     LastUpdated:
       output.LastUpdated !== undefined && output.LastUpdated !== null
-        ? new Date(Math.round(output.LastUpdated * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
         : undefined,
     PackageID: __expectString(output.PackageID),
     PackageName: __expectString(output.PackageName),
@@ -6318,13 +6322,13 @@ const deserializeAws_restJson1OptionStatus = (output: any, context: __SerdeConte
   return {
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(Math.round(output.CreationDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     PendingDeletion: __expectBoolean(output.PendingDeletion),
     State: __expectString(output.State),
     UpdateDate:
       output.UpdateDate !== undefined && output.UpdateDate !== null
-        ? new Date(Math.round(output.UpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateDate)))
         : undefined,
     UpdateVersion: __expectInt32(output.UpdateVersion),
   } as any;
@@ -6381,7 +6385,7 @@ const deserializeAws_restJson1PackageDetails = (output: any, context: __SerdeCon
     AvailablePackageVersion: __expectString(output.AvailablePackageVersion),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     ErrorDetails:
       output.ErrorDetails !== undefined && output.ErrorDetails !== null
@@ -6389,7 +6393,7 @@ const deserializeAws_restJson1PackageDetails = (output: any, context: __SerdeCon
         : undefined,
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
-        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     PackageDescription: __expectString(output.PackageDescription),
     PackageID: __expectString(output.PackageID),
@@ -6415,7 +6419,7 @@ const deserializeAws_restJson1PackageVersionHistory = (output: any, context: __S
     CommitMessage: __expectString(output.CommitMessage),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? new Date(Math.round(output.CreatedAt * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     PackageVersion: __expectString(output.PackageVersion),
   } as any;
@@ -6473,7 +6477,7 @@ const deserializeAws_restJson1ReservedElasticsearchInstance = (
     ReservedElasticsearchInstanceOfferingId: __expectString(output.ReservedElasticsearchInstanceOfferingId),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     State: __expectString(output.State),
     UsagePrice: __limitedParseDouble(output.UsagePrice),
@@ -6554,7 +6558,10 @@ const deserializeAws_restJson1ScheduledAutoTuneDetails = (
   return {
     Action: __expectString(output.Action),
     ActionType: __expectString(output.ActionType),
-    Date: output.Date !== undefined && output.Date !== null ? new Date(Math.round(output.Date * 1000)) : undefined,
+    Date:
+      output.Date !== undefined && output.Date !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Date)))
+        : undefined,
     Severity: __expectString(output.Severity),
   } as any;
 };
@@ -6566,7 +6573,7 @@ const deserializeAws_restJson1ServiceSoftwareOptions = (
   return {
     AutomatedUpdateDate:
       output.AutomatedUpdateDate !== undefined && output.AutomatedUpdateDate !== null
-        ? new Date(Math.round(output.AutomatedUpdateDate * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AutomatedUpdateDate)))
         : undefined,
     Cancellable: __expectBoolean(output.Cancellable),
     CurrentVersion: __expectString(output.CurrentVersion),
@@ -6673,7 +6680,7 @@ const deserializeAws_restJson1UpgradeHistory = (output: any, context: __SerdeCon
   return {
     StartTimestamp:
       output.StartTimestamp !== undefined && output.StartTimestamp !== null
-        ? new Date(Math.round(output.StartTimestamp * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTimestamp)))
         : undefined,
     StepsList:
       output.StepsList !== undefined && output.StepsList !== null

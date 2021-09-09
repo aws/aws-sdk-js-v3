@@ -279,8 +279,10 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -12384,7 +12386,7 @@ const deserializeAws_restJson1Directory = (output: any, context: __SerdeContext)
   return {
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
-        ? new Date(Math.round(output.CreationDateTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDateTime)))
         : undefined,
     DirectoryArn: __expectString(output.DirectoryArn),
     Name: __expectString(output.Name),
@@ -12716,7 +12718,7 @@ const deserializeAws_restJson1TypedAttributeValue = (output: any, context: __Ser
   }
   if (output.DatetimeValue !== undefined && output.DatetimeValue !== null) {
     return {
-      DatetimeValue: new Date(Math.round(output.DatetimeValue * 1000)),
+      DatetimeValue: __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DatetimeValue))),
     };
   }
   if (__expectString(output.NumberValue) !== undefined) {

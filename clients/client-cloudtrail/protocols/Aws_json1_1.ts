@@ -118,7 +118,13 @@ import {
   UpdateTrailResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectBoolean as __expectBoolean, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  expectBoolean as __expectBoolean,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3687,7 +3693,7 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
     EventSource: __expectString(output.EventSource),
     EventTime:
       output.EventTime !== undefined && output.EventTime !== null
-        ? new Date(Math.round(output.EventTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime)))
         : undefined,
     ReadOnly: __expectString(output.ReadOnly),
     Resources:
@@ -3791,34 +3797,34 @@ const deserializeAws_json1_1GetTrailStatusResponse = (output: any, context: __Se
     LatestCloudWatchLogsDeliveryError: __expectString(output.LatestCloudWatchLogsDeliveryError),
     LatestCloudWatchLogsDeliveryTime:
       output.LatestCloudWatchLogsDeliveryTime !== undefined && output.LatestCloudWatchLogsDeliveryTime !== null
-        ? new Date(Math.round(output.LatestCloudWatchLogsDeliveryTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestCloudWatchLogsDeliveryTime)))
         : undefined,
     LatestDeliveryAttemptSucceeded: __expectString(output.LatestDeliveryAttemptSucceeded),
     LatestDeliveryAttemptTime: __expectString(output.LatestDeliveryAttemptTime),
     LatestDeliveryError: __expectString(output.LatestDeliveryError),
     LatestDeliveryTime:
       output.LatestDeliveryTime !== undefined && output.LatestDeliveryTime !== null
-        ? new Date(Math.round(output.LatestDeliveryTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestDeliveryTime)))
         : undefined,
     LatestDigestDeliveryError: __expectString(output.LatestDigestDeliveryError),
     LatestDigestDeliveryTime:
       output.LatestDigestDeliveryTime !== undefined && output.LatestDigestDeliveryTime !== null
-        ? new Date(Math.round(output.LatestDigestDeliveryTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestDigestDeliveryTime)))
         : undefined,
     LatestNotificationAttemptSucceeded: __expectString(output.LatestNotificationAttemptSucceeded),
     LatestNotificationAttemptTime: __expectString(output.LatestNotificationAttemptTime),
     LatestNotificationError: __expectString(output.LatestNotificationError),
     LatestNotificationTime:
       output.LatestNotificationTime !== undefined && output.LatestNotificationTime !== null
-        ? new Date(Math.round(output.LatestNotificationTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestNotificationTime)))
         : undefined,
     StartLoggingTime:
       output.StartLoggingTime !== undefined && output.StartLoggingTime !== null
-        ? new Date(Math.round(output.StartLoggingTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartLoggingTime)))
         : undefined,
     StopLoggingTime:
       output.StopLoggingTime !== undefined && output.StopLoggingTime !== null
-        ? new Date(Math.round(output.StopLoggingTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopLoggingTime)))
         : undefined,
     TimeLoggingStarted: __expectString(output.TimeLoggingStarted),
     TimeLoggingStopped: __expectString(output.TimeLoggingStopped),
@@ -4171,11 +4177,11 @@ const deserializeAws_json1_1PublicKey = (output: any, context: __SerdeContext): 
     Fingerprint: __expectString(output.Fingerprint),
     ValidityEndTime:
       output.ValidityEndTime !== undefined && output.ValidityEndTime !== null
-        ? new Date(Math.round(output.ValidityEndTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ValidityEndTime)))
         : undefined,
     ValidityStartTime:
       output.ValidityStartTime !== undefined && output.ValidityStartTime !== null
-        ? new Date(Math.round(output.ValidityStartTime * 1000))
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ValidityStartTime)))
         : undefined,
     Value: output.Value !== undefined && output.Value !== null ? context.base64Decoder(output.Value) : undefined,
   } as any;
