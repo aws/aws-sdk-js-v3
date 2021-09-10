@@ -21,7 +21,8 @@ export interface ListResourcesCommandInput extends ListResourcesRequest {}
 export interface ListResourcesCommandOutput extends ListResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the resources that you added to a resource shares or the resources that are shared with you.</p>
+ * <p>Lists the resources that you added to a resource shares or the resources that are shared with
+ *             you.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

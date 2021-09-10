@@ -21,7 +21,14 @@ export interface CreateResourceShareCommandInput extends CreateResourceShareRequ
 export interface CreateResourceShareCommandOutput extends CreateResourceShareResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a resource share.</p>
+ * <p>Creates a resource share. You must provide a list of the Amazon Resource Names (ARNs) for the
+ *             resources you want to share. You must also specify who you want to share the resources
+ *             with, and the permissions that you grant them.</p>
+ *         <note>
+ *             <p>Sharing a resource makes it available for use by principals outside of the
+ *                 Amazon Web Services account that created the resource. Sharing doesn't change any permissions or
+ *                 quotas that apply to the resource in the account that created it.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

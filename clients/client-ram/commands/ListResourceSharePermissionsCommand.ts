@@ -23,7 +23,7 @@ export interface ListResourceSharePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the AWS RAM permissions that are associated with a resource share.</p>
+ * <p>Lists the RAM permissions that are associated with a resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

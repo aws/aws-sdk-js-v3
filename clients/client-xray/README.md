@@ -7,7 +7,7 @@
 
 AWS SDK for JavaScript XRay Client for Node.js, Browser and React Native.
 
-<p>AWS X-Ray provides APIs for managing debug traces and retrieving service maps
+<p>Amazon Web Services X-Ray provides APIs for managing debug traces and retrieving service maps
 and other data created by processing those traces.</p>
 
 ## Installing

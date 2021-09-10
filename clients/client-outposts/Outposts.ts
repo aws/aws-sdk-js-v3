@@ -1,4 +1,5 @@
 import { OutpostsClient } from "./OutpostsClient";
+import { CreateOrderCommand, CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
 import {
   CreateOutpostCommand,
   CreateOutpostCommandInput,
@@ -43,6 +44,32 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       latency and local data processing needs.</p>
  */
 export class Outposts extends OutpostsClient {
+  /**
+   * <p>Creates an order for an Outpost.</p>
+   */
+  public createOrder(args: CreateOrderCommandInput, options?: __HttpHandlerOptions): Promise<CreateOrderCommandOutput>;
+  public createOrder(args: CreateOrderCommandInput, cb: (err: any, data?: CreateOrderCommandOutput) => void): void;
+  public createOrder(
+    args: CreateOrderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOrderCommandOutput) => void
+  ): void;
+  public createOrder(
+    args: CreateOrderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOrderCommandOutput) => void),
+    cb?: (err: any, data?: CreateOrderCommandOutput) => void
+  ): Promise<CreateOrderCommandOutput> | void {
+    const command = new CreateOrderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates an Outpost.</p>
    *          <p>You can specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>

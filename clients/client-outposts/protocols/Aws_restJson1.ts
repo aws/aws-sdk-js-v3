@@ -1,3 +1,4 @@
+import { CreateOrderCommandInput, CreateOrderCommandOutput } from "../commands/CreateOrderCommand";
 import { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "../commands/CreateOutpostCommand";
 import { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "../commands/DeleteOutpostCommand";
 import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "../commands/DeleteSiteCommand";
@@ -19,7 +20,10 @@ import {
   ConflictException,
   InstanceTypeItem,
   InternalServerException,
+  LineItem,
+  LineItemRequest,
   NotFoundException,
+  Order,
   Outpost,
   ServiceQuotaExceededException,
   Site,
@@ -27,10 +31,13 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -39,6 +46,37 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+export const serializeAws_restJson1CreateOrderCommand = async (
+  input: CreateOrderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orders";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.LineItems !== undefined &&
+      input.LineItems !== null && {
+        LineItems: serializeAws_restJson1LineItemRequestListDefinition(input.LineItems, context),
+      }),
+    ...(input.OutpostIdentifier !== undefined &&
+      input.OutpostIdentifier !== null && { OutpostIdentifier: input.OutpostIdentifier }),
+    ...(input.PaymentOption !== undefined && input.PaymentOption !== null && { PaymentOption: input.PaymentOption }),
+    ...(input.PaymentTerm !== undefined && input.PaymentTerm !== null && { PaymentTerm: input.PaymentTerm }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateOutpostCommand = async (
   input: CreateOutpostCommandInput,
@@ -337,6 +375,101 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     query,
     body,
   });
+};
+
+export const deserializeAws_restJson1CreateOrderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOrderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateOrderCommandError(output, context);
+  }
+  const contents: CreateOrderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Order: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Order !== undefined && data.Order !== null) {
+    contents.Order = deserializeAws_restJson1Order(data.Order, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateOrderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOrderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.outposts#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.outposts#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.outposts#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.outposts#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.outposts#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.outposts#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateOutpostCommand = async (
@@ -1235,6 +1368,27 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1LineItemRequest = (input: LineItemRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CatalogItemId !== undefined && input.CatalogItemId !== null && { CatalogItemId: input.CatalogItemId }),
+    ...(input.Quantity !== undefined && input.Quantity !== null && { Quantity: input.Quantity }),
+  };
+};
+
+const serializeAws_restJson1LineItemRequestListDefinition = (
+  input: LineItemRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1LineItemRequest(entry, context);
+    });
+};
+
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -1265,6 +1419,47 @@ const deserializeAws_restJson1InstanceTypeListDefinition = (
       }
       return deserializeAws_restJson1InstanceTypeItem(entry, context);
     });
+};
+
+const deserializeAws_restJson1LineItem = (output: any, context: __SerdeContext): LineItem => {
+  return {
+    CatalogItemId: __expectString(output.CatalogItemId),
+    LineItemId: __expectString(output.LineItemId),
+    Quantity: __expectInt32(output.Quantity),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_restJson1LineItemListDefinition = (output: any, context: __SerdeContext): LineItem[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LineItem(entry, context);
+    });
+};
+
+const deserializeAws_restJson1Order = (output: any, context: __SerdeContext): Order => {
+  return {
+    LineItems:
+      output.LineItems !== undefined && output.LineItems !== null
+        ? deserializeAws_restJson1LineItemListDefinition(output.LineItems, context)
+        : undefined,
+    OrderFulfilledDate:
+      output.OrderFulfilledDate !== undefined && output.OrderFulfilledDate !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderFulfilledDate)))
+        : undefined,
+    OrderId: __expectString(output.OrderId),
+    OrderSubmissionDate:
+      output.OrderSubmissionDate !== undefined && output.OrderSubmissionDate !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderSubmissionDate)))
+        : undefined,
+    OutpostId: __expectString(output.OutpostId),
+    PaymentOption: __expectString(output.PaymentOption),
+    Status: __expectString(output.Status),
+  } as any;
 };
 
 const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): Outpost => {

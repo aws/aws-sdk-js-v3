@@ -38,11 +38,6 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *             you want to host two models, A and B, and you assign traffic weight 2 for model A and 1
  *             for model B. Amazon SageMaker distributes two-thirds of the traffic to Model A, and one-third to
  *             model B. </p>
- *         <p>For an example that calls this method when deploying a model to Amazon SageMaker hosting services,
- *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto">Deploy the
- *                 Model to Amazon SageMaker Hosting Services (Amazon Web Services SDK for Python (Boto
- *             3)).</a>
- *          </p>
  *         <note>
  *             <p>When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to
  *                 verify that your endpoint configuration exists. When you read data from a DynamoDB

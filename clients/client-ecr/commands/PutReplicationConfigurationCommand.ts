@@ -27,7 +27,7 @@ export interface PutReplicationConfigurationCommandOutput
  *             replication configuration for a repository can be retrieved with the <a>DescribeRegistry</a> API action. The first time the
  *             PutReplicationConfiguration API is called, a service-linked IAM role is created in
  *             your account for the replication process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html">Using
- *                 Service-Linked Roles for Amazon ECR</a> in the
+ *                 service-linked roles for Amazon ECR</a> in the
  *             <i>Amazon Elastic Container Registry User Guide</i>.</p>
  *         <note>
  *             <p>When configuring cross-account replication, the destination account must grant the

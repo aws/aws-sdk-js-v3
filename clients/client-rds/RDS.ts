@@ -4245,7 +4245,7 @@ export class RDS extends RDSClient {
    *                   Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *          </important>
    *          <note>
-   *             <p>This action only applies to Aurora DB clusters.</p>
+   *             <p>This action only applies to Aurora Serverless DB clusters.</p>
    *          </note>
    */
   public modifyCurrentDBClusterCapacity(

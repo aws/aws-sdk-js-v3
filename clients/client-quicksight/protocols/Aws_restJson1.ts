@@ -253,6 +253,7 @@ import {
   ActiveIAMPolicyAssignment,
   AdHocFilteringOption,
   AmazonElasticsearchParameters,
+  AmazonOpenSearchParameters,
   Analysis,
   AnalysisError,
   AnalysisSearchFilter,
@@ -18780,6 +18781,15 @@ const serializeAws_restJson1AmazonElasticsearchParameters = (
   };
 };
 
+const serializeAws_restJson1AmazonOpenSearchParameters = (
+  input: AmazonOpenSearchParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
+  };
+};
+
 const serializeAws_restJson1AnalysisSearchFilter = (input: AnalysisSearchFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -19197,6 +19207,9 @@ const serializeAws_restJson1DataSourceParameters = (input: DataSourceParameters,
   return DataSourceParameters.visit(input, {
     AmazonElasticsearchParameters: (value) => ({
       AmazonElasticsearchParameters: serializeAws_restJson1AmazonElasticsearchParameters(value, context),
+    }),
+    AmazonOpenSearchParameters: (value) => ({
+      AmazonOpenSearchParameters: serializeAws_restJson1AmazonOpenSearchParameters(value, context),
     }),
     AthenaParameters: (value) => ({ AthenaParameters: serializeAws_restJson1AthenaParameters(value, context) }),
     AuroraParameters: (value) => ({ AuroraParameters: serializeAws_restJson1AuroraParameters(value, context) }),
@@ -20189,6 +20202,15 @@ const deserializeAws_restJson1AmazonElasticsearchParameters = (
   } as any;
 };
 
+const deserializeAws_restJson1AmazonOpenSearchParameters = (
+  output: any,
+  context: __SerdeContext
+): AmazonOpenSearchParameters => {
+  return {
+    Domain: __expectString(output.Domain),
+  } as any;
+};
+
 const deserializeAws_restJson1Analysis = (output: any, context: __SerdeContext): Analysis => {
   return {
     AnalysisId: __expectString(output.AnalysisId),
@@ -20896,6 +20918,14 @@ const deserializeAws_restJson1DataSourceParameters = (output: any, context: __Se
     return {
       AmazonElasticsearchParameters: deserializeAws_restJson1AmazonElasticsearchParameters(
         output.AmazonElasticsearchParameters,
+        context
+      ),
+    };
+  }
+  if (output.AmazonOpenSearchParameters !== undefined && output.AmazonOpenSearchParameters !== null) {
+    return {
+      AmazonOpenSearchParameters: deserializeAws_restJson1AmazonOpenSearchParameters(
+        output.AmazonOpenSearchParameters,
         context
       ),
     };

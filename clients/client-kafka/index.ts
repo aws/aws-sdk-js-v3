@@ -37,5 +37,6 @@ export * from "./commands/UpdateClusterConfigurationCommand";
 export * from "./commands/UpdateClusterKafkaVersionCommand";
 export * from "./commands/UpdateConfigurationCommand";
 export * from "./commands/UpdateMonitoringCommand";
+export * from "./commands/UpdateSecurityCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";

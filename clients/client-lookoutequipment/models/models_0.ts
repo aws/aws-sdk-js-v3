@@ -96,7 +96,7 @@ export interface CreateDatasetRequest {
   DatasetSchema: DatasetSchema | undefined;
 
   /**
-   * <p>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt dataset data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 
@@ -228,7 +228,7 @@ export namespace ValidationException {
 }
 
 /**
- * <p>>> Specifies configuration information for the input data for the inference, including
+ * <p>Specifies configuration information for the input data for the inference, including
  *          timestamp format and delimiter. </p>
  */
 export interface InferenceInputNameConfiguration {
@@ -279,7 +279,7 @@ export namespace InferenceS3InputConfiguration {
 }
 
 /**
- * <p>> Specifies configuration information for the input data for the inference, including S3
+ * <p>Specifies configuration information for the input data for the inference, including S3
  *          location of input data.. </p>
  */
 export interface InferenceInputConfiguration {
@@ -295,7 +295,7 @@ export interface InferenceInputConfiguration {
   InputTimeZoneOffset?: string;
 
   /**
-   * <p>> Specifies configuration information for the input data for the inference, including
+   * <p>Specifies configuration information for the input data for the inference, including
    *          timestamp format and delimiter. </p>
    */
   InferenceInputNameConfiguration?: InferenceInputNameConfiguration;
@@ -382,7 +382,7 @@ export interface CreateInferenceSchedulerRequest {
   InferenceSchedulerName: string | undefined;
 
   /**
-   * <p> A period of time (in minutes) by which inference on the data is delayed after the data
+   * <p>A period of time (in minutes) by which inference on the data is delayed after the data
    *          starts. For instance, if you select an offset delay time of five minutes, inference will
    *          not begin on the data until the first data measurement after the five minute mark. For example, if
    *          five minutes is selected, the inference scheduler will wake up at the configured frequency with the
@@ -419,7 +419,7 @@ export interface CreateInferenceSchedulerRequest {
   RoleArn: string | undefined;
 
   /**
-   * <p>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt inference scheduler data by Amazon Lookout for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 
@@ -667,7 +667,7 @@ export interface CreateModelRequest {
   DataPreProcessingConfiguration?: DataPreProcessingConfiguration;
 
   /**
-   * <p>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt model data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 
@@ -675,6 +675,11 @@ export interface CreateModelRequest {
    * <p> Any tags associated with the ML model being created. </p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Indicates that the asset associated with this sensor has been shut off. As long as this condition is met, Lookout for Equipment will not use data from this asset for training, evaluation, or inference.</p>
+   */
+  OffCondition?: string;
 }
 
 export namespace CreateModelRequest {
@@ -928,7 +933,7 @@ export interface DescribeDatasetResponse {
   Schema?: __LazyJsonString | string;
 
   /**
-   * <p>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt dataset data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 
@@ -1038,7 +1043,7 @@ export interface DescribeInferenceSchedulerResponse {
   RoleArn?: string;
 
   /**
-   * <p>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt inference scheduler data by Amazon Lookout for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
 }
@@ -1187,9 +1192,14 @@ export interface DescribeModelResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt model data by Amazon Lookout for Equipment. </p>
+   * <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout for Equipment. </p>
    */
   ServerSideKmsKeyId?: string;
+
+  /**
+   * <p>Indicates that the asset associated with this sensor has been shut off. As long as this condition is met, Lookout for Equipment will not use data from this asset for training, evaluation, or inference.</p>
+   */
+  OffCondition?: string;
 }
 
 export namespace DescribeModelResponse {
@@ -1626,7 +1636,7 @@ export interface InferenceSchedulerSummary {
   Status?: InferenceSchedulerStatus | string;
 
   /**
-   * <p>> A period of time (in minutes) by which inference on the data is delayed after the data
+   * <p>A period of time (in minutes) by which inference on the data is delayed after the data
    *          starts. For instance, if an offset delay time of five minutes was selected, inference will
    *          not begin on the data until the first data measurement after the five minute mark. For example, if
    *          five minutes is selected, the inference scheduler will wake up at the configured frequency with the
@@ -2051,7 +2061,7 @@ export interface UpdateInferenceSchedulerRequest {
   InferenceSchedulerName: string | undefined;
 
   /**
-   * <p>> A period of time (in minutes) by which inference on the data is delayed after the data
+   * <p> A period of time (in minutes) by which inference on the data is delayed after the data
    *          starts. For instance, if you select an offset delay time of five minutes, inference will
    *          not begin on the data until the first data measurement after the five minute mark. For example, if
    *          five minutes is selected, the inference scheduler will wake up at the configured frequency with the

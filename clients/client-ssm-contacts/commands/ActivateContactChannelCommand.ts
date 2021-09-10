@@ -21,8 +21,7 @@ export interface ActivateContactChannelCommandInput extends ActivateContactChann
 export interface ActivateContactChannelCommandOutput extends ActivateContactChannelResult, __MetadataBearer {}
 
 /**
- * <p>Activates a contact's contact channel. Incident Manager can't engage a contact until
- *          the
+ * <p>Activates a contact's contact channel. Incident Manager can't engage a contact until the
  *          contact channel has been activated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

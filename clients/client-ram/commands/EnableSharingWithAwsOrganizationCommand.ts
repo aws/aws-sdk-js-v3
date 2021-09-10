@@ -23,8 +23,8 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables resource sharing within your AWS Organization.</p>
- *          <p>The caller must be the master account for the AWS Organization.</p>
+ * <p>Enables resource sharing within your organization in Organizations.</p>
+ *         <p>The caller must be the master account for the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

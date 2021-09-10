@@ -21,7 +21,7 @@ export interface GetPermissionCommandInput extends GetPermissionRequest {}
 export interface GetPermissionCommandOutput extends GetPermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the contents of an AWS RAM permission in JSON format.</p>
+ * <p>Gets the contents of an RAM permission in JSON format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

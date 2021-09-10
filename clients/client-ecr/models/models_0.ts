@@ -2,7 +2,7 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
 
 export interface BatchCheckLayerAvailabilityRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the image layers to
+   * <p>The Amazon Web Services account ID associated with the registry that contains the image layers to
    *             check. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -219,7 +219,7 @@ export namespace ImageIdentifier {
  */
 export interface BatchDeleteImageRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the image to delete.
+   * <p>The Amazon Web Services account ID associated with the registry that contains the image to delete.
    *             If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -308,8 +308,8 @@ export namespace BatchDeleteImageResponse {
 
 export interface BatchGetImageRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the images to describe.
-   *             If you do not specify a registry, the default registry is assumed.</p>
+   * <p>The Amazon Web Services account ID associated with the registry that contains the images to
+   *             describe. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
 
@@ -349,7 +349,7 @@ export namespace BatchGetImageRequest {
  */
 export interface Image {
   /**
-   * <p>The AWS account ID associated with the registry containing the image.</p>
+   * <p>The Amazon Web Services account ID associated with the registry containing the image.</p>
    */
   registryId?: string;
 
@@ -406,7 +406,7 @@ export namespace BatchGetImageResponse {
 
 export interface CompleteLayerUploadRequest {
   /**
-   * <p>The AWS account ID associated with the registry to which to upload layers.
+   * <p>The Amazon Web Services account ID associated with the registry to which to upload layers.
    *             If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -519,7 +519,7 @@ export interface KmsException extends __SmithyException, $MetadataBearer {
   $fault: "client";
   message?: string;
   /**
-   * <p>The error code returned by AWS KMS.</p>
+   * <p>The error code returned by KMS.</p>
    */
   kmsError?: string;
 }
@@ -610,33 +610,33 @@ export enum EncryptionType {
  *             keys which encrypts your data at rest using an AES-256 encryption algorithm. This does
  *             not require any action on your part.</p>
  *         <p>For more control over the encryption of the contents of your repository, you can use
- *             server-side encryption with customer master keys (CMKs) stored in AWS Key Management Service (AWS KMS) to
- *             encrypt your images. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html">Amazon ECR encryption at
+ *             server-side encryption with Key Management Service key stored in Key Management Service (KMS) to encrypt your
+ *             images. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html">Amazon ECR encryption at
  *                 rest</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
  */
 export interface EncryptionConfiguration {
   /**
    * <p>The encryption type to use.</p>
    *         <p>If you use the <code>KMS</code> encryption type, the contents of the repository will
-   *             be encrypted using server-side encryption with customer master keys (CMKs) stored in
-   *             AWS KMS. When you use AWS KMS to encrypt your data, you can either use the default AWS
-   *             managed CMK for Amazon ECR, or specify your own CMK, which you already created. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side
-   *                 Encryption with CMKs Stored in AWS Key Management Service (SSE-KMS)</a> in the
+   *             be encrypted using server-side encryption with Key Management Service key stored in KMS. When you
+   *             use KMS to encrypt your data, you can either use the default Amazon Web Services managed KMS key
+   *             for Amazon ECR, or specify your own KMS key, which you already created. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting data using server-side
+   *                 encryption with an KMS key stored in Key Management Service (SSE-KMS)</a> in the
    *                 <i>Amazon Simple Storage Service Console Developer Guide.</i>.</p>
    *         <p>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
    *             with Amazon S3-managed encryption keys which encrypts the images in the repository using an
-   *             AES-256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting Data Using
-   *                 Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)</a> in
-   *             the <i>Amazon Simple Storage Service Console Developer Guide.</i>.</p>
+   *             AES-256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting data using
+   *                 server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a> in the
+   *                 <i>Amazon Simple Storage Service Console Developer Guide.</i>.</p>
    */
   encryptionType: EncryptionType | string | undefined;
 
   /**
-   * <p>If you use the <code>KMS</code> encryption type, specify the CMK to use for
-   *             encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must
-   *             exist in the same Region as the repository. If no key is specified, the default AWS
-   *             managed CMK for Amazon ECR will be used.</p>
+   * <p>If you use the <code>KMS</code> encryption type, specify the KMS key to use for
+   *             encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key
+   *             must exist in the same Region as the repository. If no key is specified, the default
+   *             Amazon Web Services managed KMS key for Amazon ECR will be used.</p>
    */
   kmsKey?: string;
 }
@@ -658,7 +658,7 @@ export interface ImageScanningConfiguration {
    * <p>The setting that determines whether images are scanned after being pushed to a
    *             repository. If set to <code>true</code>, images will be scanned after being pushed. If
    *             this parameter is not specified, it will default to <code>false</code> and images will
-   *             not be scanned unless a scan is manually started with the <a>StartImageScan</a> API.</p>
+   *             not be scanned unless a scan is manually started with the <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html">API_StartImageScan</a> API.</p>
    */
   scanOnPush?: boolean;
 }
@@ -758,13 +758,13 @@ export namespace CreateRepositoryRequest {
 export interface Repository {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the
-   *     repository, AWS account ID of the repository owner, repository namespace, and repository name.
+   *     repository, Amazon Web Services account ID of the repository owner, repository namespace, and repository name.
    *     For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
    */
   repositoryArn?: string;
 
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository.</p>
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository.</p>
    */
   registryId?: string;
 
@@ -847,7 +847,7 @@ export namespace InvalidTagParameterException {
 
 /**
  * <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR Service Quotas</a> in
+ *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
  *             the Amazon Elastic Container Registry User Guide.</p>
  */
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
@@ -910,7 +910,7 @@ export namespace TooManyTagsException {
 
 export interface DeleteLifecyclePolicyRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository.
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository.
    *             If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -1032,7 +1032,7 @@ export namespace RegistryPolicyNotFoundException {
 
 export interface DeleteRepositoryRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository to
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository to
    *             delete. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -1097,8 +1097,8 @@ export namespace RepositoryNotEmptyException {
 
 export interface DeleteRepositoryPolicyRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository policy to
-   *             delete. If you do not specify a registry, the default registry is assumed.</p>
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository policy
+   *             to delete. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
 
@@ -1196,8 +1196,8 @@ export namespace DescribeImagesFilter {
 
 export interface DescribeImagesRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository in which
-   *             to describe images. If you do not specify a registry, the default registry is assumed.</p>
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository in
+   *             which to describe images. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
 
@@ -1324,7 +1324,7 @@ export namespace ImageScanStatus {
  */
 export interface ImageDetail {
   /**
-   * <p>The AWS account ID associated with the registry to which this image belongs.</p>
+   * <p>The Amazon Web Services account ID associated with the registry to which this image belongs.</p>
    */
   registryId?: string;
 
@@ -1438,9 +1438,8 @@ export namespace ImageNotFoundException {
 
 export interface DescribeImageScanFindingsRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository in
-   *             which to describe the image scan findings for. If you do not specify a registry, the
-   *             default registry is assumed.</p>
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository in
+   *             which to describe the image scan findings for. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
 
@@ -1765,7 +1764,7 @@ export namespace ValidationException {
 
 export interface DescribeRepositoriesRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repositories to be
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repositories to be
    *             described. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -1843,7 +1842,7 @@ export interface GetAuthorizationTokenRequest {
   /**
    * @deprecated
    *
-   * <p>A list of AWS account IDs that are associated with the registries for which to get
+   * <p>A list of Amazon Web Services account IDs that are associated with the registries for which to get
    *             AuthorizationData objects. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryIds?: string[];
@@ -1913,7 +1912,7 @@ export namespace GetAuthorizationTokenResponse {
 
 export interface GetDownloadUrlForLayerRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the image layer to
+   * <p>The Amazon Web Services account ID associated with the registry that contains the image layer to
    *             download. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -2005,7 +2004,7 @@ export namespace LayersNotFoundException {
 
 export interface GetLifecyclePolicyRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository.
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository.
    *             If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -2077,7 +2076,7 @@ export namespace LifecyclePolicyPreviewFilter {
 
 export interface GetLifecyclePolicyPreviewRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository.
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository.
    *             If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -2324,7 +2323,7 @@ export namespace GetRegistryPolicyResponse {
 
 export interface GetRepositoryPolicyRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository.
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository.
    *             If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -2372,8 +2371,8 @@ export namespace GetRepositoryPolicyResponse {
 
 export interface InitiateLayerUploadRequest {
   /**
-   * <p>The AWS account ID associated with the registry to which you intend to upload layers.
-   *             If you do not specify a registry, the default registry is assumed.</p>
+   * <p>The Amazon Web Services account ID associated with the registry to which you intend to upload
+   *             layers. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
 
@@ -2437,8 +2436,8 @@ export namespace ListImagesFilter {
 
 export interface ListImagesRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository in which
-   *             to list images. If you do not specify a registry, the default registry is assumed.</p>
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository in
+   *             which to list images. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
 
@@ -2608,8 +2607,8 @@ export namespace ImageTagAlreadyExistsException {
 
 export interface PutImageRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository in which
-   *             to put the image. If you do not specify a registry, the default registry is assumed.</p>
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository in
+   *             which to put the image. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
 
@@ -2687,7 +2686,7 @@ export namespace ReferencedImagesNotFoundException {
 
 export interface PutImageScanningConfigurationRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository in
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository in
    *             which to update the image scanning configuration setting.
    *             If you do not specify a registry, the default registry is assumed.</p>
    */
@@ -2744,8 +2743,8 @@ export namespace PutImageScanningConfigurationResponse {
 
 export interface PutImageTagMutabilityRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository in which
-   *             to update the image tag mutability settings. If you do not specify a registry, the default registry is assumed.</p>
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository in
+   *             which to update the image tag mutability settings. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
 
@@ -2801,7 +2800,7 @@ export namespace PutImageTagMutabilityResponse {
 
 export interface PutLifecyclePolicyRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository. If you
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository. If you
    *             do  not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -2925,7 +2924,7 @@ export namespace PutReplicationConfigurationResponse {
 
 export interface SetRepositoryPolicyRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository.
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository.
    *             If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -2937,8 +2936,8 @@ export interface SetRepositoryPolicyRequest {
 
   /**
    * <p>The JSON repository policy text to apply to the repository. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html">Amazon ECR Repository
-   *                 Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+   *                 <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html">Amazon ECR repository
+   *                 policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
    */
   policyText: string | undefined;
 
@@ -2987,7 +2986,7 @@ export namespace SetRepositoryPolicyResponse {
 
 export interface StartImageScanRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository in
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository in
    *             which to start an image scan request. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -3082,7 +3081,7 @@ export namespace LifecyclePolicyPreviewInProgressException {
 
 export interface StartLifecyclePolicyPreviewRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository.
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository.
    *             If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -3252,7 +3251,7 @@ export namespace InvalidLayerPartException {
 
 export interface UploadLayerPartRequest {
   /**
-   * <p>The AWS account ID associated with the registry to which you are uploading layer
+   * <p>The Amazon Web Services account ID associated with the registry to which you are uploading layer
    *             parts. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;

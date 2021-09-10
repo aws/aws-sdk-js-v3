@@ -21,7 +21,7 @@ export interface PutTelemetryRecordsCommandInput extends PutTelemetryRecordsRequ
 export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsResult, __MetadataBearer {}
 
 /**
- * <p>Used by the AWS X-Ray daemon to upload telemetry.</p>
+ * <p>Used by the Amazon Web Services X-Ray daemon to upload telemetry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -221,11 +221,11 @@ export namespace BatchGetTracesRequest {
 
 /**
  * <p>A segment from a trace that has been ingested by the X-Ray service. The segment can be
- *       compiled from documents uploaded with <a>PutTraceSegments</a>, or an
+ *       compiled from documents uploaded with <a href="https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html">PutTraceSegments</a>, or an
  *         <code>inferred</code> segment for a downstream service, generated from a subsegment sent by
  *       the service that called it.</p>
- *          <p>For the full segment document schema, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html">AWS X-Ray Segment
- *         Documents</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
+ *          <p>For the full segment document schema, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html">Amazon Web Services X-Ray Segment
+ *       Documents</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
  */
 export interface Segment {
   /**
@@ -266,7 +266,7 @@ export interface Trace {
 
   /**
    * <p>LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For
-   *       more information about quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/xray.html">AWS X-Ray endpoints and quotas</a>.</p>
+   *       more information about quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/xray.html">Amazon Web Services X-Ray endpoints and quotas</a>.</p>
    */
   LimitExceeded?: boolean;
 
@@ -374,9 +374,9 @@ export namespace InsightsConfiguration {
 }
 
 /**
- * <p>A map that contains tag keys and tag values to attach to an AWS X-Ray group or sampling
- *       rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a>
- *       in the <i>AWS General Reference</i>.</p>
+ * <p>A map that contains tag keys and tag values to attach to an Amazon Web Services X-Ray group or sampling
+ *       rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+ *       in the <i>Amazon Web Services General Reference</i>.</p>
  *          <p>The following restrictions apply to tags:</p>
  *          <ul>
  *             <li>
@@ -386,7 +386,7 @@ export namespace InsightsConfiguration {
  *                <p>Tag keys and values are case sensitive.</p>
  *             </li>
  *             <li>
- *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for AWS use. You
+ *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services use. You
  *           cannot edit or delete system tags.</p>
  *             </li>
  *          </ul>
@@ -448,8 +448,8 @@ export interface CreateGroupRequest {
 
   /**
    * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray group.
-   *             For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *                 resources</a> in the <i>AWS General Reference</i>.</p>
+   *             For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *                 resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
    *         <p>The following restrictions apply to tags:</p>
    *         <ul>
    *             <li>
@@ -469,7 +469,7 @@ export interface CreateGroupRequest {
    *                 <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                 <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for AWS
+   *                 <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services
    *                     use.</p>
    *             </li>
    *          </ul>
@@ -513,7 +513,7 @@ export interface Group {
    *                     group or false to disable insights for the group.</p>
    *             </li>
    *             <li>
-   *                 <p>The NotifcationsEnabled  boolean can be set to true to enable insights
+   *                 <p>The NotificationsEnabled boolean can be set to true to enable insights
    *                     notifications through Amazon EventBridge for the group.</p>
    *             </li>
    *          </ul>
@@ -565,7 +565,7 @@ export interface SamplingRule {
   RuleARN?: string;
 
   /**
-   * <p>Matches the ARN of the AWS resource on which the service runs.</p>
+   * <p>Matches the ARN of the Amazon Web Services resource on which the service runs.</p>
    */
   ResourceARN: string | undefined;
 
@@ -639,8 +639,8 @@ export interface CreateSamplingRuleRequest {
 
   /**
    * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray sampling
-   *          rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             resources</a> in the <i>AWS General Reference</i>.</p>
+   *          rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *             resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
    *          <p>The following restrictions apply to tags:</p>
    *          <ul>
    *             <li>
@@ -660,7 +660,7 @@ export interface CreateSamplingRuleRequest {
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for AWS
+   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services
    *                use.</p>
    *             </li>
    *          </ul>
@@ -678,7 +678,7 @@ export namespace CreateSamplingRuleRequest {
 }
 
 /**
- * <p>A <a>SamplingRule</a> and its metadata.</p>
+ * <p>A <a href="https://docs.aws.amazon.com/xray/latest/api/API_SamplingRule.html">SamplingRule</a> and its metadata.</p>
  */
 export interface SamplingRuleRecord {
   /**
@@ -835,7 +835,7 @@ export enum EncryptionType {
  */
 export interface EncryptionConfig {
   /**
-   * <p>The ID of the customer master key (CMK) used for encryption, if applicable.</p>
+   * <p>The ID of the KMS key used for encryption, if applicable.</p>
    */
   KeyId?: string;
 
@@ -845,7 +845,7 @@ export interface EncryptionConfig {
   Status?: EncryptionStatus | string;
 
   /**
-   * <p>The type of encryption. Set to <code>KMS</code> for encryption with CMKs. Set to <code>NONE</code> for
+   * <p>The type of encryption. Set to <code>KMS</code> for encryption with KMS keys. Set to <code>NONE</code> for
    *       default encryption.</p>
    */
   Type?: EncryptionType | string;
@@ -1299,15 +1299,15 @@ export interface InsightImpactGraphService {
    * <p>Identifier for the service. Unique within the service map.</p>
    *          <ul>
    *             <li>
-   *                <p>AWS Resource - The type of an AWS resource. For example, AWS::EC2::Instance for an application running
+   *                <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, AWS::EC2::Instance for an application running
    *                on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table that the application used. </p>
    *             </li>
    *             <li>
-   *                <p>AWS Service - The type of an AWS service. For example, AWS::DynamoDB for downstream calls to Amazon
+   *                <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, AWS::DynamoDB for downstream calls to Amazon
    *                DynamoDB that didn't target a specific table. </p>
    *             </li>
    *             <li>
-   *                <p>AWS Service - The type of an AWS service. For example, AWS::DynamoDB for downstream calls to Amazon
+   *                <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, AWS::DynamoDB for downstream calls to Amazon
    *                DynamoDB that didn't target a specific table. </p>
    *             </li>
    *             <li>
@@ -1328,7 +1328,7 @@ export interface InsightImpactGraphService {
   Names?: string[];
 
   /**
-   * <p>Identifier of the AWS account in which the service runs.</p>
+   * <p>Identifier of the Amazon Web Services account in which the service runs.</p>
    */
   AccountId?: string;
 
@@ -1374,7 +1374,7 @@ export interface GetInsightImpactGraphResult {
   ServiceGraphEndTime?: Date;
 
   /**
-   * <p>The AWS instrumented services related to the insight.</p>
+   * <p>The Amazon Web Services instrumented services related to the insight.</p>
    */
   Services?: InsightImpactGraphService[];
 
@@ -1661,7 +1661,7 @@ export namespace GetSamplingStatisticSummariesResult {
 /**
  * <p>Request sampling results for a single rule from a service. Results are for the last 10
  *       seconds unless the service has been assigned a longer reporting interval after a previous call
- *       to <a>GetSamplingTargets</a>.</p>
+ *       to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
  */
 export interface SamplingStatisticsDocument {
   /**
@@ -1722,7 +1722,8 @@ export namespace GetSamplingTargetsRequest {
 
 /**
  * <p>Temporary changes to a sampling rule configuration. To meet the global sampling target for a rule, X-Ray
- *       calculates a new reservoir for each service based on the recent sampling results of all services that called <a>GetSamplingTargets</a>.</p>
+ *       calculates a new reservoir for each service based on the recent sampling results of all services that called
+ *       <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
  */
 export interface SamplingTargetDocument {
   /**
@@ -1763,7 +1764,7 @@ export namespace SamplingTargetDocument {
 }
 
 /**
- * <p>Sampling statistics from a call to <a>GetSamplingTargets</a> that X-Ray
+ * <p>Sampling statistics from a call to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a> that X-Ray
  *       could not process.</p>
  */
 export interface UnprocessedStatistics {
@@ -1801,12 +1802,12 @@ export interface GetSamplingTargetsResult {
   /**
    * <p>The last time a user changed the sampling rule configuration. If
    *          the sampling rule configuration changed since the service last retrieved it, the service
-   *          should call <a>GetSamplingRules</a> to get the latest version.</p>
+   *          should call <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html">GetSamplingRules</a> to get the latest version.</p>
    */
   LastRuleModification?: Date;
 
   /**
-   * <p>Information about <a>SamplingStatisticsDocument</a> that X-Ray could not
+   * <p>Information about <a href="https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html">SamplingStatisticsDocument</a> that X-Ray could not
    *          process.</p>
    */
   UnprocessedStatistics?: UnprocessedStatistics[];
@@ -2085,7 +2086,7 @@ export interface Service {
   Root?: boolean;
 
   /**
-   * <p>Identifier of the AWS account in which the service runs.</p>
+   * <p>Identifier of the Amazon Web Services account in which the service runs.</p>
    */
   AccountId?: string;
 
@@ -2093,12 +2094,12 @@ export interface Service {
    * <p>The type of service.</p>
    *          <ul>
    *             <li>
-   *                <p>AWS Resource - The type of an AWS resource. For example, <code>AWS::EC2::Instance</code> for an
+   *                <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an
    *           application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the
    *           application used.</p>
    *             </li>
    *             <li>
-   *                <p>AWS Service - The type of an AWS service. For example, <code>AWS::DynamoDB</code>
+   *                <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code>
    *           for downstream calls to Amazon DynamoDB that didn't target a specific table.</p>
    *             </li>
    *             <li>
@@ -3122,7 +3123,7 @@ export namespace ResourceNotFoundException {
 
 export interface PutEncryptionConfigRequest {
   /**
-   * <p>An AWS KMS customer master key (CMK) in one of the following formats:</p>
+   * <p>An Amazon Web Services KMS key in one of the following formats:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3132,7 +3133,7 @@ export interface PutEncryptionConfigRequest {
    *             <li>
    *                <p>
    *                   <b>Key ID</b> - The KMS key ID of the key. For example,
-   *           <code>ae4aa6d49-a4d8-9df9-a475-4ff6d7898456</code>. AWS X-Ray does not support asymmetric CMKs.</p>
+   *           <code>ae4aa6d49-a4d8-9df9-a475-4ff6d7898456</code>. Amazon Web Services X-Ray does not support asymmetric KMS keys.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3378,8 +3379,8 @@ export interface TagResourceRequest {
 
   /**
    * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray group or
-   *       sampling rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a>
-   *       in the <i>AWS General Reference</i>.</p>
+   *       sampling rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *       in the <i>Amazon Web Services General Reference</i>.</p>
    *          <p>The following restrictions apply to tags:</p>
    *          <ul>
    *             <li>
@@ -3399,7 +3400,7 @@ export interface TagResourceRequest {
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for AWS use. You
+   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services use. You
    *           cannot edit or delete system tags.</p>
    *             </li>
    *          </ul>
@@ -3552,7 +3553,7 @@ export interface SamplingRuleUpdate {
   RuleARN?: string;
 
   /**
-   * <p>Matches the ARN of the AWS resource on which the service runs.</p>
+   * <p>Matches the ARN of the Amazon Web Services resource on which the service runs.</p>
    */
   ResourceARN?: string;
 

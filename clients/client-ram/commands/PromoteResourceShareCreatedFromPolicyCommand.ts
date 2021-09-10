@@ -27,18 +27,18 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Resource shares that were created by attaching a policy to a resource are visible only to
- * 			the resource share owner, and the resource share cannot be modified in AWS RAM.</p>
+ * <p>Resource shares that were created by attaching a policy to a resource are visible only
+ *             to the resource share owner, and the resource share cannot be modified in RAM.</p>
  *
- *     	    <p>Use this API action to promote the resource share. When you promote the resource share,
- * 			it becomes:</p>
- *     	    <ul>
+ *         <p>Use this API action to promote the resource share. When you promote the resource
+ *             share, it becomes:</p>
+ *         <ul>
  *             <li>
- *     			        <p>Visible to all principals that it is shared with.</p>
- *     		      </li>
+ *                 <p>Visible to all principals that it is shared with.</p>
+ *             </li>
  *             <li>
- *     			        <p>Modifiable in AWS RAM.</p>
- *     		      </li>
+ *                 <p>Modifiable in RAM.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

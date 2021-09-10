@@ -67,6 +67,7 @@ import {
   RepositoryHeadSourceCodeType,
   RequestMetadata,
   ResourceNotFoundException,
+  RuleMetadata,
   S3BucketRepository,
   S3Repository,
   S3RepositoryDetails,
@@ -2283,6 +2284,11 @@ const deserializeAws_restJson1RecommendationSummary = (output: any, context: __S
     FilePath: __expectString(output.FilePath),
     RecommendationCategory: __expectString(output.RecommendationCategory),
     RecommendationId: __expectString(output.RecommendationId),
+    RuleMetadata:
+      output.RuleMetadata !== undefined && output.RuleMetadata !== null
+        ? deserializeAws_restJson1RuleMetadata(output.RuleMetadata, context)
+        : undefined,
+    Severity: __expectString(output.Severity),
     StartLine: __expectInt32(output.StartLine),
   } as any;
 };
@@ -2368,6 +2374,30 @@ const deserializeAws_restJson1RequestMetadata = (output: any, context: __SerdeCo
     Requester: __expectString(output.Requester),
     VendorName: __expectString(output.VendorName),
   } as any;
+};
+
+const deserializeAws_restJson1RuleMetadata = (output: any, context: __SerdeContext): RuleMetadata => {
+  return {
+    LongDescription: __expectString(output.LongDescription),
+    RuleId: __expectString(output.RuleId),
+    RuleName: __expectString(output.RuleName),
+    RuleTags:
+      output.RuleTags !== undefined && output.RuleTags !== null
+        ? deserializeAws_restJson1RuleTags(output.RuleTags, context)
+        : undefined,
+    ShortDescription: __expectString(output.ShortDescription),
+  } as any;
+};
+
+const deserializeAws_restJson1RuleTags = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_restJson1S3BucketRepository = (output: any, context: __SerdeContext): S3BucketRepository => {

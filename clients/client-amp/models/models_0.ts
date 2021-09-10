@@ -22,132 +22,6 @@ export namespace AccessDeniedException {
 }
 
 /**
- * Updating or deleting a resource can cause an inconsistent state.
- */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  /**
-   * Description of the error.
-   */
-  message: string | undefined;
-
-  /**
-   * Identifier of the resource affected.
-   */
-  resourceId: string | undefined;
-
-  /**
-   * Type of the resource affected.
-   */
-  resourceType: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Represents the input of a CreateWorkspace operation.
- */
-export interface CreateWorkspaceRequest {
-  /**
-   * An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.
-   */
-  alias?: string;
-
-  /**
-   * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
-   */
-  clientToken?: string;
-}
-
-export namespace CreateWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum WorkspaceStatusCode {
-  /**
-   * Workspace has been created and is usable.
-   */
-  ACTIVE = "ACTIVE",
-  /**
-   * Workspace is being created. Deletion is disallowed until status is ACTIVE.
-   */
-  CREATING = "CREATING",
-  /**
-   * Workspace creation failed. Refer to WorkspaceStatus.failureReason for more details.
-   */
-  CREATION_FAILED = "CREATION_FAILED",
-  /**
-   * Workspace is being deleted. Deletions are allowed only when status is ACTIVE.
-   */
-  DELETING = "DELETING",
-  /**
-   * Workspace is being updated. Updates are allowed only when status is ACTIVE.
-   */
-  UPDATING = "UPDATING",
-}
-
-/**
- * Represents the status of a workspace.
- */
-export interface WorkspaceStatus {
-  /**
-   * Status code of this workspace.
-   */
-  statusCode: WorkspaceStatusCode | string | undefined;
-}
-
-export namespace WorkspaceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Represents the output of a CreateWorkspace operation.
- */
-export interface CreateWorkspaceResponse {
-  /**
-   * The generated ID of the workspace that was just created.
-   */
-  workspaceId: string | undefined;
-
-  /**
-   * The ARN of the workspace that was just created.
-   */
-  arn: string | undefined;
-
-  /**
-   * The status of the workspace that was just created (usually CREATING).
-   */
-  status: WorkspaceStatus | undefined;
-}
-
-export namespace CreateWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
  * Unexpected error during processing of request.
  */
 export interface InternalServerException extends __SmithyException, $MetadataBearer {
@@ -174,11 +48,43 @@ export namespace InternalServerException {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * The ARN of the resource.
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * The list of tags assigned to the resource.
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
- * Request would cause a service quota to be exceeded.
+ * Request references a resource which does not exist.
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    * Description of the error.
@@ -194,23 +100,13 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * Type of the resource affected.
    */
   resourceType: string | undefined;
-
-  /**
-   * Service Quotas requirement to identify originating service.
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * Service Quotas requirement to identify originating quota.
-   */
-  quotaCode: string | undefined;
 }
 
-export namespace ServiceQuotaExceededException {
+export namespace ResourceNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
 }
@@ -314,6 +210,247 @@ export namespace ValidationException {
   });
 }
 
+export interface TagResourceRequest {
+  /**
+   * The ARN of the resource.
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * The list of tags assigned to the resource.
+   */
+  tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * The ARN of the resource.
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * One or more tag keys
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Updating or deleting a resource can cause an inconsistent state.
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  /**
+   * Description of the error.
+   */
+  message: string | undefined;
+
+  /**
+   * Identifier of the resource affected.
+   */
+  resourceId: string | undefined;
+
+  /**
+   * Type of the resource affected.
+   */
+  resourceType: string | undefined;
+}
+
+export namespace ConflictException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Represents the input of a CreateWorkspace operation.
+ */
+export interface CreateWorkspaceRequest {
+  /**
+   * An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.
+   */
+  alias?: string;
+
+  /**
+   * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+   */
+  clientToken?: string;
+
+  /**
+   * Optional, user-provided tags for this workspace.
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace CreateWorkspaceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum WorkspaceStatusCode {
+  /**
+   * Workspace has been created and is usable.
+   */
+  ACTIVE = "ACTIVE",
+  /**
+   * Workspace is being created. Deletion is disallowed until status is ACTIVE.
+   */
+  CREATING = "CREATING",
+  /**
+   * Workspace creation failed. Refer to WorkspaceStatus.failureReason for more details.
+   */
+  CREATION_FAILED = "CREATION_FAILED",
+  /**
+   * Workspace is being deleted. Deletions are allowed only when status is ACTIVE.
+   */
+  DELETING = "DELETING",
+  /**
+   * Workspace is being updated. Updates are allowed only when status is ACTIVE.
+   */
+  UPDATING = "UPDATING",
+}
+
+/**
+ * Represents the status of a workspace.
+ */
+export interface WorkspaceStatus {
+  /**
+   * Status code of this workspace.
+   */
+  statusCode: WorkspaceStatusCode | string | undefined;
+}
+
+export namespace WorkspaceStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkspaceStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Represents the output of a CreateWorkspace operation.
+ */
+export interface CreateWorkspaceResponse {
+  /**
+   * The generated ID of the workspace that was just created.
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * The ARN of the workspace that was just created.
+   */
+  arn: string | undefined;
+
+  /**
+   * The status of the workspace that was just created (usually CREATING).
+   */
+  status: WorkspaceStatus | undefined;
+
+  /**
+   * The tags of this workspace.
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace CreateWorkspaceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Request would cause a service quota to be exceeded.
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+  /**
+   * Description of the error.
+   */
+  message: string | undefined;
+
+  /**
+   * Identifier of the resource affected.
+   */
+  resourceId: string | undefined;
+
+  /**
+   * Type of the resource affected.
+   */
+  resourceType: string | undefined;
+
+  /**
+   * Service Quotas requirement to identify originating service.
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * Service Quotas requirement to identify originating quota.
+   */
+  quotaCode: string | undefined;
+}
+
+export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
+  });
+}
+
 /**
  * Represents the input of a DeleteWorkspace operation.
  */
@@ -334,37 +471,6 @@ export namespace DeleteWorkspaceRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Request references a resource which does not exist.
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * Description of the error.
-   */
-  message: string | undefined;
-
-  /**
-   * Identifier of the resource affected.
-   */
-  resourceId: string | undefined;
-
-  /**
-   * Type of the resource affected.
-   */
-  resourceType: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
 }
@@ -421,6 +527,11 @@ export interface WorkspaceDescription {
    * The time when the workspace was created.
    */
   createdAt: Date | undefined;
+
+  /**
+   * The tags of this workspace.
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace WorkspaceDescription {
@@ -508,6 +619,11 @@ export interface WorkspaceSummary {
    * The time when the workspace was created.
    */
   createdAt: Date | undefined;
+
+  /**
+   * The tags of this workspace.
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace WorkspaceSummary {

@@ -3,8 +3,8 @@ import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "servicediscovery-fips": {
-    hostname: "servicediscovery-fips.ca-central-1.amazonaws.com",
-    signingRegion: "ca-central-1",
+    hostname: "servicediscovery-fips.us-gov-west-1.amazonaws.com",
+    signingRegion: "us-gov-west-1",
   },
 };
 
@@ -49,7 +49,7 @@ const partitionHash: PartitionHash = {
     hostname: "servicediscovery.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["servicediscovery-fips", "us-gov-east-1", "us-gov-west-1"],
     hostname: "servicediscovery.{region}.amazonaws.com",
   },
 };

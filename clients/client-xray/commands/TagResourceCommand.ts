@@ -21,7 +21,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Applies tags to an existing AWS X-Ray group or sampling rule.</p>
+ * <p>Applies tags to an existing Amazon Web Services X-Ray group or sampling rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

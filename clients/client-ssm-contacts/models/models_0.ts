@@ -37,12 +37,11 @@ export interface AcceptPageRequest {
   AcceptCode: string | undefined;
 
   /**
-   * <p>An
-   *          optional field that Incident Manager uses to <code>ENFORCE</code>
-   *             <code>AcceptCode</code> validation when acknowledging an page.
-   *          Acknowledgement can occur by replying to a page, or when entering the AcceptCode in the
-   *          console. Enforcing AcceptCode validation causes Incident Manager to verify that the code
-   *          entered by the user matches the code sent by Incident Manager with the page.</p>
+   * <p>An optional field that Incident Manager uses to <code>ENFORCE</code>
+   *             <code>AcceptCode</code> validation when acknowledging an page. Acknowledgement can occur by
+   *          replying to a page, or when entering the AcceptCode in the console. Enforcing AcceptCode
+   *          validation causes Incident Manager to verify that the code entered by the user matches the
+   *          code sent by Incident Manager with the page.</p>
    *          <p>Incident Manager can also <code>IGNORE</code>
    *             <code>AcceptCode</code> validation. Ignoring <code>AcceptCode</code> validation causes
    *          Incident Manager to accept any value entered for the <code>AcceptCode</code>.</p>
@@ -71,7 +70,7 @@ export namespace AcceptPageResult {
 }
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * <p>You don't have sufficient access to perform this operation.</p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
@@ -112,9 +111,7 @@ export namespace InternalServerException {
 }
 
 /**
- * <p>Request references a resource that
- *          doesn't
- *          exist.</p>
+ * <p>Request references a resource that doesn't exist.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -204,8 +201,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an
- *          AWS
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
@@ -482,7 +478,7 @@ export namespace ContactTargetInfo {
 }
 
 /**
- * <p>The contact or contact channel that is being engaged.</p>
+ * <p>The contact or contact channel that's being engaged.</p>
  */
 export interface Target {
   /**
@@ -610,7 +606,8 @@ export interface CreateContactRequest {
   Tags?: Tag[];
 
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *          details.</p>
    */
   IdempotencyToken?: string;
 }
@@ -641,7 +638,7 @@ export namespace CreateContactResult {
 }
 
 /**
- * <p>The action failed to due an encryption key error.</p>
+ * <p>The operation failed to due an encryption key error.</p>
  */
 export interface DataEncryptionException extends __SmithyException, $MetadataBearer {
   name: "DataEncryptionException";
@@ -753,7 +750,8 @@ export interface CreateContactChannelRequest {
   DeferActivation?: boolean;
 
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *          details.</p>
    */
   IdempotencyToken?: string;
 }
@@ -769,7 +767,7 @@ export namespace CreateContactChannelRequest {
 
 export interface CreateContactChannelResult {
   /**
-   * <p>The ARN of the contact channel.</p>
+   * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
    */
   ContactChannelArn: string | undefined;
 }
@@ -1779,7 +1777,8 @@ export interface StartEngagementRequest {
   IncidentId?: string;
 
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *          details.</p>
    */
   IdempotencyToken?: string;
 }
@@ -1950,7 +1949,7 @@ export interface UpdateContactChannelRequest {
   ContactChannelId: string | undefined;
 
   /**
-   * <p>The name of the contact channel</p>
+   * <p>The name of the contact channel.</p>
    */
   Name?: string;
 

@@ -22,7 +22,7 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
 
 /**
  * <p>Lists the principals that you have shared resources with or that have shared resources
- * 			with you.</p>
+ *             with you.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

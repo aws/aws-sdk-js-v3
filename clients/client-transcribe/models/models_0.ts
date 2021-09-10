@@ -2102,8 +2102,9 @@ export interface JobExecutionSettings {
   /**
    * <p>Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded. When the
    *             <code>AllowDeferredExecution</code> field is true, jobs are queued and executed when the number of executing
-   *             jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a <code>LimitExceededException</code>
-   *             exception.</p>
+   *             jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a
+   *             <code>LimitExceededException</code> exception.</p>
+   *         <p>Note that job queuing is enabled by default for call analytics jobs.</p>
    *         <p>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
    *             <code>DataAccessRoleArn</code> field.</p>
    */
@@ -3454,6 +3455,12 @@ export interface StartMedicalTranscriptionJobRequest {
   OutputEncryptionKMSKeyId?: string;
 
   /**
+   * <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs, that provide an added
+   *             layer of security for your data.</p>
+   */
+  KMSEncryptionContext?: { [key: string]: string };
+
+  /**
    * <p>Optional settings for the medical transcription job.</p>
    */
   Settings?: MedicalTranscriptionSetting;
@@ -3601,6 +3608,12 @@ export interface StartTranscriptionJobRequest {
    *             <code>OutputBucketName</code> parameter.</p>
    */
   OutputEncryptionKMSKeyId?: string;
+
+  /**
+   * <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs, that provide an added
+   *             layer of security for your data.</p>
+   */
+  KMSEncryptionContext?: { [key: string]: string };
 
   /**
    * <p>A <code>Settings</code> object that provides optional settings for a transcription job.</p>

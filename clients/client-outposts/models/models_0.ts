@@ -49,6 +49,257 @@ export namespace ConflictException {
   });
 }
 
+/**
+ * <p>Information about a line item request.</p>
+ */
+export interface LineItemRequest {
+  /**
+   * <p>The ID of the catalog item.</p>
+   */
+  CatalogItemId?: string;
+
+  /**
+   * <p>The quantity of a line item request.</p>
+   */
+  Quantity?: number;
+}
+
+export namespace LineItemRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LineItemRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum PaymentOption {
+  ALL_UPFRONT = "ALL_UPFRONT",
+  NO_UPFRONT = "NO_UPFRONT",
+  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
+}
+
+export enum PaymentTerm {
+  THREE_YEARS = "THREE_YEARS",
+}
+
+export interface CreateOrderInput {
+  /**
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
+   *     </p>
+   */
+  OutpostIdentifier: string | undefined;
+
+  /**
+   * <p>The line items that make up the order.</p>
+   */
+  LineItems: LineItemRequest[] | undefined;
+
+  /**
+   * <p>The payment option for the order.</p>
+   */
+  PaymentOption: PaymentOption | string | undefined;
+
+  /**
+   * <p>The payment terms for the order.</p>
+   */
+  PaymentTerm?: PaymentTerm | string;
+}
+
+export namespace CreateOrderInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateOrderInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a line item.</p>
+ */
+export interface LineItem {
+  /**
+   * <p>
+   *       The ID of the catalog item.
+   *     </p>
+   */
+  CatalogItemId?: string;
+
+  /**
+   * <p>The ID of the line item.</p>
+   */
+  LineItemId?: string;
+
+  /**
+   * <p>The quantity of the line item.</p>
+   */
+  Quantity?: number;
+
+  /**
+   * <p>The status of the line item.</p>
+   */
+  Status?: string;
+}
+
+export namespace LineItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LineItem): any => ({
+    ...obj,
+  });
+}
+
+export enum OrderStatus {
+  CANCELLED = "CANCELLED",
+  FULFILLED = "FULFILLED",
+  INSTALLING = "INSTALLING",
+  PENDING = "PENDING",
+  PROCESSING = "PROCESSING",
+  RECEIVED = "RECEIVED",
+}
+
+/**
+ * <p>Information about an order.</p>
+ */
+export interface Order {
+  /**
+   * <p>
+   *       The ID of the Outpost.
+   *     </p>
+   */
+  OutpostId?: string;
+
+  /**
+   * <p>The ID of the order.</p>
+   */
+  OrderId?: string;
+
+  /**
+   * <p>The status of the order</p>
+   */
+  Status?: OrderStatus | string;
+
+  /**
+   * <p>The line items for the order</p>
+   */
+  LineItems?: LineItem[];
+
+  /**
+   * <p>The payment option for the order.</p>
+   */
+  PaymentOption?: PaymentOption | string;
+
+  /**
+   * <p>The submission date for the order.</p>
+   */
+  OrderSubmissionDate?: Date;
+
+  /**
+   * <p>The fulfillment date of the order.</p>
+   */
+  OrderFulfilledDate?: Date;
+}
+
+export namespace Order {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Order): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateOrderOutput {
+  /**
+   * <p>Information about this order.</p>
+   */
+  Order?: Order;
+}
+
+export namespace CreateOrderOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateOrderOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An internal error has occurred.</p>
+ */
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
+  name: "InternalServerException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace InternalServerException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified request is not valid.</p>
+ */
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
+  name: "NotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have exceeded a service quota.</p>
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A parameter is not valid.</p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ValidationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateOutpostInput {
   /**
    * <p>The name of the Outpost.</p>
@@ -95,7 +346,9 @@ export namespace CreateOutpostInput {
  */
 export interface Outpost {
   /**
-   * <p>The ID of the Outpost.</p>
+   * <p>
+   *       The ID of the Outpost.
+   *     </p>
    */
   OutpostId?: string;
 
@@ -175,81 +428,11 @@ export namespace CreateOutpostOutput {
   });
 }
 
-/**
- * <p>An internal error has occurred.</p>
- */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified request is not valid.</p>
- */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>You have exceeded a service quota.</p>
- */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A parameter is not valid.</p>
- */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteOutpostInput {
   /**
-   * <p>The ID of the Outpost.</p>
+   * <p>
+   *       The ID of the Outpost.
+   *     </p>
    */
   OutpostId: string | undefined;
 }
@@ -303,7 +486,9 @@ export namespace DeleteSiteOutput {
 
 export interface GetOutpostInput {
   /**
-   * <p>The ID of the Outpost.</p>
+   * <p>
+   *       The ID of the Outpost.
+   *     </p>
    */
   OutpostId: string | undefined;
 }
@@ -335,7 +520,9 @@ export namespace GetOutpostOutput {
 
 export interface GetOutpostInstanceTypesInput {
   /**
-   * <p>The ID of the Outpost.</p>
+   * <p>
+   *       The ID of the Outpost.
+   *     </p>
    */
   OutpostId: string | undefined;
 
@@ -390,7 +577,9 @@ export interface GetOutpostInstanceTypesOutput {
   NextToken?: string;
 
   /**
-   * <p>The ID of the Outpost.</p>
+   * <p>
+   *       The ID of the Outpost.
+   *     </p>
    */
   OutpostId?: string;
 

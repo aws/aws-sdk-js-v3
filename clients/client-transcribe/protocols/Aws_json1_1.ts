@@ -4127,6 +4127,21 @@ const serializeAws_json1_1JobExecutionSettings = (input: JobExecutionSettings, c
   };
 };
 
+const serializeAws_json1_1KMSEncryptionContextMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const serializeAws_json1_1LanguageOptions = (input: (LanguageCode | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4413,6 +4428,10 @@ const serializeAws_json1_1StartMedicalTranscriptionJobRequest = (
   return {
     ...(input.ContentIdentificationType !== undefined &&
       input.ContentIdentificationType !== null && { ContentIdentificationType: input.ContentIdentificationType }),
+    ...(input.KMSEncryptionContext !== undefined &&
+      input.KMSEncryptionContext !== null && {
+        KMSEncryptionContext: serializeAws_json1_1KMSEncryptionContextMap(input.KMSEncryptionContext, context),
+      }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.Media !== undefined &&
       input.Media !== null && { Media: serializeAws_json1_1Media(input.Media, context) }),
@@ -4450,6 +4469,10 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
     ...(input.JobExecutionSettings !== undefined &&
       input.JobExecutionSettings !== null && {
         JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(input.JobExecutionSettings, context),
+      }),
+    ...(input.KMSEncryptionContext !== undefined &&
+      input.KMSEncryptionContext !== null && {
+        KMSEncryptionContext: serializeAws_json1_1KMSEncryptionContextMap(input.KMSEncryptionContext, context),
       }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.LanguageOptions !== undefined &&

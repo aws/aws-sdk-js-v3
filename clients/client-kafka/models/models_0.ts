@@ -177,6 +177,11 @@ export interface Tls {
    * <p>List of ACM Certificate Authority ARNs.</p>
    */
   CertificateAuthorityArnList?: string[];
+
+  /**
+   * <p>Specifies whether you want to enable or disable TLS authentication.</p>
+   */
+  Enabled?: boolean;
 }
 
 export namespace Tls {
@@ -184,6 +189,22 @@ export namespace Tls {
    * @internal
    */
   export const filterSensitiveLog = (obj: Tls): any => ({
+    ...obj,
+  });
+}
+
+export interface Unauthenticated {
+  /**
+   * <p>Specifies whether you want to enable or disable unauthenticated traffic to your cluster.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace Unauthenticated {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Unauthenticated): any => ({
     ...obj,
   });
 }
@@ -201,6 +222,11 @@ export interface ClientAuthentication {
    * <p>Details for ClientAuthentication using TLS.</p>
    */
   Tls?: Tls;
+
+  /**
+   * <p>Contains information about unauthenticated traffic to the cluster.</p>
+   */
+  Unauthenticated?: Unauthenticated;
 }
 
 export namespace ClientAuthentication {
@@ -727,11 +753,25 @@ export interface MutableClusterInfo {
    */
   KafkaVersion?: string;
 
+  /**
+   * <p>You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.</p>
+   */
   LoggingInfo?: LoggingInfo;
+
   /**
    * <p>Information about the Amazon MSK broker type.</p>
    */
   InstanceType?: string;
+
+  /**
+   * <p>Includes all client authentication information.</p>
+   */
+  ClientAuthentication?: ClientAuthentication;
+
+  /**
+   * <p>Includes all encryption-related information.</p>
+   */
+  EncryptionInfo?: EncryptionInfo;
 }
 
 export namespace MutableClusterInfo {
@@ -2775,6 +2815,58 @@ export namespace UpdateMonitoringResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateMonitoringResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSecurityRequest {
+  /**
+   * <p>Includes all client authentication related information.</p>
+   */
+  ClientAuthentication?: ClientAuthentication;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
+   */
+  CurrentVersion: string | undefined;
+
+  /**
+   * <p>Includes all encryption-related information.</p>
+   */
+  EncryptionInfo?: EncryptionInfo;
+}
+
+export namespace UpdateSecurityRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSecurityRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSecurityResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   */
+  ClusterOperationArn?: string;
+}
+
+export namespace UpdateSecurityResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSecurityResponse): any => ({
     ...obj,
   });
 }

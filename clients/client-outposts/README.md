@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OutpostsClient` and
-the commands you need, for example `CreateOutpostCommand`:
+the commands you need, for example `CreateOrderCommand`:
 
 ```js
 // ES5 example
-const { OutpostsClient, CreateOutpostCommand } = require("@aws-sdk/client-outposts");
+const { OutpostsClient, CreateOrderCommand } = require("@aws-sdk/client-outposts");
 ```
 
 ```ts
 // ES6+ example
-import { OutpostsClient, CreateOutpostCommand } from "@aws-sdk/client-outposts";
+import { OutpostsClient, CreateOrderCommand } from "@aws-sdk/client-outposts";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new OutpostsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateOutpostCommand(params);
+const command = new CreateOrderCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.Outposts({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createOutpost(params);
+  const data = await client.createOrder(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .createOutpost(params)
+  .createOrder(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.createOutpost(params, (err, data) => {
+client.createOrder(params, (err, data) => {
   // proccess err and data.
 });
 ```

@@ -63,7 +63,6 @@ import {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
-  DeploymentConfig,
   DomainStatus,
   EdgePackagingJobStatus,
   EndpointStatus,
@@ -107,22 +106,851 @@ import {
   ProcessingResources,
   ProcessingStoppingCondition,
   ProductionVariantSummary,
+  ProfilerConfig,
+  ProfilerRuleConfiguration,
+  ProfilerRuleEvaluationStatus,
+  ProfilingStatus,
   ProjectStatus,
   ScheduleStatus,
-  SecondaryStatus,
-  SecondaryStatusTransition,
   SourceAlgorithmSpecification,
   SourceIpConfig,
+  StudioLifecycleConfigAppType,
   SubscribedWorkteam,
   TensorBoardOutputConfig,
   TrainingJobStatus,
   TrainingJobStatusCounters,
-  TransformJobStatus,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
   _InstanceType,
 } from "./models_1";
+
+export enum SecondaryStatus {
+  COMPLETED = "Completed",
+  DOWNLOADING = "Downloading",
+  DOWNLOADING_TRAINING_IMAGE = "DownloadingTrainingImage",
+  FAILED = "Failed",
+  INTERRUPTED = "Interrupted",
+  LAUNCHING_ML_INSTANCES = "LaunchingMLInstances",
+  MAX_RUNTIME_EXCEEDED = "MaxRuntimeExceeded",
+  MAX_WAIT_TIME_EXCEEDED = "MaxWaitTimeExceeded",
+  PREPARING_TRAINING_STACK = "PreparingTrainingStack",
+  RESTARTING = "Restarting",
+  STARTING = "Starting",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping",
+  TRAINING = "Training",
+  UPDATING = "Updating",
+  UPLOADING = "Uploading",
+}
+
+/**
+ * <p>An array element of <a>DescribeTrainingJobResponse$SecondaryStatusTransitions</a>. It provides
+ *             additional details about a status that the training job has transitioned through. A
+ *             training job can be in one of several states, for example, starting, downloading,
+ *             training, or uploading. Within each state, there are a number of intermediate states.
+ *             For example, within the starting state, Amazon SageMaker could be starting the training job or
+ *             launching the ML instances. These transitional states are referred to as the job's
+ *             secondary
+ *             status.
+ *             </p>
+ *         <p></p>
+ */
+export interface SecondaryStatusTransition {
+  /**
+   * <p>Contains a secondary status information from a training
+   *             job.</p>
+   *         <p>Status might be one of the following secondary statuses:</p>
+   *         <dl>
+   *             <dt>InProgress</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>
+   *                         <code>Starting</code>
+   *                                 - Starting the training job.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>
+   *                         <code>Downloading</code> - An optional stage for algorithms that
+   *                                 support <code>File</code> training input mode. It indicates that
+   *                                 data is being downloaded to the ML storage volumes.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>
+   *                         <code>Training</code> - Training is in progress.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>
+   *                         <code>Uploading</code> - Training is complete and the model
+   *                                 artifacts are being uploaded to the S3 location.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *             <dt>Completed</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>
+   *                         <code>Completed</code> - The training job has completed.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *             <dt>Failed</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>
+   *                         <code>Failed</code> - The training job has failed. The reason for
+   *                                 the failure is returned in the <code>FailureReason</code> field of
+   *                                     <code>DescribeTrainingJobResponse</code>.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *             <dt>Stopped</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>
+   *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
+   *                                 exceeded the maximum allowed runtime.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>
+   *                         <code>Stopped</code> - The training job has stopped.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *             <dt>Stopping</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>
+   *                         <code>Stopping</code> - Stopping the training job.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *          </dl>
+   *         <p>We no longer support the following secondary statuses:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>LaunchingMLInstances</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>PreparingTrainingStack</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>DownloadingTrainingImage</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  Status: SecondaryStatus | string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the training job transitioned to the current secondary
+   *             status state.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the training job transitioned out of this secondary status
+   *             state into another secondary status state or when the training job has ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>A detailed description of the progress within a secondary status.
+   *             </p>
+   *         <p>Amazon SageMaker provides secondary statuses and status messages that apply to each of
+   *             them:</p>
+   *         <dl>
+   *             <dt>Starting</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>Starting the training job.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>Launching requested ML
+   *                                 instances.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>Insufficient
+   *                                 capacity error from EC2 while launching instances,
+   *                                 retrying!</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>Launched
+   *                                 instance was unhealthy, replacing it!</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>Preparing the instances for training.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *             <dt>Training</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>Downloading the training image.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>Training
+   *                                 image download completed. Training in
+   *                                 progress.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *          </dl>
+   *         <important>
+   *             <p>Status messages are subject to change. Therefore, we recommend not including them
+   *                 in code that programmatically initiates actions. For examples, don't use status
+   *                 messages in if statements.</p>
+   *         </important>
+   *         <p>To have an overview of your training job's progress, view
+   *                 <code>TrainingJobStatus</code> and <code>SecondaryStatus</code> in <a>DescribeTrainingJob</a>, and <code>StatusMessage</code> together. For
+   *             example, at the start of a training job, you might see the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>TrainingJobStatus</code> - InProgress</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SecondaryStatus</code> - Training</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>StatusMessage</code> - Downloading the training image</p>
+   *             </li>
+   *          </ul>
+   */
+  StatusMessage?: string;
+}
+
+export namespace SecondaryStatusTransition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecondaryStatusTransition): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrainingJobResponse {
+  /**
+   * <p> Name of the model training job. </p>
+   */
+  TrainingJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job.</p>
+   */
+  TrainingJobArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the
+   *             training job was launched by a hyperparameter tuning job.</p>
+   */
+  TuningJobArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the
+   *             transform or training job.</p>
+   */
+  LabelingJobArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an AutoML job.</p>
+   */
+  AutoMLJobArn?: string;
+
+  /**
+   * <p>Information about the Amazon S3 location that is configured for storing model artifacts.
+   *         </p>
+   */
+  ModelArtifacts: ModelArtifacts | undefined;
+
+  /**
+   * <p>The status of the
+   *             training
+   *             job.</p>
+   *         <p>Amazon SageMaker provides the following training job statuses:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>InProgress</code> - The training is in progress.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Completed</code> - The training job has completed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Failed</code> - The training job has failed. To see the reason for the
+   *                     failure, see the <code>FailureReason</code> field in the response to a
+   *                         <code>DescribeTrainingJobResponse</code> call.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Stopping</code> - The training job is stopping.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Stopped</code> - The training job has stopped.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For
+   *             more detailed information, see <code>SecondaryStatus</code>. </p>
+   */
+  TrainingJobStatus: TrainingJobStatus | string | undefined;
+
+  /**
+   * <p> Provides detailed information about the state of the training job. For detailed
+   *             information on the secondary status of the training job, see <code>StatusMessage</code>
+   *             under <a>SecondaryStatusTransition</a>.</p>
+   *         <p>Amazon SageMaker provides primary statuses and secondary statuses that apply to each of
+   *             them:</p>
+   *         <dl>
+   *             <dt>InProgress</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>
+   *                         <code>Starting</code>
+   *                                 - Starting the training job.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>
+   *                         <code>Downloading</code> - An optional stage for algorithms that
+   *                                 support <code>File</code> training input mode. It indicates that
+   *                                 data is being downloaded to the ML storage volumes.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>
+   *                         <code>Training</code> - Training is in progress.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>
+   *                         <code>Interrupted</code> - The job stopped because the managed
+   *                                 spot training instances were interrupted. </p>
+   *                         </li>
+   *                   <li>
+   *                             <p>
+   *                         <code>Uploading</code> - Training is complete and the model
+   *                                 artifacts are being uploaded to the S3 location.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *             <dt>Completed</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>
+   *                         <code>Completed</code> - The training job has completed.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *             <dt>Failed</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>
+   *                         <code>Failed</code> - The training job has failed. The reason for
+   *                                 the failure is returned in the <code>FailureReason</code> field of
+   *                                     <code>DescribeTrainingJobResponse</code>.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *             <dt>Stopped</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>
+   *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
+   *                                 exceeded the maximum allowed runtime.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>
+   *                         <code>MaxWaitTimeExceeded</code> - The job stopped because it
+   *                                 exceeded the maximum allowed wait time.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>
+   *                         <code>Stopped</code> - The training job has stopped.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *             <dt>Stopping</dt>
+   *             <dd>
+   *                     <ul>
+   *                   <li>
+   *                             <p>
+   *                         <code>Stopping</code> - Stopping the training job.</p>
+   *                         </li>
+   *                </ul>
+   *                 </dd>
+   *          </dl>
+   *
+   *         <important>
+   *             <p>Valid values for <code>SecondaryStatus</code> are subject to change. </p>
+   *         </important>
+   *         <p>We no longer support the following secondary statuses:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>LaunchingMLInstances</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>PreparingTraining</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>DownloadingTrainingImage</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  SecondaryStatus: SecondaryStatus | string | undefined;
+
+  /**
+   * <p>If the training job failed, the reason it failed. </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>Algorithm-specific parameters. </p>
+   */
+  HyperParameters?: { [key: string]: string };
+
+  /**
+   * <p>Information about the algorithm used for training, and algorithm metadata.
+   *         </p>
+   */
+  AlgorithmSpecification: AlgorithmSpecification | undefined;
+
+  /**
+   * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for the training job. </p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>An array of <code>Channel</code> objects that describes each data input channel.
+   *         </p>
+   */
+  InputDataConfig?: Channel[];
+
+  /**
+   * <p>The S3 path where model artifacts that you configured when creating the job are
+   *             stored. Amazon SageMaker creates subfolders for model artifacts. </p>
+   */
+  OutputDataConfig?: OutputDataConfig;
+
+  /**
+   * <p>Resources, including ML compute instances and ML storage volumes, that are
+   *             configured for model training. </p>
+   */
+  ResourceConfig: ResourceConfig | undefined;
+
+  /**
+   * <p>A <a>VpcConfig</a> object that specifies the VPC that this training job has
+   *             access to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
+   *                 Virtual Private Cloud</a>.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>Specifies a limit to how long a model training job can run. It also specifies how long
+   *             a managed Spot training job has to complete. When the job reaches the time limit, Amazon SageMaker
+   *             ends the training job. Use this API to cap model training costs.</p>
+   *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+   *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
+   *             model artifacts, so the results of training are not lost. </p>
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * <p>A timestamp that indicates when the training job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Indicates the time when the training job starts on training instances. You are
+   *             billed for the time interval between this time and the value of
+   *                 <code>TrainingEndTime</code>. The start time in CloudWatch Logs might be later than this time.
+   *             The difference is due to the time it takes to download the training data and to the size
+   *             of the training container.</p>
+   */
+  TrainingStartTime?: Date;
+
+  /**
+   * <p>Indicates the time when the training job ends on training instances. You are billed
+   *             for the time interval between the value of <code>TrainingStartTime</code> and this time.
+   *             For successful jobs and stopped jobs, this is the time after model artifacts are
+   *             uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.</p>
+   */
+  TrainingEndTime?: Date;
+
+  /**
+   * <p>A timestamp that indicates when the status of the training job was last
+   *             modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>A history of all of the secondary statuses that the training job has transitioned
+   *             through.</p>
+   */
+  SecondaryStatusTransitions?: SecondaryStatusTransition[];
+
+  /**
+   * <p>A collection of <code>MetricData</code> objects that specify the names, values, and
+   *             dates and times that the training algorithm emitted to Amazon CloudWatch.</p>
+   */
+  FinalMetricDataList?: MetricData[];
+
+  /**
+   * <p>If you want to allow inbound or outbound network calls, except for calls between peers
+   *             within a training cluster for distributed training, choose <code>True</code>. If you
+   *             enable network isolation for training jobs that are configured to use a VPC, Amazon SageMaker
+   *             downloads and uploads customer data and model artifacts through the specified VPC, but
+   *             the training container does not have network access.</p>
+   */
+  EnableNetworkIsolation?: boolean;
+
+  /**
+   * <p>To encrypt all communications between ML compute instances in distributed training,
+   *             choose <code>True</code>. Encryption provides greater security for distributed training,
+   *             but training might take longer. How long it takes depends on the amount of communication
+   *             between compute instances, especially if you use a deep learning algorithms in
+   *             distributed training.</p>
+   */
+  EnableInterContainerTrafficEncryption?: boolean;
+
+  /**
+   * <p>A Boolean indicating whether managed spot training is enabled (<code>True</code>) or
+   *             not (<code>False</code>).</p>
+   */
+  EnableManagedSpotTraining?: boolean;
+
+  /**
+   * <p>Contains information about the output location for managed spot training checkpoint
+   *             data. </p>
+   */
+  CheckpointConfig?: CheckpointConfig;
+
+  /**
+   * <p>The training time in seconds.</p>
+   */
+  TrainingTimeInSeconds?: number;
+
+  /**
+   * <p>The billable time in seconds. Billable time refers to the absolute wall-clock
+   *             time.</p>
+   *         <p>Multiply <code>BillableTimeInSeconds</code> by the number of instances
+   *                 (<code>InstanceCount</code>) in your training cluster to get the total compute time
+   *             Amazon SageMaker will bill you if you run distributed training. The formula is as follows:
+   *                 <code>BillableTimeInSeconds * InstanceCount</code> .</p>
+   *         <p>You can calculate the savings from using managed spot training using the formula
+   *                 <code>(1 - BillableTimeInSeconds / TrainingTimeInSeconds) * 100</code>. For example,
+   *             if <code>BillableTimeInSeconds</code> is 100 and <code>TrainingTimeInSeconds</code> is
+   *             500, the savings is 80%.</p>
+   */
+  BillableTimeInSeconds?: number;
+
+  /**
+   * <p>Configuration information for the Debugger hook parameters, metric and tensor collections, and
+   *             storage paths. To learn more about
+   *             how to configure the <code>DebugHookConfig</code> parameter,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
+   */
+  DebugHookConfig?: DebugHookConfig;
+
+  /**
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
+   *       you call the following APIs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a>CreateProcessingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>CreateTrainingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>CreateTransformJob</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ExperimentConfig?: ExperimentConfig;
+
+  /**
+   * <p>Configuration information for Debugger rules for debugging output tensors.</p>
+   */
+  DebugRuleConfigurations?: DebugRuleConfiguration[];
+
+  /**
+   * <p>Configuration of storage locations for the Debugger TensorBoard output data.</p>
+   */
+  TensorBoardOutputConfig?: TensorBoardOutputConfig;
+
+  /**
+   * <p>Evaluation status of Debugger rules for debugging on a training job.</p>
+   */
+  DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[];
+
+  /**
+   * <p>Configuration information for Debugger system monitoring, framework profiling, and
+   *             storage paths.</p>
+   */
+  ProfilerConfig?: ProfilerConfig;
+
+  /**
+   * <p>Configuration information for Debugger rules for profiling system and framework
+   *             metrics.</p>
+   */
+  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
+
+  /**
+   * <p>Evaluation status of Debugger rules for profiling on a training job.</p>
+   */
+  ProfilerRuleEvaluationStatuses?: ProfilerRuleEvaluationStatus[];
+
+  /**
+   * <p>Profiling status of a training job.</p>
+   */
+  ProfilingStatus?: ProfilingStatus | string;
+
+  /**
+   * <p>The number of times to retry the job when the job fails due to an
+   *                 <code>InternalServerError</code>.</p>
+   */
+  RetryStrategy?: RetryStrategy;
+
+  /**
+   * <p>The environment variables to set in the Docker container.</p>
+   */
+  Environment?: { [key: string]: string };
+}
+
+export namespace DescribeTrainingJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrainingJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransformJobRequest {
+  /**
+   * <p>The name of the transform job that you want to view details of.</p>
+   */
+  TransformJobName: string | undefined;
+}
+
+export namespace DescribeTransformJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransformJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum TransformJobStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping",
+}
+
+export interface DescribeTransformJobResponse {
+  /**
+   * <p>The name of the transform job.</p>
+   */
+  TransformJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
+   */
+  TransformJobArn: string | undefined;
+
+  /**
+   * <p>The
+   *             status of the transform job. If the transform job failed, the reason
+   *             is returned in the <code>FailureReason</code> field.</p>
+   */
+  TransformJobStatus: TransformJobStatus | string | undefined;
+
+  /**
+   * <p>If the transform job failed, <code>FailureReason</code> describes
+   *             why
+   *             it failed. A transform job creates a log file, which includes error
+   *             messages, and stores it
+   *             as
+   *             an Amazon S3 object. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log Amazon SageMaker Events with
+   *                 Amazon CloudWatch</a>.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The name of the model used in the transform job.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The
+   *             maximum number
+   *             of
+   *             parallel requests on each instance node
+   *             that can be launched in a transform job. The default value is 1.</p>
+   */
+  MaxConcurrentTransforms?: number;
+
+  /**
+   * <p>The timeout and maximum number of retries for processing a transform job
+   *             invocation.</p>
+   */
+  ModelClientConfig?: ModelClientConfig;
+
+  /**
+   * <p>The
+   *             maximum
+   *             payload size, in MB, used in the
+   *             transform job.</p>
+   */
+  MaxPayloadInMB?: number;
+
+  /**
+   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference
+   *             request.
+   *             A <i>record</i>
+   *             <i></i> is a single unit of input data that inference
+   *             can be made on. For example, a single line in a CSV file is a record. </p>
+   *         <p>To enable the batch strategy, you must set <code>SplitType</code>
+   *             to
+   *                 <code>Line</code>, <code>RecordIO</code>, or
+   *             <code>TFRecord</code>.</p>
+   */
+  BatchStrategy?: BatchStrategy | string;
+
+  /**
+   * <p>The
+   *             environment variables to set in the Docker container. We support up to 16 key and values
+   *             entries in the map.</p>
+   */
+  Environment?: { [key: string]: string };
+
+  /**
+   * <p>Describes the dataset to be transformed and the Amazon S3 location where it is
+   *             stored.</p>
+   */
+  TransformInput: TransformInput | undefined;
+
+  /**
+   * <p>Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the
+   *             transform job.</p>
+   */
+  TransformOutput?: TransformOutput;
+
+  /**
+   * <p>Describes
+   *             the resources, including ML instance types and ML instance count, to
+   *             use for the transform job.</p>
+   */
+  TransformResources: TransformResources | undefined;
+
+  /**
+   * <p>A timestamp that shows when the transform Job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Indicates when the transform job starts
+   *             on
+   *             ML instances. You are billed for the time interval between this time
+   *             and the value of <code>TransformEndTime</code>.</p>
+   */
+  TransformStartTime?: Date;
+
+  /**
+   * <p>Indicates when the transform job has been
+   *
+   *             completed, or has stopped or failed. You are billed for the time
+   *             interval between this time and the value of <code>TransformStartTime</code>.</p>
+   */
+  TransformEndTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the
+   *             transform or training job.</p>
+   */
+  LabelingJobArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AutoML transform job.</p>
+   */
+  AutoMLJobArn?: string;
+
+  /**
+   * <p>The data structure used to specify the data to be used for inference in a batch
+   *             transform job and to associate the data that is relevant to the prediction results in
+   *             the output. The input filter provided allows you to exclude input data that is not
+   *             needed for inference in a batch transform job. The output filter provided allows you to
+   *             include input data relevant to interpreting the predictions in the output from the job.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction
+   *                 Results with their Corresponding Input Records</a>.</p>
+   */
+  DataProcessing?: DataProcessing;
+
+  /**
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
+   *       you call the following APIs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a>CreateProcessingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>CreateTrainingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>CreateTransformJob</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ExperimentConfig?: ExperimentConfig;
+}
+
+export namespace DescribeTransformJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransformJobResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeTrialRequest {
   /**
@@ -7070,6 +7898,133 @@ export namespace ListProjectsOutput {
   });
 }
 
+export enum StudioLifecycleConfigSortKey {
+  CreationTime = "CreationTime",
+  LastModifiedTime = "LastModifiedTime",
+  Name = "Name",
+}
+
+export interface ListStudioLifecycleConfigsRequest {
+  /**
+   * <p>The maximum number of Studio Lifecycle Configurations to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to ListStudioLifecycleConfigs didn't return the full set of Lifecycle Configurations, the call returns a token for getting the next set of Lifecycle Configurations.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A string in the Lifecycle Configuration name. This filter returns only Lifecycle Configurations whose name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A parameter to search for the App Type to which the Lifecycle Configuration is attached.</p>
+   */
+  AppTypeEquals?: StudioLifecycleConfigAppType | string;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations created on or before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations created on or after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations modified before the specified time.</p>
+   */
+  ModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations modified after the specified time.</p>
+   */
+  ModifiedTimeAfter?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is CreationTime.</p>
+   */
+  SortBy?: StudioLifecycleConfigSortKey | string;
+
+  /**
+   * <p>The sort order. The default value is Descending.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListStudioLifecycleConfigsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudioLifecycleConfigsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details of the Studio Lifecycle Configuration.</p>
+ */
+export interface StudioLifecycleConfigDetails {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration.</p>
+   */
+  StudioLifecycleConfigArn?: string;
+
+  /**
+   * <p>The name of the Studio Lifecycle Configuration.</p>
+   */
+  StudioLifecycleConfigName?: string;
+
+  /**
+   * <p>The creation time of the Studio Lifecycle Configuration.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>This value is equivalent to CreationTime because Studio Lifecycle Configurations are immutable.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The App type to which the Lifecycle Configuration is attached.</p>
+   */
+  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
+}
+
+export namespace StudioLifecycleConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StudioLifecycleConfigDetails): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStudioLifecycleConfigsResponse {
+  /**
+   * <p>A token for getting the next set of actions, if there are any.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of Lifecycle Configurations and their properties.</p>
+   */
+  StudioLifecycleConfigs?: StudioLifecycleConfigDetails[];
+}
+
+export namespace ListStudioLifecycleConfigsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudioLifecycleConfigsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListSubscribedWorkteamsRequest {
   /**
    * <p>A string in the work team name. This filter returns only work teams whose name
@@ -10362,258 +11317,6 @@ export namespace UpdateCodeRepositoryInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateCodeRepositoryInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateCodeRepositoryOutput {
-  /**
-   * <p>The ARN of the Git repository.</p>
-   */
-  CodeRepositoryArn: string | undefined;
-}
-
-export namespace UpdateCodeRepositoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCodeRepositoryOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateContextRequest {
-  /**
-   * <p>The name of the context to update.</p>
-   */
-  ContextName: string | undefined;
-
-  /**
-   * <p>The new description for the context.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   */
-  Properties?: { [key: string]: string };
-
-  /**
-   * <p>A list of properties to remove.</p>
-   */
-  PropertiesToRemove?: string[];
-}
-
-export namespace UpdateContextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContextRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateContextResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   */
-  ContextArn?: string;
-}
-
-export namespace UpdateContextResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContextResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDeviceFleetRequest {
-  /**
-   * <p>The name of the fleet.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the device.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>Description of the fleet.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Output configuration  for storing sample data collected by the fleet.</p>
-   */
-  OutputConfig: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
-   *       The name of the role alias generated will match this pattern:
-   *       "SageMakerEdge-{DeviceFleetName}".</p>
-   *          <p>For example, if your device fleet is called "demo-fleet", the name of
-   *       the role alias will be "SageMakerEdge-demo-fleet".</p>
-   */
-  EnableIotRoleAlias?: boolean;
-}
-
-export namespace UpdateDeviceFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceFleetRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDevicesRequest {
-  /**
-   * <p>The name of the fleet the devices belong to.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>List of devices to register with Edge Manager agent.</p>
-   */
-  Devices: Device[] | undefined;
-}
-
-export namespace UpdateDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDomainRequest {
-  /**
-   * <p>The ID of the domain to be updated.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>A collection of settings.</p>
-   */
-  DefaultUserSettings?: UserSettings;
-}
-
-export namespace UpdateDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDomainResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the domain.</p>
-   */
-  DomainArn?: string;
-}
-
-export namespace UpdateDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum VariantPropertyType {
-  DataCaptureConfig = "DataCaptureConfig",
-  DesiredInstanceCount = "DesiredInstanceCount",
-  DesiredWeight = "DesiredWeight",
-}
-
-/**
- * <p>Specifies a production variant property type for an Endpoint.</p>
- *         <p>If you are updating an endpoint with the <a>UpdateEndpointInput$RetainAllVariantProperties</a> option set to
- *                 <code>true</code>, the <code>VariantProperty</code> objects listed in <a>UpdateEndpointInput$ExcludeRetainedVariantProperties</a> override the
- *             existing variant properties of the endpoint.</p>
- */
-export interface VariantProperty {
-  /**
-   * <p>The type of variant property. The supported values are:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>DesiredInstanceCount</code>: Overrides the existing variant instance
-   *                     counts using the <a>ProductionVariant$InitialInstanceCount</a> values
-   *                     in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>DesiredWeight</code>: Overrides the existing variant weights using the
-   *                         <a>ProductionVariant$InitialVariantWeight</a> values in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>DataCaptureConfig</code>: (Not currently supported.)</p>
-   *             </li>
-   *          </ul>
-   */
-  VariantPropertyType: VariantPropertyType | string | undefined;
-}
-
-export namespace VariantProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VariantProperty): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateEndpointInput {
-  /**
-   * <p>The name of the endpoint whose configuration you want to update.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The name of the new endpoint configuration.</p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To
-   *             retain the variant properties of an endpoint when updating it, set
-   *                 <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant
-   *             properties specified in a new <code>EndpointConfig</code> call when updating an
-   *             endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default
-   *             is <code>false</code>.</p>
-   */
-  RetainAllVariantProperties?: boolean;
-
-  /**
-   * <p>When you are updating endpoint resources with <a>UpdateEndpointInput$RetainAllVariantProperties</a>, whose value is set to
-   *                 <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list
-   *             of type <a>VariantProperty</a> to override with the values provided by
-   *                 <code>EndpointConfig</code>. If you don't specify a value for
-   *                 <code>ExcludeAllVariantProperties</code>, no variant properties are overridden.
-   *         </p>
-   */
-  ExcludeRetainedVariantProperties?: VariantProperty[];
-
-  /**
-   * <p>The deployment configuration for the endpoint to be updated.</p>
-   */
-  DeploymentConfig?: DeploymentConfig;
-}
-
-export namespace UpdateEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointInput): any => ({
     ...obj,
   });
 }

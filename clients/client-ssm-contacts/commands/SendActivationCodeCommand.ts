@@ -22,7 +22,7 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
 
 /**
  * <p>Sends an activation code to a contact channel. The contact can use this code to activate
- *          the contact channel in the console or with the <code>ActivateChannel</code> action.
+ *          the contact channel in the console or with the <code>ActivateChannel</code> operation.
  *          Incident Manager can't engage a contact channel until it has been activated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -42,6 +42,11 @@ import {
   DeleteNodegroupCommandOutput,
 } from "./commands/DeleteNodegroupCommand";
 import {
+  DeregisterClusterCommand,
+  DeregisterClusterCommandInput,
+  DeregisterClusterCommandOutput,
+} from "./commands/DeregisterClusterCommand";
+import {
   DescribeAddonCommand,
   DescribeAddonCommandInput,
   DescribeAddonCommandOutput,
@@ -108,6 +113,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListUpdatesCommand, ListUpdatesCommandInput, ListUpdatesCommandOutput } from "./commands/ListUpdatesCommand";
+import {
+  RegisterClusterCommand,
+  RegisterClusterCommandInput,
+  RegisterClusterCommandOutput,
+} from "./commands/RegisterClusterCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -529,6 +539,38 @@ export class EKS extends EKSClient {
     cb?: (err: any, data?: DeleteNodegroupCommandOutput) => void
   ): Promise<DeleteNodegroupCommandOutput> | void {
     const command = new DeleteNodegroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deregisters a connected cluster to remove it from the Amazon EKS control plane.</p>
+   */
+  public deregisterCluster(
+    args: DeregisterClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterClusterCommandOutput>;
+  public deregisterCluster(
+    args: DeregisterClusterCommandInput,
+    cb: (err: any, data?: DeregisterClusterCommandOutput) => void
+  ): void;
+  public deregisterCluster(
+    args: DeregisterClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterClusterCommandOutput) => void
+  ): void;
+  public deregisterCluster(
+    args: DeregisterClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterClusterCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterClusterCommandOutput) => void
+  ): Promise<DeregisterClusterCommandOutput> | void {
+    const command = new DeregisterClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1012,6 +1054,47 @@ export class EKS extends EKSClient {
     cb?: (err: any, data?: ListUpdatesCommandOutput) => void
   ): Promise<ListUpdatesCommandOutput> | void {
     const command = new ListUpdatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Connects a Kubernetes cluster to the Amazon EKS control plane. </p>
+   *         <p>Any Kubernetes cluster can be connected to the Amazon EKS control plane to view current information about the cluster and its nodes.
+   *          </p>
+   *         <p>Cluster connection requires two steps. First, send a <code>
+   *                <a>RegisterClusterRequest</a>
+   *             </code> to add it to the Amazon EKS control plane.</p>
+   *         <p>Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a> containing the <code>activationID</code> and <code>activationCode</code> must be applied to the Kubernetes cluster through it's native provider to provide visibility.</p>
+   *
+   *         <p>After the Manifest is updated and applied, then the connected cluster is visible to the Amazon EKS control plane. If the Manifest is not applied within a set amount of time,
+   *             then the connected cluster will no longer be visible and must be deregistered. See <a>DeregisterCluster</a>.</p>
+   */
+  public registerCluster(
+    args: RegisterClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterClusterCommandOutput>;
+  public registerCluster(
+    args: RegisterClusterCommandInput,
+    cb: (err: any, data?: RegisterClusterCommandOutput) => void
+  ): void;
+  public registerCluster(
+    args: RegisterClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterClusterCommandOutput) => void
+  ): void;
+  public registerCluster(
+    args: RegisterClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterClusterCommandOutput) => void),
+    cb?: (err: any, data?: RegisterClusterCommandOutput) => void
+  ): Promise<RegisterClusterCommandOutput> | void {
+    const command = new RegisterClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

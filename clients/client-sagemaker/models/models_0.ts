@@ -5221,6 +5221,7 @@ export enum TargetDevice {
   AMBA_CV25 = "amba_cv25",
   COREML = "coreml",
   DEEPLENS = "deeplens",
+  IMX8MPLUS = "imx8mplus",
   IMX8QM = "imx8qm",
   JACINTO_TDA4VM = "jacinto_tda4vm",
   JETSON_NANO = "jetson_nano",
@@ -6379,6 +6380,11 @@ export interface ResourceSpec {
    * <p>The instance type that the image version runs on.</p>
    */
   InstanceType?: AppInstanceType | string;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the Resource.</p>
+   */
+  LifecycleConfigArn?: string;
 }
 
 export namespace ResourceSpec {
@@ -8357,6 +8363,11 @@ export interface JupyterServerAppSettings {
    * <p>The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.</p>
    */
   DefaultResourceSpec?: ResourceSpec;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the JupyterServerApp.</p>
+   */
+  LifecycleConfigArns?: string[];
 }
 
 export namespace JupyterServerAppSettings {
@@ -8411,6 +8422,11 @@ export interface KernelGatewayAppSettings {
    * <p>A list of custom SageMaker images that are configured to run as a KernelGateway app.</p>
    */
   CustomImages?: CustomImage[];
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the KernelGatewayApp.</p>
+   */
+  LifecycleConfigArns?: string[];
 }
 
 export namespace KernelGatewayAppSettings {

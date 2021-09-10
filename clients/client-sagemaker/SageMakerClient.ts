@@ -95,6 +95,10 @@ import {
   CreateProcessingJobCommandOutput,
 } from "./commands/CreateProcessingJobCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import {
+  CreateStudioLifecycleConfigCommandInput,
+  CreateStudioLifecycleConfigCommandOutput,
+} from "./commands/CreateStudioLifecycleConfigCommand";
 import { CreateTrainingJobCommandInput, CreateTrainingJobCommandOutput } from "./commands/CreateTrainingJobCommand";
 import { CreateTransformJobCommandInput, CreateTransformJobCommandOutput } from "./commands/CreateTransformJobCommand";
 import { CreateTrialCommandInput, CreateTrialCommandOutput } from "./commands/CreateTrialCommand";
@@ -175,6 +179,10 @@ import {
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand";
 import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import {
+  DeleteStudioLifecycleConfigCommandInput,
+  DeleteStudioLifecycleConfigCommandOutput,
+} from "./commands/DeleteStudioLifecycleConfigCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import { DeleteTrialCommandInput, DeleteTrialCommandOutput } from "./commands/DeleteTrialCommand";
 import {
@@ -295,6 +303,10 @@ import {
   DescribeProcessingJobCommandOutput,
 } from "./commands/DescribeProcessingJobCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
+import {
+  DescribeStudioLifecycleConfigCommandInput,
+  DescribeStudioLifecycleConfigCommandOutput,
+} from "./commands/DescribeStudioLifecycleConfigCommand";
 import {
   DescribeSubscribedWorkteamCommandInput,
   DescribeSubscribedWorkteamCommandOutput,
@@ -452,6 +464,10 @@ import {
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "./commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import {
+  ListStudioLifecycleConfigsCommandInput,
+  ListStudioLifecycleConfigsCommandOutput,
+} from "./commands/ListStudioLifecycleConfigsCommand";
 import {
   ListSubscribedWorkteamsCommandInput,
   ListSubscribedWorkteamsCommandOutput,
@@ -665,6 +681,7 @@ export type ServiceInputTypes =
   | CreatePresignedNotebookInstanceUrlCommandInput
   | CreateProcessingJobCommandInput
   | CreateProjectCommandInput
+  | CreateStudioLifecycleConfigCommandInput
   | CreateTrainingJobCommandInput
   | CreateTransformJobCommandInput
   | CreateTrialCommandInput
@@ -703,6 +720,7 @@ export type ServiceInputTypes =
   | DeleteNotebookInstanceLifecycleConfigCommandInput
   | DeletePipelineCommandInput
   | DeleteProjectCommandInput
+  | DeleteStudioLifecycleConfigCommandInput
   | DeleteTagsCommandInput
   | DeleteTrialCommandInput
   | DeleteTrialComponentCommandInput
@@ -748,6 +766,7 @@ export type ServiceInputTypes =
   | DescribePipelineExecutionCommandInput
   | DescribeProcessingJobCommandInput
   | DescribeProjectCommandInput
+  | DescribeStudioLifecycleConfigCommandInput
   | DescribeSubscribedWorkteamCommandInput
   | DescribeTrainingJobCommandInput
   | DescribeTransformJobCommandInput
@@ -806,6 +825,7 @@ export type ServiceInputTypes =
   | ListPipelinesCommandInput
   | ListProcessingJobsCommandInput
   | ListProjectsCommandInput
+  | ListStudioLifecycleConfigsCommandInput
   | ListSubscribedWorkteamsCommandInput
   | ListTagsCommandInput
   | ListTrainingJobsCommandInput
@@ -902,6 +922,7 @@ export type ServiceOutputTypes =
   | CreatePresignedNotebookInstanceUrlCommandOutput
   | CreateProcessingJobCommandOutput
   | CreateProjectCommandOutput
+  | CreateStudioLifecycleConfigCommandOutput
   | CreateTrainingJobCommandOutput
   | CreateTransformJobCommandOutput
   | CreateTrialCommandOutput
@@ -940,6 +961,7 @@ export type ServiceOutputTypes =
   | DeleteNotebookInstanceLifecycleConfigCommandOutput
   | DeletePipelineCommandOutput
   | DeleteProjectCommandOutput
+  | DeleteStudioLifecycleConfigCommandOutput
   | DeleteTagsCommandOutput
   | DeleteTrialCommandOutput
   | DeleteTrialComponentCommandOutput
@@ -985,6 +1007,7 @@ export type ServiceOutputTypes =
   | DescribePipelineExecutionCommandOutput
   | DescribeProcessingJobCommandOutput
   | DescribeProjectCommandOutput
+  | DescribeStudioLifecycleConfigCommandOutput
   | DescribeSubscribedWorkteamCommandOutput
   | DescribeTrainingJobCommandOutput
   | DescribeTransformJobCommandOutput
@@ -1043,6 +1066,7 @@ export type ServiceOutputTypes =
   | ListPipelinesCommandOutput
   | ListProcessingJobsCommandOutput
   | ListProjectsCommandOutput
+  | ListStudioLifecycleConfigsCommandOutput
   | ListSubscribedWorkteamsCommandOutput
   | ListTagsCommandOutput
   | ListTrainingJobsCommandOutput

@@ -21,12 +21,12 @@ export interface PutTraceSegmentsCommandInput extends PutTraceSegmentsRequest {}
 export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, __MetadataBearer {}
 
 /**
- * <p>Uploads segment documents to AWS X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in
+ * <p>Uploads segment documents to Amazon Web Services X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in
  *       batches. A segment document can be a completed segment, an in-progress segment, or an array of
  *       subsegments.</p>
  *          <p>Segments must include the following fields. For the full segment document schema, see
- *         <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html">AWS X-Ray
- *         Segment Documents</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
+ *       <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html">Amazon Web Services X-Ray
+ *         Segment Documents</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
  *          <p class="title">
  *             <b>Required segment document fields</b>
  *          </p>

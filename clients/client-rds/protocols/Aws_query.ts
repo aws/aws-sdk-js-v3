@@ -19802,6 +19802,9 @@ const serializeAws_queryScalingConfiguration = (input: ScalingConfiguration, con
   if (input.TimeoutAction !== undefined && input.TimeoutAction !== null) {
     entries["TimeoutAction"] = input.TimeoutAction;
   }
+  if (input.SecondsBeforeTimeout !== undefined && input.SecondsBeforeTimeout !== null) {
+    entries["SecondsBeforeTimeout"] = input.SecondsBeforeTimeout;
+  }
   return entries;
 };
 
@@ -27361,6 +27364,7 @@ const deserializeAws_queryScalingConfigurationInfo = (
     AutoPause: undefined,
     SecondsUntilAutoPause: undefined,
     TimeoutAction: undefined,
+    SecondsBeforeTimeout: undefined,
   };
   if (output["MinCapacity"] !== undefined) {
     contents.MinCapacity = __strictParseInt32(output["MinCapacity"]) as number;
@@ -27376,6 +27380,9 @@ const deserializeAws_queryScalingConfigurationInfo = (
   }
   if (output["TimeoutAction"] !== undefined) {
     contents.TimeoutAction = __expectString(output["TimeoutAction"]);
+  }
+  if (output["SecondsBeforeTimeout"] !== undefined) {
+    contents.SecondsBeforeTimeout = __strictParseInt32(output["SecondsBeforeTimeout"]) as number;
   }
   return contents;
 };

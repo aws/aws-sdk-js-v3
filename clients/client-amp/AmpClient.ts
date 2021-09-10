@@ -1,7 +1,13 @@
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "./commands/DescribeWorkspaceCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
@@ -62,14 +68,20 @@ export type ServiceInputTypes =
   | CreateWorkspaceCommandInput
   | DeleteWorkspaceCommandInput
   | DescribeWorkspaceCommandInput
+  | ListTagsForResourceCommandInput
   | ListWorkspacesCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateWorkspaceAliasCommandInput;
 
 export type ServiceOutputTypes =
   | CreateWorkspaceCommandOutput
   | DeleteWorkspaceCommandOutput
   | DescribeWorkspaceCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListWorkspacesCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateWorkspaceAliasCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

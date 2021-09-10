@@ -22,8 +22,8 @@ export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilit
 
 /**
  * <p>Updates the image tag mutability settings for the specified repository. For more
- *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image Tag
- *                 Mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image tag
+ *                 mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

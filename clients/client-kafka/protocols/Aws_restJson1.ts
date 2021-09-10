@@ -76,6 +76,7 @@ import {
   UpdateConfigurationCommandOutput,
 } from "../commands/UpdateConfigurationCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "../commands/UpdateMonitoringCommand";
+import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "../commands/UpdateSecurityCommand";
 import {
   BadRequestException,
   BrokerEBSVolumeInfo,
@@ -124,6 +125,7 @@ import {
   StorageInfo,
   Tls,
   TooManyRequestsException,
+  Unauthenticated,
   UnauthorizedException,
   UnprocessedScramSecret,
   ZookeeperNodeInfo,
@@ -1152,6 +1154,49 @@ export const serializeAws_restJson1UpdateMonitoringCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateSecurityCommand = async (
+  input: UpdateSecurityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/security";
+  if (input.ClusterArn !== undefined) {
+    const labelValue: string = input.ClusterArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ClusterArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ClusterArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ClusterArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ClientAuthentication !== undefined &&
+      input.ClientAuthentication !== null && {
+        clientAuthentication: serializeAws_restJson1ClientAuthentication(input.ClientAuthentication, context),
+      }),
+    ...(input.CurrentVersion !== undefined &&
+      input.CurrentVersion !== null && { currentVersion: input.CurrentVersion }),
+    ...(input.EncryptionInfo !== undefined &&
+      input.EncryptionInfo !== null && {
+        encryptionInfo: serializeAws_restJson1EncryptionInfo(input.EncryptionInfo, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
     headers,
     path: resolvedPath,
     body,
@@ -4012,6 +4057,113 @@ const deserializeAws_restJson1UpdateMonitoringCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateSecurityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSecurityCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateSecurityCommandError(output, context);
+  }
+  const contents: UpdateSecurityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ClusterArn: undefined,
+    ClusterOperationArn: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.clusterArn !== undefined && data.clusterArn !== null) {
+    contents.ClusterArn = __expectString(data.clusterArn);
+  }
+  if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateSecurityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSecurityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4259,6 +4411,10 @@ const serializeAws_restJson1ClientAuthentication = (input: ClientAuthentication,
   return {
     ...(input.Sasl !== undefined && input.Sasl !== null && { sasl: serializeAws_restJson1Sasl(input.Sasl, context) }),
     ...(input.Tls !== undefined && input.Tls !== null && { tls: serializeAws_restJson1Tls(input.Tls, context) }),
+    ...(input.Unauthenticated !== undefined &&
+      input.Unauthenticated !== null && {
+        unauthenticated: serializeAws_restJson1Unauthenticated(input.Unauthenticated, context),
+      }),
   };
 };
 
@@ -4399,6 +4555,13 @@ const serializeAws_restJson1Tls = (input: Tls, context: __SerdeContext): any => 
       input.CertificateAuthorityArnList !== null && {
         certificateAuthorityArnList: serializeAws_restJson1__listOf__string(input.CertificateAuthorityArnList, context),
       }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { enabled: input.Enabled }),
+  };
+};
+
+const serializeAws_restJson1Unauthenticated = (input: Unauthenticated, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && input.Enabled !== null && { enabled: input.Enabled }),
   };
 };
 
@@ -4625,6 +4788,10 @@ const deserializeAws_restJson1ClientAuthentication = (output: any, context: __Se
         ? deserializeAws_restJson1Sasl(output.sasl, context)
         : undefined,
     Tls: output.tls !== undefined && output.tls !== null ? deserializeAws_restJson1Tls(output.tls, context) : undefined,
+    Unauthenticated:
+      output.unauthenticated !== undefined && output.unauthenticated !== null
+        ? deserializeAws_restJson1Unauthenticated(output.unauthenticated, context)
+        : undefined,
   } as any;
 };
 
@@ -4870,9 +5037,17 @@ const deserializeAws_restJson1MutableClusterInfo = (output: any, context: __Serd
       output.brokerEBSVolumeInfo !== undefined && output.brokerEBSVolumeInfo !== null
         ? deserializeAws_restJson1__listOfBrokerEBSVolumeInfo(output.brokerEBSVolumeInfo, context)
         : undefined,
+    ClientAuthentication:
+      output.clientAuthentication !== undefined && output.clientAuthentication !== null
+        ? deserializeAws_restJson1ClientAuthentication(output.clientAuthentication, context)
+        : undefined,
     ConfigurationInfo:
       output.configurationInfo !== undefined && output.configurationInfo !== null
         ? deserializeAws_restJson1ConfigurationInfo(output.configurationInfo, context)
+        : undefined,
+    EncryptionInfo:
+      output.encryptionInfo !== undefined && output.encryptionInfo !== null
+        ? deserializeAws_restJson1EncryptionInfo(output.encryptionInfo, context)
         : undefined,
     EnhancedMonitoring: __expectString(output.enhancedMonitoring),
     InstanceType: __expectString(output.instanceType),
@@ -4980,6 +5155,13 @@ const deserializeAws_restJson1Tls = (output: any, context: __SerdeContext): Tls 
       output.certificateAuthorityArnList !== undefined && output.certificateAuthorityArnList !== null
         ? deserializeAws_restJson1__listOf__string(output.certificateAuthorityArnList, context)
         : undefined,
+    Enabled: __expectBoolean(output.enabled),
+  } as any;
+};
+
+const deserializeAws_restJson1Unauthenticated = (output: any, context: __SerdeContext): Unauthenticated => {
+  return {
+    Enabled: __expectBoolean(output.enabled),
   } as any;
 };
 

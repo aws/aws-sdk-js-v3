@@ -1,5 +1,6 @@
-import { BooleanOperator, UserSettings } from "./models_0";
+import { BooleanOperator, EdgeOutputConfig, UserSettings } from "./models_0";
 import {
+  DeploymentConfig,
   MemberDefinition,
   ModelApprovalStatus,
   MonitoringScheduleConfig,
@@ -17,6 +18,7 @@ import {
 } from "./models_1";
 import {
   DesiredWeightAndCapacity,
+  Device,
   Filter,
   NestedFilters,
   ProfilerConfigForUpdate,
@@ -25,6 +27,258 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface UpdateCodeRepositoryOutput {
+  /**
+   * <p>The ARN of the Git repository.</p>
+   */
+  CodeRepositoryArn: string | undefined;
+}
+
+export namespace UpdateCodeRepositoryOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateCodeRepositoryOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateContextRequest {
+  /**
+   * <p>The name of the context to update.</p>
+   */
+  ContextName: string | undefined;
+
+  /**
+   * <p>The new description for the context.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: { [key: string]: string };
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
+
+export namespace UpdateContextRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateContextRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateContextResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   */
+  ContextArn?: string;
+}
+
+export namespace UpdateContextResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateContextResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Description of the fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Output configuration  for storing sample data collected by the fleet.</p>
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
+   *       The name of the role alias generated will match this pattern:
+   *       "SageMakerEdge-{DeviceFleetName}".</p>
+   *          <p>For example, if your device fleet is called "demo-fleet", the name of
+   *       the role alias will be "SageMakerEdge-demo-fleet".</p>
+   */
+  EnableIotRoleAlias?: boolean;
+}
+
+export namespace UpdateDeviceFleetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDeviceFleetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDevicesRequest {
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>List of devices to register with Edge Manager agent.</p>
+   */
+  Devices: Device[] | undefined;
+}
+
+export namespace UpdateDevicesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDevicesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDomainRequest {
+  /**
+   * <p>The ID of the domain to be updated.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>A collection of settings.</p>
+   */
+  DefaultUserSettings?: UserSettings;
+}
+
+export namespace UpdateDomainRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDomainResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain.</p>
+   */
+  DomainArn?: string;
+}
+
+export namespace UpdateDomainResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDomainResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum VariantPropertyType {
+  DataCaptureConfig = "DataCaptureConfig",
+  DesiredInstanceCount = "DesiredInstanceCount",
+  DesiredWeight = "DesiredWeight",
+}
+
+/**
+ * <p>Specifies a production variant property type for an Endpoint.</p>
+ *         <p>If you are updating an endpoint with the <a>UpdateEndpointInput$RetainAllVariantProperties</a> option set to
+ *                 <code>true</code>, the <code>VariantProperty</code> objects listed in <a>UpdateEndpointInput$ExcludeRetainedVariantProperties</a> override the
+ *             existing variant properties of the endpoint.</p>
+ */
+export interface VariantProperty {
+  /**
+   * <p>The type of variant property. The supported values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>DesiredInstanceCount</code>: Overrides the existing variant instance
+   *                     counts using the <a>ProductionVariant$InitialInstanceCount</a> values
+   *                     in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DesiredWeight</code>: Overrides the existing variant weights using the
+   *                         <a>ProductionVariant$InitialVariantWeight</a> values in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DataCaptureConfig</code>: (Not currently supported.)</p>
+   *             </li>
+   *          </ul>
+   */
+  VariantPropertyType: VariantPropertyType | string | undefined;
+}
+
+export namespace VariantProperty {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VariantProperty): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEndpointInput {
+  /**
+   * <p>The name of the endpoint whose configuration you want to update.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The name of the new endpoint configuration.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To
+   *             retain the variant properties of an endpoint when updating it, set
+   *                 <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant
+   *             properties specified in a new <code>EndpointConfig</code> call when updating an
+   *             endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default
+   *             is <code>false</code>.</p>
+   */
+  RetainAllVariantProperties?: boolean;
+
+  /**
+   * <p>When you are updating endpoint resources with <a>UpdateEndpointInput$RetainAllVariantProperties</a>, whose value is set to
+   *                 <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list
+   *             of type <a>VariantProperty</a> to override with the values provided by
+   *                 <code>EndpointConfig</code>. If you don't specify a value for
+   *                 <code>ExcludeAllVariantProperties</code>, no variant properties are overridden.
+   *         </p>
+   */
+  ExcludeRetainedVariantProperties?: VariantProperty[];
+
+  /**
+   * <p>The deployment configuration for the endpoint to be updated.</p>
+   */
+  DeploymentConfig?: DeploymentConfig;
+}
+
+export namespace UpdateEndpointInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEndpointInput): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdateEndpointOutput {
   /**

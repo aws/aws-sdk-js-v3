@@ -361,7 +361,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in
+   * <p>Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR Studio. Tags make it easier to associate resources in
    *          various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
    *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
    */
@@ -481,7 +481,7 @@ export class EMR extends EMRClient {
 
   /**
    * <p>Maps a user or group to the Amazon EMR Studio specified by <code>StudioId</code>, and
-   *          applies a session policy to refine Studio permissions for that user or group.</p>
+   *          applies a session policy to refine Studio permissions for that user or group. Use <code>CreateStudioSessionMapping</code> to assign users to a Studio when you use Amazon Web Services SSO authentication. For instructions on how to assign users to a Studio when you use IAM authentication, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-manage-users.html#emr-studio-assign-users-groups">Assign a user or group to your EMR Studio</a>.</p>
    */
   public createStudioSessionMapping(
     args: CreateStudioSessionMappingCommandInput,
@@ -1680,7 +1680,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in
+   * <p>Removes tags from an Amazon EMR resource, such as a cluster or Amazon EMR Studio. Tags make it easier to associate resources in
    *          various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
    *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
    *          <p>The following example removes the stack tag with value Prod from a cluster:</p>

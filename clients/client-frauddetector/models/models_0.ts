@@ -2318,6 +2318,58 @@ export namespace GetEventPredictionRequest {
   });
 }
 
+export enum ModelSource {
+  SAGEMAKER = "SAGEMAKER",
+}
+
+/**
+ * <p>The Amazon SageMaker model.</p>
+ */
+export interface ExternalModelSummary {
+  /**
+   * <p>The endpoint of the Amazon SageMaker model.</p>
+   */
+  modelEndpoint?: string;
+
+  /**
+   * <p>The source of the model.</p>
+   */
+  modelSource?: ModelSource | string;
+}
+
+export namespace ExternalModelSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExternalModelSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The fraud prediction scores from Amazon SageMaker model.</p>
+ */
+export interface ExternalModelOutputs {
+  /**
+   * <p>The Amazon SageMaker model.</p>
+   */
+  externalModel?: ExternalModelSummary;
+
+  /**
+   * <p>The fraud prediction scores from Amazon SageMaker model.</p>
+   */
+  outputs?: { [key: string]: string };
+}
+
+export namespace ExternalModelOutputs {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExternalModelOutputs): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The fraud prediction scores.</p>
  */
@@ -2376,6 +2428,11 @@ export interface GetEventPredictionResult {
    * <p>The results from the rules.</p>
    */
   ruleResults?: RuleResult[];
+
+  /**
+   * <p>The model scores for Amazon SageMaker models.</p>
+   */
+  externalModelOutputs?: ExternalModelOutputs[];
 }
 
 export namespace GetEventPredictionResult {
@@ -2587,10 +2644,6 @@ export namespace ModelInputConfiguration {
 export enum ModelEndpointStatus {
   ASSOCIATED = "ASSOCIATED",
   DISSOCIATED = "DISSOCIATED",
-}
-
-export enum ModelSource {
-  SAGEMAKER = "SAGEMAKER",
 }
 
 export enum ModelOutputDataFormat {

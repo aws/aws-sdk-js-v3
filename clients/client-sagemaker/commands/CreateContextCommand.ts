@@ -26,13 +26,6 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  *         an endpoint and a model package. For more information, see
  *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
  *           ML Lineage Tracking</a>.</p>
- *          <note>
- *             <p>
- *                <code>CreateContext</code> can only be invoked from within an SageMaker managed
- *           environment. This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker
- *           notebooks. A call to <code>CreateContext</code> from outside one of these
- *           environments results in an error.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

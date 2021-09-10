@@ -1081,10 +1081,9 @@ export class CloudFormation extends CloudFormationClient {
    *          specified stack. This includes actual and expected configuration values for resources where
    *          CloudFormation detects configuration drift.</p>
    *          <p>For a given stack, there will be one <code>StackResourceDrift</code> for each stack
-   *          resource that has been checked for drift. Resources that have not yet been checked for
-   *          drift are not included. Resources that do not currently support drift detection are not
-   *          checked, and so not included. For a list of resources that support drift detection, see
-   *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift Detection</a>.</p>
+   *          resource that has been checked for drift. Resources that haven't yet been checked for drift
+   *          are not included. Resources that do not currently support drift detection are not checked,
+   *          and so not included. For a list of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift Detection</a>.</p>
    *          <p>Use <a>DetectStackResourceDrift</a> to detect drift on individual
    *          resources, or <a>DetectStackDrift</a> to detect drift on all supported resources
    *          for a given stack.</p>
@@ -1173,7 +1172,7 @@ export class CloudFormation extends CloudFormationClient {
    * <p>Returns the description for the specified stack; if no stack name was specified, then
    *          it returns the description for all the stacks created.</p>
    *          <note>
-   *             <p>If the stack does not exist, an <code>AmazonCloudFormationException</code> is
+   *             <p>If the stack does not exist, an <code>ValidationError</code> is
    *             returned.</p>
    *          </note>
    */

@@ -1,3 +1,4 @@
+import { CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
 import { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "./commands/CreateOutpostCommand";
 import { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "./commands/DeleteOutpostCommand";
 import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
@@ -67,6 +68,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateOrderCommandInput
   | CreateOutpostCommandInput
   | DeleteOutpostCommandInput
   | DeleteSiteCommandInput
@@ -79,6 +81,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateOrderCommandOutput
   | CreateOutpostCommandOutput
   | DeleteOutpostCommandOutput
   | DeleteSiteCommandOutput

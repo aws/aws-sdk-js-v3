@@ -1,7 +1,36 @@
 import { PartitionHash, RegionHash, getRegionInfo } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "fips-ca-central-1": {
+    hostname: "network-firewall-fips.ca-central-1.amazonaws.com",
+    signingRegion: "ca-central-1",
+  },
+  "fips-us-east-1": {
+    hostname: "network-firewall-fips.us-east-1.amazonaws.com",
+    signingRegion: "us-east-1",
+  },
+  "fips-us-east-2": {
+    hostname: "network-firewall-fips.us-east-2.amazonaws.com",
+    signingRegion: "us-east-2",
+  },
+  "fips-us-gov-east-1": {
+    hostname: "network-firewall-fips.us-gov-east-1.amazonaws.com",
+    signingRegion: "us-gov-east-1",
+  },
+  "fips-us-gov-west-1": {
+    hostname: "network-firewall-fips.us-gov-west-1.amazonaws.com",
+    signingRegion: "us-gov-west-1",
+  },
+  "fips-us-west-1": {
+    hostname: "network-firewall-fips.us-west-1.amazonaws.com",
+    signingRegion: "us-west-1",
+  },
+  "fips-us-west-2": {
+    hostname: "network-firewall-fips.us-west-2.amazonaws.com",
+    signingRegion: "us-west-2",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -21,6 +50,11 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-ca-central-1",
+      "fips-us-east-1",
+      "fips-us-east-2",
+      "fips-us-west-1",
+      "fips-us-west-2",
       "me-south-1",
       "sa-east-1",
       "us-east-1",
@@ -43,7 +77,7 @@ const partitionHash: PartitionHash = {
     hostname: "network-firewall.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["fips-us-gov-east-1", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     hostname: "network-firewall.{region}.amazonaws.com",
   },
 };

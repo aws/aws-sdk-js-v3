@@ -22,8 +22,8 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
 
 /**
  * <p>
- *          Use to associate an AWS CodeCommit repository or a repostory managed by
- *          AWS CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a
+ *          Use to associate an Amazon Web Services CodeCommit repository or a repostory managed by
+ *          Amazon Web Services CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a
  *         repository, CodeGuru Reviewer reviews source code changes in the repository's pull requests and provides
  *         automatic recommendations. You can view recommendations using the CodeGuru Reviewer console. For more information, see
  *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html">Recommendations in
@@ -31,16 +31,16 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  *         </p>
  *
  *          <p>If you associate a CodeCommit or S3 repository, it must be in the same
- *          AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured.</p>
+ *          Amazon Web Services Region and Amazon Web Services account where its CodeGuru Reviewer code reviews are configured.</p>
  *
- *          <p>Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar
+ *          <p>Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web Services CodeStar
  *          Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate a repository</a> in
  *          the <i>Amazon CodeGuru Reviewer User Guide.</i>
  *          </p>
  *
  *          <note>
  *             <p>
- *             You cannot use the CodeGuru Reviewer SDK or the AWS CLI to associate a GitHub repository with Amazon CodeGuru Reviewer. To associate
+ *             You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate a GitHub repository with Amazon CodeGuru Reviewer. To associate
  *             a GitHub repository, use the console. For more information, see
  *             <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html">Getting
  *             started with CodeGuru Reviewer</a> in the <i>CodeGuru Reviewer User Guide.</i>
