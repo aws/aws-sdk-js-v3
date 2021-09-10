@@ -13814,7 +13814,7 @@ const deserializeAws_restXml_Object = (output: any, context: __SerdeContext): _O
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["Size"] !== undefined) {
-    contents.Size = __strictParseInt32(output["Size"]) as number;
+    contents.Size = __strictParseLong(output["Size"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);
@@ -13902,7 +13902,7 @@ const deserializeAws_restXmlObjectVersion = (output: any, context: __SerdeContex
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["Size"] !== undefined) {
-    contents.Size = __strictParseInt32(output["Size"]) as number;
+    contents.Size = __strictParseLong(output["Size"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);
@@ -14004,7 +14004,7 @@ const deserializeAws_restXmlPart = (output: any, context: __SerdeContext): Part 
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["Size"] !== undefined) {
-    contents.Size = __strictParseInt32(output["Size"]) as number;
+    contents.Size = __strictParseLong(output["Size"]) as number;
   }
   return contents;
 };
