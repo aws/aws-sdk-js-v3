@@ -322,14 +322,6 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        //TODO: request serialization does not verify that the request is an object
-        if (testCase.hasTag("technically_valid_json_body")) {
-            return true;
-        }
-        //TODO: we don't do any union validation
-        if (testCase.getId().startsWith("RestJsonMalformedUnion")) {
-            return true;
-        }
         //TODO: we don't validate map values
         if (testCase.getId().equals("RestJsonBodyMalformedMapNullValue")) {
             return true;

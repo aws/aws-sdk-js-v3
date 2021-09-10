@@ -16,6 +16,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
@@ -206,7 +207,7 @@ const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext)
     ProductCode: __expectString(output.ProductCode),
     Value:
       output.Value !== undefined && output.Value !== null
-        ? deserializeAws_json1_1EntitlementValue(output.Value, context)
+        ? deserializeAws_json1_1EntitlementValue(__expectUnion(output.Value), context)
         : undefined,
   } as any;
 };

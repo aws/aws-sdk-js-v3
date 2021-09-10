@@ -64,6 +64,7 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
@@ -1964,7 +1965,7 @@ const deserializeAws_restJson1ContainerProvider = (output: any, context: __Serde
     id: __expectString(output.id),
     info:
       output.info !== undefined && output.info !== null
-        ? deserializeAws_restJson1ContainerInfo(output.info, context)
+        ? deserializeAws_restJson1ContainerInfo(__expectUnion(output.info), context)
         : undefined,
     type: __expectString(output.type),
   } as any;

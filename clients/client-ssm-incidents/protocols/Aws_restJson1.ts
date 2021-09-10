@@ -114,6 +114,7 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
@@ -1922,7 +1923,7 @@ export const deserializeAws_restJson1GetResponsePlanCommand = async (
     contents.arn = __expectString(data.arn);
   }
   if (data.chatChannel !== undefined && data.chatChannel !== null) {
-    contents.chatChannel = deserializeAws_restJson1ChatChannel(data.chatChannel, context);
+    contents.chatChannel = deserializeAws_restJson1ChatChannel(__expectUnion(data.chatChannel), context);
   }
   if (data.displayName !== undefined && data.displayName !== null) {
     contents.displayName = __expectString(data.displayName);
@@ -3978,7 +3979,7 @@ const deserializeAws_restJson1ActionsList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Action(entry, context);
+      return deserializeAws_restJson1Action(__expectUnion(entry), context);
     });
 };
 
@@ -4000,7 +4001,7 @@ const deserializeAws_restJson1AutomationExecutionSet = (
       if (entry === null) {
         return null as any;
       }
-      const parsedEntry = deserializeAws_restJson1AutomationExecution(entry, context);
+      const parsedEntry = deserializeAws_restJson1AutomationExecution(__expectUnion(entry), context);
       if (uniqueValues.has(parsedEntry)) {
         throw new TypeError(
           'All elements of the set "com.amazonaws.ssmincidents#AutomationExecutionSet" must be unique.'
@@ -4104,7 +4105,7 @@ const deserializeAws_restJson1IncidentRecord = (output: any, context: __SerdeCon
         : undefined,
     chatChannel:
       output.chatChannel !== undefined && output.chatChannel !== null
-        ? deserializeAws_restJson1ChatChannel(output.chatChannel, context)
+        ? deserializeAws_restJson1ChatChannel(__expectUnion(output.chatChannel), context)
         : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
@@ -4197,7 +4198,7 @@ const deserializeAws_restJson1ItemIdentifier = (output: any, context: __SerdeCon
     type: __expectString(output.type),
     value:
       output.value !== undefined && output.value !== null
-        ? deserializeAws_restJson1ItemValue(output.value, context)
+        ? deserializeAws_restJson1ItemValue(__expectUnion(output.value), context)
         : undefined,
   } as any;
 };
@@ -4236,7 +4237,7 @@ const deserializeAws_restJson1NotificationTargetSet = (
       if (entry === null) {
         return null as any;
       }
-      const parsedEntry = deserializeAws_restJson1NotificationTargetItem(entry, context);
+      const parsedEntry = deserializeAws_restJson1NotificationTargetItem(__expectUnion(entry), context);
       if (uniqueValues.has(parsedEntry)) {
         throw new TypeError(
           'All elements of the set "com.amazonaws.ssmincidents#NotificationTargetSet" must be unique.'

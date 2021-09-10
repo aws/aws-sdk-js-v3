@@ -271,6 +271,7 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
@@ -4701,7 +4702,7 @@ export const deserializeAws_restXmlGetPublicAccessBlockCommand = async (
     $metadata: deserializeMetadata(output),
     PublicAccessBlockConfiguration: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicAccessBlockConfiguration = deserializeAws_restXmlPublicAccessBlockConfiguration(data, context);
   return Promise.resolve(contents);
 };
@@ -4754,7 +4755,7 @@ export const deserializeAws_restXmlGetStorageLensConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
     StorageLensConfiguration: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.StorageLensConfiguration = deserializeAws_restXmlStorageLensConfiguration(data, context);
   return Promise.resolve(contents);
 };
@@ -8568,7 +8569,7 @@ const deserializeAws_restXmlObjectLambdaTransformationConfiguration = (
   }
   if (output["ContentTransformation"] !== undefined) {
     contents.ContentTransformation = deserializeAws_restXmlObjectLambdaContentTransformation(
-      output["ContentTransformation"],
+      __expectUnion(output["ContentTransformation"]),
       context
     );
   }

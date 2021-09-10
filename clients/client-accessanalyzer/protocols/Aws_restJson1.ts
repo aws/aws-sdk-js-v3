@@ -116,6 +116,7 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseInt32 as __strictParseInt32,
@@ -4336,7 +4337,7 @@ const deserializeAws_restJson1ConfigurationsMap = (
     }
     return {
       ...acc,
-      [key]: deserializeAws_restJson1Configuration(value, context),
+      [key]: deserializeAws_restJson1Configuration(__expectUnion(value), context),
     };
   }, {});
 };
@@ -4730,7 +4731,7 @@ const deserializeAws_restJson1PathElementList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1PathElement(entry, context);
+      return deserializeAws_restJson1PathElement(__expectUnion(entry), context);
     });
 };
 
@@ -4800,7 +4801,7 @@ const deserializeAws_restJson1S3AccessPointConfiguration = (
     accessPointPolicy: __expectString(output.accessPointPolicy),
     networkOrigin:
       output.networkOrigin !== undefined && output.networkOrigin !== null
-        ? deserializeAws_restJson1NetworkOriginConfiguration(output.networkOrigin, context)
+        ? deserializeAws_restJson1NetworkOriginConfiguration(__expectUnion(output.networkOrigin), context)
         : undefined,
     publicAccessBlock:
       output.publicAccessBlock !== undefined && output.publicAccessBlock !== null
@@ -4834,7 +4835,7 @@ const deserializeAws_restJson1S3BucketAclGrantConfiguration = (
   return {
     grantee:
       output.grantee !== undefined && output.grantee !== null
-        ? deserializeAws_restJson1AclGrantee(output.grantee, context)
+        ? deserializeAws_restJson1AclGrantee(__expectUnion(output.grantee), context)
         : undefined,
     permission: __expectString(output.permission),
   } as any;

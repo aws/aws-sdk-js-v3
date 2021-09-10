@@ -33,6 +33,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
@@ -497,7 +498,7 @@ const deserializeAws_json1_0AttributeMap = (
     }
     return {
       ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context),
+      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
     };
   }, {});
 };
@@ -637,7 +638,7 @@ const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0AttributeValue(entry, context);
+      return deserializeAws_json1_0AttributeValue(__expectUnion(entry), context);
     });
 };
 
@@ -661,7 +662,7 @@ const deserializeAws_json1_0MapAttributeValue = (
     }
     return {
       ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(value, context),
+      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
     };
   }, {});
 };

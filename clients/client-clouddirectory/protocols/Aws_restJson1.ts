@@ -282,6 +282,7 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
@@ -11841,7 +11842,7 @@ const deserializeAws_restJson1AttributeKeyAndValue = (output: any, context: __Se
         : undefined,
     Value:
       output.Value !== undefined && output.Value !== null
-        ? deserializeAws_restJson1TypedAttributeValue(output.Value, context)
+        ? deserializeAws_restJson1TypedAttributeValue(__expectUnion(output.Value), context)
         : undefined,
   } as any;
 };
@@ -11865,7 +11866,7 @@ const deserializeAws_restJson1AttributeNameAndValue = (output: any, context: __S
     AttributeName: __expectString(output.AttributeName),
     Value:
       output.Value !== undefined && output.Value !== null
-        ? deserializeAws_restJson1TypedAttributeValue(output.Value, context)
+        ? deserializeAws_restJson1TypedAttributeValue(__expectUnion(output.Value), context)
         : undefined,
   } as any;
 };
@@ -12435,7 +12436,7 @@ const deserializeAws_restJson1FacetAttributeDefinition = (
   return {
     DefaultValue:
       output.DefaultValue !== undefined && output.DefaultValue !== null
-        ? deserializeAws_restJson1TypedAttributeValue(output.DefaultValue, context)
+        ? deserializeAws_restJson1TypedAttributeValue(__expectUnion(output.DefaultValue), context)
         : undefined,
     IsImmutable: __expectBoolean(output.IsImmutable),
     Rules:
@@ -12737,7 +12738,7 @@ const deserializeAws_restJson1TypedLinkAttributeDefinition = (
   return {
     DefaultValue:
       output.DefaultValue !== undefined && output.DefaultValue !== null
-        ? deserializeAws_restJson1TypedAttributeValue(output.DefaultValue, context)
+        ? deserializeAws_restJson1TypedAttributeValue(__expectUnion(output.DefaultValue), context)
         : undefined,
     IsImmutable: __expectBoolean(output.IsImmutable),
     Name: __expectString(output.Name),

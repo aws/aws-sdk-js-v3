@@ -79,6 +79,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1728,7 +1729,7 @@ const deserializeAws_json1_0ExportJobProperties = (output: any, context: __Serde
     Message: __expectString(output.Message),
     OutputDataConfig:
       output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
-        ? deserializeAws_json1_0OutputDataConfig(output.OutputDataConfig, context)
+        ? deserializeAws_json1_0OutputDataConfig(__expectUnion(output.OutputDataConfig), context)
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
@@ -1758,13 +1759,13 @@ const deserializeAws_json1_0ImportJobProperties = (output: any, context: __Serde
         : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
-        ? deserializeAws_json1_0InputDataConfig(output.InputDataConfig, context)
+        ? deserializeAws_json1_0InputDataConfig(__expectUnion(output.InputDataConfig), context)
         : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobOutputDataConfig:
       output.JobOutputDataConfig !== undefined && output.JobOutputDataConfig !== null
-        ? deserializeAws_json1_0OutputDataConfig(output.JobOutputDataConfig, context)
+        ? deserializeAws_json1_0OutputDataConfig(__expectUnion(output.JobOutputDataConfig), context)
         : undefined,
     JobStatus: __expectString(output.JobStatus),
     Message: __expectString(output.Message),

@@ -1140,7 +1140,7 @@ export const deserializeAws_restJson1ConfigureAgentCommand = async (
     $metadata: deserializeMetadata(output),
     configuration: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.configuration = deserializeAws_restJson1AgentConfiguration(data, context);
   return Promise.resolve(contents);
 };
@@ -1217,7 +1217,7 @@ export const deserializeAws_restJson1CreateProfilingGroupCommand = async (
     $metadata: deserializeMetadata(output),
     profilingGroup: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(data, context);
   return Promise.resolve(contents);
 };
@@ -1385,7 +1385,7 @@ export const deserializeAws_restJson1DescribeProfilingGroupCommand = async (
     $metadata: deserializeMetadata(output),
     profilingGroup: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(data, context);
   return Promise.resolve(contents);
 };
@@ -2733,7 +2733,7 @@ export const deserializeAws_restJson1UpdateProfilingGroupCommand = async (
     $metadata: deserializeMetadata(output),
     profilingGroup: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.profilingGroup = deserializeAws_restJson1ProfilingGroupDescription(data, context);
   return Promise.resolve(contents);
 };

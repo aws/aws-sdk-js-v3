@@ -868,6 +868,7 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -32585,7 +32586,7 @@ const deserializeAws_restJson1AssetPropertyValue = (output: any, context: __Serd
         : undefined,
     value:
       output.value !== undefined && output.value !== null
-        ? deserializeAws_restJson1AssetPropertyVariant(output.value, context)
+        ? deserializeAws_restJson1AssetPropertyVariant(__expectUnion(output.value), context)
         : undefined,
   } as any;
 };

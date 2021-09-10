@@ -2755,7 +2755,7 @@ export const deserializeAws_restJson1GetVaultAccessPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     policy: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.policy = deserializeAws_restJson1VaultAccessPolicy(data, context);
   return Promise.resolve(contents);
 };
@@ -2923,7 +2923,7 @@ export const deserializeAws_restJson1GetVaultNotificationsCommand = async (
     $metadata: deserializeMetadata(output),
     vaultNotificationConfig: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.vaultNotificationConfig = deserializeAws_restJson1VaultNotificationConfig(data, context);
   return Promise.resolve(contents);
 };

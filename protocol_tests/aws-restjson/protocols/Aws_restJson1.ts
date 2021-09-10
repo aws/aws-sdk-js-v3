@@ -153,6 +153,7 @@ import {
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -2338,7 +2339,7 @@ export const deserializeAws_restJson1HttpPayloadWithStructureCommand = async (
     $metadata: deserializeMetadata(output),
     nested: undefined,
   };
-  const data: object | undefined = __expectObject(await parseBody(output.body, context));
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = deserializeAws_restJson1NestedPayload(data, context);
   return Promise.resolve(contents);
 };
@@ -3252,7 +3253,7 @@ export const deserializeAws_restJson1JsonUnionsCommand = async (
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.contents !== undefined && data.contents !== null) {
-    contents.contents = deserializeAws_restJson1MyUnion(data.contents, context);
+    contents.contents = deserializeAws_restJson1MyUnion(__expectUnion(data.contents), context);
   }
   return Promise.resolve(contents);
 };
