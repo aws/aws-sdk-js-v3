@@ -3912,7 +3912,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an <i>action</i>. An action is a lineage tracking entity that\n        represents an action or activity. For example, a model deployment or an HPO job.\n        Generally, an action involves at least one input or output artifact. For more information, see\n        <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html\">Amazon SageMaker\n          ML Lineage Tracking</a>.</p>\n         <note>\n            <p>\n               <code>CreateAction</code> can only be invoked from within an SageMaker managed\n          environment. This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker\n          notebooks. A call to <code>CreateAction</code> from outside one of these\n          environments results in an error.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Creates an <i>action</i>. An action is a lineage tracking entity that\n        represents an action or activity. For example, a model deployment or an HPO job.\n        Generally, an action involves at least one input or output artifact. For more information, see\n        <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html\">Amazon SageMaker\n          ML Lineage Tracking</a>.</p>"
       }
     },
     "com.amazonaws.sagemaker#CreateActionRequest": {
@@ -4194,7 +4194,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an <i>artifact</i>. An artifact is a lineage tracking entity that\n        represents a URI addressable object or data. Some examples are the S3 URI of a dataset and\n        the ECR registry path of an image. For more information, see\n        <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html\">Amazon SageMaker\n          ML Lineage Tracking</a>.</p>\n         <note>\n            <p>\n               <code>CreateArtifact</code> can only be invoked from within an SageMaker managed\n          environment. This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker\n          notebooks. A call to <code>CreateArtifact</code> from outside one of these\n          environments results in an error.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Creates an <i>artifact</i>. An artifact is a lineage tracking entity that\n        represents a URI addressable object or data. Some examples are the S3 URI of a dataset and\n        the ECR registry path of an image. For more information, see\n        <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html\">Amazon SageMaker\n          ML Lineage Tracking</a>.</p>"
       }
     },
     "com.amazonaws.sagemaker#CreateArtifactRequest": {
@@ -4496,7 +4496,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a <i>context</i>. A context is a lineage tracking entity that\n        represents a logical grouping of other tracking or experiment entities. Some examples are\n        an endpoint and a model package. For more information, see\n        <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html\">Amazon SageMaker\n          ML Lineage Tracking</a>.</p>\n         <note>\n            <p>\n               <code>CreateContext</code> can only be invoked from within an SageMaker managed\n          environment. This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker\n          notebooks. A call to <code>CreateContext</code> from outside one of these\n          environments results in an error.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Creates a <i>context</i>. A context is a lineage tracking entity that\n        represents a logical grouping of other tracking or experiment entities. Some examples are\n        an endpoint and a model package. For more information, see\n        <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html\">Amazon SageMaker\n          ML Lineage Tracking</a>.</p>"
       }
     },
     "com.amazonaws.sagemaker#CreateContextRequest": {
@@ -4920,7 +4920,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In\n            the configuration, you identify one or more models, created using the\n                <code>CreateModel</code> API, to deploy and the resources that you want Amazon SageMaker to\n            provision. Then you call the <a>CreateEndpoint</a> API.</p>\n        <note>\n            <p> Use this API if you want to use Amazon SageMaker hosting services to deploy models into\n                production. </p>\n        </note>\n        <p>In the request, you define a <code>ProductionVariant</code>, for each model that you\n            want to deploy. Each <code>ProductionVariant</code> parameter also describes the\n            resources that you want Amazon SageMaker to provision. This includes the number and type of ML\n            compute instances to deploy. </p>\n        <p>If you are hosting multiple models, you also assign a <code>VariantWeight</code> to\n            specify how much traffic you want to allocate to each model. For example, suppose that\n            you want to host two models, A and B, and you assign traffic weight 2 for model A and 1\n            for model B. Amazon SageMaker distributes two-thirds of the traffic to Model A, and one-third to\n            model B. </p>\n        <p>For an example that calls this method when deploying a model to Amazon SageMaker hosting services,\n            see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto\">Deploy the\n                Model to Amazon SageMaker Hosting Services (Amazon Web Services SDK for Python (Boto\n            3)).</a>\n         </p>\n        <note>\n            <p>When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to\n                verify that your endpoint configuration exists. When you read data from a DynamoDB\n                table supporting <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html\">\n                  <code>Eventually Consistent Reads</code>\n               </a>, the response might not\n                reflect the results of a recently completed write operation. The response might\n                include some stale data. If the dependent entities are not yet in DynamoDB, this\n                causes a validation error. If you repeat your read request after a short time, the\n                response should return the latest data. So retry logic is recommended to handle\n                these possible issues. We also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a> to minimize the potential impact of a DynamoDB eventually consistent read.</p>\n        </note>"
+        "smithy.api#documentation": "<p>Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In\n            the configuration, you identify one or more models, created using the\n                <code>CreateModel</code> API, to deploy and the resources that you want Amazon SageMaker to\n            provision. Then you call the <a>CreateEndpoint</a> API.</p>\n        <note>\n            <p> Use this API if you want to use Amazon SageMaker hosting services to deploy models into\n                production. </p>\n        </note>\n        <p>In the request, you define a <code>ProductionVariant</code>, for each model that you\n            want to deploy. Each <code>ProductionVariant</code> parameter also describes the\n            resources that you want Amazon SageMaker to provision. This includes the number and type of ML\n            compute instances to deploy. </p>\n        <p>If you are hosting multiple models, you also assign a <code>VariantWeight</code> to\n            specify how much traffic you want to allocate to each model. For example, suppose that\n            you want to host two models, A and B, and you assign traffic weight 2 for model A and 1\n            for model B. Amazon SageMaker distributes two-thirds of the traffic to Model A, and one-third to\n            model B. </p>\n        <note>\n            <p>When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to\n                verify that your endpoint configuration exists. When you read data from a DynamoDB\n                table supporting <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html\">\n                  <code>Eventually Consistent Reads</code>\n               </a>, the response might not\n                reflect the results of a recently completed write operation. The response might\n                include some stale data. If the dependent entities are not yet in DynamoDB, this\n                causes a validation error. If you repeat your read request after a short time, the\n                response should return the latest data. So retry logic is recommended to handle\n                these possible issues. We also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a> to minimize the potential impact of a DynamoDB eventually consistent read.</p>\n        </note>"
       }
     },
     "com.amazonaws.sagemaker#CreateEndpointConfigInput": {
@@ -6737,6 +6737,66 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the new project.</p>",
             "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#CreateStudioLifecycleConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#CreateStudioLifecycleConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#CreateStudioLifecycleConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceInUse"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a new Studio Lifecycle Configuration.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#CreateStudioLifecycleConfigRequest": {
+      "type": "structure",
+      "members": {
+        "StudioLifecycleConfigName": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Studio Lifecycle Configuration to create.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StudioLifecycleConfigContent": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigContent",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StudioLifecycleConfigAppType": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigAppType",
+          "traits": {
+            "smithy.api#documentation": "<p>The App type that the Lifecycle Configuration is attached to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.sagemaker#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API. </p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#CreateStudioLifecycleConfigResponse": {
+      "type": "structure",
+      "members": {
+        "StudioLifecycleConfigArn": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of your created Lifecycle Configuration.</p>"
           }
         }
       }
@@ -8887,6 +8947,35 @@
           "target": "com.amazonaws.sagemaker#ProjectEntityName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the project to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#DeleteStudioLifecycleConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#DeleteStudioLifecycleConfigRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceInUse"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the Studio Lifecycle Configuration. In order to delete the Lifecycle Configuration, there must be no running apps using the Lifecycle Configuration. You must also remove the Lifecycle Configuration from UserSettings in all Domains and UserProfiles.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#DeleteStudioLifecycleConfigRequest": {
+      "type": "structure",
+      "members": {
+        "StudioLifecycleConfigName": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Studio Lifecycle Configuration to delete.</p>",
             "smithy.api#required": {}
           }
         }
@@ -13446,6 +13535,76 @@
           "traits": {
             "smithy.api#documentation": "<p>The time when the project was created.</p>",
             "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeStudioLifecycleConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#DescribeStudioLifecycleConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#DescribeStudioLifecycleConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the Studio Lifecycle Configuration.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeStudioLifecycleConfigRequest": {
+      "type": "structure",
+      "members": {
+        "StudioLifecycleConfigName": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Studio Lifecycle Configuration to describe.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeStudioLifecycleConfigResponse": {
+      "type": "structure",
+      "members": {
+        "StudioLifecycleConfigArn": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Lifecycle Configuration to describe.</p>"
+          }
+        },
+        "StudioLifecycleConfigName": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Studio Lifecycle Configuration that is described.</p>"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation time of the Studio Lifecycle Configuration.</p>"
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>This value is equivalent to CreationTime because Studio Lifecycle Configurations are immutable.</p>"
+          }
+        },
+        "StudioLifecycleConfigContent": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigContent",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of your Studio Lifecycle Configuration script.</p>"
+          }
+        },
+        "StudioLifecycleConfigAppType": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigAppType",
+          "traits": {
+            "smithy.api#documentation": "<p>The App type that the Lifecycle Configuration is attached to.</p>"
           }
         }
       }
@@ -18986,6 +19145,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.</p>"
           }
+        },
+        "LifecycleConfigArns": {
+          "target": "com.amazonaws.sagemaker#LifecycleConfigArns",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the JupyterServerApp.</p>"
+          }
         }
       },
       "traits": {
@@ -19014,6 +19179,12 @@
           "target": "com.amazonaws.sagemaker#CustomImages",
           "traits": {
             "smithy.api#documentation": "<p>A list of custom SageMaker images that are configured to run as a KernelGateway app.</p>"
+          }
+        },
+        "LifecycleConfigArns": {
+          "target": "com.amazonaws.sagemaker#LifecycleConfigArns",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the KernelGatewayApp.</p>"
           }
         }
       },
@@ -19610,6 +19781,12 @@
     },
     "com.amazonaws.sagemaker#LastModifiedTime": {
       "type": "timestamp"
+    },
+    "com.amazonaws.sagemaker#LifecycleConfigArns": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#StudioLifecycleConfigArn"
+      }
     },
     "com.amazonaws.sagemaker#LineageEntityParameters": {
       "type": "map",
@@ -23588,6 +23765,110 @@
           "target": "com.amazonaws.sagemaker#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>If the result of the previous <code>ListCompilationJobs</code> request was truncated,\n            the response includes a <code>NextToken</code>. To retrieve the next set of model\n            compilation jobs, use the token in the next request.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#ListStudioLifecycleConfigs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#ListStudioLifecycleConfigsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#ListStudioLifecycleConfigsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceInUse"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the Studio Lifecycle Configurations in your Amazon Web Services Account.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#ListStudioLifecycleConfigsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.sagemaker#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of Studio Lifecycle Configurations to return in the response. The default value is 10.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sagemaker#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous call to ListStudioLifecycleConfigs didn't return the full set of Lifecycle Configurations, the call returns a token for getting the next set of Lifecycle Configurations.</p>"
+          }
+        },
+        "NameContains": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigName",
+          "traits": {
+            "smithy.api#documentation": "<p>A string in the Lifecycle Configuration name. This filter returns only Lifecycle Configurations whose name contains the specified string.</p>"
+          }
+        },
+        "AppTypeEquals": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigAppType",
+          "traits": {
+            "smithy.api#documentation": "<p>A parameter to search for the App Type to which the Lifecycle Configuration is attached.</p>"
+          }
+        },
+        "CreationTimeBefore": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only Lifecycle Configurations created on or before the specified time.</p>"
+          }
+        },
+        "CreationTimeAfter": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only Lifecycle Configurations created on or after the specified time.</p>"
+          }
+        },
+        "ModifiedTimeBefore": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only Lifecycle Configurations modified before the specified time.</p>"
+          }
+        },
+        "ModifiedTimeAfter": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only Lifecycle Configurations modified after the specified time.</p>"
+          }
+        },
+        "SortBy": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigSortKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The property used to sort results. The default value is CreationTime.</p>"
+          }
+        },
+        "SortOrder": {
+          "target": "com.amazonaws.sagemaker#SortOrder",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort order. The default value is Descending.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#ListStudioLifecycleConfigsResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.sagemaker#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token for getting the next set of actions, if there are any.</p>"
+          }
+        },
+        "StudioLifecycleConfigs": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigsList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of Lifecycle Configurations and their properties.</p>"
           }
         }
       }
@@ -30964,6 +31245,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The instance type that the image version runs on.</p>"
           }
+        },
+        "LifecycleConfigArn": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the Resource.</p>"
+          }
         }
       },
       "traits": {
@@ -31388,6 +31675,9 @@
           "target": "com.amazonaws.sagemaker#CreateProject"
         },
         {
+          "target": "com.amazonaws.sagemaker#CreateStudioLifecycleConfig"
+        },
+        {
           "target": "com.amazonaws.sagemaker#CreateTrainingJob"
         },
         {
@@ -31500,6 +31790,9 @@
         },
         {
           "target": "com.amazonaws.sagemaker#DeleteProject"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#DeleteStudioLifecycleConfig"
         },
         {
           "target": "com.amazonaws.sagemaker#DeleteTags"
@@ -31635,6 +31928,9 @@
         },
         {
           "target": "com.amazonaws.sagemaker#DescribeProject"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#DescribeStudioLifecycleConfig"
         },
         {
           "target": "com.amazonaws.sagemaker#DescribeSubscribedWorkteam"
@@ -31809,6 +32105,9 @@
         },
         {
           "target": "com.amazonaws.sagemaker#ListProjects"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ListStudioLifecycleConfigs"
         },
         {
           "target": "com.amazonaws.sagemaker#ListSubscribedWorkteams"
@@ -33479,6 +33778,114 @@
         "smithy.api#pattern": ".*"
       }
     },
+    "com.amazonaws.sagemaker#StudioLifecycleConfigAppType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "JupyterServer",
+            "name": "JupyterServer"
+          },
+          {
+            "value": "KernelGateway",
+            "name": "KernelGateway"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.sagemaker#StudioLifecycleConfigArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:studio-lifecycle-config/"
+      }
+    },
+    "com.amazonaws.sagemaker#StudioLifecycleConfigContent": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 16384
+        },
+        "smithy.api#pattern": "^[\\S\\s]+$"
+      }
+    },
+    "com.amazonaws.sagemaker#StudioLifecycleConfigDetails": {
+      "type": "structure",
+      "members": {
+        "StudioLifecycleConfigArn": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Lifecycle Configuration.</p>"
+          }
+        },
+        "StudioLifecycleConfigName": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Studio Lifecycle Configuration.</p>"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation time of the Studio Lifecycle Configuration.</p>"
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>This value is equivalent to CreationTime because Studio Lifecycle Configurations are immutable.</p>"
+          }
+        },
+        "StudioLifecycleConfigAppType": {
+          "target": "com.amazonaws.sagemaker#StudioLifecycleConfigAppType",
+          "traits": {
+            "smithy.api#documentation": "<p>The App type to which the Lifecycle Configuration is attached.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details of the Studio Lifecycle Configuration.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#StudioLifecycleConfigName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 63
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+      }
+    },
+    "com.amazonaws.sagemaker#StudioLifecycleConfigSortKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "CreationTime",
+            "name": "CreationTime"
+          },
+          {
+            "value": "LastModifiedTime",
+            "name": "LastModifiedTime"
+          },
+          {
+            "value": "Name",
+            "name": "Name"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.sagemaker#StudioLifecycleConfigsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#StudioLifecycleConfigDetails"
+      }
+    },
     "com.amazonaws.sagemaker#SubnetId": {
       "type": "string",
       "traits": {
@@ -33780,6 +34187,10 @@
           {
             "value": "jacinto_tda4vm",
             "name": "JACINTO_TDA4VM"
+          },
+          {
+            "value": "imx8mplus",
+            "name": "IMX8MPLUS"
           }
         ]
       }

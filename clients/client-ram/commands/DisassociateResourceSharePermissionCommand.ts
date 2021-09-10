@@ -26,7 +26,7 @@ export interface DisassociateResourceSharePermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disassociates an AWS RAM permission from a resource share.</p>
+ * <p>Disassociates an RAM permission from a resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

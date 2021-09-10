@@ -21,7 +21,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of tags that are applied to the specified AWS X-Ray group or sampling rule.</p>
+ * <p>Returns a list of tags that are applied to the specified Amazon Web Services X-Ray group or sampling rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

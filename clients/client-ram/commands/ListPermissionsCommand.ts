@@ -21,7 +21,7 @@ export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the AWS RAM permissions.</p>
+ * <p>Lists the RAM permissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

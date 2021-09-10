@@ -23,6 +23,14 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
+    try {
+      let returnComparator = () => {
+        return result.cluster.status;
+      };
+      if (returnComparator() === "PENDING") {
+        return { state: WaiterState.FAILURE, reason };
+      }
+    } catch (e) {}
   } catch (exception) {
     reason = exception;
     if (exception.name && exception.name == "ResourceNotFoundException") {

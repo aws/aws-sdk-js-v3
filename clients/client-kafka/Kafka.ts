@@ -141,6 +141,11 @@ import {
   UpdateMonitoringCommandInput,
   UpdateMonitoringCommandOutput,
 } from "./commands/UpdateMonitoringCommand";
+import {
+  UpdateSecurityCommand,
+  UpdateSecurityCommandInput,
+  UpdateSecurityCommandOutput,
+} from "./commands/UpdateSecurityCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -1079,6 +1084,38 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: UpdateMonitoringCommandOutput) => void
   ): Promise<UpdateMonitoringCommandOutput> | void {
     const command = new UpdateMonitoringCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the security settings for the cluster. You can use this operation to specify encryption and authentication on existing clusters.</p>
+   */
+  public updateSecurity(
+    args: UpdateSecurityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSecurityCommandOutput>;
+  public updateSecurity(
+    args: UpdateSecurityCommandInput,
+    cb: (err: any, data?: UpdateSecurityCommandOutput) => void
+  ): void;
+  public updateSecurity(
+    args: UpdateSecurityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSecurityCommandOutput) => void
+  ): void;
+  public updateSecurity(
+    args: UpdateSecurityCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSecurityCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSecurityCommandOutput) => void
+  ): Promise<UpdateSecurityCommandOutput> | void {
+    const command = new UpdateSecurityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

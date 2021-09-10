@@ -935,17 +935,17 @@ export namespace Tag {
 }
 
 /**
- * <p>This input identifies a cluster and a list of tags to attach.</p>
+ * <p>This input identifies an Amazon EMR resource and a list of tags to attach.</p>
  */
 export interface AddTagsInput {
   /**
-   * <p>The Amazon EMR resource identifier to which tags will be added. This value must be a
-   *          cluster identifier.</p>
+   * <p>The Amazon EMR resource identifier to which tags will be added. For example, a
+   *          cluster identifier or an Amazon EMR Studio ID.</p>
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>A list of tags to associate with a cluster and propagate to EC2 instances. Tags are
+   * <p>A list of tags to associate with a resource. Tags are
    *          user-defined key-value pairs that consist of a required key string with a maximum of 128
    *          characters, and an optional value string with a maximum of 256 characters.</p>
    */
@@ -1839,8 +1839,7 @@ export interface CreateStudioInput {
   Description?: string;
 
   /**
-   * <p>Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM.
-   *          Amazon EMR Studio currently only supports SSO authentication.</p>
+   * <p>Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO.</p>
    */
   AuthMode: AuthMode | string | undefined;
 
@@ -1858,17 +1857,17 @@ export interface CreateStudioInput {
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a
+   * <p>The IAM role that the Amazon EMR Studio assumes. The service role provides a
    *          way for Amazon EMR Studio to interoperate with other Amazon Web Services services.</p>
    */
   ServiceRole: string | undefined;
 
   /**
-   * <p>The IAM user role that will be assumed by users and groups logged in to an Amazon EMR Studio. The
-   *          permissions attached to this IAM role can be scoped down for each user or group using
+   * <p>The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a <code>UserRole</code> when you use Amazon Web Services SSO authentication. The
+   *          permissions attached to the <code>UserRole</code> can be scoped down for each user or group using
    *          session policies.</p>
    */
-  UserRole: string | undefined;
+  UserRole?: string;
 
   /**
    * <p>The ID of the Amazon EMR Studio Workspace security group. The Workspace security group
@@ -1888,6 +1887,16 @@ export interface CreateStudioInput {
    * <p>The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.</p>
    */
   DefaultS3Location: string | undefined;
+
+  /**
+   * <p>The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.</p>
+   */
+  IdpAuthUrl?: string;
+
+  /**
+   * <p>The name that your identity provider (IdP) uses for its <code>RelayState</code> parameter. For example, <code>RelayState</code> or <code>TargetSource</code>. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The <code>RelayState</code> parameter differs by IdP.</p>
+   */
+  IdpRelayStateParameterName?: string;
 
   /**
    * <p>A list of tags to associate with the Amazon EMR Studio. Tags are user-defined key-value pairs that
@@ -3230,8 +3239,7 @@ export interface Studio {
   Description?: string;
 
   /**
-   * <p>Specifies whether the Amazon EMR Studio authenticates users using single sign-on (SSO) or
-   *          IAM.</p>
+   * <p>Specifies whether the Amazon EMR Studio authenticates users using IAM or Amazon Web Services SSO.</p>
    */
   AuthMode?: AuthMode | string;
 
@@ -3251,7 +3259,7 @@ export interface Studio {
   ServiceRole?: string;
 
   /**
-   * <p>The name of the IAM role assumed by users logged in to the Amazon EMR Studio.</p>
+   * <p>The name of the IAM role assumed by users logged in to the Amazon EMR Studio. A Studio only requires a <code>UserRole</code> when you use IAM authentication.</p>
    */
   UserRole?: string;
 
@@ -3284,6 +3292,16 @@ export interface Studio {
    *          files.</p>
    */
   DefaultS3Location?: string;
+
+  /**
+   * <p>Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.</p>
+   */
+  IdpAuthUrl?: string;
+
+  /**
+   * <p>The name of your identity provider's <code>RelayState</code> parameter.</p>
+   */
+  IdpRelayStateParameterName?: string;
 
   /**
    * <p>A list of tags associated with the Amazon EMR Studio.</p>
@@ -4761,6 +4779,11 @@ export interface StudioSummary {
   Url?: string;
 
   /**
+   * <p>Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO.</p>
+   */
+  AuthMode?: AuthMode | string;
+
+  /**
    * <p>The time when the Amazon EMR Studio was created.</p>
    */
   CreationTime?: Date;
@@ -5210,17 +5233,17 @@ export namespace RemoveManagedScalingPolicyOutput {
 }
 
 /**
- * <p>This input identifies a cluster and a list of tags to remove.</p>
+ * <p>This input identifies an Amazon EMR resource and a list of tags to remove.</p>
  */
 export interface RemoveTagsInput {
   /**
-   * <p>The Amazon EMR resource identifier from which tags will be removed. This value must be a
-   *          cluster identifier.</p>
+   * <p>The Amazon EMR resource identifier from which tags will be removed. For example, a
+   *          cluster identifier or an Amazon EMR Studio ID.</p>
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>A list of tag keys to remove from a resource.</p>
+   * <p>A list of tag keys to remove from the resource.</p>
    */
   TagKeys: string[] | undefined;
 }
@@ -5235,7 +5258,7 @@ export namespace RemoveTagsInput {
 }
 
 /**
- * <p>This output indicates the result of removing tags from a resource.</p>
+ * <p>This output indicates the result of removing tags from the resource.</p>
  */
 export interface RemoveTagsOutput {}
 
@@ -5732,7 +5755,7 @@ export interface Cluster {
   Tags?: Tag[];
 
   /**
-   * <p>The IAM role that will be assumed by the Amazon EMR service to access Amazon Web Services resources on
+   * <p>The IAM role that Amazon EMR assumes in order to access Amazon Web Services resources on
    *          your behalf.</p>
    */
   ServiceRole?: string;
@@ -6873,7 +6896,7 @@ export interface RunJobFlowInput {
   JobFlowRole?: string;
 
   /**
-   * <p>The IAM role that will be assumed by the Amazon EMR service to access Amazon Web Services resources on
+   * <p>The IAM role that Amazon EMR assumes in order to access Amazon Web Services resources on
    *          your behalf.</p>
    */
   ServiceRole?: string;

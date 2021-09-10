@@ -1210,6 +1210,46 @@ export namespace Certificate {
 }
 
 /**
+ * <p>The full description of your connected cluster.</p>
+ */
+export interface ConnectorConfigResponse {
+  /**
+   * <p>A unique ID associated with the cluster for registration purposes.</p>
+   */
+  activationId?: string;
+
+  /**
+   * <p>A unique code associated with the cluster for registration purposes.</p>
+   */
+  activationCode?: string;
+
+  /**
+   * <p>The expiration time of the connected cluster. The cluster's YAML file must be applied through the native
+   *         provider.</p>
+   */
+  activationExpiry?: Date;
+
+  /**
+   * <p>The cluster's cloud service provider.</p>
+   */
+  provider?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role that is used by the EKS connector to communicate with AWS services from the connected Kubernetes cluster.</p>
+   */
+  roleArn?: string;
+}
+
+export namespace ConnectorConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectorConfigResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>An object representing the <a href="https://openid.net/connect/">OpenID
  *                 Connect</a> (OIDC) identity provider information for the cluster.</p>
  */
@@ -1340,7 +1380,7 @@ export namespace VpcConfigResponse {
   });
 }
 
-export type ClusterStatus = "ACTIVE" | "CREATING" | "DELETING" | "FAILED" | "UPDATING";
+export type ClusterStatus = "ACTIVE" | "CREATING" | "DELETING" | "FAILED" | "PENDING" | "UPDATING";
 
 /**
  * <p>An object representing an Amazon EKS cluster.</p>
@@ -1428,7 +1468,7 @@ export interface Cluster {
    * <p>The metadata that you apply to the cluster to assist with categorization and
    *             organization. Each tag consists of a key and an optional value, both of which you
    *             define. Cluster tags do not propagate to any other resources associated with the
-   *             cluster. </p>
+   *             cluster.</p>
    */
   tags?: { [key: string]: string };
 
@@ -1436,6 +1476,11 @@ export interface Cluster {
    * <p>The encryption configuration for the cluster.</p>
    */
   encryptionConfig?: EncryptionConfig[];
+
+  /**
+   * <p>The configuration used to connect to a cluster for registration.</p>
+   */
+  connectorConfig?: ConnectorConfigResponse;
 }
 
 export namespace Cluster {
@@ -2562,6 +2607,38 @@ export namespace DeleteNodegroupResponse {
   });
 }
 
+export interface DeregisterClusterRequest {
+  /**
+   * <p>The name of the connected cluster to deregister.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace DeregisterClusterRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeregisterClusterRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeregisterClusterResponse {
+  /**
+   * <p>An object representing an Amazon EKS cluster.</p>
+   */
+  cluster?: Cluster;
+}
+
+export namespace DeregisterClusterResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeregisterClusterResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeAddonRequest {
   /**
    * <p>The name of the cluster.</p>
@@ -2876,7 +2953,7 @@ export namespace OidcIdentityProviderConfig {
 }
 
 /**
- * <p>An object that represents an identity configuration.</p>
+ * <p>The full description of your identity configuration.</p>
  */
 export interface IdentityProviderConfigResponse {
   /**
@@ -3134,6 +3211,11 @@ export interface ListClustersRequest {
    *         </note>
    */
   nextToken?: string;
+
+  /**
+   * <p>Indicates whether connected clusters are included in the returned list. Default value is 'ALL'.</p>
+   */
+  include?: string[];
 }
 
 export namespace ListClustersRequest {
@@ -3493,6 +3575,84 @@ export namespace ListUpdatesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListUpdatesResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ConnectorConfigProvider {
+  AKS = "AKS",
+  ANTHOS = "ANTHOS",
+  EC2 = "EC2",
+  EKS_ANYWHERE = "EKS_ANYWHERE",
+  GKE = "GKE",
+  OPENSHIFT = "OPENSHIFT",
+  OTHER = "OTHER",
+  RANCHER = "RANCHER",
+  TANZU = "TANZU",
+}
+
+/**
+ * <p>The configuration sent to a cluster for configuration.</p>
+ */
+export interface ConnectorConfigRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role that is authorized to request the connector configuration.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The cloud provider for the target cluster to connect.</p>
+   */
+  provider: ConnectorConfigProvider | string | undefined;
+}
+
+export namespace ConnectorConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectorConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterClusterRequest {
+  /**
+   * <p>Define a unique name for this cluster within your AWS account.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The configuration settings required to connect the Kubernetes cluster to the Amazon EKS control plane.</p>
+   */
+  connectorConfig: ConnectorConfigRequest | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientRequestToken?: string;
+}
+
+export namespace RegisterClusterRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterClusterRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterClusterResponse {
+  /**
+   * <p>An object representing an Amazon EKS cluster.</p>
+   */
+  cluster?: Cluster;
+}
+
+export namespace RegisterClusterResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterClusterResponse): any => ({
     ...obj,
   });
 }

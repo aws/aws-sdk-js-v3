@@ -7,12 +7,29 @@
 
 AWS SDK for JavaScript RAM Client for Node.js, Browser and React Native.
 
-<p>Use AWS Resource Access Manager to share AWS resources between AWS accounts. To share a resource, you
-create a resource share, associate the resource with the resource share, and specify the principals that
-can access the resources associated with the resource share. The following principals are supported:
-AWS accounts, organizational units (OU) from AWS Organizations, and organizations from
-AWS Organizations.</p>
-<p>For more information, see the <a href="https://docs.aws.amazon.com/ram/latest/userguide/">AWS Resource Access Manager User Guide</a>.</p>
+<p>This is the <i>Resource Access Manager API Reference</i>. This documentation provides
+descriptions and syntax for each of the actions and data types in RAM. RAM is a
+service that helps you securely share your Amazon Web Services resources across Amazon Web Services accounts and
+within your organization or organizational units (OUs) in Organizations. For supported
+resource types, you can also share resources with IAM roles and IAM users. If you have
+multiple Amazon Web Services accounts, you can use RAM to share those resources with other
+accounts.</p>
+
+<p>To learn more about RAM, see the following resources:</p>
+
+<ul>
+<li>
+<p>
+<a href="http://aws.amazon.com/ram">Resource Access Manager product page</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/ram/latest/userguide/">Resource Access Manager User
+Guide</a>
+</p>
+</li>
+</ul>
 
 ## Installing
 

@@ -3236,6 +3236,13 @@ export interface ScalingConfiguration {
    *                     Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</p>
    */
   TimeoutAction?: string;
+
+  /**
+   * <p>The amount of time, in seconds, that Aurora Serverless tries to find a scaling point
+   *             to perform seamless scaling before enforcing the timeout action. The default is 300.</p>
+   *         <p>Specify a value between 60 and 600 seconds.</p>
+   */
+  SecondsBeforeTimeout?: number;
 }
 
 export namespace ScalingConfiguration {
@@ -3936,10 +3943,21 @@ export interface ScalingConfigurationInfo {
   SecondsUntilAutoPause?: number;
 
   /**
-   * <p>The timeout action of a call to <code>ModifyCurrentDBClusterCapacity</code>, either
-   *                 <code>ForceApplyCapacityChange</code> or <code>RollbackCapacityChange</code>.</p>
+   * <p>The action that occurs when Aurora times out while attempting to change the capacity of an
+   *             Aurora Serverless cluster. The value is either <code>ForceApplyCapacityChange</code> or
+   *             <code>RollbackCapacityChange</code>.</p>
+   *         <p>
+   *             <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the specified value as soon as possible.</p>
+   *         <p>
+   *             <code>RollbackCapacityChange</code> ignores the capacity change if a scaling point isn't found in the timeout period.</p>
    */
   TimeoutAction?: string;
+
+  /**
+   * <p>The number of seconds before scaling times out. What happens when an attempted scaling action times out
+   *             is determined by the <code>TimeoutAction</code> setting.</p>
+   */
+  SecondsBeforeTimeout?: number;
 }
 
 export namespace ScalingConfigurationInfo {

@@ -25,21 +25,19 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  *       to decide whether to use the predictor to generate a forecast. For more information, see
  *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">Predictor
  *         Metrics</a>.</p>
- *          <p>This operation generates metrics for each backtest window that was evaluated. The number of backtest windows
- *       (<code>NumberOfBacktestWindows</code>) is specified using the
- *       <a>EvaluationParameters</a> object, which is optionally
- *       included in the <code>CreatePredictor</code> request. If
- *       <code>NumberOfBacktestWindows</code> isn't specified, the number defaults to one.</p>
- *          <p>The parameters of the <code>filling</code> method determine which items contribute to
- *       the metrics. If you want all items to contribute, specify <code>zero</code>.
- *       If you want only those items that have complete data in the range being evaluated to
- *       contribute, specify <code>nan</code>.
- *       For more information, see <a>FeaturizationMethod</a>.</p>
+ *          <p>This operation generates metrics for each backtest window that was evaluated. The number
+ *       of backtest windows (<code>NumberOfBacktestWindows</code>) is specified using the <a>EvaluationParameters</a> object, which is optionally included in the
+ *         <code>CreatePredictor</code> request. If <code>NumberOfBacktestWindows</code> isn't
+ *       specified, the number defaults to one.</p>
+ *          <p>The parameters of the <code>filling</code> method determine which items contribute to the
+ *       metrics. If you want all items to contribute, specify <code>zero</code>. If you want only
+ *       those items that have complete data in the range being evaluated to contribute, specify
+ *         <code>nan</code>. For more information, see <a>FeaturizationMethod</a>.</p>
  *
  *          <note>
  *             <p>Before you can get accuracy metrics, the <code>Status</code> of the predictor must be
- *         <code>ACTIVE</code>, signifying that training has completed.
- *         To get the status, use the <a>DescribePredictor</a> operation.</p>
+ *           <code>ACTIVE</code>, signifying that training has completed. To get the status, use the
+ *           <a>DescribePredictor</a> operation.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

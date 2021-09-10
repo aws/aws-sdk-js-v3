@@ -2550,6 +2550,7 @@ const serializeAws_json1_0CreateModelRequest = (input: CreateModelRequest, conte
         LabelsInputConfiguration: serializeAws_json1_0LabelsInputConfiguration(input.LabelsInputConfiguration, context),
       }),
     ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
+    ...(input.OffCondition !== undefined && input.OffCondition !== null && { OffCondition: input.OffCondition }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.ServerSideKmsKeyId !== undefined &&
       input.ServerSideKmsKeyId !== null && { ServerSideKmsKeyId: input.ServerSideKmsKeyId }),
@@ -3143,6 +3144,7 @@ const deserializeAws_json1_0DescribeModelResponse = (output: any, context: __Ser
         ? new __LazyJsonString(output.ModelMetrics)
         : undefined,
     ModelName: __expectString(output.ModelName),
+    OffCondition: __expectString(output.OffCondition),
     RoleArn: __expectString(output.RoleArn),
     Schema: output.Schema !== undefined && output.Schema !== null ? new __LazyJsonString(output.Schema) : undefined,
     ServerSideKmsKeyId: __expectString(output.ServerSideKmsKeyId),

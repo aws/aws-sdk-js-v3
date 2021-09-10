@@ -37,7 +37,7 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  *          </p>
  *          <p>For a full list of indexed fields and keywords that you can use in filter expressions,
  *       see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using Filter
- *         Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
+ *         Expressions</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

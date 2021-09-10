@@ -76,6 +76,7 @@ import {
   UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand";
+import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "./commands/UpdateSecurityCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -158,7 +159,8 @@ export type ServiceInputTypes =
   | UpdateClusterConfigurationCommandInput
   | UpdateClusterKafkaVersionCommandInput
   | UpdateConfigurationCommandInput
-  | UpdateMonitoringCommandInput;
+  | UpdateMonitoringCommandInput
+  | UpdateSecurityCommandInput;
 
 export type ServiceOutputTypes =
   | BatchAssociateScramSecretCommandOutput
@@ -190,7 +192,8 @@ export type ServiceOutputTypes =
   | UpdateClusterConfigurationCommandOutput
   | UpdateClusterKafkaVersionCommandOutput
   | UpdateConfigurationCommandOutput
-  | UpdateMonitoringCommandOutput;
+  | UpdateMonitoringCommandOutput
+  | UpdateSecurityCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

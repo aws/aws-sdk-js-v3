@@ -165,6 +165,8 @@ import {
   EventType,
   ExternalEventsDetail,
   ExternalModel,
+  ExternalModelOutputs,
+  ExternalModelSummary,
   FieldValidationMessage,
   FileValidationMessage,
   GetBatchPredictionJobsRequest,
@@ -7330,6 +7332,41 @@ const deserializeAws_json1_1ExternalModelList = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_json1_1ExternalModelOutputs = (output: any, context: __SerdeContext): ExternalModelOutputs => {
+  return {
+    externalModel:
+      output.externalModel !== undefined && output.externalModel !== null
+        ? deserializeAws_json1_1ExternalModelSummary(output.externalModel, context)
+        : undefined,
+    outputs:
+      output.outputs !== undefined && output.outputs !== null
+        ? deserializeAws_json1_1ExternalModelPredictionMap(output.outputs, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ExternalModelPredictionMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_json1_1ExternalModelSummary = (output: any, context: __SerdeContext): ExternalModelSummary => {
+  return {
+    modelEndpoint: __expectString(output.modelEndpoint),
+    modelSource: __expectString(output.modelSource),
+  } as any;
+};
+
 const deserializeAws_json1_1FieldValidationMessage = (output: any, context: __SerdeContext): FieldValidationMessage => {
   return {
     content: __expectString(output.content),
@@ -7442,6 +7479,10 @@ const deserializeAws_json1_1GetEventPredictionResult = (
   context: __SerdeContext
 ): GetEventPredictionResult => {
   return {
+    externalModelOutputs:
+      output.externalModelOutputs !== undefined && output.externalModelOutputs !== null
+        ? deserializeAws_json1_1ListOfExternalModelOutputs(output.externalModelOutputs, context)
+        : undefined,
     modelScores:
       output.modelScores !== undefined && output.modelScores !== null
         ? deserializeAws_json1_1ListOfModelScores(output.modelScores, context)
@@ -7627,6 +7668,20 @@ const deserializeAws_json1_1LabelSchema = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1labelMapper(output.labelMapper, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ListOfExternalModelOutputs = (
+  output: any,
+  context: __SerdeContext
+): ExternalModelOutputs[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExternalModelOutputs(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ListOfLogOddsMetrics = (output: any, context: __SerdeContext): LogOddsMetric[] => {

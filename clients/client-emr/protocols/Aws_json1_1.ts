@@ -4299,6 +4299,9 @@ const serializeAws_json1_1CreateStudioInput = (input: CreateStudioInput, context
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.EngineSecurityGroupId !== undefined &&
       input.EngineSecurityGroupId !== null && { EngineSecurityGroupId: input.EngineSecurityGroupId }),
+    ...(input.IdpAuthUrl !== undefined && input.IdpAuthUrl !== null && { IdpAuthUrl: input.IdpAuthUrl }),
+    ...(input.IdpRelayStateParameterName !== undefined &&
+      input.IdpRelayStateParameterName !== null && { IdpRelayStateParameterName: input.IdpRelayStateParameterName }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.ServiceRole !== undefined && input.ServiceRole !== null && { ServiceRole: input.ServiceRole }),
     ...(input.SubnetIds !== undefined &&
@@ -7598,6 +7601,8 @@ const deserializeAws_json1_1Studio = (output: any, context: __SerdeContext): Stu
     DefaultS3Location: __expectString(output.DefaultS3Location),
     Description: __expectString(output.Description),
     EngineSecurityGroupId: __expectString(output.EngineSecurityGroupId),
+    IdpAuthUrl: __expectString(output.IdpAuthUrl),
+    IdpRelayStateParameterName: __expectString(output.IdpRelayStateParameterName),
     Name: __expectString(output.Name),
     ServiceRole: __expectString(output.ServiceRole),
     StudioArn: __expectString(output.StudioArn),
@@ -7619,6 +7624,7 @@ const deserializeAws_json1_1Studio = (output: any, context: __SerdeContext): Stu
 
 const deserializeAws_json1_1StudioSummary = (output: any, context: __SerdeContext): StudioSummary => {
   return {
+    AuthMode: __expectString(output.AuthMode),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))

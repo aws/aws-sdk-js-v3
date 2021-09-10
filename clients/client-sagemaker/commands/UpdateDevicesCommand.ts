@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateDevicesRequest } from "../models/models_2";
+import { UpdateDevicesRequest } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateDevicesCommand,
   serializeAws_json1_1UpdateDevicesCommand,

@@ -21,7 +21,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes tags from an AWS X-Ray group or sampling rule. You cannot edit or delete system
+ * <p>Removes tags from an Amazon Web Services X-Ray group or sampling rule. You cannot edit or delete system
  *       tags (those with an <code>aws:</code> prefix).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

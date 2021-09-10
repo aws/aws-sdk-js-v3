@@ -22,7 +22,7 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
 
 /**
  * <p>Creates or updates the permissions policy for your registry.</p>
- *         <p>A registry policy is used to specify permissions for another AWS account and is used
+ *         <p>A registry policy is used to specify permissions for another Amazon Web Services account and is used
  *             when configuring cross-account replication. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html">Registry permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -21,7 +21,7 @@ export interface CreateRepositoryCommandInput extends CreateRepositoryRequest {}
 export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon ECR Repositories</a> in the
+ * <p>Creates a repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon ECR repositories</a> in the
  *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -1113,12 +1113,12 @@ export namespace ReshardingStatus {
  */
 export interface UserGroupsUpdateStatus {
   /**
-   * <p>The list of user group IDs to add.</p>
+   * <p>The ID of the user group to add.</p>
    */
   UserGroupIdsToAdd?: string[];
 
   /**
-   * <p>The list of user group IDs to remove.</p>
+   * <p>The ID of the user group to remove.</p>
    */
   UserGroupIdsToRemove?: string[];
 }
@@ -1159,7 +1159,7 @@ export interface ReplicationGroupPendingModifiedValues {
   AuthTokenStatus?: AuthTokenUpdateStatus | string;
 
   /**
-   * <p>The user groups being modified.</p>
+   * <p>The user group being modified.</p>
    */
   UserGroups?: UserGroupsUpdateStatus;
 
@@ -1341,7 +1341,7 @@ export interface ReplicationGroup {
   ARN?: string;
 
   /**
-   * <p>The list of user group IDs that have access to the replication group.</p>
+   * <p>The ID of the user group associated to the replication group.</p>
    */
   UserGroupIds?: string[];
 
@@ -5443,7 +5443,7 @@ export interface UserGroup {
   UserIds?: string[];
 
   /**
-   * <p>A list of updates being applied to the user groups.</p>
+   * <p>A list of updates being applied to the user group.</p>
    */
   PendingChanges?: UserGroupPendingChanges;
 
@@ -5977,7 +5977,7 @@ export namespace DeleteSnapshotResult {
 }
 
 /**
- * <p></p>
+ * <p>The default user assigned to the user group.</p>
  */
 export interface DefaultUserAssociatedToUserGroupFault extends __SmithyException, $MetadataBearer {
   name: "DefaultUserAssociatedToUserGroupFault";
@@ -10167,17 +10167,17 @@ export interface ModifyReplicationGroupMessage {
   AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
 
   /**
-   * <p>The user group you are associating with the replication group.</p>
+   * <p>The ID of the user group you are associating with the replication group.</p>
    */
   UserGroupIdsToAdd?: string[];
 
   /**
-   * <p>The user group to remove, meaning the users in the group no longer can access the replication group.</p>
+   * <p>The ID of the user group to disassociate from the replication group, meaning the users in the group no longer can access the replication group.</p>
    */
   UserGroupIdsToRemove?: string[];
 
   /**
-   * <p>Removes the user groups that can access this replication group.</p>
+   * <p>Removes the user group associated with this replication group.</p>
    */
   RemoveUserGroups?: boolean;
 

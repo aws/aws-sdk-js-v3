@@ -23,8 +23,8 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
 /**
  * <p>Retrieves a document that describes services that process incoming requests, and
  *       downstream services that they call as a result. Root services process incoming requests and
- *       make calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">AWS X-Ray SDK</a>.
- *       Downstream services can be other applications, AWS resources, HTTP web APIs, or SQL
+ *       make calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">Amazon Web Services X-Ray SDK</a>.
+ *       Downstream services can be other applications, Amazon Web Services resources, HTTP web APIs, or SQL
  *       databases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

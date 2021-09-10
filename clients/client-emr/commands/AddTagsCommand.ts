@@ -18,7 +18,7 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in
+ * <p>Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR Studio. Tags make it easier to associate resources in
  *          various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
  *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
  * @example

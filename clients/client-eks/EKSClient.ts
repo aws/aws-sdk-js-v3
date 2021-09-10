@@ -20,6 +20,7 @@ import {
   DeleteFargateProfileCommandOutput,
 } from "./commands/DeleteFargateProfileCommand";
 import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "./commands/DeleteNodegroupCommand";
+import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "./commands/DeregisterClusterCommand";
 import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "./commands/DescribeAddonCommand";
 import {
   DescribeAddonVersionsCommandInput,
@@ -56,6 +57,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "./commands/ListUpdatesCommand";
+import { RegisterClusterCommandInput, RegisterClusterCommandOutput } from "./commands/RegisterClusterCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAddonCommandInput, UpdateAddonCommandOutput } from "./commands/UpdateAddonCommand";
@@ -138,6 +140,7 @@ export type ServiceInputTypes =
   | DeleteClusterCommandInput
   | DeleteFargateProfileCommandInput
   | DeleteNodegroupCommandInput
+  | DeregisterClusterCommandInput
   | DescribeAddonCommandInput
   | DescribeAddonVersionsCommandInput
   | DescribeClusterCommandInput
@@ -153,6 +156,7 @@ export type ServiceInputTypes =
   | ListNodegroupsCommandInput
   | ListTagsForResourceCommandInput
   | ListUpdatesCommandInput
+  | RegisterClusterCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAddonCommandInput
@@ -172,6 +176,7 @@ export type ServiceOutputTypes =
   | DeleteClusterCommandOutput
   | DeleteFargateProfileCommandOutput
   | DeleteNodegroupCommandOutput
+  | DeregisterClusterCommandOutput
   | DescribeAddonCommandOutput
   | DescribeAddonVersionsCommandOutput
   | DescribeClusterCommandOutput
@@ -187,6 +192,7 @@ export type ServiceOutputTypes =
   | ListNodegroupsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUpdatesCommandOutput
+  | RegisterClusterCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAddonCommandOutput

@@ -3,16 +3,15 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
 export type AccountGateStatus = "FAILED" | "SKIPPED" | "SUCCEEDED";
 
 /**
- * <p>Structure that contains the results of the account gate function which
- *          CloudFormation invokes, if present, before proceeding with a stack set operation in an
+ * <p>Structure that contains the results of the account gate function which CloudFormation invokes, if present, before proceeding with a stack set operation in an
  *          account and Region.</p>
- *          <p>For each account and Region, CloudFormation lets you specify a Lamdba function
- *          that encapsulates any requirements that must be met before CloudFormation can proceed with
- *          a stack set operation in that account and Region. CloudFormation invokes the function each
- *          time a stack set operation is requested for that account and Region; if the function
- *          returns <code>FAILED</code>, CloudFormation cancels the operation in that account and
- *          Region, and sets the stack set operation result status for that account and Region to
- *             <code>FAILED</code>. </p>
+ *          <p>For each account and Region, CloudFormation lets you specify a Lambda
+ *          function that encapsulates any requirements that must be met before CloudFormation
+ *          can proceed with a stack set operation in that account and Region. CloudFormation
+ *          invokes the function each time a stack set operation is requested for that account and
+ *          Region; if the function returns <code>FAILED</code>, CloudFormation cancels the
+ *          operation in that account and Region, and sets the stack set operation result status for
+ *          that account and Region to <code>FAILED</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-account-gating.html">Configuring a
  *             target account gate</a>.</p>
  */
@@ -6372,9 +6371,9 @@ export interface GetTemplateSummaryOutput {
 
   /**
    * <p>The capabilities found within the template. If your template contains IAM resources,
-   *          you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when
+   *          you must specify the <code>CAPABILITY_IAM</code> or <code>CAPABILITY_NAMED_IAM</code> value for this parameter when
    *          you use the <a>CreateStack</a> or <a>UpdateStack</a> actions with
-   *          your template; otherwise, those actions return an InsufficientCapabilities error.</p>
+   *          your template; otherwise, those actions return an <code>InsufficientCapabilities</code> error.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation Templates</a>.</p>
    */
   Capabilities?: (Capability | string)[];

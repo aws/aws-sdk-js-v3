@@ -109,7 +109,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AWS X-Ray provides APIs for managing debug traces and retrieving service maps
+ * <p>Amazon Web Services X-Ray provides APIs for managing debug traces and retrieving service maps
  *       and other data created by processing those traces.</p>
  */
 export class XRay extends XRayClient {
@@ -175,10 +175,10 @@ export class XRay extends XRayClient {
 
   /**
    * <p>Creates a rule to control sampling behavior for instrumented applications. Services
-   *          retrieve rules with <a>GetSamplingRules</a>, and evaluate each rule in ascending
+   *          retrieve rules with <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html">GetSamplingRules</a>, and evaluate each rule in ascending
    *          order of <i>priority</i> for each request. If a rule matches, the service
    *          records a trace, borrowing it from the reservoir size. After 10 seconds, the service
-   *          reports back to X-Ray with <a>GetSamplingTargets</a> to get updated versions of
+   *          reports back to X-Ray with <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a> to get updated versions of
    *          each in-use rule. The updated rule contains a trace quota that the service can use instead
    *          of borrowing from the reservoir.</p>
    */
@@ -580,8 +580,8 @@ export class XRay extends XRayClient {
   /**
    * <p>Retrieves a document that describes services that process incoming requests, and
    *       downstream services that they call as a result. Root services process incoming requests and
-   *       make calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">AWS X-Ray SDK</a>.
-   *       Downstream services can be other applications, AWS resources, HTTP web APIs, or SQL
+   *       make calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">Amazon Web Services X-Ray SDK</a>.
+   *       Downstream services can be other applications, Amazon Web Services resources, HTTP web APIs, or SQL
    *       databases.</p>
    */
   public getServiceGraph(
@@ -695,7 +695,7 @@ export class XRay extends XRayClient {
    *          </p>
    *          <p>For a full list of indexed fields and keywords that you can use in filter expressions,
    *       see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using Filter
-   *         Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
+   *         Expressions</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
    */
   public getTraceSummaries(
     args: GetTraceSummariesCommandInput,
@@ -727,7 +727,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   * <p>Returns a list of tags that are applied to the specified AWS X-Ray group or sampling rule.</p>
+   * <p>Returns a list of tags that are applied to the specified Amazon Web Services X-Ray group or sampling rule.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -791,7 +791,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   * <p>Used by the AWS X-Ray daemon to upload telemetry.</p>
+   * <p>Used by the Amazon Web Services X-Ray daemon to upload telemetry.</p>
    */
   public putTelemetryRecords(
     args: PutTelemetryRecordsCommandInput,
@@ -823,12 +823,12 @@ export class XRay extends XRayClient {
   }
 
   /**
-   * <p>Uploads segment documents to AWS X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in
+   * <p>Uploads segment documents to Amazon Web Services X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in
    *       batches. A segment document can be a completed segment, an in-progress segment, or an array of
    *       subsegments.</p>
    *          <p>Segments must include the following fields. For the full segment document schema, see
-   *         <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html">AWS X-Ray
-   *         Segment Documents</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html">Amazon Web Services X-Ray
+   *         Segment Documents</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
    *          <p class="title">
    *             <b>Required segment document fields</b>
    *          </p>
@@ -917,7 +917,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   * <p>Applies tags to an existing AWS X-Ray group or sampling rule.</p>
+   * <p>Applies tags to an existing Amazon Web Services X-Ray group or sampling rule.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -943,7 +943,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   * <p>Removes tags from an AWS X-Ray group or sampling rule. You cannot edit or delete system
+   * <p>Removes tags from an Amazon Web Services X-Ray group or sampling rule. You cannot edit or delete system
    *       tags (those with an <code>aws:</code> prefix).</p>
    */
   public untagResource(

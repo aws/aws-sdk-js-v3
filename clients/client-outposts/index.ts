@@ -1,5 +1,6 @@
 export * from "./OutpostsClient";
 export * from "./Outposts";
+export * from "./commands/CreateOrderCommand";
 export * from "./commands/CreateOutpostCommand";
 export * from "./commands/DeleteOutpostCommand";
 export * from "./commands/DeleteSiteCommand";

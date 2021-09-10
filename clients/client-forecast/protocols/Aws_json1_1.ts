@@ -3306,6 +3306,8 @@ const serializeAws_json1_1CreatePredictorRequest = (input: CreatePredictorReques
       input.InputDataConfig !== null && {
         InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
       }),
+    ...(input.OptimizationMetric !== undefined &&
+      input.OptimizationMetric !== null && { OptimizationMetric: input.OptimizationMetric }),
     ...(input.PerformAutoML !== undefined && input.PerformAutoML !== null && { PerformAutoML: input.PerformAutoML }),
     ...(input.PerformHPO !== undefined && input.PerformHPO !== null && { PerformHPO: input.PerformHPO }),
     ...(input.PredictorName !== undefined && input.PredictorName !== null && { PredictorName: input.PredictorName }),
@@ -4331,6 +4333,7 @@ const deserializeAws_json1_1DescribePredictorResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
         : undefined,
     Message: __expectString(output.Message),
+    OptimizationMetric: __expectString(output.OptimizationMetric),
     PerformAutoML: __expectBoolean(output.PerformAutoML),
     PerformHPO: __expectBoolean(output.PerformHPO),
     PredictorArn: __expectString(output.PredictorArn),
@@ -4357,6 +4360,8 @@ const deserializeAws_json1_1EncryptionConfig = (output: any, context: __SerdeCon
 const deserializeAws_json1_1ErrorMetric = (output: any, context: __SerdeContext): ErrorMetric => {
   return {
     ForecastType: __expectString(output.ForecastType),
+    MAPE: __limitedParseDouble(output.MAPE),
+    MASE: __limitedParseDouble(output.MASE),
     RMSE: __limitedParseDouble(output.RMSE),
     WAPE: __limitedParseDouble(output.WAPE),
   } as any;
@@ -4566,6 +4571,7 @@ const deserializeAws_json1_1GetAccuracyMetricsResponse = (
 ): GetAccuracyMetricsResponse => {
   return {
     AutoMLOverrideStrategy: __expectString(output.AutoMLOverrideStrategy),
+    OptimizationMetric: __expectString(output.OptimizationMetric),
     PredictorEvaluationResults:
       output.PredictorEvaluationResults !== undefined && output.PredictorEvaluationResults !== null
         ? deserializeAws_json1_1PredictorEvaluationResults(output.PredictorEvaluationResults, context)
@@ -4733,6 +4739,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Metrics => {
   return {
+    AverageWeightedQuantileLoss: __limitedParseDouble(output.AverageWeightedQuantileLoss),
     ErrorMetrics:
       output.ErrorMetrics !== undefined && output.ErrorMetrics !== null
         ? deserializeAws_json1_1ErrorMetrics(output.ErrorMetrics, context)

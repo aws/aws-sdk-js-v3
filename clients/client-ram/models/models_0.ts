@@ -45,9 +45,25 @@ export interface ResourceShareAssociation {
   resourceShareName?: string;
 
   /**
-   * <p>The associated entity. For resource associations, this is the ARN of the resource.
-   *        For principal associations, this is the ID of an AWS account or the ARN of an OU or
-   *        organization from AWS Organizations.</p>
+   * <p>The associated entity. For resource associations, this is the Amazon Resource Name
+   *             (ARN) of the resource. For principal associations, this is one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>An Amazon Web Services account ID</p>
+   *             </li>
+   *             <li>
+   *                 <p>An ARN of an organization in Organizations</p>
+   *             </li>
+   *             <li>
+   *                 <p>An ARN of an organizational unit (OU) in Organizations</p>
+   *             </li>
+   *             <li>
+   *                 <p>An ARN of an IAM role</p>
+   *             </li>
+   *             <li>
+   *                 <p>An ARN of an IAM user</p>
+   *             </li>
+   *          </ul>
    */
   associatedEntity?: string;
 
@@ -77,7 +93,8 @@ export interface ResourceShareAssociation {
   lastUpdatedTime?: Date;
 
   /**
-   * <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
+   * <p>Indicates whether the principal belongs to the same organization in Organizations as the
+   *             Amazon Web Services account that owns the resource share.</p>
    */
   external?: boolean;
 }
@@ -113,12 +130,12 @@ export interface ResourceShareInvitation {
   resourceShareArn?: string;
 
   /**
-   * <p>The ID of the AWS account that sent the invitation.</p>
+   * <p>The ID of the Amazon Web Services account that sent the invitation.</p>
    */
   senderAccountId?: string;
 
   /**
-   * <p>The ID of the AWS account that received the invitation.</p>
+   * <p>The ID of the Amazon Web Services account that received the invitation.</p>
    */
   receiverAccountId?: string;
 
@@ -135,14 +152,14 @@ export interface ResourceShareInvitation {
   /**
    * @deprecated
    *
-   * <p>To view the resources associated with a pending resource share invitation, use
-   *       	<a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html">
-   *       		ListPendingInvitationResources</a>.</p>
+   * <p>To view the resources associated with a pending resource share invitation, use <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html">
+   *                 ListPendingInvitationResources</a>.</p>
    */
   resourceShareAssociations?: ResourceShareAssociation[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM user or IAM role that received the invitation.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM user or IAM role that received the
+   *             invitation.</p>
    */
   receiverArn?: string;
 }
@@ -178,8 +195,8 @@ export namespace AcceptResourceShareInvitationResponse {
 }
 
 /**
- * <p>A client token input parameter was reused with an operation, but at least one of
- *         the other input parameters is different from the previous call to the operation.</p>
+ * <p>A client token input parameter was reused with an operation, but at least one of the
+ *             other input parameters is different from the previous call to the operation.</p>
  */
 export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatchException";
@@ -365,14 +382,34 @@ export interface AssociateResourceShareRequest {
   resourceShareArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the resources.</p>
+   * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    */
   resourceArns?: string[];
 
   /**
-   * <p>The principals to associate with the resource share. The possible values are IDs of
-   *        	AWS accounts, and the ARNs of organizational units (OU) or organizations from AWS
-   *        	Organizations.</p>
+   * <p>The principals to associate with the resource share. The possible values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>An Amazon Web Services account ID</p>
+   *             </li>
+   *             <li>
+   *                 <p>An Amazon Resource Name (ARN) of an organization in Organizations</p>
+   *             </li>
+   *             <li>
+   *                 <p>An ARN of an organizational unit (OU) in Organizations</p>
+   *             </li>
+   *             <li>
+   *                 <p>An ARN of an IAM role</p>
+   *             </li>
+   *             <li>
+   *                 <p>An ARN of an IAM user</p>
+   *             </li>
+   *          </ul>
+   *         <note>
+   *             <p>Not all resource types can be shared with IAM roles and IAM users. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing with IAM roles and IAM users</a> in the <i>Resource Access Manager User
+   *                     Guide</i>.</p>
+   *         </note>
    */
   principals?: string[];
 
@@ -491,14 +528,15 @@ export interface AssociateResourceSharePermissionRequest {
   resourceShareArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS RAM permissions to associate with the resource share.</p>
+   * <p>The Amazon Resource Name (ARN) of the RAM permission to associate with the
+   *             resource share.</p>
    */
   permissionArn: string | undefined;
 
   /**
    * <p>Indicates whether the permission should replace the permissions that are currently
-   *         	associated with the resource share. Use <code>true</code> to replace the current permissions.
-   *         	Use <code>false</code> to add the permission to the current permission.</p>
+   *             associated with the resource share. Use <code>true</code> to replace the current permissions. Use
+   *                 <code>false</code> to add the permission to the current permission.</p>
    */
   replace?: boolean;
 
@@ -508,7 +546,7 @@ export interface AssociateResourceSharePermissionRequest {
   clientToken?: string;
 
   /**
-   * <p>The version of the AWS RAM permissions to associate with the resource share.</p>
+   * <p>The version of the RAM permissions to associate with the resource share.</p>
    */
   permissionVersion?: number;
 }
@@ -574,13 +612,34 @@ export interface CreateResourceShareRequest {
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>
+   * <p>The ARNs of the resources to associate with the resource share.</p>
    */
   resourceArns?: string[];
 
   /**
-   * <p>The principals to associate with the resource share. The possible values are IDs of AWS accounts,
-   *           the ARN of an OU or organization from AWS Organizations.</p>
+   * <p>The principals to associate with the resource share. The possible values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>An Amazon Web Services account ID</p>
+   *             </li>
+   *             <li>
+   *                 <p>An Amazon Resource Name (ARN) of an organization in Organizations</p>
+   *             </li>
+   *             <li>
+   *                 <p>An ARN of an organizational unit (OU) in Organizations</p>
+   *             </li>
+   *             <li>
+   *                 <p>An ARN of an IAM role</p>
+   *             </li>
+   *             <li>
+   *                 <p>An ARN of an IAM user</p>
+   *             </li>
+   *          </ul>
+   *         <note>
+   *             <p>Not all resource types can be shared with IAM roles and IAM users. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing with IAM roles and IAM users</a> in the <i>Resource Access Manager User
+   *                     Guide</i>.</p>
+   *         </note>
    */
   principals?: string[];
 
@@ -590,7 +649,8 @@ export interface CreateResourceShareRequest {
   tags?: Tag[];
 
   /**
-   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
+   * <p>Indicates whether principals outside your organization in Organizations can be associated
+   *             with a resource share.</p>
    */
   allowExternalPrincipals?: boolean;
 
@@ -600,9 +660,10 @@ export interface CreateResourceShareRequest {
   clientToken?: string;
 
   /**
-   * <p>The ARNs of the permissions to associate with the resource share. If you do not specify an ARN
-   * 			for the permission, AWS RAM automatically attaches the default version of the permission
-   * 			for each resource type.</p>
+   * <p>The Amazon Resource Names (ARNs) of the permissions to associate with the resource share. If you
+   *             do not specify an ARN for the permission, RAM automatically attaches the default
+   *             version of the permission for each resource type. Only one permission can be associated
+   *             with each resource type in a resource share.</p>
    */
   permissionArns?: string[];
 }
@@ -635,12 +696,13 @@ export interface ResourceShare {
   name?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the resource share.</p>
+   * <p>The ID of the Amazon Web Services account that owns the resource share.</p>
    */
   owningAccountId?: string;
 
   /**
-   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
+   * <p>Indicates whether principals outside your organization in Organizations can be associated
+   *             with a resource share.</p>
    */
   allowExternalPrincipals?: boolean;
 
@@ -671,26 +733,25 @@ export interface ResourceShare {
 
   /**
    * <p>Indicates how the resource share was created. Possible values include:</p>
-   * 	        <ul>
+   *         <ul>
    *             <li>
-   * 			            <p>
-   *                   <code>CREATED_FROM_POLICY</code> - Indicates that the resource share was created from an AWS Identity
-   * 					and Access Management (AWS IAM) policy attached to a resource. These resource shares are
-   * 					visible only to the AWS account that created it. They cannot be modified in
-   * 					AWS RAM.</p>
-   * 		          </li>
+   *                 <p>
+   *                   <code>CREATED_FROM_POLICY</code> - Indicates that the resource share was created from an
+   *                     Amazon Web Services Identity and Access Management (Amazon Web Services IAM) policy attached to a resource.
+   *                     These resource shares are visible only to the Amazon Web Services account that created it. They cannot
+   *                     be modified in RAM.</p>
+   *             </li>
    *             <li>
-   * 			            <p>
-   *                   <code>PROMOTING_TO_STANDARD</code> - The resource share is in the process
-   * 				of being promoted. For more information, see
-   * 				<a>PromoteResourceShareCreatedFromPolicy</a>.</p>
-   * 		          </li>
+   *                 <p>
+   *                   <code>PROMOTING_TO_STANDARD</code> - The resource share is in the process of being
+   *                     promoted. For more information, see <a>PromoteResourceShareCreatedFromPolicy</a>.</p>
+   *             </li>
    *             <li>
-   * 			            <p>
-   *                   <code>STANDARD</code> - Indicates that the resource share was created in AWS RAM using the console or
-   * 					APIs. These resource shares are visible to all principals. They can be modified
-   * 					in AWS RAM.</p>
-   * 		          </li>
+   *                 <p>
+   *                   <code>STANDARD</code> - Indicates that the resource share was created in RAM using the
+   *                     console or APIs. These resource shares are visible to all principals. They can
+   *                     be modified in RAM.</p>
+   *             </li>
    *          </ul>
    */
   featureSet?: ResourceShareFeatureSet | string;
@@ -845,7 +906,7 @@ export interface DisassociateResourceSharePermissionRequest {
   resourceShareArn: string | undefined;
 
   /**
-   * <p>The ARN of the permission to disassociate from the resource share.</p>
+   * <p>The Amazon Resource Name (ARN) of the permission to disassociate from the resource share.</p>
    */
   permissionArn: string | undefined;
 
@@ -914,7 +975,7 @@ export namespace EnableSharingWithAwsOrganizationResponse {
 
 export interface GetPermissionRequest {
   /**
-   * <p>The ARN of the permission.</p>
+   * <p>The Amazon Resource Name (ARN) of the permission.</p>
    */
   permissionArn: string | undefined;
 
@@ -934,11 +995,11 @@ export namespace GetPermissionRequest {
 }
 
 /**
- * <p>Information about an AWS RAM permission.</p>
+ * <p>Information about an RAM permission.</p>
  */
 export interface ResourceSharePermissionDetail {
   /**
-   * <p>The ARN of the permission.</p>
+   * <p>The Amazon Resource Name (ARN) of the permission.</p>
    */
   arn?: string;
 
@@ -948,7 +1009,8 @@ export interface ResourceSharePermissionDetail {
   version?: string;
 
   /**
-   * <p>Specifies whether the version of the permission is set to the default version for this permission.</p>
+   * <p>Specifies whether the version of the permission is set to the default version for this
+   *             permission.</p>
    */
   defaultVersion?: boolean;
 
@@ -963,9 +1025,9 @@ export interface ResourceSharePermissionDetail {
   resourceType?: string;
 
   /**
-   * <p>The permission's effect and actions in JSON format. The <code>effect</code> indicates whether
-   * 			the actions are allowed or denied. The <code>actions</code> list the API actions to
-   * 			which the principal is granted or denied access.</p>
+   * <p>The permission's effect and actions in JSON format. The <code>effect</code> indicates
+   *             whether the actions are allowed or denied. The <code>actions</code> list the API actions
+   *             to which the principal is granted or denied access.</p>
    */
   permission?: string;
 
@@ -980,7 +1042,8 @@ export interface ResourceSharePermissionDetail {
   lastUpdatedTime?: Date;
 
   /**
-   * <p>Specifies whether the version of the permission is set to the default version for this resource type.</p>
+   * <p>Specifies whether the version of the permission is set to the default version for this
+   *             resource type.</p>
    */
   isResourceTypeDefault?: boolean;
 }
@@ -1012,7 +1075,7 @@ export namespace GetPermissionResponse {
 
 export interface GetResourcePoliciesRequest {
   /**
-   * <p>The Amazon Resource Names (ARN) of the resources.</p>
+   * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    */
   resourceArns: string[] | undefined;
 
@@ -1102,8 +1165,8 @@ export namespace ResourceArnNotFoundException {
 export interface GetResourceShareAssociationsRequest {
   /**
    * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals that are
-   *    		associated with the specified resource share. Specify <code>RESOURCE</code> to list
-   *    		the resources that are associated with the specified resource share.</p>
+   *             associated with the specified resource share. Specify <code>RESOURCE</code> to list the resources
+   *             that are associated with the specified resource share.</p>
    */
   associationType: ResourceShareAssociationType | string | undefined;
 
@@ -1113,14 +1176,14 @@ export interface GetResourceShareAssociationsRequest {
   resourceShareArns?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter if the
-   *       	association type is <code>PRINCIPAL</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter if
+   *             the association type is <code>PRINCIPAL</code>.</p>
    */
   resourceArn?: string;
 
   /**
    * <p>The principal. You cannot specify this parameter if the association type is
-   *      	<code>RESOURCE</code>.</p>
+   *                 <code>RESOURCE</code>.</p>
    */
   principal?: string;
 
@@ -1273,7 +1336,7 @@ export namespace TagFilter {
 
 export interface GetResourceSharesRequest {
   /**
-   * <p>The ARNs of the resource shares.</p>
+   * <p>The Amazon Resource Names (ARNs) of the resource shares.</p>
    */
   resourceShareArns?: string[];
 
@@ -1309,7 +1372,8 @@ export interface GetResourceSharesRequest {
   maxResults?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS RAM permission that is associated with the resource share.</p>
+   * <p>The Amazon Resource Name (ARN) of the RAM permission that is associated with the
+   *             resource share.</p>
    */
   permissionArn?: string;
 }
@@ -1393,8 +1457,8 @@ export interface Resource {
   resourceShareArn?: string;
 
   /**
-   * <p>The ARN of the resource group. This value is returned only if the resource is a resource
-   * 			group.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource group. This value is returned only if
+   *             the resource is a resource group.</p>
    */
   resourceGroupArn?: string;
 
@@ -1470,7 +1534,7 @@ export namespace MissingRequiredParameterException {
 export interface ListPermissionsRequest {
   /**
    * <p>Specifies the resource type for which to list permissions. For example, to list only
-   * 		permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.</p>
+   *             permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.</p>
    */
   resourceType?: string;
 
@@ -1500,7 +1564,7 @@ export namespace ListPermissionsRequest {
  */
 export interface ResourceSharePermissionSummary {
   /**
-   * <p>The ARN of the permission.</p>
+   * <p>The Amazon Resource Name (ARN) of the permission.</p>
    */
   arn?: string;
 
@@ -1510,7 +1574,8 @@ export interface ResourceSharePermissionSummary {
   version?: string;
 
   /**
-   * <p>Specifies whether the version of the permission is set to the default version for this permission.</p>
+   * <p>Specifies whether the version of the permission is set to the default version for this
+   *             permission.</p>
    */
   defaultVersion?: boolean;
 
@@ -1540,7 +1605,8 @@ export interface ResourceSharePermissionSummary {
   lastUpdatedTime?: Date;
 
   /**
-   * <p>Specifies whether the version of the permission is set to the default version for this resource type.</p>
+   * <p>Specifies whether the version of the permission is set to the default version for this
+   *             resource type.</p>
    */
   isResourceTypeDefault?: boolean;
 }
@@ -1593,7 +1659,7 @@ export interface ListPrincipalsRequest {
 
   /**
    * <p>The resource type.</p>
-   *    	     <p>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code> | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code> | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code> | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code> | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:ResolverQueryLogConfig</code> | <code>route53resolver:ResolverRule</code>
+   *         <p>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code> | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code> | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code> | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code> | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:FirewallRuleGroup</code> |<code>route53resolver:ResolverQueryLogConfig</code> | <code>route53resolver:ResolverRule</code> | <code>s3-outposts:Outpost</code> | <code>ssm-contacts:Contact</code> | <code>ssm-incidents:ResponsePlan</code>
    *          </p>
    */
   resourceType?: string;
@@ -1625,7 +1691,7 @@ export namespace ListPrincipalsRequest {
 }
 
 /**
- * <p>Describes a principal for use with AWS Resource Access Manager.</p>
+ * <p>Describes a principal for use with Resource Access Manager.</p>
  */
 export interface Principal {
   /**
@@ -1649,7 +1715,8 @@ export interface Principal {
   lastUpdatedTime?: Date;
 
   /**
-   * <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
+   * <p>Indicates whether the principal belongs to the same organization in Organizations as the
+   *             Amazon Web Services account that owns the resource share.</p>
    */
   external?: boolean;
 }
@@ -1715,13 +1782,13 @@ export interface ListResourcesRequest {
 
   /**
    * <p>The resource type.</p>
-   *    	     <p>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code> | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code> | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code> | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code> | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:ResolverQueryLogConfig</code> | <code>route53resolver:ResolverRule</code>
+   *         <p>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code> | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code> | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code> | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code> | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:FirewallRuleGroup</code> |<code>route53resolver:ResolverQueryLogConfig</code> | <code>route53resolver:ResolverRule</code> | <code>s3-outposts:Outpost</code> | <code>ssm-contacts:Contact</code> | <code>ssm-incidents:ResponsePlan</code>
    *          </p>
    */
   resourceType?: string;
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the resources.</p>
+   * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    */
   resourceArns?: string[];
 
@@ -1843,7 +1910,8 @@ export namespace ListResourceTypesRequest {
 }
 
 /**
- * <p>Information about the shareable resource types and the AWS services to which they belong.</p>
+ * <p>Information about the shareable resource types and the Amazon Web Services services to which they
+ *             belong.</p>
  */
 export interface ServiceNameAndResourceType {
   /**
@@ -1852,7 +1920,7 @@ export interface ServiceNameAndResourceType {
   resourceType?: string;
 
   /**
-   * <p>The name of the AWS services to which the resources belong.</p>
+   * <p>The name of the Amazon Web Services services to which the resources belong.</p>
    */
   serviceName?: string;
 }
@@ -1868,7 +1936,7 @@ export namespace ServiceNameAndResourceType {
 
 export interface ListResourceTypesResponse {
   /**
-   * <p>The shareable resource types supported by AWS RAM.</p>
+   * <p>The shareable resource types supported by RAM.</p>
    */
   resourceTypes?: ServiceNameAndResourceType[];
 
@@ -1889,7 +1957,7 @@ export namespace ListResourceTypesResponse {
 
 export interface PromoteResourceShareCreatedFromPolicyRequest {
   /**
-   * <p>The ARN of the resource share to promote.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource share to promote.</p>
    */
   resourceShareArn: string | undefined;
 }
@@ -2055,7 +2123,8 @@ export interface UpdateResourceShareRequest {
   name?: string;
 
   /**
-   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
+   * <p>Indicates whether principals outside your organization in Organizations can be associated
+   *             with a resource share.</p>
    */
   allowExternalPrincipals?: boolean;
 

@@ -23,7 +23,7 @@ export interface RejectResourceShareInvitationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Rejects an invitation to a resource share from another AWS account.</p>
+ * <p>Rejects an invitation to a resource share from another Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

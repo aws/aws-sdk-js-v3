@@ -21,7 +21,7 @@ export interface DescribeModelCommandInput extends DescribeModelRequest {}
 export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}
 
 /**
- * <p>Provides overall information about a specific ML model, including model name and ARN,
+ * <p>Provides a JSON containing the overall information about a specific ML model, including model name and ARN,
  *          dataset, training and evaluation information, status, and so on. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

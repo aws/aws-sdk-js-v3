@@ -21,9 +21,9 @@ export interface StartImageScanCommandInput extends StartImageScanRequest {}
 export interface StartImageScanCommandOutput extends StartImageScanResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an image vulnerability scan. An image scan can only be started once per day on
- *             an individual image. This limit includes if an image was scanned on initial push. For
- *             more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image Scanning</a> in the
+ * <p>Starts an image vulnerability scan. An image scan can only be started once per 24
+ *             hours on an individual image. This limit includes if an image was scanned on initial
+ *             push. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image scanning</a> in the
  *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

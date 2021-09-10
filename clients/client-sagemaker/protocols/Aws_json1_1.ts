@@ -95,6 +95,10 @@ import {
   CreateProcessingJobCommandOutput,
 } from "../commands/CreateProcessingJobCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
+import {
+  CreateStudioLifecycleConfigCommandInput,
+  CreateStudioLifecycleConfigCommandOutput,
+} from "../commands/CreateStudioLifecycleConfigCommand";
 import { CreateTrainingJobCommandInput, CreateTrainingJobCommandOutput } from "../commands/CreateTrainingJobCommand";
 import { CreateTransformJobCommandInput, CreateTransformJobCommandOutput } from "../commands/CreateTransformJobCommand";
 import { CreateTrialCommandInput, CreateTrialCommandOutput } from "../commands/CreateTrialCommand";
@@ -175,6 +179,10 @@ import {
 } from "../commands/DeleteNotebookInstanceLifecycleConfigCommand";
 import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "../commands/DeletePipelineCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
+import {
+  DeleteStudioLifecycleConfigCommandInput,
+  DeleteStudioLifecycleConfigCommandOutput,
+} from "../commands/DeleteStudioLifecycleConfigCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import { DeleteTrialCommandInput, DeleteTrialCommandOutput } from "../commands/DeleteTrialCommand";
 import {
@@ -295,6 +303,10 @@ import {
   DescribeProcessingJobCommandOutput,
 } from "../commands/DescribeProcessingJobCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "../commands/DescribeProjectCommand";
+import {
+  DescribeStudioLifecycleConfigCommandInput,
+  DescribeStudioLifecycleConfigCommandOutput,
+} from "../commands/DescribeStudioLifecycleConfigCommand";
 import {
   DescribeSubscribedWorkteamCommandInput,
   DescribeSubscribedWorkteamCommandOutput,
@@ -452,6 +464,10 @@ import {
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "../commands/ListPipelinesCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "../commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
+import {
+  ListStudioLifecycleConfigsCommandInput,
+  ListStudioLifecycleConfigsCommandOutput,
+} from "../commands/ListStudioLifecycleConfigsCommand";
 import {
   ListSubscribedWorkteamsCommandInput,
   ListSubscribedWorkteamsCommandOutput,
@@ -832,6 +848,8 @@ import {
   CreateProcessingJobResponse,
   CreateProjectInput,
   CreateProjectOutput,
+  CreateStudioLifecycleConfigRequest,
+  CreateStudioLifecycleConfigResponse,
   CreateTrainingJobRequest,
   CreateTrainingJobResponse,
   CreateTransformJobRequest,
@@ -893,6 +911,7 @@ import {
   DeletePipelineRequest,
   DeletePipelineResponse,
   DeleteProjectInput,
+  DeleteStudioLifecycleConfigRequest,
   DeleteTagsInput,
   DeleteTagsOutput,
   DeleteTrialComponentRequest,
@@ -983,12 +1002,11 @@ import {
   DescribeProcessingJobResponse,
   DescribeProjectInput,
   DescribeProjectOutput,
+  DescribeStudioLifecycleConfigRequest,
+  DescribeStudioLifecycleConfigResponse,
   DescribeSubscribedWorkteamRequest,
   DescribeSubscribedWorkteamResponse,
   DescribeTrainingJobRequest,
-  DescribeTrainingJobResponse,
-  DescribeTransformJobRequest,
-  DescribeTransformJobResponse,
   EdgeModel,
   EdgePresetDeploymentOutput,
   ExperimentConfig,
@@ -1051,7 +1069,6 @@ import {
   ResolvedAttributes,
   RetentionPolicy,
   ScheduleConfig,
-  SecondaryStatusTransition,
   ServiceCatalogProvisionedProductDetails,
   ServiceCatalogProvisioningDetails,
   SourceAlgorithm,
@@ -1066,6 +1083,9 @@ import {
   UiTemplateInfo,
 } from "../models/models_1";
 import {
+  DescribeTrainingJobResponse,
+  DescribeTransformJobRequest,
+  DescribeTransformJobResponse,
   DescribeTrialComponentRequest,
   DescribeTrialComponentResponse,
   DescribeTrialRequest,
@@ -1203,6 +1223,8 @@ import {
   ListProcessingJobsResponse,
   ListProjectsInput,
   ListProjectsOutput,
+  ListStudioLifecycleConfigsRequest,
+  ListStudioLifecycleConfigsResponse,
   ListSubscribedWorkteamsRequest,
   ListSubscribedWorkteamsResponse,
   ListTagsInput,
@@ -1261,6 +1283,7 @@ import {
   RenderingError,
   SearchRecord,
   SearchResponse,
+  SecondaryStatusTransition,
   SendPipelineExecutionStepFailureRequest,
   SendPipelineExecutionStepFailureResponse,
   SendPipelineExecutionStepSuccessRequest,
@@ -1281,6 +1304,7 @@ import {
   StopProcessingJobRequest,
   StopTrainingJobRequest,
   StopTransformJobRequest,
+  StudioLifecycleConfigDetails,
   SuggestionQuery,
   TrainingJob,
   TrainingJobStepMetadata,
@@ -1305,6 +1329,13 @@ import {
   UpdateArtifactRequest,
   UpdateArtifactResponse,
   UpdateCodeRepositoryInput,
+  UserProfileDetails,
+  Workforce,
+  Workteam,
+} from "../models/models_2";
+import {
+  SearchExpression,
+  SearchRequest,
   UpdateCodeRepositoryOutput,
   UpdateContextRequest,
   UpdateContextResponse,
@@ -1313,14 +1344,6 @@ import {
   UpdateDomainRequest,
   UpdateDomainResponse,
   UpdateEndpointInput,
-  UserProfileDetails,
-  VariantProperty,
-  Workforce,
-  Workteam,
-} from "../models/models_2";
-import {
-  SearchExpression,
-  SearchRequest,
   UpdateEndpointOutput,
   UpdateEndpointWeightsAndCapacitiesInput,
   UpdateEndpointWeightsAndCapacitiesOutput,
@@ -1352,6 +1375,7 @@ import {
   UpdateWorkforceResponse,
   UpdateWorkteamRequest,
   UpdateWorkteamResponse,
+  VariantProperty,
 } from "../models/models_3";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -1898,6 +1922,19 @@ export const serializeAws_json1_1CreateProjectCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateStudioLifecycleConfigCommand = async (
+  input: CreateStudioLifecycleConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateStudioLifecycleConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateStudioLifecycleConfigRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateTrainingJobCommand = async (
   input: CreateTrainingJobCommandInput,
   context: __SerdeContext
@@ -2389,6 +2426,19 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteStudioLifecycleConfigCommand = async (
+  input: DeleteStudioLifecycleConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteStudioLifecycleConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteStudioLifecycleConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2974,6 +3024,19 @@ export const serializeAws_json1_1DescribeProjectCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeStudioLifecycleConfigCommand = async (
+  input: DescribeStudioLifecycleConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeStudioLifecycleConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeStudioLifecycleConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3728,6 +3791,19 @@ export const serializeAws_json1_1ListProjectsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProjectsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListStudioLifecycleConfigsCommand = async (
+  input: ListStudioLifecycleConfigsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListStudioLifecycleConfigs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListStudioLifecycleConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -6747,6 +6823,60 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateStudioLifecycleConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStudioLifecycleConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateStudioLifecycleConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateStudioLifecycleConfigResponse(data, context);
+  const response: CreateStudioLifecycleConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateStudioLifecycleConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStudioLifecycleConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateTrainingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8739,6 +8869,65 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
     case "com.amazonaws.sagemaker#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteStudioLifecycleConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStudioLifecycleConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteStudioLifecycleConfigCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteStudioLifecycleConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteStudioLifecycleConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStudioLifecycleConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11071,6 +11260,60 @@ const deserializeAws_json1_1DescribeProjectCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeStudioLifecycleConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStudioLifecycleConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeStudioLifecycleConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeStudioLifecycleConfigResponse(data, context);
+  const response: DescribeStudioLifecycleConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeStudioLifecycleConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStudioLifecycleConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -13867,6 +14110,60 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListStudioLifecycleConfigsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStudioLifecycleConfigsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListStudioLifecycleConfigsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListStudioLifecycleConfigsResponse(data, context);
+  const response: ListStudioLifecycleConfigsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListStudioLifecycleConfigsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStudioLifecycleConfigsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -18425,6 +18722,25 @@ const serializeAws_json1_1CreateProjectInput = (input: CreateProjectInput, conte
   };
 };
 
+const serializeAws_json1_1CreateStudioLifecycleConfigRequest = (
+  input: CreateStudioLifecycleConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StudioLifecycleConfigAppType !== undefined &&
+      input.StudioLifecycleConfigAppType !== null && {
+        StudioLifecycleConfigAppType: input.StudioLifecycleConfigAppType,
+      }),
+    ...(input.StudioLifecycleConfigContent !== undefined &&
+      input.StudioLifecycleConfigContent !== null && {
+        StudioLifecycleConfigContent: input.StudioLifecycleConfigContent,
+      }),
+    ...(input.StudioLifecycleConfigName !== undefined &&
+      input.StudioLifecycleConfigName !== null && { StudioLifecycleConfigName: input.StudioLifecycleConfigName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateTrainingJobRequest = (
   input: CreateTrainingJobRequest,
   context: __SerdeContext
@@ -19128,6 +19444,16 @@ const serializeAws_json1_1DeleteProjectInput = (input: DeleteProjectInput, conte
   };
 };
 
+const serializeAws_json1_1DeleteStudioLifecycleConfigRequest = (
+  input: DeleteStudioLifecycleConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StudioLifecycleConfigName !== undefined &&
+      input.StudioLifecycleConfigName !== null && { StudioLifecycleConfigName: input.StudioLifecycleConfigName }),
+  };
+};
+
 const serializeAws_json1_1DeleteTagsInput = (input: DeleteTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
@@ -19538,6 +19864,16 @@ const serializeAws_json1_1DescribeProcessingJobRequest = (
 const serializeAws_json1_1DescribeProjectInput = (input: DescribeProjectInput, context: __SerdeContext): any => {
   return {
     ...(input.ProjectName !== undefined && input.ProjectName !== null && { ProjectName: input.ProjectName }),
+  };
+};
+
+const serializeAws_json1_1DescribeStudioLifecycleConfigRequest = (
+  input: DescribeStudioLifecycleConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StudioLifecycleConfigName !== undefined &&
+      input.StudioLifecycleConfigName !== null && { StudioLifecycleConfigName: input.StudioLifecycleConfigName }),
   };
 };
 
@@ -20368,6 +20704,10 @@ const serializeAws_json1_1JupyterServerAppSettings = (
       input.DefaultResourceSpec !== null && {
         DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
       }),
+    ...(input.LifecycleConfigArns !== undefined &&
+      input.LifecycleConfigArns !== null && {
+        LifecycleConfigArns: serializeAws_json1_1LifecycleConfigArns(input.LifecycleConfigArns, context),
+      }),
   };
 };
 
@@ -20381,6 +20721,10 @@ const serializeAws_json1_1KernelGatewayAppSettings = (
     ...(input.DefaultResourceSpec !== undefined &&
       input.DefaultResourceSpec !== null && {
         DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
+      }),
+    ...(input.LifecycleConfigArns !== undefined &&
+      input.LifecycleConfigArns !== null && {
+        LifecycleConfigArns: serializeAws_json1_1LifecycleConfigArns(input.LifecycleConfigArns, context),
       }),
   };
 };
@@ -20523,6 +20867,17 @@ const serializeAws_json1_1LabelingJobStoppingConditions = (
         MaxPercentageOfInputDatasetLabeled: input.MaxPercentageOfInputDatasetLabeled,
       }),
   };
+};
+
+const serializeAws_json1_1LifecycleConfigArns = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1LineageEntityParameters = (
@@ -21451,6 +21806,32 @@ const serializeAws_json1_1ListProjectsInput = (input: ListProjectsInput, context
         CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
       }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListStudioLifecycleConfigsRequest = (
+  input: ListStudioLifecycleConfigsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppTypeEquals !== undefined && input.AppTypeEquals !== null && { AppTypeEquals: input.AppTypeEquals }),
+    ...(input.CreationTimeAfter !== undefined &&
+      input.CreationTimeAfter !== null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore !== undefined &&
+      input.CreationTimeBefore !== null && {
+        CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.ModifiedTimeAfter !== undefined &&
+      input.ModifiedTimeAfter !== null && { ModifiedTimeAfter: Math.round(input.ModifiedTimeAfter.getTime() / 1000) }),
+    ...(input.ModifiedTimeBefore !== undefined &&
+      input.ModifiedTimeBefore !== null && {
+        ModifiedTimeBefore: Math.round(input.ModifiedTimeBefore.getTime() / 1000),
+      }),
     ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
@@ -22903,6 +23284,8 @@ const serializeAws_json1_1ResourceLimits = (input: ResourceLimits, context: __Se
 const serializeAws_json1_1ResourceSpec = (input: ResourceSpec, context: __SerdeContext): any => {
   return {
     ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
+    ...(input.LifecycleConfigArn !== undefined &&
+      input.LifecycleConfigArn !== null && { LifecycleConfigArn: input.LifecycleConfigArn }),
     ...(input.SageMakerImageArn !== undefined &&
       input.SageMakerImageArn !== null && { SageMakerImageArn: input.SageMakerImageArn }),
     ...(input.SageMakerImageVersionArn !== undefined &&
@@ -25638,6 +26021,15 @@ const deserializeAws_json1_1CreateProjectOutput = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1CreateStudioLifecycleConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateStudioLifecycleConfigResponse => {
+  return {
+    StudioLifecycleConfigArn: __expectString(output.StudioLifecycleConfigArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateTrainingJobResponse = (
   output: any,
   context: __SerdeContext
@@ -27409,6 +27801,26 @@ const deserializeAws_json1_1DescribeProjectOutput = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1DescribeStudioLifecycleConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeStudioLifecycleConfigResponse => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    StudioLifecycleConfigAppType: __expectString(output.StudioLifecycleConfigAppType),
+    StudioLifecycleConfigArn: __expectString(output.StudioLifecycleConfigArn),
+    StudioLifecycleConfigContent: __expectString(output.StudioLifecycleConfigContent),
+    StudioLifecycleConfigName: __expectString(output.StudioLifecycleConfigName),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeSubscribedWorkteamResponse = (
   output: any,
   context: __SerdeContext
@@ -29050,6 +29462,10 @@ const deserializeAws_json1_1JupyterServerAppSettings = (
       output.DefaultResourceSpec !== undefined && output.DefaultResourceSpec !== null
         ? deserializeAws_json1_1ResourceSpec(output.DefaultResourceSpec, context)
         : undefined,
+    LifecycleConfigArns:
+      output.LifecycleConfigArns !== undefined && output.LifecycleConfigArns !== null
+        ? deserializeAws_json1_1LifecycleConfigArns(output.LifecycleConfigArns, context)
+        : undefined,
   } as any;
 };
 
@@ -29065,6 +29481,10 @@ const deserializeAws_json1_1KernelGatewayAppSettings = (
     DefaultResourceSpec:
       output.DefaultResourceSpec !== undefined && output.DefaultResourceSpec !== null
         ? deserializeAws_json1_1ResourceSpec(output.DefaultResourceSpec, context)
+        : undefined,
+    LifecycleConfigArns:
+      output.LifecycleConfigArns !== undefined && output.LifecycleConfigArns !== null
+        ? deserializeAws_json1_1LifecycleConfigArns(output.LifecycleConfigArns, context)
         : undefined,
   } as any;
 };
@@ -29316,6 +29736,17 @@ const deserializeAws_json1_1LambdaStepMetadata = (output: any, context: __SerdeC
         ? deserializeAws_json1_1OutputParameterList(output.OutputParameters, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1LifecycleConfigArns = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_json1_1LineageEntityParameters = (
@@ -29852,6 +30283,19 @@ const deserializeAws_json1_1ListProjectsOutput = (output: any, context: __SerdeC
     ProjectSummaryList:
       output.ProjectSummaryList !== undefined && output.ProjectSummaryList !== null
         ? deserializeAws_json1_1ProjectSummaryList(output.ProjectSummaryList, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListStudioLifecycleConfigsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListStudioLifecycleConfigsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    StudioLifecycleConfigs:
+      output.StudioLifecycleConfigs !== undefined && output.StudioLifecycleConfigs !== null
+        ? deserializeAws_json1_1StudioLifecycleConfigsList(output.StudioLifecycleConfigs, context)
         : undefined,
   } as any;
 };
@@ -32179,6 +32623,7 @@ const deserializeAws_json1_1ResourceNotFound = (output: any, context: __SerdeCon
 const deserializeAws_json1_1ResourceSpec = (output: any, context: __SerdeContext): ResourceSpec => {
   return {
     InstanceType: __expectString(output.InstanceType),
+    LifecycleConfigArn: __expectString(output.LifecycleConfigArn),
     SageMakerImageArn: __expectString(output.SageMakerImageArn),
     SageMakerImageVersionArn: __expectString(output.SageMakerImageVersionArn),
   } as any;
@@ -32467,6 +32912,39 @@ const deserializeAws_json1_1StopPipelineExecutionResponse = (
   return {
     PipelineExecutionArn: __expectString(output.PipelineExecutionArn),
   } as any;
+};
+
+const deserializeAws_json1_1StudioLifecycleConfigDetails = (
+  output: any,
+  context: __SerdeContext
+): StudioLifecycleConfigDetails => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    StudioLifecycleConfigAppType: __expectString(output.StudioLifecycleConfigAppType),
+    StudioLifecycleConfigArn: __expectString(output.StudioLifecycleConfigArn),
+    StudioLifecycleConfigName: __expectString(output.StudioLifecycleConfigName),
+  } as any;
+};
+
+const deserializeAws_json1_1StudioLifecycleConfigsList = (
+  output: any,
+  context: __SerdeContext
+): StudioLifecycleConfigDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1StudioLifecycleConfigDetails(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Subnets = (output: any, context: __SerdeContext): string[] => {

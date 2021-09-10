@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateContextRequest, UpdateContextResponse } from "../models/models_2";
+import { UpdateContextRequest, UpdateContextResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateContextCommand,
   serializeAws_json1_1UpdateContextCommand,

@@ -32,23 +32,23 @@ export enum EncryptionOption {
  * <p>An object that contains:</p>
  *          <ul>
  *             <li>
- *                <p>The encryption option for a repository association. It is either owned by AWS
+ *                <p>The encryption option for a repository association. It is either owned by Amazon Web Services
  *             Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</p>
  *             </li>
  *             <li>
- *                <p>The ID of the AWS KMS key that
+ *                <p>The ID of the Amazon Web Services KMS key that
  *             is associated with a respository association.</p>
  *             </li>
  *          </ul>
  */
 export interface KMSKeyDetails {
   /**
-   * <p>The ID of the AWS KMS key that is associated with a respository association.</p>
+   * <p>The ID of the Amazon Web Services KMS key that is associated with a respository association.</p>
    */
   KMSKeyId?: string;
 
   /**
-   * <p>The encryption option for a repository association. It is either owned by AWS
+   * <p>The encryption option for a repository association. It is either owned by Amazon Web Services
    *             Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</p>
    */
   EncryptionOption?: EncryptionOption | string;
@@ -78,12 +78,12 @@ export interface ThirdPartySourceRepository {
 
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is
+   *          The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection. Its format is
    *          <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see
    *          <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">
    *                <code>Connection</code>
    *             </a> in
-   *          the <i>AWS CodeStar Connections API Reference</i>.
+   *          the <i>Amazon Web Services CodeStar Connections API Reference</i>.
    *       </p>
    */
   ConnectionArn: string | undefined;
@@ -92,7 +92,7 @@ export interface ThirdPartySourceRepository {
    * <p>
    *          The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
    *          this is the username for the account that owns the repository. For an S3 repository,
-   *          this can be the username or AWS account ID.
+   *          this can be the username or Amazon Web Services account ID.
    *       </p>
    */
   Owner: string | undefined;
@@ -108,14 +108,14 @@ export namespace ThirdPartySourceRepository {
 }
 
 /**
- * <p>Information about an AWS CodeCommit repository. The CodeCommit repository must be in the same
- *       AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured.</p>
+ * <p>Information about an Amazon Web Services CodeCommit repository. The CodeCommit repository must be in the same
+ *       Amazon Web Services Region and Amazon Web Services account where its CodeGuru Reviewer code reviews are configured.</p>
  */
 export interface CodeCommitRepository {
   /**
-   * <p>The name of the AWS CodeCommit repository. For more information, see
+   * <p>The name of the Amazon Web Services CodeCommit repository. For more information, see
    *          <a href="https://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepository.html#CodeCommit-GetRepository-request-repositoryName">repositoryName</a>
-   *          in the <i>AWS CodeCommit API Reference</i>.</p>
+   *          in the <i>Amazon Web Services CodeCommit API Reference</i>.</p>
    */
   Name: string | undefined;
 }
@@ -158,14 +158,14 @@ export namespace S3Repository {
 
 /**
  * <p>
- *          Information about an associated AWS CodeCommit repository or an associated repository that is managed
- *          by AWS CodeStar Connections (for example, Bitbucket). This <code>Repository</code> object
+ *          Information about an associated Amazon Web Services CodeCommit repository or an associated repository that is managed
+ *          by Amazon Web Services CodeStar Connections (for example, Bitbucket). This <code>Repository</code> object
  *          is not used if your source code is in an associated GitHub repository.
  *       </p>
  */
 export interface Repository {
   /**
-   * <p>Information about an AWS CodeCommit repository.</p>
+   * <p>Information about an Amazon Web Services CodeCommit repository.</p>
    */
   CodeCommit?: CodeCommitRepository;
 
@@ -236,11 +236,11 @@ export interface AssociateRepositoryRequest {
    * <p>A <code>KMSKeyDetails</code> object that contains:</p>
    *          <ul>
    *             <li>
-   *                <p>The encryption option for this repository association. It is either owned by AWS
+   *                <p>The encryption option for this repository association. It is either owned by Amazon Web Services
    *             Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</p>
    *             </li>
    *             <li>
-   *                <p>The ID of the AWS KMS key that
+   *                <p>The ID of the Amazon Web Services KMS key that
    *             is associated with this respository association.</p>
    *             </li>
    *          </ul>
@@ -360,12 +360,12 @@ export interface RepositoryAssociation {
 
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is
+   *          The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection. Its format is
    *          <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see
    *          <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">
    *                <code>Connection</code>
    *             </a> in
-   *          the <i>AWS CodeStar Connections API Reference</i>.
+   *          the <i>Amazon Web Services CodeStar Connections API Reference</i>.
    *       </p>
    */
   ConnectionArn?: string;
@@ -376,9 +376,9 @@ export interface RepositoryAssociation {
   Name?: string;
 
   /**
-   * <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the
+   * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
    *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
-   *       For an S3 repository, it can be the username or AWS account ID.</p>
+   *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
    */
   Owner?: string;
 
@@ -465,11 +465,11 @@ export interface RepositoryAssociation {
    * <p>A <code>KMSKeyDetails</code> object that contains:</p>
    *          <ul>
    *             <li>
-   *                <p>The encryption option for this repository association. It is either owned by AWS
+   *                <p>The encryption option for this repository association. It is either owned by Amazon Web Services
    *             Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</p>
    *             </li>
    *             <li>
-   *                <p>The ID of the AWS KMS key that
+   *                <p>The ID of the Amazon Web Services KMS key that
    *             is associated with this respository association.</p>
    *             </li>
    *          </ul>
@@ -950,7 +950,7 @@ export namespace CodeReviewType {
 export interface CreateCodeReviewRequest {
   /**
    * <p>
-   *          The name of the code review. The name of each code review in your AWS account must be unique.
+   *          The name of the code review. The name of each code review in your Amazon Web Services account must be unique.
    *       </p>
    */
   Name: string | undefined;
@@ -1010,13 +1010,8 @@ export namespace CreateCodeReviewRequest {
 export interface Metrics {
   /**
    * <p>
-   *         Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions,
-   *         this includes all lines of code in the files added to the pull request. In subsequent revisions, for files that already
-   *         existed in the pull request, this includes only the changed lines of code. In both cases, this does not include non-code lines such as comments
-   *         and import statements. For example, if you submit a pull request containing 5 files, each with 500 lines of code, and in
-   *         a subsequent revision you added a new file with 200 lines of code, and also modified a total of 25 lines across the initial 5 files,
-   *         <code>MeteredLinesOfCodeCount</code> includes the first 5 files (5 * 500 = 2,500 lines), the new file (200 lines) and the 25 changed lines of
-   *          code for a total of 2,725 lines of code.
+   *             <code>MeteredLinesOfCode</code> is the number of lines of code in the repository where the code review happened.
+   *          This does not include non-code lines such as comments and blank lines.
    *       </p>
    */
   MeteredLinesOfCodeCount?: number;
@@ -1079,9 +1074,9 @@ export interface CodeReview {
   RepositoryName?: string;
 
   /**
-   * <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the
+   * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
    *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
-   *       For an S3 repository, it can be the username or AWS account ID.</p>
+   *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
    */
   Owner?: string;
 
@@ -1294,9 +1289,9 @@ export interface DescribeRecommendationFeedbackRequest {
    *          Optional parameter to describe the feedback for a given user. If this is not supplied, it defaults to the user making the request.
    *       </p>
    *          <p>
-   *          The <code>UserId</code> is an IAM principal that can be specified as an AWS account ID or an Amazon Resource Name (ARN). For
+   *          The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web Services account ID or an Amazon Resource Name (ARN). For
    *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">
-   *             Specifying a Principal</a> in the <i>AWS Identity and Access Management User Guide</i>.
+   *             Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.
    *       </p>
    */
   UserId?: string;
@@ -1349,9 +1344,9 @@ export interface RecommendationFeedback {
    *          The ID of the user that made the API call.
    *       </p>
    *          <p>
-   *          The <code>UserId</code> is an IAM principal that can be specified as an AWS account ID or an Amazon Resource Name (ARN). For
+   *          The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web Services account ID or an Amazon Resource Name (ARN). For
    *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">
-   *             Specifying a Principal</a> in the <i>AWS Identity and Access Management User Guide</i>.
+   *             Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.
    *       </p>
    */
   UserId?: string;
@@ -1680,9 +1675,9 @@ export interface CodeReviewSummary {
   RepositoryName?: string;
 
   /**
-   * <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the
+   * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
    *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
-   *       For an S3 repository, it can be the username or AWS account ID.</p>
+   *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
    */
   Owner?: string;
 
@@ -1826,12 +1821,12 @@ export interface ListRecommendationFeedbackRequest {
 
   /**
    * <p>
-   *          An AWS user's account ID or Amazon Resource Name (ARN). Use this ID to query the recommendation feedback for a code review from that user.
+   *          An Amazon Web Services user's account ID or Amazon Resource Name (ARN). Use this ID to query the recommendation feedback for a code review from that user.
    *       </p>
    *          <p>
-   *          The <code>UserId</code> is an IAM principal that can be specified as an AWS account ID or an Amazon Resource Name (ARN). For
+   *          The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web Services account ID or an Amazon Resource Name (ARN). For
    *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">
-   *             Specifying a Principal</a> in the <i>AWS Identity and Access Management User Guide</i>.
+   *             Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.
    *       </p>
    */
   UserIds?: string[];
@@ -1878,9 +1873,9 @@ export interface RecommendationFeedbackSummary {
    *          The ID of the user that gave the feedback.
    *       </p>
    *          <p>
-   *          The <code>UserId</code> is an IAM principal that can be specified as an AWS account ID or an Amazon Resource Name (ARN). For
+   *          The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web Services account ID or an Amazon Resource Name (ARN). For
    *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">
-   *             Specifying a Principal</a> in the <i>AWS Identity and Access Management User Guide</i>.
+   *             Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.
    *       </p>
    */
   UserId?: string;
@@ -1955,6 +1950,7 @@ export namespace ListRecommendationsRequest {
 export enum RecommendationCategory {
   AWS_BEST_PRACTICES = "AWSBestPractices",
   AWS_CLOUDFORMATION_ISSUES = "AWSCloudFormationIssues",
+  CODE_INCONSISTENCIES = "CodeInconsistencies",
   CODE_MAINTENANCE_ISSUES = "CodeMaintenanceIssues",
   CONCURRENCY_ISSUES = "ConcurrencyIssues",
   DUPLICATE_CODE = "DuplicateCode",
@@ -1963,6 +1959,55 @@ export enum RecommendationCategory {
   PYTHON_BEST_PRACTICES = "PythonBestPractices",
   RESOURCE_LEAKS = "ResourceLeaks",
   SECURITY_ISSUES = "SecurityIssues",
+}
+
+/**
+ * <p>Metadata about a rule. Rule metadata includes an ID, a name, a list of tags, and a
+ *          short and long description. CodeGuru Reviewer uses rules to analyze code. A rule's recommendation is
+ *          included in analysis results if code is detected that violates the rule.</p>
+ */
+export interface RuleMetadata {
+  /**
+   * <p>The ID of the rule.</p>
+   */
+  RuleId?: string;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  RuleName?: string;
+
+  /**
+   * <p>A short description of the rule.</p>
+   */
+  ShortDescription?: string;
+
+  /**
+   * <p>A long description of the rule.</p>
+   */
+  LongDescription?: string;
+
+  /**
+   * <p>Tags that are associated with the rule.</p>
+   */
+  RuleTags?: string[];
+}
+
+export namespace RuleMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleMetadata): any => ({
+    ...obj,
+  });
+}
+
+export enum Severity {
+  CRITICAL = "Critical",
+  HIGH = "High",
+  INFO = "Info",
+  LOW = "Low",
+  MEDIUM = "Medium",
 }
 
 /**
@@ -2008,6 +2053,18 @@ export interface RecommendationSummary {
    * <p>The type of a recommendation.</p>
    */
   RecommendationCategory?: RecommendationCategory | string;
+
+  /**
+   * <p>Metadata about a rule. Rule metadata includes an ID, a name, a list of tags, and a
+   *          short and long description. CodeGuru Reviewer uses rules to analyze code. A rule's recommendation is
+   *          included in analysis results if code is detected that violates the rule.</p>
+   */
+  RuleMetadata?: RuleMetadata;
+
+  /**
+   * <p>The severity of the issue in the code that generated this recommendation.</p>
+   */
+  Severity?: Severity | string;
 }
 
 export namespace RecommendationSummary {
@@ -2116,7 +2173,7 @@ export interface ListRepositoryAssociationsRequest {
 
   /**
    * <p>List of owners to use as a filter.
-   *         For AWS CodeCommit, it is the name of the CodeCommit account that was
+   *         For Amazon Web Services CodeCommit, it is the name of the CodeCommit account that was
    *         used to associate the repository. For other repository source providers, such as Bitbucket and GitHub Enterprise Server, this is name of the account
    *         that was used to associate the repository. </p>
    */
@@ -2181,12 +2238,12 @@ export interface RepositoryAssociationSummary {
 
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is
+   *          The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection. Its format is
    *          <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see
    *          <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">
    *                <code>Connection</code>
    *             </a> in
-   *          the <i>AWS CodeStar Connections API Reference</i>.
+   *          the <i>Amazon Web Services CodeStar Connections API Reference</i>.
    *       </p>
    */
   ConnectionArn?: string;
@@ -2211,9 +2268,9 @@ export interface RepositoryAssociationSummary {
   Name?: string;
 
   /**
-   * <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the
+   * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
    *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
-   *       For an S3 repository, it can be the username or AWS account ID.</p>
+   *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
    */
   Owner?: string;
 
