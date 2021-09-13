@@ -52,6 +52,11 @@ export function fromBase64(input: string): Uint8Array {
     let bitLength = 0;
     for (let j = i, limit = i + 3; j <= limit; j++) {
       if (input[j] !== "=") {
+        // If we don't check for this, we'll end up using undefined in a bitwise
+        // operation, in which it will be treated as 0.
+        if (!(input[j] in alphabetByEncoding)) {
+          throw new TypeError(`Invalid character ${input[j]} in base64 string.`);
+        }
         bits |= alphabetByEncoding[input[j]] << ((limit - j) * bitsPerLetter);
         bitLength += bitsPerLetter;
       } else {
