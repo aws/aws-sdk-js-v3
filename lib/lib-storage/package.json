@@ -3,6 +3,10 @@
   "version": "3.31.0",
   "description": "Storage higher order operation",
   "main": "./dist/cjs/index.js",
+  "exports": {
+    "import": "./dist/es/index.js",
+    "require": "./dist/cjs/index.js"
+  },
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
   "scripts": {

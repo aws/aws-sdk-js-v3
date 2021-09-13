@@ -3,6 +3,10 @@
   "version": "3.31.0",
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "main": "./dist/cjs/index.js",
+  "exports": {
+    "import": "./dist/es/index.js",
+    "require": "./dist/cjs/index.js"
+  },
   "module": "./dist/es/index.js",
   "browser": {
     "@aws-sdk/credential-provider-env": false,

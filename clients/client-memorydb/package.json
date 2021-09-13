@@ -15,6 +15,10 @@
     "build": "yarn build:cjs && yarn build:es"
   },
   "main": "./dist/cjs/index.js",
+  "exports": {
+    "import": "./dist/es/index.js",
+    "require": "./dist/cjs/index.js"
+  },
   "types": "./dist/types/index.d.ts",
   "module": "./dist/es/index.js",
   "browser": {
