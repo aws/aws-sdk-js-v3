@@ -1,5 +1,5 @@
 {
   // You need to make sure "tslib" version is compatible with typescript version.
   "tslib": "^2.3.0",
-  "typescript": "~4.3.2"
+  "typescript": "~4.3.5"
 }
