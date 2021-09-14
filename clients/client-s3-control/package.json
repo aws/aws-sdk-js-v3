@@ -20,6 +20,7 @@
     "import": "./dist/es/index.js",
     "require": "./dist/cjs/index.js"
   },
+  "type": "module",
   "types": "./dist/types/index.d.ts",
   "module": "./dist/es/index.js",
   "browser": {

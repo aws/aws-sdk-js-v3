@@ -10,6 +10,7 @@
     "import": "./dist/es/index.js",
     "require": "./dist/cjs/index.js"
   },
+  "type": "module",
   "module": "./dist/es/index.js",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",

@@ -19,6 +19,7 @@
     "import": "./dist/es/index.js",
     "require": "./dist/cjs/index.js"
   },
+  "type": "module",
   "module": "./dist/es/index.js",
   "devDependencies": {
     "@types/jest": "^26.0.4",

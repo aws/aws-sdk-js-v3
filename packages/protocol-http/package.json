@@ -13,6 +13,7 @@
     "import": "./dist/es/index.js",
     "require": "./dist/cjs/index.js"
   },
+  "type": "module",
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
   "author": {
