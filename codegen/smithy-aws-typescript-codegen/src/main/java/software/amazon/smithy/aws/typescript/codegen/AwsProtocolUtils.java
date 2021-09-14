@@ -326,11 +326,6 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("RestJsonBodyMalformedMapNullValue")) {
             return true;
         }
-        //TODO: Buffer.from isn't decoding base64 strictly.
-        if (testCase.getId().equals("RestJsonBodyMalformedBlobInvalidBase64_case1")
-            || testCase.getId().equals("RestJsonBodyMalformedBlobInvalidBase64_case2")) {
-            return true;
-        }
 
         //TODO: Fixed after Smithy 1.11.0
         if (testCase.getId().equals("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case14")) {
