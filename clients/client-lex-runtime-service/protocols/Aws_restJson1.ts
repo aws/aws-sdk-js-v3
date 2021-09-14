@@ -153,19 +153,21 @@ export const serializeAws_restJson1PostContentCommand = async (
     "content-type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     ...(isSerializableHeaderValue(input.sessionAttributes) && {
-      "x-amz-lex-session-attributes": Buffer.from(__LazyJsonString.fromObject(input.sessionAttributes!)).toString(
-        "base64"
+      "x-amz-lex-session-attributes": context.base64Encoder(
+        Buffer.from(__LazyJsonString.fromObject(input.sessionAttributes!))
       ),
     }),
     ...(isSerializableHeaderValue(input.requestAttributes) && {
-      "x-amz-lex-request-attributes": Buffer.from(__LazyJsonString.fromObject(input.requestAttributes!)).toString(
-        "base64"
+      "x-amz-lex-request-attributes": context.base64Encoder(
+        Buffer.from(__LazyJsonString.fromObject(input.requestAttributes!))
       ),
     }),
     ...(isSerializableHeaderValue(input.contentType) && { "content-type": input.contentType! }),
     ...(isSerializableHeaderValue(input.accept) && { accept: input.accept! }),
     ...(isSerializableHeaderValue(input.activeContexts) && {
-      "x-amz-lex-active-contexts": Buffer.from(__LazyJsonString.fromObject(input.activeContexts!)).toString("base64"),
+      "x-amz-lex-active-contexts": context.base64Encoder(
+        Buffer.from(__LazyJsonString.fromObject(input.activeContexts!))
+      ),
     }),
   };
   let resolvedPath =
@@ -575,20 +577,22 @@ export const deserializeAws_restJson1PostContentCommand = async (
   }
   if (output.headers["x-amz-lex-nlu-intent-confidence"] !== undefined) {
     contents.nluIntentConfidence = new __LazyJsonString(
-      Buffer.from(output.headers["x-amz-lex-nlu-intent-confidence"], "base64").toString("ascii")
+      Buffer.from(context.base64Decoder(output.headers["x-amz-lex-nlu-intent-confidence"])).toString("utf8")
     );
   }
   if (output.headers["x-amz-lex-alternative-intents"] !== undefined) {
     contents.alternativeIntents = new __LazyJsonString(
-      Buffer.from(output.headers["x-amz-lex-alternative-intents"], "base64").toString("ascii")
+      Buffer.from(context.base64Decoder(output.headers["x-amz-lex-alternative-intents"])).toString("utf8")
     );
   }
   if (output.headers["x-amz-lex-slots"] !== undefined) {
-    contents.slots = new __LazyJsonString(Buffer.from(output.headers["x-amz-lex-slots"], "base64").toString("ascii"));
+    contents.slots = new __LazyJsonString(
+      Buffer.from(context.base64Decoder(output.headers["x-amz-lex-slots"])).toString("utf8")
+    );
   }
   if (output.headers["x-amz-lex-session-attributes"] !== undefined) {
     contents.sessionAttributes = new __LazyJsonString(
-      Buffer.from(output.headers["x-amz-lex-session-attributes"], "base64").toString("ascii")
+      Buffer.from(context.base64Decoder(output.headers["x-amz-lex-session-attributes"])).toString("utf8")
     );
   }
   if (output.headers["x-amz-lex-sentiment"] !== undefined) {
@@ -623,7 +627,7 @@ export const deserializeAws_restJson1PostContentCommand = async (
   }
   if (output.headers["x-amz-lex-active-contexts"] !== undefined) {
     contents.activeContexts = new __LazyJsonString(
-      Buffer.from(output.headers["x-amz-lex-active-contexts"], "base64").toString("ascii")
+      Buffer.from(context.base64Decoder(output.headers["x-amz-lex-active-contexts"])).toString("utf8")
     );
   }
   const data: any = output.body;
@@ -940,11 +944,13 @@ export const deserializeAws_restJson1PutSessionCommand = async (
     contents.intentName = output.headers["x-amz-lex-intent-name"];
   }
   if (output.headers["x-amz-lex-slots"] !== undefined) {
-    contents.slots = new __LazyJsonString(Buffer.from(output.headers["x-amz-lex-slots"], "base64").toString("ascii"));
+    contents.slots = new __LazyJsonString(
+      Buffer.from(context.base64Decoder(output.headers["x-amz-lex-slots"])).toString("utf8")
+    );
   }
   if (output.headers["x-amz-lex-session-attributes"] !== undefined) {
     contents.sessionAttributes = new __LazyJsonString(
-      Buffer.from(output.headers["x-amz-lex-session-attributes"], "base64").toString("ascii")
+      Buffer.from(context.base64Decoder(output.headers["x-amz-lex-session-attributes"])).toString("utf8")
     );
   }
   if (output.headers["x-amz-lex-message"] !== undefined) {
@@ -967,7 +973,7 @@ export const deserializeAws_restJson1PutSessionCommand = async (
   }
   if (output.headers["x-amz-lex-active-contexts"] !== undefined) {
     contents.activeContexts = new __LazyJsonString(
-      Buffer.from(output.headers["x-amz-lex-active-contexts"], "base64").toString("ascii")
+      Buffer.from(context.base64Decoder(output.headers["x-amz-lex-active-contexts"])).toString("utf8")
     );
   }
   const data: any = output.body;
