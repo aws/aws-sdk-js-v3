@@ -13,8 +13,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "declarationDir": "./dist/types",
-    "outDir": "dist/cjs",
-    "useUnknownInCatchVariables": false
+    "outDir": "dist/cjs"
   },
   "typedocOptions": {
     "exclude": ["**/node_modules/**", "**/*.spec.ts", "**/protocols/*.ts", "**/e2e/*.ts", "**/endpoints.ts"],
