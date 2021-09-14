@@ -1282,7 +1282,7 @@ export const serializeAws_restJson1MediaTypeHeaderCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.json) && {
-      "x-json": Buffer.from(__LazyJsonString.fromObject(input.json!)).toString("base64"),
+      "x-json": context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.json!))),
     }),
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MediaTypeHeader";
@@ -3299,7 +3299,7 @@ export const deserializeAws_restJson1MediaTypeHeaderCommand = async (
     json: undefined,
   };
   if (output.headers["x-json"] !== undefined) {
-    contents.json = new __LazyJsonString(Buffer.from(output.headers["x-json"], "base64").toString("ascii"));
+    contents.json = new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers["x-json"])).toString("utf8"));
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
