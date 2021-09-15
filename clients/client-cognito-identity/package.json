@@ -20,8 +20,8 @@
   "types": "./dist/types/index.d.ts",
   "module": "./dist/es/index.js",
   "browser": {
-    "./runtimeConfig": "./runtimeConfig.browser",
-    "./dist/es/runtimeConfig": "./dist/es/runtimeConfig.browser"
+    "./dist/es/runtimeConfig": "./dist/es/runtimeConfig.browser",
+    "./runtimeConfig": "./runtimeConfig.browser"
   },
   "react-native": {
     "./runtimeConfig": "./runtimeConfig.native"
