@@ -18,8 +18,8 @@ plugins {
     signing
     checkstyle
     jacoco
-    id("com.github.spotbugs") version "4.6.0"
-    id("io.codearte.nexus-staging") version "0.21.0"
+    id("com.github.spotbugs") version "4.7.1"
+    id("io.codearte.nexus-staging") version "0.30.0"
 }
 
 allprojects {
@@ -90,10 +90,10 @@ subprojects {
 
         // Apply junit 5 and hamcrest test dependencies to all java projects.
         dependencies {
-            testCompile("org.junit.jupiter:junit-jupiter-api:5.4.0")
-            testRuntime("org.junit.jupiter:junit-jupiter-engine:5.4.0")
-            testCompile("org.junit.jupiter:junit-jupiter-params:5.4.0")
-            testCompile("org.hamcrest:hamcrest:2.1")
+            testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.0")
+            testImplementation("org.junit.jupiter:junit-jupiter-engine:5.4.0")
+            testImplementation("org.junit.jupiter:junit-jupiter-params:5.4.0")
+            testImplementation("org.hamcrest:hamcrest:2.1")
         }
 
         // Reusable license copySpec

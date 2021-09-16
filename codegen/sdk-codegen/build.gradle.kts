@@ -31,7 +31,7 @@ plugins {
 }
 
 dependencies {
-    compile(project(":smithy-aws-typescript-codegen"))
+    implementation(project(":smithy-aws-typescript-codegen"))
 }
 
 // This project doesn't produce a JAR.
