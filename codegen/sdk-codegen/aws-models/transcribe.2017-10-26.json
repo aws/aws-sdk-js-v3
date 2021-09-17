@@ -4045,6 +4045,12 @@
             "smithy.api#documentation": "<p>An object containing a list of languages that might be present in your collection of audio files. Automatic language\n            identification chooses a language that best matches the source audio from that list.</p>\n        <p>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must be encoded at a sample \n            rate of 16,000 Hz or higher.</p>"
           }
         },
+        "Subtitles": {
+          "target": "com.amazonaws.transcribe#Subtitles",
+          "traits": {
+            "smithy.api#documentation": "<p>Add subtitles to your batch transcription job.</p>"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.transcribe#TagList",
           "traits": {
@@ -4076,6 +4082,67 @@
         "smithy.api#length": {
           "min": 1
         }
+      }
+    },
+    "com.amazonaws.transcribe#SubtitleFileUris": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.transcribe#Uri"
+      }
+    },
+    "com.amazonaws.transcribe#SubtitleFormat": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "vtt",
+            "name": "VTT"
+          },
+          {
+            "value": "srt",
+            "name": "SRT"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.transcribe#SubtitleFormats": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.transcribe#SubtitleFormat"
+      }
+    },
+    "com.amazonaws.transcribe#Subtitles": {
+      "type": "structure",
+      "members": {
+        "Formats": {
+          "target": "com.amazonaws.transcribe#SubtitleFormats",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the output format for your subtitle file.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Generate subtitles for your batch transcription job.</p>"
+      }
+    },
+    "com.amazonaws.transcribe#SubtitlesOutput": {
+      "type": "structure",
+      "members": {
+        "Formats": {
+          "target": "com.amazonaws.transcribe#SubtitleFormats",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the output format for your subtitle file; if you select both SRT and VTT formats, two output files are genereated.</p>"
+          }
+        },
+        "SubtitleFileUris": {
+          "target": "com.amazonaws.transcribe#SubtitleFileUris",
+          "traits": {
+            "smithy.api#documentation": "<p>Choose the output location for your subtitle file. This location must be an S3 bucket.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specify the output format for your subtitle file.</p>"
       }
     },
     "com.amazonaws.transcribe#Tag": {
@@ -4550,6 +4617,12 @@
           "target": "com.amazonaws.transcribe#TagList",
           "traits": {
             "smithy.api#documentation": "<p>A key:value pair assigned to a given transcription job.</p>"
+          }
+        },
+        "Subtitles": {
+          "target": "com.amazonaws.transcribe#SubtitlesOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>Generate subtitles for your batch transcription job.</p>"
           }
         }
       },

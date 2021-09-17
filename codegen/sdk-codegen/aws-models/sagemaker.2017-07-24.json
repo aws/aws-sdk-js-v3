@@ -4729,7 +4729,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of an associated\n    Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application,\n    policy, and Amazon Virtual Private Cloud (VPC) configurations. An Amazon Web Services account is limited to one domain per region.\n    Users within a domain can share notebook files and other artifacts with each other.</p>\n\n         <p>\n            <b>EFS storage</b>\n         </p>\n         <p>When a domain is created, an EFS volume is created for use by all of the users within the\n    domain. Each user receives a private home directory within the EFS volume for notebooks,\n    Git repositories, and data files.</p>\n         <p>SageMaker uses the Amazon Web Services Key Management Service (Amazon Web Services KMS) to encrypt the EFS volume attached to the domain with\n     an Amazon Web Services managed customer master key (CMK) by default. For more control, you can specify a\n    customer managed CMK. For more information, see\n    <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html\">Protect Data at\n      Rest Using Encryption</a>.</p>\n\n         <p>\n            <b>VPC configuration</b>\n         </p>\n         <p>All SageMaker Studio traffic between the domain and the EFS volume is through the specified\n    VPC and subnets. For other Studio traffic, you can specify the <code>AppNetworkAccessType</code>\n    parameter. <code>AppNetworkAccessType</code> corresponds to the network access type that you\n    choose when you onboard to Studio. The following options are available:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PublicInternetOnly</code> - Non-EFS traffic goes through a VPC managed by\n        Amazon SageMaker, which allows internet access. This is the default value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.\n        Internet access is disabled by default. To allow internet access, you must specify a\n        NAT gateway.</p>\n               <p>When internet access is disabled, you won't be able to run a Studio notebook or to\n        train or host models unless your VPC has an interface endpoint to the SageMaker API and runtime\n        or a NAT gateway and your security groups allow outbound connections.</p>\n            </li>\n         </ul>\n         <important>\n            <p>NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound rules\n      in order to launch a SageMaker Studio app successfully.</p>\n         </important>\n         <p>For more information, see\n    <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html\">Connect\n      SageMaker Studio Notebooks to Resources in a VPC</a>.</p>"
+        "smithy.api#documentation": "<p>Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of an associated\n    Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application,\n    policy, and Amazon Virtual Private Cloud (VPC) configurations. An Amazon Web Services account is limited to one domain per region.\n    Users within a domain can share notebook files and other artifacts with each other.</p>\n\n         <p>\n            <b>EFS storage</b>\n         </p>\n         <p>When a domain is created, an EFS volume is created for use by all of the users within the\n    domain. Each user receives a private home directory within the EFS volume for notebooks,\n    Git repositories, and data files.</p>\n         <p>SageMaker uses the Amazon Web Services Key Management Service (Amazon Web Services KMS) to encrypt the EFS volume attached to the domain with\n     an Amazon Web Services managed key by default. For more control, you can specify a\n     customer managed key. For more information, see\n    <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html\">Protect Data at\n      Rest Using Encryption</a>.</p>\n\n         <p>\n            <b>VPC configuration</b>\n         </p>\n         <p>All SageMaker Studio traffic between the domain and the EFS volume is through the specified\n    VPC and subnets. For other Studio traffic, you can specify the <code>AppNetworkAccessType</code>\n    parameter. <code>AppNetworkAccessType</code> corresponds to the network access type that you\n    choose when you onboard to Studio. The following options are available:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PublicInternetOnly</code> - Non-EFS traffic goes through a VPC managed by\n        Amazon SageMaker, which allows internet access. This is the default value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.\n        Internet access is disabled by default. To allow internet access, you must specify a\n        NAT gateway.</p>\n               <p>When internet access is disabled, you won't be able to run a Studio notebook or to\n        train or host models unless your VPC has an interface endpoint to the SageMaker API and runtime\n        or a NAT gateway and your security groups allow outbound connections.</p>\n            </li>\n         </ul>\n         <important>\n            <p>NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound rules\n      in order to launch a SageMaker Studio app successfully.</p>\n         </important>\n         <p>For more information, see\n    <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html\">Connect\n      SageMaker Studio Notebooks to Resources in a VPC</a>.</p>"
       }
     },
     "com.amazonaws.sagemaker#CreateDomainRequest": {
@@ -4794,7 +4794,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.sagemaker#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>SageMaker uses Amazon Web Services KMS to encrypt the EFS volume attached to the domain with an Amazon Web Services managed\n         customer master key (CMK) by default. For more control, specify a customer managed CMK.</p>"
+            "smithy.api#documentation": "<p>SageMaker uses Amazon Web Services KMS to encrypt the EFS volume attached to the domain with an Amazon Web Services managed\n         key by default. For more control, specify a customer managed key.</p>"
           }
         }
       }
@@ -4878,7 +4878,7 @@
         "ResourceKey": {
           "target": "com.amazonaws.sagemaker#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>The CMK to use when encrypting the EBS volume the edge packaging job runs on.</p>"
+            "smithy.api#documentation": "<p>The Amazon Web Services KMS key to use when encrypting the EBS volume the edge packaging job runs on.</p>"
           }
         },
         "Tags": {
@@ -10645,7 +10645,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.sagemaker#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services KMS customer managed CMK used to encrypt\n         the EFS volume attached to the domain.</p>"
+            "smithy.api#documentation": "<p>The Amazon Web Services KMS customer managed key used to encrypt\n         the EFS volume attached to the domain.</p>"
           }
         }
       }
@@ -10729,7 +10729,7 @@
         "ResourceKey": {
           "target": "com.amazonaws.sagemaker#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>The CMK to use when encrypting the EBS volume the job run on.</p>"
+            "smithy.api#documentation": "<p>The Amazon Web Services KMS key to use when encrypting the EBS volume the job run on.</p>"
           }
         },
         "EdgePackagingJobStatus": {
@@ -14256,7 +14256,7 @@
         "CreatedBy": {
           "target": "com.amazonaws.sagemaker#UserContext",
           "traits": {
-            "smithy.api#documentation": "<p>Who created the component.</p>"
+            "smithy.api#documentation": "<p>Who created the trial component.</p>"
           }
         },
         "LastModifiedTime": {
@@ -15996,7 +15996,10 @@
           }
         },
         "CreatedBy": {
-          "target": "com.amazonaws.sagemaker#UserContext"
+          "target": "com.amazonaws.sagemaker#UserContext",
+          "traits": {
+            "smithy.api#documentation": "<p>Who created the experiment.</p>"
+          }
         },
         "LastModifiedTime": {
           "target": "com.amazonaws.sagemaker#Timestamp",
@@ -19184,7 +19187,7 @@
         "LifecycleConfigArns": {
           "target": "com.amazonaws.sagemaker#LifecycleConfigArns",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the KernelGatewayApp.</p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the the user profile or domain.</p>"
           }
         }
       },
@@ -19566,7 +19569,7 @@
         "VolumeKmsKeyId": {
           "target": "com.amazonaws.sagemaker#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume\n            attached to the ML compute instance(s) that run the training and inference jobs used for\n            automated data labeling. </p>\n        <p>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job with\n            automated data labeling enabled using the API operation <code>CreateLabelingJob</code>.\n            You cannot specify an Amazon Web Services KMS customer managed CMK to encrypt the storage volume used for\n            automated data labeling model training and inference when you create a labeling job\n            using the console. To learn more, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html\">Output Data and Storage Volume\n                Encryption</a>.</p>\n        <p>The <code>VolumeKmsKeyId</code> can be any of the following formats:</p>\n        <ul>\n            <li>\n                <p>KMS Key ID</p>\n                <p>\n                    <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n            <li>\n                <p>Amazon Resource Name (ARN) of a KMS Key</p>\n                <p>\n                    <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume\n            attached to the ML compute instance(s) that run the training and inference jobs used for\n            automated data labeling. </p>\n        <p>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job with\n            automated data labeling enabled using the API operation <code>CreateLabelingJob</code>.\n            You cannot specify an Amazon Web Services KMS key to encrypt the storage volume used for\n            automated data labeling model training and inference when you create a labeling job\n            using the console. To learn more, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html\">Output Data and Storage Volume\n                Encryption</a>.</p>\n        <p>The <code>VolumeKmsKeyId</code> can be any of the following formats:</p>\n        <ul>\n            <li>\n                <p>KMS Key ID</p>\n                <p>\n                    <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n            <li>\n                <p>Amazon Resource Name (ARN) of a KMS Key</p>\n                <p>\n                    <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -22794,7 +22797,7 @@
         "NameContains": {
           "target": "com.amazonaws.sagemaker#ModelNameContains",
           "traits": {
-            "smithy.api#documentation": "<p>A string in the training job name. This filter returns only models in the training\n            job whose name contains the specified string.</p>"
+            "smithy.api#documentation": "<p>A string in the model name. This filter returns only models whose \n            name contains the specified string.</p>"
           }
         },
         "CreationTimeBefore": {
@@ -28044,7 +28047,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.sagemaker#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using\n            Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following\n            formats: </p>\n        <ul>\n            <li>\n                <p>// KMS Key ID</p>\n                <p>\n                    <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// Amazon Resource Name (ARN) of a KMS Key</p>\n                <p>\n                    <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// KMS Key Alias</p>\n                <p>\n                    <code>\"alias/ExampleAlias\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>\n                <p>\n                    <code>\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"</code>\n                </p>\n            </li>\n         </ul>\n        \n        <p>If you use a KMS key ID or an alias of your master key, the Amazon SageMaker execution role must\n            include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,\n            Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. Amazon SageMaker uses server-side\n            encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket\n            policy with an <code>s3:PutObject</code> permission that only allows objects with\n            server-side encryption, set the condition key of\n                <code>s3:x-amz-server-side-encryption</code> to <code>\"aws:kms\"</code>. For more\n            information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html\">KMS-Managed Encryption\n                Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>\n         </p>\n        <p>The KMS key policy must grant permission to the IAM role that you specify in your\n                <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or\n                <code>CreateHyperParameterTuningJob</code> requests. For more information, see\n                <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html\">Using\n                    Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer\n                Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using\n            Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following\n            formats: </p>\n        <ul>\n            <li>\n                <p>// KMS Key ID</p>\n                <p>\n                    <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// Amazon Resource Name (ARN) of a KMS Key</p>\n                <p>\n                    <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// KMS Key Alias</p>\n                <p>\n                    <code>\"alias/ExampleAlias\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>\n                <p>\n                    <code>\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"</code>\n                </p>\n            </li>\n         </ul>\n        \n        <p>If you use a KMS key ID or an alias of your KMS key, the Amazon SageMaker execution role must\n            include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,\n            Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. Amazon SageMaker uses server-side\n            encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket\n            policy with an <code>s3:PutObject</code> permission that only allows objects with\n            server-side encryption, set the condition key of\n                <code>s3:x-amz-server-side-encryption</code> to <code>\"aws:kms\"</code>. For more\n            information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html\">KMS-Managed Encryption\n                Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>\n         </p>\n        <p>The KMS key policy must grant permission to the IAM role that you specify in your\n                <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or\n                <code>CreateHyperParameterTuningJob</code> requests. For more information, see\n                <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html\">Using\n                    Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer\n                Guide</i>.</p>"
           }
         },
         "S3OutputPath": {
@@ -29850,7 +29853,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.sagemaker#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the core dump data at rest using\n            Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following\n            formats: </p>\n        <ul>\n            <li>\n                <p>// KMS Key ID</p>\n                <p>\n                    <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// Amazon Resource Name (ARN) of a KMS Key</p>\n                <p>\n                    <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// KMS Key Alias</p>\n                <p>\n                    <code>\"alias/ExampleAlias\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>\n                <p>\n                    <code>\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"</code>\n                </p>\n            </li>\n         </ul>\n        \n        <p>If you use a KMS key ID or an alias of your master key, the Amazon SageMaker execution role must\n            include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,\n            Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. Amazon SageMaker uses server-side\n            encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket\n            policy with an <code>s3:PutObject</code> permission that only allows objects with\n            server-side encryption, set the condition key of\n                <code>s3:x-amz-server-side-encryption</code> to <code>\"aws:kms\"</code>. For more\n            information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html\">KMS-Managed Encryption\n                Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>\n         </p>\n        <p>The KMS key policy must grant permission to the IAM role that you specify in your\n                <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more\n            information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html\">Using Key Policies in Amazon Web Services\n                KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the core dump data at rest using\n            Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following\n            formats: </p>\n        <ul>\n            <li>\n                <p>// KMS Key ID</p>\n                <p>\n                    <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// Amazon Resource Name (ARN) of a KMS Key</p>\n                <p>\n                    <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// KMS Key Alias</p>\n                <p>\n                    <code>\"alias/ExampleAlias\"</code>\n                </p>\n            </li>\n            <li>\n                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>\n                <p>\n                    <code>\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"</code>\n                </p>\n            </li>\n         </ul>\n        \n        <p>If you use a KMS key ID or an alias of your KMS key, the Amazon SageMaker execution role must\n            include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,\n            Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. Amazon SageMaker uses server-side\n            encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket\n            policy with an <code>s3:PutObject</code> permission that only allows objects with\n            server-side encryption, set the condition key of\n                <code>s3:x-amz-server-side-encryption</code> to <code>\"aws:kms\"</code>. For more\n            information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html\">KMS-Managed Encryption\n                Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>\n         </p>\n        <p>The KMS key policy must grant permission to the IAM role that you specify in your\n                <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more\n            information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html\">Using Key Policies in Amazon Web Services\n                KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>"
           }
         }
       },
@@ -30404,6 +30407,68 @@
             "name": "DISABLED"
           }
         ]
+      }
+    },
+    "com.amazonaws.sagemaker#Project": {
+      "type": "structure",
+      "members": {
+        "ProjectArn": {
+          "target": "com.amazonaws.sagemaker#ProjectArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the project.</p>"
+          }
+        },
+        "ProjectName": {
+          "target": "com.amazonaws.sagemaker#ProjectEntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the project.</p>"
+          }
+        },
+        "ProjectId": {
+          "target": "com.amazonaws.sagemaker#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the project.</p>"
+          }
+        },
+        "ProjectDescription": {
+          "target": "com.amazonaws.sagemaker#EntityDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the project.</p>"
+          }
+        },
+        "ServiceCatalogProvisioningDetails": {
+          "target": "com.amazonaws.sagemaker#ServiceCatalogProvisioningDetails"
+        },
+        "ServiceCatalogProvisionedProductDetails": {
+          "target": "com.amazonaws.sagemaker#ServiceCatalogProvisionedProductDetails"
+        },
+        "ProjectStatus": {
+          "target": "com.amazonaws.sagemaker#ProjectStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the project.</p>"
+          }
+        },
+        "CreatedBy": {
+          "target": "com.amazonaws.sagemaker#UserContext",
+          "traits": {
+            "smithy.api#documentation": "<p>Who created the project.</p>"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp specifying when the project was created.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.sagemaker#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in\n            different ways, for example, by purpose, owner, or environment. For more information,\n            see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services\n                Resources</a>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The properties of a project as returned by the Search API.</p>"
       }
     },
     "com.amazonaws.sagemaker#ProjectArn": {
@@ -31249,7 +31314,7 @@
         "LifecycleConfigArn": {
           "target": "com.amazonaws.sagemaker#StudioLifecycleConfigArn",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the Resource.</p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</p>"
           }
         }
       },
@@ -31300,6 +31365,10 @@
           {
             "value": "FeatureGroup",
             "name": "FEATURE_GROUP"
+          },
+          {
+            "value": "Project",
+            "name": "PROJECT"
           }
         ]
       }
@@ -31347,6 +31416,60 @@
             "name": "Delete"
           }
         ]
+      }
+    },
+    "com.amazonaws.sagemaker#RetryPipelineExecution": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#RetryPipelineExecutionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#RetryPipelineExecutionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ResourceLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retry the execution of the pipeline.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#RetryPipelineExecutionRequest": {
+      "type": "structure",
+      "members": {
+        "PipelineExecutionArn": {
+          "target": "com.amazonaws.sagemaker#PipelineExecutionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the pipeline execution.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.sagemaker#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n         operation. An idempotent operation completes no more than once.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#RetryPipelineExecutionResponse": {
+      "type": "structure",
+      "members": {
+        "PipelineExecutionArn": {
+          "target": "com.amazonaws.sagemaker#PipelineExecutionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the pipeline execution.</p>"
+          }
+        }
       }
     },
     "com.amazonaws.sagemaker#RetryStrategy": {
@@ -32149,6 +32272,9 @@
           "target": "com.amazonaws.sagemaker#RenderUiTemplate"
         },
         {
+          "target": "com.amazonaws.sagemaker#RetryPipelineExecution"
+        },
+        {
           "target": "com.amazonaws.sagemaker#Search"
         },
         {
@@ -32468,6 +32594,12 @@
         },
         "FeatureGroup": {
           "target": "com.amazonaws.sagemaker#FeatureGroup"
+        },
+        "Project": {
+          "target": "com.amazonaws.sagemaker#Project",
+          "traits": {
+            "smithy.api#documentation": "<p>The properties of a project.</p>"
+          }
         }
       },
       "traits": {
@@ -32874,7 +33006,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Details that you specify to provision a service catalog product. For information about\n            service catalog, see .<a href=\"https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html\">What is Amazon Web Services Service\n                Catalog</a>.</p>"
+        "smithy.api#documentation": "<p>Details that you specify to provision a service catalog product. For information about\n            service catalog, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html\">What is Amazon Web Services Service\n                Catalog</a>.</p>"
       }
     },
     "com.amazonaws.sagemaker#SessionExpirationDurationInSeconds": {
@@ -33329,7 +33461,7 @@
         "ClientRequestToken": {
           "target": "com.amazonaws.sagemaker#IdempotencyToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n         operation. An idempotent operation completes no more than one time.</p>",
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n         operation. An idempotent operation completes no more than once.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
@@ -33603,7 +33735,7 @@
         "ClientRequestToken": {
           "target": "com.amazonaws.sagemaker#IdempotencyToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n         operation. An idempotent operation completes no more than one time.</p>",
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n         operation. An idempotent operation completes no more than once.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
@@ -35916,7 +36048,10 @@
           }
         },
         "CreatedBy": {
-          "target": "com.amazonaws.sagemaker#UserContext"
+          "target": "com.amazonaws.sagemaker#UserContext",
+          "traits": {
+            "smithy.api#documentation": "<p>Who created the trial.</p>"
+          }
         },
         "LastModifiedTime": {
           "target": "com.amazonaws.sagemaker#Timestamp",
@@ -36006,7 +36141,10 @@
           }
         },
         "CreatedBy": {
-          "target": "com.amazonaws.sagemaker#UserContext"
+          "target": "com.amazonaws.sagemaker#UserContext",
+          "traits": {
+            "smithy.api#documentation": "<p>Who created the trial component.</p>"
+          }
         },
         "LastModifiedTime": {
           "target": "com.amazonaws.sagemaker#Timestamp",
@@ -36461,7 +36599,7 @@
         "CreatedBy": {
           "target": "com.amazonaws.sagemaker#UserContext",
           "traits": {
-            "smithy.api#documentation": "<p>Who created the component.</p>"
+            "smithy.api#documentation": "<p>Who created the trial component.</p>"
           }
         },
         "LastModifiedTime": {
@@ -38083,7 +38221,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about the user who created or modified an experiment, trial, or trial\n      component.</p>"
+        "smithy.api#documentation": "<p>Information about the user who created or modified an experiment, trial, trial\n      component, or project.</p>"
       }
     },
     "com.amazonaws.sagemaker#UserProfileArn": {
