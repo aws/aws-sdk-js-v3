@@ -1016,11 +1016,10 @@ export class S3 extends S3Client {
    *
    *          <p>You can optionally request server-side encryption. For server-side encryption, Amazon S3
    *          encrypts your data as it writes it to disks in its data centers and decrypts it when you
-   *          access it. You can provide your own encryption key, or use Amazon Web Services Key Management Service (Amazon Web Services
-   *          KMS) customer master keys (CMKs) or Amazon S3-managed encryption keys. If you choose to provide
+   *          access it. You can provide your own encryption key, or use Amazon Web Services KMS keys or Amazon S3-managed encryption keys. If you choose to provide
    *          your own encryption key, the request headers you provide in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> requests must match the headers you used in the request to
    *          initiate the upload by using <code>CreateMultipartUpload</code>. </p>
-   *          <p>To perform a multipart upload with encryption using an Amazon Web Services KMS CMK, the requester must
+   *          <p>To perform a multipart upload with encryption using an Amazon Web Services KMS key, the requester must
    *          have permission to the <code>kms:Decrypt</code> and <code>kms:GenerateDataKey*</code>
    *          actions on the key. These permissions are required because Amazon S3 must decrypt and read data
    *          from the encrypted file parts before it completes the multipart upload. For more
@@ -1028,7 +1027,7 @@ export class S3 extends S3Client {
    *             and permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
    *
    *          <p>If your Identity and Access Management (IAM) user or role is in the same Amazon Web Services account
-   *          as the Amazon Web Services KMS CMK, then you must have these permissions on the key policy. If your IAM
+   *          as the KMS key, then you must have these permissions on the key policy. If your IAM
    *          user or role belongs to a different account than the key, then you must have the
    *          permissions on both the key policy and your IAM user or role.</p>
    *
@@ -1069,7 +1068,7 @@ export class S3 extends S3Client {
    *                   encryption keys or provide your own encryption key. </p>
    *                <ul>
    *                   <li>
-   *                      <p>Use encryption keys managed by Amazon S3 or customer master keys (CMKs) stored
+   *                      <p>Use encryption keys managed by Amazon S3 or customer managed key stored
    *                         in Amazon Web Services Key Management Service (Amazon Web Services KMS) – If you want Amazon Web Services to manage the keys
    *                         used to encrypt data, specify the following headers in the request.</p>
    *                      <ul>
@@ -1086,15 +1085,14 @@ export class S3 extends S3Client {
    *                      <note>
    *                         <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but
    *                            don't provide <code>x-amz-server-side-encryption-aws-kms-key-id</code>,
-   *                            Amazon S3 uses the Amazon Web Services managed CMK in Amazon Web Services KMS to protect the data.</p>
+   *                            Amazon S3 uses the Amazon Web Services managed key in Amazon Web Services KMS to protect the data.</p>
    *                      </note>
    *                      <important>
    *                         <p>All GET and PUT requests for an object protected by Amazon Web Services KMS fail if
    *                            you don't make them with SSL or by using SigV4.</p>
    *                      </important>
-   *                      <p>For more information about server-side encryption with CMKs stored in Amazon Web Services
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in Amazon Web Services
-   *                            KMS</a>.</p>
+   *                      <p>For more information about server-side encryption with KMS key (SSE-KMS),
+   *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with KMS keys</a>.</p>
    *                   </li>
    *                   <li>
    *                      <p>Use customer-provided encryption keys – If you want to manage your own
@@ -1110,9 +1108,8 @@ export class S3 extends S3Client {
    *                            <p>x-amz-server-side-encryption-customer-key-MD5</p>
    *                         </li>
    *                      </ul>
-   *                      <p>For more information about server-side encryption with CMKs stored in Amazon Web Services
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in Amazon Web Services
-   *                            KMS</a>.</p>
+   *                      <p>For more information about server-side encryption with KMS keys (SSE-KMS),
+   *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with KMS keys</a>.</p>
    *                   </li>
    *                </ul>
    *             </dd>
@@ -1491,9 +1488,9 @@ export class S3 extends S3Client {
 
   /**
    * <p>Deletes the S3 Intelligent-Tiering configuration from the specified bucket.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead. S3 Intelligent-Tiering delivers automatic cost savings by moving data between access tiers, when access patterns change.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is suitable for objects larger than 128 KB that you plan to store for at least 30 days. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the frequent access tier rates in the S3 Intelligent-Tiering storage class. </p>
-   *          <p>If you delete an object before the end of the 30-day minimum storage duration period, you are charged for 30 days. For more information, see  <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in two low latency and high throughput access tiers. For data that can be accessed asynchronously, you can choose to activate automatic archiving capabilities within the S3 Intelligent-Tiering storage class.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
    *          <p>Operations related to
    *             <code>DeleteBucketIntelligentTieringConfiguration</code> include: </p>
    *          <ul>
@@ -2537,9 +2534,9 @@ export class S3 extends S3Client {
 
   /**
    * <p>Gets the S3 Intelligent-Tiering configuration from the specified bucket.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead. S3 Intelligent-Tiering delivers automatic cost savings by moving data between access tiers, when access patterns change.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is suitable for objects larger than 128 KB that you plan to store for at least 30 days. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the frequent access tier rates in the S3 Intelligent-Tiering storage class. </p>
-   *          <p>If you delete an object before the end of the 30-day minimum storage duration period, you are charged for 30 days. For more information, see  <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in two low latency and high throughput access tiers. For data that can be accessed asynchronously, you can choose to activate automatic archiving capabilities within the S3 Intelligent-Tiering storage class.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
    *          <p>Operations related to
    *             <code>GetBucketIntelligentTieringConfiguration</code> include: </p>
    *          <ul>
@@ -3438,8 +3435,8 @@ export class S3 extends S3Client {
    *             Objects</a>.</p>
    *
    *          <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not
-   *          be sent for GET requests if your object uses server-side encryption with CMKs stored in Amazon Web Services
-   *          KMS (SSE-KMS) or server-side encryption with Amazon S3–managed encryption keys (SSE-S3). If your
+   *          be sent for GET requests if your object uses server-side encryption with KMS keys (SSE-KMS)
+   *          or server-side encryption with Amazon S3–managed encryption keys (SSE-S3). If your
    *          object does use these types of keys, you’ll get an HTTP 400 BadRequest error.</p>
    *          <p>If you encrypt an object by using server-side encryption with customer-provided
    *          encryption keys (SSE-C) when you store the object in Amazon S3, then when you GET the object,
@@ -4018,8 +4015,8 @@ export class S3 extends S3Client {
    *             <ul>
    *                <li>
    *                   <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should
-   *             not be sent for GET requests if your object uses server-side encryption with CMKs stored
-   *             in Amazon Web Services KMS (SSE-KMS) or server-side encryption with Amazon S3–managed encryption keys
+   *             not be sent for GET requests if your object uses server-side encryption with KMS keys (SSE-KMS)
+   *             or server-side encryption with Amazon S3–managed encryption keys
    *             (SSE-S3). If your object does use these types of keys, you’ll get an HTTP 400 BadRequest
    *             error.</p>
    *                </li>
@@ -4197,9 +4194,9 @@ export class S3 extends S3Client {
 
   /**
    * <p>Lists the S3 Intelligent-Tiering configuration from the specified bucket.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead. S3 Intelligent-Tiering delivers automatic cost savings by moving data between access tiers, when access patterns change.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is suitable for objects larger than 128 KB that you plan to store for at least 30 days. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the frequent access tier rates in the S3 Intelligent-Tiering storage class. </p>
-   *          <p>If you delete an object before the end of the 30-day minimum storage duration period, you are charged for 30 days. For more information, see  <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in two low latency and high throughput access tiers. For data that can be accessed asynchronously, you can choose to activate automatic archiving capabilities within the S3 Intelligent-Tiering storage class.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
    *          <p>Operations related to
    *             <code>ListBucketIntelligentTieringConfigurations</code> include: </p>
    *          <ul>
@@ -5311,7 +5308,7 @@ export class S3 extends S3Client {
    * <p>This action uses the <code>encryption</code> subresource to configure default
    *          encryption and Amazon S3 Bucket Key for an existing bucket.</p>
    *          <p>Default encryption for a bucket can use server-side encryption with Amazon S3-managed keys
-   *          (SSE-S3) or Amazon Web Services KMS customer master keys (SSE-KMS). If you specify default encryption
+   *          (SSE-S3) or customer managed keys (SSE-KMS). If you specify default encryption
    *          using SSE-KMS, you can also configure Amazon S3 Bucket Key. For information about default
    *          encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 default bucket encryption</a>
    *          in the <i>Amazon S3 User Guide</i>. For more information about S3 Bucket Keys,
@@ -5374,9 +5371,9 @@ export class S3 extends S3Client {
   /**
    * <p>Puts a S3 Intelligent-Tiering configuration to the specified bucket.
    *       You can have up to 1,000 S3 Intelligent-Tiering configurations per bucket.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead. S3 Intelligent-Tiering delivers automatic cost savings by moving data between access tiers, when access patterns change.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is suitable for objects larger than 128 KB that you plan to store for at least 30 days. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the frequent access tier rates in the S3 Intelligent-Tiering storage class. </p>
-   *          <p>If you delete an object before the end of the 30-day minimum storage duration period, you are charged for 30 days. For more information, see  <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in two low latency and high throughput access tiers. For data that can be accessed asynchronously, you can choose to activate automatic archiving capabilities within the S3 Intelligent-Tiering storage class.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
    *          <p>Operations related to
    *             <code>PutBucketIntelligentTieringConfiguration</code> include: </p>
    *          <ul>
@@ -5880,7 +5877,7 @@ export class S3 extends S3Client {
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html">PutBucketMetricsConfiguration</a>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetricsConfiguration.html">GetBucketMetricsConfiguration</a>
    *                </p>
    *             </li>
    *             <li>
@@ -6170,12 +6167,12 @@ export class S3 extends S3Client {
    *             <b>Handling Replication of Encrypted Objects</b>
    *          </p>
    *          <p>By default, Amazon S3 doesn't replicate objects that are stored at rest using server-side
-   *          encryption with CMKs stored in Amazon Web Services KMS. To replicate Amazon Web Services KMS-encrypted objects, add the
+   *          encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects, add the
    *          following: <code>SourceSelectionCriteria</code>, <code>SseKmsEncryptedObjects</code>,
    *             <code>Status</code>, <code>EncryptionConfiguration</code>, and
    *             <code>ReplicaKmsKeyID</code>. For information about replication configuration, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating Objects
-   *             Created with SSE Using CMKs stored in Amazon Web Services KMS</a>.</p>
+   *                Created with SSE Using KMS keys</a>.</p>
    *
    *          <p>For information on <code>PutBucketReplication</code> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List of
    *             replication-related error codes</a>
@@ -7681,7 +7678,7 @@ export class S3 extends S3Client {
    *                   (Using Customer-Provided Encryption Keys)</a> in the
    *                   <i>Amazon S3 User Guide</i>.</p>
    *                <p>For objects that are encrypted with Amazon S3 managed encryption keys (SSE-S3) and
-   *                customer master keys (CMKs) stored in Amazon Web Services Key Management Service (SSE-KMS),
+   *                Amazon Web Services KMS keys (SSE-KMS),
    *                server-side encryption is handled transparently, so you don't need to specify
    *                anything. For more information about server-side encryption, including SSE-S3 and
    *                SSE-KMS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using
@@ -8150,9 +8147,9 @@ export class S3 extends S3Client {
 
   /**
    * <p>Passes transformed
-   *          objects to a <code>GetObject</code> operation when using Object Lambda Access Points. For information about
-   *          Object Lambda Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
-   *             Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          objects to a <code>GetObject</code> operation when using Object Lambda access points. For information about
+   *          Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
+   *             Object Lambda access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>This operation supports metadata that can be returned by <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>, in addition to
    *            <code>RequestRoute</code>, <code>RequestToken</code>, <code>StatusCode</code>,
    *            <code>ErrorCode</code>, and <code>ErrorMessage</code>. The <code>GetObject</code>
@@ -8167,7 +8164,7 @@ export class S3 extends S3Client {
    *          <p>Amazon Web Services provides some prebuilt Lambda functions that you can use with S3 Object Lambda to detect and redact
    *          personally identifiable information (PII) and decompress S3 objects. These Lambda functions
    *          are available in the Amazon Web Services Serverless Application Repository, and can be selected through the Amazon Web Services Management Console when you create your
-   *          Object Lambda Access Point.</p>
+   *          Object Lambda access point.</p>
    *          <p>Example 1: PII Access Control - This Lambda function uses Amazon Comprehend, a natural language processing (NLP) service using machine learning to find insights and relationships in text. It automatically detects personally identifiable information (PII) such as names, addresses, dates, credit card numbers, and social security numbers from documents in your Amazon S3 bucket. </p>
    *          <p>Example 2: PII Redaction - This Lambda function uses Amazon Comprehend, a natural language processing (NLP) service using machine learning to find insights and relationships in text. It automatically redacts personally identifiable information (PII) such as names, addresses, dates, credit card numbers, and social security numbers from documents in your Amazon S3 bucket. </p>
    *          <p>Example 3: Decompression - The Lambda function S3ObjectLambdaDecompression, is equipped to decompress objects stored in S3 in one of six compressed file formats including bzip2, gzip, snappy, zlib, zstandard and ZIP. </p>

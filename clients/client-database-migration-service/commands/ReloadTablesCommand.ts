@@ -26,6 +26,8 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
 
 /**
  * <p>Reloads the target database table with the source data. </p>
+ *          <p>You can only use this operation with a task in the <code>RUNNING</code> state, otherwise the service
+ *            will throw an <code>InvalidResourceStateFault</code> exception.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,9 +32,9 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Passes transformed
- *          objects to a <code>GetObject</code> operation when using Object Lambda Access Points. For information about
- *          Object Lambda Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
- *             Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          objects to a <code>GetObject</code> operation when using Object Lambda access points. For information about
+ *          Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
+ *             Object Lambda access points</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>This operation supports metadata that can be returned by <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>, in addition to
  *            <code>RequestRoute</code>, <code>RequestToken</code>, <code>StatusCode</code>,
  *            <code>ErrorCode</code>, and <code>ErrorMessage</code>. The <code>GetObject</code>
@@ -49,7 +49,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *          <p>Amazon Web Services provides some prebuilt Lambda functions that you can use with S3 Object Lambda to detect and redact
  *          personally identifiable information (PII) and decompress S3 objects. These Lambda functions
  *          are available in the Amazon Web Services Serverless Application Repository, and can be selected through the Amazon Web Services Management Console when you create your
- *          Object Lambda Access Point.</p>
+ *          Object Lambda access point.</p>
  *          <p>Example 1: PII Access Control - This Lambda function uses Amazon Comprehend, a natural language processing (NLP) service using machine learning to find insights and relationships in text. It automatically detects personally identifiable information (PII) such as names, addresses, dates, credit card numbers, and social security numbers from documents in your Amazon S3 bucket. </p>
  *          <p>Example 2: PII Redaction - This Lambda function uses Amazon Comprehend, a natural language processing (NLP) service using machine learning to find insights and relationships in text. It automatically redacts personally identifiable information (PII) such as names, addresses, dates, credit card numbers, and social security numbers from documents in your Amazon S3 bucket. </p>
  *          <p>Example 3: Decompression - The Lambda function S3ObjectLambdaDecompression, is equipped to decompress objects stored in S3 in one of six compressed file formats including bzip2, gzip, snappy, zlib, zstandard and ZIP. </p>

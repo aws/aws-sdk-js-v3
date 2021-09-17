@@ -109,6 +109,10 @@ import {
   ListFindingsFiltersCommandOutput,
 } from "../commands/ListFindingsFiltersCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "../commands/ListInvitationsCommand";
+import {
+  ListManagedDataIdentifiersCommandInput,
+  ListManagedDataIdentifiersCommandOutput,
+} from "../commands/ListManagedDataIdentifiersCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import {
   ListOrganizationAdminAccountsCommandInput,
@@ -216,6 +220,7 @@ import {
   ListJobsFilterCriteria,
   ListJobsFilterTerm,
   ListJobsSortCriteria,
+  ManagedDataIdentifierSummary,
   MatchingBucket,
   MatchingResource,
   Member,
@@ -368,6 +373,14 @@ export const serializeAws_restJson1CreateClassificationJobCommand = async (
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.initialRun !== undefined && input.initialRun !== null && { initialRun: input.initialRun }),
     ...(input.jobType !== undefined && input.jobType !== null && { jobType: input.jobType }),
+    ...(input.managedDataIdentifierIds !== undefined &&
+      input.managedDataIdentifierIds !== null && {
+        managedDataIdentifierIds: serializeAws_restJson1__listOf__string(input.managedDataIdentifierIds, context),
+      }),
+    ...(input.managedDataIdentifierSelector !== undefined &&
+      input.managedDataIdentifierSelector !== null && {
+        managedDataIdentifierSelector: input.managedDataIdentifierSelector,
+      }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.s3JobDefinition !== undefined &&
       input.s3JobDefinition !== null && {
@@ -1423,6 +1436,31 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListManagedDataIdentifiersCommand = async (
+  input: ListManagedDataIdentifiersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/managed-data-identifiers/list";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -3324,6 +3362,8 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
     jobType: undefined,
     lastRunErrorStatus: undefined,
     lastRunTime: undefined,
+    managedDataIdentifierIds: undefined,
+    managedDataIdentifierSelector: undefined,
     name: undefined,
     s3JobDefinition: undefined,
     samplingPercentage: undefined,
@@ -3365,6 +3405,15 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
   }
   if (data.lastRunTime !== undefined && data.lastRunTime !== null) {
     contents.lastRunTime = __expectNonNull(__parseRfc3339DateTime(data.lastRunTime));
+  }
+  if (data.managedDataIdentifierIds !== undefined && data.managedDataIdentifierIds !== null) {
+    contents.managedDataIdentifierIds = deserializeAws_restJson1__listOf__string(
+      data.managedDataIdentifierIds,
+      context
+    );
+  }
+  if (data.managedDataIdentifierSelector !== undefined && data.managedDataIdentifierSelector !== null) {
+    contents.managedDataIdentifierSelector = __expectString(data.managedDataIdentifierSelector);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
@@ -6456,6 +6505,57 @@ const deserializeAws_restJson1ListInvitationsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListManagedDataIdentifiersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedDataIdentifiersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListManagedDataIdentifiersCommandError(output, context);
+  }
+  const contents: ListManagedDataIdentifiersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    items: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items !== undefined && data.items !== null) {
+    contents.items = deserializeAws_restJson1__listOfManagedDataIdentifierSummary(data.items, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListManagedDataIdentifiersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedDataIdentifiersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8578,6 +8678,20 @@ const deserializeAws_restJson1__listOfKeyValuePair = (output: any, context: __Se
     });
 };
 
+const deserializeAws_restJson1__listOfManagedDataIdentifierSummary = (
+  output: any,
+  context: __SerdeContext
+): ManagedDataIdentifierSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ManagedDataIdentifierSummary(entry, context);
+    });
+};
+
 const deserializeAws_restJson1__listOfMatchingResource = (output: any, context: __SerdeContext): MatchingResource[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -9451,6 +9565,16 @@ const deserializeAws_restJson1KeyValuePairList = (output: any, context: __SerdeC
 const deserializeAws_restJson1LastRunErrorStatus = (output: any, context: __SerdeContext): LastRunErrorStatus => {
   return {
     code: __expectString(output.code),
+  } as any;
+};
+
+const deserializeAws_restJson1ManagedDataIdentifierSummary = (
+  output: any,
+  context: __SerdeContext
+): ManagedDataIdentifierSummary => {
+  return {
+    category: __expectString(output.category),
+    id: __expectString(output.id),
   } as any;
 };
 

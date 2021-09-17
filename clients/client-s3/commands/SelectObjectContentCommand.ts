@@ -77,7 +77,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *                   (Using Customer-Provided Encryption Keys)</a> in the
  *                   <i>Amazon S3 User Guide</i>.</p>
  *                <p>For objects that are encrypted with Amazon S3 managed encryption keys (SSE-S3) and
- *                customer master keys (CMKs) stored in Amazon Web Services Key Management Service (SSE-KMS),
+ *                Amazon Web Services KMS keys (SSE-KMS),
  *                server-side encryption is handled transparently, so you don't need to specify
  *                anything. For more information about server-side encryption, including SSE-S3 and
  *                SSE-KMS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using

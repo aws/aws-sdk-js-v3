@@ -45,9 +45,34 @@ import {
   RegistrationConfig,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
+  ThingTypeDefinition,
   ViolationEventOccurrenceRange,
 } from "./models_1";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+/**
+ * <p>The output for the ListThingTypes operation.</p>
+ */
+export interface ListThingTypesResponse {
+  /**
+   * <p>The thing types.</p>
+   */
+  thingTypes?: ThingTypeDefinition[];
+
+  /**
+   * <p>The token for the next set of results. Will not be returned if operation has returned all results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingTypesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingTypesResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface ListTopicRuleDestinationsRequest {
   /**
@@ -1076,7 +1101,7 @@ export interface ThingConnectivity {
   timestamp?: number;
 
   /**
-   * <p>The reason why the client is disconnected.</p>
+   * <p>The reason why the client is disconnected. If the thing has been disconnected for approximately an hour, the <code>disconnectReason</code> value might be missing.</p>
    */
   disconnectReason?: string;
 }

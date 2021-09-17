@@ -49,6 +49,7 @@ export * from "./commands/ListFindingsFiltersCommand";
 export * from "./pagination/ListFindingsFiltersPaginator";
 export * from "./commands/ListInvitationsCommand";
 export * from "./pagination/ListInvitationsPaginator";
+export * from "./commands/ListManagedDataIdentifiersCommand";
 export * from "./commands/ListMembersCommand";
 export * from "./pagination/ListMembersPaginator";
 export * from "./commands/ListOrganizationAdminAccountsCommand";

@@ -1093,14 +1093,14 @@ export interface RegisterImageRequest {
 
   /**
    * <p>The architecture of the AMI.</p>
-   *          <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>.
+   *    	     <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>.
    *         For instance store-backed AMIs, the architecture specified in the manifest file.</p>
    */
   Architecture?: ArchitectureValues | string;
 
   /**
    * <p>The block device mapping entries.</p>
-   *          <p>If you specify an EBS volume using the ID of an EBS snapshot, you can't specify the encryption state of the volume.</p>
+   *    	     <p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the encryption state of the volume.</p>
    *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost or in the Region
    *     	 of that Outpost. AMIs on an Outpost that include local snapshots can be used to launch instances on the same Outpost
    *     	 only. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
@@ -1139,7 +1139,7 @@ export interface RegisterImageRequest {
 
   /**
    * <p>The billing product codes. Your account must be authorized to specify billing product codes. Otherwise,
-   *          you can use the AWS Marketplace to bill for the use of an AMI.</p>
+   *      	you can use the Amazon Web Services Marketplace to bill for the use of an AMI.</p>
    */
   BillingProducts?: string[];
 
@@ -3588,6 +3588,9 @@ export interface RunInstancesRequest {
    *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a
    *             instances)</p>
+   *
+   *         <p>For T3 instances with <code>host</code> tenancy, only <code>standard</code> is
+   *             supported.</p>
    */
   CreditSpecification?: CreditSpecificationRequest;
 

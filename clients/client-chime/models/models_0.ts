@@ -3910,6 +3910,11 @@ export interface CreateSipMediaApplicationCallRequest {
    * <p>The ID of the SIP media application.</p>
    */
   SipMediaApplicationId: string | undefined;
+
+  /**
+   * <p>The SIP headers added to an outbound call leg.</p>
+   */
+  SipHeaders?: { [key: string]: string };
 }
 
 export namespace CreateSipMediaApplicationCallRequest {
@@ -3920,6 +3925,7 @@ export namespace CreateSipMediaApplicationCallRequest {
     ...obj,
     ...(obj.FromPhoneNumber && { FromPhoneNumber: SENSITIVE_STRING }),
     ...(obj.ToPhoneNumber && { ToPhoneNumber: SENSITIVE_STRING }),
+    ...(obj.SipHeaders && { SipHeaders: SENSITIVE_STRING }),
   });
 }
 

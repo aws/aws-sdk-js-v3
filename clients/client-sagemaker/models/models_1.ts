@@ -2371,7 +2371,7 @@ export namespace ProvisioningParameter {
 
 /**
  * <p>Details that you specify to provision a service catalog product. For information about
- *             service catalog, see .<a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+ *             service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
  *                 Catalog</a>.</p>
  */
 export interface ServiceCatalogProvisioningDetails {
@@ -4971,8 +4971,8 @@ export interface DescribeActionResponse {
   CreationTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 
@@ -4982,8 +4982,8 @@ export interface DescribeActionResponse {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -5282,8 +5282,8 @@ export interface DescribeArtifactResponse {
   CreationTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 
@@ -5293,8 +5293,8 @@ export interface DescribeArtifactResponse {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -5781,8 +5781,8 @@ export interface DescribeContextResponse {
   CreationTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 
@@ -5792,8 +5792,8 @@ export interface DescribeContextResponse {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 }
@@ -6203,7 +6203,7 @@ export interface DescribeDomainResponse {
   VpcId?: string;
 
   /**
-   * <p>The Amazon Web Services KMS customer managed CMK used to encrypt
+   * <p>The Amazon Web Services KMS customer managed key used to encrypt
    *          the EFS volume attached to the domain.</p>
    */
   KmsKeyId?: string;
@@ -6320,7 +6320,7 @@ export interface DescribeEdgePackagingJobResponse {
   OutputConfig?: EdgeOutputConfig;
 
   /**
-   * <p>The CMK to use when encrypting the EBS volume the job run on.</p>
+   * <p>The Amazon Web Services KMS key to use when encrypting the EBS volume the job run on.</p>
    */
   ResourceKey?: string;
 
@@ -8266,8 +8266,8 @@ export interface DescribeModelPackageOutput {
   ModelApprovalStatus?: ModelApprovalStatus | string;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 
@@ -8287,8 +8287,8 @@ export interface DescribeModelPackageOutput {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -8354,8 +8354,8 @@ export interface DescribeModelPackageGroupOutput {
   CreationTime: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy: UserContext | undefined;
 
@@ -8944,14 +8944,14 @@ export interface DescribePipelineResponse {
   LastRunTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 }
@@ -9097,14 +9097,14 @@ export interface DescribePipelineExecutionResponse {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 }
@@ -9377,8 +9377,8 @@ export interface DescribeProjectOutput {
   ProjectStatus: ProjectStatus | string | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 

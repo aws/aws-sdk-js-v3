@@ -24,7 +24,7 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
 
 /**
  * <p>Retrieves an array of managed rule groups that are available for you to use. This list
- *          includes all Amazon Web Services Managed Rules rule groups and all of the Marketplace managed rule groups that you're
+ *          includes all Amazon Web Services Managed Rules rule groups and all of the Amazon Web Services Marketplace managed rule groups that you're
  *          subscribed to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

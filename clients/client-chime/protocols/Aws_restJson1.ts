@@ -1900,6 +1900,8 @@ export const serializeAws_restJson1CreateSipMediaApplicationCallCommand = async 
   body = JSON.stringify({
     ...(input.FromPhoneNumber !== undefined &&
       input.FromPhoneNumber !== null && { FromPhoneNumber: input.FromPhoneNumber }),
+    ...(input.SipHeaders !== undefined &&
+      input.SipHeaders !== null && { SipHeaders: serializeAws_restJson1SipHeadersMap(input.SipHeaders, context) }),
     ...(input.ToPhoneNumber !== undefined && input.ToPhoneNumber !== null && { ToPhoneNumber: input.ToPhoneNumber }),
   });
   return new __HttpRequest({
@@ -11068,6 +11070,14 @@ const deserializeAws_restJson1CreateSipMediaApplicationCallCommandError = async 
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chime#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "BadRequestException":
     case "com.amazonaws.chime#BadRequestException":
       response = {
@@ -28026,6 +28036,18 @@ const serializeAws_restJson1SigninDelegateGroupList = (input: SigninDelegateGrou
       }
       return serializeAws_restJson1SigninDelegateGroup(entry, context);
     });
+};
+
+const serializeAws_restJson1SipHeadersMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1SipMediaApplicationEndpoint = (

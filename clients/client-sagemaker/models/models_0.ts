@@ -911,7 +911,7 @@ export interface OutputDataConfig {
    *             </li>
    *          </ul>
    *
-   *         <p>If you use a KMS key ID or an alias of your master key, the Amazon SageMaker execution role must
+   *         <p>If you use a KMS key ID or an alias of your KMS key, the Amazon SageMaker execution role must
    *             include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,
    *             Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. Amazon SageMaker uses server-side
    *             encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket
@@ -3608,8 +3608,8 @@ export namespace AssociateTrialComponentResponse {
 }
 
 /**
- * <p>Information about the user who created or modified an experiment, trial, or trial
- *       component.</p>
+ * <p>Information about the user who created or modified an experiment, trial, trial
+ *       component, or project.</p>
  */
 export interface UserContext {
   /**
@@ -3684,8 +3684,8 @@ export interface AssociationSummary {
   CreationTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 }
@@ -6382,7 +6382,7 @@ export interface ResourceSpec {
   InstanceType?: AppInstanceType | string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the Resource.</p>
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</p>
    */
   LifecycleConfigArn?: string;
 }
@@ -8424,7 +8424,7 @@ export interface KernelGatewayAppSettings {
   CustomImages?: CustomImage[];
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the KernelGatewayApp.</p>
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the the user profile or domain.</p>
    */
   LifecycleConfigArns?: string[];
 }
@@ -8620,7 +8620,7 @@ export interface CreateDomainRequest {
 
   /**
    * <p>SageMaker uses Amazon Web Services KMS to encrypt the EFS volume attached to the domain with an Amazon Web Services managed
-   *          customer master key (CMK) by default. For more control, specify a customer managed CMK.</p>
+   *          key by default. For more control, specify a customer managed key.</p>
    */
   KmsKeyId?: string;
 }
@@ -8687,7 +8687,7 @@ export interface CreateEdgePackagingJobRequest {
   OutputConfig: EdgeOutputConfig | undefined;
 
   /**
-   * <p>The CMK to use when encrypting the EBS volume the edge packaging job runs on.</p>
+   * <p>The Amazon Web Services KMS key to use when encrypting the EBS volume the edge packaging job runs on.</p>
    */
   ResourceKey?: string;
 
@@ -8847,7 +8847,7 @@ export interface ProductionVariantCoreDumpConfig {
    *             </li>
    *          </ul>
    *
-   *         <p>If you use a KMS key ID or an alias of your master key, the Amazon SageMaker execution role must
+   *         <p>If you use a KMS key ID or an alias of your KMS key, the Amazon SageMaker execution role must
    *             include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,
    *             Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. Amazon SageMaker uses server-side
    *             encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket
@@ -13071,7 +13071,7 @@ export interface LabelingJobResourceConfig {
    *             automated data labeling. </p>
    *         <p>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job with
    *             automated data labeling enabled using the API operation <code>CreateLabelingJob</code>.
-   *             You cannot specify an Amazon Web Services KMS customer managed CMK to encrypt the storage volume used for
+   *             You cannot specify an Amazon Web Services KMS key to encrypt the storage volume used for
    *             automated data labeling model training and inference when you create a labeling job
    *             using the console. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html">Output Data and Storage Volume
    *                 Encryption</a>.</p>

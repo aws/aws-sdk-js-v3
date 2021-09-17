@@ -53,12 +53,12 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *             <b>Handling Replication of Encrypted Objects</b>
  *          </p>
  *          <p>By default, Amazon S3 doesn't replicate objects that are stored at rest using server-side
- *          encryption with CMKs stored in Amazon Web Services KMS. To replicate Amazon Web Services KMS-encrypted objects, add the
+ *          encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects, add the
  *          following: <code>SourceSelectionCriteria</code>, <code>SseKmsEncryptedObjects</code>,
  *             <code>Status</code>, <code>EncryptionConfiguration</code>, and
  *             <code>ReplicaKmsKeyID</code>. For information about replication configuration, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating Objects
- *             Created with SSE Using CMKs stored in Amazon Web Services KMS</a>.</p>
+ *                Created with SSE Using KMS keys</a>.</p>
  *
  *          <p>For information on <code>PutBucketReplication</code> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List of
  *             replication-related error codes</a>

@@ -21,8 +21,8 @@ export interface CreateManagedPrefixListCommandInput extends CreateManagedPrefix
 export interface CreateManagedPrefixListCommandOutput extends CreateManagedPrefixListResult, __MetadataBearer {}
 
 /**
- * <p>Creates a managed prefix list. You can specify one or more entries for the prefix list. Each entry consists of a CIDR block and an optional description.</p>
- *         <p>You must specify the maximum number of entries for the prefix list. The maximum number of entries cannot be changed later.</p>
+ * <p>Creates a managed prefix list. You can specify one or more entries for the prefix list.
+ *             Each entry consists of a CIDR block and an optional description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

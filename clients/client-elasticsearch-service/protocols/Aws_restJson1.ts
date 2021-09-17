@@ -1110,12 +1110,12 @@ export const serializeAws_restJson1ListDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/domain";
+  const query: any = {
+    ...(input.EngineType !== undefined && { engineType: input.EngineType }),
+  };
   let body: any;
-  body = "";
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1123,6 +1123,7 @@ export const serializeAws_restJson1ListDomainNamesCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -5779,6 +5780,7 @@ const deserializeAws_restJson1DomainEndpointOptionsStatus = (
 const deserializeAws_restJson1DomainInfo = (output: any, context: __SerdeContext): DomainInfo => {
   return {
     DomainName: __expectString(output.DomainName),
+    EngineType: __expectString(output.EngineType),
   } as any;
 };
 

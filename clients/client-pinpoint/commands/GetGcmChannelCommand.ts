@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetGcmChannelRequest, GetGcmChannelResponse } from "../models/models_0";
+import { GetGcmChannelRequest, GetGcmChannelResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetGcmChannelCommand,
   serializeAws_restJson1GetGcmChannelCommand,

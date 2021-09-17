@@ -197,6 +197,11 @@ import {
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand";
+import {
+  ListManagedDataIdentifiersCommand,
+  ListManagedDataIdentifiersCommandInput,
+  ListManagedDataIdentifiersCommandOutput,
+} from "./commands/ListManagedDataIdentifiersCommand";
 import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListOrganizationAdminAccountsCommand,
@@ -1548,7 +1553,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about all the Amazon Macie membership invitations that were received by an account.</p>
+   * <p>Retrieves information about the Amazon Macie membership invitations that were received by an account.</p>
    */
   public listInvitations(
     args: ListInvitationsCommandInput,
@@ -1569,6 +1574,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: ListInvitationsCommandOutput) => void
   ): Promise<ListInvitationsCommandOutput> | void {
     const command = new ListInvitationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about all the managed data identifiers that Amazon Macie currently provides.</p>
+   */
+  public listManagedDataIdentifiers(
+    args: ListManagedDataIdentifiersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedDataIdentifiersCommandOutput>;
+  public listManagedDataIdentifiers(
+    args: ListManagedDataIdentifiersCommandInput,
+    cb: (err: any, data?: ListManagedDataIdentifiersCommandOutput) => void
+  ): void;
+  public listManagedDataIdentifiers(
+    args: ListManagedDataIdentifiersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedDataIdentifiersCommandOutput) => void
+  ): void;
+  public listManagedDataIdentifiers(
+    args: ListManagedDataIdentifiersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListManagedDataIdentifiersCommandOutput) => void),
+    cb?: (err: any, data?: ListManagedDataIdentifiersCommandOutput) => void
+  ): Promise<ListManagedDataIdentifiersCommandOutput> | void {
+    const command = new ListManagedDataIdentifiersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

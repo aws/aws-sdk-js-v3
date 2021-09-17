@@ -493,6 +493,10 @@ import {
 } from "../commands/PutModelPackageGroupPolicyCommand";
 import { RegisterDevicesCommandInput, RegisterDevicesCommandOutput } from "../commands/RegisterDevicesCommand";
 import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "../commands/RenderUiTemplateCommand";
+import {
+  RetryPipelineExecutionCommandInput,
+  RetryPipelineExecutionCommandOutput,
+} from "../commands/RetryPipelineExecutionCommand";
 import { SearchCommandInput, SearchCommandOutput } from "../commands/SearchCommand";
 import {
   SendPipelineExecutionStepFailureCommandInput,
@@ -1270,6 +1274,7 @@ import {
   ProcessingJobStepMetadata,
   ProcessingJobSummary,
   ProfilerConfigForUpdate,
+  Project,
   ProjectSummary,
   PropertyNameQuery,
   PropertyNameSuggestion,
@@ -1281,6 +1286,8 @@ import {
   RenderUiTemplateResponse,
   RenderableTask,
   RenderingError,
+  RetryPipelineExecutionRequest,
+  RetryPipelineExecutionResponse,
   SearchRecord,
   SearchResponse,
   SecondaryStatusTransition,
@@ -1326,9 +1333,6 @@ import {
   UpdateActionResponse,
   UpdateAppImageConfigRequest,
   UpdateAppImageConfigResponse,
-  UpdateArtifactRequest,
-  UpdateArtifactResponse,
-  UpdateCodeRepositoryInput,
   UserProfileDetails,
   Workforce,
   Workteam,
@@ -1336,6 +1340,9 @@ import {
 import {
   SearchExpression,
   SearchRequest,
+  UpdateArtifactRequest,
+  UpdateArtifactResponse,
+  UpdateCodeRepositoryInput,
   UpdateCodeRepositoryOutput,
   UpdateContextRequest,
   UpdateContextResponse,
@@ -3973,6 +3980,19 @@ export const serializeAws_json1_1RenderUiTemplateCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RenderUiTemplateRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RetryPipelineExecutionCommand = async (
+  input: RetryPipelineExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.RetryPipelineExecution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RetryPipelineExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -14816,6 +14836,76 @@ const deserializeAws_json1_1RenderUiTemplateCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1RetryPipelineExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RetryPipelineExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RetryPipelineExecutionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RetryPipelineExecutionResponse(data, context);
+  const response: RetryPipelineExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RetryPipelineExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RetryPipelineExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1SearchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -23308,6 +23398,17 @@ const serializeAws_json1_1RetentionPolicy = (input: RetentionPolicy, context: __
   return {
     ...(input.HomeEfsFileSystem !== undefined &&
       input.HomeEfsFileSystem !== null && { HomeEfsFileSystem: input.HomeEfsFileSystem }),
+  };
+};
+
+const serializeAws_json1_1RetryPipelineExecutionRequest = (
+  input: RetryPipelineExecutionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.PipelineExecutionArn !== undefined &&
+      input.PipelineExecutionArn !== null && { PipelineExecutionArn: input.PipelineExecutionArn }),
   };
 };
 
@@ -32408,6 +32509,40 @@ const deserializeAws_json1_1ProfilingParameters = (output: any, context: __Serde
   }, {});
 };
 
+const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Project => {
+  return {
+    CreatedBy:
+      output.CreatedBy !== undefined && output.CreatedBy !== null
+        ? deserializeAws_json1_1UserContext(output.CreatedBy, context)
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    ProjectArn: __expectString(output.ProjectArn),
+    ProjectDescription: __expectString(output.ProjectDescription),
+    ProjectId: __expectString(output.ProjectId),
+    ProjectName: __expectString(output.ProjectName),
+    ProjectStatus: __expectString(output.ProjectStatus),
+    ServiceCatalogProvisionedProductDetails:
+      output.ServiceCatalogProvisionedProductDetails !== undefined &&
+      output.ServiceCatalogProvisionedProductDetails !== null
+        ? deserializeAws_json1_1ServiceCatalogProvisionedProductDetails(
+            output.ServiceCatalogProvisionedProductDetails,
+            context
+          )
+        : undefined,
+    ServiceCatalogProvisioningDetails:
+      output.ServiceCatalogProvisioningDetails !== undefined && output.ServiceCatalogProvisioningDetails !== null
+        ? deserializeAws_json1_1ServiceCatalogProvisioningDetails(output.ServiceCatalogProvisioningDetails, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
   return {
     CreationTime:
@@ -32640,6 +32775,15 @@ const deserializeAws_json1_1ResponseMIMETypes = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_json1_1RetryPipelineExecutionResponse = (
+  output: any,
+  context: __SerdeContext
+): RetryPipelineExecutionResponse => {
+  return {
+    PipelineExecutionArn: __expectString(output.PipelineExecutionArn),
+  } as any;
+};
+
 const deserializeAws_json1_1RetryStrategy = (output: any, context: __SerdeContext): RetryStrategy => {
   return {
     MaximumRetryAttempts: __expectInt32(output.MaximumRetryAttempts),
@@ -32713,6 +32857,10 @@ const deserializeAws_json1_1SearchRecord = (output: any, context: __SerdeContext
     PipelineExecution:
       output.PipelineExecution !== undefined && output.PipelineExecution !== null
         ? deserializeAws_json1_1PipelineExecution(output.PipelineExecution, context)
+        : undefined,
+    Project:
+      output.Project !== undefined && output.Project !== null
+        ? deserializeAws_json1_1Project(output.Project, context)
         : undefined,
     TrainingJob:
       output.TrainingJob !== undefined && output.TrainingJob !== null

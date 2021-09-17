@@ -280,6 +280,8 @@ import {
   DocumentClassifierOutputDataConfig,
   DocumentClassifierProperties,
   DocumentLabel,
+  DocumentReadFeatureTypes,
+  DocumentReaderConfig,
   DominantLanguage,
   DominantLanguageDetectionJobFilter,
   DominantLanguageDetectionJobProperties,
@@ -6466,11 +6468,16 @@ const serializeAws_json1_1AugmentedManifestsListItem = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AnnotationDataS3Uri !== undefined &&
+      input.AnnotationDataS3Uri !== null && { AnnotationDataS3Uri: input.AnnotationDataS3Uri }),
     ...(input.AttributeNames !== undefined &&
       input.AttributeNames !== null && {
         AttributeNames: serializeAws_json1_1AttributeNamesList(input.AttributeNames, context),
       }),
+    ...(input.DocumentType !== undefined && input.DocumentType !== null && { DocumentType: input.DocumentType }),
     ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.SourceDocumentsS3Uri !== undefined &&
+      input.SourceDocumentsS3Uri !== null && { SourceDocumentsS3Uri: input.SourceDocumentsS3Uri }),
   };
 };
 
@@ -6864,6 +6871,19 @@ const serializeAws_json1_1DocumentClassifierOutputDataConfig = (
   };
 };
 
+const serializeAws_json1_1DocumentReaderConfig = (input: DocumentReaderConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.DocumentReadAction !== undefined &&
+      input.DocumentReadAction !== null && { DocumentReadAction: input.DocumentReadAction }),
+    ...(input.DocumentReadMode !== undefined &&
+      input.DocumentReadMode !== null && { DocumentReadMode: input.DocumentReadMode }),
+    ...(input.FeatureTypes !== undefined &&
+      input.FeatureTypes !== null && {
+        FeatureTypes: serializeAws_json1_1ListOfDocumentReadFeatureTypes(input.FeatureTypes, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1DominantLanguageDetectionJobFilter = (
   input: DominantLanguageDetectionJobFilter,
   context: __SerdeContext
@@ -7019,6 +7039,10 @@ const serializeAws_json1_1EventsDetectionJobFilter = (
 
 const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
   return {
+    ...(input.DocumentReaderConfig !== undefined &&
+      input.DocumentReaderConfig !== null && {
+        DocumentReaderConfig: serializeAws_json1_1DocumentReaderConfig(input.DocumentReaderConfig, context),
+      }),
     ...(input.InputFormat !== undefined && input.InputFormat !== null && { InputFormat: input.InputFormat }),
     ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
   };
@@ -7131,6 +7155,20 @@ const serializeAws_json1_1ListKeyPhrasesDetectionJobsRequest = (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
+};
+
+const serializeAws_json1_1ListOfDocumentReadFeatureTypes = (
+  input: (DocumentReadFeatureTypes | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ListOfPiiEntityTypes = (input: (PiiEntityType | string)[], context: __SerdeContext): any => {
@@ -7647,11 +7685,14 @@ const deserializeAws_json1_1AugmentedManifestsListItem = (
   context: __SerdeContext
 ): AugmentedManifestsListItem => {
   return {
+    AnnotationDataS3Uri: __expectString(output.AnnotationDataS3Uri),
     AttributeNames:
       output.AttributeNames !== undefined && output.AttributeNames !== null
         ? deserializeAws_json1_1AttributeNamesList(output.AttributeNames, context)
         : undefined,
+    DocumentType: __expectString(output.DocumentType),
     S3Uri: __expectString(output.S3Uri),
+    SourceDocumentsS3Uri: __expectString(output.SourceDocumentsS3Uri),
   } as any;
 };
 
@@ -8304,6 +8345,17 @@ const deserializeAws_json1_1DocumentLabel = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_1DocumentReaderConfig = (output: any, context: __SerdeContext): DocumentReaderConfig => {
+  return {
+    DocumentReadAction: __expectString(output.DocumentReadAction),
+    DocumentReadMode: __expectString(output.DocumentReadMode),
+    FeatureTypes:
+      output.FeatureTypes !== undefined && output.FeatureTypes !== null
+        ? deserializeAws_json1_1ListOfDocumentReadFeatureTypes(output.FeatureTypes, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DominantLanguage = (output: any, context: __SerdeContext): DominantLanguage => {
   return {
     LanguageCode: __expectString(output.LanguageCode),
@@ -8722,6 +8774,10 @@ const deserializeAws_json1_1EventsDetectionJobPropertiesList = (
 
 const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
   return {
+    DocumentReaderConfig:
+      output.DocumentReaderConfig !== undefined && output.DocumentReaderConfig !== null
+        ? deserializeAws_json1_1DocumentReaderConfig(output.DocumentReaderConfig, context)
+        : undefined,
     InputFormat: __expectString(output.InputFormat),
     S3Uri: __expectString(output.S3Uri),
   } as any;
@@ -9015,6 +9071,20 @@ const deserializeAws_json1_1ListOfDetectSyntaxResult = (
         return null as any;
       }
       return deserializeAws_json1_1BatchDetectSyntaxItemResult(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ListOfDocumentReadFeatureTypes = (
+  output: any,
+  context: __SerdeContext
+): (DocumentReadFeatureTypes | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
 };
 

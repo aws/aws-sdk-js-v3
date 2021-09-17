@@ -6475,6 +6475,8 @@ const serializeAws_json1_1RebootReplicationInstanceMessage = (
 ): any => {
   return {
     ...(input.ForceFailover !== undefined && input.ForceFailover !== null && { ForceFailover: input.ForceFailover }),
+    ...(input.ForcePlannedFailover !== undefined &&
+      input.ForcePlannedFailover !== null && { ForcePlannedFailover: input.ForcePlannedFailover }),
     ...(input.ReplicationInstanceArn !== undefined &&
       input.ReplicationInstanceArn !== null && { ReplicationInstanceArn: input.ReplicationInstanceArn }),
   };

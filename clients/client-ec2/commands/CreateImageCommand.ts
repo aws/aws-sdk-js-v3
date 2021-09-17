@@ -24,10 +24,10 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  *
  *
  *
- *    	     <p>If you customized your instance with instance store volumes or EBS volumes in addition to the root device volume, the
+ *    	     <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the
  *      	new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI,
  *      	the instance automatically launches with those additional volumes.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a>
+ *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a>
  * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

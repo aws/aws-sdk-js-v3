@@ -493,6 +493,10 @@ import {
 } from "./commands/PutModelPackageGroupPolicyCommand";
 import { RegisterDevicesCommandInput, RegisterDevicesCommandOutput } from "./commands/RegisterDevicesCommand";
 import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "./commands/RenderUiTemplateCommand";
+import {
+  RetryPipelineExecutionCommandInput,
+  RetryPipelineExecutionCommandOutput,
+} from "./commands/RetryPipelineExecutionCommand";
 import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
   SendPipelineExecutionStepFailureCommandInput,
@@ -839,6 +843,7 @@ export type ServiceInputTypes =
   | PutModelPackageGroupPolicyCommandInput
   | RegisterDevicesCommandInput
   | RenderUiTemplateCommandInput
+  | RetryPipelineExecutionCommandInput
   | SearchCommandInput
   | SendPipelineExecutionStepFailureCommandInput
   | SendPipelineExecutionStepSuccessCommandInput
@@ -1080,6 +1085,7 @@ export type ServiceOutputTypes =
   | PutModelPackageGroupPolicyCommandOutput
   | RegisterDevicesCommandOutput
   | RenderUiTemplateCommandOutput
+  | RetryPipelineExecutionCommandOutput
   | SearchCommandOutput
   | SendPipelineExecutionStepFailureCommandOutput
   | SendPipelineExecutionStepSuccessCommandOutput

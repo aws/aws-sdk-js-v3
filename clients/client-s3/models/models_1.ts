@@ -27,8 +27,8 @@ export interface Encryption {
 
   /**
    * <p>If the encryption type is <code>aws:kms</code>, this optional value specifies the ID of
-   *          the symmetric customer managed Amazon Web Services KMS CMK to use for encryption of job results. Amazon S3 only
-   *          supports symmetric CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and
+   *          the symmetric customer managed key to use for encryption of job results. Amazon S3 only
+   *          supports symmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and
    *             asymmetric keys</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
    */
   KMSKeyId?: string;
@@ -528,6 +528,11 @@ export interface RestoreObjectRequest {
   VersionId?: string;
 
   /**
+   * <p>Container for restore job parameters.</p>
+   */
+  RestoreRequest?: RestoreRequest;
+
+  /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
    *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
@@ -539,11 +544,6 @@ export interface RestoreObjectRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
-
-  /**
-   * <p>Container for restore job parameters.</p>
-   */
-  RestoreRequest?: RestoreRequest;
 }
 
 export namespace RestoreObjectRequest {
@@ -1019,7 +1019,7 @@ export interface UploadPartOutput {
 
   /**
    * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          customer managed customer master key (CMK) was used for the object.</p>
+   *          customer managed key was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
@@ -1190,7 +1190,7 @@ export interface UploadPartCopyOutput {
 
   /**
    * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          customer managed customer master key (CMK) that was used for the object.</p>
+   *          customer managed key that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
@@ -1614,7 +1614,7 @@ export interface WriteGetObjectResponseRequest {
   SSECustomerAlgorithm?: string;
 
   /**
-   * <p> If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed customer master key (CMK) that was used for stored in Amazon S3 object. </p>
+   * <p> If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed key that was used for stored in Amazon S3 object. </p>
    */
   SSEKMSKeyId?: string;
 

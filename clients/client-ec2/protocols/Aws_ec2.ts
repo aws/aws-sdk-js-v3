@@ -35310,6 +35310,9 @@ const serializeAws_ec2CreateVpcPeeringConnectionRequest = (
 
 const serializeAws_ec2CreateVpcRequest = (input: CreateVpcRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.CidrBlock !== undefined && input.CidrBlock !== null) {
+    entries["CidrBlock"] = input.CidrBlock;
+  }
   if (input.AmazonProvidedIpv6CidrBlock !== undefined && input.AmazonProvidedIpv6CidrBlock !== null) {
     entries["AmazonProvidedIpv6CidrBlock"] = input.AmazonProvidedIpv6CidrBlock;
   }
@@ -35334,9 +35337,6 @@ const serializeAws_ec2CreateVpcRequest = (input: CreateVpcRequest, context: __Se
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
-  }
-  if (input.CidrBlock !== undefined && input.CidrBlock !== null) {
-    entries["CidrBlock"] = input.CidrBlock;
   }
   return entries;
 };

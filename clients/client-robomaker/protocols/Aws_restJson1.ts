@@ -180,6 +180,7 @@ import {
   DeploymentConfig,
   DeploymentJob,
   DeploymentLaunchConfig,
+  Environment,
   FailedCreateSimulationJobRequest,
   FailureSummary,
   Filter,
@@ -525,6 +526,8 @@ export const serializeAws_restJson1CreateRobotApplicationCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createRobotApplication";
   let body: any;
   body = JSON.stringify({
+    ...(input.environment !== undefined &&
+      input.environment !== null && { environment: serializeAws_restJson1Environment(input.environment, context) }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.robotSoftwareSuite !== undefined &&
       input.robotSoftwareSuite !== null && {
@@ -560,6 +563,9 @@ export const serializeAws_restJson1CreateRobotApplicationVersionCommand = async 
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
     ...(input.currentRevisionId !== undefined &&
       input.currentRevisionId !== null && { currentRevisionId: input.currentRevisionId }),
+    ...(input.imageDigest !== undefined && input.imageDigest !== null && { imageDigest: input.imageDigest }),
+    ...(input.s3Etags !== undefined &&
+      input.s3Etags !== null && { s3Etags: serializeAws_restJson1S3Etags(input.s3Etags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -584,6 +590,8 @@ export const serializeAws_restJson1CreateSimulationApplicationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSimulationApplication";
   let body: any;
   body = JSON.stringify({
+    ...(input.environment !== undefined &&
+      input.environment !== null && { environment: serializeAws_restJson1Environment(input.environment, context) }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.renderingEngine !== undefined &&
       input.renderingEngine !== null && {
@@ -627,6 +635,9 @@ export const serializeAws_restJson1CreateSimulationApplicationVersionCommand = a
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
     ...(input.currentRevisionId !== undefined &&
       input.currentRevisionId !== null && { currentRevisionId: input.currentRevisionId }),
+    ...(input.imageDigest !== undefined && input.imageDigest !== null && { imageDigest: input.imageDigest }),
+    ...(input.s3Etags !== undefined &&
+      input.s3Etags !== null && { s3Etags: serializeAws_restJson1S3Etags(input.s3Etags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1754,6 +1765,8 @@ export const serializeAws_restJson1UpdateRobotApplicationCommand = async (
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
     ...(input.currentRevisionId !== undefined &&
       input.currentRevisionId !== null && { currentRevisionId: input.currentRevisionId }),
+    ...(input.environment !== undefined &&
+      input.environment !== null && { environment: serializeAws_restJson1Environment(input.environment, context) }),
     ...(input.robotSoftwareSuite !== undefined &&
       input.robotSoftwareSuite !== null && {
         robotSoftwareSuite: serializeAws_restJson1RobotSoftwareSuite(input.robotSoftwareSuite, context),
@@ -1787,6 +1800,8 @@ export const serializeAws_restJson1UpdateSimulationApplicationCommand = async (
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
     ...(input.currentRevisionId !== undefined &&
       input.currentRevisionId !== null && { currentRevisionId: input.currentRevisionId }),
+    ...(input.environment !== undefined &&
+      input.environment !== null && { environment: serializeAws_restJson1Environment(input.environment, context) }),
     ...(input.renderingEngine !== undefined &&
       input.renderingEngine !== null && {
         renderingEngine: serializeAws_restJson1RenderingEngine(input.renderingEngine, context),
@@ -2718,6 +2733,7 @@ export const deserializeAws_restJson1CreateRobotApplicationCommand = async (
   const contents: CreateRobotApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     arn: undefined,
+    environment: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
     revisionId: undefined,
@@ -2729,6 +2745,9 @@ export const deserializeAws_restJson1CreateRobotApplicationCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
+  }
+  if (data.environment !== undefined && data.environment !== null) {
+    contents.environment = deserializeAws_restJson1Environment(data.environment, context);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
@@ -2841,6 +2860,7 @@ export const deserializeAws_restJson1CreateRobotApplicationVersionCommand = asyn
   const contents: CreateRobotApplicationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     arn: undefined,
+    environment: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
     revisionId: undefined,
@@ -2851,6 +2871,9 @@ export const deserializeAws_restJson1CreateRobotApplicationVersionCommand = asyn
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
+  }
+  if (data.environment !== undefined && data.environment !== null) {
+    contents.environment = deserializeAws_restJson1Environment(data.environment, context);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
@@ -2952,6 +2975,7 @@ export const deserializeAws_restJson1CreateSimulationApplicationCommand = async 
   const contents: CreateSimulationApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     arn: undefined,
+    environment: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
     renderingEngine: undefined,
@@ -2965,6 +2989,9 @@ export const deserializeAws_restJson1CreateSimulationApplicationCommand = async 
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
+  }
+  if (data.environment !== undefined && data.environment !== null) {
+    contents.environment = deserializeAws_restJson1Environment(data.environment, context);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
@@ -3086,6 +3113,7 @@ export const deserializeAws_restJson1CreateSimulationApplicationVersionCommand =
   const contents: CreateSimulationApplicationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     arn: undefined,
+    environment: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
     renderingEngine: undefined,
@@ -3098,6 +3126,9 @@ export const deserializeAws_restJson1CreateSimulationApplicationVersionCommand =
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
+  }
+  if (data.environment !== undefined && data.environment !== null) {
+    contents.environment = deserializeAws_restJson1Environment(data.environment, context);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
@@ -4520,6 +4551,8 @@ export const deserializeAws_restJson1DescribeRobotApplicationCommand = async (
   const contents: DescribeRobotApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     arn: undefined,
+    environment: undefined,
+    imageDigest: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
     revisionId: undefined,
@@ -4531,6 +4564,12 @@ export const deserializeAws_restJson1DescribeRobotApplicationCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
+  }
+  if (data.environment !== undefined && data.environment !== null) {
+    contents.environment = deserializeAws_restJson1Environment(data.environment, context);
+  }
+  if (data.imageDigest !== undefined && data.imageDigest !== null) {
+    contents.imageDigest = __expectString(data.imageDigest);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
@@ -4627,6 +4666,8 @@ export const deserializeAws_restJson1DescribeSimulationApplicationCommand = asyn
   const contents: DescribeSimulationApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     arn: undefined,
+    environment: undefined,
+    imageDigest: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
     renderingEngine: undefined,
@@ -4640,6 +4681,12 @@ export const deserializeAws_restJson1DescribeSimulationApplicationCommand = asyn
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
+  }
+  if (data.environment !== undefined && data.environment !== null) {
+    contents.environment = deserializeAws_restJson1Environment(data.environment, context);
+  }
+  if (data.imageDigest !== undefined && data.imageDigest !== null) {
+    contents.imageDigest = __expectString(data.imageDigest);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
@@ -7060,6 +7107,7 @@ export const deserializeAws_restJson1UpdateRobotApplicationCommand = async (
   const contents: UpdateRobotApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     arn: undefined,
+    environment: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
     revisionId: undefined,
@@ -7070,6 +7118,9 @@ export const deserializeAws_restJson1UpdateRobotApplicationCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
+  }
+  if (data.environment !== undefined && data.environment !== null) {
+    contents.environment = deserializeAws_restJson1Environment(data.environment, context);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
@@ -7171,6 +7222,7 @@ export const deserializeAws_restJson1UpdateSimulationApplicationCommand = async 
   const contents: UpdateSimulationApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     arn: undefined,
+    environment: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
     renderingEngine: undefined,
@@ -7183,6 +7235,9 @@ export const deserializeAws_restJson1UpdateSimulationApplicationCommand = async 
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = __expectString(data.arn);
+  }
+  if (data.environment !== undefined && data.environment !== null) {
+    contents.environment = deserializeAws_restJson1Environment(data.environment, context);
   }
   if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
     contents.lastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedAt)));
@@ -7650,6 +7705,12 @@ const serializeAws_restJson1DeploymentLaunchConfig = (input: DeploymentLaunchCon
   };
 };
 
+const serializeAws_restJson1Environment = (input: Environment, context: __SerdeContext): any => {
+  return {
+    ...(input.uri !== undefined && input.uri !== null && { uri: input.uri }),
+  };
+};
+
 const serializeAws_restJson1EnvironmentVariableMap = (
   input: { [key: string]: string },
   context: __SerdeContext
@@ -7803,6 +7864,17 @@ const serializeAws_restJson1RobotSoftwareSuite = (input: RobotSoftwareSuite, con
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.version !== undefined && input.version !== null && { version: input.version }),
   };
+};
+
+const serializeAws_restJson1S3Etags = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1S3Keys = (input: string[], context: __SerdeContext): any => {
@@ -8241,6 +8313,12 @@ const deserializeAws_restJson1DeploymentLaunchConfig = (
     packageName: __expectString(output.packageName),
     postLaunchFile: __expectString(output.postLaunchFile),
     preLaunchFile: __expectString(output.preLaunchFile),
+  } as any;
+};
+
+const deserializeAws_restJson1Environment = (output: any, context: __SerdeContext): Environment => {
+  return {
+    uri: __expectString(output.uri),
   } as any;
 };
 

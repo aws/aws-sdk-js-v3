@@ -721,6 +721,7 @@ import {
   MitigationActionParams,
   NonCompliantResource,
   OTAUpdateFile,
+  OpenSearchAction,
   Policy,
   PolicyVersionIdentifier,
   PresignedUrlConfig,
@@ -30555,6 +30556,8 @@ const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): a
       input.kinesis !== null && { kinesis: serializeAws_restJson1KinesisAction(input.kinesis, context) }),
     ...(input.lambda !== undefined &&
       input.lambda !== null && { lambda: serializeAws_restJson1LambdaAction(input.lambda, context) }),
+    ...(input.openSearch !== undefined &&
+      input.openSearch !== null && { openSearch: serializeAws_restJson1OpenSearchAction(input.openSearch, context) }),
     ...(input.republish !== undefined &&
       input.republish !== null && { republish: serializeAws_restJson1RepublishAction(input.republish, context) }),
     ...(input.s3 !== undefined && input.s3 !== null && { s3: serializeAws_restJson1S3Action(input.s3, context) }),
@@ -31599,6 +31602,16 @@ const serializeAws_restJson1NumberList = (input: number[], context: __SerdeConte
     });
 };
 
+const serializeAws_restJson1OpenSearchAction = (input: OpenSearchAction, context: __SerdeContext): any => {
+  return {
+    ...(input.endpoint !== undefined && input.endpoint !== null && { endpoint: input.endpoint }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.index !== undefined && input.index !== null && { index: input.index }),
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+  };
+};
+
 const serializeAws_restJson1OTAUpdateFile = (input: OTAUpdateFile, context: __SerdeContext): any => {
   return {
     ...(input.attributes !== undefined &&
@@ -32382,6 +32395,10 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
     lambda:
       output.lambda !== undefined && output.lambda !== null
         ? deserializeAws_restJson1LambdaAction(output.lambda, context)
+        : undefined,
+    openSearch:
+      output.openSearch !== undefined && output.openSearch !== null
+        ? deserializeAws_restJson1OpenSearchAction(output.openSearch, context)
         : undefined,
     republish:
       output.republish !== undefined && output.republish !== null
@@ -34457,6 +34474,16 @@ const deserializeAws_restJson1NumberList = (output: any, context: __SerdeContext
       }
       return __limitedParseDouble(entry) as any;
     });
+};
+
+const deserializeAws_restJson1OpenSearchAction = (output: any, context: __SerdeContext): OpenSearchAction => {
+  return {
+    endpoint: __expectString(output.endpoint),
+    id: __expectString(output.id),
+    index: __expectString(output.index),
+    roleArn: __expectString(output.roleArn),
+    type: __expectString(output.type),
+  } as any;
 };
 
 const deserializeAws_restJson1OTAUpdateFile = (output: any, context: __SerdeContext): OTAUpdateFile => {

@@ -2650,7 +2650,7 @@ export interface ManagedPrefixList {
   AddressFamily?: string;
 
   /**
-   * <p>The state of the prefix list.</p>
+   * <p>The current state of the prefix list.</p>
    */
   State?: PrefixListState | string;
 
@@ -4382,7 +4382,7 @@ export namespace CreateReservedInstancesListingResult {
 
 export interface CreateRestoreImageTaskRequest {
   /**
-   * <p>The name of the S3 bucket that contains the stored AMI object.</p>
+   * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
    */
   Bucket: string | undefined;
 
@@ -5339,7 +5339,7 @@ export namespace CreateSpotDatafeedSubscriptionResult {
 }
 
 /**
- * <p>The tags to apply to the AMI object that will be stored in the S3 bucket. For more
+ * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. For more
  *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Categorizing your storage using
  *         tags</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  */
@@ -5375,14 +5375,14 @@ export interface CreateStoreImageTaskRequest {
   ImageId: string | undefined;
 
   /**
-   * <p>The name of the S3 bucket in which the AMI object will be stored. The bucket must be in
+   * <p>The name of the Amazon S3 bucket in which the AMI object will be stored. The bucket must be in
    *       the Region in which the request is being made. The AMI object appears in the bucket only after
    *       the upload task has completed. </p>
    */
   Bucket: string | undefined;
 
   /**
-   * <p>The tags to apply to the AMI object that will be stored in the S3 bucket. </p>
+   * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. </p>
    */
   S3ObjectTags?: S3ObjectTag[];
 
@@ -7795,6 +7795,12 @@ export namespace Volume {
 
 export interface CreateVpcRequest {
   /**
+   * <p>The IPv4 network range for the VPC, in CIDR notation. For example,
+   * 		        <code>10.0.0.0/16</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   */
+  CidrBlock: string | undefined;
+
+  /**
    * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
    *             You cannot specify the range of IP addresses, or the size of the CIDR block.</p>
    */
@@ -7841,12 +7847,6 @@ export interface CreateVpcRequest {
    * <p>The tags to assign to the VPC.</p>
    */
   TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The IPv4 network range for the VPC, in CIDR notation. For example,
-   * 		        <code>10.0.0.0/16</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   */
-  CidrBlock: string | undefined;
 }
 
 export namespace CreateVpcRequest {

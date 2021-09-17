@@ -3900,7 +3900,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a
-   *       Region to an AWS Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost
+   *       Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost
    *       to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
    *
    *      	   <p>To copy an AMI from one Region to another, specify the source Region using the
@@ -4525,10 +4525,10 @@ export class EC2 extends EC2Client {
    *
    *
    *
-   *    	     <p>If you customized your instance with instance store volumes or EBS volumes in addition to the root device volume, the
+   *    	     <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the
    *      	new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI,
    *      	the instance automatically launches with those additional volumes.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a>
+   *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a>
    * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
@@ -4860,8 +4860,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a managed prefix list. You can specify one or more entries for the prefix list. Each entry consists of a CIDR block and an optional description.</p>
-   *         <p>You must specify the maximum number of entries for the prefix list. The maximum number of entries cannot be changed later.</p>
+   * <p>Creates a managed prefix list. You can specify one or more entries for the prefix list.
+   *             Each entry consists of a CIDR block and an optional description.</p>
    */
   public createManagedPrefixList(
     args: CreateManagedPrefixListCommandInput,
@@ -5234,12 +5234,12 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Starts a task that restores an AMI from an S3 object that was previously created by using
+   * <p>Starts a task that restores an AMI from an Amazon S3 object that was previously created by using
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
-   *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using S3</a> in the
+   *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
-   *       S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createRestoreImageTask(
     args: CreateRestoreImageTaskCommandInput,
@@ -5532,11 +5532,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Stores an AMI as a single object in an S3 bucket.</p>
-   *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using S3</a> in the
+   * <p>Stores an AMI as a single object in an Amazon S3 bucket.</p>
+   *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
-   *         S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createStoreImageTask(
     args: CreateStoreImageTaskCommandInput,
@@ -8432,7 +8432,7 @@ export class EC2 extends EC2Client {
    * 			new instances; however, it doesn't affect any instances that you've already launched
    * 			from the AMI. You'll continue to incur usage costs for those instances until you
    * 			terminate them.</p>
-   *          <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was
+   *    	     <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was
    * 			created for the root volume of the instance during the AMI creation process. When you
    * 			deregister an instance store-backed AMI, it doesn't affect the files that you uploaded
    * 			to Amazon S3 when you created the AMI.</p>
@@ -9888,7 +9888,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p>
-   *          <p>The images available to you include public images, private images that you own, and private images owned by other AWS accounts for which you have explicit launch permissions.</p>
+   *          <p>The images available to you include public images, private images that you own, and private images owned by other
+   *        Amazon Web Services accounts for which you have explicit launch permissions.</p>
    *          <p>Recently deregistered images appear in the returned results for a short interval and then
    *       return empty results. After all instances that reference a deregistered AMI are terminated,
    *       specifying the ID of the image will eventually return an error indicating that the AMI ID
@@ -11915,10 +11916,10 @@ export class EC2 extends EC2Client {
    *       response shows the estimated progress as a percentage.</p>
    *          <p>Tasks are listed in reverse chronological order. Currently, only tasks from the past 31
    *       days can be viewed.</p>
-   *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using S3</a> in the
+   *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
-   *         S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeStoreImageTasks(
     args: DescribeStoreImageTasksCommandInput,
@@ -15816,8 +15817,8 @@ export class EC2 extends EC2Client {
   /**
    * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.
    *        You can use the <code>Attribute</code> parameter to specify the attribute or one of the following parameters:
-   *        <code>Description</code>, <code>LaunchPermission</code>, or <code>ProductCode</code>.</p>
-   *          <p>AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product code cannot be made public.</p>
+   *        <code>Description</code> or <code>LaunchPermission</code>.</p>
+   *    	     <p>Images with an Amazon Web Services Marketplace product code cannot be made public.</p>
    *          <p>To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance
    *        and create an AMI from the instance.</p>
    */
@@ -17425,7 +17426,7 @@ export class EC2 extends EC2Client {
    *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your
    *         own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <note>
-   *             <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers
+   *      	      <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers
    *          	the AMI in a single request, so you don't have to register the AMI yourself.</p>
    *          </note>
    *
@@ -17435,21 +17436,21 @@ export class EC2 extends EC2Client {
    *          <p>
    *             <b>Register a snapshot of a root device volume</b>
    *          </p>
-   *          <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
+   *    	     <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
    *        a snapshot of a root device volume. You specify the snapshot using a block device mapping.
    *        You can't set the encryption state of the volume using the block device mapping. If the
    *        snapshot is encrypted, or encryption by default is enabled, the root volume of an instance
    *        launched from the AMI is encrypted.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with EBS-backed AMIs</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a>
    *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *
-   *          <p>
-   *             <b>AWS Marketplace product codes</b>
+   *    	     <p>
+   *             <b>Amazon Web Services Marketplace product codes</b>
    *          </p>
-   *          <p>If any snapshots have AWS Marketplace product codes, they are copied to the new
+   *    	     <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new
    *       AMI.</p>
    *          <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE
-   *       Linux Enterprise Server (SLES), use the EC2 billing product code associated with an AMI to
+   *       Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to
    *       verify the subscription status for package updates. To create a new AMI for operating systems
    *       that require a billing product code, instead of registering the AMI, do the following to
    *       preserve the billing product code association:</p>
@@ -17468,8 +17469,8 @@ export class EC2 extends EC2Client {
    *       from an AMI with a billing product code, make sure that the Reserved Instance has the matching
    *       billing product code. If you purchase a Reserved Instance without the matching billing product
    *       code, the Reserved Instance will not be applied to the On-Demand Instance. For information
-   *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining billing
-   *         information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI
+   *       	billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public registerImage(
     args: RegisterImageCommandInput,
@@ -18297,9 +18298,6 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Resets an attribute of an AMI to its default value.</p>
-   *          <note>
-   *             <p>The productCodes attribute can't be reset.</p>
-   *          </note>
    */
   public resetImageAttribute(
     args: ResetImageAttributeCommandInput,
@@ -18902,6 +18900,12 @@ export class EC2 extends EC2Client {
    *             restarted. Stopping an instance does not preserve data stored in RAM.</p>
    *         <p>Performing this operation on an instance that uses an instance store as its root
    *             device returns an error.</p>
+   *
+   *         <p>If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code>
+   *             CPU credit option, the request fails. The <code>unlimited</code> CPU credit option is not
+   *             supported on Dedicated Hosts. Before you start the instance, either change its CPU credit
+   *             option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p>
+   *
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping instances</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */

@@ -913,6 +913,11 @@ import {
   RenderUiTemplateCommandInput,
   RenderUiTemplateCommandOutput,
 } from "./commands/RenderUiTemplateCommand";
+import {
+  RetryPipelineExecutionCommand,
+  RetryPipelineExecutionCommandInput,
+  RetryPipelineExecutionCommandOutput,
+} from "./commands/RetryPipelineExecutionCommand";
 import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
   SendPipelineExecutionStepFailureCommand,
@@ -1662,8 +1667,8 @@ export class SageMaker extends SageMakerClient {
    *     domain. Each user receives a private home directory within the EFS volume for notebooks,
    *     Git repositories, and data files.</p>
    *          <p>SageMaker uses the Amazon Web Services Key Management Service (Amazon Web Services KMS) to encrypt the EFS volume attached to the domain with
-   *      an Amazon Web Services managed customer master key (CMK) by default. For more control, you can specify a
-   *     customer managed CMK. For more information, see
+   *      an Amazon Web Services managed key by default. For more control, you can specify a
+   *      customer managed key. For more information, see
    *     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html">Protect Data at
    *       Rest Using Encryption</a>.</p>
    *
@@ -8112,6 +8117,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: RenderUiTemplateCommandOutput) => void
   ): Promise<RenderUiTemplateCommandOutput> | void {
     const command = new RenderUiTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retry the execution of the pipeline.</p>
+   */
+  public retryPipelineExecution(
+    args: RetryPipelineExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RetryPipelineExecutionCommandOutput>;
+  public retryPipelineExecution(
+    args: RetryPipelineExecutionCommandInput,
+    cb: (err: any, data?: RetryPipelineExecutionCommandOutput) => void
+  ): void;
+  public retryPipelineExecution(
+    args: RetryPipelineExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RetryPipelineExecutionCommandOutput) => void
+  ): void;
+  public retryPipelineExecution(
+    args: RetryPipelineExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetryPipelineExecutionCommandOutput) => void),
+    cb?: (err: any, data?: RetryPipelineExecutionCommandOutput) => void
+  ): Promise<RetryPipelineExecutionCommandOutput> | void {
+    const command = new RetryPipelineExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

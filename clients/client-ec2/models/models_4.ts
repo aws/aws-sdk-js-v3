@@ -6483,8 +6483,8 @@ export interface ModifyCapacityReservationRequest {
   CapacityReservationId: string | undefined;
 
   /**
-   * <p>The number of instances for which to reserve capacity.</p>
-   * 	  	     <p>Valid range: 1 - 1000</p>
+   * <p>The number of instances for which to reserve capacity. The number of instances can't be increased or
+   * 		    	decreased by more than <code>1000</code> in a single request.</p>
    */
   InstanceCount?: number;
 
@@ -7137,12 +7137,12 @@ export namespace ModifyIdFormatRequest {
  */
 export interface LaunchPermissionModifications {
   /**
-   * <p>The AWS account ID to add to the list of launch permissions for the AMI.</p>
+   * <p>The Amazon Web Services account ID to add to the list of launch permissions for the AMI.</p>
    */
   Add?: LaunchPermission[];
 
   /**
-   * <p>The AWS account ID to remove from the list of launch permissions for the AMI.</p>
+   * <p>The Amazon Web Services account ID to remove from the list of launch permissions for the AMI.</p>
    */
   Remove?: LaunchPermission[];
 }
@@ -7162,7 +7162,7 @@ export namespace LaunchPermissionModifications {
 export interface ModifyImageAttributeRequest {
   /**
    * <p>The name of the attribute to modify.
-   *        The valid values are <code>description</code>, <code>launchPermission</code>, and <code>productCodes</code>.</p>
+   *        The valid values are <code>description</code> and <code>launchPermission</code>.</p>
    */
   Attribute?: string;
 
@@ -7188,7 +7188,7 @@ export interface ModifyImageAttributeRequest {
   OperationType?: OperationType | string;
 
   /**
-   * <p>The DevPay product codes. After you add a product code to an AMI, it can't be removed.</p>
+   * <p>Not supported.</p>
    */
   ProductCodes?: string[];
 
@@ -7199,14 +7199,14 @@ export interface ModifyImageAttributeRequest {
   UserGroups?: string[];
 
   /**
-   * <p>The AWS account IDs.
+   * <p>The Amazon Web Services account IDs.
    *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    */
   UserIds?: string[];
 
   /**
    * <p>The value of the attribute being modified.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code> or <code>productCodes</code>.</p>
+   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code>.</p>
    */
   Value?: string;
 
@@ -7525,6 +7525,8 @@ export interface InstanceCreditSpecificationRequest {
   /**
    * <p>The credit option for CPU usage of the instance. Valid values are
    *                 <code>standard</code> and <code>unlimited</code>.</p>
+   *         <p>T3 instances with <code>host</code> tenancy do not support the <code>unlimited</code>
+   *             CPU credit option.</p>
    */
   CpuCredits?: string;
 }
@@ -7909,6 +7911,11 @@ export interface ModifyInstancePlacementRequest {
 
   /**
    * <p>The tenancy for the instance.</p>
+   *
+   *         <p>For T3 instances, you can't change the tenancy from <code>dedicated</code> to
+   *             <code>host</code>, or from <code>host</code> to <code>dedicated</code>. Attempting
+   *             to make one of these unsupported tenancy changes results in the <code>InvalidTenancy</code>
+   *             error code.</p>
    */
   Tenancy?: HostTenancy | string;
 
@@ -8063,6 +8070,9 @@ export interface ModifyManagedPrefixListRequest {
   /**
    * <p>The maximum number of entries for the prefix list. You cannot modify the entries
    *             of a prefix list and modify the size of a prefix list at the same time.</p>
+   *         <p>If any of the resources that reference the prefix list cannot support the new
+   *             maximum size, the modify operation fails. Check the state message for the IDs of
+   *             the first ten resources that do not support the new maximum size.</p>
    */
   MaxEntries?: number;
 }

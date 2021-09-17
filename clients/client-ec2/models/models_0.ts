@@ -3,7 +3,7 @@
  */
 export interface TargetConfigurationRequest {
   /**
-   * <p>The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot
+   * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is reserved and cannot
    *       be specified in a request</p>
    */
   InstanceCount?: number;
@@ -1213,6 +1213,8 @@ export namespace AdvertiseByoipCidrResult {
 export type Affinity = "default" | "host";
 
 export type ResourceType =
+  | "capacity-reservation"
+  | "carrier-gateway"
   | "client-vpn-endpoint"
   | "customer-gateway"
   | "dedicated-host"
@@ -1231,15 +1233,24 @@ export type ResourceType =
   | "instance"
   | "instance-event-window"
   | "internet-gateway"
+  | "ipv4pool-ec2"
+  | "ipv6pool-ec2"
   | "key-pair"
   | "launch-template"
+  | "local-gateway"
+  | "local-gateway-route-table"
+  | "local-gateway-route-table-virtual-interface-group-association"
   | "local-gateway-route-table-vpc-association"
+  | "local-gateway-virtual-interface"
+  | "local-gateway-virtual-interface-group"
   | "natgateway"
   | "network-acl"
   | "network-insights-analysis"
   | "network-insights-path"
   | "network-interface"
   | "placement-group"
+  | "prefix-list"
+  | "replace-root-volume-task"
   | "reserved-instances"
   | "route-table"
   | "security-group"
@@ -1258,6 +1269,8 @@ export type ResourceType =
   | "transit-gateway-route-table"
   | "volume"
   | "vpc"
+  | "vpc-endpoint"
+  | "vpc-endpoint-service"
   | "vpc-flow-log"
   | "vpc-peering-connection"
   | "vpn-connection"
@@ -1268,26 +1281,28 @@ export type ResourceType =
  */
 export interface TagSpecification {
   /**
-   * <p>The type of resource to tag. Currently, the resource types that support tagging on
-   *          creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> |
-   *             <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |
-   *     	   <code>dedicated-host</code> | <code>dhcp-options</code> | <code>egress-only-internet-gateway</code> | <code>elastic-ip</code> | <code>elastic-gpu</code> |
-   *     	   <code>export-image-task</code>
-   *          | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |
-   *     	   <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> |
+   * <p>The type of resource to tag on creation. The possible values are:
+   *     	   <code>capacity-reservation</code> | <code>carrier-gateway</code> |
+   *           <code>client-vpn-endpoint</code> | <code>customer-gateway</code> |
+   *     	   <code>dedicated-host</code> | <code>dhcp-options</code> |
+   *     	   <code>egress-only-internet-gateway</code> | <code>elastic-gpu</code> |
+   *     	   <code>elastic-ip</code> | <code>export-image-task</code> |
+   *           <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |
+   *     	   <code>host-reservation</code> | <code>image</code> | <code>import-image-task</code> |
    *     	   <code>import-snapshot-task</code> | <code>instance</code> | <code>instance-event-window</code> |
-   *             <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |
-   *     	   <code>key-pair</code> | <code>launch-template</code> | <code>local-gateway-route-table-vpc-association</code> | <code>placement-group</code> |
-   *     	   <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> |
-   *     	   <code>reserved-instances</code> |<code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code>
-   *          | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |
-   *             <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |
-   *             <code>traffic-mirror-target</code> | <code>transit-gateway</code> |
-   *     	   <code>transit-gateway-attachment</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |
-   *             <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |
-   *             <code>vpc-endpoint</code> (for interface and gateway endpoints) |
-   *     	   <code>vpc-endpoint-service</code> (for Amazon Web Services PrivateLink) | <code>vpc-flow-log</code> |
-   *             <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
+   *           <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |
+   *     	   <code>key-pair</code> | <code>launch-template</code> | <code>local-gateway-route-table-vpc-association</code> |
+   *     	   <code>natgateway</code> | <code>network-acl</code> | <code>network-insights-analysis</code> |
+   *     	   <code>network-insights-path</code> | <code>network-interface</code> |
+   *     	   <code>placement-group</code> | <code>prefix-list</code> | <code>reserved-instances</code> |
+   *     	   <code>route-table</code> | <code>security-group</code> | <code>security-group-rule</code> |
+   *     	   <code>snapshot</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>subnet</code> |
+   *           <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> |
+   *     	   <code>transit-gateway</code> | <code>transit-gateway-attachment</code> |
+   *     	   <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |
+   *           <code>volume</code> | <code>vpc</code> | <code>vpc-endpoint</code> | <code>vpc-endpoint-service</code> |
+   *     	   <code>vpc-flow-log</code> | <code>vpc-peering-connection</code> |
+   *     	   <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
    *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
   ResourceType?: ResourceType | string;
@@ -3935,12 +3950,12 @@ export namespace AuthorizeSecurityGroupIngressResult {
 }
 
 /**
- * <p>Describes the storage parameters for S3 and S3 buckets for an instance store-backed AMI.</p>
+ * <p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed AMI.</p>
  */
 export interface S3Storage {
   /**
    * <p>The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance
-   *        in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best Practices for Managing AWS Access Keys</a>.</p>
+   *        in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best Practices for Managing Amazon Web Services Access Keys</a>.</p>
    */
   AWSAccessKeyId?: string;
 
@@ -4835,16 +4850,16 @@ export interface CopyImageRequest {
   /**
    * <p>Specifies whether the destination snapshots of the copied image should be encrypted.
    *        You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted
-   *        copy of an encrypted snapshot. The default CMK for EBS is used unless you specify a non-default
-   *        AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *        copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
+   *        Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   Encrypted?: boolean;
 
   /**
-   * <p>The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating
-   *       encrypted volumes. If this parameter is not specified, your AWS managed CMK for EBS is used.
-   *       If you specify a CMK, you must also set the encrypted state to <code>true</code>.</p>
-   *    	     <p>You can specify a CMK using any of the following:</p>
+   * <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating
+   *    		encrypted volumes. If this parameter is not specified, your Amazon Web Services managed KMS key for Amazon EBS is used.
+   *    		If you specify a KMS key, you must also set the encrypted state to <code>true</code>.</p>
+   *    	     <p>You can specify a KMS key using any of the following:</p>
    *    	     <ul>
    *             <li>
    *    			         <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
@@ -4859,10 +4874,10 @@ export interface CopyImageRequest {
    *    		          <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
    *    		       </li>
    *          </ul>
-   *          <p>AWS authenticates the CMK asynchronously. Therefore, if you specify an identifier that is not valid,
+   *    	     <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier that is not valid,
    *       the action can appear to complete, but eventually fails.</p>
-   *          <p>The specified CMK must exist in the destination Region.</p>
-   *          <p>Amazon EBS does not support asymmetric CMKs.</p>
+   *    	     <p>The specified KMS key must exist in the destination Region.</p>
+   *    	     <p>Amazon EBS does not support asymmetric KMS keys.</p>
    */
   KmsKeyId?: string;
 
@@ -4883,13 +4898,13 @@ export interface CopyImageRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only
-   *   		specify this parameter when copying an AMI from an AWS Region to an Outpost.
+   *   		specify this parameter when copying an AMI from an Amazon Web Services Region to an Outpost.
    *   		The AMI must be in the Region of the destination Outpost. You cannot copy an
    *   		AMI from an Outpost to a Region, from one Outpost to another, or within the same
    *   		Outpost.</p>
    *
    *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis">
-   *   		Copying AMIs from an AWS Region to an Outpost</a> in the
+   *   		Copying AMIs from an Amazon Web Services Region to an Outpost</a> in the
    *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   DestinationOutpostArn?: string;
@@ -7037,6 +7052,9 @@ export type _InstanceType =
   | "u-6tb1.metal"
   | "u-9tb1.112xlarge"
   | "u-9tb1.metal"
+  | "vt1.24xlarge"
+  | "vt1.3xlarge"
+  | "vt1.6xlarge"
   | "x1.16xlarge"
   | "x1.32xlarge"
   | "x1e.16xlarge"
@@ -7105,6 +7123,8 @@ export interface Placement {
    *             tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
    *             tenancy is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a> command.</p>
    *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   *
+   *         <p>T3 instances that use the <code>unlimited</code> CPU credit option do not support <code>host</code> tenancy.</p>
    */
   Tenancy?: Tenancy | string;
 
@@ -8338,7 +8358,11 @@ export interface CreateImageRequest {
   Name: string | undefined;
 
   /**
-   * <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.</p>
+   * <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.
+   *        If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating
+   *        the image. Without a reboot, the AMI will be crash consistent (all the volumes are snapshotted
+   *        at the same time), but not application consistent (all the operating system buffers are not flushed
+   *        to disk before the snapshots are created).</p>
    */
   NoReboot?: boolean;
 
@@ -8351,7 +8375,7 @@ export interface CreateImageRequest {
    *           <code>image</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To tag the snapshots that are created of the root volume and of other EBS volumes that
+   *       	        <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes that
    *           are attached to the instance, the value for <code>ResourceType</code> must be
    *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
    *           created.</p>

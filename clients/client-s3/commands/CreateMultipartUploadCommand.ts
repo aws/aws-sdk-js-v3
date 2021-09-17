@@ -56,11 +56,10 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *
  *          <p>You can optionally request server-side encryption. For server-side encryption, Amazon S3
  *          encrypts your data as it writes it to disks in its data centers and decrypts it when you
- *          access it. You can provide your own encryption key, or use Amazon Web Services Key Management Service (Amazon Web Services
- *          KMS) customer master keys (CMKs) or Amazon S3-managed encryption keys. If you choose to provide
+ *          access it. You can provide your own encryption key, or use Amazon Web Services KMS keys or Amazon S3-managed encryption keys. If you choose to provide
  *          your own encryption key, the request headers you provide in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> requests must match the headers you used in the request to
  *          initiate the upload by using <code>CreateMultipartUpload</code>. </p>
- *          <p>To perform a multipart upload with encryption using an Amazon Web Services KMS CMK, the requester must
+ *          <p>To perform a multipart upload with encryption using an Amazon Web Services KMS key, the requester must
  *          have permission to the <code>kms:Decrypt</code> and <code>kms:GenerateDataKey*</code>
  *          actions on the key. These permissions are required because Amazon S3 must decrypt and read data
  *          from the encrypted file parts before it completes the multipart upload. For more
@@ -68,7 +67,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *             and permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *
  *          <p>If your Identity and Access Management (IAM) user or role is in the same Amazon Web Services account
- *          as the Amazon Web Services KMS CMK, then you must have these permissions on the key policy. If your IAM
+ *          as the KMS key, then you must have these permissions on the key policy. If your IAM
  *          user or role belongs to a different account than the key, then you must have the
  *          permissions on both the key policy and your IAM user or role.</p>
  *
@@ -109,7 +108,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                   encryption keys or provide your own encryption key. </p>
  *                <ul>
  *                   <li>
- *                      <p>Use encryption keys managed by Amazon S3 or customer master keys (CMKs) stored
+ *                      <p>Use encryption keys managed by Amazon S3 or customer managed key stored
  *                         in Amazon Web Services Key Management Service (Amazon Web Services KMS) – If you want Amazon Web Services to manage the keys
  *                         used to encrypt data, specify the following headers in the request.</p>
  *                      <ul>
@@ -126,15 +125,14 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                      <note>
  *                         <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but
  *                            don't provide <code>x-amz-server-side-encryption-aws-kms-key-id</code>,
- *                            Amazon S3 uses the Amazon Web Services managed CMK in Amazon Web Services KMS to protect the data.</p>
+ *                            Amazon S3 uses the Amazon Web Services managed key in Amazon Web Services KMS to protect the data.</p>
  *                      </note>
  *                      <important>
  *                         <p>All GET and PUT requests for an object protected by Amazon Web Services KMS fail if
  *                            you don't make them with SSL or by using SigV4.</p>
  *                      </important>
- *                      <p>For more information about server-side encryption with CMKs stored in Amazon Web Services
- *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in Amazon Web Services
- *                            KMS</a>.</p>
+ *                      <p>For more information about server-side encryption with KMS key (SSE-KMS),
+ *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with KMS keys</a>.</p>
  *                   </li>
  *                   <li>
  *                      <p>Use customer-provided encryption keys – If you want to manage your own
@@ -150,9 +148,8 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                            <p>x-amz-server-side-encryption-customer-key-MD5</p>
  *                         </li>
  *                      </ul>
- *                      <p>For more information about server-side encryption with CMKs stored in Amazon Web Services
- *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in Amazon Web Services
- *                            KMS</a>.</p>
+ *                      <p>For more information about server-side encryption with KMS keys (SSE-KMS),
+ *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with KMS keys</a>.</p>
  *                   </li>
  *                </ul>
  *             </dd>

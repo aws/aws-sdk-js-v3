@@ -26,7 +26,7 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  * <p>This action uses the <code>encryption</code> subresource to configure default
  *          encryption and Amazon S3 Bucket Key for an existing bucket.</p>
  *          <p>Default encryption for a bucket can use server-side encryption with Amazon S3-managed keys
- *          (SSE-S3) or Amazon Web Services KMS customer master keys (SSE-KMS). If you specify default encryption
+ *          (SSE-S3) or customer managed keys (SSE-KMS). If you specify default encryption
  *          using SSE-KMS, you can also configure Amazon S3 Bucket Key. For information about default
  *          encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 default bucket encryption</a>
  *          in the <i>Amazon S3 User Guide</i>. For more information about S3 Bucket Keys,
