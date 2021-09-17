@@ -10,6 +10,7 @@ export enum __EndpointTypesElement {
   CUSTOM = "CUSTOM",
   EMAIL = "EMAIL",
   GCM = "GCM",
+  IN_APP = "IN_APP",
   PUSH = "PUSH",
   SMS = "SMS",
   VOICE = "VOICE",
@@ -1079,6 +1080,7 @@ export enum ChannelType {
   CUSTOM = "CUSTOM",
   EMAIL = "EMAIL",
   GCM = "GCM",
+  IN_APP = "IN_APP",
   PUSH = "PUSH",
   SMS = "SMS",
   VOICE = "VOICE",
@@ -1313,6 +1315,12 @@ export namespace ADMMessage {
   export const filterSensitiveLog = (obj: ADMMessage): any => ({
     ...obj,
   });
+}
+
+export enum Alignment {
+  CENTER = "CENTER",
+  LEFT = "LEFT",
+  RIGHT = "RIGHT",
 }
 
 /**
@@ -2246,6 +2254,11 @@ export interface CampaignLimits {
    * <p>The maximum number of messages that a campaign can send to a single endpoint during the course of the campaign. If a campaign recurs, this setting applies to all runs of the campaign. The maximum value is 100.</p>
    */
   Total?: number;
+
+  /**
+   * <p>The maximum total number of messages that the campaign can send per user session.</p>
+   */
+  Session?: number;
 }
 
 export namespace CampaignLimits {
@@ -2581,6 +2594,12 @@ export namespace BaiduMessage {
   });
 }
 
+export enum ButtonAction {
+  CLOSE = "CLOSE",
+  DEEP_LINK = "DEEP_LINK",
+  LINK = "LINK",
+}
+
 /**
  * <p>Specifies the contents of a message that's sent through a custom channel to recipients of a campaign.</p>
  */
@@ -2708,6 +2727,253 @@ export namespace CampaignEventFilter {
    * @internal
    */
   export const filterSensitiveLog = (obj: CampaignEventFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Text config for Message Body.</p>
+ */
+export interface InAppMessageBodyConfig {
+  /**
+   * <p>The alignment of the text. Valid values: LEFT, CENTER, RIGHT.</p>
+   */
+  Alignment: Alignment | string | undefined;
+
+  /**
+   * <p>Message Body.</p>
+   */
+  Body: string | undefined;
+
+  /**
+   * <p>The text color.</p>
+   */
+  TextColor: string | undefined;
+}
+
+export namespace InAppMessageBodyConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InAppMessageBodyConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Text config for Message Header.</p>
+ */
+export interface InAppMessageHeaderConfig {
+  /**
+   * <p>The alignment of the text. Valid values: LEFT, CENTER, RIGHT.</p>
+   */
+  Alignment: Alignment | string | undefined;
+
+  /**
+   * <p>Message Header.</p>
+   */
+  Header: string | undefined;
+
+  /**
+   * <p>The text color.</p>
+   */
+  TextColor: string | undefined;
+}
+
+export namespace InAppMessageHeaderConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InAppMessageHeaderConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Override button configuration.</p>
+ */
+export interface OverrideButtonConfiguration {
+  /**
+   * <p>Action triggered by the button.</p>
+   */
+  ButtonAction: ButtonAction | string | undefined;
+
+  /**
+   * <p>Button destination.</p>
+   */
+  Link?: string;
+}
+
+export namespace OverrideButtonConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OverrideButtonConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Default button configuration.</p>
+ */
+export interface DefaultButtonConfiguration {
+  /**
+   * <p>The background color of the button.</p>
+   */
+  BackgroundColor?: string;
+
+  /**
+   * <p>The border radius of the button.</p>
+   */
+  BorderRadius?: number;
+
+  /**
+   * <p>Action triggered by the button.</p>
+   */
+  ButtonAction: ButtonAction | string | undefined;
+
+  /**
+   * <p>Button destination.</p>
+   */
+  Link?: string;
+
+  /**
+   * <p>Button text.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The text color of the button.</p>
+   */
+  TextColor?: string;
+}
+
+export namespace DefaultButtonConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DefaultButtonConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Button Config for an in-app message.</p>
+ */
+export interface InAppMessageButton {
+  /**
+   * <p>Default button content.</p>
+   */
+  Android?: OverrideButtonConfiguration;
+
+  /**
+   * <p>Default button content.</p>
+   */
+  DefaultConfig?: DefaultButtonConfiguration;
+
+  /**
+   * <p>Default button content.</p>
+   */
+  IOS?: OverrideButtonConfiguration;
+
+  /**
+   * <p>Default button content.</p>
+   */
+  Web?: OverrideButtonConfiguration;
+}
+
+export namespace InAppMessageButton {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InAppMessageButton): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration for the message content.</p>
+ */
+export interface InAppMessageContent {
+  /**
+   * <p>The background color for the message.</p>
+   */
+  BackgroundColor?: string;
+
+  /**
+   * <p>The configuration for the message body.</p>
+   */
+  BodyConfig?: InAppMessageBodyConfig;
+
+  /**
+   * <p>The configuration for the message header.</p>
+   */
+  HeaderConfig?: InAppMessageHeaderConfig;
+
+  /**
+   * <p>The image url for the background of message.</p>
+   */
+  ImageUrl?: string;
+
+  /**
+   * <p>The first button inside the message.</p>
+   */
+  PrimaryBtn?: InAppMessageButton;
+
+  /**
+   * <p>The second button inside message.</p>
+   */
+  SecondaryBtn?: InAppMessageButton;
+}
+
+export namespace InAppMessageContent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InAppMessageContent): any => ({
+    ...obj,
+  });
+}
+
+export enum Layout {
+  BOTTOM_BANNER = "BOTTOM_BANNER",
+  CAROUSEL = "CAROUSEL",
+  MIDDLE_BANNER = "MIDDLE_BANNER",
+  MOBILE_FEED = "MOBILE_FEED",
+  OVERLAYS = "OVERLAYS",
+  TOP_BANNER = "TOP_BANNER",
+}
+
+/**
+ * <p>In-app message configuration.</p>
+ */
+export interface CampaignInAppMessage {
+  /**
+   * <p>The message body of the notification, the email body or the text message.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>In-app message content.</p>
+   */
+  Content?: InAppMessageContent[];
+
+  /**
+   * <p>Custom config to be sent to client.</p>
+   */
+  CustomConfig?: { [key: string]: string };
+
+  /**
+   * <p>In-app message layout.</p>
+   */
+  Layout?: Layout | string;
+}
+
+export namespace CampaignInAppMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CampaignInAppMessage): any => ({
     ...obj,
   });
 }
@@ -2897,6 +3163,11 @@ export interface MessageConfiguration {
    * <p>The message that the campaign sends through the SMS channel. If specified, this message overrides the default message.</p>
    */
   SMSMessage?: CampaignSmsMessage;
+
+  /**
+   * <p>The in-app message configuration.</p>
+   */
+  InAppMessage?: CampaignInAppMessage;
 }
 
 export namespace MessageConfiguration {
@@ -2912,6 +3183,7 @@ export enum Frequency {
   DAILY = "DAILY",
   EVENT = "EVENT",
   HOURLY = "HOURLY",
+  IN_APP_EVENT = "IN_APP_EVENT",
   MONTHLY = "MONTHLY",
   ONCE = "ONCE",
   WEEKLY = "WEEKLY",
@@ -3238,6 +3510,11 @@ export interface CampaignResponse {
    * <p>The version number of the campaign.</p>
    */
   Version?: number;
+
+  /**
+   * <p>Defines the priority of the campaign, used to decide the order of messages displayed to user if there are multiple messages scheduled to be displayed at the same moment.</p>
+   */
+  Priority?: number;
 }
 
 export namespace CampaignResponse {
@@ -3721,6 +3998,11 @@ export interface WriteCampaignRequest {
    * <p>A custom name of the default treatment for the campaign, if the campaign has multiple treatments. A <i>treatment</i> is a variation of a campaign that's used for A/B testing.</p>
    */
   TreatmentName?: string;
+
+  /**
+   * <p>Defines the priority of the campaign, used to decide the order of messages displayed to user if there are multiple messages scheduled to be displayed at the same moment.</p>
+   */
+  Priority?: number;
 }
 
 export namespace WriteCampaignRequest {
@@ -4305,6 +4587,111 @@ export namespace CreateImportJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateImportJobResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>InApp Template Request.</p>
+ */
+export interface InAppTemplateRequest {
+  /**
+   * <p>The content of the message, can include up to 5 modals. Each modal must contain a message, a header, and background color. ImageUrl and buttons are optional.</p>
+   */
+  Content?: InAppMessageContent[];
+
+  /**
+   * <p>Custom config to be sent to client.</p>
+   */
+  CustomConfig?: { [key: string]: string };
+
+  /**
+   * <p>The layout of the message.</p>
+   */
+  Layout?: Layout | string;
+
+  /**
+   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The description of the template.</p>
+   */
+  TemplateDescription?: string;
+}
+
+export namespace InAppTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InAppTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInAppTemplateRequest {
+  /**
+   * <p>InApp Template Request.</p>
+   */
+  InAppTemplateRequest: InAppTemplateRequest | undefined;
+
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   */
+  TemplateName: string | undefined;
+}
+
+export namespace CreateInAppTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInAppTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about a request to create a message template.</p>
+ */
+export interface TemplateCreateMessageBody {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template that was created.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The message that's returned from the API for the request to create the message template.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The unique identifier for the request to create the message template.</p>
+   */
+  RequestID?: string;
+}
+
+export namespace TemplateCreateMessageBody {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TemplateCreateMessageBody): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInAppTemplateResponse {
+  /**
+   * <p>Provides information about a request to create a message template.</p>
+   */
+  TemplateCreateMessageBody: TemplateCreateMessageBody | undefined;
+}
+
+export namespace CreateInAppTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInAppTemplateResponse): any => ({
     ...obj,
   });
 }
@@ -6374,6 +6761,43 @@ export namespace DeleteGcmChannelResponse {
   });
 }
 
+export interface DeleteInAppTemplateRequest {
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+   */
+  Version?: string;
+}
+
+export namespace DeleteInAppTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInAppTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInAppTemplateResponse {
+  /**
+   * <p>Provides information about an API request or response.</p>
+   */
+  MessageBody: MessageBody | undefined;
+}
+
+export namespace DeleteInAppTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInAppTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteJourneyRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -7287,6 +7711,7 @@ export namespace EmailChannelRequest {
 
 export enum TemplateType {
   EMAIL = "EMAIL",
+  INAPP = "INAPP",
   PUSH = "PUSH",
   SMS = "SMS",
   VOICE = "VOICE",
@@ -8710,305 +9135,6 @@ export namespace GetEndpointRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEndpointResponse {
-  /**
-   * <p>Provides information about the channel type and other settings for an endpoint.</p>
-   */
-  EndpointResponse: EndpointResponse | undefined;
-}
-
-export namespace GetEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEndpointResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEventStreamRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-}
-
-export namespace GetEventStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventStreamRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEventStreamResponse {
-  /**
-   * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
-   */
-  EventStream: EventStream | undefined;
-}
-
-export namespace GetEventStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventStreamResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetExportJobRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the job.</p>
-   */
-  JobId: string | undefined;
-}
-
-export namespace GetExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetExportJobResponse {
-  /**
-   * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
-   */
-  ExportJobResponse: ExportJobResponse | undefined;
-}
-
-export namespace GetExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetExportJobsRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
-   */
-  PageSize?: string;
-
-  /**
-   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
-   */
-  Token?: string;
-}
-
-export namespace GetExportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetExportJobsResponse {
-  /**
-   * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
-   */
-  ExportJobsResponse: ExportJobsResponse | undefined;
-}
-
-export namespace GetExportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportJobsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetGcmChannelRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-}
-
-export namespace GetGcmChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGcmChannelRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetGcmChannelResponse {
-  /**
-   * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
-   */
-  GCMChannelResponse: GCMChannelResponse | undefined;
-}
-
-export namespace GetGcmChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGcmChannelResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetImportJobRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the job.</p>
-   */
-  JobId: string | undefined;
-}
-
-export namespace GetImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImportJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetImportJobResponse {
-  /**
-   * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
-   */
-  ImportJobResponse: ImportJobResponse | undefined;
-}
-
-export namespace GetImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImportJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetImportJobsRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
-   */
-  PageSize?: string;
-
-  /**
-   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
-   */
-  Token?: string;
-}
-
-export namespace GetImportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
- */
-export interface ImportJobsResponse {
-  /**
-   * <p>An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).</p>
-   */
-  Item: ImportJobResponse[] | undefined;
-
-  /**
-   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ImportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportJobsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetImportJobsResponse {
-  /**
-   * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
-   */
-  ImportJobsResponse: ImportJobsResponse | undefined;
-}
-
-export namespace GetImportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImportJobsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJourneyRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the journey.</p>
-   */
-  JourneyId: string | undefined;
-}
-
-export namespace GetJourneyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJourneyRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJourneyResponse {
-  /**
-   * <p>Provides information about the status, configuration, and other settings for a journey.</p>
-   */
-  JourneyResponse: JourneyResponse | undefined;
-}
-
-export namespace GetJourneyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJourneyResponse): any => ({
     ...obj,
   });
 }

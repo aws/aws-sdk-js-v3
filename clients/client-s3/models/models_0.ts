@@ -331,7 +331,7 @@ export interface CompleteMultipartUploadOutput {
 
   /**
    * <p>If you specified server-side encryption either with an Amazon S3-managed encryption key or an
-   *          Amazon Web Services KMS customer master key (CMK) in your initiate multipart upload request, the response
+   *          Amazon Web Services KMS key in your initiate multipart upload request, the response
    *          includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the
    *          object.</p>
    */
@@ -345,7 +345,7 @@ export interface CompleteMultipartUploadOutput {
 
   /**
    * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          customer managed customer master key (CMK) that was used for the object.</p>
+   *          customer managed key that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
@@ -527,7 +527,7 @@ export interface CopyObjectOutput {
 
   /**
    * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          customer managed customer master key (CMK) that was used for the object.</p>
+   *          customer managed key that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
@@ -1005,6 +1005,11 @@ export interface CreateBucketRequest {
   Bucket: string | undefined;
 
   /**
+   * <p>The configuration information for the bucket.</p>
+   */
+  CreateBucketConfiguration?: CreateBucketConfiguration;
+
+  /**
    * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
    *          bucket.</p>
    */
@@ -1035,11 +1040,6 @@ export interface CreateBucketRequest {
    * <p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p>
    */
   ObjectLockEnabledForBucket?: boolean;
-
-  /**
-   * <p>The configuration information for the bucket.</p>
-   */
-  CreateBucketConfiguration?: CreateBucketConfiguration;
 }
 
 export namespace CreateBucketRequest {
@@ -1109,7 +1109,7 @@ export interface CreateMultipartUploadOutput {
 
   /**
    * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          customer managed customer master key (CMK) that was used for the object.</p>
+   *          customer managed key that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
@@ -1270,7 +1270,7 @@ export interface CreateMultipartUploadRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>Specifies the ID of the symmetric customer managed Amazon Web Services KMS CMK to use for object
+   * <p>Specifies the ID of the symmetric customer managed key to use for object
    *          encryption. All GET and PUT requests for an object protected by Amazon Web Services KMS will fail if not
    *          made via SSL or using SigV4. For information about configuring using any of the officially
    *          supported Amazon Web Services SDKs and Amazon Web Services CLI, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying the Signature Version in Request Authentication</a>
@@ -3741,6 +3741,11 @@ export interface DeleteObjectsRequest {
   Bucket: string | undefined;
 
   /**
+   * <p>Container for the request.</p>
+   */
+  Delete: Delete | undefined;
+
+  /**
    * <p>The concatenation of the authentication device's serial number, a space, and the value
    *          that is displayed on your authentication device. Required to permanently delete a versioned
    *          object if versioning is configured with MFA delete enabled.</p>
@@ -3766,11 +3771,6 @@ export interface DeleteObjectsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
-
-  /**
-   * <p>Container for the request.</p>
-   */
-  Delete: Delete | undefined;
 }
 
 export namespace DeleteObjectsRequest {
@@ -4660,8 +4660,8 @@ export namespace GetBucketIntelligentTieringConfigurationRequest {
  */
 export interface SSEKMS {
   /**
-   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed
-   *          customer master key (CMK) to use for encrypting inventory reports.</p>
+   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed key
+   *          to use for encrypting inventory reports.</p>
    */
   KeyId: string | undefined;
 }
@@ -5464,6 +5464,11 @@ export interface MetricsAndOperator {
    * <p>The list of tags used when evaluating an AND predicate.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The access point ARN used when evaluating an AND predicate.</p>
+   */
+  AccessPointArn?: string;
 }
 
 export namespace MetricsAndOperator {
@@ -5477,10 +5482,11 @@ export namespace MetricsAndOperator {
 
 /**
  * <p>Specifies a metrics configuration filter. The metrics configuration only includes
- *          objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction
- *          (MetricsAndOperator).</p>
+ *          objects that meet the filter's criteria. A filter must be a prefix, an object tag, an access point ARN, or a conjunction
+ *          (MetricsAndOperator). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html">PutBucketMetricsConfiguration</a>.</p>
  */
 export type MetricsFilter =
+  | MetricsFilter.AccessPointArnMember
   | MetricsFilter.AndMember
   | MetricsFilter.PrefixMember
   | MetricsFilter.TagMember
@@ -5493,6 +5499,7 @@ export namespace MetricsFilter {
   export interface PrefixMember {
     Prefix: string;
     Tag?: never;
+    AccessPointArn?: never;
     And?: never;
     $unknown?: never;
   }
@@ -5503,6 +5510,18 @@ export namespace MetricsFilter {
   export interface TagMember {
     Prefix?: never;
     Tag: Tag;
+    AccessPointArn?: never;
+    And?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The access point ARN used when evaluating a metrics filter.</p>
+   */
+  export interface AccessPointArnMember {
+    Prefix?: never;
+    Tag?: never;
+    AccessPointArn: string;
     And?: never;
     $unknown?: never;
   }
@@ -5515,6 +5534,7 @@ export namespace MetricsFilter {
   export interface AndMember {
     Prefix?: never;
     Tag?: never;
+    AccessPointArn?: never;
     And: MetricsAndOperator;
     $unknown?: never;
   }
@@ -5522,6 +5542,7 @@ export namespace MetricsFilter {
   export interface $UnknownMember {
     Prefix?: never;
     Tag?: never;
+    AccessPointArn?: never;
     And?: never;
     $unknown: [string, any];
   }
@@ -5529,6 +5550,7 @@ export namespace MetricsFilter {
   export interface Visitor<T> {
     Prefix: (value: string) => T;
     Tag: (value: Tag) => T;
+    AccessPointArn: (value: string) => T;
     And: (value: MetricsAndOperator) => T;
     _: (name: string, value: any) => T;
   }
@@ -5536,6 +5558,7 @@ export namespace MetricsFilter {
   export const visit = <T>(value: MetricsFilter, visitor: Visitor<T>): T => {
     if (value.Prefix !== undefined) return visitor.Prefix(value.Prefix);
     if (value.Tag !== undefined) return visitor.Tag(value.Tag);
+    if (value.AccessPointArn !== undefined) return visitor.AccessPointArn(value.AccessPointArn);
     if (value.And !== undefined) return visitor.And(value.And);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -5546,6 +5569,7 @@ export namespace MetricsFilter {
   export const filterSensitiveLog = (obj: MetricsFilter): any => {
     if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
     if (obj.Tag !== undefined) return { Tag: Tag.filterSensitiveLog(obj.Tag) };
+    if (obj.AccessPointArn !== undefined) return { AccessPointArn: obj.AccessPointArn };
     if (obj.And !== undefined) return { And: MetricsAndOperator.filterSensitiveLog(obj.And) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
@@ -5556,8 +5580,7 @@ export namespace MetricsFilter {
  *          metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics
  *          configuration, note that this is a full replacement of the existing metrics configuration.
  *          If you don't include the elements you want to keep, they are erased. For more information,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html"> PUT Bucket
- *             metrics</a> in the <i>Amazon S3 API Reference</i>.</p>
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html">PutBucketMetricsConfiguration</a>.</p>
  */
 export interface MetricsConfiguration {
   /**
@@ -5567,7 +5590,7 @@ export interface MetricsConfiguration {
 
   /**
    * <p>Specifies a metrics configuration filter. The metrics configuration will only include
-   *          objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction
+   *          objects that meet the filter's criteria. A filter must be a prefix, an object tag, an access point ARN, or a conjunction
    *          (MetricsAndOperator).</p>
    */
   Filter?: MetricsFilter;
@@ -6481,7 +6504,7 @@ export namespace SseKmsEncryptedObjects {
  * <p>A container that describes additional filters for identifying the source objects that
  *          you want to replicate. You can choose to enable or disable the replication of these
  *          objects. Currently, Amazon S3 supports only the filter that you can specify for objects created
- *          with server-side encryption using a customer master key (CMK) stored in Amazon Web Services Key Management
+ *          with server-side encryption using a customer managed key stored in Amazon Web Services Key Management
  *          Service (SSE-KMS).</p>
  */
 export interface SourceSelectionCriteria {
@@ -6567,7 +6590,7 @@ export interface ReplicationRule {
    * <p>A container that describes additional filters for identifying the source objects that
    *          you want to replicate. You can choose to enable or disable the replication of these
    *          objects. Currently, Amazon S3 supports only the filter that you can specify for objects created
-   *          with server-side encryption using a customer master key (CMK) stored in Amazon Web Services Key Management
+   *          with server-side encryption using a customer managed key stored in Amazon Web Services Key Management
    *          Service (SSE-KMS).</p>
    */
   SourceSelectionCriteria?: SourceSelectionCriteria;
@@ -7201,7 +7224,7 @@ export interface GetObjectOutput {
 
   /**
    * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          customer managed customer master key (CMK) that was used for the object.</p>
+   *          customer managed key that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
@@ -7269,6 +7292,7 @@ export interface GetObjectRequest {
   /**
    * <p>The bucket name containing the object. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket: string | undefined;
@@ -8171,8 +8195,8 @@ export interface HeadObjectOutput {
   WebsiteRedirectLocation?: string;
 
   /**
-   * <p>If the object is stored using server-side encryption either with an Amazon Web Services KMS customer
-   *          master key (CMK) or an Amazon S3-managed encryption key, the response includes this header with
+   * <p>If the object is stored using server-side encryption either with an Amazon Web Services KMS key or
+   *          an Amazon S3-managed encryption key, the response includes this header with
    *          the value of the server-side encryption algorithm used when storing this object in Amazon
    *          S3 (for example, AES256, aws:kms).</p>
    */
@@ -8198,7 +8222,7 @@ export interface HeadObjectOutput {
 
   /**
    * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          customer managed customer master key (CMK) that was used for the object.</p>
+   *          customer managed key that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
@@ -9854,14 +9878,14 @@ export interface PutBucketAccelerateConfigurationRequest {
   Bucket: string | undefined;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>Container for setting the transfer acceleration state.</p>
    */
   AccelerateConfiguration: AccelerateConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketAccelerateConfigurationRequest {
@@ -9878,6 +9902,11 @@ export interface PutBucketAclRequest {
    * <p>The canned ACL to apply to the bucket.</p>
    */
   ACL?: BucketCannedACL | string;
+
+  /**
+   * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
+   */
+  AccessControlPolicy?: AccessControlPolicy;
 
   /**
    * <p>The bucket to which to apply the ACL.</p>
@@ -9925,11 +9954,6 @@ export interface PutBucketAclRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
-
-  /**
-   * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
-   */
-  AccessControlPolicy?: AccessControlPolicy;
 }
 
 export namespace PutBucketAclRequest {
@@ -9953,14 +9977,14 @@ export interface PutBucketAnalyticsConfigurationRequest {
   Id: string | undefined;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>The configuration and any analyses for the analytics filter.</p>
    */
   AnalyticsConfiguration: AnalyticsConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketAnalyticsConfigurationRequest {
@@ -10004,6 +10028,13 @@ export interface PutBucketCorsRequest {
   Bucket: string | undefined;
 
   /**
+   * <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource
+   *             Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  CORSConfiguration: CORSConfiguration | undefined;
+
+  /**
    * <p>The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message
    *          integrity check to verify that the request body was not corrupted in transit. For more
    *          information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
@@ -10017,13 +10048,6 @@ export interface PutBucketCorsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
-
-  /**
-   * <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource
-   *             Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
-   */
-  CORSConfiguration: CORSConfiguration | undefined;
 }
 
 export namespace PutBucketCorsRequest {
@@ -10038,7 +10062,7 @@ export namespace PutBucketCorsRequest {
 export interface PutBucketEncryptionRequest {
   /**
    * <p>Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed
-   *          keys (SSE-S3) or customer master keys stored in Amazon Web Services KMS (SSE-KMS). For information about
+   *          keys (SSE-S3) or customer managed keys (SSE-KMS). For information about
    *          the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a>
    *          in the <i>Amazon S3 User Guide</i>.</p>
    */
@@ -10051,14 +10075,14 @@ export interface PutBucketEncryptionRequest {
   ContentMD5?: string;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>Specifies the default server-side-encryption configuration.</p>
    */
   ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketEncryptionRequest {
@@ -10113,14 +10137,14 @@ export interface PutBucketInventoryConfigurationRequest {
   Id: string | undefined;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>Specifies the inventory configuration.</p>
    */
   InventoryConfiguration: InventoryConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketInventoryConfigurationRequest {
@@ -10164,14 +10188,14 @@ export interface PutBucketLifecycleConfigurationRequest {
   Bucket: string | undefined;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
    */
   LifecycleConfiguration?: BucketLifecycleConfiguration;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketLifecycleConfigurationRequest {
@@ -10214,6 +10238,11 @@ export interface PutBucketLoggingRequest {
   Bucket: string | undefined;
 
   /**
+   * <p>Container for logging status information.</p>
+   */
+  BucketLoggingStatus: BucketLoggingStatus | undefined;
+
+  /**
    * <p>The MD5 hash of the <code>PutBucketLogging</code> request body.</p>
    *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    */
@@ -10223,11 +10252,6 @@ export interface PutBucketLoggingRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
-
-  /**
-   * <p>Container for logging status information.</p>
-   */
-  BucketLoggingStatus: BucketLoggingStatus | undefined;
 }
 
 export namespace PutBucketLoggingRequest {
@@ -10251,14 +10275,14 @@ export interface PutBucketMetricsConfigurationRequest {
   Id: string | undefined;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>Specifies the metrics configuration.</p>
    */
   MetricsConfiguration: MetricsConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketMetricsConfigurationRequest {
@@ -10280,15 +10304,15 @@ export interface PutBucketNotificationConfigurationRequest {
   Bucket: string | undefined;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>A container for specifying the notification configuration of the bucket. If this element
    *          is empty, notifications are turned off for the bucket.</p>
    */
   NotificationConfiguration: NotificationConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketNotificationConfigurationRequest {
@@ -10386,6 +10410,12 @@ export interface PutBucketReplicationRequest {
   ContentMD5?: string;
 
   /**
+   * <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
+   *          replication configuration is 2 MB.</p>
+   */
+  ReplicationConfiguration: ReplicationConfiguration | undefined;
+
+  /**
    * <p>A token to allow Object Lock to be enabled for an existing bucket.</p>
    */
   Token?: string;
@@ -10394,12 +10424,6 @@ export interface PutBucketReplicationRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
-
-  /**
-   * <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
-   *          replication configuration is 2 MB.</p>
-   */
-  ReplicationConfiguration: ReplicationConfiguration | undefined;
 }
 
 export namespace PutBucketReplicationRequest {
@@ -10449,14 +10473,14 @@ export interface PutBucketRequestPaymentRequest {
   ContentMD5?: string;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>Container for Payer.</p>
    */
   RequestPaymentConfiguration: RequestPaymentConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketRequestPaymentRequest {
@@ -10502,14 +10526,14 @@ export interface PutBucketTaggingRequest {
   ContentMD5?: string;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>Container for the <code>TagSet</code> and <code>Tag</code> elements.</p>
    */
   Tagging: Tagging | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketTaggingRequest {
@@ -10572,14 +10596,14 @@ export interface PutBucketVersioningRequest {
   MFA?: string;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>Container for setting the versioning state.</p>
    */
   VersioningConfiguration: VersioningConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketVersioningRequest {
@@ -10643,14 +10667,14 @@ export interface PutBucketWebsiteRequest {
   ContentMD5?: string;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>Container for the request.</p>
    */
   WebsiteConfiguration: WebsiteConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketWebsiteRequest {
@@ -10676,7 +10700,7 @@ export interface PutObjectOutput {
   ETag?: string;
 
   /**
-   * <p>If you specified server-side encryption either with an Amazon Web Services KMS customer master key (CMK)
+   * <p>If you specified server-side encryption either with an Amazon Web Services KMS key
    *          or Amazon S3-managed encryption key in your PUT request, the response includes this header. It
    *          confirms the encryption algorithm that Amazon S3 used to encrypt the object.</p>
    */
@@ -10703,7 +10727,7 @@ export interface PutObjectOutput {
   /**
    * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
    *             <code>aws:kms</code>, this header specifies the ID of the Amazon Web Services Key Management Service
-   *          (Amazon Web Services KMS) symmetric customer managed customer master key (CMK) that was used for the
+   *          (Amazon Web Services KMS) symmetric customer managed key that was used for the
    *          object. </p>
    */
   SSEKMSKeyId?: string;
@@ -10909,10 +10933,10 @@ export interface PutObjectRequest {
   /**
    * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
    *          <code>aws:kms</code>, this header specifies the ID of the Amazon Web Services Key Management Service
-   *          (Amazon Web Services KMS) symmetrical customer managed customer master key (CMK) that was used for the
+   *          (Amazon Web Services KMS) symmetrical customer managed key that was used for the
    *          object. If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but do not
    *          provide<code> x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the Amazon Web Services
-   *          managed CMK in Amazon Web Services to protect the data. If the KMS key does not exist in the same account
+   *          managed key to protect the data. If the KMS key does not exist in the same account
    *          issuing the command, you must use the full ARN and not just the ID.
    *       </p>
    */
@@ -11005,6 +11029,11 @@ export interface PutObjectAclRequest {
   ACL?: ObjectCannedACL | string;
 
   /**
+   * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
+   */
+  AccessControlPolicy?: AccessControlPolicy;
+
+  /**
    * <p>The bucket name that contains the object to which you want to attach the ACL. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
@@ -11077,11 +11106,6 @@ export interface PutObjectAclRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
-
-  /**
-   * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
-   */
-  AccessControlPolicy?: AccessControlPolicy;
 }
 
 export namespace PutObjectAclRequest {
@@ -11123,6 +11147,12 @@ export interface PutObjectLegalHoldRequest {
   Key: string | undefined;
 
   /**
+   * <p>Container element for the Legal Hold configuration you want to apply to the specified
+   *          object.</p>
+   */
+  LegalHold?: ObjectLockLegalHold;
+
+  /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
    *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
@@ -11145,12 +11175,6 @@ export interface PutObjectLegalHoldRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
-
-  /**
-   * <p>Container element for the Legal Hold configuration you want to apply to the specified
-   *          object.</p>
-   */
-  LegalHold?: ObjectLockLegalHold;
 }
 
 export namespace PutObjectLegalHoldRequest {
@@ -11186,6 +11210,11 @@ export interface PutObjectLockConfigurationRequest {
   Bucket: string | undefined;
 
   /**
+   * <p>The Object Lock configuration that you want to apply to the specified bucket.</p>
+   */
+  ObjectLockConfiguration?: ObjectLockConfiguration;
+
+  /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
    *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
@@ -11208,11 +11237,6 @@ export interface PutObjectLockConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
-
-  /**
-   * <p>The Object Lock configuration that you want to apply to the specified bucket.</p>
-   */
-  ObjectLockConfiguration?: ObjectLockConfiguration;
 }
 
 export namespace PutObjectLockConfigurationRequest {
@@ -11256,6 +11280,11 @@ export interface PutObjectRetentionRequest {
   Key: string | undefined;
 
   /**
+   * <p>The container element for the Object Retention configuration.</p>
+   */
+  Retention?: ObjectLockRetention;
+
+  /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
    *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
@@ -11284,11 +11313,6 @@ export interface PutObjectRetentionRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
-
-  /**
-   * <p>The container element for the Object Retention configuration.</p>
-   */
-  Retention?: ObjectLockRetention;
 }
 
 export namespace PutObjectRetentionRequest {
@@ -11341,6 +11365,11 @@ export interface PutObjectTaggingRequest {
   ContentMD5?: string;
 
   /**
+   * <p>Container for the <code>TagSet</code> and <code>Tag</code> elements</p>
+   */
+  Tagging: Tagging | undefined;
+
+  /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
@@ -11352,11 +11381,6 @@ export interface PutObjectTaggingRequest {
    *             Requestor Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
-
-  /**
-   * <p>Container for the <code>TagSet</code> and <code>Tag</code> elements</p>
-   */
-  Tagging: Tagging | undefined;
 }
 
 export namespace PutObjectTaggingRequest {
@@ -11382,16 +11406,16 @@ export interface PutPublicAccessBlockRequest {
   ContentMD5?: string;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
    *          bucket. You can enable the configuration options in any combination. For more information
    *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutPublicAccessBlockRequest {

@@ -2222,6 +2222,35 @@ export namespace Settings {
   });
 }
 
+export enum SubtitleFormat {
+  SRT = "srt",
+  VTT = "vtt",
+}
+
+/**
+ * <p>Specify the output format for your subtitle file.</p>
+ */
+export interface SubtitlesOutput {
+  /**
+   * <p>Specify the output format for your subtitle file; if you select both SRT and VTT formats, two output files are genereated.</p>
+   */
+  Formats?: (SubtitleFormat | string)[];
+
+  /**
+   * <p>Choose the output location for your subtitle file. This location must be an S3 bucket.</p>
+   */
+  SubtitleFileUris?: string[];
+}
+
+export namespace SubtitlesOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SubtitlesOutput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code>
  *             operation. </p>
@@ -2364,6 +2393,11 @@ export interface TranscriptionJob {
    * <p>A key:value pair assigned to a given transcription job.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Generate subtitles for your batch transcription job.</p>
+   */
+  Subtitles?: SubtitlesOutput;
 }
 
 export namespace TranscriptionJob {
@@ -3514,6 +3548,25 @@ export namespace StartMedicalTranscriptionJobResponse {
   });
 }
 
+/**
+ * <p>Generate subtitles for your batch transcription job.</p>
+ */
+export interface Subtitles {
+  /**
+   * <p>Specify the output format for your subtitle file.</p>
+   */
+  Formats?: (SubtitleFormat | string)[];
+}
+
+export namespace Subtitles {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Subtitles): any => ({
+    ...obj,
+  });
+}
+
 export interface StartTranscriptionJobRequest {
   /**
    * <p>The name of the job. You can't use the strings "<code>.</code>" or "<code>..</code>" by themselves as the
@@ -3651,6 +3704,11 @@ export interface StartTranscriptionJobRequest {
    *             rate of 16,000 Hz or higher.</p>
    */
   LanguageOptions?: (LanguageCode | string)[];
+
+  /**
+   * <p>Add subtitles to your batch transcription job.</p>
+   */
+  Subtitles?: Subtitles;
 
   /**
    * <p>Add tags to an Amazon Transcribe transcription job.</p>

@@ -112,6 +112,8 @@ import {
   ProfilingStatus,
   ProjectStatus,
   ScheduleStatus,
+  ServiceCatalogProvisionedProductDetails,
+  ServiceCatalogProvisioningDetails,
   SourceAlgorithmSpecification,
   SourceIpConfig,
   StudioLifecycleConfigAppType,
@@ -1207,7 +1209,7 @@ export interface DescribeTrialComponentResponse {
   CreationTime?: Date;
 
   /**
-   * <p>Who created the component.</p>
+   * <p>Who created the trial component.</p>
    */
   CreatedBy?: UserContext;
 
@@ -2370,8 +2372,7 @@ export interface Experiment {
   CreationTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Who created the experiment.</p>
    */
   CreatedBy?: UserContext;
 
@@ -2381,8 +2382,8 @@ export interface Experiment {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -3021,6 +3022,7 @@ export enum ResourceType {
   MODEL_PACKAGE_GROUP = "ModelPackageGroup",
   PIPELINE = "Pipeline",
   PIPELINE_EXECUTION = "PipelineExecution",
+  PROJECT = "Project",
   TRAINING_JOB = "TrainingJob",
 }
 
@@ -6315,8 +6317,8 @@ export interface ListModelsInput {
   MaxResults?: number;
 
   /**
-   * <p>A string in the training job name. This filter returns only models in the training
-   *             job whose name contains the specified string.</p>
+   * <p>A string in the model name. This filter returns only models whose
+   *             name contains the specified string.</p>
    */
   NameContains?: string;
 
@@ -8624,7 +8626,7 @@ export interface TrialComponentSummary {
   CreationTime?: Date;
 
   /**
-   * <p>Who created the component.</p>
+   * <p>Who created the trial component.</p>
    */
   CreatedBy?: UserContext;
 
@@ -9140,8 +9142,8 @@ export interface ModelPackage {
   ModelApprovalStatus?: ModelApprovalStatus | string;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 
@@ -9161,8 +9163,8 @@ export interface ModelPackage {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -9212,8 +9214,8 @@ export interface ModelPackageGroup {
   CreationTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 
@@ -9386,14 +9388,14 @@ export interface Pipeline {
   LastRunTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -9462,14 +9464,14 @@ export interface PipelineExecution {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -9681,6 +9683,77 @@ export namespace ProfilerConfigForUpdate {
   });
 }
 
+/**
+ * <p>The properties of a project as returned by the Search API.</p>
+ */
+export interface Project {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   */
+  ProjectArn?: string;
+
+  /**
+   * <p>The name of the project.</p>
+   */
+  ProjectName?: string;
+
+  /**
+   * <p>The ID of the project.</p>
+   */
+  ProjectId?: string;
+
+  /**
+   * <p>The description of the project.</p>
+   */
+  ProjectDescription?: string;
+
+  /**
+   * <p>Details that you specify to provision a service catalog product. For information about
+   *             service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+   *                 Catalog</a>.</p>
+   */
+  ServiceCatalogProvisioningDetails?: ServiceCatalogProvisioningDetails;
+
+  /**
+   * <p>Details of a provisioned service catalog product. For information about service catalog,
+   *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+   *                 Catalog</a>.</p>
+   */
+  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails;
+
+  /**
+   * <p>The status of the project.</p>
+   */
+  ProjectStatus?: ProjectStatus | string;
+
+  /**
+   * <p>Who created the project.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>A timestamp specifying when the project was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
+   *             different ways, for example, by purpose, owner, or environment. For more information,
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *                 Resources</a>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace Project {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Project): any => ({
+    ...obj,
+  });
+}
+
 export interface PutModelPackageGroupPolicyInput {
   /**
    * <p>The name of the model group to add a resource policy to.</p>
@@ -9844,6 +9917,44 @@ export namespace RenderUiTemplateResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: RenderUiTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RetryPipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than once.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace RetryPipelineExecutionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RetryPipelineExecutionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RetryPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace RetryPipelineExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RetryPipelineExecutionResponse): any => ({
     ...obj,
   });
 }
@@ -10255,8 +10366,8 @@ export interface TrialComponentSimpleSummary {
   CreationTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   CreatedBy?: UserContext;
 }
@@ -10306,8 +10417,7 @@ export interface Trial {
   CreationTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Who created the trial.</p>
    */
   CreatedBy?: UserContext;
 
@@ -10317,8 +10427,8 @@ export interface Trial {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -10620,8 +10730,7 @@ export interface TrialComponent {
   CreationTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Who created the trial component.</p>
    */
   CreatedBy?: UserContext;
 
@@ -10631,8 +10740,8 @@ export interface TrialComponent {
   LastModifiedTime?: Date;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, or trial
-   *       component.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -10752,6 +10861,11 @@ export interface SearchRecord {
    *          In principle, a Feature Group is composed of features and values per features.</p>
    */
   FeatureGroup?: FeatureGroup;
+
+  /**
+   * <p>The properties of a project.</p>
+   */
+  Project?: Project;
 }
 
 export namespace SearchRecord {
@@ -10929,7 +11043,7 @@ export interface StartPipelineExecutionRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than one time.</p>
+   *          operation. An idempotent operation completes no more than once.</p>
    */
   ClientRequestToken?: string;
 }
@@ -11079,7 +11193,7 @@ export interface StopPipelineExecutionRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than one time.</p>
+   *          operation. An idempotent operation completes no more than once.</p>
    */
   ClientRequestToken?: string;
 }
@@ -11242,81 +11356,6 @@ export namespace UpdateAppImageConfigResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateAppImageConfigResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateArtifactRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact to update.</p>
-   */
-  ArtifactArn: string | undefined;
-
-  /**
-   * <p>The new name for the artifact.</p>
-   */
-  ArtifactName?: string;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   */
-  Properties?: { [key: string]: string };
-
-  /**
-   * <p>A list of properties to remove.</p>
-   */
-  PropertiesToRemove?: string[];
-}
-
-export namespace UpdateArtifactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateArtifactRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateArtifactResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
-   */
-  ArtifactArn?: string;
-}
-
-export namespace UpdateArtifactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateArtifactResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository to update.</p>
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>The configuration of the git repository, including the URL and the Amazon Resource
-   *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to
-   *             access the repository. The secret must have a staging label of <code>AWSCURRENT</code>
-   *             and must be in the following format:</p>
-   *         <p>
-   *             <code>{"username": <i>UserName</i>, "password":
-   *                     <i>Password</i>}</code>
-   *         </p>
-   */
-  GitConfig?: GitConfigForUpdate;
-}
-
-export namespace UpdateCodeRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCodeRepositoryInput): any => ({
     ...obj,
   });
 }

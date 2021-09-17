@@ -11454,6 +11454,12 @@ const serializeAws_restXmlMetricsAndOperator = (input: MetricsAndOperator, conte
       bodyNode.addChildNode(node);
     });
   }
+  if (input.AccessPointArn !== undefined && input.AccessPointArn !== null) {
+    const node = new __XmlNode("AccessPointArn")
+      .addChildNode(new __XmlText(input.AccessPointArn))
+      .withName("AccessPointArn");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -11479,6 +11485,10 @@ const serializeAws_restXmlMetricsFilter = (input: MetricsFilter, context: __Serd
     },
     Tag: (value) => {
       const node = serializeAws_restXmlTag(value, context).withName("Tag");
+      bodyNode.addChildNode(node);
+    },
+    AccessPointArn: (value) => {
+      const node = new __XmlNode("AccessPointArn").addChildNode(new __XmlText(value)).withName("AccessPointArn");
       bodyNode.addChildNode(node);
     },
     And: (value) => {
@@ -13637,6 +13647,7 @@ const deserializeAws_restXmlMetricsAndOperator = (output: any, context: __SerdeC
   let contents: any = {
     Prefix: undefined,
     Tags: undefined,
+    AccessPointArn: undefined,
   };
   if (output["Prefix"] !== undefined) {
     contents.Prefix = __expectString(output["Prefix"]);
@@ -13646,6 +13657,9 @@ const deserializeAws_restXmlMetricsAndOperator = (output: any, context: __SerdeC
   }
   if (output["Tag"] !== undefined) {
     contents.Tags = deserializeAws_restXmlTagSet(__getArrayIfSingleItem(output["Tag"]), context);
+  }
+  if (output["AccessPointArn"] !== undefined) {
+    contents.AccessPointArn = __expectString(output["AccessPointArn"]);
   }
   return contents;
 };
@@ -13687,6 +13701,11 @@ const deserializeAws_restXmlMetricsFilter = (output: any, context: __SerdeContex
   if (output["Tag"] !== undefined) {
     return {
       Tag: deserializeAws_restXmlTag(output["Tag"], context),
+    };
+  }
+  if (output["AccessPointArn"] !== undefined) {
+    return {
+      AccessPointArn: __expectString(output["AccessPointArn"]) as any,
     };
   }
   if (output["And"] !== undefined) {

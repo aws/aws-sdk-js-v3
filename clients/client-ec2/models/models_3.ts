@@ -2134,13 +2134,11 @@ export interface DescribeInstanceTypesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported
-   *       (<code>true</code> | <code>false</code>).</p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type
-   *       (<code>true</code> | <code>false</code>).</p>
+   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2196,8 +2194,7 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
-   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> |
-   *       <code>unsupported</code>).</p>
+   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2206,8 +2203,7 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported
-   *       (<code>true</code> | <code>false</code>).</p>
+   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2271,7 +2267,7 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance type
-   *      automatically encrypts in-transit traffic between instances.</p>
+   *      automatically encrypts in-transit traffic between instances  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2285,8 +2281,7 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports
-   *      IPv6  (<code>true</code> | <code>false</code>).</p>
+   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10920,7 +10915,7 @@ export interface StoreImageTaskResult {
   TaskStartTime?: Date;
 
   /**
-   * <p>The name of the S3 bucket that contains the stored AMI object.</p>
+   * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
    */
   Bucket?: string;
 

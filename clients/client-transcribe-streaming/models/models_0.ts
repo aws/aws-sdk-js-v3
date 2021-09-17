@@ -1,5 +1,49 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+/**
+ * <p>The entity identified as personally identifiable information (PII).</p>
+ */
+export interface Entity {
+  /**
+   * <p>The start time of speech that was identified as PII.</p>
+   */
+  StartTime?: number;
+
+  /**
+   * <p>The end time of speech that was identified as PII.</p>
+   */
+  EndTime?: number;
+
+  /**
+   * <p>The category of of information identified in this entity; for example, PII.</p>
+   */
+  Category?: string;
+
+  /**
+   * <p>The type of PII identified in this entity; for example, name or credit card number.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The words in the transcription output that have been identified as a PII entity.</p>
+   */
+  Content?: string;
+
+  /**
+   * <p>A value between zero and one that Amazon Transcribe assigns to PII identified in the source audio. Larger values indicate a higher confidence in PII identification.</p>
+   */
+  Confidence?: number;
+}
+
+export namespace Entity {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Entity): any => ({
+    ...obj,
+  });
+}
+
 export enum ItemType {
   PRONUNCIATION = "pronunciation",
   PUNCTUATION = "punctuation",
@@ -81,6 +125,11 @@ export interface Alternative {
    * <p>One or more alternative interpretations of the input audio. </p>
    */
   Items?: Item[];
+
+  /**
+   * <p>Contains the entities identified as personally identifiable information (PII) in the transcription output.</p>
+   */
+  Entities?: Entity[];
 }
 
 export namespace Alternative {
@@ -94,8 +143,10 @@ export namespace Alternative {
 
 /**
  * <p>Provides a wrapper for the audio chunks that you are sending.</p>
- *          <p>For information on audio encoding in Amazon Transcribe, see <a>input</a>. For information
- *       on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>
+ *          <p>For information on audio encoding in Amazon Transcribe, see
+ *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/input.html">Speech input</a>. For information
+ *       on audio encoding formats in Amazon Transcribe Medical, see
+ *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/input-med.html">Speech input</a>.</p>
  */
 export interface AudioEvent {
   /**
@@ -123,10 +174,10 @@ export namespace AudioStream {
   /**
    * <p>A blob of audio from your application. You audio stream consists of one or more audio
    *       events.</p>
-   *          <p>For information on audio encoding formats in Amazon Transcribe, see <a>input</a>. For
-   *       information on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>
-   *          <p>For more information on stream encoding in Amazon Transcribe, see <a>event-stream</a>. For
-   *       information on stream encoding in Amazon Transcribe Medical, see <a>event-stream-med</a>.</p>
+   *          <p>For information on audio encoding formats in Amazon Transcribe, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/input.html">Speech input</a>. For
+   *       information on audio encoding formats in Amazon Transcribe Medical, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/input-med.html">Speech input</a>.</p>
+   *          <p>For more information on stream encoding in Amazon Transcribe, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/event-stream.html">Event stream encoding</a>. For
+   *       information on stream encoding in Amazon Transcribe Medical, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/event-stream-med.html">Event stream encoding</a>.</p>
    */
   export interface AudioEventMember {
     AudioEvent: AudioEvent;
@@ -195,6 +246,14 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
+}
+
+export enum ContentIdentificationType {
+  PII = "PII",
+}
+
+export enum ContentRedactionType {
+  PII = "PII",
 }
 
 /**
@@ -742,8 +801,7 @@ export interface StartMedicalStreamTranscriptionRequest {
   LanguageCode: LanguageCode | string | undefined;
 
   /**
-   * <p>The sample rate of the input audio in Hertz. Sample rates of 16000 Hz or higher are
-   *             accepted.</p>
+   * <p>The sample rate of the input audio in Hertz.</p>
    */
   MediaSampleRateHertz: number | undefined;
 
@@ -833,7 +891,7 @@ export interface StartMedicalStreamTranscriptionResponse {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The sample rate of the input audio in Hertz. Valid value: 16000 Hz.</p>
+   * <p>The sample rate of the input audio in Hertz.</p>
    */
   MediaSampleRateHertz?: number;
 
@@ -913,8 +971,8 @@ export interface StartStreamTranscriptionRequest {
   LanguageCode: LanguageCode | string | undefined;
 
   /**
-   * <p>The sample rate, in Hertz, of the input audio. We suggest that you use 8000 Hz for low
-   *       quality audio and 16000 Hz for high quality audio.</p>
+   * <p>The sample rate, in Hertz, of the input audio. We suggest that you use 8,000 Hz for low
+   *       quality audio and 16,000 Hz for high quality audio.</p>
    */
   MediaSampleRateHertz: number | undefined;
 
@@ -936,13 +994,13 @@ export interface StartStreamTranscriptionRequest {
   SessionId?: string;
 
   /**
-   * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
+   * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP/2 data
    *       frame.</p>
    */
   AudioStream: AsyncIterable<AudioStream> | undefined;
 
   /**
-   * <p>The name of the vocabulary filter you've created that is unique to your AWS account.
+   * <p>The name of the vocabulary filter you've created that is unique to your account.
    *       Provide the name in this field to successfully use it in a stream.</p>
    */
   VocabularyFilterName?: string;
@@ -950,7 +1008,7 @@ export interface StartStreamTranscriptionRequest {
   /**
    * <p>The manner in which you use your vocabulary filter to filter words in your transcript.
    *         <code>Remove</code> removes filtered words from your transcription results.
-   *         <code>Mask</code> masks those words with a <code>***</code> in your transcription results.
+   *         <code>Mask</code> masks filtered words with a <code>***</code> in your transcription results.
    *         <code>Tag</code> keeps the filtered words in your transcription results and tags them. The
    *       tag appears as <code>VocabularyFilterMatch</code> equal to <code>True</code>
    *          </p>
@@ -992,6 +1050,33 @@ export interface StartStreamTranscriptionRequest {
    *       stability levels can come with lower overall transcription accuracy.</p>
    */
   PartialResultsStability?: PartialResultsStability | string;
+
+  /**
+   * <p>Set this field to PII to identify personally identifiable information (PII) in the transcription output. Content identification is performed only upon complete transcription of the audio segments.</p>
+   *          <p>You can’t set both <code>ContentIdentificationType</code> and <code>ContentRedactionType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   */
+  ContentIdentificationType?: ContentIdentificationType | string;
+
+  /**
+   * <p>Set this field to PII to redact personally identifiable information (PII) in the transcription output. Content redaction is performed only upon complete transcription of the audio segments.</p>
+   *          <p>You can’t set both <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   */
+  ContentRedactionType?: ContentRedactionType | string;
+
+  /**
+   * <p>List the PII entity types you want to identify or redact. In order to specify entity types, you must have
+   *       either <code>ContentIdentificationType</code> or <code>ContentRedactionType</code> enabled.</p>
+   *          <p>
+   *             <code>PIIEntityTypes</code> must be comma-separated; the available values are:
+   *       <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>,
+   *       <code>CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>,
+   *       <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
+   *       <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
+   *       <code>SSN</code>, and <code>ALL</code>.</p>
+   *          <p>
+   *             <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>
+   */
+  PiiEntityTypes?: string;
 }
 
 export namespace StartStreamTranscriptionRequest {
@@ -1062,8 +1147,7 @@ export namespace TranscriptResultStream {
   /**
    * <p>A portion of the transcription of the audio stream. Events are sent periodically from
    *       Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio
-   *       stream, or it can be the entire transcription of that portion of the audio stream.
-   *       </p>
+   *       stream, or it can be the entire transcription of that portion of the audio stream. </p>
    */
   export interface TranscriptEventMember {
     TranscriptEvent: TranscriptEvent;
@@ -1209,7 +1293,7 @@ export interface StartStreamTranscriptionResponse {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The sample rate for the input audio stream. Use 8000 Hz for low quality audio and 16000 Hz
+   * <p>The sample rate for the input audio stream. Use 8,000 Hz for low quality audio and 16,000 Hz
    *       for high quality audio.</p>
    */
   MediaSampleRateHertz?: number;
@@ -1269,6 +1353,21 @@ export interface StartStreamTranscriptionResponse {
    *       level.</p>
    */
   PartialResultsStability?: PartialResultsStability | string;
+
+  /**
+   * <p>Shows whether content identification was enabled in this stream.</p>
+   */
+  ContentIdentificationType?: ContentIdentificationType | string;
+
+  /**
+   * <p>Shows whether content redaction was enabled in this stream.</p>
+   */
+  ContentRedactionType?: ContentRedactionType | string;
+
+  /**
+   * <p>Lists the PII entity types you specified in your request.</p>
+   */
+  PiiEntityTypes?: string;
 }
 
 export namespace StartStreamTranscriptionResponse {

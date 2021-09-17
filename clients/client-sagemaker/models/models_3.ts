@@ -20,6 +20,7 @@ import {
   DesiredWeightAndCapacity,
   Device,
   Filter,
+  GitConfigForUpdate,
   NestedFilters,
   ProfilerConfigForUpdate,
   ResourceType,
@@ -27,6 +28,81 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface UpdateArtifactRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact to update.</p>
+   */
+  ArtifactArn: string | undefined;
+
+  /**
+   * <p>The new name for the artifact.</p>
+   */
+  ArtifactName?: string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: { [key: string]: string };
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
+
+export namespace UpdateArtifactRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateArtifactRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateArtifactResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
+   */
+  ArtifactArn?: string;
+}
+
+export namespace UpdateArtifactResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateArtifactResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateCodeRepositoryInput {
+  /**
+   * <p>The name of the Git repository to update.</p>
+   */
+  CodeRepositoryName: string | undefined;
+
+  /**
+   * <p>The configuration of the git repository, including the URL and the Amazon Resource
+   *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to
+   *             access the repository. The secret must have a staging label of <code>AWSCURRENT</code>
+   *             and must be in the following format:</p>
+   *         <p>
+   *             <code>{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>}</code>
+   *         </p>
+   */
+  GitConfig?: GitConfigForUpdate;
+}
+
+export namespace UpdateCodeRepositoryInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateCodeRepositoryInput): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdateCodeRepositoryOutput {
   /**

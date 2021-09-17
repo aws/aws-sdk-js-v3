@@ -17,6 +17,7 @@ import {
   BaiduChannelRequest,
   BaiduChannelResponse,
   BaseKpiResult,
+  CampaignEventFilter,
   CampaignHook,
   CampaignLimits,
   CampaignResponse,
@@ -29,16 +30,21 @@ import {
   EndpointBatchRequest,
   EndpointMessageResult,
   EndpointRequest,
+  EndpointResponse,
   EndpointSendConfiguration,
   EndpointsResponse,
   EventStream,
   EventsRequest,
   EventsResponse,
+  ExportJobResponse,
   ExportJobsResponse,
   GCMChannelRequest,
   GCMChannelResponse,
-  ImportJobsResponse,
+  ImportJobResponse,
+  InAppMessageContent,
+  InAppTemplateRequest,
   JourneyResponse,
+  Layout,
   MessageBody,
   PushNotificationTemplateRequest,
   QuietTime,
@@ -55,6 +61,579 @@ import {
   WriteJourneyRequest,
   WriteSegmentRequest,
 } from "./models_0";
+
+export interface GetEndpointResponse {
+  /**
+   * <p>Provides information about the channel type and other settings for an endpoint.</p>
+   */
+  EndpointResponse: EndpointResponse | undefined;
+}
+
+export namespace GetEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEndpointResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEventStreamRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+}
+
+export namespace GetEventStreamRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventStreamRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEventStreamResponse {
+  /**
+   * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
+   */
+  EventStream: EventStream | undefined;
+}
+
+export namespace GetEventStreamResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventStreamResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetExportJobRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the job.</p>
+   */
+  JobId: string | undefined;
+}
+
+export namespace GetExportJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetExportJobResponse {
+  /**
+   * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
+   */
+  ExportJobResponse: ExportJobResponse | undefined;
+}
+
+export namespace GetExportJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExportJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetExportJobsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   */
+  PageSize?: string;
+
+  /**
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  Token?: string;
+}
+
+export namespace GetExportJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExportJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetExportJobsResponse {
+  /**
+   * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
+   */
+  ExportJobsResponse: ExportJobsResponse | undefined;
+}
+
+export namespace GetExportJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExportJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetGcmChannelRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+}
+
+export namespace GetGcmChannelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetGcmChannelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetGcmChannelResponse {
+  /**
+   * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
+   */
+  GCMChannelResponse: GCMChannelResponse | undefined;
+}
+
+export namespace GetGcmChannelResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetGcmChannelResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetImportJobRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the job.</p>
+   */
+  JobId: string | undefined;
+}
+
+export namespace GetImportJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetImportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetImportJobResponse {
+  /**
+   * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
+   */
+  ImportJobResponse: ImportJobResponse | undefined;
+}
+
+export namespace GetImportJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetImportJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetImportJobsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   */
+  PageSize?: string;
+
+  /**
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  Token?: string;
+}
+
+export namespace GetImportJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetImportJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
+ */
+export interface ImportJobsResponse {
+  /**
+   * <p>An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).</p>
+   */
+  Item: ImportJobResponse[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ImportJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetImportJobsResponse {
+  /**
+   * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
+   */
+  ImportJobsResponse: ImportJobsResponse | undefined;
+}
+
+export namespace GetImportJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetImportJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInAppMessagesRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the endpoint.</p>
+   */
+  EndpointId: string | undefined;
+}
+
+export namespace GetInAppMessagesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInAppMessagesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides all fields required for building an in-app message.</p>
+ */
+export interface InAppMessage {
+  /**
+   * <p>In-app message content.</p>
+   */
+  Content?: InAppMessageContent[];
+
+  /**
+   * <p>Custom config to be sent to SDK.</p>
+   */
+  CustomConfig?: { [key: string]: string };
+
+  /**
+   * <p>The layout of the message.</p>
+   */
+  Layout?: Layout | string;
+}
+
+export namespace InAppMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InAppMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Schedule of the campaign.</p>
+ */
+export interface InAppCampaignSchedule {
+  /**
+   * <p>The scheduled time after which the in-app message should not be shown. Timestamp is in ISO 8601 format.</p>
+   */
+  EndDate?: string;
+
+  /**
+   * <p>The event filter the SDK has to use to show the in-app message in the application.</p>
+   */
+  EventFilter?: CampaignEventFilter;
+
+  /**
+   * <p>Time during which the in-app message should not be shown to the user.</p>
+   */
+  QuietTime?: QuietTime;
+}
+
+export namespace InAppCampaignSchedule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InAppCampaignSchedule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Targeted in-app message campaign.</p>
+ */
+export interface InAppMessageCampaign {
+  /**
+   * <p>Campaign id of the corresponding campaign.</p>
+   */
+  CampaignId?: string;
+
+  /**
+   * <p>Daily cap which controls the number of times any in-app messages can be shown to the endpoint during a day.</p>
+   */
+  DailyCap?: number;
+
+  /**
+   * <p>In-app message content with all fields required for rendering an in-app message.</p>
+   */
+  InAppMessage?: InAppMessage;
+
+  /**
+   * <p>Priority of the in-app message.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>Schedule of the campaign.</p>
+   */
+  Schedule?: InAppCampaignSchedule;
+
+  /**
+   * <p>Session cap which controls the number of times an in-app message can be shown to the endpoint during an application session.</p>
+   */
+  SessionCap?: number;
+
+  /**
+   * <p>Total cap which controls the number of times an in-app message can be shown to the endpoint.</p>
+   */
+  TotalCap?: number;
+
+  /**
+   * <p>Treatment id of the campaign.</p>
+   */
+  TreatmentId?: string;
+}
+
+export namespace InAppMessageCampaign {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InAppMessageCampaign): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Get in-app messages response object.</p>
+ */
+export interface InAppMessagesResponse {
+  /**
+   * <p>List of targeted in-app message campaigns.</p>
+   */
+  InAppMessageCampaigns?: InAppMessageCampaign[];
+}
+
+export namespace InAppMessagesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InAppMessagesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInAppMessagesResponse {
+  /**
+   * <p>Get in-app messages response object.</p>
+   */
+  InAppMessagesResponse: InAppMessagesResponse | undefined;
+}
+
+export namespace GetInAppMessagesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInAppMessagesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInAppTemplateRequest {
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+   */
+  Version?: string;
+}
+
+export namespace GetInAppTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInAppTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>In-App Template Response.</p>
+ */
+export interface InAppTemplateResponse {
+  /**
+   * <p>The resource arn of the template.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The content of the message, can include up to 5 modals. Each modal must contain a message, a header, and background color. ImageUrl and buttons are optional.</p>
+   */
+  Content?: InAppMessageContent[];
+
+  /**
+   * <p>The creation date of the template.</p>
+   */
+  CreationDate: string | undefined;
+
+  /**
+   * <p>Custom config to be sent to client.</p>
+   */
+  CustomConfig?: { [key: string]: string };
+
+  /**
+   * <p>The last modified date of the template.</p>
+   */
+  LastModifiedDate: string | undefined;
+
+  /**
+   * <p>The layout of the message.</p>
+   */
+  Layout?: Layout | string;
+
+  /**
+   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The description of the template.</p>
+   */
+  TemplateDescription?: string;
+
+  /**
+   * <p>The name of the template.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The type of the template.</p>
+   */
+  TemplateType: TemplateType | string | undefined;
+
+  /**
+   * <p>The version id of the template.</p>
+   */
+  Version?: string;
+}
+
+export namespace InAppTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InAppTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInAppTemplateResponse {
+  /**
+   * <p>In-App Template Response.</p>
+   */
+  InAppTemplateResponse: InAppTemplateResponse | undefined;
+}
+
+export namespace GetInAppTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInAppTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetJourneyRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the journey.</p>
+   */
+  JourneyId: string | undefined;
+}
+
+export namespace GetJourneyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetJourneyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetJourneyResponse {
+  /**
+   * <p>Provides information about the status, configuration, and other settings for a journey.</p>
+   */
+  JourneyResponse: JourneyResponse | undefined;
+}
+
+export namespace GetJourneyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetJourneyResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface GetJourneyDateRangeKpiRequest {
   /**
@@ -2698,6 +3277,53 @@ export namespace UpdateGcmChannelResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateGcmChannelResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateInAppTemplateRequest {
+  /**
+   * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
+   */
+  CreateNewVersion?: boolean;
+
+  /**
+   * <p>InApp Template Request.</p>
+   */
+  InAppTemplateRequest: InAppTemplateRequest | undefined;
+
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+   */
+  Version?: string;
+}
+
+export namespace UpdateInAppTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateInAppTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateInAppTemplateResponse {
+  /**
+   * <p>Provides information about an API request or response.</p>
+   */
+  MessageBody: MessageBody | undefined;
+}
+
+export namespace UpdateInAppTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateInAppTemplateResponse): any => ({
     ...obj,
   });
 }

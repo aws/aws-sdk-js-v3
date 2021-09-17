@@ -22,9 +22,6 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Resets an attribute of an AMI to its default value.</p>
- *          <note>
- *             <p>The productCodes attribute can't be reset.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

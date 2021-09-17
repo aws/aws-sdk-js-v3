@@ -871,7 +871,7 @@ export namespace _Record {
 }
 
 /**
- * <p>Specifies the location of 1-15 occurrences of sensitive data that was detected by managed data identifiers or a custom data identifier and produced a sensitive data finding.</p>
+ * <p>Specifies the location of 1-15 occurrences of sensitive data that was detected by a managed data identifier or a custom data identifier and produced a sensitive data finding.</p>
  */
 export interface Occurrences {
   /**
@@ -975,7 +975,7 @@ export enum SensitiveDataItemCategory {
 }
 
 /**
- * <p>Provides information about a type of sensitive data that was detected by managed data identifiers and produced a sensitive data finding.</p>
+ * <p>Provides information about a type of sensitive data that was detected by a managed data identifier and produced a sensitive data finding.</p>
  */
 export interface DefaultDetection {
   /**
@@ -1008,7 +1008,7 @@ export namespace DefaultDetection {
  */
 export interface SensitiveDataItem {
   /**
-   * <p>The category of sensitive data that was detected. For example: CREDENTIALS, for credentials data such as private keys or Amazon Web Services secret keys; FINANCIAL_INFORMATION, for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal health information, such as health insurance identification numbers, or personally identifiable information, such as driver's license identification numbers.</p>
+   * <p>The category of sensitive data that was detected. For example: CREDENTIALS, for credentials data such as private keys or Amazon Web Services secret keys; FINANCIAL_INFORMATION, for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal health information, such as health insurance identification numbers, or personally identifiable information, such as passport numbers.</p>
    */
   category?: SensitiveDataItemCategory | string;
 
@@ -1769,16 +1769,16 @@ export namespace ServerSideEncryption {
 }
 
 /**
- * <p>Provides information about the user who owns an S3 bucket.</p>
+ * <p>Provides information about the Amazon Web Services account that owns an S3 bucket.</p>
  */
 export interface S3BucketOwner {
   /**
-   * <p>The display name of the user who owns the bucket.</p>
+   * <p>The display name of the account that owns the bucket.</p>
    */
   displayName?: string;
 
   /**
-   * <p>The Amazon Web Services account ID for the user who owns the bucket.</p>
+   * <p>The canonical user ID for the account that owns the bucket.</p>
    */
   id?: string;
 }
@@ -1822,7 +1822,7 @@ export interface S3Bucket {
   name?: string;
 
   /**
-   * <p>The display name and Amazon Web Services account ID for the user who owns the bucket.</p>
+   * <p>The display name and canonical user ID for the Amazon Web Services account that owns the bucket.</p>
    */
   owner?: S3BucketOwner;
 
@@ -2492,7 +2492,7 @@ export interface JobSummary {
   jobId?: string;
 
   /**
-   * <p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - You cancelled the job or, if it's a one-time job, you paused the job and didn't resume it within 30 days.</p></li> <li><p>COMPLETE - For a one-time job, Amazon Macie finished processing the data specified for the job. This value doesn't apply to recurring jobs.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to one-time jobs.</p></li> <li><p>PAUSED - Amazon Macie started running the job but additional processing would exceed the monthly sensitive data discovery quota for your account or one or more member accounts that the job analyzes data for.</p></li> <li><p>RUNNING - For a one-time job, the job is in progress. For a recurring job, a scheduled run is in progress.</p></li> <li><p>USER_PAUSED - You paused the job. If you paused the job while it had a status of RUNNING and you don't resume it within 30 days of pausing it, the job or job run will expire and be cancelled, depending on the job's type. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
+   * <p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - You cancelled the job or, if it's a one-time job, you paused the job and didn't resume it within 30 days.</p></li> <li><p>COMPLETE - For a one-time job, Amazon Macie finished processing the data specified for the job. This value doesn't apply to recurring jobs.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to one-time jobs.</p></li> <li><p>PAUSED - Macie started running the job but additional processing would exceed the monthly sensitive data discovery quota for your account or one or more member accounts that the job analyzes data for.</p></li> <li><p>RUNNING - For a one-time job, the job is in progress. For a recurring job, a scheduled run is in progress.</p></li> <li><p>USER_PAUSED - You paused the job. If you paused the job while it had a status of RUNNING and you don't resume it within 30 days of pausing it, the job or job run will expire and be cancelled, depending on the job's type. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
    */
   jobStatus?: JobStatus | string;
 
@@ -2563,6 +2563,30 @@ export namespace ListJobsFilterTerm {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListJobsFilterTerm): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about a managed data identifier. For additional information, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.</p>
+ */
+export interface ManagedDataIdentifierSummary {
+  /**
+   * <p>The category of sensitive data that the managed data identifier detects: CREDENTIALS, for credentials data such as private keys or Amazon Web Services secret keys; FINANCIAL_INFORMATION, for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal health information, such as health insurance identification numbers, or personally identifiable information, such as passport numbers.</p>
+   */
+  category?: SensitiveDataItemCategory | string;
+
+  /**
+   * <p>The unique identifier for the managed data identifier. This is a string that describes the type of sensitive data that the managed data identifier detects. For example: OPENSSH_PRIVATE_KEY for OpenSSH private keys, CREDIT_CARD_NUMBER for credit card numbers, or USA_PASSPORT_NUMBER for US passport numbers.</p>
+   */
+  id?: string;
+}
+
+export namespace ManagedDataIdentifierSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ManagedDataIdentifierSummary): any => ({
     ...obj,
   });
 }
@@ -3251,7 +3275,7 @@ export namespace AccountDetail {
 
 export interface BatchGetCustomDataIdentifiersRequest {
   /**
-   * <p>An array of strings that lists the unique identifiers for the custom data identifiers to retrieve information about.</p>
+   * <p>An array of custom data identifier IDs, one for each custom data identifier to retrieve information about.</p>
    */
   ids?: string[];
 }
@@ -3272,7 +3296,7 @@ export interface BatchGetCustomDataIdentifiersResponse {
   customDataIdentifiers?: BatchGetCustomDataIdentifierSummary[];
 
   /**
-   * <p>An array of identifiers, one for each identifier that was specified in the request, but doesn't correlate to an existing custom data identifier.</p>
+   * <p>An array of custom data identifier IDs, one for each custom data identifier that was specified in the request but doesn't correlate to an existing custom data identifier.</p>
    */
   notFoundIdentifierIds?: string[];
 }
@@ -3543,6 +3567,13 @@ export namespace ClassificationExportConfiguration {
   });
 }
 
+export enum ManagedDataIdentifierSelector {
+  ALL = "ALL",
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+  NONE = "NONE",
+}
+
 /**
  * <p>Specifies one or more property- and tag-based conditions that define criteria for including or excluding S3 objects from a classification job.</p>
  */
@@ -3713,7 +3744,7 @@ export interface CreateClassificationJobRequest {
   clientToken?: string;
 
   /**
-   * <p>The custom data identifiers to use for data analysis and classification.</p>
+   * <p>An array of unique identifiers, one for each custom data identifier for the job to use when it analyzes data. To use only managed data identifiers, don't specify a value for this property and specify a value other than NONE for the managedDataIdentifierSelector property.</p>
    */
   customDataIdentifierIds?: string[];
 
@@ -3723,7 +3754,7 @@ export interface CreateClassificationJobRequest {
   description?: string;
 
   /**
-   * <p>Specifies whether to analyze all existing, eligible objects immediately after the job is created.</p>
+   * <p>For a recurring job, specifies whether to analyze all existing, eligible objects immediately after the job is created (true). To analyze only those objects that are created or changed after you create the job and before the job's first scheduled run, set this value to false.</p><p>If you configure the job to run only once, don't specify a value for this property.</p>
    */
   initialRun?: boolean;
 
@@ -3731,6 +3762,16 @@ export interface CreateClassificationJobRequest {
    * <p>The schedule for running the job. Valid values are:</p> <ul><li><p>ONE_TIME - Run the job only once. If you specify this value, don't specify a value for the scheduleFrequency property.</p></li> <li><p>SCHEDULED - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the scheduleFrequency property to define the recurrence pattern for the job.</p></li></ul>
    */
   jobType: JobType | string | undefined;
+
+  /**
+   * <p>An array of unique identifiers, one for each managed data identifier for the job to include (use) or exclude (not use) when it analyzes data. Inclusion or exclusion depends on the managed data identifier selection type that you specify for the job (managedDataIdentifierSelector).</p><p>To retrieve a list of valid values for this property, use the ListManagedDataIdentifiers operation.</p>
+   */
+  managedDataIdentifierIds?: string[];
+
+  /**
+   * <p>The selection type to apply when determining which managed data identifiers the job uses to analyze data. Valid values are:</p> <ul><li><p>ALL - Use all the managed data identifiers that Amazon Macie provides. If you specify this value, don't specify any values for the managedDataIdentifierIds property.</p></li> <li><p>EXCLUDE - Use all the managed data identifiers that Macie provides except the managed data identifiers specified by the managedDataIdentifierIds property.</p></li> <li><p>INCLUDE - Use only the managed data identifiers specified by the managedDataIdentifierIds property.</p></li> <li><p>NONE - Don't use any managed data identifiers. If you specify this value, specify at least one custom data identifier for the job (customDataIdentifierIds) and don't specify any values for the managedDataIdentifierIds property.</p></li></ul> <p>If you don't specify a value for this property, the job uses all managed data identifiers. If you don't specify a value for this property or you specify ALL or EXCLUDE for a recurring job, the job also uses new managed data identifiers as they are released.</p>
+   */
+  managedDataIdentifierSelector?: ManagedDataIdentifierSelector | string;
 
   /**
    * <p>A custom name for the job. The name can contain as many as 500 characters.</p>
@@ -3743,7 +3784,7 @@ export interface CreateClassificationJobRequest {
   s3JobDefinition: S3JobDefinition | undefined;
 
   /**
-   * <p>The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.</p>
+   * <p>The sampling depth, as a percentage, for the job to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.</p>
    */
   samplingPercentage?: number;
 
@@ -3800,17 +3841,17 @@ export interface CreateCustomDataIdentifierRequest {
   description?: string;
 
   /**
-   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 characters. Ignore words are case sensitive.</p>
+   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</p>
    */
   ignoreWords?: string[];
 
   /**
-   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 characters. Keywords aren't case sensitive.</p>
+   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.</p>
    */
   keywords?: string[];
 
   /**
-   * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1-300 characters. The default value is 50.</p>
+   * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Amazon Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1-300 characters. The default value is 50.</p>
    */
   maximumMatchDistance?: number;
 
@@ -4345,7 +4386,7 @@ export interface DescribeClassificationJobResponse {
   createdAt?: Date;
 
   /**
-   * <p>The custom data identifiers that the job uses to analyze data.</p>
+   * <p>An array of unique identifiers, one for each custom data identifier that the job uses to analyze data. This value is null if the job uses only managed data identifiers to analyze data.</p>
    */
   customDataIdentifierIds?: string[];
 
@@ -4355,7 +4396,7 @@ export interface DescribeClassificationJobResponse {
   description?: string;
 
   /**
-   * <p>Specifies whether the job is configured to analyze all existing, eligible objects immediately after it's created.</p>
+   * <p>For a recurring job, specifies whether you configured the job to analyze all existing, eligible objects immediately after the job was created (true). If you configured the job to analyze only those objects that were created or changed after the job was created and before the job's first scheduled run, this value is false. This value is also false for a one-time job.</p>
    */
   initialRun?: boolean;
 
@@ -4370,7 +4411,7 @@ export interface DescribeClassificationJobResponse {
   jobId?: string;
 
   /**
-   * <p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - You cancelled the job or, if it's a one-time job, you paused the job and didn't resume it within 30 days.</p></li> <li><p>COMPLETE - For a one-time job, Amazon Macie finished processing the data specified for the job. This value doesn't apply to recurring jobs.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to one-time jobs.</p></li> <li><p>PAUSED - Amazon Macie started running the job but additional processing would exceed the monthly sensitive data discovery quota for your account or one or more member accounts that the job analyzes data for.</p></li> <li><p>RUNNING - For a one-time job, the job is in progress. For a recurring job, a scheduled run is in progress.</p></li> <li><p>USER_PAUSED - You paused the job. If you paused the job while it had a status of RUNNING and you don't resume it within 30 days of pausing it, the job or job run will expire and be cancelled, depending on the job's type. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
+   * <p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - You cancelled the job or, if it's a one-time job, you paused the job and didn't resume it within 30 days.</p></li> <li><p>COMPLETE - For a one-time job, Amazon Macie finished processing the data specified for the job. This value doesn't apply to recurring jobs.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to one-time jobs.</p></li> <li><p>PAUSED - Macie started running the job but additional processing would exceed the monthly sensitive data discovery quota for your account or one or more member accounts that the job analyzes data for.</p></li> <li><p>RUNNING - For a one-time job, the job is in progress. For a recurring job, a scheduled run is in progress.</p></li> <li><p>USER_PAUSED - You paused the job. If you paused the job while it had a status of RUNNING and you don't resume it within 30 days of pausing it, the job or job run will expire and be cancelled, depending on the job's type. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
    */
   jobStatus?: JobStatus | string;
 
@@ -4390,6 +4431,16 @@ export interface DescribeClassificationJobResponse {
   lastRunTime?: Date;
 
   /**
+   * <p>An array of unique identifiers, one for each managed data identifier that the job is explicitly configured to include (use) or exclude (not use) when it analyzes data. Inclusion or exclusion depends on the managed data identifier selection type specified for the job (managedDataIdentifierSelector). This value is null if the job's managed data identifier selection type is ALL or the job uses only custom data identifiers (customDataIdentifierIds) to analyze data.</p>
+   */
+  managedDataIdentifierIds?: string[];
+
+  /**
+   * <p>The selection type that determines which managed data identifiers the job uses to analyze data. Possible values are:</p> <ul><li><p>ALL - Use all the managed data identifiers that Amazon Macie provides.</p></li> <li><p>EXCLUDE - Use all the managed data identifiers that Macie provides except the managed data identifiers specified by the managedDataIdentifierIds property.</p></li> <li><p>INCLUDE - Use only the managed data identifiers specified by the managedDataIdentifierIds property.</p></li> <li><p>NONE - Don't use any managed data identifiers.</p></li></ul> <p>If this value is null, the job uses all managed data identifiers. If this value is null, ALL, or EXCLUDE for a recurring job, the job also uses new managed data identifiers as they are released.</p>
+   */
+  managedDataIdentifierSelector?: ManagedDataIdentifierSelector | string;
+
+  /**
    * <p>The custom name of the job.</p>
    */
   name?: string;
@@ -4405,7 +4456,7 @@ export interface DescribeClassificationJobResponse {
   samplingPercentage?: number;
 
   /**
-   * <p>The recurrence pattern for running the job. If the job is configured to run only once, this value is null.</p>
+   * <p>The recurrence pattern for running the job. This value is null if the job is configured to run only once.</p>
    */
   scheduleFrequency?: JobScheduleFrequency;
 
@@ -4894,7 +4945,7 @@ export interface GetCustomDataIdentifierResponse {
   keywords?: string[];
 
   /**
-   * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern.</p>
+   * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Amazon Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern.</p>
    */
   maximumMatchDistance?: number;
 
@@ -5749,6 +5800,43 @@ export namespace ListInvitationsResponse {
   });
 }
 
+export interface ListManagedDataIdentifiersRequest {
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListManagedDataIdentifiersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListManagedDataIdentifiersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListManagedDataIdentifiersResponse {
+  /**
+   * <p>An array of objects, one for each managed data identifier.</p>
+   */
+  items?: ManagedDataIdentifierSummary[];
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListManagedDataIdentifiersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListManagedDataIdentifiersResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListMembersRequest {
   /**
    * <p>The maximum number of items to include in each page of a paginated response.</p>
@@ -6094,17 +6182,17 @@ export namespace TagResourceResponse {
 
 export interface TestCustomDataIdentifierRequest {
   /**
-   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 characters. Ignore words are case sensitive.</p>
+   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</p>
    */
   ignoreWords?: string[];
 
   /**
-   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 characters. Keywords aren't case sensitive.</p>
+   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.</p>
    */
   keywords?: string[];
 
   /**
-   * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1-300 characters. The default value is 50.</p>
+   * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Amazon Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1-300 characters. The default value is 50.</p>
    */
   maximumMatchDistance?: number;
 

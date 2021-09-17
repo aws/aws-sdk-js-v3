@@ -264,6 +264,7 @@ export * from "./pagination/ListWorkteamsPaginator";
 export * from "./commands/PutModelPackageGroupPolicyCommand";
 export * from "./commands/RegisterDevicesCommand";
 export * from "./commands/RenderUiTemplateCommand";
+export * from "./commands/RetryPipelineExecutionCommand";
 export * from "./commands/SearchCommand";
 export * from "./pagination/SearchPaginator";
 export * from "./commands/SendPipelineExecutionStepFailureCommand";

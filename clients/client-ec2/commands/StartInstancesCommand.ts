@@ -30,6 +30,12 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  *             restarted. Stopping an instance does not preserve data stored in RAM.</p>
  *         <p>Performing this operation on an instance that uses an instance store as its root
  *             device returns an error.</p>
+ *
+ *         <p>If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code>
+ *             CPU credit option, the request fails. The <code>unlimited</code> CPU credit option is not
+ *             supported on Dedicated Hosts. Before you start the instance, either change its CPU credit
+ *             option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p>
+ *
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping instances</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example

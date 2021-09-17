@@ -1174,11 +1174,11 @@ export namespace EBSOptions {
 }
 
 /**
- * <p>Specifies settings for cold storage.</p>
+ * <p>Specifies the configuration for cold storage options such as enabled</p>
  */
 export interface ColdStorageOptions {
   /**
-   * <p>True to enable cold storage for an Elasticsearch domain.</p>
+   * <p>Enable cold storage option. Accepted values true or false</p>
    */
   Enabled: boolean | undefined;
 }
@@ -1328,7 +1328,7 @@ export interface ElasticsearchClusterConfig {
   WarmCount?: number;
 
   /**
-   * <p>Specifies the <code>ColdStorageOptions</code> configuration for an Elasticsearch domain.</p>
+   * <p>Specifies the <code>ColdStorageOptions</code> config for Elasticsearch Domain</p>
    */
   ColdStorageOptions?: ColdStorageOptions;
 }
@@ -4300,11 +4300,40 @@ export namespace GetUpgradeStatusResponse {
   });
 }
 
+export enum EngineType {
+  Elasticsearch = "Elasticsearch",
+  OpenSearch = "OpenSearch",
+}
+
+/**
+ * <p> Container for the parameters to the <code><a>ListDomainNames</a></code> operation.</p>
+ */
+export interface ListDomainNamesRequest {
+  /**
+   * <p> Optional parameter to filter the output by domain engine type. Acceptable values are 'Elasticsearch' and 'OpenSearch'. </p>
+   */
+  EngineType?: EngineType | string;
+}
+
+export namespace ListDomainNamesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDomainNamesRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DomainInfo {
   /**
    * <p> Specifies the <code>DomainName</code>.</p>
    */
   DomainName?: string;
+
+  /**
+   * <p> Specifies the <code>EngineType</code> of the domain.</p>
+   */
+  EngineType?: EngineType | string;
 }
 
 export namespace DomainInfo {
@@ -4317,11 +4346,11 @@ export namespace DomainInfo {
 }
 
 /**
- * <p>The result of a <code>ListDomainNames</code> operation. Contains the names of all Elasticsearch domains owned by this account.</p>
+ * <p>The result of a <code>ListDomainNames</code> operation. Contains the names of all domains owned by this account and their respective engine types.</p>
  */
 export interface ListDomainNamesResponse {
   /**
-   * <p>List of Elasticsearch domain names.</p>
+   * <p>List of domain names and respective engine types.</p>
    */
   DomainNames?: DomainInfo[];
 }

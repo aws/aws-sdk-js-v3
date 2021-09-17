@@ -12,6 +12,7 @@ import {
   AudioStream,
   BadRequestException,
   ConflictException,
+  Entity,
   InternalFailureException,
   Item,
   LimitExceededException,
@@ -130,6 +131,15 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
     }),
     ...(isSerializableHeaderValue(input.PartialResultsStability) && {
       "x-amzn-transcribe-partial-results-stability": input.PartialResultsStability!,
+    }),
+    ...(isSerializableHeaderValue(input.ContentIdentificationType) && {
+      "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
+    }),
+    ...(isSerializableHeaderValue(input.ContentRedactionType) && {
+      "x-amzn-transcribe-content-redaction-type": input.ContentRedactionType!,
+    }),
+    ...(isSerializableHeaderValue(input.PiiEntityTypes) && {
+      "x-amzn-transcribe-pii-entity-types": input.PiiEntityTypes!,
     }),
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stream-transcription";
@@ -308,6 +318,8 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   }
   const contents: StartStreamTranscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ContentIdentificationType: undefined,
+    ContentRedactionType: undefined,
     EnableChannelIdentification: undefined,
     EnablePartialResultsStabilization: undefined,
     LanguageCode: undefined,
@@ -315,6 +327,7 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
     MediaSampleRateHertz: undefined,
     NumberOfChannels: undefined,
     PartialResultsStability: undefined,
+    PiiEntityTypes: undefined,
     RequestId: undefined,
     SessionId: undefined,
     ShowSpeakerLabel: undefined,
@@ -365,6 +378,15 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   }
   if (output.headers["x-amzn-transcribe-partial-results-stability"] !== undefined) {
     contents.PartialResultsStability = output.headers["x-amzn-transcribe-partial-results-stability"];
+  }
+  if (output.headers["x-amzn-transcribe-content-identification-type"] !== undefined) {
+    contents.ContentIdentificationType = output.headers["x-amzn-transcribe-content-identification-type"];
+  }
+  if (output.headers["x-amzn-transcribe-content-redaction-type"] !== undefined) {
+    contents.ContentRedactionType = output.headers["x-amzn-transcribe-content-redaction-type"];
+  }
+  if (output.headers["x-amzn-transcribe-pii-entity-types"] !== undefined) {
+    contents.PiiEntityTypes = output.headers["x-amzn-transcribe-pii-entity-types"];
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];
@@ -742,6 +764,10 @@ const serializeAws_restJson1AudioStream = (input: AudioStream, context: __SerdeC
 
 const deserializeAws_restJson1Alternative = (output: any, context: __SerdeContext): Alternative => {
   return {
+    Entities:
+      output.Entities !== undefined && output.Entities !== null
+        ? deserializeAws_restJson1EntityList(output.Entities, context)
+        : undefined,
     Items:
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_restJson1ItemList(output.Items, context)
@@ -771,6 +797,28 @@ const deserializeAws_restJson1ConflictException = (output: any, context: __Serde
   return {
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_restJson1Entity = (output: any, context: __SerdeContext): Entity => {
+  return {
+    Category: __expectString(output.Category),
+    Confidence: __limitedParseDouble(output.Confidence),
+    Content: __expectString(output.Content),
+    EndTime: __limitedParseDouble(output.EndTime),
+    StartTime: __limitedParseDouble(output.StartTime),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1EntityList = (output: any, context: __SerdeContext): Entity[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Entity(entry, context);
+    });
 };
 
 const deserializeAws_restJson1InternalFailureException = (

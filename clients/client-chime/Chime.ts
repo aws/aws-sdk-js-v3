@@ -6457,7 +6457,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Start transcription for the specified <code>meetingId</code>. </p>
+   * <p>Starts transcription for the specified <code>meetingId</code>. </p>
    */
   public startMeetingTranscription(
     args: StartMeetingTranscriptionCommandInput,

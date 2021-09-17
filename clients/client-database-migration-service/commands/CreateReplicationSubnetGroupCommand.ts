@@ -28,6 +28,8 @@ export interface CreateReplicationSubnetGroupCommandOutput
 
 /**
  * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>
+ *          <p>The VPC needs to have at least one subnet in at least two availability zones in the Amazon Web Services Region, otherwise the
+ *           service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

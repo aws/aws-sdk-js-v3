@@ -5894,11 +5894,6 @@ export interface EventInformation {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>price_update</code> - The price for a launch configuration was adjusted
-   *                     because it was too high. This change is permanent.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
    *                     <code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2
    *                     is preparing to launch the target number of Spot Instances.</p>
    *             </li>
@@ -8184,7 +8179,7 @@ export interface LaunchPermission {
   Group?: PermissionGroup | string;
 
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    *          <p>Constraints: Up to 10 000 account IDs can be specified in a single request.</p>
    */
   UserId?: string;
@@ -8261,7 +8256,7 @@ export namespace ImageAttribute {
 export interface DescribeImagesRequest {
   /**
    * <p>Scopes the images by users with explicit launch permissions.
-   * 				Specify an AWS account ID, <code>self</code> (the sender of the request),
+   *        Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request),
    * 				or <code>all</code> (public AMIs).</p>
    */
   ExecutableUsers?: string[];
@@ -8277,7 +8272,7 @@ export interface DescribeImagesRequest {
    *             <li>
    *                <p>
    *                   <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
-   *           whether the Amazon EBS volume is deleted on instance termination.</p>
+   *         	whether the Amazon EBS volume is deleted on instance termination.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8286,22 +8281,22 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the EBS
+   *         	         <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS
    *           volume.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>block-device-mapping.volume-size</code> - The volume size of the EBS volume, in GiB.</p>
+   *         	         <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>block-device-mapping.volume-type</code> - The volume type of the EBS volume
-   *             (<code>gp2</code> | <code>io1</code> | <code>io2</code> | <code>st1 </code>| <code>sc1</code> |
-   *             <code>standard</code>).</p>
+   *                   <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume
+   *             (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1
+   *           </code>| <code>st1</code> | <code>standard</code>).</p>
    *             </li>
    *             <li>
    *     		         <p>
-   *     			           <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the EBS volume is encrypted.</p>
+   *     			           <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p>
    *     	       </li>
    *             <li>
    *                <p>
@@ -8346,13 +8341,13 @@ export interface DescribeImagesRequest {
    *             <li>
    *                <p>
    *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).
-   *         	The valid aliases are defined in an Amazon-maintained list. This is not the AWS account alias that can be
+   *           The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be
    *         	set using the IAM console. We recommend that you use the <b>Owner</b>
    *         	request parameter instead of this filter.</p>
    *             </li>
    *             <li>
-   *       	        <p>
-   *                   <code>owner-id</code> - The AWS account ID of the owner. We recommend that you use the
+   *                <p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the
    *       		<b>Owner</b> request parameter instead of this filter.</p>
    *             </li>
    *             <li>
@@ -8366,8 +8361,7 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>product-code.type</code> - The type of the product code (<code>devpay</code> |
-   *             <code>marketplace</code>).</p>
+   *                   <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8426,7 +8420,7 @@ export interface DescribeImagesRequest {
 
   /**
    * <p>Scopes the results to images with the specified owners. You can specify a combination of
-   *       AWS account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
+   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
    *       If you omit this parameter, the results include all images for which you have launch permissions,
    *       regardless of ownership.</p>
    */
@@ -8459,7 +8453,7 @@ export namespace DescribeImagesRequest {
   });
 }
 
-export type ArchitectureValues = "arm64" | "i386" | "x86_64";
+export type ArchitectureValues = "arm64" | "i386" | "x86_64" | "x86_64_mac";
 
 export type BootModeValues = "legacy-bios" | "uefi";
 
@@ -8606,7 +8600,7 @@ export interface Image {
   KernelId?: string;
 
   /**
-   * <p>The AWS account ID of the image owner.</p>
+   * <p>The ID of the Amazon Web Services account that owns the image.</p>
    */
   OwnerId?: string;
 
@@ -8617,16 +8611,19 @@ export interface Image {
 
   /**
    * <p>The platform details associated with the billing code of the AMI. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining
-   *         Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding
+   *         AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   PlatformDetails?: string;
 
   /**
    * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
-   *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your AWS Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">AWS Price
-   *         List API</a>. For the list of <code>UsageOperation</code> codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html#billing-info">Platform Details and Usage Operation Billing Codes</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your Amazon Web Services Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Amazon Web Services Price
+   *         	List API</a>. You can view these fields on the <b>Instances</b> or
+   *     	<b>AMIs</b> pages in the Amazon EC2 console, or in the responses that are
+   *     	returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>
+   *     	command in the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a>
+   *     	command in the CLI.</p>
    */
   UsageOperation?: string;
 
@@ -8666,8 +8663,8 @@ export interface Image {
   Hypervisor?: HypervisorType | string;
 
   /**
-   * <p>The AWS account alias (for example, <code>amazon</code>, <code>self</code>) or
-   *         the AWS account ID of the AMI owner.</p>
+   * <p>The Amazon Web Services account alias (for example, <code>amazon</code>, <code>self</code>) or
+   *        the Amazon Web Services account ID of the AMI owner.</p>
    */
   ImageOwnerAlias?: string;
 
@@ -8682,7 +8679,7 @@ export interface Image {
   RootDeviceName?: string;
 
   /**
-   * <p>The type of root device used by the AMI. The AMI can use an EBS volume or an instance store volume.</p>
+   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.</p>
    */
   RootDeviceType?: DeviceType | string;
 

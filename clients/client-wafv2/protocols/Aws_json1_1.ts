@@ -5662,6 +5662,8 @@ const serializeAws_json1_1GetRateBasedStatementManagedKeysRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.RuleGroupRuleName !== undefined &&
+      input.RuleGroupRuleName !== null && { RuleGroupRuleName: input.RuleGroupRuleName }),
     ...(input.RuleName !== undefined && input.RuleName !== null && { RuleName: input.RuleName }),
     ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
     ...(input.WebACLId !== undefined && input.WebACLId !== null && { WebACLId: input.WebACLId }),

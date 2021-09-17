@@ -1,6 +1,11 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export enum AugmentedManifestsDocumentTypeFormat {
+  PLAIN_TEXT_DOCUMENT = "PLAIN_TEXT_DOCUMENT",
+  SEMI_STRUCTURED_DOCUMENT = "SEMI_STRUCTURED_DOCUMENT",
+}
+
 /**
  * <p>An augmented manifest file that provides training data for your custom model. An augmented
  *       manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p>
@@ -22,6 +27,32 @@ export interface AugmentedManifestsListItem {
    *       an individual job.</p>
    */
   AttributeNames: string[] | undefined;
+
+  /**
+   * <p>The S3 prefix to the annotation files that are referred in the augmented manifest file.</p>
+   */
+  AnnotationDataS3Uri?: string;
+
+  /**
+   * <p>The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.</p>
+   */
+  SourceDocumentsS3Uri?: string;
+
+  /**
+   * <p>The type of augmented manifest. PlainTextDocument or SemiStructuredDocument. If you don't specify, the default is PlainTextDocument. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PLAIN_TEXT_DOCUMENT</code> A document type that represents any unicode text that is encoded in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEMI_STRUCTURED_DOCUMENT</code> A document type with positional and structural context, like a PDF. For training with Amazon Comprehend, only PDFs are supported.
+   *          For inference, Amazon Comprehend support PDFs, DOCX and TXT.</p>
+   *             </li>
+   *          </ul>
+   */
+  DocumentType?: AugmentedManifestsDocumentTypeFormat | string;
 }
 
 export namespace AugmentedManifestsListItem {
@@ -2036,13 +2067,78 @@ export namespace DescribeDocumentClassificationJobRequest {
   });
 }
 
+export enum DocumentReadAction {
+  TEXTRACT_ANALYZE_DOCUMENT = "TEXTRACT_ANALYZE_DOCUMENT",
+  TEXTRACT_DETECT_DOCUMENT_TEXT = "TEXTRACT_DETECT_DOCUMENT_TEXT",
+}
+
+export enum DocumentReadMode {
+  FORCE_DOCUMENT_READ_ACTION = "FORCE_DOCUMENT_READ_ACTION",
+  SERVICE_DEFAULT = "SERVICE_DEFAULT",
+}
+
+export enum DocumentReadFeatureTypes {
+  FORMS = "FORMS",
+  TABLES = "TABLES",
+}
+
+/**
+ * <p>The input properties for a topic detection job.</p>
+ */
+export interface DocumentReaderConfig {
+  /**
+   * <p>This enum field will start with two values which will apply to PDFs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The service calls DetectDocumentText for PDF documents per page.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TEXTRACT_ANALYZE_DOCUMENT</code> - The service calls AnalyzeDocument for PDF documents per page.</p>
+   *             </li>
+   *          </ul>
+   */
+  DocumentReadAction: DocumentReadAction | string | undefined;
+
+  /**
+   * <p>This enum field provides two values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SERVICE_DEFAULT</code> - use service defaults for Document reading. For Digital PDF it would mean using an internal parser instead of Textract APIs</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FORCE_DOCUMENT_READ_ACTION</code> - Always use specified action for DocumentReadAction, including Digital PDF.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  DocumentReadMode?: DocumentReadMode | string;
+
+  /**
+   * <p>Specifies how the text in an input file should be processed:</p>
+   */
+  FeatureTypes?: (DocumentReadFeatureTypes | string)[];
+}
+
+export namespace DocumentReaderConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DocumentReaderConfig): any => ({
+    ...obj,
+  });
+}
+
 export enum InputFormat {
   ONE_DOC_PER_FILE = "ONE_DOC_PER_FILE",
   ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE",
 }
 
 /**
- * <p>The input properties for a topic detection job.</p>
+ * <p>The input properties for an inference job.</p>
  */
 export interface InputDataConfig {
   /**
@@ -2073,6 +2169,13 @@ export interface InputDataConfig {
    *          </ul>
    */
   InputFormat?: InputFormat | string;
+
+  /**
+   * <p>The document reader config field applies only for InputDataConfig of StartEntitiesDetectionJob. </p>
+   *          <p>Use DocumentReaderConfig to provide specifications about how you want your inference documents read.
+   *       Currently it applies for PDF documents in StartEntitiesDetectionJob custom inference.</p>
+   */
+  DocumentReaderConfig?: DocumentReaderConfig;
 }
 
 export namespace InputDataConfig {

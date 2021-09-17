@@ -21,7 +21,7 @@ export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about all the Amazon Macie membership invitations that were received by an account.</p>
+ * <p>Retrieves information about the Amazon Macie membership invitations that were received by an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

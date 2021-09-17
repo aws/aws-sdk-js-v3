@@ -178,6 +178,8 @@ export interface ApplyPendingMaintenanceActionMessage {
 
   /**
    * <p>The pending maintenance action to apply to this resource.</p>
+   *          <p>Valid values: <code>os-upgrade</code>, <code>system-update</code>, <code>db-upgrade</code>
+   *          </p>
    */
   ApplyAction: string | undefined;
 
@@ -539,9 +541,7 @@ export namespace InvalidResourceStateFault {
  */
 export interface DmsTransferSettings {
   /**
-   * <p> The IAM role that has permission to access the Amazon S3 bucket. When specified as part of request syntax,
-   *          such as for the <code>CreateEndpoint</code> and <code>ModifyEndpoint</code> actions,
-   *          the role must allow the <code>iam:PassRole</code> action.</p>
+   * <p>The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn?: string;
 
@@ -3198,8 +3198,8 @@ export interface CreateEndpointMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ServiceAccessRoleArn</code> - The IAM role that has permission to access the
-   *                Amazon S3 bucket. The role must allow the <code>iam:PassRole</code> action.</p>
+   *                   <code>ServiceAccessRoleArn</code> - The Amazon Resource Name (ARN) used by the service access IAM role.
+   *                  The role must allow the <code>iam:PassRole</code> action.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3511,8 +3511,8 @@ export interface Endpoint {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ServiceAccessRoleArn</code> - The IAM role that has permission to access the
-   *                Amazon S3 bucket. The role must allow the <code>iam:PassRole</code> action.</p>
+   *                   <code>ServiceAccessRoleArn</code> -  - The Amazon Resource Name (ARN) used by the service access IAM role.
+   *                  The role must allow the <code>iam:PassRole</code> action.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7936,8 +7936,7 @@ export interface ModifyEndpointMessage {
    *          <p>Attributes include the following:</p>
    *          <ul>
    *             <li>
-   *                <p>serviceAccessRoleArn - The Identity and Access Management (IAM) role that has
-   *                permission to access the Amazon S3 bucket. The role must allow the <code>iam:PassRole</code> action.</p>
+   *                <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p>
    *             </li>
    *             <li>
    *                <p>BucketName - The name of the S3 bucket to use.</p>
@@ -8591,10 +8590,18 @@ export interface RebootReplicationInstanceMessage {
 
   /**
    * <p>If this parameter is <code>true</code>, the reboot is conducted through a Multi-AZ
-   *          failover. (If the instance isn't configured for Multi-AZ, then you can't specify
-   *             <code>true</code>.)</p>
+   *          failover. If the instance isn't configured for Multi-AZ, then you can't specify
+   *          <code>true</code>.  ( <code>--force-planned-failover</code> and <code>--force-failover</code> can't both be set to <code>true</code>.)</p>
    */
   ForceFailover?: boolean;
+
+  /**
+   * <p>If this parameter is <code>true</code>, the reboot is conducted through a planned Multi-AZ failover
+   *          where resources are released and cleaned up prior to conducting the failover.
+   *          If the instance isn''t configured for Multi-AZ, then you can't specify <code>true</code>.
+   *          ( <code>--force-planned-failover</code> and <code>--force-failover</code> can't both be set to <code>true</code>.)</p>
+   */
+  ForcePlannedFailover?: boolean;
 }
 
 export namespace RebootReplicationInstanceMessage {

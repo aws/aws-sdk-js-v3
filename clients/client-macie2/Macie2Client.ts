@@ -109,6 +109,10 @@ import {
   ListFindingsFiltersCommandOutput,
 } from "./commands/ListFindingsFiltersCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
+import {
+  ListManagedDataIdentifiersCommandInput,
+  ListManagedDataIdentifiersCommandOutput,
+} from "./commands/ListManagedDataIdentifiersCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListOrganizationAdminAccountsCommandInput,
@@ -245,6 +249,7 @@ export type ServiceInputTypes =
   | ListFindingsCommandInput
   | ListFindingsFiltersCommandInput
   | ListInvitationsCommandInput
+  | ListManagedDataIdentifiersCommandInput
   | ListMembersCommandInput
   | ListOrganizationAdminAccountsCommandInput
   | ListTagsForResourceCommandInput
@@ -303,6 +308,7 @@ export type ServiceOutputTypes =
   | ListFindingsCommandOutput
   | ListFindingsFiltersCommandOutput
   | ListInvitationsCommandOutput
+  | ListManagedDataIdentifiersCommandOutput
   | ListMembersCommandOutput
   | ListOrganizationAdminAccountsCommandOutput
   | ListTagsForResourceCommandOutput

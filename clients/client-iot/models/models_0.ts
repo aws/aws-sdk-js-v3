@@ -486,6 +486,9 @@ export namespace DynamoDBv2Action {
 /**
  * <p>Describes an action that writes data to an Amazon Elasticsearch Service
  *          domain.</p>
+ *          <note>
+ *             <p>This action is deprecated. Use the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearch action</a> instead.</p>
+ *          </note>
  */
 export interface ElasticsearchAction {
   /**
@@ -1087,6 +1090,46 @@ export namespace LambdaAction {
 }
 
 /**
+ * <p>Describes an action that writes data to an Amazon OpenSearch Service
+ *          domain.</p>
+ */
+export interface OpenSearchAction {
+  /**
+   * <p>The IAM role ARN that has access to OpenSearch.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The endpoint of your OpenSearch domain.</p>
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The OpenSearch index where you want to store your data.</p>
+   */
+  index: string | undefined;
+
+  /**
+   * <p>The type of document you are storing.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The unique identifier for the document you are storing.</p>
+   */
+  id: string | undefined;
+}
+
+export namespace OpenSearchAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OpenSearchAction): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes an action to republish to another topic.</p>
  */
 export interface RepublishAction {
@@ -1464,6 +1507,9 @@ export interface Action {
 
   /**
    * <p>Write data to an Amazon Elasticsearch Service domain.</p>
+   *          <note>
+   *             <p>This action is deprecated. Use the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearch action</a> instead.</p>
+   *          </note>
    */
   elasticsearch?: ElasticsearchAction;
 
@@ -1509,6 +1555,11 @@ export interface Action {
    * <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
    */
   kafka?: KafkaAction;
+
+  /**
+   * <p>Write data to an Amazon OpenSearch Service domain.</p>
+   */
+  openSearch?: OpenSearchAction;
 }
 
 export namespace Action {
@@ -7804,22 +7855,6 @@ export namespace DeleteSecurityProfileResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteSecurityProfileResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteStreamRequest {
-  /**
-   * <p>The stream ID.</p>
-   */
-  streamId: string | undefined;
-}
-
-export namespace DeleteStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamRequest): any => ({
     ...obj,
   });
 }

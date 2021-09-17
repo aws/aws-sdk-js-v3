@@ -34,6 +34,8 @@ export namespace ActionCondition {
  *
  *       </p>
  *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>JSON specification: <code>"All": {}</code>
+ *          </p>
  */
 export interface All {}
 
@@ -123,7 +125,9 @@ export namespace AllowAction {
 
 /**
  * <p>All query arguments of a web request. </p>
- *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *            <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>JSON specification: <code>"AllQueryArguments": {}</code>
+ *          </p>
  */
 export interface AllQueryArguments {}
 
@@ -139,6 +143,8 @@ export namespace AllQueryArguments {
 /**
  * <p>The body of a web request. This immediately follows the request headers.</p>
  *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>JSON specification: <code>"Body": {}</code>
+ *          </p>
  */
 export interface Body {}
 
@@ -212,6 +218,8 @@ export enum JsonMatchScope {
  *          that result from the matches that you
  *          indicate.
  *       </p>
+ *          <p>Example JSON: <code>"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }</code>
+ *          </p>
  */
 export interface JsonBody {
   /**
@@ -281,9 +289,10 @@ export namespace JsonBody {
 }
 
 /**
- * <p>The HTTP method of a web request. The method indicates the type of operation that the
- *          request is asking the origin to perform. </p>
- *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ * <p>The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform. </p>
+ *            <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>JSON specification: <code>"Method": {}</code>
+ *          </p>
  */
 export interface Method {}
 
@@ -297,9 +306,10 @@ export namespace Method {
 }
 
 /**
- * <p>The query string of a web request. This is the part of a URL that appears after a
- *             <code>?</code> character, if any.</p>
- *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ * <p>The query string of a web request. This is the part of a URL that appears after a <code>?</code> character, if any.</p>
+ *            <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>JSON specification: <code>"QueryString": {}</code>
+ *          </p>
  */
 export interface QueryString {}
 
@@ -317,6 +327,8 @@ export namespace QueryString {
  *             <code>User-Agent</code> or <code>Referer</code>. This setting isn't case
  *          sensitive.</p>
  *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>Example JSON: <code>"SingleHeader": { "Name": "haystack" }</code>
+ *          </p>
  */
 export interface SingleHeader {
   /**
@@ -338,6 +350,8 @@ export namespace SingleHeader {
  * <p>One query argument in a web request, identified by name, for example
  *             <i>UserName</i> or <i>SalesRegion</i>. The name can be up to
  *          30 characters long and isn't case sensitive. </p>
+ *          <p>Example JSON: <code>"SingleQueryArgument": { "Name": "myArgument" }</code>
+ *          </p>
  */
 export interface SingleQueryArgument {
   /**
@@ -358,6 +372,8 @@ export namespace SingleQueryArgument {
 /**
  * <p>The path component of the URI of a web request. This is the part of a web request that identifies a resource. For example, <code>/images/daily-ad.jpg</code>.</p>
  *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>JSON specification: <code>"UriPath": {}</code>
+ *          </p>
  */
 export interface UriPath {}
 
@@ -371,11 +387,15 @@ export namespace UriPath {
 }
 
 /**
- * <p>The part of a web request that you want WAF to inspect. Include the single
- *             <code>FieldToMatch</code> type that you want to inspect, with additional specifications
- *          as needed, according to the type. You specify a single request component in
- *             <code>FieldToMatch</code> for each rule statement that requires it. To inspect more than
- *          one component of a web request, create a separate rule statement for each component.</p>
+ * <p>The part of a web request that you want WAF to inspect. Include the single <code>FieldToMatch</code> type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in <code>FieldToMatch</code> for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.</p>
+ *          <p>JSON specification for a <code>QueryString</code> field to match: </p>
+ *          <p>
+ *             <code>    "FieldToMatch": { "QueryString": {} }</code>
+ *          </p>
+ *          <p>Example JSON for a <code>Method</code> field to match specification:</p>
+ *          <p>
+ *             <code>    "FieldToMatch": { "Method": { "Name": "DELETE" } }</code>
+ *          </p>
  */
 export interface FieldToMatch {
   /**
@@ -1335,7 +1355,8 @@ export namespace RegexPatternSetReferenceStatement {
 
 /**
  * <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
- *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+ *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You
+ *       can only use a rule group reference statement at the top level inside a web ACL. </p>
  */
 export interface RuleGroupReferenceStatement {
   /**
@@ -1553,14 +1574,17 @@ export namespace WAFInvalidOperationException {
 
 export enum ParameterExceptionField {
   AND_STATEMENT = "AND_STATEMENT",
+  ASSOCIABLE_RESOURCE = "ASSOCIABLE_RESOURCE",
   BODY_PARSING_FALLBACK_BEHAVIOR = "BODY_PARSING_FALLBACK_BEHAVIOR",
   BYTE_MATCH_STATEMENT = "BYTE_MATCH_STATEMENT",
+  CHANGE_PROPAGATION_STATUS = "CHANGE_PROPAGATION_STATUS",
   CUSTOM_REQUEST_HANDLING = "CUSTOM_REQUEST_HANDLING",
   CUSTOM_RESPONSE = "CUSTOM_RESPONSE",
   CUSTOM_RESPONSE_BODY = "CUSTOM_RESPONSE_BODY",
   DEFAULT_ACTION = "DEFAULT_ACTION",
   ENTITY_LIMIT = "ENTITY_LIMIT",
   EXCLUDED_RULE = "EXCLUDED_RULE",
+  EXPIRE_TIMESTAMP = "EXPIRE_TIMESTAMP",
   FALLBACK_BEHAVIOR = "FALLBACK_BEHAVIOR",
   FIELD_TO_MATCH = "FIELD_TO_MATCH",
   FILTER_CONDITION = "FILTER_CONDITION",
@@ -1815,6 +1839,8 @@ export namespace RuleAction {
  * <p>Specifies that WAF should do nothing. This is generally used to try out a rule
  *          without performing any actions. You set the <code>OverrideAction</code> on the <a>Rule</a>. </p>
  *          <p>This is used in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
+ *          <p>JSON specification: <code>"None": {}</code>
+ *          </p>
  */
 export interface NoneAction {}
 
@@ -3349,12 +3375,10 @@ export interface LoggingConfiguration {
   LogDestinationConfigs: string[] | undefined;
 
   /**
-   * <p>The parts of the request that you want to keep out of the logs. For example, if you
-   *          redact the <code>HEADER</code> field, the <code>HEADER</code> field in the firehose will be
-   *             <code>xxx</code>. </p>
+   * <p>The parts of the request that you want to keep out of the logs. For
+   *           example, if you redact the <code>SingleHeader</code> field, the <code>HEADER</code> field in the firehose will be <code>xxx</code>. </p>
    *          <note>
-   *             <p>You must use one of the following values: <code>URI</code>,
-   *             <code>QUERY_STRING</code>, <code>HEADER</code>, or <code>METHOD</code>.</p>
+   *            <p>You can specify only the following fields for redaction: <code>UriPath</code>, <code>QueryString</code>, <code>SingleHeader</code>, <code>Method</code>, and <code>JsonBody</code>.</p>
    *          </note>
    */
   RedactedFields?: FieldToMatch[];
@@ -3438,7 +3462,7 @@ export namespace GetManagedRuleSetRequest {
 /**
  * <p>Information for a single version of a managed rule set. </p>
  *          <note>
- *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Marketplace sellers. </p>
+ *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers. </p>
  *             <p>Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>, <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.</p>
  *          </note>
  */
@@ -3497,10 +3521,10 @@ export namespace ManagedRuleSetVersion {
 }
 
 /**
- * <p>A set of rules that is managed by Amazon Web Services and Marketplace sellers to provide versioned managed
+ * <p>A set of rules that is managed by Amazon Web Services and Amazon Web Services Marketplace sellers to provide versioned managed
  *          rule groups for customers of WAF.</p>
  *          <note>
- *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Marketplace sellers. </p>
+ *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers. </p>
  *             <p>Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>, <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.</p>
  *          </note>
  */
@@ -3645,7 +3669,13 @@ export interface GetRateBasedStatementManagedKeysRequest {
   WebACLId: string | undefined;
 
   /**
-   * <p>The name of the rate-based rule to get the keys for.</p>
+   * <p>The name of the rule group reference statement in your web ACL. This is required only when you have the rate-based rule nested
+   * inside a rule group. </p>
+   */
+  RuleGroupRuleName?: string;
+
+  /**
+   * <p>The name of the rate-based rule to get the keys for. If you have the rule defined inside a rule group that you're using in your web ACL, also provide the name of the rule group reference statement in the request parameter <code>RuleGroupRuleName</code>.</p>
    */
   RuleName: string | undefined;
 }
@@ -3660,7 +3690,7 @@ export namespace GetRateBasedStatementManagedKeysRequest {
 }
 
 /**
- * <p>The set of IP addresses that are currently blocked for a rate-based statement.</p>
+ * <p>The set of IP addresses that are currently blocked for a <a>RateBasedStatement</a>.</p>
  */
 export interface RateBasedStatementManagedKeysIPSet {
   /**
@@ -4230,7 +4260,7 @@ export namespace ListAvailableManagedRuleGroupsRequest {
 }
 
 /**
- * <p>High-level information about a managed rule group, returned by <a>ListAvailableManagedRuleGroups</a>. This provides information like the name and vendor name, that you provide when you add a <a>ManagedRuleGroupStatement</a> to a web ACL. Managed rule groups include Amazon Web Services Managed Rules rule groups, which are free of charge to WAF customers, and Marketplace managed rule groups, which you can subscribe to through Marketplace. </p>
+ * <p>High-level information about a managed rule group, returned by <a>ListAvailableManagedRuleGroups</a>. This provides information like the name and vendor name, that you provide when you add a <a>ManagedRuleGroupStatement</a> to a web ACL. Managed rule groups include Amazon Web Services Managed Rules rule groups, which are free of charge to WAF customers, and Amazon Web Services Marketplace managed rule groups, which you can subscribe to through Amazon Web Services Marketplace. </p>
  */
 export interface ManagedRuleGroupSummary {
   /**
@@ -4244,7 +4274,7 @@ export interface ManagedRuleGroupSummary {
   Name?: string;
 
   /**
-   * <p>The description of the managed rule group, provided by Amazon Web Services Managed Rules or the Marketplace seller who manages it.</p>
+   * <p>The description of the managed rule group, provided by Amazon Web Services Managed Rules or the Amazon Web Services Marketplace seller who manages it.</p>
    */
   Description?: string;
 }
@@ -4545,7 +4575,7 @@ export namespace ListManagedRuleSetsRequest {
 /**
  * <p>High-level information for a managed rule set. </p>
  *          <note>
- *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Marketplace sellers. </p>
+ *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers. </p>
  *             <p>Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>, <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.</p>
  *          </note>
  */
@@ -5005,7 +5035,7 @@ export namespace WAFServiceLinkedRoleErrorException {
  * <p>A version of the named managed rule group, that the rule group's vendor publishes for
  *          use by customers. </p>
  *          <note>
- *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Marketplace sellers. </p>
+ *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers. </p>
  *             <p>Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>, <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.</p>
  *          </note>
  */
@@ -5522,8 +5552,7 @@ export namespace UpdateWebACLResponse {
 }
 
 /**
- * <p>The processing guidance for a <a>Rule</a>, used by WAF to determine
- *          whether a web request matches the rule. </p>
+ * <p>The processing guidance for a <a>Rule</a>, used by WAF to determine whether a web request matches the rule. </p>
  */
 export interface Statement {
   /**
@@ -5559,7 +5588,8 @@ export interface Statement {
 
   /**
    * <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
-   *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You
+   *       can only use a rule group reference statement at the top level inside a web ACL. </p>
    */
   RuleGroupReferenceStatement?: RuleGroupReferenceStatement;
 
@@ -5576,7 +5606,8 @@ export interface Statement {
   RegexPatternSetReferenceStatement?: RegexPatternSetReferenceStatement;
 
   /**
-   * <p>A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span. You can use this to put a temporary block on requests from an IP address that is sending excessive requests.</p>
+   * <p>A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span. You can use this to put a temporary block on requests from an IP address that is sending excessive requests. </p>
+   *          <p>WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by WAF. If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by WAF. </p>
    *          <p>When the rule action triggers, WAF blocks additional requests from the IP address until the request rate falls below the limit.</p>
    *          <p>You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts requests that match the nested statement. For example, based on recent requests that you have seen from an attacker, you might create a rate-based rule with a nested AND rule statement that contains the following nested statements:</p>
    *          <ul>
@@ -5588,7 +5619,7 @@ export interface Statement {
    *             </li>
    *          </ul>
    *          <p>In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.</p>
-   *          <p>You cannot nest a <code>RateBasedStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   *          <p>You cannot nest a <code>RateBasedStatement</code> inside another statement, for example inside a <code>NotStatement</code> or <code>OrStatement</code>. You can define a <code>RateBasedStatement</code> inside a web ACL and inside a rule group. </p>
    */
   RateBasedStatement?: RateBasedStatement;
 
@@ -5698,7 +5729,8 @@ export namespace NotStatement {
 }
 
 /**
- * <p>A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span. You can use this to put a temporary block on requests from an IP address that is sending excessive requests.</p>
+ * <p>A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span. You can use this to put a temporary block on requests from an IP address that is sending excessive requests. </p>
+ *          <p>WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by WAF. If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by WAF. </p>
  *          <p>When the rule action triggers, WAF blocks additional requests from the IP address until the request rate falls below the limit.</p>
  *          <p>You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts requests that match the nested statement. For example, based on recent requests that you have seen from an attacker, you might create a rate-based rule with a nested AND rule statement that contains the following nested statements:</p>
  *          <ul>
@@ -5710,7 +5742,7 @@ export namespace NotStatement {
  *             </li>
  *          </ul>
  *          <p>In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.</p>
- *          <p>You cannot nest a <code>RateBasedStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+ *          <p>You cannot nest a <code>RateBasedStatement</code> inside another statement, for example inside a <code>NotStatement</code> or <code>OrStatement</code>. You can define a <code>RateBasedStatement</code> inside a web ACL and inside a rule group. </p>
  */
 export interface RateBasedStatement {
   /**
@@ -5921,7 +5953,8 @@ export interface FirewallManagerStatement {
 
   /**
    * <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
-   *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You
+   *       can only use a rule group reference statement at the top level inside a web ACL. </p>
    */
   RuleGroupReferenceStatement?: RuleGroupReferenceStatement;
 }

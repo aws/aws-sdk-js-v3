@@ -21,6 +21,11 @@ import {
   CreateImportJobCommandOutput,
 } from "./commands/CreateImportJobCommand";
 import {
+  CreateInAppTemplateCommand,
+  CreateInAppTemplateCommandInput,
+  CreateInAppTemplateCommandOutput,
+} from "./commands/CreateInAppTemplateCommand";
+import {
   CreateJourneyCommand,
   CreateJourneyCommandInput,
   CreateJourneyCommandOutput,
@@ -111,6 +116,11 @@ import {
   DeleteGcmChannelCommandInput,
   DeleteGcmChannelCommandOutput,
 } from "./commands/DeleteGcmChannelCommand";
+import {
+  DeleteInAppTemplateCommand,
+  DeleteInAppTemplateCommandInput,
+  DeleteInAppTemplateCommandOutput,
+} from "./commands/DeleteInAppTemplateCommand";
 import {
   DeleteJourneyCommand,
   DeleteJourneyCommandInput,
@@ -266,6 +276,16 @@ import {
   GetImportJobsCommandInput,
   GetImportJobsCommandOutput,
 } from "./commands/GetImportJobsCommand";
+import {
+  GetInAppMessagesCommand,
+  GetInAppMessagesCommandInput,
+  GetInAppMessagesCommandOutput,
+} from "./commands/GetInAppMessagesCommand";
+import {
+  GetInAppTemplateCommand,
+  GetInAppTemplateCommandInput,
+  GetInAppTemplateCommandOutput,
+} from "./commands/GetInAppTemplateCommand";
 import { GetJourneyCommand, GetJourneyCommandInput, GetJourneyCommandOutput } from "./commands/GetJourneyCommand";
 import {
   GetJourneyDateRangeKpiCommand,
@@ -461,6 +481,11 @@ import {
   UpdateGcmChannelCommandInput,
   UpdateGcmChannelCommandOutput,
 } from "./commands/UpdateGcmChannelCommand";
+import {
+  UpdateInAppTemplateCommand,
+  UpdateInAppTemplateCommandInput,
+  UpdateInAppTemplateCommandOutput,
+} from "./commands/UpdateInAppTemplateCommand";
 import {
   UpdateJourneyCommand,
   UpdateJourneyCommandInput,
@@ -661,6 +686,38 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: CreateImportJobCommandOutput) => void
   ): Promise<CreateImportJobCommandOutput> | void {
     const command = new CreateImportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new message template for messages using the in-app message channel.</p>
+   */
+  public createInAppTemplate(
+    args: CreateInAppTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInAppTemplateCommandOutput>;
+  public createInAppTemplate(
+    args: CreateInAppTemplateCommandInput,
+    cb: (err: any, data?: CreateInAppTemplateCommandOutput) => void
+  ): void;
+  public createInAppTemplate(
+    args: CreateInAppTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInAppTemplateCommandOutput) => void
+  ): void;
+  public createInAppTemplate(
+    args: CreateInAppTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInAppTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateInAppTemplateCommandOutput) => void
+  ): Promise<CreateInAppTemplateCommandOutput> | void {
+    const command = new CreateInAppTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1263,6 +1320,38 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: DeleteGcmChannelCommandOutput) => void
   ): Promise<DeleteGcmChannelCommandOutput> | void {
     const command = new DeleteGcmChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a message template for messages sent using the in-app message channel.</p>
+   */
+  public deleteInAppTemplate(
+    args: DeleteInAppTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInAppTemplateCommandOutput>;
+  public deleteInAppTemplate(
+    args: DeleteInAppTemplateCommandInput,
+    cb: (err: any, data?: DeleteInAppTemplateCommandOutput) => void
+  ): void;
+  public deleteInAppTemplate(
+    args: DeleteInAppTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInAppTemplateCommandOutput) => void
+  ): void;
+  public deleteInAppTemplate(
+    args: DeleteInAppTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInAppTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteInAppTemplateCommandOutput) => void
+  ): Promise<DeleteInAppTemplateCommandOutput> | void {
+    const command = new DeleteInAppTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2344,6 +2433,70 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: GetImportJobsCommandOutput) => void
   ): Promise<GetImportJobsCommandOutput> | void {
     const command = new GetImportJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the in-app messages targeted for the provided endpoint ID.</p>
+   */
+  public getInAppMessages(
+    args: GetInAppMessagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInAppMessagesCommandOutput>;
+  public getInAppMessages(
+    args: GetInAppMessagesCommandInput,
+    cb: (err: any, data?: GetInAppMessagesCommandOutput) => void
+  ): void;
+  public getInAppMessages(
+    args: GetInAppMessagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInAppMessagesCommandOutput) => void
+  ): void;
+  public getInAppMessages(
+    args: GetInAppMessagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInAppMessagesCommandOutput) => void),
+    cb?: (err: any, data?: GetInAppMessagesCommandOutput) => void
+  ): Promise<GetInAppMessagesCommandOutput> | void {
+    const command = new GetInAppMessagesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the content and settings of a message template for messages sent through the in-app channel.</p>
+   */
+  public getInAppTemplate(
+    args: GetInAppTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInAppTemplateCommandOutput>;
+  public getInAppTemplate(
+    args: GetInAppTemplateCommandInput,
+    cb: (err: any, data?: GetInAppTemplateCommandOutput) => void
+  ): void;
+  public getInAppTemplate(
+    args: GetInAppTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInAppTemplateCommandOutput) => void
+  ): void;
+  public getInAppTemplate(
+    args: GetInAppTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInAppTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetInAppTemplateCommandOutput) => void
+  ): Promise<GetInAppTemplateCommandOutput> | void {
+    const command = new GetInAppTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3684,6 +3837,38 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: UpdateGcmChannelCommandOutput) => void
   ): Promise<UpdateGcmChannelCommandOutput> | void {
     const command = new UpdateGcmChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing message template for messages sent through the in-app message channel.</p>
+   */
+  public updateInAppTemplate(
+    args: UpdateInAppTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInAppTemplateCommandOutput>;
+  public updateInAppTemplate(
+    args: UpdateInAppTemplateCommandInput,
+    cb: (err: any, data?: UpdateInAppTemplateCommandOutput) => void
+  ): void;
+  public updateInAppTemplate(
+    args: UpdateInAppTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInAppTemplateCommandOutput) => void
+  ): void;
+  public updateInAppTemplate(
+    args: UpdateInAppTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInAppTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInAppTemplateCommandOutput) => void
+  ): Promise<UpdateInAppTemplateCommandOutput> | void {
+    const command = new UpdateInAppTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

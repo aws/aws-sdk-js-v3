@@ -49,9 +49,9 @@ export class TranscribeStreaming extends TranscribeStreamingClient {
   }
 
   /**
-   * <p>Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe and the transcription
+   * <p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe and the transcription
    *       results are streamed to your application.</p>
-   *          <p>The following are encoded as HTTP2 headers:</p>
+   *          <p>The following are encoded as HTTP/2 headers:</p>
    *          <ul>
    *             <li>
    *                <p>x-amzn-transcribe-language-code</p>
@@ -66,6 +66,7 @@ export class TranscribeStreaming extends TranscribeStreamingClient {
    *                <p>x-amzn-transcribe-session-id</p>
    *             </li>
    *          </ul>
+   *          <p>See the <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/#TranscribeStreamingService.StartStreamTranscription"> SDK for Go API Reference</a> for more detail.</p>
    */
   public startStreamTranscription(
     args: StartStreamTranscriptionCommandInput,

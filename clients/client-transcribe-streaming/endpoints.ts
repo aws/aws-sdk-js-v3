@@ -1,7 +1,24 @@
 import { PartitionHash, RegionHash, getRegionInfo } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "transcribestreaming-fips-ca-central-1": {
+    hostname: "transcribestreaming-fips.ca-central-1.amazonaws.com",
+    signingRegion: "ca-central-1",
+  },
+  "transcribestreaming-fips-us-east-1": {
+    hostname: "transcribestreaming-fips.us-east-1.amazonaws.com",
+    signingRegion: "us-east-1",
+  },
+  "transcribestreaming-fips-us-east-2": {
+    hostname: "transcribestreaming-fips.us-east-2.amazonaws.com",
+    signingRegion: "us-east-2",
+  },
+  "transcribestreaming-fips-us-west-2": {
+    hostname: "transcribestreaming-fips.us-west-2.amazonaws.com",
+    signingRegion: "us-west-2",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -23,6 +40,10 @@ const partitionHash: PartitionHash = {
       "eu-west-3",
       "me-south-1",
       "sa-east-1",
+      "transcribestreaming-fips-ca-central-1",
+      "transcribestreaming-fips-us-east-1",
+      "transcribestreaming-fips-us-east-2",
+      "transcribestreaming-fips-us-west-2",
       "us-east-1",
       "us-east-2",
       "us-west-1",

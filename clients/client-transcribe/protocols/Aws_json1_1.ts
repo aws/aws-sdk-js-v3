@@ -220,6 +220,9 @@ import {
   StartMedicalTranscriptionJobResponse,
   StartTranscriptionJobRequest,
   StartTranscriptionJobResponse,
+  SubtitleFormat,
+  Subtitles,
+  SubtitlesOutput,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -4495,6 +4498,8 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
     ...(input.OutputKey !== undefined && input.OutputKey !== null && { OutputKey: input.OutputKey }),
     ...(input.Settings !== undefined &&
       input.Settings !== null && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
+    ...(input.Subtitles !== undefined &&
+      input.Subtitles !== null && { Subtitles: serializeAws_json1_1Subtitles(input.Subtitles, context) }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TranscriptionJobName !== undefined &&
       input.TranscriptionJobName !== null && { TranscriptionJobName: input.TranscriptionJobName }),
@@ -4510,6 +4515,24 @@ const serializeAws_json1_1StringTargetList = (input: string[], context: __SerdeC
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1SubtitleFormats = (input: (SubtitleFormat | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1Subtitles = (input: Subtitles, context: __SerdeContext): any => {
+  return {
+    ...(input.Formats !== undefined &&
+      input.Formats !== null && { Formats: serializeAws_json1_1SubtitleFormats(input.Formats, context) }),
+  };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -5496,6 +5519,41 @@ const deserializeAws_json1_1StringTargetList = (output: any, context: __SerdeCon
     });
 };
 
+const deserializeAws_json1_1SubtitleFileUris = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1SubtitleFormats = (output: any, context: __SerdeContext): (SubtitleFormat | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1SubtitlesOutput = (output: any, context: __SerdeContext): SubtitlesOutput => {
+  return {
+    Formats:
+      output.Formats !== undefined && output.Formats !== null
+        ? deserializeAws_json1_1SubtitleFormats(output.Formats, context)
+        : undefined,
+    SubtitleFileUris:
+      output.SubtitleFileUris !== undefined && output.SubtitleFileUris !== null
+        ? deserializeAws_json1_1SubtitleFileUris(output.SubtitleFileUris, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
@@ -5588,6 +5646,10 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
+        : undefined,
+    Subtitles:
+      output.Subtitles !== undefined && output.Subtitles !== null
+        ? deserializeAws_json1_1SubtitlesOutput(output.Subtitles, context)
         : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null

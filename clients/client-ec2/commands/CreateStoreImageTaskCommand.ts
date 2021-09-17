@@ -21,11 +21,11 @@ export interface CreateStoreImageTaskCommandInput extends CreateStoreImageTaskRe
 export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskResult, __MetadataBearer {}
 
 /**
- * <p>Stores an AMI as a single object in an S3 bucket.</p>
- *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using S3</a> in the
+ * <p>Stores an AMI as a single object in an Amazon S3 bucket.</p>
+ *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
- *         S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

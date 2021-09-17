@@ -54,6 +54,22 @@ import {
 } from "./models_0";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export interface DeleteStreamRequest {
+  /**
+   * <p>The stream ID.</p>
+   */
+  streamId: string | undefined;
+}
+
+export namespace DeleteStreamRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteStreamRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteStreamResponse {}
 
 export namespace DeleteStreamResponse {
@@ -8304,30 +8320,6 @@ export namespace ThingTypeDefinition {
    * @internal
    */
   export const filterSensitiveLog = (obj: ThingTypeDefinition): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output for the ListThingTypes operation.</p>
- */
-export interface ListThingTypesResponse {
-  /**
-   * <p>The thing types.</p>
-   */
-  thingTypes?: ThingTypeDefinition[];
-
-  /**
-   * <p>The token for the next set of results. Will not be returned if operation has returned all results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListThingTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingTypesResponse): any => ({
     ...obj,
   });
 }

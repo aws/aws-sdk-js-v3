@@ -19,7 +19,7 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
 
 /**
  * <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a
- *       Region to an AWS Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost
+ *       Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost
  *       to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
  *
  *      	   <p>To copy an AMI from one Region to another, specify the source Region using the

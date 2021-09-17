@@ -1571,6 +1571,25 @@ export namespace ResourceAlreadyExistsException {
   });
 }
 
+/**
+ * <p>The object that contains the Docker image URI for either your robot or simulation applications.</p>
+ */
+export interface Environment {
+  /**
+   * <p>The Docker image URI for either your robot or simulation applications.</p>
+   */
+  uri?: string;
+}
+
+export namespace Environment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Environment): any => ({
+    ...obj,
+  });
+}
+
 export enum RobotSoftwareSuiteType {
   ROS = "ROS",
   ROS2 = "ROS2",
@@ -1645,7 +1664,7 @@ export interface CreateRobotApplicationRequest {
   /**
    * <p>The sources of the robot application.</p>
    */
-  sources: SourceConfig[] | undefined;
+  sources?: SourceConfig[];
 
   /**
    * <p>The robot software suite (ROS distribuition) used by the robot application.</p>
@@ -1657,6 +1676,11 @@ export interface CreateRobotApplicationRequest {
    *          application.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The object that contains that URI of the Docker image that you use for your robot application.</p>
+   */
+  environment?: Environment;
 }
 
 export namespace CreateRobotApplicationRequest {
@@ -1743,6 +1767,11 @@ export interface CreateRobotApplicationResponse {
    * <p>The list of all tags added to the robot application.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>An object that contains the Docker image URI used to a create your robot application.</p>
+   */
+  environment?: Environment;
 }
 
 export namespace CreateRobotApplicationResponse {
@@ -1765,6 +1794,16 @@ export interface CreateRobotApplicationVersionRequest {
    *          the latest revision ID, a new version will be created.</p>
    */
   currentRevisionId?: string;
+
+  /**
+   * <p>The Amazon S3 identifier for the zip file bundle that you use for your robot application.</p>
+   */
+  s3Etags?: string[];
+
+  /**
+   * <p>A SHA256 identifier for the Docker image that you use for your robot application.</p>
+   */
+  imageDigest?: string;
 }
 
 export namespace CreateRobotApplicationVersionRequest {
@@ -1812,6 +1851,11 @@ export interface CreateRobotApplicationVersionResponse {
    * <p>The revision id of the robot application.</p>
    */
   revisionId?: string;
+
+  /**
+   * <p>The object that contains the Docker image URI used to create your robot application.</p>
+   */
+  environment?: Environment;
 }
 
 export namespace CreateRobotApplicationVersionResponse {
@@ -1889,7 +1933,7 @@ export interface CreateSimulationApplicationRequest {
   /**
    * <p>The sources of the simulation application.</p>
    */
-  sources: SourceConfig[] | undefined;
+  sources?: SourceConfig[];
 
   /**
    * <p>The simulation software suite used by the simulation application.</p>
@@ -1911,6 +1955,11 @@ export interface CreateSimulationApplicationRequest {
    *          application.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The object that contains the Docker image URI used to create your simulation application.</p>
+   */
+  environment?: Environment;
 }
 
 export namespace CreateSimulationApplicationRequest {
@@ -1973,6 +2022,11 @@ export interface CreateSimulationApplicationResponse {
    * <p>The list of all tags added to the simulation application.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The object that contains the Docker image URI that you used to create your simulation application.</p>
+   */
+  environment?: Environment;
 }
 
 export namespace CreateSimulationApplicationResponse {
@@ -1995,6 +2049,16 @@ export interface CreateSimulationApplicationVersionRequest {
    *          matches the latest revision ID, a new version will be created.</p>
    */
   currentRevisionId?: string;
+
+  /**
+   * <p>The Amazon S3 eTag identifier for the zip file bundle that you use to create the simulation application.</p>
+   */
+  s3Etags?: string[];
+
+  /**
+   * <p>The SHA256 digest used to identify the Docker image URI used to created the simulation application.</p>
+   */
+  imageDigest?: string;
 }
 
 export namespace CreateSimulationApplicationVersionRequest {
@@ -2052,6 +2116,11 @@ export interface CreateSimulationApplicationVersionResponse {
    * <p>The revision ID of the simulation application.</p>
    */
   revisionId?: string;
+
+  /**
+   * <p>The object that contains the Docker image URI used to create the simulation application.</p>
+   */
+  environment?: Environment;
 }
 
 export namespace CreateSimulationApplicationVersionResponse {
@@ -3683,6 +3752,16 @@ export interface DescribeRobotApplicationResponse {
    * <p>The list of all tags added to the specified robot application.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The object that contains the Docker image URI used to create the robot application.</p>
+   */
+  environment?: Environment;
+
+  /**
+   * <p>A SHA256 identifier for the Docker image that you use for your robot application.</p>
+   */
+  imageDigest?: string;
 }
 
 export namespace DescribeRobotApplicationResponse {
@@ -3766,6 +3845,16 @@ export interface DescribeSimulationApplicationResponse {
    * <p>The list of all tags added to the specified simulation application.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The object that contains the Docker image URI used to create the simulation application.</p>
+   */
+  environment?: Environment;
+
+  /**
+   * <p>A SHA256 identifier for the Docker image that you use for your simulation application.</p>
+   */
+  imageDigest?: string;
 }
 
 export namespace DescribeSimulationApplicationResponse {
@@ -6384,7 +6473,7 @@ export interface UpdateRobotApplicationRequest {
   /**
    * <p>The sources of the robot application.</p>
    */
-  sources: SourceConfig[] | undefined;
+  sources?: SourceConfig[];
 
   /**
    * <p>The robot software suite (ROS distribution) used by the robot application.</p>
@@ -6395,6 +6484,11 @@ export interface UpdateRobotApplicationRequest {
    * <p>The revision id for the robot application.</p>
    */
   currentRevisionId?: string;
+
+  /**
+   * <p>The object that contains the Docker image URI for your robot application.</p>
+   */
+  environment?: Environment;
 }
 
 export namespace UpdateRobotApplicationRequest {
@@ -6442,6 +6536,11 @@ export interface UpdateRobotApplicationResponse {
    * <p>The revision id of the robot application.</p>
    */
   revisionId?: string;
+
+  /**
+   * <p>The object that contains the Docker image URI for your robot application.</p>
+   */
+  environment?: Environment;
 }
 
 export namespace UpdateRobotApplicationResponse {
@@ -6462,7 +6561,7 @@ export interface UpdateSimulationApplicationRequest {
   /**
    * <p>The sources of the simulation application.</p>
    */
-  sources: SourceConfig[] | undefined;
+  sources?: SourceConfig[];
 
   /**
    * <p>The simulation software suite used by the simulation application.</p>
@@ -6483,6 +6582,11 @@ export interface UpdateSimulationApplicationRequest {
    * <p>The revision id for the robot application.</p>
    */
   currentRevisionId?: string;
+
+  /**
+   * <p>The object that contains the Docker image URI for your simulation application.</p>
+   */
+  environment?: Environment;
 }
 
 export namespace UpdateSimulationApplicationRequest {
@@ -6540,6 +6644,11 @@ export interface UpdateSimulationApplicationResponse {
    * <p>The revision id of the simulation application.</p>
    */
   revisionId?: string;
+
+  /**
+   * <p>The object that contains the Docker image URI used for your simulation application.</p>
+   */
+  environment?: Environment;
 }
 
 export namespace UpdateSimulationApplicationResponse {
