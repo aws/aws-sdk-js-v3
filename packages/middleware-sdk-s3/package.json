@@ -25,7 +25,6 @@
   "dependencies": {
     "@aws-sdk/protocol-http": "3.32.0",
     "@aws-sdk/signature-v4": "3.32.0",
-    "@aws-sdk/signature-v4-crt": "3.29.0",
     "@aws-sdk/types": "3.32.0",
     "@aws-sdk/util-arn-parser": "3.32.0",
     "tslib": "^2.3.0"
@@ -34,6 +33,9 @@
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.3.5"
+  },
+  "peerDependencies": {
+    "@aws-sdk/signature-v4-crt": "^3.31.0"
   },
   "engines": {
     "node": ">= 10.0.0"
