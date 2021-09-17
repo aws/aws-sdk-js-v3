@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/eventstream-marshaller",
-  "version": "3.29.0",
+  "version": "3.32.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -18,13 +18,13 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-crypto/crc32": "^1.0.0",
-    "@aws-sdk/types": "3.29.0",
-    "@aws-sdk/util-hex-encoding": "3.29.0",
+    "@aws-sdk/types": "3.32.0",
+    "@aws-sdk/util-hex-encoding": "3.32.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/util-utf8-browser": "3.29.0",
-    "@aws-sdk/util-utf8-node": "3.29.0",
+    "@aws-sdk/util-utf8-browser": "3.32.0",
+    "@aws-sdk/util-utf8-node": "3.32.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
     "jest": "^26.1.0",

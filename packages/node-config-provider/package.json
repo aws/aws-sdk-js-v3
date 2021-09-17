@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/node-config-provider",
-  "version": "3.29.0",
+  "version": "3.32.0",
   "description": "Load config default values from ini config files and environmental variable",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -19,9 +19,9 @@
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/property-provider": "3.29.0",
-    "@aws-sdk/shared-ini-file-loader": "3.29.0",
-    "@aws-sdk/types": "3.29.0",
+    "@aws-sdk/property-provider": "3.32.0",
+    "@aws-sdk/shared-ini-file-loader": "3.32.0",
+    "@aws-sdk/types": "3.32.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
