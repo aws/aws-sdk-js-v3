@@ -35,7 +35,7 @@ export class S3SignatureV4 implements RequestPresigner, RequestSigner {
       if (this.signerOptions.runtime !== "node")
         throw new Error("This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js");
       if (!this.sigv4aSigner) {
-        const CrtSignerV4 = await requireSigv4aSigner();
+        const CrtSignerV4 = await expectSigv4aSigner();
         this.sigv4aSigner = new CrtSignerV4({
           ...this.signerOptions,
           signingAlgorithm: 1,
@@ -51,7 +51,7 @@ export class S3SignatureV4 implements RequestPresigner, RequestSigner {
       if (this.signerOptions.runtime !== "node")
         throw new Error("This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js");
       if (!this.sigv4aSigner) {
-        const CrtSignerV4 = await requireSigv4aSigner();
+        const CrtSignerV4 = await expectSigv4aSigner();
         this.sigv4aSigner = new CrtSignerV4({
           ...this.signerOptions,
           signingAlgorithm: 1,
@@ -66,12 +66,13 @@ export class S3SignatureV4 implements RequestPresigner, RequestSigner {
 type SigV4aSignerOptions = SignatureV4Init & SignatureV4CryptoInit & { signingAlgorithm: 1 | 2 };
 type Sigv4aSignerConstructor = new (options: SigV4aSignerOptions) => RequestSigner & RequestPresigner;
 
-const requireSigv4aSigner = async (): Promise<Sigv4aSignerConstructor> => {
+const expectSigv4aSigner = async (): Promise<Sigv4aSignerConstructor> => {
   try {
     return (await import("@aws-sdk/signature-v4-crt")).CrtSignerV4;
   } catch (e) {
-    throw new Error(
-      '"@aws-sdk/signature-v4-crt" package is required but cannot be found. Please install "@aws-sdk/signature-v4-crt" package explicitly.'
-    );
+    e.message =
+      `${e.message}\nPlease check if you have installed "@aws-sdk/signature-v4-crt" package explicitly. ` +
+      "For more information please go to https://github.com/aws/aws-sdk-js-v3#known-issues";
+    throw e;
   }
 };
