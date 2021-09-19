@@ -1,4 +1,5 @@
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
+import type { CrtSignerV4, CrtSignerV4Init } from "@aws-sdk/signature-v4-crt";
 import {
   HttpRequest,
   RequestPresigner,
@@ -63,10 +64,7 @@ export class S3SignatureV4 implements RequestPresigner, RequestSigner {
   }
 }
 
-type SigV4aSignerOptions = SignatureV4Init & SignatureV4CryptoInit & { signingAlgorithm: 1 | 2 };
-type Sigv4aSignerConstructor = new (options: SigV4aSignerOptions) => RequestSigner & RequestPresigner;
-
-const expectSigv4aSigner = async (): Promise<Sigv4aSignerConstructor> => {
+const expectSigv4aSigner = async (): Promise<new (options: CrtSignerV4Init & SignatureV4CryptoInit) => CrtSignerV4> => {
   try {
     return (await import("@aws-sdk/signature-v4-crt")).CrtSignerV4;
   } catch (e) {

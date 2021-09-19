@@ -13,7 +13,6 @@ import {
 
 import { UserAgentResolvedConfig } from "./configurations";
 import { SPACE, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
-import { isCrtAvailable } from "./is-crt-available";
 
 /**
  * Build user agent header sections from:
@@ -33,7 +32,6 @@ export const userAgentMiddleware =
     next: BuildHandler<any, any>,
     context: HandlerExecutionContext
   ): BuildHandler<any, any> => {
-    const crtAvailablePromise = isCrtAvailable();
     return async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
       const { request } = args;
       if (!HttpRequest.isInstance(request)) return next(args);
@@ -42,14 +40,8 @@ export const userAgentMiddleware =
       const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
       const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
 
-      const crtAvailable = await crtAvailablePromise;
       // Set value to AWS-specific user agent header
-      const sdkUserAgentValue = [
-        ...defaultUserAgent,
-        ...userAgent,
-        crtAvailable ? escapeUserAgent(crtAvailable) : [],
-        ...customUserAgent,
-      ].join(SPACE);
+      const sdkUserAgentValue = [...defaultUserAgent, ...userAgent, ...customUserAgent].join(SPACE);
       // Get value to be sent with non-AWS-specific user agent header.
       const normalUAValue = [
         ...defaultUserAgent.filter((section) => section.startsWith("aws-sdk-")),

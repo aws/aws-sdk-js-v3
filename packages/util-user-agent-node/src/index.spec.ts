@@ -11,6 +11,11 @@ jest.mock("process", () => ({
   },
 }));
 
+jest.mock("./is-crt-available", () => ({
+  isCrtAvailable: jest.fn().mockReturnValue(null),
+}));
+import { isCrtAvailable } from "./is-crt-available";
+
 const mockAppIdLoader = jest.fn().mockResolvedValue(undefined);
 jest.mock("@aws-sdk/node-config-provider", () => ({
   loadConfig: () => mockAppIdLoader,
@@ -47,6 +52,12 @@ describe("defaultUserAgent", () => {
   it("should response basic node default user agent", async () => {
     const userAgent = await defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" })();
     validateUserAgent(userAgent, basicUserAgent);
+  });
+
+  it("should set crt available key if aws-crt is available in runtime", async () => {
+    (isCrtAvailable as jest.Mock).mockReturnValue(["md/crt-avail"]);
+    const userAgent = await defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" })();
+    expect(userAgent).toContainEqual(["md/crt-avail"]);
   });
 
   it("should skip api version if service id is not supplied", async () => {
