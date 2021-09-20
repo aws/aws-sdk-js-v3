@@ -23,7 +23,7 @@
     "@aws-sdk/signature-v4": "3.32.0",
     "@aws-sdk/util-hex-encoding": "3.32.0",
     "@aws-sdk/util-uri-escape": "3.32.0",
-    "aws-crt": "^1.9.0",
+    "aws-crt": "^1.9.7",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
