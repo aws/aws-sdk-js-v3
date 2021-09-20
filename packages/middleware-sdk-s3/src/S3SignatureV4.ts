@@ -23,7 +23,7 @@ export type S3SignerV4Init = SignatureV4Init &
  */
 export class S3SignatureV4 implements RequestPresigner, RequestSigner {
   private readonly sigv4Signer: SignatureV4;
-  private sigv4aSigner?: RequestSigner & RequestPresigner;
+  private sigv4aSigner?: CrtSignerV4;
   private readonly signerOptions: S3SignerV4Init;
 
   constructor(options: S3SignerV4Init) {
@@ -35,14 +35,7 @@ export class S3SignatureV4 implements RequestPresigner, RequestSigner {
     if (options.signingRegion === "*") {
       if (this.signerOptions.runtime !== "node")
         throw new Error("This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js");
-      if (!this.sigv4aSigner) {
-        const CrtSignerV4 = await expectSigv4aSigner();
-        this.sigv4aSigner = new CrtSignerV4({
-          ...this.signerOptions,
-          signingAlgorithm: 1,
-        });
-      }
-      return this.sigv4aSigner.sign(requestToSign, options);
+      return (await this.getSigv4aSigner()).sign(requestToSign, options);
     }
     return this.sigv4Signer.sign(requestToSign, options);
   }
@@ -51,26 +44,27 @@ export class S3SignatureV4 implements RequestPresigner, RequestSigner {
     if (options.signingRegion === "*") {
       if (this.signerOptions.runtime !== "node")
         throw new Error("This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js");
-      if (!this.sigv4aSigner) {
-        const CrtSignerV4 = await expectSigv4aSigner();
-        this.sigv4aSigner = new CrtSignerV4({
-          ...this.signerOptions,
-          signingAlgorithm: 1,
-        });
-      }
-      return this.sigv4aSigner.presign(originalRequest, options);
+      return (await this.getSigv4aSigner()).presign(originalRequest, options);
     }
     return this.sigv4Signer.presign(originalRequest, options);
   }
-}
 
-const expectSigv4aSigner = async (): Promise<new (options: CrtSignerV4Init & SignatureV4CryptoInit) => CrtSignerV4> => {
-  try {
-    return (await import("@aws-sdk/signature-v4-crt")).CrtSignerV4;
-  } catch (e) {
-    e.message =
-      `${e.message}\nPlease check if you have installed "@aws-sdk/signature-v4-crt" package explicitly. ` +
-      "For more information please go to https://github.com/aws/aws-sdk-js-v3#known-issues";
-    throw e;
+  private async getSigv4aSigner(): Promise<CrtSignerV4> {
+    if (!this.sigv4aSigner) {
+      let CrtSignerV4: new (options: CrtSignerV4Init & SignatureV4CryptoInit) => CrtSignerV4;
+      try {
+        CrtSignerV4 = (await import("@aws-sdk/signature-v4-crt")).CrtSignerV4;
+      } catch (e) {
+        e.message =
+          `${e.message}\nPlease check if you have installed "@aws-sdk/signature-v4-crt" package explicitly. \n` +
+          "For more information please go to https://github.com/aws/aws-sdk-js-v3#known-issues";
+        throw e;
+      }
+      this.sigv4aSigner = new CrtSignerV4({
+        ...this.signerOptions,
+        signingAlgorithm: 1,
+      });
+    }
+    return this.sigv4aSigner;
   }
-};
+}

@@ -13,7 +13,6 @@ export const isCrtAvailable = (): UserAgentPair | null => {
     }
     return null;
   } catch (e) {
-    console.log("||||||", process.versions, e);
     // No aws-crt package available in the runtime.
     return null;
   }

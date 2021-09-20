@@ -69,9 +69,9 @@ public final class AddS3Config implements TypeScriptIntegration {
         "CompleteMultipartUpload"
     );
 
-    private static final String CRT_NOTIFICATION = "<p>Note: To supply the Multi-region Access Point(MRAP) to Bucket,"
-            + " you need to install the \"aws-crt\" package sparately. For more information, please go to "
-            + "https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
+    private static final String CRT_NOTIFICATION = "<p>Note: To supply the Multi-region Access Point (MRAP) to Bucket,"
+            + " you need to install the \"@aws-sdk/signature-v4-crt\" package to your project dependencies. \n"
+            + "For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
 
     @Override
     public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {
