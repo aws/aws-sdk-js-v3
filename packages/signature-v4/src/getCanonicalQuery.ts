@@ -4,9 +4,9 @@ import { escapeUri } from "@aws-sdk/util-uri-escape";
 import { SIGNATURE_HEADER } from "./constants";
 
 /**
- * @internal
+ * @private
  */
-export function getCanonicalQuery({ query = {} }: HttpRequest): string {
+export const getCanonicalQuery = ({ query = {} }: HttpRequest): string => {
   const keys: Array<string> = [];
   const serialized: { [key: string]: string } = {};
   for (const key of Object.keys(query).sort()) {
@@ -34,4 +34,4 @@ export function getCanonicalQuery({ query = {} }: HttpRequest): string {
     .map((key) => serialized[key])
     .filter((serialized) => serialized) // omit any falsy values
     .join("&");
-}
+};

@@ -28,6 +28,7 @@ export interface ArnHostnameParams extends Omit<BucketHostnameParams, "bucketNam
   clientSigningRegion?: string;
   clientPartition?: string;
   useArnRegion?: boolean;
+  disableMultiregionAccessPoints?: boolean;
 }
 
 export const isBucketNameOptions = (
@@ -141,8 +142,8 @@ export const validateRegion = (
   }
   if (
     !options.useArnRegion &&
-    !isEqualRegions(region, options.clientRegion) &&
-    !isEqualRegions(region, options.clientSigningRegion)
+    !isEqualRegions(region, options.clientRegion || "") &&
+    !isEqualRegions(region, options.clientSigningRegion || "")
   ) {
     throw new Error(`Region in ARN is incompatible, got ${region} but expected ${options.clientRegion}`);
   }
@@ -184,12 +185,23 @@ export const validateDNSHostLabel = (label: string, options: { tlsCompatible?: b
   // reference: https://tools.ietf.org/html/rfc3986#section-3.2.2
   if (
     label.length >= 64 ||
-    !/^[a-z0-9][a-z0-9.-]+[a-z0-9]$/.test(label) ||
+    !/^[a-z0-9][a-z0-9.-]*[a-z0-9]$/.test(label) ||
     /(\d+\.){3}\d+/.test(label) ||
     /[.-]{2}/.test(label) ||
     (options?.tlsCompatible && DOT_PATTERN.test(label))
   ) {
     throw new Error(`Invalid DNS label ${label}`);
+  }
+};
+
+export const validateCustomEndpoint = (options: {
+  isCustomEndpoint?: boolean;
+  dualstackEndpoint?: boolean;
+  accelerateEndpoint?: boolean;
+}) => {
+  if (options.isCustomEndpoint) {
+    if (options.dualstackEndpoint) throw new Error("Dualstack endpoint is not supported with custom endpoint");
+    if (options.accelerateEndpoint) throw new Error("Accelerate endpoint is not supported with custom endpoint");
   }
 };
 
@@ -232,14 +244,29 @@ export const getArnResources = (
  * Throw if dual stack configuration is set to true.
  * @internal
  */
-export const validateNoDualstack = (dualstackEndpoint: boolean) => {
-  if (dualstackEndpoint) throw new Error("Dualstack endpoint is not supported with Outpost");
+export const validateNoDualstack = (dualstackEndpoint?: boolean) => {
+  if (dualstackEndpoint)
+    throw new Error("Dualstack endpoint is not supported with Outpost or Multi-region Access Point ARN.");
 };
 
 /**
  * Validate region is not appended or prepended with a `fips-`
  * @internal
  */
-export const validateNoFIPS = (region: string) => {
+export const validateNoFIPS = (region?: string) => {
   if (isFipsRegion(region ?? "")) throw new Error(`FIPS region is not supported with Outpost, got ${region}`);
+};
+
+/**
+ * Validate the multi-region access point alias.
+ * @private
+ */
+export const validateMrapAlias = (name: string) => {
+  try {
+    name.split(".").forEach((label) => {
+      validateDNSHostLabel(label);
+    });
+  } catch (e) {
+    throw new Error(`"${name}" is not a DNS compatible name.`);
+  }
 };
