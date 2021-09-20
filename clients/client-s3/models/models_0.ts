@@ -51,6 +51,7 @@ export interface AbortMultipartUploadRequest {
    * <p>The bucket name to which the upload was taking place. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -420,6 +421,7 @@ export interface CompleteMultipartUploadRequest {
    * <p>Name of the bucket to which the multipart upload was initiated.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -599,6 +601,7 @@ export interface CopyObjectRequest {
    * <p>The name of the destination bucket.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1154,6 +1157,7 @@ export interface CreateMultipartUploadRequest {
    * <p>The name of the bucket to which to initiate the upload</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1361,6 +1365,7 @@ export namespace DeleteBucketRequest {
 export interface DeleteBucketAnalyticsConfigurationRequest {
   /**
    * <p>The name of the bucket from which an analytics configuration is deleted.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1387,6 +1392,7 @@ export namespace DeleteBucketAnalyticsConfigurationRequest {
 export interface DeleteBucketCorsRequest {
   /**
    * <p>Specifies the bucket whose <code>cors</code> configuration is being deleted.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1409,6 +1415,7 @@ export interface DeleteBucketEncryptionRequest {
   /**
    * <p>The name of the bucket containing the server-side encryption configuration to
    *          delete.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1430,6 +1437,7 @@ export namespace DeleteBucketEncryptionRequest {
 export interface DeleteBucketIntelligentTieringConfigurationRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1451,6 +1459,7 @@ export namespace DeleteBucketIntelligentTieringConfigurationRequest {
 export interface DeleteBucketInventoryConfigurationRequest {
   /**
    * <p>The name of the bucket containing the inventory configuration to delete.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1477,6 +1486,7 @@ export namespace DeleteBucketInventoryConfigurationRequest {
 export interface DeleteBucketLifecycleRequest {
   /**
    * <p>The bucket name of the lifecycle to delete.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1498,6 +1508,7 @@ export namespace DeleteBucketLifecycleRequest {
 export interface DeleteBucketMetricsConfigurationRequest {
   /**
    * <p>The name of the bucket containing the metrics configuration to delete.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1524,6 +1535,7 @@ export namespace DeleteBucketMetricsConfigurationRequest {
 export interface DeleteBucketOwnershipControlsRequest {
   /**
    * <p>The Amazon S3 bucket whose <code>OwnershipControls</code> you want to delete. </p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1545,6 +1557,7 @@ export namespace DeleteBucketOwnershipControlsRequest {
 export interface DeleteBucketPolicyRequest {
   /**
    * <p>The bucket name.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1566,6 +1579,7 @@ export namespace DeleteBucketPolicyRequest {
 export interface DeleteBucketReplicationRequest {
   /**
    * <p> The bucket name. </p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1587,6 +1601,7 @@ export namespace DeleteBucketReplicationRequest {
 export interface DeleteBucketTaggingRequest {
   /**
    * <p>The bucket that has the tag set to be removed.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1608,6 +1623,7 @@ export namespace DeleteBucketTaggingRequest {
 export interface DeleteBucketWebsiteRequest {
   /**
    * <p>The bucket name for which you want to remove the website configuration. </p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -1660,6 +1676,7 @@ export interface DeleteObjectRequest {
    * <p>The bucket name of the bucket containing the object. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -3737,6 +3754,7 @@ export interface DeleteObjectsRequest {
    * <p>The bucket name containing the objects to delete. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -3803,6 +3821,7 @@ export interface DeleteObjectTaggingRequest {
    * <p>The bucket name containing the objects from which to remove the tags. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -3835,6 +3854,7 @@ export interface DeletePublicAccessBlockRequest {
   /**
    * <p>The Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to delete.
    *       </p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -3872,6 +3892,7 @@ export namespace GetBucketAccelerateConfigurationOutput {
 export interface GetBucketAccelerateConfigurationRequest {
   /**
    * <p>The name of the bucket for which the accelerate configuration is retrieved.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -3914,6 +3935,7 @@ export namespace GetBucketAclOutput {
 export interface GetBucketAclRequest {
   /**
    * <p>Specifies the S3 bucket whose ACL is being requested.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -4222,6 +4244,7 @@ export namespace GetBucketAnalyticsConfigurationOutput {
 export interface GetBucketAnalyticsConfigurationRequest {
   /**
    * <p>The name of the bucket from which an analytics configuration is retrieved.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -4315,6 +4338,7 @@ export namespace GetBucketCorsOutput {
 export interface GetBucketCorsRequest {
   /**
    * <p>The bucket name for which to get the cors configuration.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -4463,6 +4487,7 @@ export interface GetBucketEncryptionRequest {
   /**
    * <p>The name of the bucket from which the server-side encryption configuration is
    *          retrieved.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -4637,6 +4662,7 @@ export namespace GetBucketIntelligentTieringConfigurationOutput {
 export interface GetBucketIntelligentTieringConfigurationRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -4927,6 +4953,7 @@ export namespace GetBucketInventoryConfigurationOutput {
 export interface GetBucketInventoryConfigurationRequest {
   /**
    * <p>The name of the bucket containing the inventory configuration to retrieve.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -5289,6 +5316,7 @@ export namespace GetBucketLifecycleConfigurationOutput {
 export interface GetBucketLifecycleConfigurationRequest {
   /**
    * <p>The name of the bucket for which to get the lifecycle information.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -5329,6 +5357,7 @@ export namespace GetBucketLocationOutput {
 export interface GetBucketLocationRequest {
   /**
    * <p>The name of the bucket for which to get the location.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -5431,6 +5460,7 @@ export namespace GetBucketLoggingOutput {
 export interface GetBucketLoggingRequest {
   /**
    * <p>The bucket name for which to get the logging information.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -5628,6 +5658,7 @@ export namespace GetBucketMetricsConfigurationOutput {
 export interface GetBucketMetricsConfigurationRequest {
   /**
    * <p>The name of the bucket containing the metrics configuration to retrieve.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -5654,6 +5685,7 @@ export namespace GetBucketMetricsConfigurationRequest {
 export interface GetBucketNotificationConfigurationRequest {
   /**
    * <p>The name of the bucket for which to get the notification configuration.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -5981,6 +6013,7 @@ export interface GetBucketOwnershipControlsRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>OwnershipControls</code> you want to retrieve.
    *       </p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -6018,6 +6051,7 @@ export namespace GetBucketPolicyOutput {
 export interface GetBucketPolicyRequest {
   /**
    * <p>The bucket name for which to get the bucket policy.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -6075,6 +6109,7 @@ export namespace GetBucketPolicyStatusOutput {
 export interface GetBucketPolicyStatusRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose policy status you want to retrieve.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -6685,6 +6720,7 @@ export namespace GetBucketReplicationOutput {
 export interface GetBucketReplicationRequest {
   /**
    * <p>The bucket name for which to get the replication information.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -6724,6 +6760,7 @@ export namespace GetBucketRequestPaymentOutput {
 export interface GetBucketRequestPaymentRequest {
   /**
    * <p>The name of the bucket for which to get the payment request configuration</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -6761,6 +6798,7 @@ export namespace GetBucketTaggingOutput {
 export interface GetBucketTaggingRequest {
   /**
    * <p>The name of the bucket for which to get the tagging information.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -6809,6 +6847,7 @@ export namespace GetBucketVersioningOutput {
 export interface GetBucketVersioningRequest {
   /**
    * <p>The name of the bucket for which to get the versioning information.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -7075,6 +7114,7 @@ export namespace GetBucketWebsiteOutput {
 export interface GetBucketWebsiteRequest {
   /**
    * <p>The bucket name for which to get the website configuration.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -7294,6 +7334,7 @@ export interface GetObjectRequest {
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -7490,6 +7531,7 @@ export interface GetObjectAclRequest {
   /**
    * <p>The bucket name that contains the object for which to get the ACL information. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -7565,6 +7607,7 @@ export interface GetObjectLegalHoldRequest {
   /**
    * <p>The bucket name containing the object whose Legal Hold status you want to retrieve. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -7722,6 +7765,7 @@ export interface GetObjectLockConfigurationRequest {
   /**
    * <p>The bucket whose Object Lock configuration you want to retrieve.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -7784,6 +7828,7 @@ export interface GetObjectRetentionRequest {
   /**
    * <p>The bucket name containing the object whose retention settings you want to retrieve. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -7846,6 +7891,7 @@ export interface GetObjectTaggingRequest {
    * <p>The bucket name containing the object for which to get the tagging information. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -7907,6 +7953,7 @@ export namespace GetObjectTorrentOutput {
 export interface GetObjectTorrentRequest {
   /**
    * <p>The name of the bucket containing the object for which to get the torrent files.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -8023,6 +8070,7 @@ export interface GetPublicAccessBlockRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want
    *          to retrieve. </p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -8046,6 +8094,7 @@ export interface HeadBucketRequest {
    * <p>The bucket name.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -8331,6 +8380,7 @@ export interface HeadObjectRequest {
    * <p>The name of the bucket containing the object.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -8476,6 +8526,7 @@ export namespace ListBucketAnalyticsConfigurationsOutput {
 export interface ListBucketAnalyticsConfigurationsRequest {
   /**
    * <p>The name of the bucket from which analytics configurations are retrieved.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -8539,6 +8590,7 @@ export namespace ListBucketIntelligentTieringConfigurationsOutput {
 export interface ListBucketIntelligentTieringConfigurationsRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -8602,6 +8654,7 @@ export namespace ListBucketInventoryConfigurationsOutput {
 export interface ListBucketInventoryConfigurationsRequest {
   /**
    * <p>The name of the bucket containing the inventory configurations to retrieve.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -8672,6 +8725,7 @@ export namespace ListBucketMetricsConfigurationsOutput {
 export interface ListBucketMetricsConfigurationsRequest {
   /**
    * <p>The name of the bucket containing the metrics configurations to retrieve.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -8930,6 +8984,7 @@ export interface ListMultipartUploadsRequest {
    * <p>The name of the bucket to which the multipart upload was initiated. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -9167,6 +9222,7 @@ export interface ListObjectsRequest {
    * <p>The name of the bucket containing the objects.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -9355,6 +9411,7 @@ export interface ListObjectsV2Request {
    * <p>Bucket name to list. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -9616,6 +9673,7 @@ export namespace ListObjectVersionsOutput {
 export interface ListObjectVersionsRequest {
   /**
    * <p>The bucket name that contains the objects. </p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -9824,6 +9882,7 @@ export interface ListPartsRequest {
    * <p>The name of the bucket to which the parts are being uploaded. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -9874,6 +9933,7 @@ export namespace ListPartsRequest {
 export interface PutBucketAccelerateConfigurationRequest {
   /**
    * <p>The name of the bucket for which the accelerate configuration is set.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -9910,6 +9970,7 @@ export interface PutBucketAclRequest {
 
   /**
    * <p>The bucket to which to apply the ACL.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -9968,6 +10029,7 @@ export namespace PutBucketAclRequest {
 export interface PutBucketAnalyticsConfigurationRequest {
   /**
    * <p>The name of the bucket to which an analytics configuration is stored.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10024,6 +10086,7 @@ export namespace CORSConfiguration {
 export interface PutBucketCorsRequest {
   /**
    * <p>Specifies the bucket impacted by the <code>cors</code>configuration.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10065,6 +10128,7 @@ export interface PutBucketEncryptionRequest {
    *          keys (SSE-S3) or customer managed keys (SSE-KMS). For information about
    *          the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a>
    *          in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10102,6 +10166,7 @@ export namespace PutBucketEncryptionRequest {
 export interface PutBucketIntelligentTieringConfigurationRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10128,6 +10193,7 @@ export namespace PutBucketIntelligentTieringConfigurationRequest {
 export interface PutBucketInventoryConfigurationRequest {
   /**
    * <p>The name of the bucket where the inventory configuration will be stored.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10184,6 +10250,7 @@ export namespace BucketLifecycleConfiguration {
 export interface PutBucketLifecycleConfigurationRequest {
   /**
    * <p>The name of the bucket for which to set the configuration.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10234,6 +10301,7 @@ export namespace BucketLoggingStatus {
 export interface PutBucketLoggingRequest {
   /**
    * <p>The name of the bucket for which to set the logging parameters.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10266,6 +10334,7 @@ export namespace PutBucketLoggingRequest {
 export interface PutBucketMetricsConfigurationRequest {
   /**
    * <p>The name of the bucket for which the metrics configuration is set.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10300,6 +10369,7 @@ export namespace PutBucketMetricsConfigurationRequest {
 export interface PutBucketNotificationConfigurationRequest {
   /**
    * <p>The name of the bucket.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10327,6 +10397,7 @@ export namespace PutBucketNotificationConfigurationRequest {
 export interface PutBucketOwnershipControlsRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>OwnershipControls</code> you want to set.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10360,6 +10431,7 @@ export namespace PutBucketOwnershipControlsRequest {
 export interface PutBucketPolicyRequest {
   /**
    * <p>The name of the bucket.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10398,6 +10470,7 @@ export namespace PutBucketPolicyRequest {
 export interface PutBucketReplicationRequest {
   /**
    * <p>The name of the bucket</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10460,6 +10533,7 @@ export namespace RequestPaymentConfiguration {
 export interface PutBucketRequestPaymentRequest {
   /**
    * <p>The bucket name.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10514,6 +10588,7 @@ export namespace Tagging {
 export interface PutBucketTaggingRequest {
   /**
    * <p>The bucket name.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10577,6 +10652,7 @@ export namespace VersioningConfiguration {
 export interface PutBucketVersioningRequest {
   /**
    * <p>The bucket name.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10655,6 +10731,7 @@ export namespace WebsiteConfiguration {
 export interface PutBucketWebsiteRequest {
   /**
    * <p>The bucket name.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -10779,6 +10856,7 @@ export interface PutObjectRequest {
    * <p>The bucket name to which the PUT action was initiated. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -11036,6 +11114,7 @@ export interface PutObjectAclRequest {
   /**
    * <p>The bucket name that contains the object to which you want to attach the ACL. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -11138,6 +11217,7 @@ export interface PutObjectLegalHoldRequest {
   /**
    * <p>The bucket name containing the object that you want to place a Legal Hold on. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -11206,6 +11286,7 @@ export namespace PutObjectLockConfigurationOutput {
 export interface PutObjectLockConfigurationRequest {
   /**
    * <p>The bucket whose Object Lock configuration you want to create or replace.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -11270,6 +11351,7 @@ export interface PutObjectRetentionRequest {
    * <p>The bucket name that contains the object you want to apply this Object Retention
    *          configuration to. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -11345,6 +11427,7 @@ export interface PutObjectTaggingRequest {
    * <p>The bucket name containing the object. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
@@ -11396,6 +11479,7 @@ export interface PutPublicAccessBlockRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want
    *          to set.</p>
+   * <p>Note: To supply the Multi-region Access Point(MRAP) to Bucket, you need to install the "aws-crt" package sparately. For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 

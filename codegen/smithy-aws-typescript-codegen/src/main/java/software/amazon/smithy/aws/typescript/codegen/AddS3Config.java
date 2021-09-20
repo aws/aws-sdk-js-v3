@@ -19,16 +19,24 @@ import static software.amazon.smithy.typescript.codegen.integration.RuntimeClien
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
+import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.traits.DocumentationTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -45,6 +53,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public final class AddS3Config implements TypeScriptIntegration {
+    private static final Logger LOGGER = Logger.getLogger(AddS3Config.class.getName());
 
     private static final Set<String> SSEC_OPERATIONS = SetUtils.of("SSECustomerKey", "CopySourceSSECustomerKey");
 
@@ -59,6 +68,42 @@ public final class AddS3Config implements TypeScriptIntegration {
         "UploadPartCopy",
         "CompleteMultipartUpload"
     );
+
+    private static final String CRT_NOTIFICATION = "<p>Note: To supply the Multi-region Access Point(MRAP) to Bucket,"
+            + " you need to install the \"aws-crt\" package sparately. For more information, please go to "
+            + "https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
+
+    @Override
+    public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {
+        Model model = context.getModel();
+        ServiceShape serviceShape = settings.getService(model);
+        if (!testServiceId(serviceShape)) {
+            return model;
+        }
+        Model.Builder modelBuilder = model.toBuilder();
+        Set<StructureShape> inputShapes = new HashSet<>();
+        for (ShapeId operationId : serviceShape.getAllOperations()) {
+            OperationShape operationShape = model.expectShape(operationId, OperationShape.class);
+            if (NON_BUCKET_ENDPOINT_OPERATIONS.contains(operationShape.getId().getName(serviceShape))) {
+                continue;
+            }
+            operationShape.getInput().ifPresent(inputShapeId -> {
+                StructureShape inputShape = model.expectShape(inputShapeId, StructureShape.class);
+                inputShape.getMember("Bucket").ifPresent(bucketMember -> {
+                    bucketMember.getTrait(DocumentationTrait.class).ifPresent(documentationTrait -> {
+                        StructureShape.Builder inputShapeBuilder = inputShape.toBuilder();
+                        MemberShape.Builder builder = MemberShape.shapeToBuilder(bucketMember);
+                        String newDocString = documentationTrait.getValue() + "\n" + CRT_NOTIFICATION;
+                        MemberShape newMemberShape = builder.addTrait(new DocumentationTrait(newDocString)).build();
+                        inputShapeBuilder.addMember(newMemberShape);
+                        inputShapes.add(inputShapeBuilder.build());
+                    });
+                });
+            });
+        }
+        LOGGER.info("Patching " + inputShapes.size() + " input shapes with CRT notification");
+        return modelBuilder.addShapes(inputShapes).build();
+    }
 
     @Override
     public void addConfigInterfaceFields(TypeScriptSettings settings, Model model, SymbolProvider symbolProvider,
