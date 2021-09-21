@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.33.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.32.0...v3.33.0) (2021-09-21)
+
+
+### Features
+
+* **client-s3:** support generating endpoints from multi-region access point ([#2796](https://github.com/aws/aws-sdk-js-v3/issues/2796)) ([c1bed9d](https://github.com/aws/aws-sdk-js-v3/commit/c1bed9d5c54ea3afbfe1883877b452b0b54a69fa)), closes [#2759](https://github.com/aws/aws-sdk-js-v3/issues/2759)
+
+
+
+
+
 # [3.32.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.31.0...v3.32.0) (2021-09-17)
 
 **Note:** Version bump only for package @aws-sdk/signature-v4
