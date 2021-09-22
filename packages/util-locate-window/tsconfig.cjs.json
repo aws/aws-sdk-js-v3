@@ -5,7 +5,6 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "baseUrl": "."

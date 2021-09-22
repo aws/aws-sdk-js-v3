@@ -6,7 +6,6 @@
     "moduleResolution": "node",
     "strict": true,
     "sourceMap": false,
-    "declaration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
     "inlineSourceMap": true,

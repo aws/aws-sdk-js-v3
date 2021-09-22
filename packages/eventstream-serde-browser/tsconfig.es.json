@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "lib": ["es2018.asynciterable", "DOM"],
-    "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/es",
     "baseUrl": "."
