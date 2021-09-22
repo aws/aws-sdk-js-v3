@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "declarationDir": "./dist/types"
+  },
+  "exclude": ["src/**/*.spec.ts", "dist/types/**/*"],
+  "extends": "../../tsconfig.types.json"
+}
