@@ -10,6 +10,7 @@
     "noEmitHelpers": true,
     "sourceMap": false,
     "inlineSourceMap": true,
-    "inlineSources": true
+    "inlineSources": true,
+    "removeComments": true
   }
 }
