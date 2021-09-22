@@ -41,3 +41,5 @@ dist
 
 /verdaccio/*
 !/verdaccio/config.yaml
+
+*.tsbuildinfo
