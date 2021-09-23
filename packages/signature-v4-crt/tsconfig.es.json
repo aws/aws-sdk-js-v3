@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "stripInternal": true,
-    "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/es",
     "noUnusedLocals": true,

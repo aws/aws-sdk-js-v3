@@ -2,7 +2,6 @@
   "compilerOptions": {
     "strict": false,
     "lib": ["es2015"],
-    "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/es",
     "experimentalDecorators": true,
