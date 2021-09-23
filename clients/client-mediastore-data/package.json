@@ -12,7 +12,7 @@
     "test": "yarn test:unit",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:cjs && yarn build:es",
+    "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
     "build:types": "tsc -p tsconfig.types.json"
   },

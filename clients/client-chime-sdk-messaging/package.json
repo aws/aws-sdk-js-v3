@@ -12,7 +12,7 @@
     "test": "jest --coverage --passWithNoTests",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:cjs && yarn build:es",
+    "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:types": "tsc -p tsconfig.types.json"
   },
   "main": "./dist/cjs/index.js",
