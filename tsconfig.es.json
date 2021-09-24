@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "downlevelIteration": true,
     "importHelpers": true,
     "inlineSourceMap": true,
     "inlineSources": true,
