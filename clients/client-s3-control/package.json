@@ -12,7 +12,6 @@
     "clean:dist": "rimraf ./dist",
     "clean:docs": "rimraf ./docs",
     "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
-    "remove-documentation": "rimraf ./docs",
     "test": "yarn test:unit",
     "test:unit": "mocha **/cjs/**/*.spec.js"
   },
