@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "stripInternal": true,
-    "rootDir": "./src",
-    "outDir": "./dist/es",
+    "rootDir": "src",
+    "outDir": "dist/es",
     "noUnusedLocals": true,
     "baseUrl": ".",
     "target": "es5",

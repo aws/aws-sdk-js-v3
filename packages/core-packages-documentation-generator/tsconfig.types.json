@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "strict": false,
-    "rootDir": "./src",
-    "declarationDir": "./dist/types",
+    "rootDir": "src",
+    "declarationDir": "dist/types",
     "baseUrl": "."
   },
   "extends": "../../tsconfig.types.json",

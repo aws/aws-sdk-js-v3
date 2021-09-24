@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "stripInternal": true,
-    "rootDir": "./src",
-    "outDir": "./dist/cjs",
+    "rootDir": "src",
+    "outDir": "dist/cjs",
     "noUnusedLocals": true,
     "lib": ["es2016"],
     "baseUrl": "."

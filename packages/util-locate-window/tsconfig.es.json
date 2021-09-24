@@ -6,8 +6,8 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "lib": ["dom", "es5", "es2015.collection"],
-    "rootDir": "./src",
-    "outDir": "./dist/es",
+    "rootDir": "src",
+    "outDir": "dist/es",
     "baseUrl": "."
   },
   "extends": "../../tsconfig.es.json",

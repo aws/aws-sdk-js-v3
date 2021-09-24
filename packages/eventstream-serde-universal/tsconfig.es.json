@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "lib": ["es2018.asynciterable"],
-    "rootDir": "./src",
-    "outDir": "./dist/es",
+    "rootDir": "src",
+    "outDir": "dist/es",
     "baseUrl": "."
   },
   "extends": "../../tsconfig.es.json",

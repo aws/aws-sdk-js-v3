@@ -2,8 +2,8 @@
   "compilerOptions": {
     "noUnusedLocals": true,
     "lib": ["dom", "es5", "es2015.promise", "es2015.collection", "es2015.iterable", "es2015.symbol.wellknown"],
-    "rootDir": "./src",
-    "outDir": "./dist/es",
+    "rootDir": "src",
+    "outDir": "dist/es",
     "baseUrl": "."
   },
   "extends": "../../tsconfig.es.json",

@@ -2,8 +2,8 @@
   "compilerOptions": {
     "strict": false,
     "lib": ["es2015"],
-    "rootDir": "./src",
-    "outDir": "./dist/es",
+    "rootDir": "src",
+    "outDir": "dist/es",
     "experimentalDecorators": true,
     "pretty": true,
     "baseUrl": "."
