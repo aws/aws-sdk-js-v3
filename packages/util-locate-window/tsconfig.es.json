@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "strict": false,
-    "noImplicitUseStrict": true,
+    "baseUrl": ".",
+    "lib": ["dom", "es5", "es2015.collection"],
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "strictNullChecks": true,
-    "lib": ["dom", "es5", "es2015.collection"],
-    "rootDir": "src",
+    "noImplicitUseStrict": true,
     "outDir": "dist/es",
-    "baseUrl": "."
+    "rootDir": "src",
+    "strict": false,
+    "strictNullChecks": true
   },
   "extends": "../../tsconfig.es.json",
   "include": ["src/"]

@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "lib": ["es5", "es2015.collection"],
-    "stripInternal": true,
-    "rootDir": "src",
     "outDir": "dist/es",
-    "baseUrl": "."
+    "rootDir": "src",
+    "stripInternal": true
   },
   "extends": "../../tsconfig.es.json",
   "include": ["src/"]
