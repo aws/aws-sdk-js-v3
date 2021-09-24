@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "downlevelIteration": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "noUnusedParameters": false,
+    "removeComments": false,
     "incremental": true,
     "lib": ["es2015", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
-    "noUnusedParameters": false,
     "paths": {
       "@aws-sdk/*": ["packages/*/src"],
       "@aws-sdk/client-*": ["clients/client-*/"],
@@ -17,8 +16,6 @@
       "@aws-sdk/lib-*": ["lib/*"]
     },
     "preserveConstEnums": true,
-    "removeComments": false,
-    "resolveJsonModule": true,
     "sourceMap": true,
     "target": "es5"
   },
