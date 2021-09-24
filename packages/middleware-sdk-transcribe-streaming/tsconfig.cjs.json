@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "stripInternal": true,
-    "rootDir": "./src",
+    "rootDir": "src",
     "outDir": "./dist/cjs",
     "baseUrl": "."
   },

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
+    "rootDir": "src",
     "declarationDir": "./dist/types",
     "baseUrl": "."
   },
