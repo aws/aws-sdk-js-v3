@@ -2,8 +2,6 @@
   "compilerOptions": {
     "downlevelIteration": true,
     "resolveJsonModule": true,
-    "noUnusedParameters": false,
-    "removeComments": false,
     "incremental": true,
     "lib": ["es2015", "dom"],
     "module": "commonjs",
