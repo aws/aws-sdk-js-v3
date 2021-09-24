@@ -1,15 +1,15 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "sourceMap": false,
+    "downlevelIteration": true,
     "importHelpers": true,
-    "noEmitHelpers": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "downlevelIteration": true
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmitHelpers": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "es5"
   }
 }
