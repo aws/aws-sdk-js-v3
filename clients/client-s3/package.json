@@ -4,7 +4,6 @@
   "version": "3.33.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
-    "build-documentation": "yarn remove-documentation && typedoc ./",
     "build:cjs": "tsc -p tsconfig.json",
     "build:docs": "yarn clean:docs && typedoc ./",
     "build:es": "tsc -p tsconfig.es.json",
