@@ -3,6 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
-    "strict": true
+    "strict": true,
+    "removeComments": false
   }
 }

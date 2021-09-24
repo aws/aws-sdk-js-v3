@@ -7,7 +7,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmitHelpers": true,
-    "removeComments": true,
     "sourceMap": false,
     "strict": true,
     "target": "ES2018"
