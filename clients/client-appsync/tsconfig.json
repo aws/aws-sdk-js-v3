@@ -22,9 +22,9 @@
     "ignoreCompilerErrors": true,
     "includeDeclarations": true,
     "stripInternal": true,
-    "readme": "./README.md",
+    "readme": "README.md",
     "mode": "file",
-    "out": "./docs",
+    "out": "docs",
     "theme": "minimal",
     "plugin": ["@aws-sdk/client-documentation-generator"]
   }
