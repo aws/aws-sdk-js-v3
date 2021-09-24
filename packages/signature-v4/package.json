@@ -6,10 +6,10 @@
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
   "scripts": {
+    "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
     "pretest": "yarn build",
     "test": "jest --coverage"
