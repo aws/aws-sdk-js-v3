@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "rootDir": "src",
+    "baseUrl": ".",
     "outDir": "dist/cjs",
-    "baseUrl": "."
+    "rootDir": "src"
   },
   "exclude": ["./build/**"],
   "include": ["src/"],

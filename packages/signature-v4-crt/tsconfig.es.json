@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "stripInternal": true,
-    "rootDir": "src",
-    "outDir": "dist/es",
-    "noUnusedLocals": true,
     "baseUrl": ".",
-    "target": "es5",
+    "incremental": true,
+    "lib": ["es5", "es2015.promise", "es2015.collection"],
     "module": "esNext",
     "moduleResolution": "node",
-    "lib": ["es5", "es2015.promise", "es2015.collection"],
-    "incremental": true
+    "noUnusedLocals": true,
+    "outDir": "dist/es",
+    "rootDir": "src",
+    "stripInternal": true,
+    "target": "es5"
   },
   "extends": "../../tsconfig.es.json",
   "include": ["src/"]
