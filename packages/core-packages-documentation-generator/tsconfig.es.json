@@ -3,7 +3,7 @@
     "strict": false,
     "lib": ["es2015"],
     "rootDir": "src",
-    "outDir": "./dist/es",
+    "outDir": "dist/es",
     "experimentalDecorators": true,
     "pretty": true,
     "baseUrl": "."
