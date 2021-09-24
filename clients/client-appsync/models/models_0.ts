@@ -27,34 +27,36 @@ export enum AuthenticationType {
 }
 
 /**
- * <p>A <code>LambdaAuthorizerConfig</code> holds configuration on how to authorize AppSync API access when using
- *       the <code>AWS_LAMBDA</code> authorizer mode. Be aware that an AppSync API may have only one Lambda authorizer configured
- *       at a time.</p>
+ * <p>A <code>LambdaAuthorizerConfig</code> holds configuration on how to authorize AppSync
+ *          API access when using the <code>AWS_LAMBDA</code> authorizer mode. Be aware that an AppSync
+ *          API may have only one Lambda authorizer configured at a time.</p>
  */
 export interface LambdaAuthorizerConfig {
   /**
-   * <p>The number of seconds a response should be cached for. The default is 5 minutes (300 seconds).
-   *          The Lambda function can override this by returning a
-   *             <code>ttlOverride</code> key in its response. A value of 0 disables caching of
-   *          responses.</p>
+   * <p>The number of seconds a response should be cached for. The default is 5 minutes (300
+   *          seconds). The Lambda function can override this by returning a <code>ttlOverride</code> key
+   *          in its response. A value of 0 disables caching of responses.</p>
    */
   authorizerResultTtlInSeconds?: number;
 
   /**
-   * <p>The ARN of the lambda function to be called for authorization. This may be a standard
+   * <p>The ARN of the Lambda function to be called for authorization. This may be a standard
    *          Lambda ARN, a version ARN (<code>.../v3</code>) or alias ARN. </p>
    *          <p>
    *             <i>Note</i>: This Lambda function must have the following resource-based
    *          policy assigned to it. When configuring Lambda authorizers in the Console, this is done for
-   *          you. To do so with the AWS CLI, run the following:</p>
+   *          you. To do so with the Amazon Web Services CLI, run the following:</p>
    *          <p>
-   *             <code>aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function" --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction</code>
+   *             <code>aws lambda add-permission --function-name
+   *             "arn:aws:lambda:us-east-2:111122223333:function:my-function" --statement-id "appsync"
+   *             --principal appsync.amazonaws.com --action lambda:InvokeFunction</code>
    *          </p>
    */
   authorizerUri: string | undefined;
 
   /**
-   * <p>A regular expression for validation of tokens before the Lambda Function is called.</p>
+   * <p>A regular expression for validation of tokens before the Lambda function is
+   *          called.</p>
    */
   identityValidationExpression?: string;
 }
@@ -81,8 +83,8 @@ export interface OpenIDConnectConfig {
   /**
    * <p>The client identifier of the Relying party at the OpenID identity provider. This
    *          identifier is typically obtained when the Relying party is registered with the OpenID
-   *          identity provider. You can specify a regular expression so the AppSync can validate
-   *          against multiple client identifiers at a time.</p>
+   *          identity provider. You can specify a regular expression so the AppSync can
+   *          validate against multiple client identifiers at a time.</p>
    */
   clientId?: string;
 
@@ -141,7 +143,8 @@ export namespace CognitoUserPoolConfig {
  */
 export interface AdditionalAuthenticationProvider {
   /**
-   * <p>The authentication type: API key, Identity and Access Management, OIDC, or Amazon Cognito user pools.</p>
+   * <p>The authentication type: API key, Identity and Access Management, OIDC, Amazon Cognito user
+   *          pools, or Amazon Web Services Lambda.</p>
    */
   authenticationType?: AuthenticationType | string;
 
@@ -156,7 +159,7 @@ export interface AdditionalAuthenticationProvider {
   userPoolConfig?: CognitoUserPoolConfig;
 
   /**
-   * <p>Configuration for AWS Lambda function authorization.</p>
+   * <p>Configuration for Amazon Web Services Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
@@ -361,8 +364,8 @@ export namespace ApiCache {
 
 /**
  * <p>Describes an API key.</p>
- *          <p>Customers invoke AppSync GraphQL API operations with API keys as an identity
- *          mechanism. There are two key versions:</p>
+ *          <p>Customers invoke AppSync GraphQL API operations with API keys as an
+ *          identity mechanism. There are two key versions:</p>
  *          <p>
  *             <b>da1</b>: This version was introduced at launch in November
  *          2017. These keys always expire after 7 days. Key expiration is managed by Amazon DynamoDB
@@ -399,33 +402,33 @@ export namespace ApiCache {
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>ListApiKeys</code> returns the expiration time and deletion time
- *                in seconds.</p>
+ *                   <code>ListApiKeys</code> returns the expiration time and deletion time in
+ *                seconds.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>CreateApiKey</code> returns the expiration time and deletion time
- *                in seconds and accepts a user-provided expiration time in seconds.</p>
+ *                   <code>CreateApiKey</code> returns the expiration time and deletion time in
+ *                seconds and accepts a user-provided expiration time in seconds.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UpdateApiKey</code> returns the expiration time and and deletion time
- *                in seconds and accepts a user-provided expiration time in seconds. Expired API keys
- *                are kept for 60 days after the expiration time. Key expiration time can be updated
- *                while the key is not deleted. </p>
+ *                   <code>UpdateApiKey</code> returns the expiration time and and deletion time in
+ *                seconds and accepts a user-provided expiration time in seconds. Expired API keys are
+ *                kept for 60 days after the expiration time. Key expiration time can be updated while
+ *                the key is not deleted. </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>DeleteApiKey</code> deletes the item from the table.</p>
  *             </li>
  *             <li>
- *                <p>Expiration is stored in Amazon DynamoDB as seconds. After the expiration
- *                time, using the key to authenticate will fail. But the key can be reinstated before
+ *                <p>Expiration is stored in Amazon DynamoDB as seconds. After the expiration time,
+ *                using the key to authenticate will fail. But the key can be reinstated before
  *                deletion.</p>
  *             </li>
  *             <li>
- *                <p>Deletion is stored in Amazon DynamoDB as seconds. The key will be deleted
- *                after deletion time. </p>
+ *                <p>Deletion is stored in Amazon DynamoDB as seconds. The key will be deleted after
+ *                deletion time. </p>
  *             </li>
  *          </ul>
  */
@@ -447,8 +450,8 @@ export interface ApiKey {
   expires?: number;
 
   /**
-   * <p>The time after which the API key is deleted. The date is represented as seconds since the
-   *          epoch, rounded down to the nearest hour.</p>
+   * <p>The time after which the API key is deleted. The date is represented as seconds since
+   *          the epoch, rounded down to the nearest hour.</p>
    */
   deletes?: number;
 }
@@ -950,7 +953,10 @@ export namespace DynamodbDataSourceConfig {
 }
 
 /**
- * <p>Describes an Elasticsearch data source configuration.</p>
+ * <p>Describes an OpenSearch data source configuration.</p>
+ *          <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
+ *          configuration is deprecated. For new data sources, use <a>OpenSearchServiceDataSourceConfig</a> to specify an OpenSearch data
+ *          source.</p>
  */
 export interface ElasticsearchDataSourceConfig {
   /**
@@ -979,8 +985,9 @@ export namespace ElasticsearchDataSourceConfig {
 export interface HttpDataSourceConfig {
   /**
    * <p>The HTTP URL endpoint. You can either specify the domain name or IP, and port
-   *          combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS
-   *          endpoints.</p>
+   *          combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified,
+   *             AppSync uses the default port 80 for the HTTP endpoint and port 443 for
+   *          HTTPS endpoints.</p>
    */
   endpoint?: string;
 
@@ -1014,6 +1021,30 @@ export namespace LambdaDataSourceConfig {
    * @internal
    */
   export const filterSensitiveLog = (obj: LambdaDataSourceConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an OpenSearch data source configuration.</p>
+ */
+export interface OpenSearchServiceDataSourceConfig {
+  /**
+   * <p>The endpoint.</p>
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region.</p>
+   */
+  awsRegion: string | undefined;
+}
+
+export namespace OpenSearchServiceDataSourceConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OpenSearchServiceDataSourceConfig): any => ({
     ...obj,
   });
 }
@@ -1095,6 +1126,7 @@ export namespace RelationalDatabaseDataSourceConfig {
 export enum DataSourceType {
   AMAZON_DYNAMODB = "AMAZON_DYNAMODB",
   AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
+  AMAZON_OPENSEARCH_SERVICE = "AMAZON_OPENSEARCH_SERVICE",
   AWS_LAMBDA = "AWS_LAMBDA",
   HTTP = "HTTP",
   NONE = "NONE",
@@ -1123,8 +1155,8 @@ export interface CreateDataSourceRequest {
   type: DataSourceType | string | undefined;
 
   /**
-   * <p>The Identity and Access Management service role ARN for the data source. The system assumes this role when
-   *          accessing the data source.</p>
+   * <p>The Identity and Access Management service role ARN for the data source. The system assumes this
+   *          role when accessing the data source.</p>
    */
   serviceRoleArn?: string;
 
@@ -1139,9 +1171,16 @@ export interface CreateDataSourceRequest {
   lambdaConfig?: LambdaDataSourceConfig;
 
   /**
-   * <p>Amazon Elasticsearch Service settings.</p>
+   * <p>Amazon OpenSearch Service settings.</p>
+   *          <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
+   *          configuration is deprecated. For new data sources, use <a>CreateDataSourceRequest$openSearchServiceConfig</a> to create an OpenSearch data source.</p>
    */
   elasticsearchConfig?: ElasticsearchDataSourceConfig;
+
+  /**
+   * <p>Amazon OpenSearch Service settings.</p>
+   */
+  openSearchServiceConfig?: OpenSearchServiceDataSourceConfig;
 
   /**
    * <p>HTTP endpoint settings.</p>
@@ -1187,18 +1226,22 @@ export interface DataSource {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <b>AWS_LAMBDA</b>: The data source is an Amazon Web Services Lambda function.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <b>AMAZON_DYNAMODB</b>: The data source is an Amazon
    *                DynamoDB table.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>AMAZON_ELASTICSEARCH</b>: The data source is an
-   *                Amazon Elasticsearch Service domain.</p>
+   *                   Amazon OpenSearch Service domain.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>AWS_LAMBDA</b>: The data source is an Amazon Web Services Lambda
-   *                function.</p>
+   *                   <b>AMAZON_OPENSEARCH_SERVICE</b>: The data source is
+   *                an Amazon OpenSearch Service domain.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1222,8 +1265,8 @@ export interface DataSource {
   type?: DataSourceType | string;
 
   /**
-   * <p>The Identity and Access Management service role ARN for the data source. The system assumes this role when
-   *          accessing the data source.</p>
+   * <p>The Identity and Access Management service role ARN for the data source. The system assumes this
+   *          role when accessing the data source.</p>
    */
   serviceRoleArn?: string;
 
@@ -1238,9 +1281,14 @@ export interface DataSource {
   lambdaConfig?: LambdaDataSourceConfig;
 
   /**
-   * <p>Amazon Elasticsearch Service settings.</p>
+   * <p>Amazon OpenSearch Service settings.</p>
    */
   elasticsearchConfig?: ElasticsearchDataSourceConfig;
+
+  /**
+   * <p>Amazon OpenSearch Service settings.</p>
+   */
+  openSearchServiceConfig?: OpenSearchServiceDataSourceConfig;
 
   /**
    * <p>HTTP endpoint settings.</p>
@@ -1562,8 +1610,8 @@ export interface LogConfig {
   fieldLogLevel: FieldLogLevel | string | undefined;
 
   /**
-   * <p>The service role that AppSync will assume to publish to Amazon CloudWatch logs in
-   *          your account. </p>
+   * <p>The service role that AppSync will assume to publish to Amazon
+   *          CloudWatch logs in your account. </p>
    */
   cloudWatchLogsRoleArn: string | undefined;
 
@@ -1637,7 +1685,8 @@ export interface CreateGraphqlApiRequest {
   logConfig?: LogConfig;
 
   /**
-   * <p>The authentication type: API key, Identity and Access Management, OIDC, or Amazon Cognito user pools.</p>
+   * <p>The authentication type: API key, Identity and Access Management, OIDC, Amazon Cognito user
+   *          pools, or Amazon Web Services Lambda.</p>
    */
   authenticationType: AuthenticationType | string | undefined;
 
@@ -1669,7 +1718,7 @@ export interface CreateGraphqlApiRequest {
   xrayEnabled?: boolean;
 
   /**
-   * <p>Configuration for AWS Lambda function authorization.</p>
+   * <p>Configuration for Amazon Web Services Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
@@ -1745,14 +1794,13 @@ export interface GraphqlApi {
   xrayEnabled?: boolean;
 
   /**
-   * <p>The ARN of the WAF ACL associated with this
-   *          <code>GraphqlApi</code>, if one exists.</p>
+   * <p>The ARN of the WAF ACL associated with this <code>GraphqlApi</code>,
+   *          if one exists.</p>
    */
   wafWebAclArn?: string;
 
   /**
-   * <p></p>
-   *          <p>Configuration for AWS Lambda function authorization.</p>
+   * <p>Configuration for Amazon Web Services Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
@@ -3407,9 +3455,16 @@ export interface UpdateDataSourceRequest {
   lambdaConfig?: LambdaDataSourceConfig;
 
   /**
-   * <p>The new Elasticsearch Service configuration.</p>
+   * <p>The new OpenSearch configuration.</p>
+   *          <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
+   *          configuration is deprecated. Instead, use <a>UpdateDataSourceRequest$openSearchServiceConfig</a> to update an OpenSearch data source.</p>
    */
   elasticsearchConfig?: ElasticsearchDataSourceConfig;
+
+  /**
+   * <p>The new OpenSearch configuration.</p>
+   */
+  openSearchServiceConfig?: OpenSearchServiceDataSourceConfig;
 
   /**
    * <p>The new HTTP endpoint configuration.</p>
@@ -3569,7 +3624,7 @@ export interface UpdateGraphqlApiRequest {
   xrayEnabled?: boolean;
 
   /**
-   * <p>Configuration for AWS Lambda function authorization.</p>
+   * <p>Configuration for Amazon Web Services Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }

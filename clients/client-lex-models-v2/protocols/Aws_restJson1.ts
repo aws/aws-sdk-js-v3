@@ -33,6 +33,7 @@ import {
 } from "../commands/DeleteResourcePolicyStatementCommand";
 import { DeleteSlotCommandInput, DeleteSlotCommandOutput } from "../commands/DeleteSlotCommand";
 import { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "../commands/DeleteSlotTypeCommand";
+import { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "../commands/DeleteUtterancesCommand";
 import { DescribeBotAliasCommandInput, DescribeBotAliasCommandOutput } from "../commands/DescribeBotAliasCommand";
 import { DescribeBotCommandInput, DescribeBotCommandOutput } from "../commands/DescribeBotCommand";
 import { DescribeBotLocaleCommandInput, DescribeBotLocaleCommandOutput } from "../commands/DescribeBotLocaleCommand";
@@ -46,6 +47,10 @@ import {
 } from "../commands/DescribeResourcePolicyCommand";
 import { DescribeSlotCommandInput, DescribeSlotCommandOutput } from "../commands/DescribeSlotCommand";
 import { DescribeSlotTypeCommandInput, DescribeSlotTypeCommandOutput } from "../commands/DescribeSlotTypeCommand";
+import {
+  ListAggregatedUtterancesCommandInput,
+  ListAggregatedUtterancesCommandOutput,
+} from "../commands/ListAggregatedUtterancesCommand";
 import { ListBotAliasesCommandInput, ListBotAliasesCommandOutput } from "../commands/ListBotAliasesCommand";
 import { ListBotLocalesCommandInput, ListBotLocalesCommandOutput } from "../commands/ListBotLocalesCommand";
 import { ListBotVersionsCommandInput, ListBotVersionsCommandOutput } from "../commands/ListBotVersionsCommand";
@@ -79,6 +84,9 @@ import {
 import { UpdateSlotCommandInput, UpdateSlotCommandOutput } from "../commands/UpdateSlotCommand";
 import { UpdateSlotTypeCommandInput, UpdateSlotTypeCommandOutput } from "../commands/UpdateSlotTypeCommand";
 import {
+  AggregatedUtterancesFilter,
+  AggregatedUtterancesSortBy,
+  AggregatedUtterancesSummary,
   AudioLogDestination,
   AudioLogSetting,
   BotAliasHistoryEvent,
@@ -138,6 +146,7 @@ import {
   PreconditionFailedException,
   Principal,
   PromptSpecification,
+  RelativeAggregationDuration,
   ResourceNotFoundException,
   ResponseSpecification,
   S3BucketLogDestination,
@@ -163,6 +172,7 @@ import {
   TextLogDestination,
   TextLogSetting,
   ThrottlingException,
+  UtteranceAggregationDuration,
   ValidationException,
   VoiceSettings,
   WaitAndContinueSpecification,
@@ -1268,6 +1278,39 @@ export const serializeAws_restJson1DeleteSlotTypeCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteUtterancesCommand = async (
+  input: DeleteUtterancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/utterances";
+  if (input.botId !== undefined) {
+    const labelValue: string = input.botId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botId.");
+    }
+    resolvedPath = resolvedPath.replace("{botId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botId.");
+  }
+  const query: any = {
+    ...(input.localeId !== undefined && { localeId: input.localeId }),
+    ...(input.sessionId !== undefined && { sessionId: input.sessionId }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeBotCommand = async (
   input: DescribeBotCommandInput,
   context: __SerdeContext
@@ -1678,6 +1721,52 @@ export const serializeAws_restJson1DescribeSlotTypeCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAggregatedUtterancesCommand = async (
+  input: ListAggregatedUtterancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/aggregatedutterances";
+  if (input.botId !== undefined) {
+    const labelValue: string = input.botId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botId.");
+    }
+    resolvedPath = resolvedPath.replace("{botId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.aggregationDuration !== undefined &&
+      input.aggregationDuration !== null && {
+        aggregationDuration: serializeAws_restJson1UtteranceAggregationDuration(input.aggregationDuration, context),
+      }),
+    ...(input.botAliasId !== undefined && input.botAliasId !== null && { botAliasId: input.botAliasId }),
+    ...(input.botVersion !== undefined && input.botVersion !== null && { botVersion: input.botVersion }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_restJson1AggregatedUtterancesFilters(input.filters, context) }),
+    ...(input.localeId !== undefined && input.localeId !== null && { localeId: input.localeId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.sortBy !== undefined &&
+      input.sortBy !== null && { sortBy: serializeAws_restJson1AggregatedUtterancesSortBy(input.sortBy, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -5284,6 +5373,73 @@ const deserializeAws_restJson1DeleteSlotTypeCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteUtterancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUtterancesCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteUtterancesCommandError(output, context);
+  }
+  const contents: DeleteUtterancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteUtterancesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUtterancesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6512,6 +6668,133 @@ const deserializeAws_restJson1DescribeSlotTypeCommandError = async (
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAggregatedUtterancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAggregatedUtterancesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAggregatedUtterancesCommandError(output, context);
+  }
+  const contents: ListAggregatedUtterancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    aggregatedUtterancesSummaries: undefined,
+    aggregationDuration: undefined,
+    aggregationLastRefreshedDateTime: undefined,
+    aggregationWindowEndTime: undefined,
+    aggregationWindowStartTime: undefined,
+    botAliasId: undefined,
+    botId: undefined,
+    botVersion: undefined,
+    localeId: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.aggregatedUtterancesSummaries !== undefined && data.aggregatedUtterancesSummaries !== null) {
+    contents.aggregatedUtterancesSummaries = deserializeAws_restJson1AggregatedUtterancesSummaryList(
+      data.aggregatedUtterancesSummaries,
+      context
+    );
+  }
+  if (data.aggregationDuration !== undefined && data.aggregationDuration !== null) {
+    contents.aggregationDuration = deserializeAws_restJson1UtteranceAggregationDuration(
+      data.aggregationDuration,
+      context
+    );
+  }
+  if (data.aggregationLastRefreshedDateTime !== undefined && data.aggregationLastRefreshedDateTime !== null) {
+    contents.aggregationLastRefreshedDateTime = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.aggregationLastRefreshedDateTime))
+    );
+  }
+  if (data.aggregationWindowEndTime !== undefined && data.aggregationWindowEndTime !== null) {
+    contents.aggregationWindowEndTime = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.aggregationWindowEndTime))
+    );
+  }
+  if (data.aggregationWindowStartTime !== undefined && data.aggregationWindowStartTime !== null) {
+    contents.aggregationWindowStartTime = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.aggregationWindowStartTime))
+    );
+  }
+  if (data.botAliasId !== undefined && data.botAliasId !== null) {
+    contents.botAliasId = __expectString(data.botAliasId);
+  }
+  if (data.botId !== undefined && data.botId !== null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion !== undefined && data.botVersion !== null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.localeId !== undefined && data.localeId !== null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAggregatedUtterancesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAggregatedUtterancesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PreconditionFailedException":
+    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
+      response = {
+        ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9074,6 +9357,42 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1AggregatedUtterancesFilter = (
+  input: AggregatedUtterancesFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.operator !== undefined && input.operator !== null && { operator: input.operator }),
+    ...(input.values !== undefined &&
+      input.values !== null && { values: serializeAws_restJson1FilterValues(input.values, context) }),
+  };
+};
+
+const serializeAws_restJson1AggregatedUtterancesFilters = (
+  input: AggregatedUtterancesFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AggregatedUtterancesFilter(entry, context);
+    });
+};
+
+const serializeAws_restJson1AggregatedUtterancesSortBy = (
+  input: AggregatedUtterancesSortBy,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.attribute !== undefined && input.attribute !== null && { attribute: input.attribute }),
+    ...(input.order !== undefined && input.order !== null && { order: input.order }),
+  };
+};
+
 const serializeAws_restJson1AudioLogDestination = (input: AudioLogDestination, context: __SerdeContext): any => {
   return {
     ...(input.s3Bucket !== undefined &&
@@ -9724,6 +10043,16 @@ const serializeAws_restJson1PromptSpecification = (input: PromptSpecification, c
   };
 };
 
+const serializeAws_restJson1RelativeAggregationDuration = (
+  input: RelativeAggregationDuration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.timeDimension !== undefined && input.timeDimension !== null && { timeDimension: input.timeDimension }),
+    ...(input.timeValue !== undefined && input.timeValue !== null && { timeValue: input.timeValue }),
+  };
+};
+
 const serializeAws_restJson1ResponseSpecification = (input: ResponseSpecification, context: __SerdeContext): any => {
   return {
     ...(input.allowInterrupt !== undefined &&
@@ -10026,6 +10355,21 @@ const serializeAws_restJson1TextLogSettingsList = (input: TextLogSetting[], cont
     });
 };
 
+const serializeAws_restJson1UtteranceAggregationDuration = (
+  input: UtteranceAggregationDuration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.relativeAggregationDuration !== undefined &&
+      input.relativeAggregationDuration !== null && {
+        relativeAggregationDuration: serializeAws_restJson1RelativeAggregationDuration(
+          input.relativeAggregationDuration,
+          context
+        ),
+      }),
+  };
+};
+
 const serializeAws_restJson1VoiceSettings = (input: VoiceSettings, context: __SerdeContext): any => {
   return {
     ...(input.voiceId !== undefined && input.voiceId !== null && { voiceId: input.voiceId }),
@@ -10054,6 +10398,42 @@ const serializeAws_restJson1WaitAndContinueSpecification = (
         waitingResponse: serializeAws_restJson1ResponseSpecification(input.waitingResponse, context),
       }),
   };
+};
+
+const deserializeAws_restJson1AggregatedUtterancesSummary = (
+  output: any,
+  context: __SerdeContext
+): AggregatedUtterancesSummary => {
+  return {
+    containsDataFromDeletedResources: __expectBoolean(output.containsDataFromDeletedResources),
+    hitCount: __expectInt32(output.hitCount),
+    missedCount: __expectInt32(output.missedCount),
+    utterance: __expectString(output.utterance),
+    utteranceFirstRecordedInAggregationDuration:
+      output.utteranceFirstRecordedInAggregationDuration !== undefined &&
+      output.utteranceFirstRecordedInAggregationDuration !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.utteranceFirstRecordedInAggregationDuration)))
+        : undefined,
+    utteranceLastRecordedInAggregationDuration:
+      output.utteranceLastRecordedInAggregationDuration !== undefined &&
+      output.utteranceLastRecordedInAggregationDuration !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.utteranceLastRecordedInAggregationDuration)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AggregatedUtterancesSummaryList = (
+  output: any,
+  context: __SerdeContext
+): AggregatedUtterancesSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AggregatedUtterancesSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AudioLogDestination = (output: any, context: __SerdeContext): AudioLogDestination => {
@@ -10800,6 +11180,16 @@ const deserializeAws_restJson1PromptSpecification = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_restJson1RelativeAggregationDuration = (
+  output: any,
+  context: __SerdeContext
+): RelativeAggregationDuration => {
+  return {
+    timeDimension: __expectString(output.timeDimension),
+    timeValue: __expectInt32(output.timeValue),
+  } as any;
+};
+
 const deserializeAws_restJson1ResponseSpecification = (output: any, context: __SerdeContext): ResponseSpecification => {
   return {
     allowInterrupt: __expectBoolean(output.allowInterrupt),
@@ -11093,6 +11483,18 @@ const deserializeAws_restJson1TextLogSettingsList = (output: any, context: __Ser
       }
       return deserializeAws_restJson1TextLogSetting(entry, context);
     });
+};
+
+const deserializeAws_restJson1UtteranceAggregationDuration = (
+  output: any,
+  context: __SerdeContext
+): UtteranceAggregationDuration => {
+  return {
+    relativeAggregationDuration:
+      output.relativeAggregationDuration !== undefined && output.relativeAggregationDuration !== null
+        ? deserializeAws_restJson1RelativeAggregationDuration(output.relativeAggregationDuration, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1VoiceSettings = (output: any, context: __SerdeContext): VoiceSettings => {

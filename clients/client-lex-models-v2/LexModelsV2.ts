@@ -99,6 +99,11 @@ import {
   DeleteSlotTypeCommandOutput,
 } from "./commands/DeleteSlotTypeCommand";
 import {
+  DeleteUtterancesCommand,
+  DeleteUtterancesCommandInput,
+  DeleteUtterancesCommandOutput,
+} from "./commands/DeleteUtterancesCommand";
+import {
   DescribeBotAliasCommand,
   DescribeBotAliasCommandInput,
   DescribeBotAliasCommandOutput,
@@ -144,6 +149,11 @@ import {
   DescribeSlotTypeCommandInput,
   DescribeSlotTypeCommandOutput,
 } from "./commands/DescribeSlotTypeCommand";
+import {
+  ListAggregatedUtterancesCommand,
+  ListAggregatedUtterancesCommandInput,
+  ListAggregatedUtterancesCommandOutput,
+} from "./commands/ListAggregatedUtterancesCommand";
 import {
   ListBotAliasesCommand,
   ListBotAliasesCommandInput,
@@ -1025,6 +1035,49 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
+   * <p>Deletes stored utterances.</p>
+   *          <p>Amazon Lex stores the utterances that users send to your bot. Utterances
+   *          are stored for 15 days for use with the  operation, and then stored
+   *          indefinitely for use in improving the ability of your bot to respond to
+   *          user input..</p>
+   *          <p>Use the <code>DeleteUtterances</code> operation to manually delete
+   *          utterances for a specific session. When you use the
+   *             <code>DeleteUtterances</code> operation, utterances stored for
+   *          improving your bot's ability to respond to user input are deleted
+   *          immediately. Utterances stored for use with the
+   *             <code>ListAggregatedUtterances</code> operation are deleted after 15
+   *          days.</p>
+   */
+  public deleteUtterances(
+    args: DeleteUtterancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUtterancesCommandOutput>;
+  public deleteUtterances(
+    args: DeleteUtterancesCommandInput,
+    cb: (err: any, data?: DeleteUtterancesCommandOutput) => void
+  ): void;
+  public deleteUtterances(
+    args: DeleteUtterancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUtterancesCommandOutput) => void
+  ): void;
+  public deleteUtterances(
+    args: DeleteUtterancesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUtterancesCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUtterancesCommandOutput) => void
+  ): Promise<DeleteUtterancesCommandOutput> | void {
+    const command = new DeleteUtterancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides metadata information about a bot. </p>
    */
   public describeBot(args: DescribeBotCommandInput, options?: __HttpHandlerOptions): Promise<DescribeBotCommandOutput>;
@@ -1326,6 +1379,62 @@ export class LexModelsV2 extends LexModelsV2Client {
     cb?: (err: any, data?: DescribeSlotTypeCommandOutput) => void
   ): Promise<DescribeSlotTypeCommandOutput> | void {
     const command = new DescribeSlotTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a list of utterances that users have sent to the
+   *          bot.</p>
+   *          <p>Utterances are aggregated by the text of the utterance. For example,
+   *          all instances where customers used the phrase "I want to order pizza"
+   *          are aggregated into the same line in the response.</p>
+   *          <p>You can see both detected utterances and missed utterances. A
+   *          detected utterance is where the bot properly recognized the utterance
+   *          and activated the associated intent. A missed utterance was not
+   *          recognized by the bot and didn't activate an intent.</p>
+   *          <p>Utterances can be aggregated for a bot alias or for a bot version,
+   *          but not both at the same time.</p>
+   *          <p>Utterances statistics are not generated under the following
+   *          conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The <code>childDirected</code> field was set to true when the
+   *                bot was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>You are using slot obfuscation with one or more slots.</p>
+   *             </li>
+   *             <li>
+   *                <p>You opted out of participating in improving Amazon Lex.</p>
+   *             </li>
+   *          </ul>
+   */
+  public listAggregatedUtterances(
+    args: ListAggregatedUtterancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAggregatedUtterancesCommandOutput>;
+  public listAggregatedUtterances(
+    args: ListAggregatedUtterancesCommandInput,
+    cb: (err: any, data?: ListAggregatedUtterancesCommandOutput) => void
+  ): void;
+  public listAggregatedUtterances(
+    args: ListAggregatedUtterancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAggregatedUtterancesCommandOutput) => void
+  ): void;
+  public listAggregatedUtterances(
+    args: ListAggregatedUtterancesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAggregatedUtterancesCommandOutput) => void),
+    cb?: (err: any, data?: ListAggregatedUtterancesCommandOutput) => void
+  ): Promise<ListAggregatedUtterancesCommandOutput> | void {
+    const command = new ListAggregatedUtterancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

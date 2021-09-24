@@ -135,6 +135,7 @@ import {
   ComponentConfiguration,
   ComponentParameter,
   ComponentParameterDetail,
+  ComponentState,
   ComponentSummary,
   ComponentVersion,
   Container,
@@ -161,6 +162,7 @@ import {
   InfrastructureConfigurationSummary,
   InstanceBlockDeviceMapping,
   InstanceConfiguration,
+  InstanceMetadataOptions,
   InvalidPaginationTokenException,
   InvalidParameterCombinationException,
   InvalidParameterException,
@@ -508,6 +510,10 @@ export const serializeAws_restJson1CreateInfrastructureConfigurationCommand = as
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.instanceMetadataOptions !== undefined &&
+      input.instanceMetadataOptions !== null && {
+        instanceMetadataOptions: serializeAws_restJson1InstanceMetadataOptions(input.instanceMetadataOptions, context),
+      }),
     ...(input.instanceProfileName !== undefined &&
       input.instanceProfileName !== null && { instanceProfileName: input.instanceProfileName }),
     ...(input.instanceTypes !== undefined &&
@@ -1643,6 +1649,10 @@ export const serializeAws_restJson1UpdateInfrastructureConfigurationCommand = as
     ...(input.infrastructureConfigurationArn !== undefined &&
       input.infrastructureConfigurationArn !== null && {
         infrastructureConfigurationArn: input.infrastructureConfigurationArn,
+      }),
+    ...(input.instanceMetadataOptions !== undefined &&
+      input.instanceMetadataOptions !== null && {
+        instanceMetadataOptions: serializeAws_restJson1InstanceMetadataOptions(input.instanceMetadataOptions, context),
       }),
     ...(input.instanceProfileName !== undefined &&
       input.instanceProfileName !== null && { instanceProfileName: input.instanceProfileName }),
@@ -7615,6 +7625,7 @@ const serializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
     ...(input.iops !== undefined && input.iops !== null && { iops: input.iops }),
     ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
     ...(input.snapshotId !== undefined && input.snapshotId !== null && { snapshotId: input.snapshotId }),
+    ...(input.throughput !== undefined && input.throughput !== null && { throughput: input.throughput }),
     ...(input.volumeSize !== undefined && input.volumeSize !== null && { volumeSize: input.volumeSize }),
     ...(input.volumeType !== undefined && input.volumeType !== null && { volumeType: input.volumeType }),
   };
@@ -7696,6 +7707,17 @@ const serializeAws_restJson1InstanceConfiguration = (input: InstanceConfiguratio
         blockDeviceMappings: serializeAws_restJson1InstanceBlockDeviceMappings(input.blockDeviceMappings, context),
       }),
     ...(input.image !== undefined && input.image !== null && { image: input.image }),
+  };
+};
+
+const serializeAws_restJson1InstanceMetadataOptions = (
+  input: InstanceMetadataOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.httpPutResponseHopLimit !== undefined &&
+      input.httpPutResponseHopLimit !== null && { httpPutResponseHopLimit: input.httpPutResponseHopLimit }),
+    ...(input.httpTokens !== undefined && input.httpTokens !== null && { httpTokens: input.httpTokens }),
   };
 };
 
@@ -7949,6 +7971,10 @@ const deserializeAws_restJson1Component = (output: any, context: __SerdeContext)
         ? deserializeAws_restJson1ComponentParameterDetailList(output.parameters, context)
         : undefined,
     platform: __expectString(output.platform),
+    state:
+      output.state !== undefined && output.state !== null
+        ? deserializeAws_restJson1ComponentState(output.state, context)
+        : undefined,
     supportedOsVersions:
       output.supportedOsVersions !== undefined && output.supportedOsVersions !== null
         ? deserializeAws_restJson1OsVersionList(output.supportedOsVersions, context)
@@ -8050,6 +8076,13 @@ const deserializeAws_restJson1ComponentParameterValueList = (output: any, contex
     });
 };
 
+const deserializeAws_restJson1ComponentState = (output: any, context: __SerdeContext): ComponentState => {
+  return {
+    reason: __expectString(output.reason),
+    status: __expectString(output.status),
+  } as any;
+};
+
 const deserializeAws_restJson1ComponentSummary = (output: any, context: __SerdeContext): ComponentSummary => {
   return {
     arn: __expectString(output.arn),
@@ -8059,6 +8092,10 @@ const deserializeAws_restJson1ComponentSummary = (output: any, context: __SerdeC
     name: __expectString(output.name),
     owner: __expectString(output.owner),
     platform: __expectString(output.platform),
+    state:
+      output.state !== undefined && output.state !== null
+        ? deserializeAws_restJson1ComponentState(output.state, context)
+        : undefined,
     supportedOsVersions:
       output.supportedOsVersions !== undefined && output.supportedOsVersions !== null
         ? deserializeAws_restJson1OsVersionList(output.supportedOsVersions, context)
@@ -8316,6 +8353,7 @@ const deserializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
     iops: __expectInt32(output.iops),
     kmsKeyId: __expectString(output.kmsKeyId),
     snapshotId: __expectString(output.snapshotId),
+    throughput: __expectInt32(output.throughput),
     volumeSize: __expectInt32(output.volumeSize),
     volumeType: __expectString(output.volumeType),
   } as any;
@@ -8571,6 +8609,10 @@ const deserializeAws_restJson1InfrastructureConfiguration = (
     dateCreated: __expectString(output.dateCreated),
     dateUpdated: __expectString(output.dateUpdated),
     description: __expectString(output.description),
+    instanceMetadataOptions:
+      output.instanceMetadataOptions !== undefined && output.instanceMetadataOptions !== null
+        ? deserializeAws_restJson1InstanceMetadataOptions(output.instanceMetadataOptions, context)
+        : undefined,
     instanceProfileName: __expectString(output.instanceProfileName),
     instanceTypes:
       output.instanceTypes !== undefined && output.instanceTypes !== null
@@ -8676,6 +8718,16 @@ const deserializeAws_restJson1InstanceConfiguration = (output: any, context: __S
         ? deserializeAws_restJson1InstanceBlockDeviceMappings(output.blockDeviceMappings, context)
         : undefined,
     image: __expectString(output.image),
+  } as any;
+};
+
+const deserializeAws_restJson1InstanceMetadataOptions = (
+  output: any,
+  context: __SerdeContext
+): InstanceMetadataOptions => {
+  return {
+    httpPutResponseHopLimit: __expectInt32(output.httpPutResponseHopLimit),
+    httpTokens: __expectString(output.httpTokens),
   } as any;
 };
 

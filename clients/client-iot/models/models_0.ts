@@ -484,25 +484,27 @@ export namespace DynamoDBv2Action {
 }
 
 /**
- * <p>Describes an action that writes data to an Amazon Elasticsearch Service
+ * <p>Describes an action that writes data to an Amazon OpenSearch Service
  *          domain.</p>
  *          <note>
- *             <p>This action is deprecated. Use the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearch action</a> instead.</p>
+ *             <p>The <code>Elasticsearch</code> action can only be used by existing rule actions. To create a
+ *          new rule action or to update an existing rule action, use the
+ *          <code>OpenSearch</code> rule action instead. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearchAction</a>.</p>
  *          </note>
  */
 export interface ElasticsearchAction {
   /**
-   * <p>The IAM role ARN that has access to Elasticsearch.</p>
+   * <p>The IAM role ARN that has access to OpenSearch.</p>
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The endpoint of your Elasticsearch domain.</p>
+   * <p>The endpoint of your OpenSearch domain.</p>
    */
   endpoint: string | undefined;
 
   /**
-   * <p>The Elasticsearch index where you want to store your data.</p>
+   * <p>The index where you want to store your data.</p>
    */
   index: string | undefined;
 
@@ -1506,9 +1508,12 @@ export interface Action {
   cloudwatchLogs?: CloudwatchLogsAction;
 
   /**
-   * <p>Write data to an Amazon Elasticsearch Service domain.</p>
+   * <p>Write data to an Amazon OpenSearch Service domain.</p>
    *          <note>
-   *             <p>This action is deprecated. Use the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearch action</a> instead.</p>
+   *             <p>The <code>Elasticsearch</code> action can only be used by existing rule actions.
+   *             To create a new rule action or to update an existing rule action, use the
+   *             <code>OpenSearch</code> rule action instead. For more information, see
+   *             <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearchAction</a>.</p>
    *          </note>
    */
   elasticsearch?: ElasticsearchAction;
@@ -1858,6 +1863,13 @@ export namespace Behavior {
   });
 }
 
+export enum VerificationState {
+  BENIGN_POSITIVE = "BENIGN_POSITIVE",
+  FALSE_POSITIVE = "FALSE_POSITIVE",
+  TRUE_POSITIVE = "TRUE_POSITIVE",
+  UNKNOWN = "UNKNOWN",
+}
+
 /**
  * <p>
  *             The details of a violation event.
@@ -1916,6 +1928,16 @@ export interface ActiveViolation {
    *         </p>
    */
   violationEventAdditionalInfo?: ViolationEventAdditionalInfo;
+
+  /**
+   * <p>The verification state of the violation (detect alarm).</p>
+   */
+  verificationState?: VerificationState | string;
+
+  /**
+   * <p>The description of the verification state of the violation.</p>
+   */
+  verificationStateDescription?: string;
 
   /**
    * <p>The time the most recent violation occurred.</p>
@@ -3670,7 +3692,9 @@ export interface CreateAuditSuppressionRequest {
 
   /**
    * <p>
-   *       The epoch timestamp in seconds at which this suppression expires.
+   *       Each audit supression must have a unique client request token. If you try to create a new audit
+   *       suppression with the same token as one that already exists, an exception occurs. If you omit this
+   *       value, Amazon Web Services SDKs will automatically generate a unique client request.
    *     </p>
    */
   clientRequestToken?: string;
@@ -7844,17 +7868,6 @@ export namespace DeleteSecurityProfileRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteSecurityProfileRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteSecurityProfileResponse {}
-
-export namespace DeleteSecurityProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSecurityProfileResponse): any => ({
     ...obj,
   });
 }

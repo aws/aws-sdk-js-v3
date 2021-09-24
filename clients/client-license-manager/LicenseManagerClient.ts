@@ -13,6 +13,10 @@ import {
   CreateLicenseConfigurationCommandOutput,
 } from "./commands/CreateLicenseConfigurationCommand";
 import {
+  CreateLicenseConversionTaskForResourceCommandInput,
+  CreateLicenseConversionTaskForResourceCommandOutput,
+} from "./commands/CreateLicenseConversionTaskForResourceCommand";
+import {
   CreateLicenseManagerReportGeneratorCommandInput,
   CreateLicenseManagerReportGeneratorCommandOutput,
 } from "./commands/CreateLicenseManagerReportGeneratorCommand";
@@ -44,6 +48,10 @@ import {
   GetLicenseConfigurationCommandOutput,
 } from "./commands/GetLicenseConfigurationCommand";
 import {
+  GetLicenseConversionTaskCommandInput,
+  GetLicenseConversionTaskCommandOutput,
+} from "./commands/GetLicenseConversionTaskCommand";
+import {
   GetLicenseManagerReportGeneratorCommandInput,
   GetLicenseManagerReportGeneratorCommandOutput,
 } from "./commands/GetLicenseManagerReportGeneratorCommand";
@@ -65,6 +73,10 @@ import {
   ListLicenseConfigurationsCommandInput,
   ListLicenseConfigurationsCommandOutput,
 } from "./commands/ListLicenseConfigurationsCommand";
+import {
+  ListLicenseConversionTasksCommandInput,
+  ListLicenseConversionTasksCommandOutput,
+} from "./commands/ListLicenseConversionTasksCommand";
 import {
   ListLicenseManagerReportGeneratorsCommandInput,
   ListLicenseManagerReportGeneratorsCommandOutput,
@@ -176,6 +188,7 @@ export type ServiceInputTypes =
   | CreateGrantVersionCommandInput
   | CreateLicenseCommandInput
   | CreateLicenseConfigurationCommandInput
+  | CreateLicenseConversionTaskForResourceCommandInput
   | CreateLicenseManagerReportGeneratorCommandInput
   | CreateLicenseVersionCommandInput
   | CreateTokenCommandInput
@@ -189,6 +202,7 @@ export type ServiceInputTypes =
   | GetGrantCommandInput
   | GetLicenseCommandInput
   | GetLicenseConfigurationCommandInput
+  | GetLicenseConversionTaskCommandInput
   | GetLicenseManagerReportGeneratorCommandInput
   | GetLicenseUsageCommandInput
   | GetServiceSettingsCommandInput
@@ -196,6 +210,7 @@ export type ServiceInputTypes =
   | ListDistributedGrantsCommandInput
   | ListFailuresForLicenseConfigurationOperationsCommandInput
   | ListLicenseConfigurationsCommandInput
+  | ListLicenseConversionTasksCommandInput
   | ListLicenseManagerReportGeneratorsCommandInput
   | ListLicenseSpecificationsForResourceCommandInput
   | ListLicenseVersionsCommandInput
@@ -223,6 +238,7 @@ export type ServiceOutputTypes =
   | CreateGrantVersionCommandOutput
   | CreateLicenseCommandOutput
   | CreateLicenseConfigurationCommandOutput
+  | CreateLicenseConversionTaskForResourceCommandOutput
   | CreateLicenseManagerReportGeneratorCommandOutput
   | CreateLicenseVersionCommandOutput
   | CreateTokenCommandOutput
@@ -236,6 +252,7 @@ export type ServiceOutputTypes =
   | GetGrantCommandOutput
   | GetLicenseCommandOutput
   | GetLicenseConfigurationCommandOutput
+  | GetLicenseConversionTaskCommandOutput
   | GetLicenseManagerReportGeneratorCommandOutput
   | GetLicenseUsageCommandOutput
   | GetServiceSettingsCommandOutput
@@ -243,6 +260,7 @@ export type ServiceOutputTypes =
   | ListDistributedGrantsCommandOutput
   | ListFailuresForLicenseConfigurationOperationsCommandOutput
   | ListLicenseConfigurationsCommandOutput
+  | ListLicenseConversionTasksCommandOutput
   | ListLicenseManagerReportGeneratorsCommandOutput
   | ListLicenseSpecificationsForResourceCommandOutput
   | ListLicenseVersionsCommandOutput
@@ -400,9 +418,8 @@ type LicenseManagerClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface LicenseManagerClientResolvedConfig extends LicenseManagerClientResolvedConfigType {}
 
 /**
- * <fullname> AWS License Manager </fullname>
- *          <p>AWS License Manager makes it easier to manage licenses from software vendors across multiple
- *          AWS accounts and on-premises servers.</p>
+ * <p>License Manager makes it easier to manage licenses from software vendors across multiple
+ *          Amazon Web Services accounts and on-premises servers.</p>
  */
 export class LicenseManagerClient extends __Client<
   __HttpHandlerOptions,

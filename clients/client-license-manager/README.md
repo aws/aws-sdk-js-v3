@@ -7,10 +7,8 @@
 
 AWS SDK for JavaScript LicenseManager Client for Node.js, Browser and React Native.
 
-<fullname> AWS License Manager </fullname>
-
-<p>AWS License Manager makes it easier to manage licenses from software vendors across multiple
-AWS accounts and on-premises servers.</p>
+<p>License Manager makes it easier to manage licenses from software vendors across multiple
+Amazon Web Services accounts and on-premises servers.</p>
 
 ## Installing
 

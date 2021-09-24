@@ -1,6 +1,143 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export enum AggregatedUtterancesFilterName {
+  Utterance = "Utterance",
+}
+
+export enum AggregatedUtterancesFilterOperator {
+  Contains = "CO",
+  Equals = "EQ",
+}
+
+/**
+ * <p>Filters responses returned by the
+ *             <code>ListAggregatedUtterances</code> operation.</p>
+ */
+export interface AggregatedUtterancesFilter {
+  /**
+   * <p>The name of the field to filter the utterance list.</p>
+   */
+  name: AggregatedUtterancesFilterName | string | undefined;
+
+  /**
+   * <p>The value to use for filtering the list of bots.</p>
+   */
+  values: string[] | undefined;
+
+  /**
+   * <p>The operator to use for the filter. Specify <code>EQ</code> when the
+   *             <code>ListAggregatedUtterances</code> operation should return only
+   *          utterances that equal the specified value. Specify <code>CO</code> when
+   *          the <code>ListAggregatedUtterances</code> operation should return
+   *          utterances that contain the specified value.</p>
+   */
+  operator: AggregatedUtterancesFilterOperator | string | undefined;
+}
+
+export namespace AggregatedUtterancesFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AggregatedUtterancesFilter): any => ({
+    ...obj,
+  });
+}
+
+export enum AggregatedUtterancesSortAttribute {
+  HitCount = "HitCount",
+  MissedCount = "MissedCount",
+}
+
+export enum SortOrder {
+  Ascending = "Ascending",
+  Descending = "Descending",
+}
+
+/**
+ * <p>Specifies attributes for sorting a list of utterances.</p>
+ */
+export interface AggregatedUtterancesSortBy {
+  /**
+   * <p>The utterance attribute to sort by.</p>
+   */
+  attribute: AggregatedUtterancesSortAttribute | string | undefined;
+
+  /**
+   * <p>Specifies whether to sort the aggregated utterances in ascending or
+   *          descending order.</p>
+   */
+  order: SortOrder | string | undefined;
+}
+
+export namespace AggregatedUtterancesSortBy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AggregatedUtterancesSortBy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides summary information for aggregated utterances. The
+ *             <code>ListAggregatedUtterances</code> operations combines all
+ *          instances of the same utterance into a single aggregated
+ *          summary.</p>
+ */
+export interface AggregatedUtterancesSummary {
+  /**
+   * <p>The text of the utterance. If the utterance was used with the
+   *             <code>RecognizeUtterance</code> operation, the text is the
+   *          transcription of the audio utterance.</p>
+   */
+  utterance?: string;
+
+  /**
+   * <p>The number of times that the utterance was detected by Amazon Lex during
+   *          the time period. When an utterance is detected, it activates an intent
+   *          or a slot.</p>
+   */
+  hitCount?: number;
+
+  /**
+   * <p>The number of times that the utterance was missed by Amazon Lex An
+   *          utterance is missed when it doesn't activate an intent or slot.</p>
+   */
+  missedCount?: number;
+
+  /**
+   * <p>The date and time that the utterance was first recorded in the time
+   *          window for aggregation. An utterance may have been sent to Amazon Lex before
+   *          that time, but only utterances within the time window are
+   *          counted.</p>
+   */
+  utteranceFirstRecordedInAggregationDuration?: Date;
+
+  /**
+   * <p>The last date and time that an utterance was recorded in the time
+   *          window for aggregation. An utterance may be sent to Amazon Lex after that
+   *          time, but only utterances within the time window are counted.</p>
+   */
+  utteranceLastRecordedInAggregationDuration?: Date;
+
+  /**
+   * <p>Aggregated utterance data may contain utterances from versions of
+   *          your bot that have since been deleted. When the aggregated contains
+   *          this kind of data, this field is set to true.</p>
+   */
+  containsDataFromDeletedResources?: boolean;
+}
+
+export namespace AggregatedUtterancesSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AggregatedUtterancesSummary): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Specifies an Amazon S3 bucket for logging audio conversations</p>
  */
@@ -621,11 +758,6 @@ export enum BotLocaleSortAttribute {
   BotLocaleName = "BotLocaleName",
 }
 
-export enum SortOrder {
-  Ascending = "Ascending",
-  Descending = "Descending",
-}
-
 /**
  * <p>Specifies attributes for sorting a list of bot locales.</p>
  */
@@ -959,7 +1091,9 @@ export namespace BuildBotLocaleResponse {
 }
 
 /**
- * <p></p>
+ * <p>The action that you tried to perform couldn't be completed because
+ *          the resource is in a conflicting state. For example, deleting a bot
+ *          that is in the CREATING state. Try your request again. </p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
@@ -977,7 +1111,8 @@ export namespace ConflictException {
 }
 
 /**
- * <p></p>
+ * <p>The service encountered an unexpected condition. Try your request
+ *          again.</p>
  */
 export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
@@ -995,7 +1130,9 @@ export namespace InternalServerException {
 }
 
 /**
- * <p></p>
+ * <p>Your request couldn't be completed because one or more request
+ *          fields aren't valid. Check the fields in your request and try
+ *          again.</p>
  */
 export interface PreconditionFailedException extends __SmithyException, $MetadataBearer {
   name: "PreconditionFailedException";
@@ -1013,7 +1150,7 @@ export namespace PreconditionFailedException {
 }
 
 /**
- * <p></p>
+ * <p>You have reached a quota for your bot. </p>
  */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
@@ -1031,7 +1168,8 @@ export namespace ServiceQuotaExceededException {
 }
 
 /**
- * <p></p>
+ * <p>Your request rate is too high. Reduce the frequency of
+ *          requests.</p>
  */
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
@@ -1050,7 +1188,8 @@ export namespace ThrottlingException {
 }
 
 /**
- * <p></p>
+ * <p>One of the input parameters in your request isn't valid. Check the
+ *          parameters and try your request again.</p>
  */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
@@ -1912,7 +2051,8 @@ export namespace CreateExportResponse {
 }
 
 /**
- * <p></p>
+ * <p>You asked to describe a resource that doesn't exist. Check the
+ *          resource that you are requesting and try again.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -4004,6 +4144,48 @@ export namespace DeleteSlotTypeRequest {
   });
 }
 
+export interface DeleteUtterancesRequest {
+  /**
+   * <p>The unique identifier of the bot that contains the
+   *          utterances.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale where the utterances were
+   *          collected. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
+   *          languages</a>.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The unique identifier of the session with the user. The ID is
+   *          returned in the response from the  and  operations.</p>
+   */
+  sessionId?: string;
+}
+
+export namespace DeleteUtterancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteUtterancesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteUtterancesResponse {}
+
+export namespace DeleteUtterancesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteUtterancesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeBotRequest {
   /**
    * <p>The unique identifier of the bot to describe.</p>
@@ -5384,6 +5566,268 @@ export namespace IntentSummary {
    * @internal
    */
   export const filterSensitiveLog = (obj: IntentSummary): any => ({
+    ...obj,
+  });
+}
+
+export enum TimeDimension {
+  Days = "Days",
+  Hours = "Hours",
+  Weeks = "Weeks",
+}
+
+/**
+ * <p>Specifies the time window that utterance statistics are returned
+ *          for. The time window is always relative to the last time that the that
+ *          utterances were aggregated. For example, if the
+ *             <code>ListAggregatedUtterances</code> operation is called at 1600,
+ *          the time window is set to 1 hour, and the last refresh time was 1530,
+ *          only utterances made between 1430 and 1530 are returned.</p>
+ *          <p>You can choose the time window that statistics should be returned
+ *          for.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Hours</b> - You can request
+ *                utterance statistics for 1, 3, 6, 12, or 24 hour time windows.
+ *                Statistics are refreshed every half hour for 1 hour time windows,
+ *                and hourly for the other time windows.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Days</b> - You can request
+ *                utterance statistics for 3 days. Statistics are refreshed every 6
+ *                hours.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Weeks</b> - You can see
+ *                statistics for one or two weeks. Statistics are refreshed every
+ *                12 hours for one week time windows, and once per day for two week
+ *                time windows.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface RelativeAggregationDuration {
+  /**
+   * <p>The type of time period that the <code>timeValue</code> field
+   *          represents. </p>
+   */
+  timeDimension: TimeDimension | string | undefined;
+
+  /**
+   * <p>The period of the time window to gather statistics for. The valid
+   *          value depends on the setting of the <code>timeDimension</code>
+   *          field.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Hours</code> - 1/3/6/12/24</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Days</code> - 3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Weeks</code> - 1/2</p>
+   *             </li>
+   *          </ul>
+   */
+  timeValue: number | undefined;
+}
+
+export namespace RelativeAggregationDuration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RelativeAggregationDuration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides parameters for setting the time window and duration for
+ *          aggregating utterance data.</p>
+ */
+export interface UtteranceAggregationDuration {
+  /**
+   * <p>The desired time window for aggregating utterances. </p>
+   */
+  relativeAggregationDuration: RelativeAggregationDuration | undefined;
+}
+
+export namespace UtteranceAggregationDuration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UtteranceAggregationDuration): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAggregatedUtterancesRequest {
+  /**
+   * <p>The unique identifier of the bot associated with this
+   *          request.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The identifier of the bot alias associated with this request. If you
+   *          specify the bot alias, you can't specify the bot version.</p>
+   */
+  botAliasId?: string;
+
+  /**
+   * <p>The identifier of the bot version associated with this request. If
+   *          you specify the bot version, you can't specify the bot alias.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale where the utterances were
+   *          collected. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
+   *          languages</a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The time window for aggregating the utterance information. You can
+   *          specify a time between one hour and two weeks.</p>
+   */
+  aggregationDuration: UtteranceAggregationDuration | undefined;
+
+  /**
+   * <p>Specifies sorting parameters for the list of utterances. You can
+   *          sort by the hit count, the missed count, or the number of distinct
+   *          sessions the utterance appeared in.</p>
+   */
+  sortBy?: AggregatedUtterancesSortBy;
+
+  /**
+   * <p>Provides the specification of a filter used to limit the utterances
+   *          in the response to only those that match the filter specification. You
+   *          can only specify one filter and one string to filter on.</p>
+   */
+  filters?: AggregatedUtterancesFilter[];
+
+  /**
+   * <p>The maximum number of utterances to return in each page of results.
+   *          If there are fewer results than the maximum page size, only the actual
+   *          number of results are returned. If you don't specify the
+   *             <code>maxResults</code> parameter, 1,000 results are
+   *          returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the <code>ListAggregatedUtterances</code>
+   *          operation contains more results that specified in the
+   *             <code>maxResults</code> parameter, a token is returned in the
+   *          response. Use that token in the <code>nextToken</code> parameter to
+   *          return the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListAggregatedUtterancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAggregatedUtterancesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAggregatedUtterancesResponse {
+  /**
+   * <p>The identifier of the bot that contains the utterances.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The identifier of the bot alias that contains the utterances. If you
+   *          specified the bot version, the bot alias ID isn't returned.</p>
+   */
+  botAliasId?: string;
+
+  /**
+   * <p>The identifier of the bot version that contains the utterances. If
+   *          you specified the bot alias, the bot version isn't returned.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale that the utterances are
+   *          in.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The time period used to aggregate the utterance data.</p>
+   */
+  aggregationDuration?: UtteranceAggregationDuration;
+
+  /**
+   * <p>The date and time that the aggregation window begins. Only data
+   *          collected after this time is returned in the results.</p>
+   */
+  aggregationWindowStartTime?: Date;
+
+  /**
+   * <p>The date and time that the aggregation window ends. Only data
+   *          collected between the start time and the end time are returned in the
+   *          results. </p>
+   */
+  aggregationWindowEndTime?: Date;
+
+  /**
+   * <p>The last date and time that the aggregated data was collected. The
+   *          time period depends on the length of the aggregation window.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Hours</b> - for 1 hour time
+   *                window, every half hour; otherwise every hour.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Days</b> - every 6 hours</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Weeks</b> - for a one week time
+   *                window, every 12 hours; otherwise, every day</p>
+   *             </li>
+   *          </ul>
+   */
+  aggregationLastRefreshedDateTime?: Date;
+
+  /**
+   * <p>Summaries of the aggregated utterance data. Each response contains
+   *          information about the number of times that the utterance was seen
+   *          during the time period, whether it was detected or missed, and when it
+   *          was seen during the time period.</p>
+   */
+  aggregatedUtterancesSummaries?: AggregatedUtterancesSummary[];
+
+  /**
+   * <p>A token that indicates whether there are more results to return in a
+   *          response to the <code>ListAggregatedUtterances</code> operation. If the
+   *             <code>nextToken</code> field is present, you send the contents as
+   *          the <code>nextToken</code> parameter of a
+   *             <code>ListAggregatedUtterances</code> operation request to get the
+   *          next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListAggregatedUtterancesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAggregatedUtterancesResponse): any => ({
     ...obj,
   });
 }

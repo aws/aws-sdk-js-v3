@@ -167,8 +167,8 @@ import { UpdateTypeCommand, UpdateTypeCommandInput, UpdateTypeCommandOutput } fr
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AppSync  provides API actions for creating and interacting with data sources using
- *          GraphQL from your application.</p>
+ * <p>AppSync provides API actions for creating and interacting with data
+ *          sources using GraphQL from your application.</p>
  */
 export class AppSync extends AppSyncClient {
   /**
@@ -873,9 +873,9 @@ export class AppSync extends AppSyncClient {
   /**
    * <p>Lists the API keys for a given API.</p>
    *          <note>
-   *             <p>API keys are deleted automatically 60 days after they expire. However, they may
-   *             still be included in the response until they have actually been deleted. You can safely
-   *             call <code>DeleteApiKey</code> to manually delete a key before it's automatically
+   *             <p>API keys are deleted automatically 60 days after they expire. However, they may still
+   *             be included in the response until they have actually been deleted. You can safely call
+   *                <code>DeleteApiKey</code> to manually delete a key before it's automatically
    *             deleted.</p>
    *          </note>
    */

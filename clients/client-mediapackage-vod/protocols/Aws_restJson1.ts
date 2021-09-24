@@ -2858,6 +2858,7 @@ const deserializeAws_restJson1EgressAccessLogs = (output: any, context: __SerdeC
 const deserializeAws_restJson1EgressEndpoint = (output: any, context: __SerdeContext): EgressEndpoint => {
   return {
     PackagingConfigurationId: __expectString(output.packagingConfigurationId),
+    Status: __expectString(output.status),
     Url: __expectString(output.url),
   } as any;
 };

@@ -73,7 +73,7 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>The AWS user account does not have permission to perform the action. Check the IAM
+ * <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
  *          policy associated with this account.</p>
  */
 export interface AuthorizationException extends __SmithyException, $MetadataBearer {
@@ -617,6 +617,11 @@ export interface CheckoutLicenseResponse {
    * <p>Date and time at which the license checkout expires.</p>
    */
   Expiration?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the checkout license.</p>
+   */
+  LicenseArn?: string;
 }
 
 export namespace CheckoutLicenseResponse {
@@ -721,7 +726,11 @@ export interface CreateGrantVersionRequest {
    */
   Status?: GrantStatus | string;
 
+  /**
+   * <p>Grant status reason.</p>
+   */
   StatusReason?: string;
+
   /**
    * <p>Current version of the grant.</p>
    */
@@ -925,7 +934,7 @@ export interface Issuer {
   Name: string | undefined;
 
   /**
-   * <p>Asymmetric CMK from AWS Key Management Service. The CMK must have a key usage of sign and verify,
+   * <p>Asymmetric KMS key from Key Management Service. The KMS key must have a key usage of sign and verify,
    *          and support the RSASSA-PSS SHA-256 signing algorithm.</p>
    */
   SignKey?: string;
@@ -1146,12 +1155,12 @@ export interface ProductInformation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Tag:key</code> - The key of a tag attached to an AWS resource you wish to exclude from automated discovery. Logical operator is <code>NOT_EQUALS</code>.  The key for your tag must be appended to <code>Tag:</code> following the example: <code>Tag:name-of-your-key</code>. <code>ProductInformationFilterValue</code> is optional if you are not using values for the key.
+   *                   <code>Tag:key</code> - The key of a tag attached to an Amazon Web Services resource you wish to exclude from automated discovery. Logical operator is <code>NOT_EQUALS</code>.  The key for your tag must be appended to <code>Tag:</code> following the example: <code>Tag:name-of-your-key</code>. <code>ProductInformationFilterValue</code> is optional if you are not using values for the key.
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AccountId</code> - The 12-digit ID of an AWS account you wish to exclude from automated discovery.
+   *                   <code>AccountId</code> - The 12-digit ID of an Amazon Web Services account you wish to exclude from automated discovery.
    *                Logical operator is <code>NOT_EQUALS</code>.</p>
    *             </li>
    *             <li>
@@ -1331,11 +1340,75 @@ export namespace CreateLicenseConfigurationResponse {
 }
 
 /**
+ * <p>Information about a license type conversion task.</p>
+ */
+export interface LicenseConversionContext {
+  /**
+   * <p>The Usage operation value that corresponds to the license type you are converting your resource from.  For more information about which platforms correspond to which usage operation values see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html#billing-info">Sample data: usage operation by platform
+   *       </a>
+   *          </p>
+   */
+  UsageOperation?: string;
+}
+
+export namespace LicenseConversionContext {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LicenseConversionContext): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLicenseConversionTaskForResourceRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource you are converting the license type for.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Information that identifies the license type you are converting from.
+   *          For the structure of the source license, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli">Convert a license type using the AWS CLI</a> in the <i>License Manager User Guide</i>.</p>
+   */
+  SourceLicenseContext: LicenseConversionContext | undefined;
+
+  /**
+   * <p>Information that identifies the license type you are converting to. For the structure of the destination license, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli">Convert a license type using the AWS CLI</a> in the <i>License Manager User Guide</i>.</p>
+   */
+  DestinationLicenseContext: LicenseConversionContext | undefined;
+}
+
+export namespace CreateLicenseConversionTaskForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLicenseConversionTaskForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLicenseConversionTaskForResourceResponse {
+  /**
+   * <p>The ID of the created license type conversion task.</p>
+   */
+  LicenseConversionTaskId?: string;
+}
+
+export namespace CreateLicenseConversionTaskForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLicenseConversionTaskForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details of the license configuration that this generator reports on.</p>
  */
 export interface ReportContext {
   /**
-   * <p>Amazon Resource Number (ARN) of the license configuration that this generator reports on.</p>
+   * <p>Amazon Resource Name (ARN) of the license configuration that this generator reports on.</p>
    */
   licenseConfigurationArns: string[] | undefined;
 }
@@ -1356,11 +1429,12 @@ export enum ReportFrequencyType {
 }
 
 /**
- * <p>Details on how frequently reports are generated.</p>
+ * <p>Details about how frequently reports are generated.</p>
  */
 export interface ReportFrequency {
   /**
-   * <p>Number of times within the frequency period that a report will be generated.  Currently only <code>1</code> is supported.</p>
+   * <p>Number of times within the frequency period that a report is generated.
+   *          The only supported value is <code>1</code>.</p>
    */
   value?: number;
 
@@ -1394,10 +1468,10 @@ export interface CreateLicenseManagerReportGeneratorRequest {
    * <p>Type of reports to generate. The following report types an be generated:</p>
    *          <ul>
    *             <li>
-   *                <p>License configuration report - Reports on the number and details of consumed licenses for a license configuration.</p>
+   *                <p>License configuration report - Reports the number and details of consumed licenses for a license configuration.</p>
    *             </li>
    *             <li>
-   *                <p>Resource report - Reports on the tracked licenses and resource consumption for a license configuration.</p>
+   *                <p>Resource report - Reports the tracked licenses and resource consumption for a license configuration.</p>
    *             </li>
    *          </ul>
    */
@@ -1440,7 +1514,7 @@ export namespace CreateLicenseManagerReportGeneratorRequest {
 
 export interface CreateLicenseManagerReportGeneratorResponse {
   /**
-   * <p>The Amazon Resource Number (ARN) of the new report generator.</p>
+   * <p>The Amazon Resource Name (ARN) of the new report generator.</p>
    */
   LicenseManagerReportGeneratorArn?: string;
 }
@@ -1628,7 +1702,11 @@ export interface DeleteGrantRequest {
    */
   GrantArn: string | undefined;
 
+  /**
+   * <p>The Status reason for the delete request.</p>
+   */
   StatusReason?: string;
+
   /**
    * <p>Current version of the grant.</p>
    */
@@ -1703,7 +1781,7 @@ export interface DeleteLicenseResponse {
   Status?: LicenseDeletionStatus | string;
 
   /**
-   * <p>Date on which the license is deleted.</p>
+   * <p>Date when the license is deleted.</p>
    */
   DeletionDate?: string;
 }
@@ -1746,7 +1824,7 @@ export namespace DeleteLicenseConfigurationResponse {
 
 export interface DeleteLicenseManagerReportGeneratorRequest {
   /**
-   * <p>Amazon Resource Number (ARN) of the report generator that will be deleted.</p>
+   * <p>Amazon Resource Name (ARN) of the report generator to be deleted.</p>
    */
   LicenseManagerReportGeneratorArn: string | undefined;
 }
@@ -2009,7 +2087,7 @@ export interface IssuerDetails {
   Name?: string;
 
   /**
-   * <p>Asymmetric CMK from AWS Key Management Service. The CMK must have a key usage of sign and verify,
+   * <p>Asymmetric KMS key from Key Management Service. The KMS key must have a key usage of sign and verify,
    *          and support the RSASSA-PSS SHA-256 signing algorithm.</p>
    */
   SignKey?: string;
@@ -2030,7 +2108,7 @@ export namespace IssuerDetails {
 }
 
 /**
- * <p>Software license that is managed in AWS License Manager.</p>
+ * <p>Software license that is managed in License Manager.</p>
  */
 export interface License {
   /**
@@ -2223,7 +2301,7 @@ export interface GetLicenseConfigurationResponse {
   Description?: string;
 
   /**
-   * <p>Dimension on which the licenses are counted.</p>
+   * <p>Dimension for which the licenses are counted.</p>
    */
   LicenseCountingType?: LicenseCountingType | string;
 
@@ -2297,9 +2375,87 @@ export namespace GetLicenseConfigurationResponse {
   });
 }
 
+export interface GetLicenseConversionTaskRequest {
+  /**
+   * <p>ID of the license type conversion task to retrieve information on.</p>
+   */
+  LicenseConversionTaskId: string | undefined;
+}
+
+export namespace GetLicenseConversionTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLicenseConversionTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum LicenseConversionTaskStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+export interface GetLicenseConversionTaskResponse {
+  /**
+   * <p>ID of the license type conversion task.</p>
+   */
+  LicenseConversionTaskId?: string;
+
+  /**
+   * <p>Amazon Resource Names (ARN) of the resources the license conversion task is associated with.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>Information about the license type converted from.</p>
+   */
+  SourceLicenseContext?: LicenseConversionContext;
+
+  /**
+   * <p>Information about the license type converted to.</p>
+   */
+  DestinationLicenseContext?: LicenseConversionContext;
+
+  /**
+   * <p>The status message for the conversion task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Status of the license type conversion task.</p>
+   */
+  Status?: LicenseConversionTaskStatus | string;
+
+  /**
+   * <p>Time at which the license type conversion task was started .</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>Amount of time to complete the license type conversion.</p>
+   */
+  LicenseConversionTime?: Date;
+
+  /**
+   * <p>Time at which the license type conversion task was completed.</p>
+   */
+  EndTime?: Date;
+}
+
+export namespace GetLicenseConversionTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLicenseConversionTaskResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetLicenseManagerReportGeneratorRequest {
   /**
-   * <p>mazon Resource Number (ARN) of the report generator to retrieve information on.</p>
+   * <p>Amazon Resource Name (ARN) of the report generator.</p>
    */
   LicenseManagerReportGeneratorArn: string | undefined;
 }
@@ -2352,17 +2508,17 @@ export interface ReportGenerator {
   ReportType?: (ReportType | string)[];
 
   /**
-   * <p>License configuration type this generator reports on.</p>
+   * <p>License configuration type for this generator.</p>
    */
   ReportContext?: ReportContext;
 
   /**
-   * <p>Details on how frequently reports are generated.</p>
+   * <p>Details about how frequently reports are generated.</p>
    */
   ReportFrequency?: ReportFrequency;
 
   /**
-   * <p>Amazon Resource Number (ARN) of the report generator.</p>
+   * <p>Amazon Resource Name (ARN) of the report generator.</p>
    */
   LicenseManagerReportGeneratorArn?: string;
 
@@ -2382,7 +2538,7 @@ export interface ReportGenerator {
   LastReportGenerationTime?: string;
 
   /**
-   * <p>The AWS account ID used to create the report generator.</p>
+   * <p>The Amazon Web Services account ID used to create the report generator.</p>
    */
   ReportCreatorAccount?: string;
 
@@ -2418,7 +2574,7 @@ export namespace ReportGenerator {
 
 export interface GetLicenseManagerReportGeneratorResponse {
   /**
-   * <p>A report generator that creates periodic reports on your license configurations.</p>
+   * <p>A report generator that creates periodic reports about your license configurations.</p>
    */
   ReportGenerator?: ReportGenerator;
 }
@@ -2529,11 +2685,11 @@ export namespace GetServiceSettingsRequest {
 }
 
 /**
- * <p>Configuration information for AWS Organizations.</p>
+ * <p>Configuration information for Organizations.</p>
  */
 export interface OrganizationConfiguration {
   /**
-   * <p>Enables AWS Organization integration.</p>
+   * <p>Enables Organizations integration.</p>
    */
   EnableIntegration: boolean | undefined;
 }
@@ -2560,7 +2716,7 @@ export interface GetServiceSettingsResponse {
   SnsTopicArn?: string;
 
   /**
-   * <p>Indicates whether AWS Organizations is integrated with License Manager for
+   * <p>Indicates whether Organizations is integrated with License Manager for
    *          cross-account discovery.</p>
    */
   OrganizationConfiguration?: OrganizationConfiguration;
@@ -2571,7 +2727,7 @@ export interface GetServiceSettingsResponse {
   EnableCrossAccountsDiscovery?: boolean;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the AWS resource share. The License Manager management account
+   * <p>Amazon Resource Name (ARN) of the resource share. The License Manager management account
    *          provides member accounts with access to this share.</p>
    */
   LicenseManagerResourceShareArn?: string;
@@ -2645,7 +2801,7 @@ export interface LicenseConfigurationAssociation {
   ResourceType?: ResourceType | string;
 
   /**
-   * <p>ID of the AWS account that owns the resource consuming licenses.</p>
+   * <p>ID of the Amazon Web Services account that owns the resource consuming licenses.</p>
    */
   ResourceOwnerId?: string;
 
@@ -2851,7 +3007,7 @@ export interface LicenseOperationFailure {
   OperationName?: string;
 
   /**
-   * <p>ID of the AWS account that owns the resource.</p>
+   * <p>ID of the Amazon Web Services account that owns the resource.</p>
    */
   ResourceOwnerId?: string;
 
@@ -2918,7 +3074,7 @@ export interface ListLicenseConfigurationsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>licenseCountingType</code> - The dimension on which licenses are counted.
+   *                   <code>licenseCountingType</code> - The dimension for which licenses are counted.
    *                Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> | <code>Socket</code>.
    *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
    *             </li>
@@ -3065,6 +3221,115 @@ export namespace ListLicenseConfigurationsResponse {
   });
 }
 
+export interface ListLicenseConversionTasksRequest {
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   *          Filters to scope the results. Valid filters are <code>ResourceArns</code> and <code>Status</code>.
+   *       </p>
+   */
+  Filters?: Filter[];
+}
+
+export namespace ListLicenseConversionTasksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLicenseConversionTasksRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a license type conversion task.</p>
+ */
+export interface LicenseConversionTask {
+  /**
+   * <p>The ID of the license type conversion task.</p>
+   */
+  LicenseConversionTaskId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource associated with the license type
+   *          conversion task.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>Information about the license type this conversion task converted from.</p>
+   */
+  SourceLicenseContext?: LicenseConversionContext;
+
+  /**
+   * <p>Information about the license type this conversion task converted to.</p>
+   */
+  DestinationLicenseContext?: LicenseConversionContext;
+
+  /**
+   * <p>The status of the conversion task.</p>
+   */
+  Status?: LicenseConversionTaskStatus | string;
+
+  /**
+   * <p>The status message for the conversion task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The time the conversion task was started at.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time the usage operation value of the resource was changed.</p>
+   */
+  LicenseConversionTime?: Date;
+
+  /**
+   * <p>The time the conversion task was completed.</p>
+   */
+  EndTime?: Date;
+}
+
+export namespace LicenseConversionTask {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LicenseConversionTask): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLicenseConversionTasksResponse {
+  /**
+   * <p>Information about the license configuration tasks for your account.</p>
+   */
+  LicenseConversionTasks?: LicenseConversionTask[];
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLicenseConversionTasksResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLicenseConversionTasksResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListLicenseManagerReportGeneratorsRequest {
   /**
    * <p>Filters to scope the results. The following filters are supported: </p>
@@ -3100,7 +3365,7 @@ export namespace ListLicenseManagerReportGeneratorsRequest {
 
 export interface ListLicenseManagerReportGeneratorsResponse {
   /**
-   * <p>A report generator that creates periodic reports on your license configurations.</p>
+   * <p>A report generator that creates periodic reports about your license configurations.</p>
    */
   ReportGenerators?: ReportGenerator[];
 
@@ -3468,7 +3733,11 @@ export interface ReceivedMetadata {
    */
   ReceivedStatus?: ReceivedStatus | string;
 
+  /**
+   * <p>Received status reason.</p>
+   */
   ReceivedStatusReason?: string;
+
   /**
    * <p>Allowed operations.</p>
    */
@@ -3666,7 +3935,7 @@ export interface ListResourceInventoryRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>account_id</code> - The ID of the AWS account that owns the resource.
+   *                   <code>account_id</code> - The ID of the Amazon Web Services account that owns the resource.
    *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
    *             </li>
    *             <li>
@@ -4213,7 +4482,7 @@ export namespace UpdateLicenseConfigurationResponse {
 
 export interface UpdateLicenseManagerReportGeneratorRequest {
   /**
-   * <p>Amazon Resource Number (ARN) of the report generator to update.</p>
+   * <p>Amazon Resource Name (ARN) of the report generator to update.</p>
    */
   LicenseManagerReportGeneratorArn: string | undefined;
 
@@ -4223,26 +4492,25 @@ export interface UpdateLicenseManagerReportGeneratorRequest {
   ReportGeneratorName: string | undefined;
 
   /**
-   * <p>Type of reports to generate. The following report types an be generated:</p>
+   * <p>Type of reports to generate. The following report types are supported:</p>
    *          <ul>
    *             <li>
-   *                <p>License configuration report - Reports on the number and details of consumed licenses for a license configuration.</p>
+   *                <p>License configuration report - Reports the number and details of consumed licenses for a license configuration.</p>
    *             </li>
    *             <li>
-   *                <p>Resource report - Reports on the tracked licenses and resource consumption for a license configuration.</p>
+   *                <p>Resource report - Reports the tracked licenses and resource consumption for a license configuration.</p>
    *             </li>
    *          </ul>
    */
   Type: (ReportType | string)[] | undefined;
 
   /**
-   * <p>?</p>
+   * <p>The report context.</p>
    */
   ReportContext: ReportContext | undefined;
 
   /**
-   * <p>Frequency by which reports are generated.  The following options are avaiable:</p>
-   *          <p>??? What are the APi value options?</p>
+   * <p>Frequency by which reports are generated.</p>
    */
   ReportFrequency: ReportFrequency | undefined;
 
@@ -4317,7 +4585,7 @@ export namespace LicenseUsageException {
 
 export interface UpdateLicenseSpecificationsForResourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) of the AWS resource.</p>
+   * <p>Amazon Resource Name (ARN) of the Amazon Web Services resource.</p>
    */
   ResourceArn: string | undefined;
 
@@ -4364,7 +4632,7 @@ export interface UpdateServiceSettingsRequest {
   SnsTopicArn?: string;
 
   /**
-   * <p>Enables integration with AWS Organizations for cross-account discovery.</p>
+   * <p>Enables integration with Organizations for cross-account discovery.</p>
    */
   OrganizationConfiguration?: OrganizationConfiguration;
 

@@ -1602,7 +1602,7 @@ export interface Instance {
   HibernationOptions?: HibernationOptions;
 
   /**
-   * <p>The license configurations.</p>
+   * <p>The license configurations for the instance.</p>
    */
   Licenses?: LicenseConfiguration[];
 
@@ -1618,9 +1618,27 @@ export interface Instance {
 
   /**
    * <p>The boot mode of the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *             <i>Amazon EC2 User Guide</i>.</p>
    */
   BootMode?: BootModeValues | string;
+
+  /**
+   * <p>The platform details value for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI
+   *                 billing information fields</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   */
+  PlatformDetails?: string;
+
+  /**
+   * <p>The usage operation value for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI billing information fields</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  UsageOperation?: string;
+
+  /**
+   * <p>The time that the usage operation was last updated.</p>
+   */
+  UsageOperationUpdateTime?: Date;
 }
 
 export namespace Instance {

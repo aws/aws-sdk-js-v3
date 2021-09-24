@@ -1201,6 +1201,14 @@ import {
   GetTransitGatewayRouteTablePropagationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTablePropagationsCommand";
 import {
+  GetVpnConnectionDeviceSampleConfigurationCommandInput,
+  GetVpnConnectionDeviceSampleConfigurationCommandOutput,
+} from "./commands/GetVpnConnectionDeviceSampleConfigurationCommand";
+import {
+  GetVpnConnectionDeviceTypesCommandInput,
+  GetVpnConnectionDeviceTypesCommandOutput,
+} from "./commands/GetVpnConnectionDeviceTypesCommand";
+import {
   ImportClientVpnClientCertificateRevocationListCommandInput,
   ImportClientVpnClientCertificateRevocationListCommandOutput,
 } from "./commands/ImportClientVpnClientCertificateRevocationListCommand";
@@ -1964,6 +1972,8 @@ export type ServiceInputTypes =
   | GetTransitGatewayPrefixListReferencesCommandInput
   | GetTransitGatewayRouteTableAssociationsCommandInput
   | GetTransitGatewayRouteTablePropagationsCommandInput
+  | GetVpnConnectionDeviceSampleConfigurationCommandInput
+  | GetVpnConnectionDeviceTypesCommandInput
   | ImportClientVpnClientCertificateRevocationListCommandInput
   | ImportImageCommandInput
   | ImportInstanceCommandInput
@@ -2431,6 +2441,8 @@ export type ServiceOutputTypes =
   | GetTransitGatewayPrefixListReferencesCommandOutput
   | GetTransitGatewayRouteTableAssociationsCommandOutput
   | GetTransitGatewayRouteTablePropagationsCommandOutput
+  | GetVpnConnectionDeviceSampleConfigurationCommandOutput
+  | GetVpnConnectionDeviceTypesCommandOutput
   | ImportClientVpnClientCertificateRevocationListCommandOutput
   | ImportImageCommandOutput
   | ImportInstanceCommandOutput

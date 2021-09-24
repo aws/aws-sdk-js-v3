@@ -84,6 +84,7 @@ import {
   LogConfig,
   NotFoundException,
   OpenIDConnectConfig,
+  OpenSearchServiceDataSourceConfig,
   PipelineConfig,
   RdsHttpEndpointConfig,
   RelationalDatabaseDataSourceConfig,
@@ -225,6 +226,13 @@ export const serializeAws_restJson1CreateDataSourceCommand = async (
         lambdaConfig: serializeAws_restJson1LambdaDataSourceConfig(input.lambdaConfig, context),
       }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.openSearchServiceConfig !== undefined &&
+      input.openSearchServiceConfig !== null && {
+        openSearchServiceConfig: serializeAws_restJson1OpenSearchServiceDataSourceConfig(
+          input.openSearchServiceConfig,
+          context
+        ),
+      }),
     ...(input.relationalDatabaseConfig !== undefined &&
       input.relationalDatabaseConfig !== null && {
         relationalDatabaseConfig: serializeAws_restJson1RelationalDatabaseDataSourceConfig(
@@ -1509,6 +1517,13 @@ export const serializeAws_restJson1UpdateDataSourceCommand = async (
     ...(input.lambdaConfig !== undefined &&
       input.lambdaConfig !== null && {
         lambdaConfig: serializeAws_restJson1LambdaDataSourceConfig(input.lambdaConfig, context),
+      }),
+    ...(input.openSearchServiceConfig !== undefined &&
+      input.openSearchServiceConfig !== null && {
+        openSearchServiceConfig: serializeAws_restJson1OpenSearchServiceDataSourceConfig(
+          input.openSearchServiceConfig,
+          context
+        ),
       }),
     ...(input.relationalDatabaseConfig !== undefined &&
       input.relationalDatabaseConfig !== null && {
@@ -5601,6 +5616,16 @@ const serializeAws_restJson1OpenIDConnectConfig = (input: OpenIDConnectConfig, c
   };
 };
 
+const serializeAws_restJson1OpenSearchServiceDataSourceConfig = (
+  input: OpenSearchServiceDataSourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.awsRegion !== undefined && input.awsRegion !== null && { awsRegion: input.awsRegion }),
+    ...(input.endpoint !== undefined && input.endpoint !== null && { endpoint: input.endpoint }),
+  };
+};
+
 const serializeAws_restJson1PipelineConfig = (input: PipelineConfig, context: __SerdeContext): any => {
   return {
     ...(input.functions !== undefined &&
@@ -5807,6 +5832,10 @@ const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext
         ? deserializeAws_restJson1LambdaDataSourceConfig(output.lambdaConfig, context)
         : undefined,
     name: __expectString(output.name),
+    openSearchServiceConfig:
+      output.openSearchServiceConfig !== undefined && output.openSearchServiceConfig !== null
+        ? deserializeAws_restJson1OpenSearchServiceDataSourceConfig(output.openSearchServiceConfig, context)
+        : undefined,
     relationalDatabaseConfig:
       output.relationalDatabaseConfig !== undefined && output.relationalDatabaseConfig !== null
         ? deserializeAws_restJson1RelationalDatabaseDataSourceConfig(output.relationalDatabaseConfig, context)
@@ -6018,6 +6047,16 @@ const deserializeAws_restJson1OpenIDConnectConfig = (output: any, context: __Ser
     clientId: __expectString(output.clientId),
     iatTTL: __expectLong(output.iatTTL),
     issuer: __expectString(output.issuer),
+  } as any;
+};
+
+const deserializeAws_restJson1OpenSearchServiceDataSourceConfig = (
+  output: any,
+  context: __SerdeContext
+): OpenSearchServiceDataSourceConfig => {
+  return {
+    awsRegion: __expectString(output.awsRegion),
+    endpoint: __expectString(output.endpoint),
   } as any;
 };
 

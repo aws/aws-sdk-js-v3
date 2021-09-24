@@ -58,10 +58,12 @@ import {
   CmafAdditionalManifest,
   CmafEncryptionSettings,
   CmafGroupSettings,
+  CmafImageBasedTrickPlaySettings,
   CmfcSettings,
   DashAdditionalManifest,
   DashIsoEncryptionSettings,
   DashIsoGroupSettings,
+  DashIsoImageBasedTrickPlaySettings,
   DestinationSettings,
   DvbNitSettings,
   DvbSdtSettings,
@@ -86,6 +88,7 @@ import {
   HlsCaptionLanguageMapping,
   HlsEncryptionSettings,
   HlsGroupSettings,
+  HlsImageBasedTrickPlaySettings,
   HlsRenditionGroupSettings,
   HopDestination,
   Id3Insertion,
@@ -104,10 +107,8 @@ import {
   MotionImageInserter,
   MotionImageInsertionFramerate,
   MotionImageInsertionOffset,
-  MovSettings,
   Mp2Settings,
   Mp3Settings,
-  Mp4Settings,
   MsSmoothAdditionalManifest,
   MsSmoothEncryptionSettings,
   MsSmoothGroupSettings,
@@ -166,6 +167,8 @@ import {
   JobSettings,
   JobTemplate,
   JobTemplateSettings,
+  MovSettings,
+  Mp4Settings,
   MpdSettings,
   Mpeg2Settings,
   MxfSettings,
@@ -4188,22 +4191,28 @@ const serializeAws_restJson1BurninDestinationSettings = (
 ): any => {
   return {
     ...(input.Alignment !== undefined && input.Alignment !== null && { alignment: input.Alignment }),
+    ...(input.ApplyFontColor !== undefined &&
+      input.ApplyFontColor !== null && { applyFontColor: input.ApplyFontColor }),
     ...(input.BackgroundColor !== undefined &&
       input.BackgroundColor !== null && { backgroundColor: input.BackgroundColor }),
     ...(input.BackgroundOpacity !== undefined &&
       input.BackgroundOpacity !== null && { backgroundOpacity: input.BackgroundOpacity }),
+    ...(input.FallbackFont !== undefined && input.FallbackFont !== null && { fallbackFont: input.FallbackFont }),
     ...(input.FontColor !== undefined && input.FontColor !== null && { fontColor: input.FontColor }),
     ...(input.FontOpacity !== undefined && input.FontOpacity !== null && { fontOpacity: input.FontOpacity }),
     ...(input.FontResolution !== undefined &&
       input.FontResolution !== null && { fontResolution: input.FontResolution }),
     ...(input.FontScript !== undefined && input.FontScript !== null && { fontScript: input.FontScript }),
     ...(input.FontSize !== undefined && input.FontSize !== null && { fontSize: input.FontSize }),
+    ...(input.HexFontColor !== undefined && input.HexFontColor !== null && { hexFontColor: input.HexFontColor }),
     ...(input.OutlineColor !== undefined && input.OutlineColor !== null && { outlineColor: input.OutlineColor }),
     ...(input.OutlineSize !== undefined && input.OutlineSize !== null && { outlineSize: input.OutlineSize }),
     ...(input.ShadowColor !== undefined && input.ShadowColor !== null && { shadowColor: input.ShadowColor }),
     ...(input.ShadowOpacity !== undefined && input.ShadowOpacity !== null && { shadowOpacity: input.ShadowOpacity }),
     ...(input.ShadowXOffset !== undefined && input.ShadowXOffset !== null && { shadowXOffset: input.ShadowXOffset }),
     ...(input.ShadowYOffset !== undefined && input.ShadowYOffset !== null && { shadowYOffset: input.ShadowYOffset }),
+    ...(input.StylePassthrough !== undefined &&
+      input.StylePassthrough !== null && { stylePassthrough: input.StylePassthrough }),
     ...(input.TeletextSpacing !== undefined &&
       input.TeletextSpacing !== null && { teletextSpacing: input.TeletextSpacing }),
     ...(input.XPosition !== undefined && input.XPosition !== null && { xPosition: input.XPosition }),
@@ -4427,6 +4436,13 @@ const serializeAws_restJson1CmafGroupSettings = (input: CmafGroupSettings, conte
       input.FragmentLength !== null && { fragmentLength: input.FragmentLength }),
     ...(input.ImageBasedTrickPlay !== undefined &&
       input.ImageBasedTrickPlay !== null && { imageBasedTrickPlay: input.ImageBasedTrickPlay }),
+    ...(input.ImageBasedTrickPlaySettings !== undefined &&
+      input.ImageBasedTrickPlaySettings !== null && {
+        imageBasedTrickPlaySettings: serializeAws_restJson1CmafImageBasedTrickPlaySettings(
+          input.ImageBasedTrickPlaySettings,
+          context
+        ),
+      }),
     ...(input.ManifestCompression !== undefined &&
       input.ManifestCompression !== null && { manifestCompression: input.ManifestCompression }),
     ...(input.ManifestDurationFormat !== undefined &&
@@ -4456,6 +4472,24 @@ const serializeAws_restJson1CmafGroupSettings = (input: CmafGroupSettings, conte
       input.WriteSegmentTimelineInRepresentation !== null && {
         writeSegmentTimelineInRepresentation: input.WriteSegmentTimelineInRepresentation,
       }),
+  };
+};
+
+const serializeAws_restJson1CmafImageBasedTrickPlaySettings = (
+  input: CmafImageBasedTrickPlaySettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IntervalCadence !== undefined &&
+      input.IntervalCadence !== null && { intervalCadence: input.IntervalCadence }),
+    ...(input.ThumbnailHeight !== undefined &&
+      input.ThumbnailHeight !== null && { thumbnailHeight: input.ThumbnailHeight }),
+    ...(input.ThumbnailInterval !== undefined &&
+      input.ThumbnailInterval !== null && { thumbnailInterval: __serializeFloat(input.ThumbnailInterval) }),
+    ...(input.ThumbnailWidth !== undefined &&
+      input.ThumbnailWidth !== null && { thumbnailWidth: input.ThumbnailWidth }),
+    ...(input.TileHeight !== undefined && input.TileHeight !== null && { tileHeight: input.TileHeight }),
+    ...(input.TileWidth !== undefined && input.TileWidth !== null && { tileWidth: input.TileWidth }),
   };
 };
 
@@ -4566,6 +4600,13 @@ const serializeAws_restJson1DashIsoGroupSettings = (input: DashIsoGroupSettings,
       input.HbbtvCompliance !== null && { hbbtvCompliance: input.HbbtvCompliance }),
     ...(input.ImageBasedTrickPlay !== undefined &&
       input.ImageBasedTrickPlay !== null && { imageBasedTrickPlay: input.ImageBasedTrickPlay }),
+    ...(input.ImageBasedTrickPlaySettings !== undefined &&
+      input.ImageBasedTrickPlaySettings !== null && {
+        imageBasedTrickPlaySettings: serializeAws_restJson1DashIsoImageBasedTrickPlaySettings(
+          input.ImageBasedTrickPlaySettings,
+          context
+        ),
+      }),
     ...(input.MinBufferTime !== undefined && input.MinBufferTime !== null && { minBufferTime: input.MinBufferTime }),
     ...(input.MinFinalSegmentLength !== undefined &&
       input.MinFinalSegmentLength !== null && { minFinalSegmentLength: __serializeFloat(input.MinFinalSegmentLength) }),
@@ -4581,6 +4622,24 @@ const serializeAws_restJson1DashIsoGroupSettings = (input: DashIsoGroupSettings,
       input.WriteSegmentTimelineInRepresentation !== null && {
         writeSegmentTimelineInRepresentation: input.WriteSegmentTimelineInRepresentation,
       }),
+  };
+};
+
+const serializeAws_restJson1DashIsoImageBasedTrickPlaySettings = (
+  input: DashIsoImageBasedTrickPlaySettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IntervalCadence !== undefined &&
+      input.IntervalCadence !== null && { intervalCadence: input.IntervalCadence }),
+    ...(input.ThumbnailHeight !== undefined &&
+      input.ThumbnailHeight !== null && { thumbnailHeight: input.ThumbnailHeight }),
+    ...(input.ThumbnailInterval !== undefined &&
+      input.ThumbnailInterval !== null && { thumbnailInterval: __serializeFloat(input.ThumbnailInterval) }),
+    ...(input.ThumbnailWidth !== undefined &&
+      input.ThumbnailWidth !== null && { thumbnailWidth: input.ThumbnailWidth }),
+    ...(input.TileHeight !== undefined && input.TileHeight !== null && { tileHeight: input.TileHeight }),
+    ...(input.TileWidth !== undefined && input.TileWidth !== null && { tileWidth: input.TileWidth }),
   };
 };
 
@@ -4646,6 +4705,8 @@ const serializeAws_restJson1DvbSubDestinationSettings = (
 ): any => {
   return {
     ...(input.Alignment !== undefined && input.Alignment !== null && { alignment: input.Alignment }),
+    ...(input.ApplyFontColor !== undefined &&
+      input.ApplyFontColor !== null && { applyFontColor: input.ApplyFontColor }),
     ...(input.BackgroundColor !== undefined &&
       input.BackgroundColor !== null && { backgroundColor: input.BackgroundColor }),
     ...(input.BackgroundOpacity !== undefined &&
@@ -4655,6 +4716,7 @@ const serializeAws_restJson1DvbSubDestinationSettings = (
       input.DdsXCoordinate !== null && { ddsXCoordinate: input.DdsXCoordinate }),
     ...(input.DdsYCoordinate !== undefined &&
       input.DdsYCoordinate !== null && { ddsYCoordinate: input.DdsYCoordinate }),
+    ...(input.FallbackFont !== undefined && input.FallbackFont !== null && { fallbackFont: input.FallbackFont }),
     ...(input.FontColor !== undefined && input.FontColor !== null && { fontColor: input.FontColor }),
     ...(input.FontOpacity !== undefined && input.FontOpacity !== null && { fontOpacity: input.FontOpacity }),
     ...(input.FontResolution !== undefined &&
@@ -4662,12 +4724,15 @@ const serializeAws_restJson1DvbSubDestinationSettings = (
     ...(input.FontScript !== undefined && input.FontScript !== null && { fontScript: input.FontScript }),
     ...(input.FontSize !== undefined && input.FontSize !== null && { fontSize: input.FontSize }),
     ...(input.Height !== undefined && input.Height !== null && { height: input.Height }),
+    ...(input.HexFontColor !== undefined && input.HexFontColor !== null && { hexFontColor: input.HexFontColor }),
     ...(input.OutlineColor !== undefined && input.OutlineColor !== null && { outlineColor: input.OutlineColor }),
     ...(input.OutlineSize !== undefined && input.OutlineSize !== null && { outlineSize: input.OutlineSize }),
     ...(input.ShadowColor !== undefined && input.ShadowColor !== null && { shadowColor: input.ShadowColor }),
     ...(input.ShadowOpacity !== undefined && input.ShadowOpacity !== null && { shadowOpacity: input.ShadowOpacity }),
     ...(input.ShadowXOffset !== undefined && input.ShadowXOffset !== null && { shadowXOffset: input.ShadowXOffset }),
     ...(input.ShadowYOffset !== undefined && input.ShadowYOffset !== null && { shadowYOffset: input.ShadowYOffset }),
+    ...(input.StylePassthrough !== undefined &&
+      input.StylePassthrough !== null && { stylePassthrough: input.StylePassthrough }),
     ...(input.SubtitlingType !== undefined &&
       input.SubtitlingType !== null && { subtitlingType: input.SubtitlingType }),
     ...(input.TeletextSpacing !== undefined &&
@@ -5169,6 +5234,13 @@ const serializeAws_restJson1HlsGroupSettings = (input: HlsGroupSettings, context
       }),
     ...(input.ImageBasedTrickPlay !== undefined &&
       input.ImageBasedTrickPlay !== null && { imageBasedTrickPlay: input.ImageBasedTrickPlay }),
+    ...(input.ImageBasedTrickPlaySettings !== undefined &&
+      input.ImageBasedTrickPlaySettings !== null && {
+        imageBasedTrickPlaySettings: serializeAws_restJson1HlsImageBasedTrickPlaySettings(
+          input.ImageBasedTrickPlaySettings,
+          context
+        ),
+      }),
     ...(input.ManifestCompression !== undefined &&
       input.ManifestCompression !== null && { manifestCompression: input.ManifestCompression }),
     ...(input.ManifestDurationFormat !== undefined &&
@@ -5202,6 +5274,24 @@ const serializeAws_restJson1HlsGroupSettings = (input: HlsGroupSettings, context
       input.TimedMetadataId3Period !== null && { timedMetadataId3Period: input.TimedMetadataId3Period }),
     ...(input.TimestampDeltaMilliseconds !== undefined &&
       input.TimestampDeltaMilliseconds !== null && { timestampDeltaMilliseconds: input.TimestampDeltaMilliseconds }),
+  };
+};
+
+const serializeAws_restJson1HlsImageBasedTrickPlaySettings = (
+  input: HlsImageBasedTrickPlaySettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IntervalCadence !== undefined &&
+      input.IntervalCadence !== null && { intervalCadence: input.IntervalCadence }),
+    ...(input.ThumbnailHeight !== undefined &&
+      input.ThumbnailHeight !== null && { thumbnailHeight: input.ThumbnailHeight }),
+    ...(input.ThumbnailInterval !== undefined &&
+      input.ThumbnailInterval !== null && { thumbnailInterval: __serializeFloat(input.ThumbnailInterval) }),
+    ...(input.ThumbnailWidth !== undefined &&
+      input.ThumbnailWidth !== null && { thumbnailWidth: input.ThumbnailWidth }),
+    ...(input.TileHeight !== undefined && input.TileHeight !== null && { tileHeight: input.TileHeight }),
+    ...(input.TileWidth !== undefined && input.TileWidth !== null && { tileWidth: input.TileWidth }),
   };
 };
 
@@ -7438,19 +7528,23 @@ const deserializeAws_restJson1BurninDestinationSettings = (
 ): BurninDestinationSettings => {
   return {
     Alignment: __expectString(output.alignment),
+    ApplyFontColor: __expectString(output.applyFontColor),
     BackgroundColor: __expectString(output.backgroundColor),
     BackgroundOpacity: __expectInt32(output.backgroundOpacity),
+    FallbackFont: __expectString(output.fallbackFont),
     FontColor: __expectString(output.fontColor),
     FontOpacity: __expectInt32(output.fontOpacity),
     FontResolution: __expectInt32(output.fontResolution),
     FontScript: __expectString(output.fontScript),
     FontSize: __expectInt32(output.fontSize),
+    HexFontColor: __expectString(output.hexFontColor),
     OutlineColor: __expectString(output.outlineColor),
     OutlineSize: __expectInt32(output.outlineSize),
     ShadowColor: __expectString(output.shadowColor),
     ShadowOpacity: __expectInt32(output.shadowOpacity),
     ShadowXOffset: __expectInt32(output.shadowXOffset),
     ShadowYOffset: __expectInt32(output.shadowYOffset),
+    StylePassthrough: __expectString(output.stylePassthrough),
     TeletextSpacing: __expectString(output.teletextSpacing),
     XPosition: __expectInt32(output.xPosition),
     YPosition: __expectInt32(output.yPosition),
@@ -7647,6 +7741,10 @@ const deserializeAws_restJson1CmafGroupSettings = (output: any, context: __Serde
         : undefined,
     FragmentLength: __expectInt32(output.fragmentLength),
     ImageBasedTrickPlay: __expectString(output.imageBasedTrickPlay),
+    ImageBasedTrickPlaySettings:
+      output.imageBasedTrickPlaySettings !== undefined && output.imageBasedTrickPlaySettings !== null
+        ? deserializeAws_restJson1CmafImageBasedTrickPlaySettings(output.imageBasedTrickPlaySettings, context)
+        : undefined,
     ManifestCompression: __expectString(output.manifestCompression),
     ManifestDurationFormat: __expectString(output.manifestDurationFormat),
     MinBufferTime: __expectInt32(output.minBufferTime),
@@ -7661,6 +7759,20 @@ const deserializeAws_restJson1CmafGroupSettings = (output: any, context: __Serde
     WriteDashManifest: __expectString(output.writeDashManifest),
     WriteHlsManifest: __expectString(output.writeHlsManifest),
     WriteSegmentTimelineInRepresentation: __expectString(output.writeSegmentTimelineInRepresentation),
+  } as any;
+};
+
+const deserializeAws_restJson1CmafImageBasedTrickPlaySettings = (
+  output: any,
+  context: __SerdeContext
+): CmafImageBasedTrickPlaySettings => {
+  return {
+    IntervalCadence: __expectString(output.intervalCadence),
+    ThumbnailHeight: __expectInt32(output.thumbnailHeight),
+    ThumbnailInterval: __limitedParseDouble(output.thumbnailInterval),
+    ThumbnailWidth: __expectInt32(output.thumbnailWidth),
+    TileHeight: __expectInt32(output.tileHeight),
+    TileWidth: __expectInt32(output.tileWidth),
   } as any;
 };
 
@@ -7776,6 +7888,10 @@ const deserializeAws_restJson1DashIsoGroupSettings = (output: any, context: __Se
     FragmentLength: __expectInt32(output.fragmentLength),
     HbbtvCompliance: __expectString(output.hbbtvCompliance),
     ImageBasedTrickPlay: __expectString(output.imageBasedTrickPlay),
+    ImageBasedTrickPlaySettings:
+      output.imageBasedTrickPlaySettings !== undefined && output.imageBasedTrickPlaySettings !== null
+        ? deserializeAws_restJson1DashIsoImageBasedTrickPlaySettings(output.imageBasedTrickPlaySettings, context)
+        : undefined,
     MinBufferTime: __expectInt32(output.minBufferTime),
     MinFinalSegmentLength: __limitedParseDouble(output.minFinalSegmentLength),
     MpdProfile: __expectString(output.mpdProfile),
@@ -7784,6 +7900,20 @@ const deserializeAws_restJson1DashIsoGroupSettings = (output: any, context: __Se
     SegmentLength: __expectInt32(output.segmentLength),
     SegmentLengthControl: __expectString(output.segmentLengthControl),
     WriteSegmentTimelineInRepresentation: __expectString(output.writeSegmentTimelineInRepresentation),
+  } as any;
+};
+
+const deserializeAws_restJson1DashIsoImageBasedTrickPlaySettings = (
+  output: any,
+  context: __SerdeContext
+): DashIsoImageBasedTrickPlaySettings => {
+  return {
+    IntervalCadence: __expectString(output.intervalCadence),
+    ThumbnailHeight: __expectInt32(output.thumbnailHeight),
+    ThumbnailInterval: __limitedParseDouble(output.thumbnailInterval),
+    ThumbnailWidth: __expectInt32(output.thumbnailWidth),
+    TileHeight: __expectInt32(output.tileHeight),
+    TileWidth: __expectInt32(output.tileWidth),
   } as any;
 };
 
@@ -7848,23 +7978,27 @@ const deserializeAws_restJson1DvbSubDestinationSettings = (
 ): DvbSubDestinationSettings => {
   return {
     Alignment: __expectString(output.alignment),
+    ApplyFontColor: __expectString(output.applyFontColor),
     BackgroundColor: __expectString(output.backgroundColor),
     BackgroundOpacity: __expectInt32(output.backgroundOpacity),
     DdsHandling: __expectString(output.ddsHandling),
     DdsXCoordinate: __expectInt32(output.ddsXCoordinate),
     DdsYCoordinate: __expectInt32(output.ddsYCoordinate),
+    FallbackFont: __expectString(output.fallbackFont),
     FontColor: __expectString(output.fontColor),
     FontOpacity: __expectInt32(output.fontOpacity),
     FontResolution: __expectInt32(output.fontResolution),
     FontScript: __expectString(output.fontScript),
     FontSize: __expectInt32(output.fontSize),
     Height: __expectInt32(output.height),
+    HexFontColor: __expectString(output.hexFontColor),
     OutlineColor: __expectString(output.outlineColor),
     OutlineSize: __expectInt32(output.outlineSize),
     ShadowColor: __expectString(output.shadowColor),
     ShadowOpacity: __expectInt32(output.shadowOpacity),
     ShadowXOffset: __expectInt32(output.shadowXOffset),
     ShadowYOffset: __expectInt32(output.shadowYOffset),
+    StylePassthrough: __expectString(output.stylePassthrough),
     SubtitlingType: __expectString(output.subtitlingType),
     TeletextSpacing: __expectString(output.teletextSpacing),
     Width: __expectInt32(output.width),
@@ -8246,6 +8380,10 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
         ? deserializeAws_restJson1HlsEncryptionSettings(output.encryption, context)
         : undefined,
     ImageBasedTrickPlay: __expectString(output.imageBasedTrickPlay),
+    ImageBasedTrickPlaySettings:
+      output.imageBasedTrickPlaySettings !== undefined && output.imageBasedTrickPlaySettings !== null
+        ? deserializeAws_restJson1HlsImageBasedTrickPlaySettings(output.imageBasedTrickPlaySettings, context)
+        : undefined,
     ManifestCompression: __expectString(output.manifestCompression),
     ManifestDurationFormat: __expectString(output.manifestDurationFormat),
     MinFinalSegmentLength: __limitedParseDouble(output.minFinalSegmentLength),
@@ -8262,6 +8400,20 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
     TimedMetadataId3Frame: __expectString(output.timedMetadataId3Frame),
     TimedMetadataId3Period: __expectInt32(output.timedMetadataId3Period),
     TimestampDeltaMilliseconds: __expectInt32(output.timestampDeltaMilliseconds),
+  } as any;
+};
+
+const deserializeAws_restJson1HlsImageBasedTrickPlaySettings = (
+  output: any,
+  context: __SerdeContext
+): HlsImageBasedTrickPlaySettings => {
+  return {
+    IntervalCadence: __expectString(output.intervalCadence),
+    ThumbnailHeight: __expectInt32(output.thumbnailHeight),
+    ThumbnailInterval: __limitedParseDouble(output.thumbnailInterval),
+    ThumbnailWidth: __expectInt32(output.thumbnailWidth),
+    TileHeight: __expectInt32(output.tileHeight),
+    TileWidth: __expectInt32(output.tileWidth),
   } as any;
 };
 

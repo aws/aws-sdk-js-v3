@@ -93,6 +93,10 @@ import {
   ListDocumentClassificationJobsCommandOutput,
 } from "../commands/ListDocumentClassificationJobsCommand";
 import {
+  ListDocumentClassifierSummariesCommandInput,
+  ListDocumentClassifierSummariesCommandOutput,
+} from "../commands/ListDocumentClassifierSummariesCommand";
+import {
   ListDocumentClassifiersCommandInput,
   ListDocumentClassifiersCommandOutput,
 } from "../commands/ListDocumentClassifiersCommand";
@@ -105,6 +109,10 @@ import {
   ListEntitiesDetectionJobsCommandInput,
   ListEntitiesDetectionJobsCommandOutput,
 } from "../commands/ListEntitiesDetectionJobsCommand";
+import {
+  ListEntityRecognizerSummariesCommandInput,
+  ListEntityRecognizerSummariesCommandOutput,
+} from "../commands/ListEntityRecognizerSummariesCommand";
 import {
   ListEntityRecognizersCommandInput,
   ListEntityRecognizersCommandOutput,
@@ -279,6 +287,7 @@ import {
   DocumentClassifierInputDataConfig,
   DocumentClassifierOutputDataConfig,
   DocumentClassifierProperties,
+  DocumentClassifierSummary,
   DocumentLabel,
   DocumentReadFeatureTypes,
   DocumentReaderConfig,
@@ -300,6 +309,7 @@ import {
   EntityRecognizerMetadata,
   EntityRecognizerMetadataEntityTypesListItem,
   EntityRecognizerProperties,
+  EntityRecognizerSummary,
   EntityTypesEvaluationMetrics,
   EntityTypesListItem,
   EventsDetectionJobFilter,
@@ -315,6 +325,8 @@ import {
   KmsKeyValidationException,
   ListDocumentClassificationJobsRequest,
   ListDocumentClassificationJobsResponse,
+  ListDocumentClassifierSummariesRequest,
+  ListDocumentClassifierSummariesResponse,
   ListDocumentClassifiersRequest,
   ListDocumentClassifiersResponse,
   ListDominantLanguageDetectionJobsRequest,
@@ -323,6 +335,8 @@ import {
   ListEndpointsResponse,
   ListEntitiesDetectionJobsRequest,
   ListEntitiesDetectionJobsResponse,
+  ListEntityRecognizerSummariesRequest,
+  ListEntityRecognizerSummariesResponse,
   ListEntityRecognizersRequest,
   ListEntityRecognizersResponse,
   ListEventsDetectionJobsRequest,
@@ -837,6 +851,19 @@ export const serializeAws_json1_1ListDocumentClassifiersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListDocumentClassifierSummariesCommand = async (
+  input: ListDocumentClassifierSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.ListDocumentClassifierSummaries",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListDocumentClassifierSummariesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListDominantLanguageDetectionJobsCommand = async (
   input: ListDominantLanguageDetectionJobsCommandInput,
   context: __SerdeContext
@@ -886,6 +913,19 @@ export const serializeAws_json1_1ListEntityRecognizersCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEntityRecognizersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListEntityRecognizerSummariesCommand = async (
+  input: ListEntityRecognizerSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.ListEntityRecognizerSummaries",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListEntityRecognizerSummariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3878,6 +3918,76 @@ const deserializeAws_json1_1ListDocumentClassifiersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListDocumentClassifierSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentClassifierSummariesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListDocumentClassifierSummariesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListDocumentClassifierSummariesResponse(data, context);
+  const response: ListDocumentClassifierSummariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListDocumentClassifierSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentClassifierSummariesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4145,6 +4255,76 @@ const deserializeAws_json1_1ListEntityRecognizersCommandError = async (
     case "com.amazonaws.comprehend#InvalidFilterException":
       response = {
         ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListEntityRecognizerSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEntityRecognizerSummariesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListEntityRecognizerSummariesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListEntityRecognizerSummariesResponse(data, context);
+  const response: ListEntityRecognizerSummariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListEntityRecognizerSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEntityRecognizerSummariesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6478,6 +6658,7 @@ const serializeAws_json1_1AugmentedManifestsListItem = (
     ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
     ...(input.SourceDocumentsS3Uri !== undefined &&
       input.SourceDocumentsS3Uri !== null && { SourceDocumentsS3Uri: input.SourceDocumentsS3Uri }),
+    ...(input.Split !== undefined && input.Split !== null && { Split: input.Split }),
   };
 };
 
@@ -6574,6 +6755,7 @@ const serializeAws_json1_1CreateDocumentClassifierRequest = (
         OutputDataConfig: serializeAws_json1_1DocumentClassifierOutputDataConfig(input.OutputDataConfig, context),
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VersionName !== undefined && input.VersionName !== null && { VersionName: input.VersionName }),
     ...(input.VolumeKmsKeyId !== undefined &&
       input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VpcConfig !== undefined &&
@@ -6611,6 +6793,7 @@ const serializeAws_json1_1CreateEntityRecognizerRequest = (
     ...(input.RecognizerName !== undefined &&
       input.RecognizerName !== null && { RecognizerName: input.RecognizerName }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VersionName !== undefined && input.VersionName !== null && { VersionName: input.VersionName }),
     ...(input.VolumeKmsKeyId !== undefined &&
       input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VpcConfig !== undefined &&
@@ -6834,6 +7017,8 @@ const serializeAws_json1_1DocumentClassifierFilter = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.DocumentClassifierName !== undefined &&
+      input.DocumentClassifierName !== null && { DocumentClassifierName: input.DocumentClassifierName }),
     ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
     ...(input.SubmitTimeAfter !== undefined &&
       input.SubmitTimeAfter !== null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
@@ -6858,6 +7043,7 @@ const serializeAws_json1_1DocumentClassifierInputDataConfig = (
     ...(input.LabelDelimiter !== undefined &&
       input.LabelDelimiter !== null && { LabelDelimiter: input.LabelDelimiter }),
     ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.TestS3Uri !== undefined && input.TestS3Uri !== null && { TestS3Uri: input.TestS3Uri }),
   };
 };
 
@@ -6931,6 +7117,7 @@ const serializeAws_json1_1EntityRecognizerAnnotations = (
 ): any => {
   return {
     ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.TestS3Uri !== undefined && input.TestS3Uri !== null && { TestS3Uri: input.TestS3Uri }),
   };
 };
 
@@ -6953,7 +7140,9 @@ const serializeAws_json1_1EntityRecognizerDocuments = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.InputFormat !== undefined && input.InputFormat !== null && { InputFormat: input.InputFormat }),
     ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.TestS3Uri !== undefined && input.TestS3Uri !== null && { TestS3Uri: input.TestS3Uri }),
   };
 };
 
@@ -6968,6 +7157,8 @@ const serializeAws_json1_1EntityRecognizerEntityList = (
 
 const serializeAws_json1_1EntityRecognizerFilter = (input: EntityRecognizerFilter, context: __SerdeContext): any => {
   return {
+    ...(input.RecognizerName !== undefined &&
+      input.RecognizerName !== null && { RecognizerName: input.RecognizerName }),
     ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
     ...(input.SubmitTimeAfter !== undefined &&
       input.SubmitTimeAfter !== null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
@@ -7086,6 +7277,16 @@ const serializeAws_json1_1ListDocumentClassifiersRequest = (
   };
 };
 
+const serializeAws_json1_1ListDocumentClassifierSummariesRequest = (
+  input: ListDocumentClassifierSummariesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListDominantLanguageDetectionJobsRequest = (
   input: ListDominantLanguageDetectionJobsRequest,
   context: __SerdeContext
@@ -7128,6 +7329,16 @@ const serializeAws_json1_1ListEntityRecognizersRequest = (
   return {
     ...(input.Filter !== undefined &&
       input.Filter !== null && { Filter: serializeAws_json1_1EntityRecognizerFilter(input.Filter, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListEntityRecognizerSummariesRequest = (
+  input: ListEntityRecognizerSummariesRequest,
+  context: __SerdeContext
+): any => {
+  return {
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
@@ -7652,8 +7863,12 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
 
 const serializeAws_json1_1UpdateEndpointRequest = (input: UpdateEndpointRequest, context: __SerdeContext): any => {
   return {
+    ...(input.DesiredDataAccessRoleArn !== undefined &&
+      input.DesiredDataAccessRoleArn !== null && { DesiredDataAccessRoleArn: input.DesiredDataAccessRoleArn }),
     ...(input.DesiredInferenceUnits !== undefined &&
       input.DesiredInferenceUnits !== null && { DesiredInferenceUnits: input.DesiredInferenceUnits }),
+    ...(input.DesiredModelArn !== undefined &&
+      input.DesiredModelArn !== null && { DesiredModelArn: input.DesiredModelArn }),
     ...(input.EndpointArn !== undefined && input.EndpointArn !== null && { EndpointArn: input.EndpointArn }),
   };
 };
@@ -7693,6 +7908,7 @@ const deserializeAws_json1_1AugmentedManifestsListItem = (
     DocumentType: __expectString(output.DocumentType),
     S3Uri: __expectString(output.S3Uri),
     SourceDocumentsS3Uri: __expectString(output.SourceDocumentsS3Uri),
+    Split: __expectString(output.Split),
   } as any;
 };
 
@@ -8263,6 +8479,7 @@ const deserializeAws_json1_1DocumentClassifierInputDataConfig = (
     DataFormat: __expectString(output.DataFormat),
     LabelDelimiter: __expectString(output.LabelDelimiter),
     S3Uri: __expectString(output.S3Uri),
+    TestS3Uri: __expectString(output.TestS3Uri),
   } as any;
 };
 
@@ -8316,6 +8533,7 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
       output.TrainingStartTime !== undefined && output.TrainingStartTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingStartTime)))
         : undefined,
+    VersionName: __expectString(output.VersionName),
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
@@ -8336,6 +8554,36 @@ const deserializeAws_json1_1DocumentClassifierPropertiesList = (
       }
       return deserializeAws_json1_1DocumentClassifierProperties(entry, context);
     });
+};
+
+const deserializeAws_json1_1DocumentClassifierSummariesList = (
+  output: any,
+  context: __SerdeContext
+): DocumentClassifierSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DocumentClassifierSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1DocumentClassifierSummary = (
+  output: any,
+  context: __SerdeContext
+): DocumentClassifierSummary => {
+  return {
+    DocumentClassifierName: __expectString(output.DocumentClassifierName),
+    LatestVersionCreatedAt:
+      output.LatestVersionCreatedAt !== undefined && output.LatestVersionCreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestVersionCreatedAt)))
+        : undefined,
+    LatestVersionName: __expectString(output.LatestVersionName),
+    LatestVersionStatus: __expectString(output.LatestVersionStatus),
+    NumberOfVersions: __expectInt32(output.NumberOfVersions),
+  } as any;
 };
 
 const deserializeAws_json1_1DocumentLabel = (output: any, context: __SerdeContext): DocumentLabel => {
@@ -8420,7 +8668,9 @@ const deserializeAws_json1_1EndpointProperties = (output: any, context: __SerdeC
         : undefined,
     CurrentInferenceUnits: __expectInt32(output.CurrentInferenceUnits),
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
+    DesiredDataAccessRoleArn: __expectString(output.DesiredDataAccessRoleArn),
     DesiredInferenceUnits: __expectInt32(output.DesiredInferenceUnits),
+    DesiredModelArn: __expectString(output.DesiredModelArn),
     EndpointArn: __expectString(output.EndpointArn),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
@@ -8517,6 +8767,7 @@ const deserializeAws_json1_1EntityRecognizerAnnotations = (
 ): EntityRecognizerAnnotations => {
   return {
     S3Uri: __expectString(output.S3Uri),
+    TestS3Uri: __expectString(output.TestS3Uri),
   } as any;
 };
 
@@ -8539,7 +8790,9 @@ const deserializeAws_json1_1EntityRecognizerDocuments = (
   context: __SerdeContext
 ): EntityRecognizerDocuments => {
   return {
+    InputFormat: __expectString(output.InputFormat),
     S3Uri: __expectString(output.S3Uri),
+    TestS3Uri: __expectString(output.TestS3Uri),
   } as any;
 };
 
@@ -8673,6 +8926,7 @@ const deserializeAws_json1_1EntityRecognizerProperties = (
       output.TrainingStartTime !== undefined && output.TrainingStartTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingStartTime)))
         : undefined,
+    VersionName: __expectString(output.VersionName),
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
@@ -8693,6 +8947,36 @@ const deserializeAws_json1_1EntityRecognizerPropertiesList = (
       }
       return deserializeAws_json1_1EntityRecognizerProperties(entry, context);
     });
+};
+
+const deserializeAws_json1_1EntityRecognizerSummariesList = (
+  output: any,
+  context: __SerdeContext
+): EntityRecognizerSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EntityRecognizerSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1EntityRecognizerSummary = (
+  output: any,
+  context: __SerdeContext
+): EntityRecognizerSummary => {
+  return {
+    LatestVersionCreatedAt:
+      output.LatestVersionCreatedAt !== undefined && output.LatestVersionCreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestVersionCreatedAt)))
+        : undefined,
+    LatestVersionName: __expectString(output.LatestVersionName),
+    LatestVersionStatus: __expectString(output.LatestVersionStatus),
+    NumberOfVersions: __expectInt32(output.NumberOfVersions),
+    RecognizerName: __expectString(output.RecognizerName),
+  } as any;
 };
 
 const deserializeAws_json1_1EntityTypesEvaluationMetrics = (
@@ -8911,6 +9195,19 @@ const deserializeAws_json1_1ListDocumentClassifiersResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListDocumentClassifierSummariesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListDocumentClassifierSummariesResponse => {
+  return {
+    DocumentClassifierSummariesList:
+      output.DocumentClassifierSummariesList !== undefined && output.DocumentClassifierSummariesList !== null
+        ? deserializeAws_json1_1DocumentClassifierSummariesList(output.DocumentClassifierSummariesList, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListDominantLanguageDetectionJobsResponse = (
   output: any,
   context: __SerdeContext
@@ -8959,6 +9256,19 @@ const deserializeAws_json1_1ListEntityRecognizersResponse = (
     EntityRecognizerPropertiesList:
       output.EntityRecognizerPropertiesList !== undefined && output.EntityRecognizerPropertiesList !== null
         ? deserializeAws_json1_1EntityRecognizerPropertiesList(output.EntityRecognizerPropertiesList, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListEntityRecognizerSummariesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListEntityRecognizerSummariesResponse => {
+  return {
+    EntityRecognizerSummariesList:
+      output.EntityRecognizerSummariesList !== undefined && output.EntityRecognizerSummariesList !== null
+        ? deserializeAws_json1_1EntityRecognizerSummariesList(output.EntityRecognizerSummariesList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;

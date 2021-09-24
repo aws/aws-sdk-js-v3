@@ -202,7 +202,7 @@ export interface UpdateAccountPasswordPolicyRequest {
   RequireLowercaseCharacters?: boolean;
 
   /**
-   * <p> Allows all IAM users in your account to use the Management Console to change their own
+   * <p> Allows all IAM users in your account to use the Amazon Web Services Management Console to change their own
    *             passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html">Letting IAM users change their own
    *                 passwords</a> in the <i>IAM User Guide</i>.</p>
    *         <p>If you do not specify a value for this parameter, then the operation uses the default
@@ -351,7 +351,7 @@ export interface UpdateLoginProfileRequest {
    *             </li>
    *          </ul>
    *         <p>However, the format can be further restricted by the account administrator by setting
-   *             a password policy on the account. For more information, see <a>UpdateAccountPasswordPolicy</a>.</p>
+   *             a password policy on the Amazon Web Services account. For more information, see <a>UpdateAccountPasswordPolicy</a>.</p>
    */
   Password?: string;
 

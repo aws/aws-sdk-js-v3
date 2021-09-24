@@ -1292,40 +1292,49 @@ export interface DescribeVpnConnectionsRequest {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>customer-gateway-configuration</code> - The configuration information for the customer gateway.</p>
+   *                   <code>customer-gateway-configuration</code> - The configuration information
+   *                     for the customer gateway.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>customer-gateway-id</code> - The ID of a customer gateway associated with the VPN connection.</p>
+   *                   <code>customer-gateway-id</code> - The ID of a customer gateway associated
+   *                     with the VPN connection.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>state</code> - The state of the VPN connection (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+   *                   <code>state</code> - The state of the VPN connection (<code>pending</code> |
+   *                         <code>available</code> | <code>deleting</code> |
+   *                     <code>deleted</code>).</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>option.static-routes-only</code> - Indicates whether the connection has static routes only. Used for devices that do not support Border Gateway Protocol (BGP).</p>
+   *                   <code>option.static-routes-only</code> - Indicates whether the connection has
+   *                     static routes only. Used for devices that do not support Border Gateway Protocol
+   *                     (BGP).</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>route.destination-cidr-block</code> - The destination CIDR block. This corresponds to the subnet used in a customer data center.</p>
+   *                   <code>route.destination-cidr-block</code> - The destination CIDR block. This
+   *                     corresponds to the subnet used in a customer data center.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with a BGP device.</p>
+   *                   <code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with
+   *                     a BGP device.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>type</code> - The type of VPN connection. Currently the only supported type is <code>ipsec.1</code>.</p>
+   *                   <code>type</code> - The type of VPN connection. Currently the only supported
+   *                     type is <code>ipsec.1</code>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1333,11 +1342,13 @@ export interface DescribeVpnConnectionsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>vpn-gateway-id</code> - The ID of a virtual private gateway associated with the VPN connection.</p>
+   *                   <code>vpn-gateway-id</code> - The ID of a virtual private gateway associated
+   *                     with the VPN connection.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>transit-gateway-id</code> - The ID of a transit gateway associated with the VPN connection.</p>
+   *                   <code>transit-gateway-id</code> - The ID of a transit gateway associated with
+   *                     the VPN connection.</p>
    *             </li>
    *          </ul>
    */
@@ -1350,9 +1361,10 @@ export interface DescribeVpnConnectionsRequest {
   VpnConnectionIds?: string[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -1393,12 +1405,15 @@ export interface DescribeVpnGatewaysRequest {
    * <p>One or more filters.</p>
    *         <ul>
    *             <li>
-   * 				           <p>
-   *                   <code>amazon-side-asn</code> - The Autonomous System Number (ASN) for the Amazon side of the gateway.</p>
-   * 			         </li>
+   *                 <p>
+   *                   <code>amazon-side-asn</code> - The Autonomous System Number (ASN) for the
+   *                     Amazon side of the gateway.</p>
+   *             </li>
    *             <li>
    *                 <p>
-   *                   <code>attachment.state</code> - The current state of the attachment between the gateway and the VPC (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+   *                   <code>attachment.state</code> - The current state of the attachment between
+   *                     the gateway and the VPC (<code>attaching</code> | <code>attached</code> |
+   *                         <code>detaching</code> | <code>detached</code>).</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1406,24 +1421,28 @@ export interface DescribeVpnGatewaysRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>availability-zone</code> - The Availability Zone for the virtual private gateway (if applicable).</p>
+   *                   <code>availability-zone</code> - The Availability Zone for the virtual private
+   *                     gateway (if applicable).</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>state</code> - The state of the virtual private gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+   *                   <code>state</code> - The state of the virtual private gateway
+   *                         (<code>pending</code> | <code>available</code> | <code>deleting</code> |
+   *                         <code>deleted</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>type</code> - The type of virtual private gateway. Currently the only supported type is <code>ipsec.1</code>.</p>
+   *                   <code>type</code> - The type of virtual private gateway. Currently the only
+   *                     supported type is <code>ipsec.1</code>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1440,9 +1459,10 @@ export interface DescribeVpnGatewaysRequest {
   VpnGatewayIds?: string[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -1653,9 +1673,10 @@ export interface DetachVpnGatewayRequest {
   VpnGatewayId: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -2078,9 +2099,10 @@ export interface DisableVgwRoutePropagationRequest {
   RouteTableId: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -3005,19 +3027,23 @@ export namespace EnableTransitGatewayRouteTablePropagationResult {
  */
 export interface EnableVgwRoutePropagationRequest {
   /**
-   * <p>The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with. </p>
+   * <p>The ID of the virtual private gateway that is attached to a VPC. The virtual private
+   *             gateway must be attached to the same VPC that the routing tables are associated with.
+   *         </p>
    */
   GatewayId: string | undefined;
 
   /**
-   * <p>The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to. </p>
+   * <p>The ID of the route table. The routing table must be associated with the same VPC that
+   *             the virtual private gateway is attached to. </p>
    */
   RouteTableId: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -5499,6 +5525,163 @@ export namespace GetTransitGatewayRouteTablePropagationsResult {
   });
 }
 
+export interface GetVpnConnectionDeviceSampleConfigurationRequest {
+  /**
+   * <p>The <code>VpnConnectionId</code> specifies the Site-to-Site VPN connection used for the sample
+   *             configuration.</p>
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>Device identifier provided by the <code>GetVpnConnectionDeviceTypes</code> API.</p>
+   */
+  VpnConnectionDeviceTypeId: string | undefined;
+
+  /**
+   * <p>The IKE version to be used in the sample configuration file for your customer gateway
+   *             device. You can specify one of the following versions: <code>ikev1</code> or
+   *                 <code>ikev2</code>.</p>
+   */
+  InternetKeyExchangeVersion?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetVpnConnectionDeviceSampleConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVpnConnectionDeviceSampleConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetVpnConnectionDeviceSampleConfigurationResult {
+  /**
+   * <p>Sample configuration file for the specified customer gateway device.</p>
+   */
+  VpnConnectionDeviceSampleConfiguration?: string;
+}
+
+export namespace GetVpnConnectionDeviceSampleConfigurationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVpnConnectionDeviceSampleConfigurationResult): any => ({
+    ...obj,
+    ...(obj.VpnConnectionDeviceSampleConfiguration && { VpnConnectionDeviceSampleConfiguration: SENSITIVE_STRING }),
+  });
+}
+
+export interface GetVpnConnectionDeviceTypesRequest {
+  /**
+   * <p>The maximum number of results returned by <code>GetVpnConnectionDeviceTypes</code> in
+   *             paginated output. When this parameter is used, <code>GetVpnConnectionDeviceTypes</code>
+   *             only returns <code>MaxResults</code> results in a single page along with a
+   *                 <code>NextToken</code> response element. The remaining results of the initial
+   *             request can be seen by sending another <code>GetVpnConnectionDeviceTypes</code> request
+   *             with the returned <code>NextToken</code> value. This value can be between 200 and 1000.
+   *             If this parameter is not used, then <code>GetVpnConnectionDeviceTypes</code> returns all
+   *             results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The <code>NextToken</code> value returned from a previous paginated
+   *                 <code>GetVpnConnectionDeviceTypes</code> request where <code>MaxResults</code> was
+   *             used and the results exceeded the value of that parameter. Pagination continues from the
+   *             end of the previous results that returned the <code>NextToken</code> value. This value
+   *             is null when there are no more results to return. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetVpnConnectionDeviceTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVpnConnectionDeviceTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>List of customer gateway devices that have a sample configuration file available for
+ *             use. You can also see the list of device types with sample configuration files available
+ *             under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer
+ *                 gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+ */
+export interface VpnConnectionDeviceType {
+  /**
+   * <p>Customer gateway device identifier.</p>
+   */
+  VpnConnectionDeviceTypeId?: string;
+
+  /**
+   * <p>Customer gateway device vendor.</p>
+   */
+  Vendor?: string;
+
+  /**
+   * <p>Customer gateway device platform.</p>
+   */
+  Platform?: string;
+
+  /**
+   * <p>Customer gateway device software version.</p>
+   */
+  Software?: string;
+}
+
+export namespace VpnConnectionDeviceType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpnConnectionDeviceType): any => ({
+    ...obj,
+  });
+}
+
+export interface GetVpnConnectionDeviceTypesResult {
+  /**
+   * <p>List of customer gateway devices that have a sample configuration file available for
+   *             use.</p>
+   */
+  VpnConnectionDeviceTypes?: VpnConnectionDeviceType[];
+
+  /**
+   * <p>The <code>NextToken</code> value to include in a future
+   *                 <code>GetVpnConnectionDeviceTypes</code> request. When the results of a
+   *                 <code>GetVpnConnectionDeviceTypes</code> request exceed <code>MaxResults</code>,
+   *             this value can be used to retrieve the next page of results. This value is null when
+   *             there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetVpnConnectionDeviceTypesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVpnConnectionDeviceTypesResult): any => ({
+    ...obj,
+  });
+}
+
 export interface ImportClientVpnClientCertificateRevocationListRequest {
   /**
    * <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
@@ -5507,7 +5690,7 @@ export interface ImportClientVpnClientCertificateRevocationListRequest {
 
   /**
    * <p>The client certificate revocation list file. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate a Client Certificate Revocation List</a> in the
-   * 				<i>AWS Client VPN Administrator Guide</i>.</p>
+   * 				<i>Client VPN Administrator Guide</i>.</p>
    */
   CertificateRevocationList: string | undefined;
 
@@ -6590,7 +6773,8 @@ export interface ModifyClientVpnEndpointRequest {
   ClientVpnEndpointId: string | undefined;
 
   /**
-   * <p>The ARN of the server certificate to be used. The server certificate must be provisioned in AWS Certificate Manager (ACM).</p>
+   * <p>The ARN of the server certificate to be used. The server certificate must be provisioned in
+   * 			Certificate Manager (ACM).</p>
    */
   ServerCertificateArn?: string;
 
@@ -6637,8 +6821,8 @@ export interface ModifyClientVpnEndpointRequest {
 
   /**
    * <p>Indicates whether the VPN is split-tunnel.</p>
-   *         <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS
-   *                 Client VPN Administrator Guide</i>.</p>
+   *         <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
+   *         	<i>Client VPN Administrator Guide</i>.</p>
    */
   SplitTunnel?: boolean;
 
@@ -7912,10 +8096,12 @@ export interface ModifyInstancePlacementRequest {
   /**
    * <p>The tenancy for the instance.</p>
    *
-   *         <p>For T3 instances, you can't change the tenancy from <code>dedicated</code> to
-   *             <code>host</code>, or from <code>host</code> to <code>dedicated</code>. Attempting
-   *             to make one of these unsupported tenancy changes results in the <code>InvalidTenancy</code>
-   *             error code.</p>
+   *         <note>
+   *             <p>For T3 instances, you can't change the tenancy from <code>dedicated</code>
+   *             to <code>host</code>, or from <code>host</code> to <code>dedicated</code>.
+   *             Attempting to make one of these unsupported tenancy changes results in the
+   *             <code>InvalidTenancy</code> error code.</p>
+   *          </note>
    */
   Tenancy?: HostTenancy | string;
 
@@ -9326,167 +9512,6 @@ export namespace ModifyVpcEndpointConnectionNotificationResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModifyVpcEndpointConnectionNotificationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpcEndpointServiceConfigurationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the service.</p>
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>(Interface endpoint configuration) The private DNS name to assign to the endpoint service.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
-   */
-  RemovePrivateDnsName?: boolean;
-
-  /**
-   * <p>Indicates whether requests to create an endpoint to your service must be accepted.</p>
-   */
-  AcceptanceRequired?: boolean;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service
-   *             configuration.</p>
-   */
-  AddNetworkLoadBalancerArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service
-   *             configuration.</p>
-   */
-  RemoveNetworkLoadBalancerArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service
-   *             configuration.</p>
-   */
-  AddGatewayLoadBalancerArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service
-   *             configuration.</p>
-   */
-  RemoveGatewayLoadBalancerArns?: string[];
-}
-
-export namespace ModifyVpcEndpointServiceConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpcEndpointServiceConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpcEndpointServiceConfigurationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace ModifyVpcEndpointServiceConfigurationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpcEndpointServiceConfigurationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpcEndpointServicePermissionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the service.</p>
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of one or more principals.
-   * 	        Permissions are granted to the principals in this list.
-   * 	        To grant permissions to all principals, specify an asterisk (*).</p>
-   */
-  AddAllowedPrincipals?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of one or more principals.
-   * 	        Permissions are revoked for principals in this list.</p>
-   */
-  RemoveAllowedPrincipals?: string[];
-}
-
-export namespace ModifyVpcEndpointServicePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpcEndpointServicePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpcEndpointServicePermissionsResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  ReturnValue?: boolean;
-}
-
-export namespace ModifyVpcEndpointServicePermissionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpcEndpointServicePermissionsResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The VPC peering connection options.</p>
- */
-export interface PeeringConnectionOptionsRequest {
-  /**
-   * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.</p>
-   */
-  AllowDnsResolutionFromRemoteVpc?: boolean;
-
-  /**
-   * <p>If true, enables outbound communication from an EC2-Classic instance that's linked to
-   *             a local VPC using ClassicLink to instances in a peer VPC.</p>
-   */
-  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
-
-  /**
-   * <p>If true, enables outbound communication from instances in a local VPC to an
-   *             EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
-   */
-  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
-}
-
-export namespace PeeringConnectionOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PeeringConnectionOptionsRequest): any => ({
     ...obj,
   });
 }

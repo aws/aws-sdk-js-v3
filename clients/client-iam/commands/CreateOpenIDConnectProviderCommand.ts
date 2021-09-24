@@ -47,7 +47,7 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *                     uses</p>
  *             </li>
  *          </ul>
- *         <p>You get all of this information from the OIDC IdP that you want to use to access
+ *         <p>You get all of this information from the OIDC IdP you want to use to access
  *             Amazon Web Services.</p>
  *         <note>
  *             <p>Amazon Web Services secures communication with some OIDC identity providers (IdPs) through our

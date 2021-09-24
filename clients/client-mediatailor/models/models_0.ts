@@ -441,6 +441,25 @@ export namespace LivePreRollConfiguration {
 }
 
 /**
+ * <p>Returns Amazon CloudWatch log settings for a playback configuration.</p>
+ */
+export interface LogConfiguration {
+  /**
+   * <p>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p> <p>Valid values: 0 - 100</p>
+   */
+  PercentEnabled: number | undefined;
+}
+
+export namespace LogConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LogConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest.</p> <p>No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.</p>
  */
 export interface AdMarkerPassthrough {
@@ -521,6 +540,11 @@ export interface PlaybackConfiguration {
    * <p>The configuration for pre-roll ad insertion.</p>
    */
   LivePreRollConfiguration?: LivePreRollConfiguration;
+
+  /**
+   * <p>The Amazon CloudWatch log settings for a playback configuration.</p>
+   */
+  LogConfiguration?: LogConfiguration;
 
   /**
    * <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
@@ -937,6 +961,51 @@ export enum ChannelState {
 }
 
 /**
+ * <p>Configures Amazon CloudWatch log settings for a playback configuration.</p>
+ */
+export interface ConfigureLogsForPlaybackConfigurationRequest {
+  /**
+   * <p>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p> <p>Valid values: 0 - 100</p>
+   */
+  PercentEnabled: number | undefined;
+
+  /**
+   * <p>The name of the playback configuration.</p>
+   */
+  PlaybackConfigurationName: string | undefined;
+}
+
+export namespace ConfigureLogsForPlaybackConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConfigureLogsForPlaybackConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ConfigureLogsForPlaybackConfigurationResponse {
+  /**
+   * <p>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account.</p>
+   */
+  PercentEnabled?: number;
+
+  /**
+   * <p>The name of the playback configuration.</p>
+   */
+  PlaybackConfigurationName?: string;
+}
+
+export namespace ConfigureLogsForPlaybackConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConfigureLogsForPlaybackConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The output configuration for this channel.</p>
  */
 export interface RequestOutputItem {
@@ -982,7 +1051,7 @@ export interface CreateChannelRequest {
   ChannelName: string | undefined;
 
   /**
-   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses an LINEAR PlaybackMode.</p>
+   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses a LINEAR PlaybackMode.</p>
    */
   FillerSlate?: SlateSource;
 
@@ -1997,6 +2066,11 @@ export interface GetPlaybackConfigurationResponse {
   LivePreRollConfiguration?: LivePreRollConfiguration;
 
   /**
+   * <p>The Amazon CloudWatch log settings for a playback configuration.</p>
+   */
+  LogConfiguration?: LogConfiguration;
+
+  /**
    * <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
    */
   ManifestProcessingRules?: ManifestProcessingRules;
@@ -2461,6 +2535,11 @@ export interface PutPlaybackConfigurationResponse {
    * <p>The configuration for pre-roll ad insertion.</p>
    */
   LivePreRollConfiguration?: LivePreRollConfiguration;
+
+  /**
+   * <p>The Amazon CloudWatch log settings for a playback configuration.</p>
+   */
+  LogConfiguration?: LogConfiguration;
 
   /**
    * <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>

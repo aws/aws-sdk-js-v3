@@ -1,3 +1,7 @@
+import {
+  ConfigureLogsForPlaybackConfigurationCommandInput,
+  ConfigureLogsForPlaybackConfigurationCommandOutput,
+} from "./commands/ConfigureLogsForPlaybackConfigurationCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import { CreateProgramCommandInput, CreateProgramCommandOutput } from "./commands/CreateProgramCommand";
 import {
@@ -116,6 +120,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | ConfigureLogsForPlaybackConfigurationCommandInput
   | CreateChannelCommandInput
   | CreateProgramCommandInput
   | CreateSourceLocationCommandInput
@@ -150,6 +155,7 @@ export type ServiceInputTypes =
   | UpdateVodSourceCommandInput;
 
 export type ServiceOutputTypes =
+  | ConfigureLogsForPlaybackConfigurationCommandOutput
   | CreateChannelCommandOutput
   | CreateProgramCommandOutput
   | CreateSourceLocationCommandOutput

@@ -1,11 +1,11 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>Contains settings for the SSM agent on your build instance.</p>
+ * <p>Contains settings for the Systems Manager agent on your build instance.</p>
  */
 export interface SystemsManagerAgent {
   /**
-   * <p>Controls whether the SSM agent is removed from your final build image, prior to creating
+   * <p>Controls whether the Systems Manager agent is removed from your final build image, prior to creating
    * 			the new AMI. If this is set to true, then the agent is removed from the final image. If it's
    * 			set to false, then the agent is left in, so that it is included in the new AMI. The default
    * 			value is false.</p>
@@ -24,13 +24,13 @@ export namespace SystemsManagerAgent {
 
 /**
  * <p>In addition to your infrastruction configuration, these settings provide an extra layer of
- * 			control over your build instances. For instances where Image Builder installs the SSM agent,
+ * 			control over your build instances. For instances where Image Builder installs the Systems Manager agent,
  * 			you can choose whether to keep it for the AMI that you create. You can also specify commands
  * 			to run on launch for all of your build instances.</p>
  */
 export interface AdditionalInstanceConfiguration {
   /**
-   * <p>Contains settings for the SSM agent on your build instance.</p>
+   * <p>Contains settings for the Systems Manager agent on your build instance.</p>
    */
   systemsManagerAgent?: SystemsManagerAgent;
 
@@ -39,8 +39,8 @@ export interface AdditionalInstanceConfiguration {
    * 			your build instance.</p>
    * 		       <note>
    * 			         <p>The userDataOverride property replaces any commands that Image Builder might have added to ensure
-   * 				that SSM is installed on your Linux build instance. If you override the user data,
-   * 				make sure that you add commands to install SSM, if it is not pre-installed on your
+   * 				that Systems Manager is installed on your Linux build instance. If you override the user data,
+   * 				make sure that you add commands to install Systems Manager, if it is not pre-installed on your
    * 				source image.</p>
    * 		       </note>
    */
@@ -445,6 +445,35 @@ export enum Platform {
   WINDOWS = "Windows",
 }
 
+export enum ComponentStatus {
+  DEPRECATED = "DEPRECATED",
+}
+
+/**
+ * <p>A group of fields that describe the current status of components
+ * 			that are no longer active.</p>
+ */
+export interface ComponentState {
+  /**
+   * <p>The current state of the component.</p>
+   */
+  status?: ComponentStatus | string;
+
+  /**
+   * <p>Describes how or why the component changed state.</p>
+   */
+  reason?: string;
+}
+
+export namespace ComponentState {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ComponentState): any => ({
+    ...obj,
+  });
+}
+
 export enum ComponentType {
   BUILD = "BUILD",
   TEST = "TEST",
@@ -496,6 +525,12 @@ export interface Component {
    * 			creation.</p>
    */
   supportedOsVersions?: string[];
+
+  /**
+   * <p>Describes the current status of the component. This is used for
+   * 			components that are no longer active.</p>
+   */
+  state?: ComponentState;
 
   /**
    * <p>Contains parameter details for each of the parameters that are defined for the component.</p>
@@ -626,6 +661,11 @@ export interface ComponentSummary {
   supportedOsVersions?: string[];
 
   /**
+   * <p>Describes the current status of the component.</p>
+   */
+  state?: ComponentState;
+
+  /**
    * <p>The type of the component denotes whether the component is used to build the image or only
    * 			to test it.</p>
    */
@@ -704,17 +744,16 @@ export interface ComponentVersion {
    * 			         <p>
    *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
    * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
-   * 	build number, and that is not open for updates.</p>
+   * 	build number to the fourth node.</p>
    * 			         <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
    * 	a date, such as 2021.01.01.</p>
    * 			         <p>
-   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
-   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
-   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
-   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
-   * 	automatically uses a wildcard for that, if applicable.</p>
+   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
+   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
+   * 	wildcards.</p>
    * 		       </note>
    */
   version?: string;
@@ -895,6 +934,13 @@ export interface EbsInstanceBlockDeviceSpecification {
    * <p>Use to override the device's volume type.</p>
    */
   volumeType?: EbsVolumeType | string;
+
+  /**
+   * <p>
+   *             <b>For GP3 volumes only</b> –
+   * 			The throughput in MiB/s that the volume supports. </p>
+   */
+  throughput?: number;
 }
 
 export namespace EbsInstanceBlockDeviceSpecification {
@@ -1024,17 +1070,16 @@ export interface ContainerRecipe {
    * 			         <p>
    *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
    * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
-   * 	build number, and that is not open for updates.</p>
+   * 	build number to the fourth node.</p>
    * 			         <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
    * 	a date, such as 2021.01.01.</p>
    * 			         <p>
-   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
-   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
-   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
-   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
-   * 	automatically uses a wildcard for that, if applicable.</p>
+   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
+   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
+   * 	wildcards.</p>
    * 		       </note>
    */
   version?: string;
@@ -1167,7 +1212,7 @@ export interface CreateComponentRequest {
    * 			         <p>
    *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
    * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
-   * 	build number, and that is not open for updates.</p>
+   * 	build number to the fourth node.</p>
    * 			         <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
@@ -1343,7 +1388,7 @@ export interface CreateContainerRecipeRequest {
    * 			         <p>
    *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
    * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
-   * 	build number, and that is not open for updates.</p>
+   * 	build number to the fourth node.</p>
    * 			         <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
@@ -1879,7 +1924,7 @@ export interface CreateImageRecipeRequest {
    * 			         <p>
    *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
    * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
-   * 	build number, and that is not open for updates.</p>
+   * 	build number to the fourth node.</p>
    * 			         <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
@@ -1965,6 +2010,57 @@ export namespace CreateImageRecipeResponse {
 }
 
 /**
+ * <p>The instance metadata options that apply to the HTTP requests that
+ * 			pipeline builds use to launch EC2 build and test instances. For more
+ * 			information about instance metadata options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
+ * 				the instance metadata options</a> in the <i>
+ *                <i>Amazon EC2 User Guide</i>
+ *             </i>
+ * 			for Linux instances, or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure
+ * 				the instance metadata options</a> in the <i>
+ *                <i>Amazon EC2 Windows Guide</i>
+ *             </i>
+ * 			for Windows instances.</p>
+ */
+export interface InstanceMetadataOptions {
+  /**
+   * <p>Indicates whether a signed token header is required for instance metadata retrieval requests.
+   * 			The values affect the response as follows:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <b>required</b> – When you retrieve the
+   * 					IAM role credentials, version 2.0 credentials are returned in all cases.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <b>optional</b> – You can include a signed token header
+   * 					in your request to retrieve instance metadata, or you can leave it out. If you
+   * 					include it, version 2.0 credentials are returned for the IAM role. Otherwise,
+   * 					version 1.0 credentials are returned.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>The default setting is <b>optional</b>.</p>
+   */
+  httpTokens?: string;
+
+  /**
+   * <p>Limit the number of hops that an instance metadata request can traverse to reach its
+   * 			destination.</p>
+   */
+  httpPutResponseHopLimit?: number;
+}
+
+export namespace InstanceMetadataOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceMetadataOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Amazon S3 logging configuration.</p>
  */
 export interface S3Logs {
@@ -2019,9 +2115,27 @@ export interface CreateInfrastructureConfigurationRequest {
   description?: string;
 
   /**
-   * <p>The instance types of the infrastructure configuration. You can specify one or more
-   * 			instance types to use for this build. The service will pick one of these instance types based
-   * 			on availability.</p>
+   * <p>The instance metadata options that you can set for the HTTP requests that pipeline builds
+   * 			use to launch EC2 build and test instances. For more information about instance metadata
+   * 			options, see one of the following links:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
+   * 					the instance metadata options</a> in the <i>
+   *                      <i>Amazon EC2 User Guide</i>
+   *                   </i>
+   * 					for Linux instances.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure
+   * 					the instance metadata options</a> in the <i>
+   *                      <i>Amazon EC2 Windows Guide</i>
+   *                   </i>
+   * 					for Windows instances.</p>
+   * 			         </li>
+   *          </ul>
    */
   instanceTypes?: string[];
 
@@ -2046,7 +2160,7 @@ export interface CreateInfrastructureConfigurationRequest {
   logging?: Logging;
 
   /**
-   * <p>The key pair of the infrastructure configuration. This can be used to log on to and debug
+   * <p>The key pair of the infrastructure configuration. You can use this to log on to and debug
    * 			the instance used to create your image.</p>
    */
   keyPair?: string;
@@ -2067,6 +2181,12 @@ export interface CreateInfrastructureConfigurationRequest {
    * <p>The tags attached to the resource created by Image Builder.</p>
    */
   resourceTags?: { [key: string]: string };
+
+  /**
+   * <p>The instance metadata options that you can set for the HTTP requests that
+   * 			pipeline builds use to launch EC2 build and test instances.</p>
+   */
+  instanceMetadataOptions?: InstanceMetadataOptions;
 
   /**
    * <p>The tags of the infrastructure configuration.</p>
@@ -2247,7 +2367,7 @@ export namespace DeleteDistributionConfigurationResponse {
 
 export interface DeleteImageRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image to delete.</p>
+   * <p>The Amazon Resource Name (ARN) of the Image Builder image resource to delete.</p>
    */
   imageBuildVersionArn: string | undefined;
 }
@@ -2268,7 +2388,7 @@ export interface DeleteImageResponse {
   requestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image that was deleted.</p>
+   * <p>The Amazon Resource Name (ARN) of the Image Builder image resource that was deleted.</p>
    */
   imageBuildVersionArn?: string;
 }
@@ -2913,6 +3033,11 @@ export interface InfrastructureConfiguration {
   resourceTags?: { [key: string]: string };
 
   /**
+   * <p>The instance metadata option settings for the infrastructure configuration.</p>
+   */
+  instanceMetadataOptions?: InstanceMetadataOptions;
+
+  /**
    * <p>The tags of the infrastructure configuration.</p>
    */
   tags?: { [key: string]: string };
@@ -2996,17 +3121,16 @@ export interface Image {
    * 			         <p>
    *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
    * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
-   * 	build number, and that is not open for updates.</p>
+   * 	build number to the fourth node.</p>
    * 			         <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
    * 	a date, such as 2021.01.01.</p>
    * 			         <p>
-   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
-   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
-   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
-   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
-   * 	automatically uses a wildcard for that, if applicable.</p>
+   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
+   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
+   * 	wildcards.</p>
    * 		       </note>
    */
   version?: string;
@@ -3423,11 +3547,10 @@ export interface ImportComponentRequest {
    * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    * 			         <p>
-   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
-   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
-   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
-   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
-   * 	automatically uses a wildcard for that, if applicable.</p>
+   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
+   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
+   * 	wildcards.</p>
    * 		       </note>
    */
   semanticVersion: string | undefined;
@@ -4477,17 +4600,16 @@ export interface ImageVersion {
    * 			         <p>
    *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
    * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
-   * 	build number, and that is not open for updates.</p>
+   * 	build number to the fourth node.</p>
    * 			         <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
    * 	a date, such as 2021.01.01.</p>
    * 			         <p>
-   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
-   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
-   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
-   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
-   * 	automatically uses a wildcard for that, if applicable.</p>
+   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
+   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
+   * 	wildcards.</p>
    * 		       </note>
    */
   version?: string;
@@ -4535,11 +4657,10 @@ export interface ListImagesResponse {
    * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    * 			         <p>
-   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
-   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
-   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
-   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
-   * 	automatically uses a wildcard for that, if applicable.</p>
+   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
+   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
+   * 	wildcards.</p>
    * 		       </note>
    */
   imageVersionList?: ImageVersion[];
@@ -5218,7 +5339,7 @@ export interface UpdateInfrastructureConfigurationRequest {
   logging?: Logging;
 
   /**
-   * <p>The key pair of the infrastructure configuration. This can be used to log on to and debug
+   * <p>The key pair of the infrastructure configuration. You can use this to log on to and debug
    * 			the instance used to create your image.</p>
    */
   keyPair?: string;
@@ -5244,6 +5365,31 @@ export interface UpdateInfrastructureConfigurationRequest {
    * <p>The tags attached to the resource created by Image Builder.</p>
    */
   resourceTags?: { [key: string]: string };
+
+  /**
+   * <p>The instance metadata options that you can set for the HTTP requests that pipeline builds
+   * 			use to launch EC2 build and test instances. For more information about instance metadata
+   * 			options, see one of the following links:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
+   * 					the instance metadata options</a> in the <i>
+   *                      <i>Amazon EC2 User Guide</i>
+   *                   </i>
+   * 					for Linux instances.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure
+   * 					the instance metadata options</a> in the <i>
+   *                      <i>Amazon EC2 Windows Guide</i>
+   *                   </i>
+   * 					for Windows instances.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  instanceMetadataOptions?: InstanceMetadataOptions;
 }
 
 export namespace UpdateInfrastructureConfigurationRequest {

@@ -1201,6 +1201,14 @@ import {
   GetTransitGatewayRouteTablePropagationsCommandOutput,
 } from "../commands/GetTransitGatewayRouteTablePropagationsCommand";
 import {
+  GetVpnConnectionDeviceSampleConfigurationCommandInput,
+  GetVpnConnectionDeviceSampleConfigurationCommandOutput,
+} from "../commands/GetVpnConnectionDeviceSampleConfigurationCommand";
+import {
+  GetVpnConnectionDeviceTypesCommandInput,
+  GetVpnConnectionDeviceTypesCommandOutput,
+} from "../commands/GetVpnConnectionDeviceTypesCommand";
+import {
   ImportClientVpnClientCertificateRevocationListCommandInput,
   ImportClientVpnClientCertificateRevocationListCommandOutput,
 } from "../commands/ImportClientVpnClientCertificateRevocationListCommand";
@@ -2724,6 +2732,10 @@ import {
   GetTransitGatewayRouteTableAssociationsResult,
   GetTransitGatewayRouteTablePropagationsRequest,
   GetTransitGatewayRouteTablePropagationsResult,
+  GetVpnConnectionDeviceSampleConfigurationRequest,
+  GetVpnConnectionDeviceSampleConfigurationResult,
+  GetVpnConnectionDeviceTypesRequest,
+  GetVpnConnectionDeviceTypesResult,
   ImageDiskContainer,
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
@@ -2818,12 +2830,7 @@ import {
   ModifyVpcEndpointConnectionNotificationResult,
   ModifyVpcEndpointRequest,
   ModifyVpcEndpointResult,
-  ModifyVpcEndpointServiceConfigurationRequest,
-  ModifyVpcEndpointServiceConfigurationResult,
-  ModifyVpcEndpointServicePermissionsRequest,
-  ModifyVpcEndpointServicePermissionsResult,
   NetworkInterfaceAttachmentChanges,
-  PeeringConnectionOptionsRequest,
   PrefixListAssociation,
   PrefixListEntry,
   PrivateDnsDetails,
@@ -2852,6 +2859,7 @@ import {
   VolumeDetail,
   VpcClassicLink,
   VpcEndpointConnection,
+  VpnConnectionDeviceType,
 } from "../models/models_4";
 import {
   CidrAuthorizationContext,
@@ -2865,6 +2873,10 @@ import {
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcEndpointServiceConfigurationRequest,
+  ModifyVpcEndpointServiceConfigurationResult,
+  ModifyVpcEndpointServicePermissionsRequest,
+  ModifyVpcEndpointServicePermissionsResult,
   ModifyVpcPeeringConnectionOptionsRequest,
   ModifyVpcPeeringConnectionOptionsResult,
   ModifyVpcTenancyRequest,
@@ -2883,6 +2895,7 @@ import {
   MoveAddressToVpcRequest,
   MoveAddressToVpcResult,
   PeeringConnectionOptions,
+  PeeringConnectionOptionsRequest,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
   PurchaseHostReservationRequest,
@@ -8719,6 +8732,38 @@ export const serializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand = as
   body = buildFormUrlencodedString({
     ...serializeAws_ec2GetTransitGatewayRouteTablePropagationsRequest(input, context),
     Action: "GetTransitGatewayRouteTablePropagations",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand = async (
+  input: GetVpnConnectionDeviceSampleConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationRequest(input, context),
+    Action: "GetVpnConnectionDeviceSampleConfiguration",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetVpnConnectionDeviceTypesCommand = async (
+  input: GetVpnConnectionDeviceTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetVpnConnectionDeviceTypesRequest(input, context),
+    Action: "GetVpnConnectionDeviceTypes",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -26739,6 +26784,98 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommandError = as
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpnConnectionDeviceSampleConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationResult(data, context);
+  const response: GetVpnConnectionDeviceSampleConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpnConnectionDeviceSampleConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2GetVpnConnectionDeviceTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpnConnectionDeviceTypesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetVpnConnectionDeviceTypesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetVpnConnectionDeviceTypesResult(data, context);
+  const response: GetVpnConnectionDeviceTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetVpnConnectionDeviceTypesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpnConnectionDeviceTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -41648,6 +41785,43 @@ const serializeAws_ec2GetTransitGatewayRouteTablePropagationsRequest = (
   return entries;
 };
 
+const serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationRequest = (
+  input: GetVpnConnectionDeviceSampleConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VpnConnectionId !== undefined && input.VpnConnectionId !== null) {
+    entries["VpnConnectionId"] = input.VpnConnectionId;
+  }
+  if (input.VpnConnectionDeviceTypeId !== undefined && input.VpnConnectionDeviceTypeId !== null) {
+    entries["VpnConnectionDeviceTypeId"] = input.VpnConnectionDeviceTypeId;
+  }
+  if (input.InternetKeyExchangeVersion !== undefined && input.InternetKeyExchangeVersion !== null) {
+    entries["InternetKeyExchangeVersion"] = input.InternetKeyExchangeVersion;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetVpnConnectionDeviceTypesRequest = (
+  input: GetVpnConnectionDeviceTypesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2GroupIdentifier = (input: GroupIdentifier, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName !== undefined && input.GroupName !== null) {
@@ -48151,13 +48325,6 @@ const serializeAws_ec2SearchLocalGatewayRoutesRequest = (
   if (input.LocalGatewayRouteTableId !== undefined && input.LocalGatewayRouteTableId !== null) {
     entries["LocalGatewayRouteTableId"] = input.LocalGatewayRouteTableId;
   }
-  if (input.Filters !== undefined && input.Filters !== null) {
-    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = value;
-    });
-  }
   if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
@@ -48166,6 +48333,13 @@ const serializeAws_ec2SearchLocalGatewayRoutesRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -60291,6 +60465,45 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsResult = (
   return contents;
 };
 
+const deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): GetVpnConnectionDeviceSampleConfigurationResult => {
+  let contents: any = {
+    VpnConnectionDeviceSampleConfiguration: undefined,
+  };
+  if (output["vpnConnectionDeviceSampleConfiguration"] !== undefined) {
+    contents.VpnConnectionDeviceSampleConfiguration = __expectString(output["vpnConnectionDeviceSampleConfiguration"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetVpnConnectionDeviceTypesResult = (
+  output: any,
+  context: __SerdeContext
+): GetVpnConnectionDeviceTypesResult => {
+  let contents: any = {
+    VpnConnectionDeviceTypes: undefined,
+    NextToken: undefined,
+  };
+  if (output.vpnConnectionDeviceTypeSet === "") {
+    contents.VpnConnectionDeviceTypes = [];
+  }
+  if (
+    output["vpnConnectionDeviceTypeSet"] !== undefined &&
+    output["vpnConnectionDeviceTypeSet"]["item"] !== undefined
+  ) {
+    contents.VpnConnectionDeviceTypes = deserializeAws_ec2VpnConnectionDeviceTypeList(
+      __getArrayIfSingleItem(output["vpnConnectionDeviceTypeSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2GpuDeviceInfo = (output: any, context: __SerdeContext): GpuDeviceInfo => {
   let contents: any = {
     Name: undefined,
@@ -61630,6 +61843,9 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
     MetadataOptions: undefined,
     EnclaveOptions: undefined,
     BootMode: undefined,
+    PlatformDetails: undefined,
+    UsageOperation: undefined,
+    UsageOperationUpdateTime: undefined,
   };
   if (output["amiLaunchIndex"] !== undefined) {
     contents.AmiLaunchIndex = __strictParseInt32(output["amiLaunchIndex"]) as number;
@@ -61825,6 +62041,15 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
   }
   if (output["bootMode"] !== undefined) {
     contents.BootMode = __expectString(output["bootMode"]);
+  }
+  if (output["platformDetails"] !== undefined) {
+    contents.PlatformDetails = __expectString(output["platformDetails"]);
+  }
+  if (output["usageOperation"] !== undefined) {
+    contents.UsageOperation = __expectString(output["usageOperation"]);
+  }
+  if (output["usageOperationUpdateTime"] !== undefined) {
+    contents.UsageOperationUpdateTime = __expectNonNull(__parseRfc3339DateTime(output["usageOperationUpdateTime"]));
   }
   return contents;
 };
@@ -74608,6 +74833,42 @@ const deserializeAws_ec2VpnConnection = (output: any, context: __SerdeContext): 
     );
   }
   return contents;
+};
+
+const deserializeAws_ec2VpnConnectionDeviceType = (output: any, context: __SerdeContext): VpnConnectionDeviceType => {
+  let contents: any = {
+    VpnConnectionDeviceTypeId: undefined,
+    Vendor: undefined,
+    Platform: undefined,
+    Software: undefined,
+  };
+  if (output["vpnConnectionDeviceTypeId"] !== undefined) {
+    contents.VpnConnectionDeviceTypeId = __expectString(output["vpnConnectionDeviceTypeId"]);
+  }
+  if (output["vendor"] !== undefined) {
+    contents.Vendor = __expectString(output["vendor"]);
+  }
+  if (output["platform"] !== undefined) {
+    contents.Platform = __expectString(output["platform"]);
+  }
+  if (output["software"] !== undefined) {
+    contents.Software = __expectString(output["software"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VpnConnectionDeviceTypeList = (
+  output: any,
+  context: __SerdeContext
+): VpnConnectionDeviceType[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2VpnConnectionDeviceType(entry, context);
+    });
 };
 
 const deserializeAws_ec2VpnConnectionList = (output: any, context: __SerdeContext): VpnConnection[] => {

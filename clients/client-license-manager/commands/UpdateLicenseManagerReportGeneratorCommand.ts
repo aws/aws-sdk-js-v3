@@ -27,7 +27,7 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
 
 /**
  * <p>Updates a report generator.</p>
- *          <p>After you make changes to a report generator, it will start generating new reports within 60 minutes of being updated.</p>
+ *          <p>After you make changes to a report generator, it starts generating new reports within 60 minutes of being updated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

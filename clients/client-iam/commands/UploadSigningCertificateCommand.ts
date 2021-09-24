@@ -30,8 +30,8 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  *             <i>IAM User Guide</i>.</p>
  *         <p>If the <code>UserName</code> is not specified, the IAM user name is determined
  *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
- *             works for access keys under the account. Consequently, you can use this operation
- *             to manage account root user credentials even if the account has no
+ *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
+ *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
  *             associated users.</p>
  *         <note>
  *             <p>Because the body of an X.509 certificate can be large, you should use POST rather

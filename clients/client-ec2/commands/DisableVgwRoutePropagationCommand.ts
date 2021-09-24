@@ -21,7 +21,8 @@ export interface DisableVgwRoutePropagationCommandInput extends DisableVgwRouteP
 export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC.</p>
+ * <p>Disables a virtual private gateway (VGW) from propagating routes to a specified route
+ *             table of a VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

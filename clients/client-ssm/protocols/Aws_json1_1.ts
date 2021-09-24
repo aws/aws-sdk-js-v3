@@ -533,7 +533,6 @@ import {
   DescribeOpsItemsRequest,
   DescribeOpsItemsResponse,
   DescribeParametersRequest,
-  DescribeParametersResult,
   DocumentAlreadyExists,
   DocumentDescription,
   DocumentLimitExceeded,
@@ -683,6 +682,7 @@ import {
   ComplianceTypeCountLimitExceededException,
   CompliantSummary,
   CustomSchemaCountLimitExceededException,
+  DescribeParametersResult,
   DescribePatchBaselinesRequest,
   DescribePatchBaselinesResult,
   DescribePatchGroupStateRequest,
@@ -925,7 +925,6 @@ import {
   UpdateDocumentRequest,
   UpdateDocumentResult,
   UpdateMaintenanceWindowRequest,
-  UpdateMaintenanceWindowResult,
 } from "../models/models_1";
 import {
   GetInventoryRequest,
@@ -934,6 +933,7 @@ import {
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
   ResourceDataSyncConflictException,
+  UpdateMaintenanceWindowResult,
   UpdateMaintenanceWindowTargetRequest,
   UpdateMaintenanceWindowTargetResult,
   UpdateMaintenanceWindowTaskRequest,
@@ -17735,6 +17735,8 @@ const serializeAws_json1_1RegisterTaskWithMaintenanceWindowRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.CutoffBehavior !== undefined &&
+      input.CutoffBehavior !== null && { CutoffBehavior: input.CutoffBehavior }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.LoggingInfo !== undefined &&
       input.LoggingInfo !== null && { LoggingInfo: serializeAws_json1_1LoggingInfo(input.LoggingInfo, context) }),
@@ -18482,6 +18484,8 @@ const serializeAws_json1_1UpdateMaintenanceWindowTaskRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CutoffBehavior !== undefined &&
+      input.CutoffBehavior !== null && { CutoffBehavior: input.CutoffBehavior }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.LoggingInfo !== undefined &&
       input.LoggingInfo !== null && { LoggingInfo: serializeAws_json1_1LoggingInfo(input.LoggingInfo, context) }),
@@ -20902,6 +20906,7 @@ const deserializeAws_json1_1GetMaintenanceWindowTaskResult = (
   context: __SerdeContext
 ): GetMaintenanceWindowTaskResult => {
   return {
+    CutoffBehavior: __expectString(output.CutoffBehavior),
     Description: __expectString(output.Description),
     LoggingInfo:
       output.LoggingInfo !== undefined && output.LoggingInfo !== null
@@ -22408,6 +22413,7 @@ const deserializeAws_json1_1MaintenanceWindowTargetList = (
 
 const deserializeAws_json1_1MaintenanceWindowTask = (output: any, context: __SerdeContext): MaintenanceWindowTask => {
   return {
+    CutoffBehavior: __expectString(output.CutoffBehavior),
     Description: __expectString(output.Description),
     LoggingInfo:
       output.LoggingInfo !== undefined && output.LoggingInfo !== null
@@ -24648,6 +24654,7 @@ const deserializeAws_json1_1UpdateMaintenanceWindowTaskResult = (
   context: __SerdeContext
 ): UpdateMaintenanceWindowTaskResult => {
   return {
+    CutoffBehavior: __expectString(output.CutoffBehavior),
     Description: __expectString(output.Description),
     LoggingInfo:
       output.LoggingInfo !== undefined && output.LoggingInfo !== null

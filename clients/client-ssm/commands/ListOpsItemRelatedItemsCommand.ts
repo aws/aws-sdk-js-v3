@@ -21,7 +21,8 @@ export interface ListOpsItemRelatedItemsCommandInput extends ListOpsItemRelatedI
 export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelatedItemsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all related-item resources associated with an OpsItem.</p>
+ * <p>Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a
+ *    capability of Amazon Web Services Systems Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

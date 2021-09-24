@@ -238,6 +238,7 @@ import {
   RateBasedStatement,
   RateBasedStatementManagedKeysIPSet,
   Regex,
+  RegexMatchStatement,
   RegexPatternSet,
   RegexPatternSetReferenceStatement,
   RegexPatternSetSummary,
@@ -6085,6 +6086,18 @@ const serializeAws_json1_1Regex = (input: Regex, context: __SerdeContext): any =
   };
 };
 
+const serializeAws_json1_1RegexMatchStatement = (input: RegexMatchStatement, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldToMatch !== undefined &&
+      input.FieldToMatch !== null && { FieldToMatch: serializeAws_json1_1FieldToMatch(input.FieldToMatch, context) }),
+    ...(input.RegexString !== undefined && input.RegexString !== null && { RegexString: input.RegexString }),
+    ...(input.TextTransformations !== undefined &&
+      input.TextTransformations !== null && {
+        TextTransformations: serializeAws_json1_1TextTransformations(input.TextTransformations, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1RegexPatternSetReferenceStatement = (
   input: RegexPatternSetReferenceStatement,
   context: __SerdeContext
@@ -6238,6 +6251,10 @@ const serializeAws_json1_1Statement = (input: Statement, context: __SerdeContext
     ...(input.RateBasedStatement !== undefined &&
       input.RateBasedStatement !== null && {
         RateBasedStatement: serializeAws_json1_1RateBasedStatement(input.RateBasedStatement, context),
+      }),
+    ...(input.RegexMatchStatement !== undefined &&
+      input.RegexMatchStatement !== null && {
+        RegexMatchStatement: serializeAws_json1_1RegexMatchStatement(input.RegexMatchStatement, context),
       }),
     ...(input.RegexPatternSetReferenceStatement !== undefined &&
       input.RegexPatternSetReferenceStatement !== null && {
@@ -7678,6 +7695,20 @@ const deserializeAws_json1_1Regex = (output: any, context: __SerdeContext): Rege
   } as any;
 };
 
+const deserializeAws_json1_1RegexMatchStatement = (output: any, context: __SerdeContext): RegexMatchStatement => {
+  return {
+    FieldToMatch:
+      output.FieldToMatch !== undefined && output.FieldToMatch !== null
+        ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
+        : undefined,
+    RegexString: __expectString(output.RegexString),
+    TextTransformations:
+      output.TextTransformations !== undefined && output.TextTransformations !== null
+        ? deserializeAws_json1_1TextTransformations(output.TextTransformations, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RegexPatternSet = (output: any, context: __SerdeContext): RegexPatternSet => {
   return {
     ARN: __expectString(output.ARN),
@@ -8011,6 +8042,10 @@ const deserializeAws_json1_1Statement = (output: any, context: __SerdeContext): 
     RateBasedStatement:
       output.RateBasedStatement !== undefined && output.RateBasedStatement !== null
         ? deserializeAws_json1_1RateBasedStatement(output.RateBasedStatement, context)
+        : undefined,
+    RegexMatchStatement:
+      output.RegexMatchStatement !== undefined && output.RegexMatchStatement !== null
+        ? deserializeAws_json1_1RegexMatchStatement(output.RegexMatchStatement, context)
         : undefined,
     RegexPatternSetReferenceStatement:
       output.RegexPatternSetReferenceStatement !== undefined && output.RegexPatternSetReferenceStatement !== null

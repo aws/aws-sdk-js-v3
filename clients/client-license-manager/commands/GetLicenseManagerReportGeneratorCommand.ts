@@ -23,7 +23,7 @@ export interface GetLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets information on the specified report generator.</p>
+ * <p>Gets information about the specified report generator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

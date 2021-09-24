@@ -21,7 +21,7 @@ export interface UploadServerCertificateCommandInput extends UploadServerCertifi
 export interface UploadServerCertificateCommandOutput extends UploadServerCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Uploads a server certificate entity for the account. The server certificate
+ * <p>Uploads a server certificate entity for the Amazon Web Services account. The server certificate
  *             entity includes a public key certificate, a private key, and an optional certificate
  *             chain, which should all be PEM-encoded.</p>
  *         <p>We recommend that you use <a href="https://docs.aws.amazon.com/acm/">Certificate Manager</a> to provision, manage, and deploy your server certificates. With ACM

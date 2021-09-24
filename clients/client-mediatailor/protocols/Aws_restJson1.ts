@@ -1,3 +1,7 @@
+import {
+  ConfigureLogsForPlaybackConfigurationCommandInput,
+  ConfigureLogsForPlaybackConfigurationCommandOutput,
+} from "../commands/ConfigureLogsForPlaybackConfigurationCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
 import { CreateProgramCommandInput, CreateProgramCommandOutput } from "../commands/CreateProgramCommand";
 import {
@@ -82,6 +86,7 @@ import {
   HttpConfiguration,
   HttpPackageConfiguration,
   LivePreRollConfiguration,
+  LogConfiguration,
   ManifestProcessingRules,
   PlaybackConfiguration,
   RequestOutputItem,
@@ -115,6 +120,34 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+export const serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand = async (
+  input: ConfigureLogsForPlaybackConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configureLogs/playbackConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.PercentEnabled !== undefined &&
+      input.PercentEnabled !== null && { PercentEnabled: input.PercentEnabled }),
+    ...(input.PlaybackConfigurationName !== undefined &&
+      input.PlaybackConfigurationName !== null && { PlaybackConfigurationName: input.PlaybackConfigurationName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateChannelCommand = async (
   input: CreateChannelCommandInput,
@@ -1246,6 +1279,57 @@ export const serializeAws_restJson1UpdateVodSourceCommand = async (
   });
 };
 
+export const deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConfigureLogsForPlaybackConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommandError(output, context);
+  }
+  const contents: ConfigureLogsForPlaybackConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    PercentEnabled: undefined,
+    PlaybackConfigurationName: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.PercentEnabled !== undefined && data.PercentEnabled !== null) {
+    contents.PercentEnabled = __expectInt32(data.PercentEnabled);
+  }
+  if (data.PlaybackConfigurationName !== undefined && data.PlaybackConfigurationName !== null) {
+    contents.PlaybackConfigurationName = __expectString(data.PlaybackConfigurationName);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConfigureLogsForPlaybackConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2231,6 +2315,7 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
     DashConfiguration: undefined,
     HlsConfiguration: undefined,
     LivePreRollConfiguration: undefined,
+    LogConfiguration: undefined,
     ManifestProcessingRules: undefined,
     Name: undefined,
     PersonalizationThresholdSeconds: undefined,
@@ -2272,6 +2357,9 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
       data.LivePreRollConfiguration,
       context
     );
+  }
+  if (data.LogConfiguration !== undefined && data.LogConfiguration !== null) {
+    contents.LogConfiguration = deserializeAws_restJson1LogConfiguration(data.LogConfiguration, context);
   }
   if (data.ManifestProcessingRules !== undefined && data.ManifestProcessingRules !== null) {
     contents.ManifestProcessingRules = deserializeAws_restJson1ManifestProcessingRules(
@@ -2708,6 +2796,7 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
     DashConfiguration: undefined,
     HlsConfiguration: undefined,
     LivePreRollConfiguration: undefined,
+    LogConfiguration: undefined,
     ManifestProcessingRules: undefined,
     Name: undefined,
     PersonalizationThresholdSeconds: undefined,
@@ -2749,6 +2838,9 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
       data.LivePreRollConfiguration,
       context
     );
+  }
+  if (data.LogConfiguration !== undefined && data.LogConfiguration !== null) {
+    contents.LogConfiguration = deserializeAws_restJson1LogConfiguration(data.LogConfiguration, context);
   }
   if (data.ManifestProcessingRules !== undefined && data.ManifestProcessingRules !== null) {
     contents.ManifestProcessingRules = deserializeAws_restJson1ManifestProcessingRules(
@@ -3829,6 +3921,12 @@ const deserializeAws_restJson1LivePreRollConfiguration = (
   } as any;
 };
 
+const deserializeAws_restJson1LogConfiguration = (output: any, context: __SerdeContext): LogConfiguration => {
+  return {
+    PercentEnabled: __expectInt32(output.PercentEnabled),
+  } as any;
+};
+
 const deserializeAws_restJson1ManifestProcessingRules = (
   output: any,
   context: __SerdeContext
@@ -3871,6 +3969,10 @@ const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __S
     LivePreRollConfiguration:
       output.LivePreRollConfiguration !== undefined && output.LivePreRollConfiguration !== null
         ? deserializeAws_restJson1LivePreRollConfiguration(output.LivePreRollConfiguration, context)
+        : undefined,
+    LogConfiguration:
+      output.LogConfiguration !== undefined && output.LogConfiguration !== null
+        ? deserializeAws_restJson1LogConfiguration(output.LogConfiguration, context)
         : undefined,
     ManifestProcessingRules:
       output.ManifestProcessingRules !== undefined && output.ManifestProcessingRules !== null

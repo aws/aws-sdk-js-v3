@@ -155,6 +155,11 @@ import {
   ListDocumentClassificationJobsCommandOutput,
 } from "./commands/ListDocumentClassificationJobsCommand";
 import {
+  ListDocumentClassifierSummariesCommand,
+  ListDocumentClassifierSummariesCommandInput,
+  ListDocumentClassifierSummariesCommandOutput,
+} from "./commands/ListDocumentClassifierSummariesCommand";
+import {
   ListDocumentClassifiersCommand,
   ListDocumentClassifiersCommandInput,
   ListDocumentClassifiersCommandOutput,
@@ -174,6 +179,11 @@ import {
   ListEntitiesDetectionJobsCommandInput,
   ListEntitiesDetectionJobsCommandOutput,
 } from "./commands/ListEntitiesDetectionJobsCommand";
+import {
+  ListEntityRecognizerSummariesCommand,
+  ListEntityRecognizerSummariesCommandInput,
+  ListEntityRecognizerSummariesCommandOutput,
+} from "./commands/ListEntityRecognizerSummariesCommand";
 import {
   ListEntityRecognizersCommand,
   ListEntityRecognizersCommandInput,
@@ -1375,6 +1385,38 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Gets a list of summaries of the document classifiers that you have created</p>
+   */
+  public listDocumentClassifierSummaries(
+    args: ListDocumentClassifierSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDocumentClassifierSummariesCommandOutput>;
+  public listDocumentClassifierSummaries(
+    args: ListDocumentClassifierSummariesCommandInput,
+    cb: (err: any, data?: ListDocumentClassifierSummariesCommandOutput) => void
+  ): void;
+  public listDocumentClassifierSummaries(
+    args: ListDocumentClassifierSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDocumentClassifierSummariesCommandOutput) => void
+  ): void;
+  public listDocumentClassifierSummaries(
+    args: ListDocumentClassifierSummariesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentClassifierSummariesCommandOutput) => void),
+    cb?: (err: any, data?: ListDocumentClassifierSummariesCommandOutput) => void
+  ): Promise<ListDocumentClassifierSummariesCommandOutput> | void {
+    const command = new ListDocumentClassifierSummariesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of the dominant language detection jobs that you have submitted.</p>
    */
   public listDominantLanguageDetectionJobs(
@@ -1497,6 +1539,38 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: ListEntityRecognizersCommandOutput) => void
   ): Promise<ListEntityRecognizersCommandOutput> | void {
     const command = new ListEntityRecognizersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of summaries for the entity recognizers that you have created.</p>
+   */
+  public listEntityRecognizerSummaries(
+    args: ListEntityRecognizerSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEntityRecognizerSummariesCommandOutput>;
+  public listEntityRecognizerSummaries(
+    args: ListEntityRecognizerSummariesCommandInput,
+    cb: (err: any, data?: ListEntityRecognizerSummariesCommandOutput) => void
+  ): void;
+  public listEntityRecognizerSummaries(
+    args: ListEntityRecognizerSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEntityRecognizerSummariesCommandOutput) => void
+  ): void;
+  public listEntityRecognizerSummaries(
+    args: ListEntityRecognizerSummariesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntityRecognizerSummariesCommandOutput) => void),
+    cb?: (err: any, data?: ListEntityRecognizerSummariesCommandOutput) => void
+  ): Promise<ListEntityRecognizerSummariesCommandOutput> | void {
+    const command = new ListEntityRecognizerSummariesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

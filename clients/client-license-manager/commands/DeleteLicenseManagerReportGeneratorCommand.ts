@@ -26,8 +26,9 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Delete an existing report generator.</p>
- *          <p>This action deletes the report generator, which stops it from generating future reports and cannot be reversed. However, the previous reports from this generator will remain in your S3 bucket.</p>
+ * <p>Deletes the specified report generator.</p>
+ *          <p>This action deletes the report generator, which stops it from generating future reports.
+ *          The action cannot be reversed. It has no effect on the previous reports from this generator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

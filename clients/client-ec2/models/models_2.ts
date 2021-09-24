@@ -177,9 +177,10 @@ export interface DeleteCustomerGatewayRequest {
   CustomerGatewayId: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -2285,9 +2286,10 @@ export interface DeleteVpnConnectionRequest {
   VpnConnectionId: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -2335,9 +2337,10 @@ export interface DeleteVpnGatewayRequest {
   VpnGatewayId: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -4125,7 +4128,7 @@ export namespace CertificateAuthentication {
 
 /**
  * <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html">Authentication</a>
- * 			in the <i>AWS Client VPN Administrator Guide</i>.</p>
+ * 			in the <i>Client VPN Administrator Guide</i>.</p>
  */
 export interface ClientVpnAuthentication {
   /**
@@ -4194,7 +4197,7 @@ export interface ClientConnectResponseOptions {
   Enabled?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
    */
   LambdaFunctionArn?: string;
 
@@ -4289,9 +4292,9 @@ export interface ClientVpnEndpoint {
   DnsServers?: string[];
 
   /**
-   * <p>Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.</p>
-   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS
-   * 				Client VPN Administrator Guide</i>.</p>
+   * <p>Indicates whether split-tunnel is enabled in the Client VPN endpoint.</p>
+   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel Client VPN endpoint</a>
+   * 			in the <i>Client VPN Administrator Guide</i>.</p>
    */
   SplitTunnel?: boolean;
 
@@ -5033,7 +5036,8 @@ export interface DescribeCustomerGatewaysRequest {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).</p>
+   *                   <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP)
+   *                     Autonomous System Number (ASN).</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5041,23 +5045,27 @@ export interface DescribeCustomerGatewaysRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ip-address</code> - The IP address of the customer gateway's Internet-routable external interface.</p>
+   *                   <code>ip-address</code> - The IP address of the customer gateway's
+   *                     Internet-routable external interface.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+   *                   <code>state</code> - The state of the customer gateway (<code>pending</code> |
+   *                         <code>available</code> | <code>deleting</code> |
+   *                     <code>deleted</code>).</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>type</code> - The type of customer gateway. Currently, the only supported type is <code>ipsec.1</code>.</p>
+   *                   <code>type</code> - The type of customer gateway. Currently, the only
+   *                     supported type is <code>ipsec.1</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *          </ul>
@@ -5065,9 +5073,10 @@ export interface DescribeCustomerGatewaysRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }

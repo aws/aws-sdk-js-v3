@@ -18,7 +18,7 @@ export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
 export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the managed policies that are available in your account, including
+ * <p>Lists all the managed policies that are available in your Amazon Web Services account, including
  *             your own customer-defined managed policies and all Amazon Web Services managed policies.</p>
  *         <p>You can filter the list of policies that is returned using the optional
  *                 <code>OnlyAttached</code>, <code>Scope</code>, and <code>PathPrefix</code>

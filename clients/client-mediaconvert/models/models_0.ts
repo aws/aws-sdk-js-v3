@@ -1313,20 +1313,37 @@ export namespace AudioDescription {
 }
 
 export enum BurninSubtitleAlignment {
+  AUTO = "AUTO",
   CENTERED = "CENTERED",
   LEFT = "LEFT",
 }
 
+export enum BurninSubtitleApplyFontColor {
+  ALL_TEXT = "ALL_TEXT",
+  WHITE_TEXT_ONLY = "WHITE_TEXT_ONLY",
+}
+
 export enum BurninSubtitleBackgroundColor {
+  AUTO = "AUTO",
   BLACK = "BLACK",
   NONE = "NONE",
   WHITE = "WHITE",
 }
 
+export enum BurninSubtitleFallbackFont {
+  BEST_MATCH = "BEST_MATCH",
+  MONOSPACED_SANSSERIF = "MONOSPACED_SANSSERIF",
+  MONOSPACED_SERIF = "MONOSPACED_SERIF",
+  PROPORTIONAL_SANSSERIF = "PROPORTIONAL_SANSSERIF",
+  PROPORTIONAL_SERIF = "PROPORTIONAL_SERIF",
+}
+
 export enum BurninSubtitleFontColor {
+  AUTO = "AUTO",
   BLACK = "BLACK",
   BLUE = "BLUE",
   GREEN = "GREEN",
+  HEX = "HEX",
   RED = "RED",
   WHITE = "WHITE",
   YELLOW = "YELLOW",
@@ -1339,6 +1356,7 @@ export enum FontScript {
 }
 
 export enum BurninSubtitleOutlineColor {
+  AUTO = "AUTO",
   BLACK = "BLACK",
   BLUE = "BLUE",
   GREEN = "GREEN",
@@ -1348,12 +1366,19 @@ export enum BurninSubtitleOutlineColor {
 }
 
 export enum BurninSubtitleShadowColor {
+  AUTO = "AUTO",
   BLACK = "BLACK",
   NONE = "NONE",
   WHITE = "WHITE",
 }
 
+export enum BurnInSubtitleStylePassthrough {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 export enum BurninSubtitleTeletextSpacing {
+  AUTO = "AUTO",
   FIXED_GRID = "FIXED_GRID",
   PROPORTIONAL = "PROPORTIONAL",
 }
@@ -1368,6 +1393,11 @@ export interface BurninDestinationSettings {
   Alignment?: BurninSubtitleAlignment | string;
 
   /**
+   * Ignore this setting unless your input captions are STL, any type of 608, teletext, or TTML, and your output captions are burned in. Specify how the service applies the color specified in the setting Font color (BurninSubtitleFontColor). By default, this color is white. When you choose WHITE_TEXT_ONLY, the service uses the specified font color only for text that is white in the input. When you choose ALL_TEXT, the service uses the specified font color for all output captions text. If you leave both settings at their default value, your output font color is the same as your input font color.
+   */
+  ApplyFontColor?: BurninSubtitleApplyFontColor | string;
+
+  /**
    * Specifies the color of the rectangle behind the captions.
    * All burn-in and DVB-Sub font settings must match.
    */
@@ -1377,6 +1407,11 @@ export interface BurninDestinationSettings {
    * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
    */
   BackgroundOpacity?: number;
+
+  /**
+   * Specify the font that you want the service to use for your burn in captions when your input captions specify a font that MediaConvert doesn't support. When you keep the default value, Best match (BEST_MATCH), MediaConvert uses a supported font that most closely matches the font that your input captions specify. When there are multiple unsupported fonts in your input captions, MediaConvert matches each font with the supported font that matches best. When you explicitly choose a replacement font, MediaConvert uses that font to replace all unsupported fonts from your input.
+   */
+  FallbackFont?: BurninSubtitleFallbackFont | string;
 
   /**
    * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
@@ -1404,6 +1439,11 @@ export interface BurninDestinationSettings {
    * A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font settings must match.
    */
   FontSize?: number;
+
+  /**
+   * Ignore this setting unless your BurninSubtitleFontColor setting is HEX. Format is six or eight hexidecimal digits, representing the red, green, and blue components, with the two extra digits used for an optional alpha value. For example a value of 1122AABB is a red value of 0x11, a green value of 0x22, a blue value of 0xAA, and an alpha value of 0xBB.
+   */
+  HexFontColor?: string;
 
   /**
    * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
@@ -1435,6 +1475,11 @@ export interface BurninDestinationSettings {
    * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
    */
   ShadowYOffset?: number;
+
+  /**
+   * Ignore this setting unless your output captions are burned in. Choose which set of style and position values the service applies to your output captions. When you choose ENABLED, the service uses the input style and position information from your input. When you choose DISABLED, the service uses any style values that you specify in your output settings. If you don't specify values, the service uses default style and position values. When you choose DISABLED, the service ignores all style and position values from your input.
+   */
+  StylePassthrough?: BurnInSubtitleStylePassthrough | string;
 
   /**
    * Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
@@ -1477,11 +1522,18 @@ export enum CaptionDestinationType {
 }
 
 export enum DvbSubtitleAlignment {
+  AUTO = "AUTO",
   CENTERED = "CENTERED",
   LEFT = "LEFT",
 }
 
+export enum DvbSubtitleApplyFontColor {
+  ALL_TEXT = "ALL_TEXT",
+  WHITE_TEXT_ONLY = "WHITE_TEXT_ONLY",
+}
+
 export enum DvbSubtitleBackgroundColor {
+  AUTO = "AUTO",
   BLACK = "BLACK",
   NONE = "NONE",
   WHITE = "WHITE",
@@ -1493,16 +1545,27 @@ export enum DvbddsHandling {
   SPECIFIED = "SPECIFIED",
 }
 
+export enum DvbSubSubtitleFallbackFont {
+  BEST_MATCH = "BEST_MATCH",
+  MONOSPACED_SANSSERIF = "MONOSPACED_SANSSERIF",
+  MONOSPACED_SERIF = "MONOSPACED_SERIF",
+  PROPORTIONAL_SANSSERIF = "PROPORTIONAL_SANSSERIF",
+  PROPORTIONAL_SERIF = "PROPORTIONAL_SERIF",
+}
+
 export enum DvbSubtitleFontColor {
+  AUTO = "AUTO",
   BLACK = "BLACK",
   BLUE = "BLUE",
   GREEN = "GREEN",
+  HEX = "HEX",
   RED = "RED",
   WHITE = "WHITE",
   YELLOW = "YELLOW",
 }
 
 export enum DvbSubtitleOutlineColor {
+  AUTO = "AUTO",
   BLACK = "BLACK",
   BLUE = "BLUE",
   GREEN = "GREEN",
@@ -1512,9 +1575,15 @@ export enum DvbSubtitleOutlineColor {
 }
 
 export enum DvbSubtitleShadowColor {
+  AUTO = "AUTO",
   BLACK = "BLACK",
   NONE = "NONE",
   WHITE = "WHITE",
+}
+
+export enum DvbSubtitleStylePassthrough {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
 }
 
 export enum DvbSubtitlingType {
@@ -1523,6 +1592,7 @@ export enum DvbSubtitlingType {
 }
 
 export enum DvbSubtitleTeletextSpacing {
+  AUTO = "AUTO",
   FIXED_GRID = "FIXED_GRID",
   PROPORTIONAL = "PROPORTIONAL",
 }
@@ -1535,6 +1605,11 @@ export interface DvbSubDestinationSettings {
    * If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
   Alignment?: DvbSubtitleAlignment | string;
+
+  /**
+   * Ignore this setting unless your input captions are STL, any type of 608, teletext, or TTML, and your output captions are DVB-SUB. Specify how the service applies the color specified in the setting Font color (DvbSubtitleFontColor). By default, this color is white. When you choose WHITE_TEXT_ONLY, the service uses the specified font color only for text that is white in the input. When you choose ALL_TEXT, the service uses the specified font color for all output captions text. If you leave both settings at their default value, your output font color is the same as your input font color.
+   */
+  ApplyFontColor?: DvbSubtitleApplyFontColor | string;
 
   /**
    * Specifies the color of the rectangle behind the captions.
@@ -1561,6 +1636,11 @@ export interface DvbSubDestinationSettings {
    * Use this setting, along with DDS x-coordinate (ddsXCoordinate), to specify the upper left corner of the display definition segment (DDS) display window. With this setting, specify the distance, in pixels, between the top of the frame and the top of the DDS display window. Keep the default value, 0, to have MediaConvert automatically choose this offset. Related setting: When you use this setting, you must set DDS handling (ddsHandling) to a value other than None (NONE). MediaConvert uses these values to determine whether to write page position data to the DDS or to the page composition segment (PCS). All burn-in and DVB-Sub font settings must match.
    */
   DdsYCoordinate?: number;
+
+  /**
+   * Specify the font that you want the service to use for your burn in captions when your input captions specify a font that MediaConvert doesn't support. When you keep the default value, Best match (BEST_MATCH), MediaConvert uses a supported font that most closely matches the font that your input captions specify. When there are multiple unsupported fonts in your input captions, MediaConvert matches each font with the supported font that matches best. When you explicitly choose a replacement font, MediaConvert uses that font to replace all unsupported fonts from your input.
+   */
+  FallbackFont?: DvbSubSubtitleFallbackFont | string;
 
   /**
    * Specifies the color of the DVB-SUB captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
@@ -1595,6 +1675,11 @@ export interface DvbSubDestinationSettings {
   Height?: number;
 
   /**
+   * Ignore this setting unless your DvbSubtitleFontColor setting is HEX. Format is six or eight hexidecimal digits, representing the red, green, and blue components, with the two extra digits used for an optional alpha value. For example a value of 1122AABB is a red value of 0x11, a green value of 0x22, a blue value of 0xAA, and an alpha value of 0xBB.
+   */
+  HexFontColor?: string;
+
+  /**
    * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
   OutlineColor?: DvbSubtitleOutlineColor | string;
@@ -1624,6 +1709,11 @@ export interface DvbSubDestinationSettings {
    * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
    */
   ShadowYOffset?: number;
+
+  /**
+   * Choose which set of style and position values the service applies to your output captions. When you choose ENABLED, the service uses the input style and position information from your input. When you choose DISABLED, the service uses any style values that you specify in your output settings. If you don't specify values, the service uses default style and position values. When you choose DISABLED, the service ignores all style and position values from your input.
+   */
+  StylePassthrough?: DvbSubtitleStylePassthrough | string;
 
   /**
    * Specify whether your DVB subtitles are standard or for hearing impaired. Choose hearing impaired if your subtitles include audio descriptions and dialogue. Choose standard if your subtitles include only dialogue.
@@ -3473,7 +3563,7 @@ export enum VchipAction {
 }
 
 /**
- * Hexadecimal value as per EIA-608 Line 21 Data Services, section 9.5.1.5 05h Content Advisory.
+ * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
  */
 export interface ExtendedDataServices {
   /**
@@ -4080,9 +4170,59 @@ export namespace CmafEncryptionSettings {
 }
 
 export enum CmafImageBasedTrickPlay {
+  ADVANCED = "ADVANCED",
   NONE = "NONE",
   THUMBNAIL = "THUMBNAIL",
   THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
+}
+
+export enum CmafIntervalCadence {
+  FOLLOW_CUSTOM = "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME = "FOLLOW_IFRAME",
+}
+
+/**
+ * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
+ */
+export interface CmafImageBasedTrickPlaySettings {
+  /**
+   * The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
+   */
+  IntervalCadence?: CmafIntervalCadence | string;
+
+  /**
+   * Height of each thumbnail within each tile image, in pixels.  Leave blank to maintain aspect ratio with thumbnail width.  If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected.  Must be divisible by 2.
+   */
+  ThumbnailHeight?: number;
+
+  /**
+   * Enter the interval, in seconds, that MediaConvert uses to generate thumbnails.  If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate.  For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.
+   */
+  ThumbnailInterval?: number;
+
+  /**
+   * Width of each thumbnail within each tile image, in pixels.  Default is 312.  Must be divisible by 8.
+   */
+  ThumbnailWidth?: number;
+
+  /**
+   * Number of thumbnails in each column of a tile image. Set a value between 2 and 2048. Must be divisible by 2.
+   */
+  TileHeight?: number;
+
+  /**
+   * Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.
+   */
+  TileWidth?: number;
+}
+
+export namespace CmafImageBasedTrickPlaySettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CmafImageBasedTrickPlaySettings): any => ({
+    ...obj,
+  });
 }
 
 export enum CmafManifestCompression {
@@ -4188,6 +4328,11 @@ export interface CmafGroupSettings {
    * Specify whether MediaConvert generates images for trick play. Keep the default value, None (NONE), to not generate any images. Choose Thumbnail (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and full-resolution images of single frames. When you enable Write HLS manifest (WriteHlsManifest), MediaConvert creates a child manifest for each set of images that you generate and adds corresponding entries to the parent manifest. When you enable Write DASH manifest (WriteDashManifest), MediaConvert adds an entry in the .mpd manifest for each set of images that you generate. A common application for these images is Roku trick mode. The thumbnails and full-frame images that MediaConvert creates with this feature are compatible with this Roku specification: https://developer.roku.com/docs/developer-program/media-playback/trick-mode/hls-and-dash.md
    */
   ImageBasedTrickPlay?: CmafImageBasedTrickPlay | string;
+
+  /**
+   * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
+   */
+  ImageBasedTrickPlaySettings?: CmafImageBasedTrickPlaySettings;
 
   /**
    * When set to GZIP, compresses HLS playlist.
@@ -4344,9 +4489,59 @@ export enum DashIsoHbbtvCompliance {
 }
 
 export enum DashIsoImageBasedTrickPlay {
+  ADVANCED = "ADVANCED",
   NONE = "NONE",
   THUMBNAIL = "THUMBNAIL",
   THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
+}
+
+export enum DashIsoIntervalCadence {
+  FOLLOW_CUSTOM = "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME = "FOLLOW_IFRAME",
+}
+
+/**
+ * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
+ */
+export interface DashIsoImageBasedTrickPlaySettings {
+  /**
+   * The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
+   */
+  IntervalCadence?: DashIsoIntervalCadence | string;
+
+  /**
+   * Height of each thumbnail within each tile image, in pixels.  Leave blank to maintain aspect ratio with thumbnail width.  If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected.  Must be divisible by 2.
+   */
+  ThumbnailHeight?: number;
+
+  /**
+   * Enter the interval, in seconds, that MediaConvert uses to generate thumbnails.  If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate.  For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.
+   */
+  ThumbnailInterval?: number;
+
+  /**
+   * Width of each thumbnail within each tile image, in pixels.  Default is 312.  Must be divisible by 8.
+   */
+  ThumbnailWidth?: number;
+
+  /**
+   * Number of thumbnails in each column of a tile image. Set a value between 2 and 2048. Must be divisible by 2.
+   */
+  TileHeight?: number;
+
+  /**
+   * Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.
+   */
+  TileWidth?: number;
+}
+
+export namespace DashIsoImageBasedTrickPlaySettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DashIsoImageBasedTrickPlaySettings): any => ({
+    ...obj,
+  });
 }
 
 export enum DashIsoMpdProfile {
@@ -4422,6 +4617,11 @@ export interface DashIsoGroupSettings {
    * Specify whether MediaConvert generates images for trick play. Keep the default value, None (NONE), to not generate any images. Choose Thumbnail (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and full-resolution images of single frames. MediaConvert adds an entry in the .mpd manifest for each set of images that you generate. A common application for these images is Roku trick mode. The thumbnails and full-frame images that MediaConvert creates with this feature are compatible with this Roku specification: https://developer.roku.com/docs/developer-program/media-playback/trick-mode/hls-and-dash.md
    */
   ImageBasedTrickPlay?: DashIsoImageBasedTrickPlay | string;
+
+  /**
+   * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
+   */
+  ImageBasedTrickPlaySettings?: DashIsoImageBasedTrickPlaySettings;
 
   /**
    * Minimum time of initially buffered media that is needed to ensure smooth playout.
@@ -4593,9 +4793,59 @@ export namespace HlsEncryptionSettings {
 }
 
 export enum HlsImageBasedTrickPlay {
+  ADVANCED = "ADVANCED",
   NONE = "NONE",
   THUMBNAIL = "THUMBNAIL",
   THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
+}
+
+export enum HlsIntervalCadence {
+  FOLLOW_CUSTOM = "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME = "FOLLOW_IFRAME",
+}
+
+/**
+ * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
+ */
+export interface HlsImageBasedTrickPlaySettings {
+  /**
+   * The cadence MediaConvert follows for generating thumbnails.  If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence).  If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
+   */
+  IntervalCadence?: HlsIntervalCadence | string;
+
+  /**
+   * Height of each thumbnail within each tile image, in pixels.  Leave blank to maintain aspect ratio with thumbnail width.  If following the aspect ratio would lead to a total tile height greater than 4096, then the job will be rejected.  Must be divisible by 2.
+   */
+  ThumbnailHeight?: number;
+
+  /**
+   * Enter the interval, in seconds, that MediaConvert uses to generate thumbnails.  If the interval you enter doesn't align with the output frame rate, MediaConvert automatically rounds the interval to align with the output frame rate.  For example, if the output frame rate is 29.97 frames per second and you enter 5, MediaConvert uses a 150 frame interval to generate thumbnails.
+   */
+  ThumbnailInterval?: number;
+
+  /**
+   * Width of each thumbnail within each tile image, in pixels.  Default is 312.  Must be divisible by 8.
+   */
+  ThumbnailWidth?: number;
+
+  /**
+   * Number of thumbnails in each column of a tile image. Set a value between 2 and 2048. Must be divisible by 2.
+   */
+  TileHeight?: number;
+
+  /**
+   * Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.
+   */
+  TileWidth?: number;
+}
+
+export namespace HlsImageBasedTrickPlaySettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HlsImageBasedTrickPlaySettings): any => ({
+    ...obj,
+  });
 }
 
 export enum HlsManifestCompression {
@@ -4712,6 +4962,11 @@ export interface HlsGroupSettings {
    * Specify whether MediaConvert generates images for trick play. Keep the default value, None (NONE), to not generate any images. Choose Thumbnail (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and full-resolution images of single frames. MediaConvert creates a child manifest for each set of images that you generate and adds corresponding entries to the parent manifest. A common application for these images is Roku trick mode. The thumbnails and full-frame images that MediaConvert creates with this feature are compatible with this Roku specification: https://developer.roku.com/docs/developer-program/media-playback/trick-mode/hls-and-dash.md
    */
   ImageBasedTrickPlay?: HlsImageBasedTrickPlay | string;
+
+  /**
+   * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
+   */
+  ImageBasedTrickPlaySettings?: HlsImageBasedTrickPlaySettings;
 
   /**
    * When set to GZIP, compresses HLS playlist.
@@ -5623,137 +5878,4 @@ export enum MovClapAtom {
 export enum MovCslgAtom {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
-}
-
-export enum MovMpeg2FourCCControl {
-  MPEG = "MPEG",
-  XDCAM = "XDCAM",
-}
-
-export enum MovPaddingControl {
-  NONE = "NONE",
-  OMNEON = "OMNEON",
-}
-
-export enum MovReference {
-  EXTERNAL = "EXTERNAL",
-  SELF_CONTAINED = "SELF_CONTAINED",
-}
-
-/**
- * These settings relate to your QuickTime MOV output container.
- */
-export interface MovSettings {
-  /**
-   * When enabled, include 'clap' atom if appropriate for the video output settings.
-   */
-  ClapAtom?: MovClapAtom | string;
-
-  /**
-   * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-   */
-  CslgAtom?: MovCslgAtom | string;
-
-  /**
-   * When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
-   */
-  Mpeg2FourCCControl?: MovMpeg2FourCCControl | string;
-
-  /**
-   * To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
-   */
-  PaddingControl?: MovPaddingControl | string;
-
-  /**
-   * Always keep the default value (SELF_CONTAINED) for this setting.
-   */
-  Reference?: MovReference | string;
-}
-
-export namespace MovSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MovSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum Mp4CslgAtom {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum Mp4FreeSpaceBox {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum Mp4MoovPlacement {
-  NORMAL = "NORMAL",
-  PROGRESSIVE_DOWNLOAD = "PROGRESSIVE_DOWNLOAD",
-}
-
-/**
- * These settings relate to your MP4 output container. You can create audio only outputs with this container. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
- */
-export interface Mp4Settings {
-  /**
-   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
-   */
-  AudioDuration?: CmfcAudioDuration | string;
-
-  /**
-   * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-   */
-  CslgAtom?: Mp4CslgAtom | string;
-
-  /**
-   * Ignore this setting unless compliance to the CTTS box version specification matters in your workflow. Specify a value of 1 to set your CTTS box version to 1 and make your output compliant with the specification. When you specify a value of 1, you must also set CSLG atom (cslgAtom) to the value INCLUDE. Keep the default value 0 to set your CTTS box version to 0. This can provide backward compatibility for some players and packagers.
-   */
-  CttsVersion?: number;
-
-  /**
-   * Inserts a free-space box immediately after the moov box.
-   */
-  FreeSpaceBox?: Mp4FreeSpaceBox | string;
-
-  /**
-   * If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
-   */
-  MoovPlacement?: Mp4MoovPlacement | string;
-
-  /**
-   * Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
-   */
-  Mp4MajorBrand?: string;
-}
-
-export namespace Mp4Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Mp4Settings): any => ({
-    ...obj,
-  });
-}
-
-export enum MpdAccessibilityCaptionHints {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-export enum MpdAudioDuration {
-  DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
-  MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
-}
-
-export enum MpdCaptionContainerType {
-  FRAGMENTED_MP4 = "FRAGMENTED_MP4",
-  RAW = "RAW",
-}
-
-export enum MpdScte35Esam {
-  INSERT = "INSERT",
-  NONE = "NONE",
 }

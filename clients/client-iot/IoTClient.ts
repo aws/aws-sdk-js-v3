@@ -492,6 +492,10 @@ import {
   ListViolationEventsCommandOutput,
 } from "./commands/ListViolationEventsCommand";
 import {
+  PutVerificationStateOnViolationCommandInput,
+  PutVerificationStateOnViolationCommandOutput,
+} from "./commands/PutVerificationStateOnViolationCommand";
+import {
   RegisterCACertificateCommandInput,
   RegisterCACertificateCommandOutput,
 } from "./commands/RegisterCACertificateCommand";
@@ -873,6 +877,7 @@ export type ServiceInputTypes =
   | ListTopicRulesCommandInput
   | ListV2LoggingLevelsCommandInput
   | ListViolationEventsCommandInput
+  | PutVerificationStateOnViolationCommandInput
   | RegisterCACertificateCommandInput
   | RegisterCertificateCommandInput
   | RegisterCertificateWithoutCACommandInput
@@ -1108,6 +1113,7 @@ export type ServiceOutputTypes =
   | ListTopicRulesCommandOutput
   | ListV2LoggingLevelsCommandOutput
   | ListViolationEventsCommandOutput
+  | PutVerificationStateOnViolationCommandOutput
   | RegisterCACertificateCommandOutput
   | RegisterCertificateCommandOutput
   | RegisterCertificateWithoutCACommandOutput

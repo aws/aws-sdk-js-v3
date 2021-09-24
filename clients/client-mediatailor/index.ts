@@ -1,5 +1,6 @@
 export * from "./MediaTailorClient";
 export * from "./MediaTailor";
+export * from "./commands/ConfigureLogsForPlaybackConfigurationCommand";
 export * from "./commands/CreateChannelCommand";
 export * from "./commands/CreateProgramCommand";
 export * from "./commands/CreateSourceLocationCommand";
