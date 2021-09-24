@@ -53,6 +53,7 @@
     }
   },
   "browser": {
+    "fs": false,
     "stream": "stream-browserify",
     "./runtimeConfig": "./src/runtimeConfig.browser"
   },
