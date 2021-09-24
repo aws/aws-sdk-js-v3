@@ -12,7 +12,6 @@
     "clean:dist": "rimraf ./dist",
     "clean:docs": "rimraf ./docs",
     "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
-    "remove-definitions": "rimraf ./types",
     "remove-dist": "rimraf ./dist",
     "remove-documentation": "rimraf ./docs",
     "test": "jest --coverage --passWithNoTests"
