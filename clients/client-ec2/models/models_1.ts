@@ -8627,7 +8627,8 @@ export namespace IKEVersionsRequestListValue {
 }
 
 /**
- * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.</p>
+ * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
  */
 export interface Phase1DHGroupNumbersRequestListValue {
   /**
@@ -8646,7 +8647,8 @@ export namespace Phase1DHGroupNumbersRequestListValue {
 }
 
 /**
- * <p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE negotiations.</p>
+ * <p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
  */
 export interface Phase1EncryptionAlgorithmsRequestListValue {
   /**
@@ -8665,7 +8667,8 @@ export namespace Phase1EncryptionAlgorithmsRequestListValue {
 }
 
 /**
- * <p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.</p>
+ * <p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
  */
 export interface Phase1IntegrityAlgorithmsRequestListValue {
   /**
@@ -8684,7 +8687,8 @@ export namespace Phase1IntegrityAlgorithmsRequestListValue {
 }
 
 /**
- * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE negotiations.</p>
+ * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
  */
 export interface Phase2DHGroupNumbersRequestListValue {
   /**
@@ -8703,7 +8707,8 @@ export namespace Phase2DHGroupNumbersRequestListValue {
 }
 
 /**
- * <p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE negotiations.</p>
+ * <p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
  */
 export interface Phase2EncryptionAlgorithmsRequestListValue {
   /**
@@ -8722,7 +8727,8 @@ export namespace Phase2EncryptionAlgorithmsRequestListValue {
 }
 
 /**
- * <p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE negotiations.</p>
+ * <p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
  */
 export interface Phase2IntegrityAlgorithmsRequestListValue {
   /**
@@ -8745,62 +8751,63 @@ export namespace Phase2IntegrityAlgorithmsRequestListValue {
  */
 export interface VpnTunnelOptionsSpecification {
   /**
-   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique
-   * 			across all VPN connections that use the same virtual private gateway. </p>
-   * 		       <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
-   * 			following CIDR blocks are reserved and cannot be used:</p>
-   * 		       <ul>
+   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same virtual private gateway. </p>
+   *         <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
+   *             following CIDR blocks are reserved and cannot be used:</p>
+   *         <ul>
    *             <li>
-   * 				           <p>
+   *                 <p>
    *                   <code>169.254.0.0/30</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                 <p>
    *                   <code>169.254.1.0/30</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                 <p>
    *                   <code>169.254.2.0/30</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                 <p>
    *                   <code>169.254.3.0/30</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                 <p>
    *                   <code>169.254.4.0/30</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                 <p>
    *                   <code>169.254.5.0/30</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                 <p>
    *                   <code>169.254.169.252/30</code>
    *                </p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   TunnelInsideCidr?: string;
 
   /**
-   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.</p>
+   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same transit gateway.</p>
    *         <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
    */
   TunnelInsideIpv6Cidr?: string;
 
   /**
-   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual private
-   * 			gateway and customer gateway.</p>
-   * 		       <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores
-   *             (_). Must be between 8 and 64 characters in length and cannot start with zero
-   *             (0).</p>
+   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
+   *             private gateway and customer gateway.</p>
+   *         <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
+   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
+   *             zero (0).</p>
    */
   PreSharedKey?: string;
 
@@ -8814,14 +8821,18 @@ export interface VpnTunnelOptionsSpecification {
 
   /**
    * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for <code>Phase1LifetimeSeconds</code>.</p>
+   *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
+   *                 <code>Phase1LifetimeSeconds</code>.</p>
    *         <p>Default: <code>3600</code>
    *          </p>
    */
   Phase2LifetimeSeconds?: number;
 
   /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for <code>RekeyFuzzPercentage</code>.</p>
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
+   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
+   *             of the rekey is randomly selected based on the value for
+   *                 <code>RekeyFuzzPercentage</code>.</p>
    *         <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
    *         <p>Default: <code>540</code>
    *          </p>
@@ -8829,7 +8840,8 @@ export interface VpnTunnelOptionsSpecification {
   RekeyMarginTimeSeconds?: number;
 
   /**
-   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>) during which the rekey time is randomly selected.</p>
+   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
+   *             during which the rekey time is randomly selected.</p>
    *         <p>Constraints: A value between 0 and 100.</p>
    *         <p>Default: <code>100</code>
    *          </p>
@@ -8853,7 +8865,8 @@ export interface VpnTunnelOptionsSpecification {
   DPDTimeoutSeconds?: number;
 
   /**
-   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
+   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
+   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
    *         <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
    *          </p>
    *         <p>Default: <code>clear</code>
@@ -8862,43 +8875,58 @@ export interface VpnTunnelOptionsSpecification {
   DPDTimeoutAction?: string;
 
   /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code>
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
+   *             IKE negotiations.</p>
+   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
    *          </p>
    */
   Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
 
   /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code>
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
+   *             IKE negotiations.</p>
+   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
    *          </p>
    */
   Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
 
   /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code>
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
    *          </p>
    */
   Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
 
   /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code>
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
    *          </p>
    */
   Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
 
   /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 1 IKE negotiations.</p>
+   *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
+   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
+   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
    *          </p>
    */
   Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
 
   /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 2 IKE negotiations.</p>
+   *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
+   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
+   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
+   *                 <code>24</code>
    *          </p>
    */
   Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
@@ -8911,7 +8939,10 @@ export interface VpnTunnelOptionsSpecification {
   IKEVersions?: IKEVersionsRequestListValue[];
 
   /**
-   * <p>The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify <code>start</code> for AWS to initiate the IKE negotiation.</p>
+   * <p>The action to take when the establishing the tunnel for the VPN connection. By
+   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
+   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
+   *             negotiation.</p>
    *         <p>Valid Values: <code>add</code> | <code>start</code>
    *          </p>
    *         <p>Default: <code>add</code>
@@ -8941,10 +8972,10 @@ export interface VpnConnectionOptionsSpecification {
   EnableAcceleration?: boolean;
 
   /**
-   * <p>Indicate whether the VPN connection uses static routes only. If you are creating a
-   *             VPN connection for a device that does not support BGP, you must specify
-   *                 <code>true</code>. Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
-   * 		       <p>Default: <code>false</code>
+   * <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN
+   *             connection for a device that does not support BGP, you must specify <code>true</code>.
+   *             Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
+   *         <p>Default: <code>false</code>
    *          </p>
    */
   StaticRoutesOnly?: boolean;
@@ -8969,7 +9000,7 @@ export interface VpnConnectionOptionsSpecification {
   LocalIpv4NetworkCidr?: string;
 
   /**
-   * <p>The IPv4 CIDR on the AWS side of the VPN connection.</p>
+   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
    *         <p>Default: <code>0.0.0.0/0</code>
    *          </p>
    */
@@ -8983,7 +9014,7 @@ export interface VpnConnectionOptionsSpecification {
   LocalIpv6NetworkCidr?: string;
 
   /**
-   * <p>The IPv6 CIDR on the AWS side of the VPN connection.</p>
+   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
    *         <p>Default: <code>::/0</code>
    *          </p>
    */
@@ -9014,19 +9045,22 @@ export interface CreateVpnConnectionRequest {
   Type: string | undefined;
 
   /**
-   * <p>The ID of the virtual private gateway. If you specify a virtual private gateway, you cannot specify a transit gateway.</p>
+   * <p>The ID of the virtual private gateway. If you specify a virtual private gateway, you
+   *             cannot specify a transit gateway.</p>
    */
   VpnGatewayId?: string;
 
   /**
-   * <p>The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private gateway.</p>
+   * <p>The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private
+   *             gateway.</p>
    */
   TransitGatewayId?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -9219,12 +9253,14 @@ export interface TunnelOption {
   Phase2LifetimeSeconds?: number;
 
   /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey.</p>
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
+   *                 Amazon Web Services side of the VPN connection performs an IKE rekey.</p>
    */
   RekeyMarginTimeSeconds?: number;
 
   /**
-   * <p>The percentage of the rekey window determined by <code>RekeyMarginTimeSeconds</code> during which the rekey time is randomly selected.</p>
+   * <p>The percentage of the rekey window determined by <code>RekeyMarginTimeSeconds</code>
+   *             during which the rekey time is randomly selected.</p>
    */
   RekeyFuzzPercentage?: number;
 
@@ -9244,32 +9280,38 @@ export interface TunnelOption {
   DpdTimeoutAction?: string;
 
   /**
-   * <p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE negotiations.</p>
+   * <p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
    */
   Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsListValue[];
 
   /**
-   * <p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE negotiations.</p>
+   * <p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
    */
   Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsListValue[];
 
   /**
-   * <p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE negotiations.</p>
+   * <p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
    */
   Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsListValue[];
 
   /**
-   * <p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE negotiations.</p>
+   * <p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
    */
   Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsListValue[];
 
   /**
-   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE negotiations.</p>
+   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
    */
   Phase1DHGroupNumbers?: Phase1DHGroupNumbersListValue[];
 
   /**
-   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE negotiations.</p>
+   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
    */
   Phase2DHGroupNumbers?: Phase2DHGroupNumbersListValue[];
 
@@ -9303,7 +9345,8 @@ export interface VpnConnectionOptions {
   EnableAcceleration?: boolean;
 
   /**
-   * <p>Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.</p>
+   * <p>Indicates whether the VPN connection uses static routes only. Static routes must be
+   *             used for devices that don't support BGP.</p>
    */
   StaticRoutesOnly?: boolean;
 
@@ -9313,7 +9356,7 @@ export interface VpnConnectionOptions {
   LocalIpv4NetworkCidr?: string;
 
   /**
-   * <p>The IPv4 CIDR on the AWS side of the VPN connection.</p>
+   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
    */
   RemoteIpv4NetworkCidr?: string;
 
@@ -9323,7 +9366,7 @@ export interface VpnConnectionOptions {
   LocalIpv6NetworkCidr?: string;
 
   /**
-   * <p>The IPv6 CIDR on the AWS side of the VPN connection.</p>
+   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
    */
   RemoteIpv6NetworkCidr?: string;
 
@@ -9397,7 +9440,8 @@ export interface VgwTelemetry {
   LastStatusChange?: Date;
 
   /**
-   * <p>The Internet-routable IP address of the virtual private gateway's outside interface.</p>
+   * <p>The Internet-routable IP address of the virtual private gateway's outside
+   *             interface.</p>
    */
   OutsideIpAddress?: string;
 
@@ -9431,10 +9475,11 @@ export namespace VgwTelemetry {
  */
 export interface VpnConnection {
   /**
-   * <p>The configuration information for the VPN connection's customer gateway (in the native XML
-   *             format). This element is always present in the <a>CreateVpnConnection</a> response; however,
-   *             it's present in the <a>DescribeVpnConnections</a> response only if the VPN connection is in
-   *             the <code>pending</code> or <code>available</code> state.</p>
+   * <p>The configuration information for the VPN connection's customer gateway (in the native
+   *             XML format). This element is always present in the <a>CreateVpnConnection</a>
+   *             response; however, it's present in the <a>DescribeVpnConnections</a> response
+   *             only if the VPN connection is in the <code>pending</code> or <code>available</code>
+   *             state.</p>
    */
   CustomerGatewayConfiguration?: string;
 
@@ -9444,8 +9489,7 @@ export interface VpnConnection {
   CustomerGatewayId?: string;
 
   /**
-   * <p>The category of the VPN connection. A value of <code>VPN</code> indicates an AWS VPN
-   * 			connection. A value of <code>VPN-Classic</code> indicates an AWS Classic VPN connection.</p>
+   * <p>The category of the VPN connection. A value of <code>VPN</code> indicates an Amazon Web Services VPN connection. A value of <code>VPN-Classic</code> indicates an Amazon Web Services Classic VPN connection.</p>
    */
   Category?: string;
 
@@ -9465,7 +9509,8 @@ export interface VpnConnection {
   VpnConnectionId?: string;
 
   /**
-   * <p>The ID of the virtual private gateway at the AWS side of the VPN connection.</p>
+   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
+   *             connection.</p>
    */
   VpnGatewayId?: string;
 
@@ -9567,15 +9612,18 @@ export interface CreateVpnGatewayRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range.</p>
-   * 		       <p>Default: 64512</p>
+   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If
+   *             you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a
+   *             32-bit ASN, it must be in the 4200000000 to 4294967294 range.</p>
+   *         <p>Default: 64512</p>
    */
   AmazonSideAsn?: number;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -9594,7 +9642,8 @@ export namespace CreateVpnGatewayRequest {
  */
 export interface VpnGateway {
   /**
-   * <p>The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned.</p>
+   * <p>The Availability Zone where the virtual private gateway was created, if applicable.
+   *             This field may be empty or not returned.</p>
    */
   AvailabilityZone?: string;
 
@@ -9619,7 +9668,8 @@ export interface VpnGateway {
   VpnGatewayId?: string;
 
   /**
-   * <p>The private Autonomous System Number (ASN) for the Amazon side of a BGP session.</p>
+   * <p>The private Autonomous System Number (ASN) for the Amazon side of a BGP
+   *             session.</p>
    */
   AmazonSideAsn?: number;
 

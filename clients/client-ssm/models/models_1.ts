@@ -19,6 +19,7 @@ import {
   LoggingInfo,
   MaintenanceWindowExecutionStatus,
   MaintenanceWindowResourceType,
+  MaintenanceWindowTaskCutoffBehavior,
   MaintenanceWindowTaskParameterValueExpression,
   MaintenanceWindowTaskType,
   MetadataValue,
@@ -27,6 +28,7 @@ import {
   OpsItemNotification,
   OpsItemStatus,
   ParameterInlinePolicy,
+  ParameterMetadata,
   ParameterStringFilter,
   ParameterTier,
   ParameterType,
@@ -51,6 +53,27 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+export interface DescribeParametersResult {
+  /**
+   * <p>Parameters returned by the request.</p>
+   */
+  Parameters?: ParameterMetadata[];
+
+  /**
+   * <p>The token to use when requesting the next set of items.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeParametersResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeParametersResult): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path
@@ -713,13 +736,13 @@ export namespace DescribeSessionsResponse {
 export interface DisassociateOpsItemRelatedItemRequest {
   /**
    * <p>The ID of the OpsItem for which you want to delete an association between the OpsItem and a
-   *    related resource.</p>
+   *    related item.</p>
    */
   OpsItemId: string | undefined;
 
   /**
    * <p>The ID of the association for which you want to delete an association between the OpsItem
-   *    and a related resource.</p>
+   *    and a related item.</p>
    */
   AssociationId: string | undefined;
 }
@@ -3013,6 +3036,15 @@ export interface GetMaintenanceWindowTaskResult {
    * <p>The retrieved task description.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The action to take on tasks when the maintenance window cutoff time is reached.
+   *     <code>CONTINUE_TASK</code> means that tasks continue to run. For Automation, Lambda, Step Functions tasks, <code>CANCEL_TASK</code> means that currently
+   *    running task invocations continue, but no new task invocations are started. For Run Command
+   *    tasks, <code>CANCEL_TASK</code> means the system attempts to stop the task by sending a
+   *     <code>CancelCommand</code> operation.</p>
+   */
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
 }
 
 export namespace GetMaintenanceWindowTaskResult {
@@ -3765,12 +3797,11 @@ export interface GetParametersByPathRequest {
   /**
    * <p>Filters to limit the request results.</p>
    *          <note>
-   *             <p>For <code>GetParametersByPath</code>, the following filter <code>Key</code> names are
-   *     supported: <code>Type</code>, <code>KeyId</code>, <code>Label</code>, and
-   *     <code>DataType</code>.</p>
-   *             <p>The following <code>Key</code> values are not supported for
-   *      <code>GetParametersByPath</code>: <code>tag</code>, <code>Name</code>, <code>Path</code>, and
-   *      <code>Tier</code>.</p>
+   *             <p>The following <code>Key</code> values are supported for <code>GetParametersByPath</code>:
+   *      <code>Type</code>, <code>KeyId</code>, and <code>Label</code>.</p>
+   *             <p>The following <code>Key</code> values aren't supported for
+   *     <code>GetParametersByPath</code>: <code>tag</code>, <code>DataType</code>, <code>Name</code>,
+   *      <code>Path</code>, and <code>Tier</code>.</p>
    *          </note>
    */
   ParameterFilters?: ParameterStringFilter[];
@@ -4600,7 +4631,8 @@ export interface CommandFilter {
    *             <li>
    *                <p>
    *                   <b>Status</b>: Specify a valid command status to see a list of
-   *      all command executions with that status. Status values you can specify include:</p>
+   *      all command executions with that status. The status choices depend on the API you call.</p>
+   *                <p>The status values you can specify for <code>ListCommands</code> are:</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -4629,12 +4661,103 @@ export interface CommandFilter {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>TimedOut</code>
+   *                         <code>TimedOut</code> (this includes both Delivery and Execution time outs) </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AccessDenied</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>Cancelling</code>
+   *                         <code>DeliveryTimedOut</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ExecutionTimedOut</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Incomplete</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>NoInstancesInTag</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>LimitExceeded</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>The status values you can specify for <code>ListCommandInvocations</code> are:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Pending</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>InProgress</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Delayed</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Success</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Cancelled</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Failed</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TimedOut</code> (this includes both Delivery and Execution time outs) </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AccessDenied</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>DeliveryTimedOut</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ExecutionTimedOut</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Undeliverable</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>InvalidPlatform</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Terminated</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -4905,8 +5028,7 @@ export interface CommandInvocation {
   InstanceId?: string;
 
   /**
-   * <p>The name of the invocation target. For EC2 instances this is the value for the
-   *     <code>aws:Name</code> tag. For on-premises instances, this is the name of the instance.</p>
+   * <p>The fully qualified host name of the managed instance.</p>
    */
   InstanceName?: string;
 
@@ -8578,6 +8700,36 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    * <p>User-provided idempotency token.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>Indicates whether tasks should continue to run after the cutoff time specified in the
+   *    maintenance windows is reached. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE_TASK</code>: When the cutoff time is reached, any tasks that are running
+   *      continue. The default value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCEL_TASK</code>:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>For Automation, Lambda, Step Functions tasks: When the cutoff
+   *        time is reached, any task invocations that are already running continue, but no new task
+   *        invocations are started.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For Run Command tasks: When the cutoff time is reached, the system sends a <a>CancelCommand</a> operation that attempts to cancel the command associated with the
+   *        task. However, there is no guarantee that the command will be terminated and the underlying
+   *        process stopped.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>The status for tasks that are not completed is <code>TIMED_OUT</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
 }
 
 export namespace RegisterTaskWithMaintenanceWindowRequest {
@@ -8980,9 +9132,13 @@ export interface SendCommandRequest {
 
   /**
    * <p>The name of the Amazon Web Services Systems Manager document (SSM document) to run. This can be a public document or a
-   *    custom document. To run a shared document belonging to another account, specify the document ARN.
-   *    For more information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using shared SSM documents</a>
-   *    in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    custom document. To run a shared document belonging to another account, specify the document
+   *    Amazon Resource Name (ARN). For more information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using shared
+   *     SSM documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <note>
+   *             <p>If you specify a document name or ARN that hasn't been shared with your account, you
+   *     receive an <code>InvalidDocument</code> error. </p>
+   *          </note>
    */
   DocumentName: string | undefined;
 
@@ -10326,86 +10482,6 @@ export namespace UpdateMaintenanceWindowRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateMaintenanceWindowRequest): any => ({
-    ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdateMaintenanceWindowResult {
-  /**
-   * <p>The ID of the created maintenance window.</p>
-   */
-  WindowId?: string;
-
-  /**
-   * <p>The name of the maintenance window.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>An optional description of the update.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
-   *    to become active. The maintenance window won't run before this specified time.</p>
-   */
-  StartDate?: string;
-
-  /**
-   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
-   *    to become inactive. The maintenance window won't run after this specified time.</p>
-   */
-  EndDate?: string;
-
-  /**
-   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
-   */
-  Schedule?: string;
-
-  /**
-   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
-   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or
-   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
-   *     Zone Database</a> on the IANA website.</p>
-   */
-  ScheduleTimezone?: string;
-
-  /**
-   * <p>The number of days to wait to run a maintenance window after the scheduled cron expression
-   *    date and time.</p>
-   */
-  ScheduleOffset?: number;
-
-  /**
-   * <p>The duration of the maintenance window in hours.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The number of hours before the end of the maintenance window that Amazon Web Services Systems Manager stops scheduling
-   *    new tasks for execution.</p>
-   */
-  Cutoff?: number;
-
-  /**
-   * <p>Whether targets must be registered with the maintenance window before tasks can be defined
-   *    for those targets.</p>
-   */
-  AllowUnassociatedTargets?: boolean;
-
-  /**
-   * <p>Whether the maintenance window is enabled.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace UpdateMaintenanceWindowResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowResult): any => ({
     ...obj,
     ...(obj.Description && { Description: SENSITIVE_STRING }),
   });

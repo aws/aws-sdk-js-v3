@@ -29,9 +29,11 @@ import {
   StreamFile,
   Tag,
   ThingGroupProperties,
+  ThingTypeProperties,
   TimeoutConfig,
   TopicRuleDestinationStatus,
   TopicRulePayload,
+  VerificationState,
   ViolationEventAdditionalInfo,
 } from "./models_0";
 import {
@@ -45,10 +47,46 @@ import {
   RegistrationConfig,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
-  ThingTypeDefinition,
+  ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+/**
+ * <p>The definition of the thing type, including thing type name and description.</p>
+ */
+export interface ThingTypeDefinition {
+  /**
+   * <p>The name of the thing type.</p>
+   */
+  thingTypeName?: string;
+
+  /**
+   * <p>The thing type ARN.</p>
+   */
+  thingTypeArn?: string;
+
+  /**
+   * <p>The ThingTypeProperties for the thing type.</p>
+   */
+  thingTypeProperties?: ThingTypeProperties;
+
+  /**
+   * <p>The ThingTypeMetadata contains additional information about the thing type including: creation date and
+   * 			time, a value indicating whether the thing type is deprecated, and a date and time when it was
+   * 			deprecated.</p>
+   */
+  thingTypeMetadata?: ThingTypeMetadata;
+}
+
+export namespace ThingTypeDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThingTypeDefinition): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The output for the ListThingTypes operation.</p>
@@ -485,6 +523,11 @@ export interface ListViolationEventsRequest {
   listSuppressedAlerts?: boolean;
 
   /**
+   * <p>The verification state of the violation (detect alarm).</p>
+   */
+  verificationState?: VerificationState | string;
+
+  /**
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
@@ -552,6 +595,16 @@ export interface ViolationEvent {
   violationEventType?: ViolationEventType | string;
 
   /**
+   * <p>The verification state of the violation (detect alarm).</p>
+   */
+  verificationState?: VerificationState | string;
+
+  /**
+   * <p>The description of the verification state of the violation.</p>
+   */
+  verificationStateDescription?: string;
+
+  /**
    * <p>The time the violation event occurred.</p>
    */
   violationEventTime?: Date;
@@ -585,6 +638,43 @@ export namespace ListViolationEventsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListViolationEventsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutVerificationStateOnViolationRequest {
+  /**
+   * <p>The violation ID.</p>
+   */
+  violationId: string | undefined;
+
+  /**
+   * <p>The verification state of the violation.</p>
+   */
+  verificationState: VerificationState | string | undefined;
+
+  /**
+   * <p>The description of the verification state of the violation (detect alarm).</p>
+   */
+  verificationStateDescription?: string;
+}
+
+export namespace PutVerificationStateOnViolationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutVerificationStateOnViolationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutVerificationStateOnViolationResponse {}
+
+export namespace PutVerificationStateOnViolationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutVerificationStateOnViolationResponse): any => ({
     ...obj,
   });
 }

@@ -328,8 +328,7 @@ export interface AssociateOpsItemRelatedItemRequest {
    * <p>The type of resource that you want to associate with an OpsItem. OpsCenter supports the
    *    following types:</p>
    *          <p>
-   *             <code>AWS::SSMIncidents::IncidentRecord</code>: an Incident Manager incident. Incident Manager is a
-   *    capability of Amazon Web Services Systems Manager.</p>
+   *             <code>AWS::SSMIncidents::IncidentRecord</code>: an Incident Manager incident. </p>
    *          <p>
    *             <code>AWS::SSM::Document</code>: a Systems Manager (SSM) document.</p>
    */
@@ -1874,20 +1873,17 @@ export interface CreateDocumentRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document
-   *       (Amazon Web Services API)</a>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document (Amazon Web Services API)</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html">Create an SSM document
-   *       (Amazon Web Services CLI)</a>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html">Create an SSM document (Amazon Web Services CLI)</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document
-   *       (API)</a>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document (API)</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -5797,8 +5793,7 @@ export interface DescribeAvailablePatchesRequest {
    *      <code>PRODUCT</code>. For example, using the Command Line Interface (CLI), the
    *     following command fails:</p>
    *             <p>
-   *                <code>aws ssm describe-available-patches --filters
-   *     Key=CVE_ID,Values=CVE-2018-3615</code>
+   *                <code>aws ssm describe-available-patches --filters Key=CVE_ID,Values=CVE-2018-3615</code>
    *             </p>
    *             <p>However, the following command succeeds:</p>
    *             <p>
@@ -8582,6 +8577,11 @@ export namespace DescribeMaintenanceWindowTasksRequest {
   });
 }
 
+export enum MaintenanceWindowTaskCutoffBehavior {
+  CancelTask = "CANCEL_TASK",
+  ContinueTask = "CONTINUE_TASK",
+}
+
 /**
  * <p>Information about an Amazon Simple Storage Service (Amazon S3) bucket to write
  *    instance-level logs to.</p>
@@ -8729,6 +8729,12 @@ export interface MaintenanceWindowTask {
    * <p>A description of the task.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The specification for whether tasks should continue to run after the cutoff time specified
+   *    in the maintenance windows is reached. </p>
+   */
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
 }
 
 export namespace MaintenanceWindowTask {
@@ -9108,11 +9114,11 @@ export interface ParameterStringFilter {
    *          <p>The <code>ParameterStringFilter</code> object is used by the <a>DescribeParameters</a> and <a>GetParametersByPath</a> API operations.
    *    However, not all of the pattern values listed for <code>Key</code> can be used with both
    *    operations.</p>
-   *          <p>For <code>DescribeActions</code>, all of the listed patterns are valid, with the exception
-   *    of <code>Label</code>.</p>
+   *          <p>For <code>DescribeActions</code>, all of the listed patterns are valid except
+   *     <code>Label</code>.</p>
    *          <p>For <code>GetParametersByPath</code>, the following patterns listed for <code>Key</code>
-   *    aren't valid: <code>tag</code>, <code>Name</code>, <code>Path</code>, and
-   *    <code>Tier</code>.</p>
+   *    aren't valid: <code>tag</code>, <code>DataType</code>, <code>Name</code>, <code>Path</code>, and
+   *     <code>Tier</code>.</p>
    *          <p>For examples of Amazon Web Services CLI commands demonstrating valid parameter filter constructions, see
    *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html">Searching for Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
@@ -9291,27 +9297,6 @@ export namespace ParameterMetadata {
    * @internal
    */
   export const filterSensitiveLog = (obj: ParameterMetadata): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeParametersResult {
-  /**
-   * <p>Parameters returned by the request.</p>
-   */
-  Parameters?: ParameterMetadata[];
-
-  /**
-   * <p>The token to use when requesting the next set of items.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeParametersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeParametersResult): any => ({
     ...obj,
   });
 }

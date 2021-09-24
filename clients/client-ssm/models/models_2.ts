@@ -1,5 +1,6 @@
 import {
   LoggingInfo,
+  MaintenanceWindowTaskCutoffBehavior,
   MaintenanceWindowTaskParameterValueExpression,
   MetadataValue,
   OperatingSystem,
@@ -25,6 +26,86 @@ import {
 } from "./models_1";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+export interface UpdateMaintenanceWindowResult {
+  /**
+   * <p>The ID of the created maintenance window.</p>
+   */
+  WindowId?: string;
+
+  /**
+   * <p>The name of the maintenance window.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>An optional description of the update.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
+   *    to become active. The maintenance window won't run before this specified time.</p>
+   */
+  StartDate?: string;
+
+  /**
+   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
+   *    to become inactive. The maintenance window won't run after this specified time.</p>
+   */
+  EndDate?: string;
+
+  /**
+   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
+   */
+  Schedule?: string;
+
+  /**
+   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
+   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or
+   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
+   *     Zone Database</a> on the IANA website.</p>
+   */
+  ScheduleTimezone?: string;
+
+  /**
+   * <p>The number of days to wait to run a maintenance window after the scheduled cron expression
+   *    date and time.</p>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>The duration of the maintenance window in hours.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The number of hours before the end of the maintenance window that Amazon Web Services Systems Manager stops scheduling
+   *    new tasks for execution.</p>
+   */
+  Cutoff?: number;
+
+  /**
+   * <p>Whether targets must be registered with the maintenance window before tasks can be defined
+   *    for those targets.</p>
+   */
+  AllowUnassociatedTargets?: boolean;
+
+  /**
+   * <p>Whether the maintenance window is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace UpdateMaintenanceWindowResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowResult): any => ({
+    ...obj,
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
+  });
+}
 
 export interface UpdateMaintenanceWindowTargetRequest {
   /**
@@ -261,6 +342,36 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *    Optional fields that aren't specified are set to null.</p>
    */
   Replace?: boolean;
+
+  /**
+   * <p>Indicates whether tasks should continue to run after the cutoff time specified in the
+   *    maintenance windows is reached. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE_TASK</code>: When the cutoff time is reached, any tasks that are running
+   *      continue. The default value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCEL_TASK</code>:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>For Automation, Lambda, Step Functions tasks: When the cutoff
+   *        time is reached, any task invocations that are already running continue, but no new task
+   *        invocations are started.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For Run Command tasks: When the cutoff time is reached, the system sends a <a>CancelCommand</a> operation that attempts to cancel the command associated with the
+   *        task. However, there is no guarantee that the command will be terminated and the underlying
+   *        process stopped.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>The status for tasks that are not completed is <code>TIMED_OUT</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
 }
 
 export namespace UpdateMaintenanceWindowTaskRequest {
@@ -359,6 +470,12 @@ export interface UpdateMaintenanceWindowTaskResult {
    * <p>The updated task description.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The specification for whether tasks should continue to run after the cutoff time specified
+   *    in the maintenance windows is reached. </p>
+   */
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
 }
 
 export namespace UpdateMaintenanceWindowTaskResult {
@@ -889,29 +1006,49 @@ export interface UpdateServiceSettingRequest {
   SettingId: string | undefined;
 
   /**
-   * <p>The new value to specify for the service setting. For the
-   *     <code>/ssm/parameter-store/default-parameter-tier</code> setting ID, the setting value can be
-   *    one of the following.</p>
+   * <p>The new value to specify for the service setting. The following list specifies the available
+   *    values for each setting.</p>
    *          <ul>
    *             <li>
-   *                <p>Standard</p>
+   *                <p>
+   *                   <code>/ssm/parameter-store/default-parameter-tier</code>: <code>Standard</code>,
+   *       <code>Advanced</code>, <code>Intelligent-Tiering</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>Advanced</p>
+   *                <p>
+   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>: <code>true</code> or
+   *       <code>false</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>Intelligent-Tiering</p>
+   *                <p>
+   *                   <code>/ssm/managed-instance/activation-tier</code>: <code>true</code> or
+   *       <code>false</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/automation/customer-script-log-destination</code>: <code>CloudWatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/automation/customer-script-log-group-name</code>: the name of an Amazon CloudWatch Logs log group</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/documents/console/public-sharing-permission</code>: <code>Enable</code> or
+   *       <code>Disable</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/managed-instance/activation-tier</code>: <code>standard</code> or
+   *       <code>advanced</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *          <p>For the <code>/ssm/parameter-store/high-throughput-enabled</code>, and
-   *     <code>/ssm/managed-instance/activation-tier</code> setting IDs, the setting value can be true or
-   *    false.</p>
-   *          <p>For the <code>/ssm/automation/customer-script-log-destination</code> setting ID, the setting
-   *    value can be <code>CloudWatch</code>.</p>
-   *          <p>For the <code>/ssm/automation/customer-script-log-group-name</code> setting ID, the setting
-   *    value can be the name of an Amazon CloudWatch Logs log group.</p>
-   *          <p>For the <code>/ssm/documents/console/public-sharing-permission</code> setting ID, the
-   *    setting value can be <code>Enable</code> or <code>Disable</code>.</p>
    */
   SettingValue: string | undefined;
 }

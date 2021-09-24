@@ -21,7 +21,10 @@ export interface DeleteVpnConnectionRouteCommandInput extends DeleteVpnConnectio
 export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p>
+ * <p>Deletes the specified static route associated with a VPN connection between an
+ *             existing virtual private gateway and a VPN customer gateway. The static route allows
+ *             traffic to be routed from the virtual private gateway to the VPN customer
+ *             gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

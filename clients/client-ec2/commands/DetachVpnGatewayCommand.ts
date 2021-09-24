@@ -21,9 +21,12 @@ export interface DetachVpnGatewayCommandInput extends DetachVpnGatewayRequest {}
 export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn off the VPC and not use it anymore. You can confirm a virtual private gateway has been completely detached from a VPC by describing the virtual private gateway (any attachments to the virtual private gateway are also described).</p>
- *         <p>You must wait for the attachment's state to switch to <code>detached</code> before
- *             you can delete the VPC or attach a different VPC to the virtual private gateway.</p>
+ * <p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn
+ *             off the VPC and not use it anymore. You can confirm a virtual private gateway has been
+ *             completely detached from a VPC by describing the virtual private gateway (any
+ *             attachments to the virtual private gateway are also described).</p>
+ *         <p>You must wait for the attachment's state to switch to <code>detached</code> before you
+ *             can delete the VPC or attach a different VPC to the virtual private gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

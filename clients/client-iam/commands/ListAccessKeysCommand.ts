@@ -27,11 +27,11 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  *             results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
  *         <p>If the <code>UserName</code> field is not specified, the user name is determined
  *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
- *             works for access keys under the account. Consequently, you can use this operation
- *             to manage account root user credentials even if the account has no
+ *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
+ *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
  *             associated users.</p>
  *         <note>
- *             <p>To ensure the security of your account, the secret access key is accessible
+ *             <p>To ensure the security of your Amazon Web Services account, the secret access key is accessible
  *                 only during key and user creation.</p>
  *         </note>
  * @example

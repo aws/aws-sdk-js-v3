@@ -6,6 +6,11 @@ export enum AugmentedManifestsDocumentTypeFormat {
   SEMI_STRUCTURED_DOCUMENT = "SEMI_STRUCTURED_DOCUMENT",
 }
 
+export enum Split {
+  TEST = "TEST",
+  TRAIN = "TRAIN",
+}
+
 /**
  * <p>An augmented manifest file that provides training data for your custom model. An augmented
  *       manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p>
@@ -15,6 +20,13 @@ export interface AugmentedManifestsListItem {
    * <p>The Amazon S3 location of the augmented manifest file.</p>
    */
   S3Uri: string | undefined;
+
+  /**
+   * <p>The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.</p>
+   *          <p>TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.</p>
+   *          <p> TEST - all of the documents in the manifest will be used for testing.</p>
+   */
+  Split?: Split | string;
 
   /**
    * <p>The JSON attribute that contains the annotations for your training documents. The number
@@ -1237,6 +1249,13 @@ export interface DocumentClassifierInputDataConfig {
   S3Uri?: string;
 
   /**
+   * <p>The Amazon S3 URI for the input data.
+   *       The Amazon S3 bucket must be in the same AWS Region as the API endpoint that you are calling.
+   *       The URI can point to a single input file or it can provide the prefix for a collection of input files. </p>
+   */
+  TestS3Uri?: string;
+
+  /**
    * <p>Indicates the delimiter used to separate each label for training a multi-label classifier.
    *       The default delimiter between labels is a pipe (|). You can use a different character as a
    *       delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the
@@ -1393,6 +1412,13 @@ export interface CreateDocumentClassifierRequest {
    * <p>The name of the document classifier.</p>
    */
   DocumentClassifierName: string | undefined;
+
+  /**
+   * <p>The version name given to the newly created classifier.
+   *       Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed.
+   *       The version name must be unique among all models with the same classifier name in the account/AWS Region.</p>
+   */
+  VersionName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants
@@ -1698,6 +1724,12 @@ export interface EntityRecognizerAnnotations {
    *       located. The URI must be in the same region as the API endpoint that you are calling.</p>
    */
   S3Uri: string | undefined;
+
+  /**
+   * <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer are located.
+   *       The URI must be in the same AWS Region as the API endpoint that you are calling.</p>
+   */
+  TestS3Uri?: string;
 }
 
 export namespace EntityRecognizerAnnotations {
@@ -1714,6 +1746,11 @@ export enum EntityRecognizerDataFormat {
   COMPREHEND_CSV = "COMPREHEND_CSV",
 }
 
+export enum InputFormat {
+  ONE_DOC_PER_FILE = "ONE_DOC_PER_FILE",
+  ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE",
+}
+
 /**
  * <p>Describes the training documents submitted with an entity recognizer.</p>
  */
@@ -1724,6 +1761,21 @@ export interface EntityRecognizerDocuments {
    *       calling.</p>
    */
   S3Uri: string | undefined;
+
+  /**
+   * <p> Specifies the Amazon S3 location where the test documents for an entity recognizer are located.
+   *       The URI must be in the same AWS Region as the API endpoint that you are calling.</p>
+   */
+  TestS3Uri?: string;
+
+  /**
+   * <p> Specifies how the text in an input file should be processed. This is optional, and the default is ONE_DOC_PER_LINE.
+   *
+   *       ONE_DOC_PER_FILE - Each file is considered a separate document. Use this option when you are processing large documents, such as newspaper articles or scientific papers.
+   *
+   *       ONE_DOC_PER_LINE - Each line in a file is considered a separate document. Use this option when you are processing many short documents, such as text messages.</p>
+   */
+  InputFormat?: InputFormat | string;
 }
 
 export namespace EntityRecognizerDocuments {
@@ -1866,6 +1918,13 @@ export interface CreateEntityRecognizerRequest {
    *       must be unique in the account/region.</p>
    */
   RecognizerName: string | undefined;
+
+  /**
+   * <p>The version name given to the newly created recognizer.
+   *       Version names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed.
+   *       The version name must be unique among all models with the same recognizer name in the account/ AWS Region.</p>
+   */
+  VersionName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants
@@ -2130,11 +2189,6 @@ export namespace DocumentReaderConfig {
   export const filterSensitiveLog = (obj: DocumentReaderConfig): any => ({
     ...obj,
   });
-}
-
-export enum InputFormat {
-  ONE_DOC_PER_FILE = "ONE_DOC_PER_FILE",
-  ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE",
 }
 
 /**
@@ -2540,6 +2594,11 @@ export interface DocumentClassifierProperties {
    *          </ul>
    */
   ModelKmsKeyId?: string;
+
+  /**
+   * <p>The version name that you assigned to the document classifier.</p>
+   */
+  VersionName?: string;
 }
 
 export namespace DocumentClassifierProperties {
@@ -2759,6 +2818,11 @@ export interface EndpointProperties {
   ModelArn?: string;
 
   /**
+   * <p>ARN of the new model to use for updating an existing endpoint. This ARN is going to be different from the model ARN when the update is in progress</p>
+   */
+  DesiredModelArn?: string;
+
+  /**
    * <p>The desired number of inference units to be used by the model using this endpoint.
    *
    *       Each inference unit represents of a throughput of 100 characters per second.</p>
@@ -2786,6 +2850,11 @@ export interface EndpointProperties {
    *       managed key (ModelKmsKeyId).</p>
    */
   DataAccessRoleArn?: string;
+
+  /**
+   * <p>Data access role ARN to use in case the new model is encrypted with a customer KMS key.</p>
+   */
+  DesiredDataAccessRoleArn?: string;
 }
 
 export namespace EndpointProperties {
@@ -3214,6 +3283,11 @@ export interface EntityRecognizerProperties {
    *          </ul>
    */
   ModelKmsKeyId?: string;
+
+  /**
+   * <p>The version name you assigned to the entity recognizer.</p>
+   */
+  VersionName?: string;
 }
 
 export namespace EntityRecognizerProperties {
@@ -4406,6 +4480,11 @@ export interface DocumentClassifierFilter {
   Status?: ModelStatus | string;
 
   /**
+   * <p>The name that you assigned to the document classifier</p>
+   */
+  DocumentClassifierName?: string;
+
+  /**
    * <p>Filters the list of classifiers based on the time that the classifier was submitted for
    *       processing. Returns only classifiers submitted before the specified time. Classifiers are
    *       returned in ascending order, oldest to newest.</p>
@@ -4479,6 +4558,87 @@ export namespace ListDocumentClassifiersResponse {
         DocumentClassifierProperties.filterSensitiveLog(item)
       ),
     }),
+  });
+}
+
+export interface ListDocumentClassifierSummariesRequest {
+  /**
+   * <p>Identifies the next page of results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return on each page. The default is 100.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListDocumentClassifierSummariesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDocumentClassifierSummariesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes information about a document classifier and its versions.</p>
+ */
+export interface DocumentClassifierSummary {
+  /**
+   * <p>The name that you assigned the document classifier.</p>
+   */
+  DocumentClassifierName?: string;
+
+  /**
+   * <p>The number of versions you created.</p>
+   */
+  NumberOfVersions?: number;
+
+  /**
+   * <p>The time that the latest document classifier version was submitted for processing.</p>
+   */
+  LatestVersionCreatedAt?: Date;
+
+  /**
+   * <p>The version name you assigned to the latest document classifier version.</p>
+   */
+  LatestVersionName?: string;
+
+  /**
+   * <p>Provides the status of the latest document classifier version.</p>
+   */
+  LatestVersionStatus?: ModelStatus | string;
+}
+
+export namespace DocumentClassifierSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DocumentClassifierSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDocumentClassifierSummariesResponse {
+  /**
+   * <p>The list of summaries of document classifiers.</p>
+   */
+  DocumentClassifierSummariesList?: DocumentClassifierSummary[];
+
+  /**
+   * <p>Identifies the next page of results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDocumentClassifierSummariesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDocumentClassifierSummariesResponse): any => ({
+    ...obj,
   });
 }
 
@@ -4756,6 +4916,11 @@ export interface EntityRecognizerFilter {
   Status?: ModelStatus | string;
 
   /**
+   * <p>The name that you assigned the entity recognizer.</p>
+   */
+  RecognizerName?: string;
+
+  /**
    * <p>Filters the list of entities based on the time that the list was submitted for processing.
    *       Returns only jobs submitted before the specified time. Jobs are returned in descending order,
    *       newest to oldest.</p>
@@ -4830,6 +4995,87 @@ export namespace ListEntityRecognizersResponse {
         EntityRecognizerProperties.filterSensitiveLog(item)
       ),
     }),
+  });
+}
+
+export interface ListEntityRecognizerSummariesRequest {
+  /**
+   * <p>Identifies the next page of results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return on each page. The default is 100.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListEntityRecognizerSummariesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEntityRecognizerSummariesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p> Describes the information about an entity recognizer and its versions.</p>
+ */
+export interface EntityRecognizerSummary {
+  /**
+   * <p> The name that you assigned the entity recognizer.</p>
+   */
+  RecognizerName?: string;
+
+  /**
+   * <p> The number of versions you created.</p>
+   */
+  NumberOfVersions?: number;
+
+  /**
+   * <p> The time that the latest entity recognizer version was submitted for processing.</p>
+   */
+  LatestVersionCreatedAt?: Date;
+
+  /**
+   * <p> The version name you assigned to the latest entity recognizer version.</p>
+   */
+  LatestVersionName?: string;
+
+  /**
+   * <p> Provides the status of the latest entity recognizer version.</p>
+   */
+  LatestVersionStatus?: ModelStatus | string;
+}
+
+export namespace EntityRecognizerSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EntityRecognizerSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEntityRecognizerSummariesResponse {
+  /**
+   * <p>The list entity recognizer summaries.</p>
+   */
+  EntityRecognizerSummariesList?: EntityRecognizerSummary[];
+
+  /**
+   * <p>The list entity recognizer summaries.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEntityRecognizerSummariesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEntityRecognizerSummariesResponse): any => ({
+    ...obj,
   });
 }
 
@@ -6682,11 +6928,21 @@ export interface UpdateEndpointRequest {
   EndpointArn: string | undefined;
 
   /**
+   * <p>The ARN of the new model to use when updating an existing endpoint.</p>
+   */
+  DesiredModelArn?: string;
+
+  /**
    * <p> The desired number of inference units to be used by the model using this endpoint.
    *
    *       Each inference unit represents of a throughput of 100 characters per second.</p>
    */
-  DesiredInferenceUnits: number | undefined;
+  DesiredInferenceUnits?: number;
+
+  /**
+   * <p>Data access role ARN to use in case the new model is encrypted with a customer CMK.</p>
+   */
+  DesiredDataAccessRoleArn?: string;
 }
 
 export namespace UpdateEndpointRequest {

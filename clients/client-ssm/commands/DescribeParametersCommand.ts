@@ -1,5 +1,6 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribeParametersRequest, DescribeParametersResult } from "../models/models_0";
+import { DescribeParametersRequest } from "../models/models_0";
+import { DescribeParametersResult } from "../models/models_1";
 import {
   deserializeAws_json1_1DescribeParametersCommand,
   serializeAws_json1_1DescribeParametersCommand,
@@ -28,6 +29,12 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  *    reaches an internal limit while processing the results, it stops the operation and returns the
  *    matching values up to that point and a <code>NextToken</code>. You can specify the
  *     <code>NextToken</code> in a subsequent call to get the next set of results.</p>
+ *          <important>
+ *             <p>If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must
+ *     also update the key alias the parameter uses to reference KMS. Otherwise,
+ *      <code>DescribeParameters</code> retrieves whatever the original key alias was
+ *     referencing.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

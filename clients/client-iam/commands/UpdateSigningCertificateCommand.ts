@@ -26,8 +26,8 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  *             as part of a certificate rotation work flow.</p>
  *         <p>If the <code>UserName</code> field is not specified, the user name is determined
  *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
- *             works for access keys under the account. Consequently, you can use this operation
- *             to manage account root user credentials even if the account has no
+ *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
+ *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
  *             associated users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

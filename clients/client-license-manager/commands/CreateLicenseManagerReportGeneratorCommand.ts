@@ -26,7 +26,7 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new report generator.</p>
+ * <p>Creates a report generator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

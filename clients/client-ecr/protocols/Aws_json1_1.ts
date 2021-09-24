@@ -23,6 +23,10 @@ import {
   DeleteRepositoryPolicyCommandOutput,
 } from "../commands/DeleteRepositoryPolicyCommand";
 import {
+  DescribeImageReplicationStatusCommandInput,
+  DescribeImageReplicationStatusCommandOutput,
+} from "../commands/DescribeImageReplicationStatusCommand";
+import {
   DescribeImageScanFindingsCommandInput,
   DescribeImageScanFindingsCommandOutput,
 } from "../commands/DescribeImageScanFindingsCommand";
@@ -107,6 +111,8 @@ import {
   DeleteRepositoryPolicyResponse,
   DeleteRepositoryRequest,
   DeleteRepositoryResponse,
+  DescribeImageReplicationStatusRequest,
+  DescribeImageReplicationStatusResponse,
   DescribeImageScanFindingsRequest,
   DescribeImageScanFindingsResponse,
   DescribeImagesFilter,
@@ -138,6 +144,7 @@ import {
   ImageFailure,
   ImageIdentifier,
   ImageNotFoundException,
+  ImageReplicationStatus,
   ImageScanFinding,
   ImageScanFindings,
   ImageScanFindingsSummary,
@@ -189,6 +196,7 @@ import {
   ReplicationRule,
   Repository,
   RepositoryAlreadyExistsException,
+  RepositoryFilter,
   RepositoryNotEmptyException,
   RepositoryNotFoundException,
   RepositoryPolicyNotFoundException,
@@ -345,6 +353,19 @@ export const serializeAws_json1_1DeleteRepositoryPolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRepositoryPolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeImageReplicationStatusCommand = async (
+  input: DescribeImageReplicationStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeImageReplicationStatus",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeImageReplicationStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1234,6 +1255,14 @@ const deserializeAws_json1_1DeleteRegistryPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1394,6 +1423,92 @@ const deserializeAws_json1_1DeleteRepositoryPolicyCommandError = async (
     case "com.amazonaws.ecr#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeImageReplicationStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageReplicationStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeImageReplicationStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeImageReplicationStatusResponse(data, context);
+  const response: DescribeImageReplicationStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeImageReplicationStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageReplicationStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ImageNotFoundException":
+    case "com.amazonaws.ecr#ImageNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.ecr#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RepositoryNotFoundException":
+    case "com.amazonaws.ecr#RepositoryNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.ecr#ServerException":
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2072,6 +2187,14 @@ const deserializeAws_json1_1GetRegistryPolicyCommandError = async (
     case "com.amazonaws.ecr#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2766,6 +2889,14 @@ const deserializeAws_json1_1PutRegistryPolicyCommandError = async (
     case "com.amazonaws.ecr#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3912,6 +4043,7 @@ const serializeAws_json1_1CreateRepositoryRequest = (input: CreateRepositoryRequ
       }),
     ...(input.imageTagMutability !== undefined &&
       input.imageTagMutability !== null && { imageTagMutability: input.imageTagMutability }),
+    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
     ...(input.repositoryName !== undefined &&
       input.repositoryName !== null && { repositoryName: input.repositoryName }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
@@ -3950,6 +4082,19 @@ const serializeAws_json1_1DeleteRepositoryPolicyRequest = (
 const serializeAws_json1_1DeleteRepositoryRequest = (input: DeleteRepositoryRequest, context: __SerdeContext): any => {
   return {
     ...(input.force !== undefined && input.force !== null && { force: input.force }),
+    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined &&
+      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+  };
+};
+
+const serializeAws_json1_1DescribeImageReplicationStatusRequest = (
+  input: DescribeImageReplicationStatusRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.imageId !== undefined &&
+      input.imageId !== null && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
     ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
     ...(input.repositoryName !== undefined &&
       input.repositoryName !== null && { repositoryName: input.repositoryName }),
@@ -4310,6 +4455,10 @@ const serializeAws_json1_1ReplicationRule = (input: ReplicationRule, context: __
       input.destinations !== null && {
         destinations: serializeAws_json1_1ReplicationDestinationList(input.destinations, context),
       }),
+    ...(input.repositoryFilters !== undefined &&
+      input.repositoryFilters !== null && {
+        repositoryFilters: serializeAws_json1_1RepositoryFilterList(input.repositoryFilters, context),
+      }),
   };
 };
 
@@ -4321,6 +4470,24 @@ const serializeAws_json1_1ReplicationRuleList = (input: ReplicationRule[], conte
         return null as any;
       }
       return serializeAws_json1_1ReplicationRule(entry, context);
+    });
+};
+
+const serializeAws_json1_1RepositoryFilter = (input: RepositoryFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.filter !== undefined && input.filter !== null && { filter: input.filter }),
+    ...(input.filterType !== undefined && input.filterType !== null && { filterType: input.filterType }),
+  };
+};
+
+const serializeAws_json1_1RepositoryFilterList = (input: RepositoryFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1RepositoryFilter(entry, context);
     });
 };
 
@@ -4582,6 +4749,23 @@ const deserializeAws_json1_1DeleteRepositoryResponse = (
       output.repository !== undefined && output.repository !== null
         ? deserializeAws_json1_1Repository(output.repository, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeImageReplicationStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeImageReplicationStatusResponse => {
+  return {
+    imageId:
+      output.imageId !== undefined && output.imageId !== null
+        ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
+        : undefined,
+    replicationStatuses:
+      output.replicationStatuses !== undefined && output.replicationStatuses !== null
+        ? deserializeAws_json1_1ImageReplicationStatusList(output.replicationStatuses, context)
+        : undefined,
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -4881,6 +5065,29 @@ const deserializeAws_json1_1ImageNotFoundException = (output: any, context: __Se
   return {
     message: __expectString(output.message),
   } as any;
+};
+
+const deserializeAws_json1_1ImageReplicationStatus = (output: any, context: __SerdeContext): ImageReplicationStatus => {
+  return {
+    failureCode: __expectString(output.failureCode),
+    region: __expectString(output.region),
+    registryId: __expectString(output.registryId),
+    status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_json1_1ImageReplicationStatusList = (
+  output: any,
+  context: __SerdeContext
+): ImageReplicationStatus[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ImageReplicationStatus(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ImageScanFinding = (output: any, context: __SerdeContext): ImageScanFinding => {
@@ -5346,6 +5553,10 @@ const deserializeAws_json1_1ReplicationRule = (output: any, context: __SerdeCont
       output.destinations !== undefined && output.destinations !== null
         ? deserializeAws_json1_1ReplicationDestinationList(output.destinations, context)
         : undefined,
+    repositoryFilters:
+      output.repositoryFilters !== undefined && output.repositoryFilters !== null
+        ? deserializeAws_json1_1RepositoryFilterList(output.repositoryFilters, context)
+        : undefined,
   } as any;
 };
 
@@ -5389,6 +5600,24 @@ const deserializeAws_json1_1RepositoryAlreadyExistsException = (
   return {
     message: __expectString(output.message),
   } as any;
+};
+
+const deserializeAws_json1_1RepositoryFilter = (output: any, context: __SerdeContext): RepositoryFilter => {
+  return {
+    filter: __expectString(output.filter),
+    filterType: __expectString(output.filterType),
+  } as any;
+};
+
+const deserializeAws_json1_1RepositoryFilterList = (output: any, context: __SerdeContext): RepositoryFilter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RepositoryFilter(entry, context);
+    });
 };
 
 const deserializeAws_json1_1RepositoryList = (output: any, context: __SerdeContext): Repository[] => {

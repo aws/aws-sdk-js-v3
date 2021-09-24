@@ -93,6 +93,10 @@ import {
   ListDocumentClassificationJobsCommandOutput,
 } from "./commands/ListDocumentClassificationJobsCommand";
 import {
+  ListDocumentClassifierSummariesCommandInput,
+  ListDocumentClassifierSummariesCommandOutput,
+} from "./commands/ListDocumentClassifierSummariesCommand";
+import {
   ListDocumentClassifiersCommandInput,
   ListDocumentClassifiersCommandOutput,
 } from "./commands/ListDocumentClassifiersCommand";
@@ -105,6 +109,10 @@ import {
   ListEntitiesDetectionJobsCommandInput,
   ListEntitiesDetectionJobsCommandOutput,
 } from "./commands/ListEntitiesDetectionJobsCommand";
+import {
+  ListEntityRecognizerSummariesCommandInput,
+  ListEntityRecognizerSummariesCommandOutput,
+} from "./commands/ListEntityRecognizerSummariesCommand";
 import {
   ListEntityRecognizersCommandInput,
   ListEntityRecognizersCommandOutput,
@@ -284,10 +292,12 @@ export type ServiceInputTypes =
   | DetectSentimentCommandInput
   | DetectSyntaxCommandInput
   | ListDocumentClassificationJobsCommandInput
+  | ListDocumentClassifierSummariesCommandInput
   | ListDocumentClassifiersCommandInput
   | ListDominantLanguageDetectionJobsCommandInput
   | ListEndpointsCommandInput
   | ListEntitiesDetectionJobsCommandInput
+  | ListEntityRecognizerSummariesCommandInput
   | ListEntityRecognizersCommandInput
   | ListEventsDetectionJobsCommandInput
   | ListKeyPhrasesDetectionJobsCommandInput
@@ -347,10 +357,12 @@ export type ServiceOutputTypes =
   | DetectSentimentCommandOutput
   | DetectSyntaxCommandOutput
   | ListDocumentClassificationJobsCommandOutput
+  | ListDocumentClassifierSummariesCommandOutput
   | ListDocumentClassifiersCommandOutput
   | ListDominantLanguageDetectionJobsCommandOutput
   | ListEndpointsCommandOutput
   | ListEntitiesDetectionJobsCommandOutput
+  | ListEntityRecognizerSummariesCommandOutput
   | ListEntityRecognizersCommandOutput
   | ListEventsDetectionJobsCommandOutput
   | ListKeyPhrasesDetectionJobsCommandOutput

@@ -64,7 +64,168 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_3";
-import { CapacityReservationSpecification, PeeringConnectionOptionsRequest, Purchase } from "./models_4";
+import { CapacityReservationSpecification, Purchase } from "./models_4";
+
+export interface ModifyVpcEndpointServiceConfigurationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>(Interface endpoint configuration) The private DNS name to assign to the endpoint service.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
+   */
+  RemovePrivateDnsName?: boolean;
+
+  /**
+   * <p>Indicates whether requests to create an endpoint to your service must be accepted.</p>
+   */
+  AcceptanceRequired?: boolean;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service
+   *             configuration.</p>
+   */
+  AddNetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service
+   *             configuration.</p>
+   */
+  RemoveNetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service
+   *             configuration.</p>
+   */
+  AddGatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service
+   *             configuration.</p>
+   */
+  RemoveGatewayLoadBalancerArns?: string[];
+}
+
+export namespace ModifyVpcEndpointServiceConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointServiceConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVpcEndpointServiceConfigurationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace ModifyVpcEndpointServiceConfigurationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointServiceConfigurationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVpcEndpointServicePermissionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of one or more principals.
+   * 	        Permissions are granted to the principals in this list.
+   * 	        To grant permissions to all principals, specify an asterisk (*).</p>
+   */
+  AddAllowedPrincipals?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of one or more principals.
+   * 	        Permissions are revoked for principals in this list.</p>
+   */
+  RemoveAllowedPrincipals?: string[];
+}
+
+export namespace ModifyVpcEndpointServicePermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointServicePermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVpcEndpointServicePermissionsResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  ReturnValue?: boolean;
+}
+
+export namespace ModifyVpcEndpointServicePermissionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointServicePermissionsResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The VPC peering connection options.</p>
+ */
+export interface PeeringConnectionOptionsRequest {
+  /**
+   * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.</p>
+   */
+  AllowDnsResolutionFromRemoteVpc?: boolean;
+
+  /**
+   * <p>If true, enables outbound communication from an EC2-Classic instance that's linked to
+   *             a local VPC using ClassicLink to instances in a peer VPC.</p>
+   */
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
+
+  /**
+   * <p>If true, enables outbound communication from instances in a local VPC to an
+   *             EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
+   */
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
+}
+
+export namespace PeeringConnectionOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PeeringConnectionOptionsRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ModifyVpcPeeringConnectionOptionsRequest {
   /**
@@ -216,14 +377,16 @@ export interface ModifyVpnConnectionRequest {
   CustomerGatewayId?: string;
 
   /**
-   * <p>The ID of the virtual private gateway at the AWS side of the VPN connection.</p>
+   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
+   *             connection.</p>
    */
   VpnGatewayId?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -255,8 +418,7 @@ export namespace ModifyVpnConnectionResult {
 
 export interface ModifyVpnConnectionOptionsRequest {
   /**
-   * <p>The ID of the Site-to-Site VPN connection.
-   *         </p>
+   * <p>The ID of the Site-to-Site VPN connection. </p>
    */
   VpnConnectionId: string | undefined;
 
@@ -268,7 +430,7 @@ export interface ModifyVpnConnectionOptionsRequest {
   LocalIpv4NetworkCidr?: string;
 
   /**
-   * <p>The IPv4 CIDR on the AWS side of the VPN connection.</p>
+   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
    *         <p>Default: <code>0.0.0.0/0</code>
    *          </p>
    */
@@ -282,7 +444,7 @@ export interface ModifyVpnConnectionOptionsRequest {
   LocalIpv6NetworkCidr?: string;
 
   /**
-   * <p>The IPv6 CIDR on the AWS side of the VPN connection.</p>
+   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
    *         <p>Default: <code>::/0</code>
    *          </p>
    */
@@ -321,7 +483,7 @@ export namespace ModifyVpnConnectionOptionsResult {
 
 export interface ModifyVpnTunnelCertificateRequest {
   /**
-   * <p>The ID of the AWS Site-to-Site VPN connection.</p>
+   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
    */
   VpnConnectionId: string | undefined;
 
@@ -331,9 +493,10 @@ export interface ModifyVpnTunnelCertificateRequest {
   VpnTunnelOutsideIpAddress: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -364,12 +527,12 @@ export namespace ModifyVpnTunnelCertificateResult {
 }
 
 /**
- * <p>The AWS Site-to-Site VPN tunnel options to modify.</p>
+ * <p>The Amazon Web Services Site-to-Site VPN tunnel options to modify.</p>
  */
 export interface ModifyVpnTunnelOptionsSpecification {
   /**
-   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique
-   *             across all VPN connections that use the same virtual private gateway. </p>
+   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same virtual private gateway. </p>
    *         <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
    *             following CIDR blocks are reserved and cannot be used:</p>
    *         <ul>
@@ -413,7 +576,8 @@ export interface ModifyVpnTunnelOptionsSpecification {
   TunnelInsideCidr?: string;
 
   /**
-   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.</p>
+   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same transit gateway.</p>
    *         <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
    */
   TunnelInsideIpv6Cidr?: string;
@@ -437,14 +601,18 @@ export interface ModifyVpnTunnelOptionsSpecification {
 
   /**
    * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for <code>Phase1LifetimeSeconds</code>.</p>
+   *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
+   *                 <code>Phase1LifetimeSeconds</code>.</p>
    *         <p>Default: <code>3600</code>
    *          </p>
    */
   Phase2LifetimeSeconds?: number;
 
   /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for <code>RekeyFuzzPercentage</code>.</p>
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
+   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
+   *             of the rekey is randomly selected based on the value for
+   *                 <code>RekeyFuzzPercentage</code>.</p>
    *         <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
    *         <p>Default: <code>540</code>
    *          </p>
@@ -452,7 +620,8 @@ export interface ModifyVpnTunnelOptionsSpecification {
   RekeyMarginTimeSeconds?: number;
 
   /**
-   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>) during which the rekey time is randomly selected.</p>
+   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
+   *             during which the rekey time is randomly selected.</p>
    *         <p>Constraints: A value between 0 and 100.</p>
    *         <p>Default: <code>100</code>
    *          </p>
@@ -476,7 +645,8 @@ export interface ModifyVpnTunnelOptionsSpecification {
   DPDTimeoutSeconds?: number;
 
   /**
-   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
+   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
+   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
    *         <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
    *          </p>
    *         <p>Default: <code>clear</code>
@@ -485,43 +655,58 @@ export interface ModifyVpnTunnelOptionsSpecification {
   DPDTimeoutAction?: string;
 
   /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code>
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
+   *             IKE negotiations.</p>
+   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
    *          </p>
    */
   Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
 
   /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code>
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
+   *             IKE negotiations.</p>
+   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
    *          </p>
    */
   Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
 
   /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code>
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
    *          </p>
    */
   Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
 
   /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code>
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
    *          </p>
    */
   Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
 
   /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 1 IKE negotiations.</p>
+   *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
+   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
+   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
    *          </p>
    */
   Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
 
   /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 2 IKE negotiations.</p>
+   *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
+   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
+   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
+   *                 <code>24</code>
    *          </p>
    */
   Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
@@ -534,7 +719,10 @@ export interface ModifyVpnTunnelOptionsSpecification {
   IKEVersions?: IKEVersionsRequestListValue[];
 
   /**
-   * <p>The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify <code>start</code> for AWS to initiate the IKE negotiation.</p>
+   * <p>The action to take when the establishing the tunnel for the VPN connection. By
+   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
+   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
+   *             negotiation.</p>
    *         <p>Valid Values: <code>add</code> | <code>start</code>
    *          </p>
    *         <p>Default: <code>add</code>
@@ -554,7 +742,7 @@ export namespace ModifyVpnTunnelOptionsSpecification {
 
 export interface ModifyVpnTunnelOptionsRequest {
   /**
-   * <p>The ID of the AWS Site-to-Site VPN connection.</p>
+   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
    */
   VpnConnectionId: string | undefined;
 
@@ -569,9 +757,10 @@ export interface ModifyVpnTunnelOptionsRequest {
   TunnelOptions: ModifyVpnTunnelOptionsSpecification | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -4085,11 +4274,6 @@ export interface SearchLocalGatewayRoutesRequest {
   LocalGatewayRouteTableId: string | undefined;
 
   /**
-   * <p>One or more filters.</p>
-   */
-  Filters: Filter[] | undefined;
-
-  /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
@@ -4106,6 +4290,11 @@ export interface SearchLocalGatewayRoutesRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>One or more filters.</p>
+   */
+  Filters: Filter[] | undefined;
 }
 
 export namespace SearchLocalGatewayRoutesRequest {

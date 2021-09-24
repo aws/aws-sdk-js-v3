@@ -33,6 +33,7 @@ import {
 } from "./commands/DeleteResourcePolicyStatementCommand";
 import { DeleteSlotCommandInput, DeleteSlotCommandOutput } from "./commands/DeleteSlotCommand";
 import { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "./commands/DeleteSlotTypeCommand";
+import { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "./commands/DeleteUtterancesCommand";
 import { DescribeBotAliasCommandInput, DescribeBotAliasCommandOutput } from "./commands/DescribeBotAliasCommand";
 import { DescribeBotCommandInput, DescribeBotCommandOutput } from "./commands/DescribeBotCommand";
 import { DescribeBotLocaleCommandInput, DescribeBotLocaleCommandOutput } from "./commands/DescribeBotLocaleCommand";
@@ -46,6 +47,10 @@ import {
 } from "./commands/DescribeResourcePolicyCommand";
 import { DescribeSlotCommandInput, DescribeSlotCommandOutput } from "./commands/DescribeSlotCommand";
 import { DescribeSlotTypeCommandInput, DescribeSlotTypeCommandOutput } from "./commands/DescribeSlotTypeCommand";
+import {
+  ListAggregatedUtterancesCommandInput,
+  ListAggregatedUtterancesCommandOutput,
+} from "./commands/ListAggregatedUtterancesCommand";
 import { ListBotAliasesCommandInput, ListBotAliasesCommandOutput } from "./commands/ListBotAliasesCommand";
 import { ListBotLocalesCommandInput, ListBotLocalesCommandOutput } from "./commands/ListBotLocalesCommand";
 import { ListBotVersionsCommandInput, ListBotVersionsCommandOutput } from "./commands/ListBotVersionsCommand";
@@ -154,6 +159,7 @@ export type ServiceInputTypes =
   | DeleteResourcePolicyStatementCommandInput
   | DeleteSlotCommandInput
   | DeleteSlotTypeCommandInput
+  | DeleteUtterancesCommandInput
   | DescribeBotAliasCommandInput
   | DescribeBotCommandInput
   | DescribeBotLocaleCommandInput
@@ -164,6 +170,7 @@ export type ServiceInputTypes =
   | DescribeResourcePolicyCommandInput
   | DescribeSlotCommandInput
   | DescribeSlotTypeCommandInput
+  | ListAggregatedUtterancesCommandInput
   | ListBotAliasesCommandInput
   | ListBotLocalesCommandInput
   | ListBotVersionsCommandInput
@@ -212,6 +219,7 @@ export type ServiceOutputTypes =
   | DeleteResourcePolicyStatementCommandOutput
   | DeleteSlotCommandOutput
   | DeleteSlotTypeCommandOutput
+  | DeleteUtterancesCommandOutput
   | DescribeBotAliasCommandOutput
   | DescribeBotCommandOutput
   | DescribeBotLocaleCommandOutput
@@ -222,6 +230,7 @@ export type ServiceOutputTypes =
   | DescribeResourcePolicyCommandOutput
   | DescribeSlotCommandOutput
   | DescribeSlotTypeCommandOutput
+  | ListAggregatedUtterancesCommandOutput
   | ListBotAliasesCommandOutput
   | ListBotLocalesCommandOutput
   | ListBotVersionsCommandOutput

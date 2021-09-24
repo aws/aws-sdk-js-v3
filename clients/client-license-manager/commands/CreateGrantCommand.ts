@@ -21,7 +21,7 @@ export interface CreateGrantCommandInput extends CreateGrantRequest {}
 export interface CreateGrantCommandOutput extends CreateGrantResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific AWS accounts.</p>
+ * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific Amazon Web Services accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

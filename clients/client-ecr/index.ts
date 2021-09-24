@@ -9,6 +9,7 @@ export * from "./commands/DeleteLifecyclePolicyCommand";
 export * from "./commands/DeleteRegistryPolicyCommand";
 export * from "./commands/DeleteRepositoryCommand";
 export * from "./commands/DeleteRepositoryPolicyCommand";
+export * from "./commands/DescribeImageReplicationStatusCommand";
 export * from "./commands/DescribeImagesCommand";
 export * from "./pagination/DescribeImagesPaginator";
 export * from "./commands/DescribeImageScanFindingsCommand";

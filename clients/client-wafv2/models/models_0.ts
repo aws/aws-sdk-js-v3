@@ -1321,6 +1321,37 @@ export enum RateBasedStatementAggregateKeyType {
 }
 
 /**
+ * <p>A rule statement used to search web request components for a match against a single regular expression. </p>
+ */
+export interface RegexMatchStatement {
+  /**
+   * <p>The string representing the regular expression.</p>
+   */
+  RegexString: string | undefined;
+
+  /**
+   * <p>The part of a web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   */
+  FieldToMatch: FieldToMatch | undefined;
+
+  /**
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+   *          If you specify one or more transformations in a rule statement, WAF performs all transformations on the
+   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   */
+  TextTransformations: TextTransformation[] | undefined;
+}
+
+export namespace RegexMatchStatement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegexMatchStatement): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A rule statement used to search web request components for matches with regular expressions. To use this, create a <a>RegexPatternSet</a> that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set. To create a regex pattern set, see <a>CreateRegexPatternSet</a>.</p>
  *          <p>Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, WAF automatically updates all rules that reference it.</p>
  */
@@ -1636,9 +1667,7 @@ export enum ParameterExceptionField {
  *          example: </p>
  *          <ul>
  *             <li>
- *                <p>You specified
- *                a
- *                parameter name or value that isn't valid.</p>
+ *                <p>You specified a parameter name or value that isn't valid.</p>
  *             </li>
  *             <li>
  *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
@@ -2684,7 +2713,8 @@ export namespace WAFAssociatedItemException {
 
 export interface DeleteLoggingConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web ACL from which you want to delete the <a>LoggingConfiguration</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the web ACL from which you want to delete the
+   *        <a>LoggingConfiguration</a>.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -3228,7 +3258,8 @@ export namespace GetIPSetResponse {
 
 export interface GetLoggingConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the <a>LoggingConfiguration</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the
+   *        <a>LoggingConfiguration</a>.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -5649,6 +5680,11 @@ export interface Statement {
    *          <p>The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.  If you do not provide the fully qualified name in your label match string, WAF performs the search for labels that were added in the same context as the label match statement. </p>
    */
   LabelMatchStatement?: LabelMatchStatement;
+
+  /**
+   * <p>A rule statement used to search web request components for a match against a single regular expression. </p>
+   */
+  RegexMatchStatement?: RegexMatchStatement;
 }
 
 export namespace Statement {

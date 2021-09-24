@@ -876,6 +876,11 @@ import {
   ListViolationEventsCommandOutput,
 } from "./commands/ListViolationEventsCommand";
 import {
+  PutVerificationStateOnViolationCommand,
+  PutVerificationStateOnViolationCommandInput,
+  PutVerificationStateOnViolationCommandOutput,
+} from "./commands/PutVerificationStateOnViolationCommand";
+import {
   RegisterCACertificateCommand,
   RegisterCACertificateCommandInput,
   RegisterCACertificateCommandOutput,
@@ -7331,6 +7336,38 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: ListViolationEventsCommandOutput) => void
   ): Promise<ListViolationEventsCommandOutput> | void {
     const command = new ListViolationEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Set a verification state and provide a description of that verification state on a violation (detect alarm).</p>
+   */
+  public putVerificationStateOnViolation(
+    args: PutVerificationStateOnViolationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVerificationStateOnViolationCommandOutput>;
+  public putVerificationStateOnViolation(
+    args: PutVerificationStateOnViolationCommandInput,
+    cb: (err: any, data?: PutVerificationStateOnViolationCommandOutput) => void
+  ): void;
+  public putVerificationStateOnViolation(
+    args: PutVerificationStateOnViolationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVerificationStateOnViolationCommandOutput) => void
+  ): void;
+  public putVerificationStateOnViolation(
+    args: PutVerificationStateOnViolationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutVerificationStateOnViolationCommandOutput) => void),
+    cb?: (err: any, data?: PutVerificationStateOnViolationCommandOutput) => void
+  ): Promise<PutVerificationStateOnViolationCommandOutput> | void {
+    const command = new PutVerificationStateOnViolationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

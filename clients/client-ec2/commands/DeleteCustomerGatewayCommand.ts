@@ -21,7 +21,8 @@ export interface DeleteCustomerGatewayCommandInput extends DeleteCustomerGateway
 export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway.</p>
+ * <p>Deletes the specified customer gateway. You must delete the VPN connection before you
+ *             can delete the customer gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

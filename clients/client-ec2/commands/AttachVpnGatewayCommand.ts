@@ -23,7 +23,8 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
 /**
  * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual private
  *             gateway to one VPC at a time.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+ *                 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

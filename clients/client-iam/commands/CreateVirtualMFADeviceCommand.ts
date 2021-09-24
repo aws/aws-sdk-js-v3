@@ -21,7 +21,7 @@ export interface CreateVirtualMFADeviceCommandInput extends CreateVirtualMFADevi
 export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new virtual MFA device for the account. After creating the virtual
+ * <p>Creates a new virtual MFA device for the Amazon Web Services account. After creating the virtual
  *             MFA, use <a>EnableMFADevice</a> to attach the MFA device to an IAM user.
  *             For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
  *                 device</a> in the <i>IAM User Guide</i>.</p>

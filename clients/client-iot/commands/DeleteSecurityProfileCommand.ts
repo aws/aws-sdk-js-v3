@@ -1,5 +1,6 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteSecurityProfileRequest, DeleteSecurityProfileResponse } from "../models/models_0";
+import { DeleteSecurityProfileRequest } from "../models/models_0";
+import { DeleteSecurityProfileResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteSecurityProfileCommand,
   serializeAws_restJson1DeleteSecurityProfileCommand,

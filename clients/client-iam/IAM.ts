@@ -950,7 +950,7 @@ export class IAM extends IAMClient {
    * <p>Changes the password of the IAM user who is calling this operation. This operation
    *
    *             can be performed using the CLI, the Amazon Web Services API, or the <b>My
-   *                 Security Credentials</b> page in the Management Console. The account root user
+   *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user
    *             password is not affected by this operation.</p>
    *         <p>Use <a>UpdateLoginProfile</a> to use the CLI, the Amazon Web Services API, or the
    *                 <b>Users</b> page in the IAM console to change the
@@ -991,12 +991,12 @@ export class IAM extends IAMClient {
    *             specified user. The default status for new keys is <code>Active</code>.</p>
    *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
    *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
-   *             the account. Consequently, you can use this operation to manage account root
-   *             user credentials. This is true even if the account has no associated users.</p>
+   *             the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
+   *             user credentials. This is true even if the Amazon Web Services account has no associated users.</p>
    *         <p> For information about quotas on the number of keys you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
    *                 quotas</a> in the <i>IAM User Guide</i>.</p>
    *         <important>
-   *             <p>To ensure the security of your account, the secret access key is accessible
+   *             <p>To ensure the security of your Amazon Web Services account, the secret access key is accessible
    *                 only during key and user creation. You must save the key (for example, in a text
    *                 file) if you want to be able to access it again. If a secret key is lost, you can
    *                 delete the access keys for the associated user and then create new keys.</p>
@@ -1032,9 +1032,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Creates an alias for your account. For information about using an account
+   * <p>Creates an alias for your Amazon Web Services account. For information about using an Amazon Web Services account
    *             alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an
-   *                 alias for your account ID</a> in the
+   *                 alias for your Amazon Web Services account ID</a> in the
    *             <i>IAM User Guide</i>.</p>
    */
   public createAccountAlias(
@@ -1132,11 +1132,11 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Creates a password for the specified IAM user. A password allows an IAM user to
-   *             access Amazon Web Services services through the Management Console.</p>
+   *             access Amazon Web Services services through the Amazon Web Services Management Console.</p>
    *         <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b> page in the IAM console to create a password for any IAM user.
    *             Use <a>ChangePassword</a> to update your own existing password in the
    *                 <b>My Security Credentials</b> page in the
-   *             Management Console.</p>
+   *             Amazon Web Services Management Console.</p>
    *         <p>For more information about managing passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing passwords</a> in the
    *                 <i>IAM User Guide</i>.</p>
    */
@@ -1194,7 +1194,7 @@ export class IAM extends IAMClient {
    *                     uses</p>
    *             </li>
    *          </ul>
-   *         <p>You get all of this information from the OIDC IdP that you want to use to access
+   *         <p>You get all of this information from the OIDC IdP you want to use to access
    *             Amazon Web Services.</p>
    *         <note>
    *             <p>Amazon Web Services secures communication with some OIDC identity providers (IdPs) through our
@@ -1239,7 +1239,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Creates a new managed policy for your account.</p>
+   * <p>Creates a new managed policy for your Amazon Web Services account.</p>
    *         <p>This operation creates a policy version with a version identifier of <code>v1</code>
    *             and sets v1 as the policy's default version. For more information about policy versions,
    *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the
@@ -1317,7 +1317,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Creates a new role for your account. For more information about roles, see
+   * <p>Creates a new role for your Amazon Web Services account. For more information about roles, see
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
    *                 roles</a>. For information about quotas for role names and the number of roles
    *             you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a> in the
@@ -1352,7 +1352,7 @@ export class IAM extends IAMClient {
    *         <p>The SAML provider resource that you create with this operation can be used as a
    *             principal in an IAM role's trust policy. Such a policy can enable federated users who
    *             sign in using the SAML IdP to assume the role. You can create an IAM role that
-   *             supports Web-based single sign-on (SSO) to the Management Console or one that supports API access
+   *             supports Web-based single sign-on (SSO) to the Amazon Web Services Management Console or one that supports API access
    *             to Amazon Web Services.</p>
    *         <p>When you create the SAML provider resource, you upload a SAML metadata document that
    *             you get from your IdP. That document includes the issuer's name, expiration information,
@@ -1363,7 +1363,7 @@ export class IAM extends IAMClient {
    *             <p> This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
    *         </note>
    *         <p> For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html">Enabling SAML 2.0
-   *                 federated users to access the Management Console</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based
+   *                 federated users to access the Amazon Web Services Management Console</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based
    *                 federation</a> in the <i>IAM User Guide</i>.</p>
    */
   public createSAMLProvider(
@@ -1478,7 +1478,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Creates a new IAM user for your account.</p>
+   * <p>Creates a new IAM user for your Amazon Web Services account.</p>
    *         <p> For information about quotas for the number of IAM users you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
    *                 quotas</a> in the <i>IAM User Guide</i>.</p>
    */
@@ -1506,7 +1506,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Creates a new virtual MFA device for the account. After creating the virtual
+   * <p>Creates a new virtual MFA device for the Amazon Web Services account. After creating the virtual
    *             MFA, use <a>EnableMFADevice</a> to attach the MFA device to an IAM user.
    *             For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
    *                 device</a> in the <i>IAM User Guide</i>.</p>
@@ -1589,8 +1589,8 @@ export class IAM extends IAMClient {
    * <p>Deletes the access key pair associated with the specified IAM user.</p>
    *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
    *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
-   *             the account. Consequently, you can use this operation to manage account root
-   *             user credentials even if the account has no associated users.</p>
+   *             the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
+   *             user credentials even if the Amazon Web Services account has no associated users.</p>
    */
   public deleteAccessKey(
     args: DeleteAccessKeyCommandInput,
@@ -1622,8 +1622,8 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p> Deletes the specified account alias. For information about using an Amazon Web Services
-   *             account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your account ID</a> in the
+   * <p> Deletes the specified Amazon Web Services account alias. For information about using an Amazon Web Services
+   *             account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your Amazon Web Services account ID</a> in the
    *                 <i>IAM User Guide</i>.</p>
    */
   public deleteAccountAlias(
@@ -1656,7 +1656,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Deletes the password policy for the account. There are no parameters.</p>
+   * <p>Deletes the password policy for the Amazon Web Services account. There are no parameters.</p>
    */
   public deleteAccountPasswordPolicy(
     args: DeleteAccountPasswordPolicyCommandInput,
@@ -1794,11 +1794,11 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Deletes the password for the specified IAM user, which terminates the user's ability
-   *             to access Amazon Web Services services through the Management Console.</p>
+   *             to access Amazon Web Services services through the Amazon Web Services Management Console.</p>
    *         <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b> page in the IAM console to delete a password for any IAM user.
    *             You can use <a>ChangePassword</a> to update, but not delete, your own
    *             password in the <b>My Security Credentials</b> page in the
-   *             Management Console.</p>
+   *             Amazon Web Services Management Console.</p>
    *         <important>
    *             <p> Deleting a user's password does not prevent a user from accessing Amazon Web Services through
    *                 the command line interface or the API. To prevent all user access, you must also
@@ -2237,8 +2237,8 @@ export class IAM extends IAMClient {
    * <p>Deletes a signing certificate associated with the specified IAM user.</p>
    *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
    *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
-   *             the account. Consequently, you can use this operation to manage account root
-   *             user credentials even if the account has no associated IAM users.</p>
+   *             the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
+   *             user credentials even if the Amazon Web Services account has no associated IAM users.</p>
    */
   public deleteSigningCertificate(
     args: DeleteSigningCertificateCommandInput,
@@ -2306,7 +2306,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Deletes the specified IAM user. Unlike the Management Console, when you delete a user
+   * <p>Deletes the specified IAM user. Unlike the Amazon Web Services Management Console, when you delete a user
    *             programmatically, you must delete the items attached to the user manually, or the
    *             deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting an IAM
    *                 user</a>. Before attempting to delete a user, remove the following items:</p>
@@ -2616,7 +2616,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p> Generates a credential report for the account. For more information about the
+   * <p> Generates a credential report for the Amazon Web Services account. For more information about the
    *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
    *             the <i>IAM User Guide</i>.</p>
    */
@@ -2674,7 +2674,7 @@ export class IAM extends IAMClient {
    *             <i>IAM User Guide</i>.</p>
    *         <important>
    *             <p>The data includes all attempts to access Amazon Web Services, not just the successful ones. This
-   *                 includes all attempts that were made using the Management Console, the Amazon Web Services API through any
+   *                 includes all attempts that were made using the Amazon Web Services Management Console, the Amazon Web Services API through any
    *                 of the SDKs, or any of the command line tools. An unexpected entry in the service
    *                 last accessed data does not mean that an account has been compromised, because the
    *                 request might have been denied. Refer to your CloudTrail logs as the authoritative
@@ -2821,7 +2821,7 @@ export class IAM extends IAMClient {
    *         <important>
    *             <p>The service last accessed data includes all attempts to access an Amazon Web Services API, not
    *                 just the successful ones. This includes all attempts that were made using the
-   *                 Management Console, the Amazon Web Services API through any of the SDKs, or any of the command line tools.
+   *                 Amazon Web Services Management Console, the Amazon Web Services API through any of the SDKs, or any of the command line tools.
    *                 An unexpected entry in the service last accessed data does not mean that your
    *                 account has been compromised, because the request might have been denied. Refer to
    *                 your CloudTrail logs as the authoritative source for information about all API calls
@@ -2977,7 +2977,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Retrieves the password policy for the account. This tells you the complexity
+   * <p>Retrieves the password policy for the Amazon Web Services account. This tells you the complexity
    *             requirements and mandatory rotation periods for the IAM user passwords in your account.
    *             For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
    *                 policy</a>.</p>
@@ -3133,7 +3133,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p> Retrieves a credential report for the account. For more information about the
+   * <p> Retrieves a credential report for the Amazon Web Services account. For more information about the
    *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
    *             the <i>IAM User Guide</i>.</p>
    */
@@ -3276,15 +3276,15 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Retrieves the user name for the specified IAM user. A login profile is created when
-   *             you create a password for the user to access the Management Console. If the user does not exist
+   *             you create a password for the user to access the Amazon Web Services Management Console. If the user does not exist
    *             or does not have a password, the operation returns a 404 (<code>NoSuchEntity</code>)
    *             error.</p>
    *         <p>If you create an IAM user with access to the console, the <code>CreateDate</code>
    *             reflects the date you created the initial password for the user.</p>
    *         <p>If you create an IAM user with programmatic access, and then later add a password
-   *             for the user to access the Management Console, the <code>CreateDate</code> reflects the initial
+   *             for the user to access the Amazon Web Services Management Console, the <code>CreateDate</code> reflects the initial
    *             password creation date. A user with programmatic access does not have a login profile
-   *             unless you create a password for the user to access the Management Console.</p>
+   *             unless you create a password for the user to access the Amazon Web Services Management Console.</p>
    */
   public getLoginProfile(
     args: GetLoginProfileCommandInput,
@@ -3931,11 +3931,11 @@ export class IAM extends IAMClient {
    *             results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
    *         <p>If the <code>UserName</code> field is not specified, the user name is determined
    *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
-   *             works for access keys under the account. Consequently, you can use this operation
-   *             to manage account root user credentials even if the account has no
+   *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
+   *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
    *             associated users.</p>
    *         <note>
-   *             <p>To ensure the security of your account, the secret access key is accessible
+   *             <p>To ensure the security of your Amazon Web Services account, the secret access key is accessible
    *                 only during key and user creation.</p>
    *         </note>
    */
@@ -3969,9 +3969,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Lists the account alias associated with the account (Note: you can have only
-   *             one). For information about using an account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your
-   *                 account ID</a> in the <i>IAM User Guide</i>.</p>
+   * <p>Lists the account alias associated with the Amazon Web Services account (Note: you can have only
+   *             one). For information about using an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your
+   *                 Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.</p>
    */
   public listAccountAliases(
     args: ListAccountAliasesCommandInput,
@@ -4451,7 +4451,7 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects
-   *             defined in the account.</p>
+   *             defined in the Amazon Web Services account.</p>
    *         <note>
    *             <p>IAM resource-listing operations return a subset of the available
    *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an OIDC provider, see <a>GetOpenIDConnectProvider</a>.</p>
@@ -4523,7 +4523,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Lists all the managed policies that are available in your account, including
+   * <p>Lists all the managed policies that are available in your Amazon Web Services account, including
    *             your own customer-defined managed policies and all Amazon Web Services managed policies.</p>
    *         <p>You can filter the list of policies that is returned using the optional
    *                 <code>OnlyAttached</code>, <code>Scope</code>, and <code>PathPrefix</code>
@@ -5013,8 +5013,8 @@ export class IAM extends IAMClient {
    *             parameters.</p>
    *         <p>If the <code>UserName</code> field is not specified, the user name is determined
    *             implicitly based on the Amazon Web Services access key ID used to sign the request for this operation.
-   *             This operation works for access keys under the account. Consequently, you can use
-   *             this operation to manage account root user credentials even if the account
+   *             This operation works for access keys under the Amazon Web Services account. Consequently, you can use
+   *             this operation to manage Amazon Web Services account root user credentials even if the Amazon Web Services account
    *             has no associated users.</p>
    */
   public listSigningCertificates(
@@ -5126,7 +5126,7 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
-   *             specified, the operation returns all users in the account. If there are none, the
+   *             specified, the operation returns all users in the Amazon Web Services account. If there are none, the
    *             operation returns an empty list.</p>
    *         <note>
    *             <p>IAM resource-listing operations return a subset of the available
@@ -5189,7 +5189,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Lists the virtual MFA devices defined in the account by assignment status. If
+   * <p>Lists the virtual MFA devices defined in the Amazon Web Services account by assignment status. If
    *             you do not specify an assignment status, the operation returns a list of all virtual MFA
    *             devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
    *                 <code>Any</code>.</p>
@@ -5678,7 +5678,7 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Sets the specified version of the global endpoint token as the token version used for
-   *             the account.</p>
+   *             the Amazon Web Services account.</p>
    *         <p>By default, Security Token Service (STS) is available as a global service, and all STS requests
    *             go to a single endpoint at <code>https://sts.amazonaws.com</code>. Amazon Web Services recommends
    *             using Regional STS endpoints to reduce latency, build in redundancy, and increase
@@ -5687,12 +5687,12 @@ export class IAM extends IAMClient {
    *                 endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
    *         <p>If you make an STS call to the global endpoint, the resulting session tokens might
    *             be valid in some Regions but not others. It depends on the version that is set in this
-   *             operation. Version 1 tokens are valid only in Regions that are
+   *             operation. Version 1 tokens are valid only in Amazon Web Services Regions that are
    *             available by default. These tokens do not work in manually enabled Regions, such as Asia
    *             Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However, version 2
    *             tokens are longer and might affect systems where you temporarily store tokens. For
    *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
-   *                 deactivating STS in an Region</a> in the
+   *                 deactivating STS in an Amazon Web Services Region</a> in the
    *                 <i>IAM User Guide</i>.</p>
    *         <p>To view the current session token version, see the
    *                 <code>GlobalEndpointTokenVersion</code> entry in the response of the <a>GetAccountSummary</a> operation.</p>
@@ -6645,8 +6645,8 @@ export class IAM extends IAMClient {
    *             workflow.</p>
    *         <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
    *             based on the Amazon Web Services access key ID used to sign the request. This operation works for
-   *             access keys under the account. Consequently, you can use this operation to manage
-   *             account root user credentials even if the account has no associated
+   *             access keys under the Amazon Web Services account. Consequently, you can use this operation to manage
+   *             Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
    *             users.</p>
    *         <p>For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing keys and certificates</a>
    *             in the <i>IAM User Guide</i>.</p>
@@ -6681,7 +6681,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Updates the password policy settings for the account.</p>
+   * <p>Updates the password policy settings for the Amazon Web Services account.</p>
    *         <note>
    *             <ul>
    *                <li>
@@ -6807,7 +6807,7 @@ export class IAM extends IAMClient {
    *             the Amazon Web Services API, or the <b>Users</b> page in the IAM console
    *             to change the password for any IAM user. Use <a>ChangePassword</a> to
    *             change your own password in the <b>My Security Credentials</b>
-   *             page in the Management Console.</p>
+   *             page in the Amazon Web Services Management Console.</p>
    *         <p>For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing passwords</a> in the
    *                 <i>IAM User Guide</i>.</p>
    */
@@ -7082,8 +7082,8 @@ export class IAM extends IAMClient {
    *             as part of a certificate rotation work flow.</p>
    *         <p>If the <code>UserName</code> field is not specified, the user name is determined
    *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
-   *             works for access keys under the account. Consequently, you can use this operation
-   *             to manage account root user credentials even if the account has no
+   *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
+   *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
    *             associated users.</p>
    */
   public updateSigningCertificate(
@@ -7192,7 +7192,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Uploads a server certificate entity for the account. The server certificate
+   * <p>Uploads a server certificate entity for the Amazon Web Services account. The server certificate
    *             entity includes a public key certificate, a private key, and an optional certificate
    *             chain, which should all be PEM-encoded.</p>
    *         <p>We recommend that you use <a href="https://docs.aws.amazon.com/acm/">Certificate Manager</a> to provision, manage, and deploy your server certificates. With ACM
@@ -7254,8 +7254,8 @@ export class IAM extends IAMClient {
    *             <i>IAM User Guide</i>.</p>
    *         <p>If the <code>UserName</code> is not specified, the IAM user name is determined
    *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
-   *             works for access keys under the account. Consequently, you can use this operation
-   *             to manage account root user credentials even if the account has no
+   *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
+   *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
    *             associated users.</p>
    *         <note>
    *             <p>Because the body of an X.509 certificate can be large, you should use POST rather

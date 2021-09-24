@@ -7,6 +7,7 @@ import {
   BillingTagsSource,
   CaptionDescription,
   CaptionDescriptionPreset,
+  CmfcAudioDuration,
   CmfcSettings,
   ContainerType,
   Endpoint,
@@ -25,12 +26,8 @@ import {
   M2tsSettings,
   M3u8Settings,
   MotionImageInserter,
-  MovSettings,
-  Mp4Settings,
-  MpdAccessibilityCaptionHints,
-  MpdAudioDuration,
-  MpdCaptionContainerType,
-  MpdScte35Esam,
+  MovClapAtom,
+  MovCslgAtom,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OutputGroupDetail,
@@ -39,6 +36,139 @@ import {
   Rectangle,
 } from "./models_0";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+export enum MovMpeg2FourCCControl {
+  MPEG = "MPEG",
+  XDCAM = "XDCAM",
+}
+
+export enum MovPaddingControl {
+  NONE = "NONE",
+  OMNEON = "OMNEON",
+}
+
+export enum MovReference {
+  EXTERNAL = "EXTERNAL",
+  SELF_CONTAINED = "SELF_CONTAINED",
+}
+
+/**
+ * These settings relate to your QuickTime MOV output container.
+ */
+export interface MovSettings {
+  /**
+   * When enabled, include 'clap' atom if appropriate for the video output settings.
+   */
+  ClapAtom?: MovClapAtom | string;
+
+  /**
+   * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+   */
+  CslgAtom?: MovCslgAtom | string;
+
+  /**
+   * When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
+   */
+  Mpeg2FourCCControl?: MovMpeg2FourCCControl | string;
+
+  /**
+   * To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
+   */
+  PaddingControl?: MovPaddingControl | string;
+
+  /**
+   * Always keep the default value (SELF_CONTAINED) for this setting.
+   */
+  Reference?: MovReference | string;
+}
+
+export namespace MovSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MovSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum Mp4CslgAtom {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
+
+export enum Mp4FreeSpaceBox {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
+
+export enum Mp4MoovPlacement {
+  NORMAL = "NORMAL",
+  PROGRESSIVE_DOWNLOAD = "PROGRESSIVE_DOWNLOAD",
+}
+
+/**
+ * These settings relate to your MP4 output container. You can create audio only outputs with this container. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
+ */
+export interface Mp4Settings {
+  /**
+   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+   */
+  AudioDuration?: CmfcAudioDuration | string;
+
+  /**
+   * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+   */
+  CslgAtom?: Mp4CslgAtom | string;
+
+  /**
+   * Ignore this setting unless compliance to the CTTS box version specification matters in your workflow. Specify a value of 1 to set your CTTS box version to 1 and make your output compliant with the specification. When you specify a value of 1, you must also set CSLG atom (cslgAtom) to the value INCLUDE. Keep the default value 0 to set your CTTS box version to 0. This can provide backward compatibility for some players and packagers.
+   */
+  CttsVersion?: number;
+
+  /**
+   * Inserts a free-space box immediately after the moov box.
+   */
+  FreeSpaceBox?: Mp4FreeSpaceBox | string;
+
+  /**
+   * If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
+   */
+  MoovPlacement?: Mp4MoovPlacement | string;
+
+  /**
+   * Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
+   */
+  Mp4MajorBrand?: string;
+}
+
+export namespace Mp4Settings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Mp4Settings): any => ({
+    ...obj,
+  });
+}
+
+export enum MpdAccessibilityCaptionHints {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
+
+export enum MpdAudioDuration {
+  DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
+  MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
+}
+
+export enum MpdCaptionContainerType {
+  FRAGMENTED_MP4 = "FRAGMENTED_MP4",
+  RAW = "RAW",
+}
+
+export enum MpdScte35Esam {
+  INSERT = "INSERT",
+  NONE = "NONE",
+}
 
 export enum MpdScte35Source {
   NONE = "NONE",
@@ -3361,7 +3491,7 @@ export interface JobSettings {
   Esam?: EsamSettings;
 
   /**
-   * Hexadecimal value as per EIA-608 Line 21 Data Services, section 9.5.1.5 05h Content Advisory.
+   * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
    */
   ExtendedDataServices?: ExtendedDataServices;
 
@@ -3634,7 +3764,7 @@ export interface JobTemplateSettings {
   Esam?: EsamSettings;
 
   /**
-   * Hexadecimal value as per EIA-608 Line 21 Data Services, section 9.5.1.5 05h Content Advisory.
+   * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
    */
   ExtendedDataServices?: ExtendedDataServices;
 

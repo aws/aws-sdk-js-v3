@@ -73,6 +73,9 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
     } catch (e) {}
   } catch (exception) {
     reason = exception;
+    if (exception.name && exception.name == "InvocationDoesNotExist") {
+      return { state: WaiterState.RETRY, reason };
+    }
   }
   return { state: WaiterState.RETRY, reason };
 };

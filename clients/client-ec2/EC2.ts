@@ -1740,6 +1740,16 @@ import {
   GetTransitGatewayRouteTablePropagationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTablePropagationsCommand";
 import {
+  GetVpnConnectionDeviceSampleConfigurationCommand,
+  GetVpnConnectionDeviceSampleConfigurationCommandInput,
+  GetVpnConnectionDeviceSampleConfigurationCommandOutput,
+} from "./commands/GetVpnConnectionDeviceSampleConfigurationCommand";
+import {
+  GetVpnConnectionDeviceTypesCommand,
+  GetVpnConnectionDeviceTypesCommandInput,
+  GetVpnConnectionDeviceTypesCommandOutput,
+} from "./commands/GetVpnConnectionDeviceTypesCommand";
+import {
   ImportClientVpnClientCertificateRevocationListCommand,
   ImportClientVpnClientCertificateRevocationListCommandInput,
   ImportClientVpnClientCertificateRevocationListCommandOutput,
@@ -3369,7 +3379,8 @@ export class EC2 extends EC2Client {
   /**
    * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual private
    *             gateway to one VPC at a time.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *                 User Guide</i>.</p>
    */
   public attachVpnGateway(
     args: AttachVpnGatewayCommandInput,
@@ -3403,7 +3414,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as
    * 			firewall rules that grant access to networks. You must configure ingress authorization rules to
-   * 			enable clients to access resources in AWS or on-premises networks.</p>
+   * 			enable clients to access resources in Amazon Web Services or on-premises networks.</p>
    */
   public authorizeClientVpnIngress(
     args: AuthorizeClientVpnIngressCommandInput,
@@ -4144,35 +4155,35 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Provides information to AWS about your VPN customer gateway device. The customer
-   *             gateway is the appliance at your end of the VPN connection. (The device on the AWS side
-   *             of the VPN connection is the virtual private gateway.) You must provide the
-   *             internet-routable IP address of the customer gateway's external interface. The IP
-   *             address must be static and can be behind a device performing network address translation
-   *             (NAT).</p>
+   * <p>Provides information to Amazon Web Services about your VPN customer gateway device. The
+   *             customer gateway is the appliance at your end of the VPN connection. (The device on the
+   *                 Amazon Web Services side of the VPN connection is the virtual private gateway.) You
+   *             must provide the internet-routable IP address of the customer gateway's external
+   *             interface. The IP address must be static and can be behind a device performing network
+   *             address translation (NAT).</p>
    *         <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's
    *             BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your
    *             network. If you don't have an ASN already, you can use a private ASN (in the 64512 -
    *             65534 range).</p>
    *         <note>
-   *             <p>Amazon EC2 supports all 4-byte ASN numbers in the range of 1 - 2147483647, with the
-   *                 exception of the following:</p>
-   *                 <ul>
+   *             <p>Amazon EC2 supports all 4-byte ASN numbers in the range of 1 - 2147483647, with
+   *                 the exception of the following:</p>
+   *             <ul>
    *                <li>
-   *                   <p>7224 - reserved in the <code>us-east-1</code> Region</p>
-   *                </li>
+   *                     <p>7224 - reserved in the <code>us-east-1</code> Region</p>
+   *                 </li>
    *                <li>
-   *                   <p>9059 - reserved in the <code>eu-west-1</code> Region</p>
-   *                </li>
+   *                     <p>9059 - reserved in the <code>eu-west-1</code> Region</p>
+   *                 </li>
    *                <li>
-   *                   <p>17943 - reserved in the <code>ap-southeast-1</code> Region</p>
-   *                </li>
+   *                     <p>17943 - reserved in the <code>ap-southeast-1</code> Region</p>
+   *                 </li>
    *                <li>
-   *                   <p>10124 - reserved in the <code>ap-northeast-1</code> Region</p>
-   *                </li>
+   *                     <p>10124 - reserved in the <code>ap-northeast-1</code> Region</p>
+   *                 </li>
    *             </ul>
    *         </note>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
    *         <important>
    *             <p>To create more than one customer gateway with the same VPN type, IP address, and
@@ -6400,8 +6411,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a VPN connection between an existing virtual private gateway or transit gateway and a
-   *             customer gateway. The supported connection type is <code>ipsec.1</code>.</p>
+   * <p>Creates a VPN connection between an existing virtual private gateway or transit
+   *             gateway and a customer gateway. The supported connection type is
+   *             <code>ipsec.1</code>.</p>
    *         <p>The response includes information that you need to give to your network administrator
    *             to configure your customer gateway.</p>
    *         <important>
@@ -6414,7 +6426,7 @@ export class EC2 extends EC2Client {
    *             returned from this call.</p>
    *         <p>This is an idempotent operation. If you perform the operation more than once, Amazon
    *             EC2 doesn't return an error.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
    */
   public createVpnConnection(
@@ -6447,8 +6459,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+   * <p>Creates a static route associated with a VPN connection between an existing virtual
+   *             private gateway and a VPN customer gateway. The static route allows traffic to be routed
+   *             from the virtual private gateway to the VPN customer gateway.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *                 User Guide</i>.</p>
    */
   public createVpnConnectionRoute(
     args: CreateVpnConnectionRouteCommandInput,
@@ -6480,8 +6495,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+   * <p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the
+   *             VPC side of your VPN connection. You can create a virtual private gateway before
+   *             creating the VPC itself.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *                 User Guide</i>.</p>
    */
   public createVpnGateway(
     args: CreateVpnGatewayCommandInput,
@@ -6618,7 +6636,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway.</p>
+   * <p>Deletes the specified customer gateway. You must delete the VPN connection before you
+   *             can delete the customer gateway.</p>
    */
   public deleteCustomerGateway(
     args: DeleteCustomerGatewayCommandInput,
@@ -8296,8 +8315,16 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Deletes the specified VPN connection.</p>
-   *         <p>If you're deleting the VPC and its associated components, we recommend that you detach the virtual private gateway from the VPC and delete the VPC before deleting the VPN connection. If you believe that the tunnel credentials for your VPN connection have been compromised, you can delete the VPN connection and create a new one that has new keys, without needing to delete the VPC or virtual private gateway. If you create a new VPN connection, you must reconfigure the customer gateway device using the new configuration information returned with the new VPN connection ID.</p>
-   *         <p>For certificate-based authentication, delete all AWS Certificate Manager (ACM) private certificates used for the AWS-side tunnel endpoints for the VPN connection before deleting the VPN connection.</p>
+   *         <p>If you're deleting the VPC and its associated components, we recommend that you detach
+   *             the virtual private gateway from the VPC and delete the VPC before deleting the VPN
+   *             connection. If you believe that the tunnel credentials for your VPN connection have been
+   *             compromised, you can delete the VPN connection and create a new one that has new keys,
+   *             without needing to delete the VPC or virtual private gateway. If you create a new VPN
+   *             connection, you must reconfigure the customer gateway device using the new configuration
+   *             information returned with the new VPN connection ID.</p>
+   *         <p>For certificate-based authentication, delete all Certificate Manager (ACM) private
+   *             certificates used for the Amazon Web Services-side tunnel endpoints for the VPN
+   *             connection before deleting the VPN connection.</p>
    */
   public deleteVpnConnection(
     args: DeleteVpnConnectionCommandInput,
@@ -8329,7 +8356,10 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes the specified static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p>
+   * <p>Deletes the specified static route associated with a VPN connection between an
+   *             existing virtual private gateway and a VPN customer gateway. The static route allows
+   *             traffic to be routed from the virtual private gateway to the VPN customer
+   *             gateway.</p>
    */
   public deleteVpnConnectionRoute(
     args: DeleteVpnConnectionRouteCommandInput,
@@ -8361,7 +8391,10 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes the specified virtual private gateway. You must first detach the virtual private gateway from the VPC. Note that you don't need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.</p>
+   * <p>Deletes the specified virtual private gateway. You must first detach the virtual
+   *             private gateway from the VPC. Note that you don't need to delete the virtual private
+   *             gateway if you plan to delete and recreate the VPN connection between your VPC and your
+   *             network.</p>
    */
   public deleteVpnGateway(
     args: DeleteVpnGatewayCommandInput,
@@ -9185,7 +9218,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes one or more of your VPN customer gateways.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *                 User Guide</i>.</p>
    */
   public describeCustomerGateways(
     args: DescribeCustomerGatewaysCommandInput,
@@ -12958,7 +12992,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes one or more of your VPN connections.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *                 User Guide</i>.</p>
    */
   public describeVpnConnections(
     args: DescribeVpnConnectionsCommandInput,
@@ -12991,7 +13026,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes one or more of your virtual private gateways.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
+   *                 User Guide</i>.</p>
    */
   public describeVpnGateways(
     args: DescribeVpnGatewaysCommandInput,
@@ -13160,9 +13196,12 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn off the VPC and not use it anymore. You can confirm a virtual private gateway has been completely detached from a VPC by describing the virtual private gateway (any attachments to the virtual private gateway are also described).</p>
-   *         <p>You must wait for the attachment's state to switch to <code>detached</code> before
-   *             you can delete the VPC or attach a different VPC to the virtual private gateway.</p>
+   * <p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn
+   *             off the VPC and not use it anymore. You can confirm a virtual private gateway has been
+   *             completely detached from a VPC by describing the virtual private gateway (any
+   *             attachments to the virtual private gateway are also described).</p>
+   *         <p>You must wait for the attachment's state to switch to <code>detached</code> before you
+   *             can delete the VPC or attach a different VPC to the virtual private gateway.</p>
    */
   public detachVpnGateway(
     args: DetachVpnGatewayCommandInput,
@@ -13368,7 +13407,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC.</p>
+   * <p>Disables a virtual private gateway (VGW) from propagating routes to a specified route
+   *             table of a VPC.</p>
    */
   public disableVgwRoutePropagation(
     args: DisableVgwRoutePropagationCommandInput,
@@ -14047,7 +14087,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Enables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC.</p>
+   * <p>Enables a virtual private gateway (VGW) to propagate routes to the specified route
+   *             table of a VPC.</p>
    */
   public enableVgwRoutePropagation(
     args: EnableVgwRoutePropagationCommandInput,
@@ -15170,6 +15211,76 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Download an AWS-provided sample configuration file to be used with the customer
+   *             gateway device specified for your Site-to-Site VPN connection.</p>
+   */
+  public getVpnConnectionDeviceSampleConfiguration(
+    args: GetVpnConnectionDeviceSampleConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVpnConnectionDeviceSampleConfigurationCommandOutput>;
+  public getVpnConnectionDeviceSampleConfiguration(
+    args: GetVpnConnectionDeviceSampleConfigurationCommandInput,
+    cb: (err: any, data?: GetVpnConnectionDeviceSampleConfigurationCommandOutput) => void
+  ): void;
+  public getVpnConnectionDeviceSampleConfiguration(
+    args: GetVpnConnectionDeviceSampleConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVpnConnectionDeviceSampleConfigurationCommandOutput) => void
+  ): void;
+  public getVpnConnectionDeviceSampleConfiguration(
+    args: GetVpnConnectionDeviceSampleConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetVpnConnectionDeviceSampleConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetVpnConnectionDeviceSampleConfigurationCommandOutput) => void
+  ): Promise<GetVpnConnectionDeviceSampleConfigurationCommandOutput> | void {
+    const command = new GetVpnConnectionDeviceSampleConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Obtain a list of customer gateway devices for which sample configuration
+   *             files can be provided. The request has no additional parameters. You can also see the
+   *             list of device types with sample configuration files available under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer gateway
+   *                 device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+   */
+  public getVpnConnectionDeviceTypes(
+    args: GetVpnConnectionDeviceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVpnConnectionDeviceTypesCommandOutput>;
+  public getVpnConnectionDeviceTypes(
+    args: GetVpnConnectionDeviceTypesCommandInput,
+    cb: (err: any, data?: GetVpnConnectionDeviceTypesCommandOutput) => void
+  ): void;
+  public getVpnConnectionDeviceTypes(
+    args: GetVpnConnectionDeviceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVpnConnectionDeviceTypesCommandOutput) => void
+  ): void;
+  public getVpnConnectionDeviceTypes(
+    args: GetVpnConnectionDeviceTypesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVpnConnectionDeviceTypesCommandOutput) => void),
+    cb?: (err: any, data?: GetVpnConnectionDeviceTypesCommandOutput) => void
+  ): Promise<GetVpnConnectionDeviceTypesCommandOutput> | void {
+    const command = new GetVpnConnectionDeviceTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>
    * 		       <p>Uploading a client certificate revocation list resets existing client connections.</p>
    */
@@ -16088,9 +16199,7 @@ export class EC2 extends EC2Client {
    *                 <p>Change the Dedicated Host with which an instance is associated.</p>
    *             </li>
    *             <li>
-   *                 <p>Change the instance tenancy of an instance from <code>host</code> to
-   *                         <code>dedicated</code>, or from <code>dedicated</code> to
-   *                     <code>host</code>.</p>
+   *                 <p>Change the instance tenancy of an instance.</p>
    *             </li>
    *             <li>
    *                 <p>Move an instance to or from a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement
@@ -16990,8 +17099,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Modifies the customer gateway or the target gateway of an AWS Site-to-Site VPN connection. To modify the target gateway, the following migration
-   *             options are available:</p>
+   * <p>Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site VPN connection. To
+   *             modify the target gateway, the following migration options are available:</p>
    *         <ul>
    *             <li>
    *                 <p>An existing virtual private gateway to a new virtual private gateway</p>
@@ -17006,23 +17115,28 @@ export class EC2 extends EC2Client {
    *                 <p>An existing transit gateway to a virtual private gateway</p>
    *             </li>
    *          </ul>
-   *         <p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p>
-   *         <p>This step is required when you migrate from a virtual private gateway with static routes to
-   *             a transit gateway. </p>
+   *         <p>Before you perform the migration to the new gateway, you must configure the new
+   *             gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or
+   *                 <a>CreateTransitGateway</a> to create a transit gateway.</p>
+   *         <p>This step is required when you migrate from a virtual private gateway with static
+   *             routes to a transit gateway. </p>
    *         <p>You must delete the static routes before you migrate to the new gateway.</p>
    *
    *         <p>Keep a copy of the static route before you delete it. You will need to add back these
    *             routes to the transit gateway after the VPN connection migration is complete.</p>
    *
-   *         <p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">VPN Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
-   *         <p>
-   *             When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the  AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p>
-   *
-   *         <p> If you deleted VPN static routes, you must add the static routes to the transit gateway
-   *             route table.</p>
-   *         <p>After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side and
-   *             the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be temporarily unavailable
-   *             for a brief period while we provision the new endpoints.</p>
+   *         <p>After you migrate to the new gateway, you might need to modify your VPC route table.
+   *             Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes
+   *             described in <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">Update VPC route
+   *                 tables</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+   *         <p>When the new gateway is a transit gateway, modify the transit gateway route table to
+   *             allow traffic between the VPC and the Amazon Web Services Site-to-Site VPN connection.
+   *             Use <a>CreateTransitGatewayRoute</a> to add the routes.</p>
+   *         <p> If you deleted VPN static routes, you must add the static routes to the transit
+   *             gateway route table.</p>
+   *         <p>After you perform this operation, the VPN endpoint's IP addresses on the Amazon Web Services side and the tunnel options remain intact. Your Amazon Web Services Site-to-Site VPN connection will
+   *             be temporarily unavailable for a brief period while we provision the new
+   *             endpoints.</p>
    */
   public modifyVpnConnection(
     args: ModifyVpnConnectionCommandInput,
@@ -17055,7 +17169,10 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modifies the connection options for your Site-to-Site VPN connection.</p>
-   *         <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS side do not change, and the tunnel options do not change. Your VPN connection will be temporarily unavailable for a brief period while the VPN connection is updated.</p>
+   *         <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the
+   *                 Amazon Web Services side do not change, and the tunnel options do not change. Your
+   *             VPN connection will be temporarily unavailable for a brief period while the VPN
+   *             connection is updated.</p>
    */
   public modifyVpnConnectionOptions(
     args: ModifyVpnConnectionOptionsCommandInput,
@@ -17119,10 +17236,10 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Modifies the options for a VPN tunnel in an AWS Site-to-Site VPN connection. You can modify
+   * <p>Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection. You can modify
    *             multiple options for a tunnel in a single request, but you can only modify one tunnel at
-   *             a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site VPN Tunnel Options for Your Site-to-Site VPN
-   *                 Connection</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+   *             a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site VPN tunnel options for your Site-to-Site VPN
+   *                 connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
    */
   public modifyVpnTunnelOptions(
     args: ModifyVpnTunnelOptionsCommandInput,

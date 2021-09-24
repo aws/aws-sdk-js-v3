@@ -23,6 +23,10 @@ import {
   DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
+  DescribeImageReplicationStatusCommandInput,
+  DescribeImageReplicationStatusCommandOutput,
+} from "./commands/DescribeImageReplicationStatusCommand";
+import {
   DescribeImageScanFindingsCommandInput,
   DescribeImageScanFindingsCommandOutput,
 } from "./commands/DescribeImageScanFindingsCommand";
@@ -148,6 +152,7 @@ export type ServiceInputTypes =
   | DeleteRegistryPolicyCommandInput
   | DeleteRepositoryCommandInput
   | DeleteRepositoryPolicyCommandInput
+  | DescribeImageReplicationStatusCommandInput
   | DescribeImageScanFindingsCommandInput
   | DescribeImagesCommandInput
   | DescribeRegistryCommandInput
@@ -184,6 +189,7 @@ export type ServiceOutputTypes =
   | DeleteRegistryPolicyCommandOutput
   | DeleteRepositoryCommandOutput
   | DeleteRepositoryPolicyCommandOutput
+  | DescribeImageReplicationStatusCommandOutput
   | DescribeImageScanFindingsCommandOutput
   | DescribeImagesCommandOutput
   | DescribeRegistryCommandOutput

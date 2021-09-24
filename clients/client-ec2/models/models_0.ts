@@ -1920,7 +1920,7 @@ export interface AssociateClientVpnTargetNetworkRequest {
   SubnetId: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -3274,9 +3274,10 @@ export interface AttachVpnGatewayRequest {
   VpnGatewayId: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -3364,7 +3365,7 @@ export interface AuthorizeClientVpnIngressRequest {
   Description?: string;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -5582,7 +5583,7 @@ export namespace FederatedAuthenticationRequest {
 export interface CertificateAuthenticationRequest {
   /**
    * <p>The ARN of the client certificate. The certificate must be signed by a certificate
-   * 			authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).</p>
+   * 			authority (CA) and it must be provisioned in Certificate Manager (ACM).</p>
    */
   ClientRootCertificateChainArn?: string;
 }
@@ -5603,7 +5604,7 @@ export type ClientVpnAuthenticationType =
 
 /**
  * <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
- * 			in the <i>AWS Client VPN Administrator Guide</i>.</p>
+ * 			in the <i>Client VPN Administrator Guide</i>.</p>
  */
 export interface ClientVpnAuthenticationRequest {
   /**
@@ -5646,7 +5647,7 @@ export interface ClientConnectOptions {
   Enabled?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
    */
   LambdaFunctionArn?: string;
 }
@@ -5701,7 +5702,7 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>The ARN of the server certificate. For more information, see
-   * 			the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager User Guide</a>.</p>
+   * 			the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
    */
   ServerCertificateArn: string | undefined;
 
@@ -5759,10 +5760,10 @@ export interface CreateClientVpnEndpointRequest {
   Description?: string;
 
   /**
-   * <p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.</p>
+   * <p>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</p>
    * 		       <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS
-   * 				Client VPN Administrator Guide</i>.</p>
+   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
+   * 			<i>Client VPN Administrator Guide</i>.</p>
    */
   SplitTunnel?: boolean;
 
@@ -5772,7 +5773,7 @@ export interface CreateClientVpnEndpointRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -5904,7 +5905,7 @@ export interface CreateClientVpnRouteRequest {
    *                <p>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</p>
    *             </li>
    *             <li>
-   *                <p>To add a route for an on-premises network, enter the AWS Site-to-Site VPN connection's IPv4 CIDR range</p>
+   *                <p>To add a route for an on-premises network, enter the Amazon Web Services Site-to-Site VPN connection's IPv4 CIDR range</p>
    *             </li>
    *             <li>
    *                <p>To add a route for the local network, enter the client CIDR range</p>
@@ -5926,7 +5927,7 @@ export interface CreateClientVpnRouteRequest {
   Description?: string;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -6000,7 +6001,8 @@ export interface CreateCustomerGatewayRequest {
   BgpAsn: number | undefined;
 
   /**
-   * <p>The Internet-routable IP address for the customer gateway's outside interface. The address must be static.</p>
+   * <p>The Internet-routable IP address for the customer gateway's outside interface. The
+   *             address must be static.</p>
    */
   PublicIp?: string;
 
@@ -6010,7 +6012,8 @@ export interface CreateCustomerGatewayRequest {
   CertificateArn?: string;
 
   /**
-   * <p>The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).</p>
+   * <p>The type of VPN connection that this customer gateway supports
+   *             (<code>ipsec.1</code>).</p>
    */
   Type: GatewayType | string | undefined;
 
@@ -6026,9 +6029,10 @@ export interface CreateCustomerGatewayRequest {
   DeviceName?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -6047,7 +6051,8 @@ export namespace CreateCustomerGatewayRequest {
  */
 export interface CustomerGateway {
   /**
-   * <p>The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).</p>
+   * <p>The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number
+   *             (ASN).</p>
    */
   BgpAsn?: string;
 
@@ -6068,12 +6073,13 @@ export interface CustomerGateway {
 
   /**
    * <p>The current state of the customer gateway (<code>pending | available | deleting |
-   *             deleted</code>).</p>
+   *                 deleted</code>).</p>
    */
   State?: string;
 
   /**
-   * <p>The type of VPN connection the customer gateway supports (<code>ipsec.1</code>).</p>
+   * <p>The type of VPN connection the customer gateway supports
+   *             (<code>ipsec.1</code>).</p>
    */
   Type?: string;
 

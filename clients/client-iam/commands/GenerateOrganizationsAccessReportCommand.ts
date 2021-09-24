@@ -50,7 +50,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *             <i>IAM User Guide</i>.</p>
  *         <important>
  *             <p>The data includes all attempts to access Amazon Web Services, not just the successful ones. This
- *                 includes all attempts that were made using the Management Console, the Amazon Web Services API through any
+ *                 includes all attempts that were made using the Amazon Web Services Management Console, the Amazon Web Services API through any
  *                 of the SDKs, or any of the command line tools. An unexpected entry in the service
  *                 last accessed data does not mean that an account has been compromised, because the
  *                 request might have been denied. Refer to your CloudTrail logs as the authoritative

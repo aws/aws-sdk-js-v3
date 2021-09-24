@@ -35,9 +35,7 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  *                 <p>Change the Dedicated Host with which an instance is associated.</p>
  *             </li>
  *             <li>
- *                 <p>Change the instance tenancy of an instance from <code>host</code> to
- *                         <code>dedicated</code>, or from <code>dedicated</code> to
- *                     <code>host</code>.</p>
+ *                 <p>Change the instance tenancy of an instance.</p>
  *             </li>
  *             <li>
  *                 <p>Move an instance to or from a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement

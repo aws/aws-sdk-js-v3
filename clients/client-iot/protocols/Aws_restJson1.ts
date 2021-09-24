@@ -492,6 +492,10 @@ import {
   ListViolationEventsCommandOutput,
 } from "../commands/ListViolationEventsCommand";
 import {
+  PutVerificationStateOnViolationCommandInput,
+  PutVerificationStateOnViolationCommandOutput,
+} from "../commands/PutVerificationStateOnViolationCommand";
+import {
   RegisterCACertificateCommandInput,
   RegisterCACertificateCommandOutput,
 } from "../commands/RegisterCACertificateCommand";
@@ -831,7 +835,6 @@ import {
   ThingGroupIndexingConfiguration,
   ThingGroupMetadata,
   ThingIndexingConfiguration,
-  ThingTypeDefinition,
   ThingTypeMetadata,
   TopicRule,
   TransferData,
@@ -852,6 +855,7 @@ import {
   ThingConnectivity,
   ThingDocument,
   ThingGroupDocument,
+  ThingTypeDefinition,
   TlsContext,
   TopicRuleDestinationSummary,
   TopicRuleListItem,
@@ -5136,6 +5140,7 @@ export const serializeAws_restJson1ListActiveViolationsCommand = async (
     ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
     ...(input.behaviorCriteriaType !== undefined && { behaviorCriteriaType: input.behaviorCriteriaType }),
     ...(input.listSuppressedAlerts !== undefined && { listSuppressedAlerts: input.listSuppressedAlerts.toString() }),
+    ...(input.verificationState !== undefined && { verificationState: input.verificationState }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
@@ -6637,6 +6642,7 @@ export const serializeAws_restJson1ListViolationEventsCommand = async (
     ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
     ...(input.behaviorCriteriaType !== undefined && { behaviorCriteriaType: input.behaviorCriteriaType }),
     ...(input.listSuppressedAlerts !== undefined && { listSuppressedAlerts: input.listSuppressedAlerts.toString() }),
+    ...(input.verificationState !== undefined && { verificationState: input.verificationState }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
@@ -6649,6 +6655,46 @@ export const serializeAws_restJson1ListViolationEventsCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutVerificationStateOnViolationCommand = async (
+  input: PutVerificationStateOnViolationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/violations/verification-state/{violationId}";
+  if (input.violationId !== undefined) {
+    const labelValue: string = input.violationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: violationId.");
+    }
+    resolvedPath = resolvedPath.replace("{violationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: violationId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.verificationState !== undefined &&
+      input.verificationState !== null && { verificationState: input.verificationState }),
+    ...(input.verificationStateDescription !== undefined &&
+      input.verificationStateDescription !== null && {
+        verificationStateDescription: input.verificationStateDescription,
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -25444,6 +25490,73 @@ const deserializeAws_restJson1ListViolationEventsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1PutVerificationStateOnViolationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutVerificationStateOnViolationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutVerificationStateOnViolationCommandError(output, context);
+  }
+  const contents: PutVerificationStateOnViolationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutVerificationStateOnViolationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutVerificationStateOnViolationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1RegisterCACertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -32456,6 +32569,8 @@ const deserializeAws_restJson1ActiveViolation = (output: any, context: __SerdeCo
         : undefined,
     securityProfileName: __expectString(output.securityProfileName),
     thingName: __expectString(output.thingName),
+    verificationState: __expectString(output.verificationState),
+    verificationStateDescription: __expectString(output.verificationStateDescription),
     violationEventAdditionalInfo:
       output.violationEventAdditionalInfo !== undefined && output.violationEventAdditionalInfo !== null
         ? deserializeAws_restJson1ViolationEventAdditionalInfo(output.violationEventAdditionalInfo, context)
@@ -35951,6 +36066,8 @@ const deserializeAws_restJson1ViolationEvent = (output: any, context: __SerdeCon
         : undefined,
     securityProfileName: __expectString(output.securityProfileName),
     thingName: __expectString(output.thingName),
+    verificationState: __expectString(output.verificationState),
+    verificationStateDescription: __expectString(output.verificationStateDescription),
     violationEventAdditionalInfo:
       output.violationEventAdditionalInfo !== undefined && output.violationEventAdditionalInfo !== null
         ? deserializeAws_restJson1ViolationEventAdditionalInfo(output.violationEventAdditionalInfo, context)

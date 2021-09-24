@@ -238,6 +238,7 @@ export * from "./commands/ListV2LoggingLevelsCommand";
 export * from "./pagination/ListV2LoggingLevelsPaginator";
 export * from "./commands/ListViolationEventsCommand";
 export * from "./pagination/ListViolationEventsPaginator";
+export * from "./commands/PutVerificationStateOnViolationCommand";
 export * from "./commands/RegisterCACertificateCommand";
 export * from "./commands/RegisterCertificateCommand";
 export * from "./commands/RegisterCertificateWithoutCACommand";

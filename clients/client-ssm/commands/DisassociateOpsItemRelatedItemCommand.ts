@@ -23,7 +23,7 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes the association between an OpsItem and a related resource. For example, this API
+ * <p>Deletes the association between an OpsItem and a related item. For example, this API
  *    operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a capability of
  *    Amazon Web Services Systems Manager.</p>
  * @example

@@ -21,7 +21,7 @@ export interface UpdateAccountPasswordPolicyCommandInput extends UpdateAccountPa
 export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the password policy settings for the account.</p>
+ * <p>Updates the password policy settings for the Amazon Web Services account.</p>
  *         <note>
  *             <ul>
  *                <li>

@@ -45,6 +45,11 @@ import {
   DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
+  DescribeImageReplicationStatusCommand,
+  DescribeImageReplicationStatusCommandInput,
+  DescribeImageReplicationStatusCommandOutput,
+} from "./commands/DescribeImageReplicationStatusCommand";
+import {
   DescribeImageScanFindingsCommand,
   DescribeImageScanFindingsCommandInput,
   DescribeImageScanFindingsCommandOutput,
@@ -475,6 +480,38 @@ export class ECR extends ECRClient {
     cb?: (err: any, data?: DeleteRepositoryPolicyCommandOutput) => void
   ): Promise<DeleteRepositoryPolicyCommandOutput> | void {
     const command = new DeleteRepositoryPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the replication status for a specified image.</p>
+   */
+  public describeImageReplicationStatus(
+    args: DescribeImageReplicationStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImageReplicationStatusCommandOutput>;
+  public describeImageReplicationStatus(
+    args: DescribeImageReplicationStatusCommandInput,
+    cb: (err: any, data?: DescribeImageReplicationStatusCommandOutput) => void
+  ): void;
+  public describeImageReplicationStatus(
+    args: DescribeImageReplicationStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImageReplicationStatusCommandOutput) => void
+  ): void;
+  public describeImageReplicationStatus(
+    args: DescribeImageReplicationStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImageReplicationStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeImageReplicationStatusCommandOutput) => void
+  ): Promise<DescribeImageReplicationStatusCommandOutput> | void {
+    const command = new DescribeImageReplicationStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

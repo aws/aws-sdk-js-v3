@@ -190,7 +190,7 @@ export namespace ServerException {
 }
 
 /**
- * <p>An object with identifying information for an Amazon ECR image.</p>
+ * <p>An object with identifying information for an image in an Amazon ECR repository.</p>
  */
 export interface ImageIdentifier {
   /**
@@ -708,6 +708,12 @@ export namespace Tag {
 
 export interface CreateRepositoryRequest {
   /**
+   * <p>The AWS account ID associated with the registry to create the repository.
+   *             If you do not specify a registry, the default registry is assumed.</p>
+   */
+  registryId?: string;
+
+  /**
    * <p>The name to use for the repository. The repository name may be specified on its own
    *             (such as <code>nginx-web-app</code>) or it can be prepended with a namespace to group
    *             the repository into a category (such as <code>project-a/nginx-web-app</code>).</p>
@@ -1030,6 +1036,24 @@ export namespace RegistryPolicyNotFoundException {
   });
 }
 
+/**
+ * <p>There was an exception validating this request.</p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ValidationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteRepositoryRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the registry that contains the repository to
@@ -1162,6 +1186,116 @@ export namespace RepositoryPolicyNotFoundException {
    * @internal
    */
   export const filterSensitiveLog = (obj: RepositoryPolicyNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeImageReplicationStatusRequest {
+  /**
+   * <p>The name of the repository that the image is in.</p>
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>An object with identifying information for an image in an Amazon ECR repository.</p>
+   */
+  imageId: ImageIdentifier | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry. If you do not specify a registry, the default registry is assumed.</p>
+   */
+  registryId?: string;
+}
+
+export namespace DescribeImageReplicationStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeImageReplicationStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ReplicationStatus {
+  COMPLETE = "COMPLETE",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+}
+
+/**
+ * <p>The status of the replication process for an image.</p>
+ */
+export interface ImageReplicationStatus {
+  /**
+   * <p>The destination Region for the image replication.</p>
+   */
+  region?: string;
+
+  /**
+   * <p>The AWS account ID associated with the registry to which the image belongs.</p>
+   */
+  registryId?: string;
+
+  /**
+   * <p>The image replication status.</p>
+   */
+  status?: ReplicationStatus | string;
+
+  /**
+   * <p>The failure code for a replication that has failed.</p>
+   */
+  failureCode?: string;
+}
+
+export namespace ImageReplicationStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImageReplicationStatus): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeImageReplicationStatusResponse {
+  /**
+   * <p>The repository name associated with the request.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>An object with identifying information for an image in an Amazon ECR repository.</p>
+   */
+  imageId?: ImageIdentifier;
+
+  /**
+   * <p>The replication status details for the images in the specified repository.</p>
+   */
+  replicationStatuses?: ImageReplicationStatus[];
+}
+
+export namespace DescribeImageReplicationStatusResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeImageReplicationStatusResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The image requested does not exist in the specified repository.</p>
+ */
+export interface ImageNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ImageNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ImageNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImageNotFoundException): any => ({
     ...obj,
   });
 }
@@ -1418,24 +1552,6 @@ export namespace DescribeImagesResponse {
   });
 }
 
-/**
- * <p>The image requested does not exist in the specified repository.</p>
- */
-export interface ImageNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ImageNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ImageNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeImageScanFindingsRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the registry that contains the repository in
@@ -1449,7 +1565,7 @@ export interface DescribeImageScanFindingsRequest {
   repositoryName: string | undefined;
 
   /**
-   * <p>An object with identifying information for an Amazon ECR image.</p>
+   * <p>An object with identifying information for an image in an Amazon ECR repository.</p>
    */
   imageId: ImageIdentifier | undefined;
 
@@ -1594,7 +1710,7 @@ export interface DescribeImageScanFindingsResponse {
   repositoryName?: string;
 
   /**
-   * <p>An object with identifying information for an Amazon ECR image.</p>
+   * <p>An object with identifying information for an image in an Amazon ECR repository.</p>
    */
   imageId?: ImageIdentifier;
 
@@ -1658,16 +1774,17 @@ export namespace DescribeRegistryRequest {
 }
 
 /**
- * <p>An array of objects representing the details of a replication destination.</p>
+ * <p>An array of objects representing the destination for a replication rule.</p>
  */
 export interface ReplicationDestination {
   /**
-   * <p>A Region to replicate to.</p>
+   * <p>The Region to replicate to.</p>
    */
   region: string | undefined;
 
   /**
-   * <p>The account ID of the destination registry to replicate to.</p>
+   * <p>The Amazon Web Services account ID of the Amazon ECR private registry to replicate to. When configuring
+   *             cross-Region replication within your own registry, specify your own account ID.</p>
    */
   registryId: string | undefined;
 }
@@ -1681,16 +1798,57 @@ export namespace ReplicationDestination {
   });
 }
 
+export enum RepositoryFilterType {
+  PREFIX_MATCH = "PREFIX_MATCH",
+}
+
 /**
- * <p>An array of objects representing the replication destinations for a replication
- *             configuration. A replication configuration may contain only one replication rule but the
- *             rule may contain one or more replication destinations.</p>
+ * <p>The filter settings used with image replication. Specifying a repository filter to a
+ *             replication rule provides a method for controlling which repositories in a private
+ *             registry are replicated. If no repository filter is specified, all images in the
+ *             repository are replicated.</p>
+ */
+export interface RepositoryFilter {
+  /**
+   * <p>The repository filter details. When the <code>PREFIX_MATCH</code> filter type is
+   *             specified, this value is required and should be the repository name prefix to configure
+   *             replication for.</p>
+   */
+  filter: string | undefined;
+
+  /**
+   * <p>The repository filter type. The only supported value is <code>PREFIX_MATCH</code>,
+   *             which is a repository name prefix specified with the <code>filter</code>
+   *             parameter.</p>
+   */
+  filterType: RepositoryFilterType | string | undefined;
+}
+
+export namespace RepositoryFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RepositoryFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An array of objects representing the replication destinations and repository filters
+ *             for a replication configuration.</p>
  */
 export interface ReplicationRule {
   /**
-   * <p>An array of objects representing the details of a replication destination.</p>
+   * <p>An array of objects representing the destination for a replication rule.</p>
    */
   destinations: ReplicationDestination[] | undefined;
+
+  /**
+   * <p>An array of objects representing the filters for a replication rule. Specifying a
+   *             repository filter for a replication rule provides a method for controlling which
+   *             repositories in a private registry are replicated.</p>
+   */
+  repositoryFilters?: RepositoryFilter[];
 }
 
 export namespace ReplicationRule {
@@ -1707,9 +1865,8 @@ export namespace ReplicationRule {
  */
 export interface ReplicationConfiguration {
   /**
-   * <p>An array of objects representing the replication rules for a replication
-   *             configuration. A replication configuration may contain only one replication rule but the
-   *             rule may contain one or more replication destinations.</p>
+   * <p>An array of objects representing the replication destinations and repository filters
+   *             for a replication configuration.</p>
    */
   rules: ReplicationRule[] | undefined;
 }
@@ -1740,24 +1897,6 @@ export namespace DescribeRegistryResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeRegistryResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>There was an exception validating this request.</p>
- */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
 }
@@ -2997,7 +3136,7 @@ export interface StartImageScanRequest {
   repositoryName: string | undefined;
 
   /**
-   * <p>An object with identifying information for an Amazon ECR image.</p>
+   * <p>An object with identifying information for an image in an Amazon ECR repository.</p>
    */
   imageId: ImageIdentifier | undefined;
 }
@@ -3023,7 +3162,7 @@ export interface StartImageScanResponse {
   repositoryName?: string;
 
   /**
-   * <p>An object with identifying information for an Amazon ECR image.</p>
+   * <p>An object with identifying information for an image in an Amazon ECR repository.</p>
    */
   imageId?: ImageIdentifier;
 

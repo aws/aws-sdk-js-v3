@@ -32,6 +32,11 @@ import {
   CreateLicenseConfigurationCommandOutput,
 } from "./commands/CreateLicenseConfigurationCommand";
 import {
+  CreateLicenseConversionTaskForResourceCommand,
+  CreateLicenseConversionTaskForResourceCommandInput,
+  CreateLicenseConversionTaskForResourceCommandOutput,
+} from "./commands/CreateLicenseConversionTaskForResourceCommand";
+import {
   CreateLicenseManagerReportGeneratorCommand,
   CreateLicenseManagerReportGeneratorCommandInput,
   CreateLicenseManagerReportGeneratorCommandOutput,
@@ -77,6 +82,11 @@ import {
   GetLicenseConfigurationCommandOutput,
 } from "./commands/GetLicenseConfigurationCommand";
 import {
+  GetLicenseConversionTaskCommand,
+  GetLicenseConversionTaskCommandInput,
+  GetLicenseConversionTaskCommandOutput,
+} from "./commands/GetLicenseConversionTaskCommand";
+import {
   GetLicenseManagerReportGeneratorCommand,
   GetLicenseManagerReportGeneratorCommandInput,
   GetLicenseManagerReportGeneratorCommandOutput,
@@ -111,6 +121,11 @@ import {
   ListLicenseConfigurationsCommandInput,
   ListLicenseConfigurationsCommandOutput,
 } from "./commands/ListLicenseConfigurationsCommand";
+import {
+  ListLicenseConversionTasksCommand,
+  ListLicenseConversionTasksCommandInput,
+  ListLicenseConversionTasksCommandOutput,
+} from "./commands/ListLicenseConversionTasksCommand";
 import {
   ListLicenseManagerReportGeneratorsCommand,
   ListLicenseManagerReportGeneratorsCommandInput,
@@ -187,9 +202,8 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <fullname> AWS License Manager </fullname>
- *          <p>AWS License Manager makes it easier to manage licenses from software vendors across multiple
- *          AWS accounts and on-premises servers.</p>
+ * <p>License Manager makes it easier to manage licenses from software vendors across multiple
+ *          Amazon Web Services accounts and on-premises servers.</p>
  */
 export class LicenseManager extends LicenseManagerClient {
   /**
@@ -315,7 +329,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific AWS accounts.</p>
+   * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific Amazon Web Services accounts.</p>
    */
   public createGrant(args: CreateGrantCommandInput, options?: __HttpHandlerOptions): Promise<CreateGrantCommandOutput>;
   public createGrant(args: CreateGrantCommandInput, cb: (err: any, data?: CreateGrantCommandOutput) => void): void;
@@ -442,7 +456,41 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   * <p>Creates a new report generator.</p>
+   * <p>Creates a new license conversion task.</p>
+   */
+  public createLicenseConversionTaskForResource(
+    args: CreateLicenseConversionTaskForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLicenseConversionTaskForResourceCommandOutput>;
+  public createLicenseConversionTaskForResource(
+    args: CreateLicenseConversionTaskForResourceCommandInput,
+    cb: (err: any, data?: CreateLicenseConversionTaskForResourceCommandOutput) => void
+  ): void;
+  public createLicenseConversionTaskForResource(
+    args: CreateLicenseConversionTaskForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLicenseConversionTaskForResourceCommandOutput) => void
+  ): void;
+  public createLicenseConversionTaskForResource(
+    args: CreateLicenseConversionTaskForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateLicenseConversionTaskForResourceCommandOutput) => void),
+    cb?: (err: any, data?: CreateLicenseConversionTaskForResourceCommandOutput) => void
+  ): Promise<CreateLicenseConversionTaskForResourceCommandOutput> | void {
+    const command = new CreateLicenseConversionTaskForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a report generator.</p>
    */
   public createLicenseManagerReportGenerator(
     args: CreateLicenseManagerReportGeneratorCommandInput,
@@ -626,8 +674,9 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   * <p>Delete an existing report generator.</p>
-   *          <p>This action deletes the report generator, which stops it from generating future reports and cannot be reversed. However, the previous reports from this generator will remain in your S3 bucket.</p>
+   * <p>Deletes the specified report generator.</p>
+   *          <p>This action deletes the report generator, which stops it from generating future reports.
+   *          The action cannot be reversed. It has no effect on the previous reports from this generator.</p>
    */
   public deleteLicenseManagerReportGenerator(
     args: DeleteLicenseManagerReportGeneratorCommandInput,
@@ -834,7 +883,39 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   * <p>Gets information on the specified report generator.</p>
+   * <p>Gets information about the specified license type conversion task.</p>
+   */
+  public getLicenseConversionTask(
+    args: GetLicenseConversionTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLicenseConversionTaskCommandOutput>;
+  public getLicenseConversionTask(
+    args: GetLicenseConversionTaskCommandInput,
+    cb: (err: any, data?: GetLicenseConversionTaskCommandOutput) => void
+  ): void;
+  public getLicenseConversionTask(
+    args: GetLicenseConversionTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLicenseConversionTaskCommandOutput) => void
+  ): void;
+  public getLicenseConversionTask(
+    args: GetLicenseConversionTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLicenseConversionTaskCommandOutput) => void),
+    cb?: (err: any, data?: GetLicenseConversionTaskCommandOutput) => void
+  ): Promise<GetLicenseConversionTaskCommandOutput> | void {
+    const command = new GetLicenseConversionTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about the specified report generator.</p>
    */
   public getLicenseManagerReportGenerator(
     args: GetLicenseManagerReportGeneratorCommandInput,
@@ -1054,6 +1135,38 @@ export class LicenseManager extends LicenseManagerClient {
     cb?: (err: any, data?: ListLicenseConfigurationsCommandOutput) => void
   ): Promise<ListLicenseConfigurationsCommandOutput> | void {
     const command = new ListLicenseConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the license type conversion tasks for your account.</p>
+   */
+  public listLicenseConversionTasks(
+    args: ListLicenseConversionTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLicenseConversionTasksCommandOutput>;
+  public listLicenseConversionTasks(
+    args: ListLicenseConversionTasksCommandInput,
+    cb: (err: any, data?: ListLicenseConversionTasksCommandOutput) => void
+  ): void;
+  public listLicenseConversionTasks(
+    args: ListLicenseConversionTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLicenseConversionTasksCommandOutput) => void
+  ): void;
+  public listLicenseConversionTasks(
+    args: ListLicenseConversionTasksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLicenseConversionTasksCommandOutput) => void),
+    cb?: (err: any, data?: ListLicenseConversionTasksCommandOutput) => void
+  ): Promise<ListLicenseConversionTasksCommandOutput> | void {
+    const command = new ListLicenseConversionTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1495,7 +1608,7 @@ export class LicenseManager extends LicenseManagerClient {
 
   /**
    * <p>Updates a report generator.</p>
-   *          <p>After you make changes to a report generator, it will start generating new reports within 60 minutes of being updated.</p>
+   *          <p>After you make changes to a report generator, it starts generating new reports within 60 minutes of being updated.</p>
    */
   public updateLicenseManagerReportGenerator(
     args: UpdateLicenseManagerReportGeneratorCommandInput,
@@ -1527,9 +1640,9 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   * <p>Adds or removes the specified license configurations for the specified AWS resource.</p>
+   * <p>Adds or removes the specified license configurations for the specified Amazon Web Services resource.</p>
    *          <p>You can update the license specifications of AMIs, instances, and hosts.
-   *          You cannot update the license specifications for launch templates and AWS CloudFormation templates,
+   *          You cannot update the license specifications for launch templates and CloudFormation templates,
    *          as they send license configurations to the operation that creates the resource.</p>
    */
   public updateLicenseSpecificationsForResource(
