@@ -13,9 +13,10 @@
     "test:integration": "jest --config jest.integ.config.js",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:cjs && yarn build:es",
+    "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "postbuild": "cp test/speech.wav dist/cjs/test",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4"
+    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "build:types": "tsc -p tsconfig.types.json"
   },
   "main": "./dist/cjs/index.js",
   "types": "./dist/types/index.d.ts",
