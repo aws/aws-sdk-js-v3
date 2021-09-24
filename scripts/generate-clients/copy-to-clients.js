@@ -57,8 +57,8 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
         // dev dependencies that won't be overwritten in codegen
         merged[name] = { ...toContent[name], ...merged[name] };
       }
-      if (name === "dependencies" || name === "devDependencies") {
-        // Sort dependencies as done by lerna
+      if (name === "scripts" || name === "dependencies" || name === "devDependencies") {
+        // Sort by keys to make sure the order is stable
         merged[name] = Object.fromEntries(Object.entries(merged[name]).sort());
       }
     } else if (name.indexOf("@aws-sdk/") === 0) {
