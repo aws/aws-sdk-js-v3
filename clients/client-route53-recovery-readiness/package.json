@@ -13,7 +13,10 @@
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
-    "build:types": "tsc -p tsconfig.types.json"
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:docs": "yarn clean:docs && typedoc ./",
+    "clean:dist": "rimraf ./dist",
+    "clean:docs": "rimraf ./docs"
   },
   "main": "./dist/cjs/index.js",
   "types": "./dist/types/index.d.ts",

@@ -15,7 +15,10 @@
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
-    "build:types": "tsc -p tsconfig.types.json"
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:docs": "yarn clean:docs && typedoc ./",
+    "clean:dist": "rimraf ./dist",
+    "clean:docs": "rimraf ./docs"
   },
   "main": "./dist/cjs/index.js",
   "types": "./dist/types/index.d.ts",
