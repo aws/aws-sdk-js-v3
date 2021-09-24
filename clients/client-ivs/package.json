@@ -8,7 +8,7 @@
     "build:docs": "yarn clean:docs && typedoc ./",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
+    "clean": "yarn clean:dist && yarn clean:docs",
     "clean:dist": "rimraf ./dist",
     "clean:docs": "rimraf ./docs",
     "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
