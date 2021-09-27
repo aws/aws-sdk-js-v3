@@ -70,7 +70,7 @@ packages
         const downlevelDir = join(declarationDir, downlevelDirname);
         // Create downlevel-dts folder if it doesn't exist
         if (!existsSync(downlevelDir)) {
-          execSync(["./node_modules/.bin/downlevel-dts", declarationDir, downlevelDir].join(" "));
+          execSync(["yarn", "downlevel-dts"].join(" "), { cwd: workspaceDir });
         }
 
         // Strip comments from downlevel-dts files
