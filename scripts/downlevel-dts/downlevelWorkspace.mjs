@@ -38,7 +38,7 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
   try {
     await access(downlevelDir);
     const files = await getAllFiles(downlevelDir);
-    files.forEach(async (downlevelTypesFilepath) => {
+    for (const downlevelTypesFilepath of files) {
       try {
         const content = await readFile(downlevelTypesFilepath, "utf8");
         await writeFile(downlevelTypesFilepath, stripComments(content));
@@ -46,6 +46,8 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
         console.error(`Error while stripping comments from "${downlevelTypesFilepath.replace(process.cwd(), "")}"`);
         console.error(error);
       }
-    });
-  } catch (error) {}
+    }
+  } catch (error) {
+    // downlevelDir is not present, do nothing.
+  }
 };
