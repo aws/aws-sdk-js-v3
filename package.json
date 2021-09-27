@@ -53,6 +53,7 @@
     "@types/jest": "^26.0.4",
     "@typescript-eslint/eslint-plugin": "4.30.0",
     "@typescript-eslint/parser": "4.30.0",
+    "async": "3.2.1",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "codecov": "^3.4.0",
