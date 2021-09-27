@@ -1,29 +1,20 @@
+// @ts-check
 import { exec } from "child_process";
 import { access, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 import stripComments from "strip-comments";
 import { promisify } from "util";
 
+import { getAllFiles } from "./getAllFiles.mjs";
+import { getDeclarationDirname } from "./getDeclarationDirname.mjs";
+import { getDownlevelDirname } from "./getDownlevelDirname.mjs";
+
 const execPromise = promisify(exec);
 
 export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
   const workspaceDir = join(workspacesDir, workspaceName);
-
-  const packageJsonPath = join(workspaceDir, "package.json");
-  const packageJson = JSON.parse((await readFile(packageJsonPath)).toString());
-  if (!packageJson.scripts["downlevel-dts"]) {
-    console.error(`The "downlevel-dts" script is not defined for "${workspaceDir}"`);
-    return;
-  }
-  const downlevelArgs = packageJson.scripts["downlevel-dts"].split(" ");
-  const downlevelDirname = downlevelArgs[2].replace(`${downlevelArgs[1]}/`, "");
-
-  const tsTypesConfigPath = join(workspaceDir, "tsconfig.types.json");
-  const declarationDirname = JSON.parse((await readFile(tsTypesConfigPath)).toString()).compilerOptions.declarationDir;
-
-  if (!declarationDirname) {
-    throw new Error(`The declarationDir is not defined in "${tsTypesConfigPath}".`);
-  }
+  const downlevelDirname = await getDownlevelDirname(workspaceDir);
+  const declarationDirname = await getDeclarationDirname(workspaceDir);
 
   const declarationDir = join(workspaceDir, declarationDirname);
   try {
