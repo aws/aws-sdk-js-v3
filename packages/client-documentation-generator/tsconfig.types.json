@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "declarationDir": "dist/types",
+    "experimentalDecorators": true,
     "rootDir": "src",
     "strict": false
   },

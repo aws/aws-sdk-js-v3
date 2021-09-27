@@ -2,14 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "importHelpers": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
     "module": "commonjs",
-    "moduleResolution": "node",
     "noEmitHelpers": true,
-    "removeComments": true,
-    "sourceMap": false,
-    "strict": true,
-    "target": "ES2018"
+    "target": "ES2018",
+    "strict": true
   }
 }

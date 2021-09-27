@@ -3,13 +3,13 @@
     "baseUrl": ".",
     "downlevelIteration": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "incremental": true,
     "lib": ["es2015", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
-    "noUnusedParameters": false,
     "paths": {
       "@aws-sdk/*": ["packages/*/src"],
       "@aws-sdk/client-*": ["clients/client-*/"],
@@ -17,9 +17,8 @@
       "@aws-sdk/lib-*": ["lib/*"]
     },
     "preserveConstEnums": true,
-    "removeComments": false,
+    "removeComments": true,
     "resolveJsonModule": true,
-    "sourceMap": true,
     "target": "es5"
   },
   "include": ["packages/", "lib/"],
