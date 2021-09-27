@@ -1,16 +1,17 @@
-import { readdirSync, statSync } from "fs";
+import { readdir, stat } from "fs/promises";
 
-export const getAllFiles = (dirPath, arrayOfFiles = []) => {
-  const files = readdirSync(dirPath);
+export const getAllFiles = async (dirPath, arrayOfFiles = []) => {
+  const files = await readdir(dirPath);
 
-  files.forEach((file) => {
-    const { isDirectory } = statSync(dirPath + "/" + file);
+  for (const file of files) {
+    const { isDirectory } = await stat(dirPath + "/" + file);
     if (isDirectory()) {
-      arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
+      const filesInDirectory = await getAllFiles(dirPath + "/" + file, arrayOfFiles);
+      arrayOfFiles.push(filesInDirectory);
     } else {
       arrayOfFiles.push(join(dirPath, "/", file));
     }
-  });
+  }
 
   return arrayOfFiles;
 };

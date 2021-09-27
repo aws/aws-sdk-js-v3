@@ -37,7 +37,8 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
   // Strip comments from downlevel-dts files
   try {
     await access(downlevelDir);
-    getAllFiles(downlevelDir).forEach(async (downlevelTypesFilepath) => {
+    const files = await getAllFiles(downlevelDir);
+    files.forEach(async (downlevelTypesFilepath) => {
       try {
         const content = await readFile(downlevelTypesFilepath, "utf8");
         await writeFile(downlevelTypesFilepath, stripComments(content));
