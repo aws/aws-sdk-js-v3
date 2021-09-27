@@ -3,14 +3,12 @@
     "baseUrl": ".",
     "downlevelIteration": true,
     "esModuleInterop": true,
-    "importHelpers": true,
     "inlineSourceMap": true,
     "inlineSources": true,
     "incremental": true,
     "lib": ["es2015", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "noEmitHelpers": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@aws-sdk/*": ["packages/*/src"],
@@ -21,7 +19,6 @@
     "preserveConstEnums": true,
     "removeComments": true,
     "resolveJsonModule": true,
-    "strict": true,
     "target": "es5"
   },
   "include": ["packages/", "lib/"],

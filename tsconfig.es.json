@@ -1,7 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "importHelpers": true,
     "module": "esnext",
-    "target": "es5"
+    "noEmitHelpers": true,
+    "target": "es5",
+    "strict": true
   }
 }
