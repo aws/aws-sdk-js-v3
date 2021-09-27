@@ -656,6 +656,7 @@ export const serializeAws_restXmlHttpPayloadWithMemberXmlNameCommand = async (
   let contents: any;
   if (input.nested !== undefined) {
     contents = serializeAws_restXmlPayloadWithXmlName(input.nested, context);
+    contents = contents.withName("Hola");
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     body += contents.toString();
   }
