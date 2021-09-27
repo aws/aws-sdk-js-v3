@@ -1,10 +1,12 @@
-const { access, readFile, writeFile } = require("fs/promises");
-const { join } = require("path");
-const { promisify } = require("util");
-const exec = promisify(require("child_process").exec);
-const stripComments = require("strip-comments");
+import { exec } from "child_process";
+import { access, readFile, writeFile } from "fs/promises";
+import { join } from "path";
+import stripComments from "strip-comments";
+import { promisify } from "util";
 
-const downlevelWorkspace = async (workspacesDir, workspaceName) => {
+const execPromise = promisify(exec);
+
+export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
   const workspaceDir = join(workspacesDir, workspaceName);
 
   const packageJsonPath = join(workspaceDir, "package.json");
@@ -38,7 +40,7 @@ const downlevelWorkspace = async (workspacesDir, workspaceName) => {
   try {
     await access(downlevelDir);
   } catch (error) {
-    await exec(["yarn", "downlevel-dts"].join(" "), { cwd: workspaceDir });
+    await execPromise(["yarn", "downlevel-dts"].join(" "), { cwd: workspaceDir });
   }
 
   // Strip comments from downlevel-dts files
@@ -55,5 +57,3 @@ const downlevelWorkspace = async (workspacesDir, workspaceName) => {
     });
   } catch (error) {}
 };
-
-module.exports = { downlevelWorkspace };

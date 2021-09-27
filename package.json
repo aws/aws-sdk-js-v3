@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "copy-models": "node ./scripts/copy-models",
-    "downlevel-dts": "node ./scripts/downlevel-dts",
+    "downlevel-dts": "node --es-module-specifier-resolution=node ./scripts/downlevel-dts",
     "generate-clients": "node ./scripts/generate-clients",
     "bootstrap": "yarn",
     "clean": "yarn clear-build-cache && yarn clear-build-info && lerna clean",

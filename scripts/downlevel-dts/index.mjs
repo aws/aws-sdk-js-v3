@@ -1,18 +1,18 @@
 // @ts-check
-const yargs = require("yargs");
+import parallelLimit from "async/parallelLimit";
+import { readdirSync, readFileSync, statSync } from "fs";
+import { cpus } from "os";
+import { join } from "path";
+import yargs from "yargs";
 
-const { readFileSync, readdirSync, statSync } = require("fs");
-const { join } = require("path");
-const { cpus } = require("os");
-const { downlevelWorkspace } = require("./downlevelWorkspace");
-const parallelLimit = require("async/parallelLimit");
+import { downlevelWorkspace } from "./downlevelWorkspace.mjs";
 
 // ToDo: Write downlevel-dts as a yargs command, and import yargs in scripts instead.
 yargs
   .usage(
     "Runs downlevel-dts npm script (if present) in each workspace of monorepo," +
       " and strips comments from *.d.ts files.\n\n" +
-      "Usage: index.js"
+      "Usage: index.mjs"
   )
   .help()
   .alias("h", "help").argv;
