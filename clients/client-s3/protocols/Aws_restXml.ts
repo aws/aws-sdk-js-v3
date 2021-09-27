@@ -518,6 +518,7 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
   let contents: any;
   if (input.MultipartUpload !== undefined) {
     contents = serializeAws_restXmlCompletedMultipartUpload(input.MultipartUpload, context);
+    contents = contents.withName("CompleteMultipartUpload");
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
@@ -3493,6 +3494,7 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
   let contents: any;
   if (input.LifecycleConfiguration !== undefined) {
     contents = serializeAws_restXmlBucketLifecycleConfiguration(input.LifecycleConfiguration, context);
+    contents = contents.withName("LifecycleConfiguration");
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
@@ -4228,6 +4230,7 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
   let contents: any;
   if (input.LegalHold !== undefined) {
     contents = serializeAws_restXmlObjectLockLegalHold(input.LegalHold, context);
+    contents = contents.withName("LegalHold");
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
@@ -4346,6 +4349,7 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
   let contents: any;
   if (input.Retention !== undefined) {
     contents = serializeAws_restXmlObjectLockRetention(input.Retention, context);
+    contents = contents.withName("Retention");
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
