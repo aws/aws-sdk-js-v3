@@ -6768,7 +6768,7 @@ const compareEquivalentXmlBodies = (expectedBody: string, generatedBody: string)
       parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
       delete parsedObjToReturn[textNodeName];
     }
-    return parsedObjToReturn;
+    return parsedObj;
   };
 
   const expectedParts = parseXmlBody(expectedBody);
