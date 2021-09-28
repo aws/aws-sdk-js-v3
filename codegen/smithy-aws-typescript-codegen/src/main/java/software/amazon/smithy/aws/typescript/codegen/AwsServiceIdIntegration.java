@@ -65,8 +65,8 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
                 .collect(Collectors.joining("")) + "Client";
         return symbol.toBuilder()
                 .name(name)
-                .namespace("./" + name, "/")
-                .definitionFile(name + ".ts")
+                .namespace("./src/" + name, "/")
+                .definitionFile("./src/" + name + ".ts")
                 .build();
     }
 }
