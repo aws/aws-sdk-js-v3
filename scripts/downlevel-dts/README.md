@@ -10,7 +10,7 @@
 Runs downlevel-dts npm script (if present) in each workspace of monorepo, and
 strips comments from *.d.ts files.
 
-Usage: index.js
+Usage: index.mjs
 
 Options:
   --version   Show version number                                      [boolean]
