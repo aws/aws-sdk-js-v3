@@ -43,3 +43,7 @@ dist
 !/verdaccio/config.yaml
 
 *.tsbuildinfo
+
+codegen/.project
+codegen/*/.project
+codegen/*/bin
