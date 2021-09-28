@@ -45,5 +45,9 @@ dist
 *.tsbuildinfo
 
 codegen/.project
+codegen/.classpath
+codegen/.settings/
 codegen/*/.project
+codegen/*/.classpath
+codegen/*/.settings/
 codegen/*/bin
