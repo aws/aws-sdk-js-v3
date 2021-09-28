@@ -10,6 +10,7 @@ const {
   TEMP_CODE_GEN_INPUT_DIR,
 } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
+const { eslintFixCode } = require("./code-eslint-fix");
 
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
 const PROTOCOL_TESTS_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "protocol_tests"));
@@ -58,8 +59,12 @@ const {
     await generateClients(models || globs);
     if (!noProtocolTest) await generateProtocolTests();
 
+    await eslintFixCode(CODE_GEN_SDK_OUTPUT_DIR);
     await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
-    if (!noProtocolTest) await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!noProtocolTest) {
+      await eslintFixCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+      await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    }
 
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
     if (!noProtocolTest) await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
