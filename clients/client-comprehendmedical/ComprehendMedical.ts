@@ -1,4 +1,5 @@
-import { ComprehendMedicalClient } from "./ComprehendMedicalClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DescribeEntitiesDetectionV2JobCommand,
   DescribeEntitiesDetectionV2JobCommandInput,
@@ -96,7 +97,7 @@ import {
   StopRxNormInferenceJobCommandInput,
   StopRxNormInferenceJobCommandOutput,
 } from "./commands/StopRxNormInferenceJobCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ComprehendMedicalClient } from "./ComprehendMedicalClient";
 
 /**
  * <p> Amazon Comprehend Medical extracts structured information from unstructured clinical text. Use these actions

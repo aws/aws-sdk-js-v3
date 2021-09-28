@@ -1,6 +1,7 @@
-import { DynamoDBClient } from "../DynamoDBClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeTableCommand, DescribeTableCommandInput } from "../commands/DescribeTableCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { DynamoDBClient } from "../DynamoDBClient";
 
 const checkState = async (client: DynamoDBClient, input: DescribeTableCommandInput): Promise<WaiterResult> => {
   let reason;

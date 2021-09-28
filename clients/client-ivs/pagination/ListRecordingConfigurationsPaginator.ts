@@ -1,12 +1,13 @@
-import { Ivs } from "../Ivs";
-import { IvsClient } from "../IvsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListRecordingConfigurationsCommand,
   ListRecordingConfigurationsCommandInput,
   ListRecordingConfigurationsCommandOutput,
 } from "../commands/ListRecordingConfigurationsCommand";
+import { Ivs } from "../Ivs";
+import { IvsClient } from "../IvsClient";
 import { IvsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

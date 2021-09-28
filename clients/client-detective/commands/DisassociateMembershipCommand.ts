@@ -1,9 +1,3 @@
-import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { DisassociateMembershipRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateMembershipCommand,
-  serializeAws_restJson1DisassociateMembershipCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
+import { DisassociateMembershipRequest } from "../models/models_0";
+import {
+  deserializeAws_restJson1DisassociateMembershipCommand,
+  serializeAws_restJson1DisassociateMembershipCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface DisassociateMembershipCommandInput extends DisassociateMembershipRequest {}
 export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}

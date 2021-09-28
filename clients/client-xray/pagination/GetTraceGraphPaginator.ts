@@ -1,12 +1,13 @@
-import { XRay } from "../XRay";
-import { XRayClient } from "../XRayClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetTraceGraphCommand,
   GetTraceGraphCommandInput,
   GetTraceGraphCommandOutput,
 } from "../commands/GetTraceGraphCommand";
+import { XRay } from "../XRay";
+import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

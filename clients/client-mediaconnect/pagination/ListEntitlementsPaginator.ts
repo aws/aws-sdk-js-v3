@@ -1,12 +1,13 @@
-import { MediaConnect } from "../MediaConnect";
-import { MediaConnectClient } from "../MediaConnectClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEntitlementsCommand,
   ListEntitlementsCommandInput,
   ListEntitlementsCommandOutput,
 } from "../commands/ListEntitlementsCommand";
+import { MediaConnect } from "../MediaConnect";
+import { MediaConnectClient } from "../MediaConnectClient";
 import { MediaConnectPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

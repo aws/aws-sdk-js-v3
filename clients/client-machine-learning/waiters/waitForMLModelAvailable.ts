@@ -1,6 +1,7 @@
-import { MachineLearningClient } from "../MachineLearningClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeMLModelsCommand, DescribeMLModelsCommandInput } from "../commands/DescribeMLModelsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { MachineLearningClient } from "../MachineLearningClient";
 
 const checkState = async (
   client: MachineLearningClient,

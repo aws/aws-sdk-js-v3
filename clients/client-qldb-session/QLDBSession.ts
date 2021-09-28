@@ -1,6 +1,7 @@
-import { QLDBSessionClient } from "./QLDBSessionClient";
-import { SendCommandCommand, SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
+import { SendCommandCommand, SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand";
+import { QLDBSessionClient } from "./QLDBSessionClient";
 
 /**
  * <p>The transactional data APIs for Amazon QLDB</p>

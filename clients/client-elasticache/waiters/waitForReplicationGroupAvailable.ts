@@ -1,9 +1,10 @@
-import { ElastiCacheClient } from "../ElastiCacheClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeReplicationGroupsCommand,
   DescribeReplicationGroupsCommandInput,
 } from "../commands/DescribeReplicationGroupsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ElastiCacheClient } from "../ElastiCacheClient";
 
 const checkState = async (
   client: ElastiCacheClient,

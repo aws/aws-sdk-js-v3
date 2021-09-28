@@ -1,4 +1,5 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
+
 import { IoT1ClickProjectsClientConfig } from "./IoT1ClickProjectsClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 

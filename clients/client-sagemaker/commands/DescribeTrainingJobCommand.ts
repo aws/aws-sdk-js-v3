@@ -1,10 +1,3 @@
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeTrainingJobRequest } from "../models/models_1";
-import { DescribeTrainingJobResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeTrainingJobCommand,
-  serializeAws_json1_1DescribeTrainingJobCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,11 +5,19 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeTrainingJobRequest } from "../models/models_1";
+import { DescribeTrainingJobResponse } from "../models/models_2";
+import {
+  deserializeAws_json1_1DescribeTrainingJobCommand,
+  serializeAws_json1_1DescribeTrainingJobCommand,
+} from "../protocols/Aws_json1_1";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 export interface DescribeTrainingJobCommandInput extends DescribeTrainingJobRequest {}
 export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobResponse, __MetadataBearer {}

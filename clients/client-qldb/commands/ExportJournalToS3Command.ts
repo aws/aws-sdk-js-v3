@@ -1,9 +1,3 @@
-import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
-import { ExportJournalToS3Request, ExportJournalToS3Response } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportJournalToS3Command,
-  serializeAws_restJson1ExportJournalToS3Command,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ExportJournalToS3Request, ExportJournalToS3Response } from "../models/models_0";
+import {
+  deserializeAws_restJson1ExportJournalToS3Command,
+  serializeAws_restJson1ExportJournalToS3Command,
+} from "../protocols/Aws_restJson1";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 export interface ExportJournalToS3CommandInput extends ExportJournalToS3Request {}
 export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Response, __MetadataBearer {}

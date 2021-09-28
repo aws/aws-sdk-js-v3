@@ -1,4 +1,5 @@
-import { WellArchitectedClient } from "./WellArchitectedClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateLensesCommand,
   AssociateLensesCommandInput,
@@ -57,6 +58,7 @@ import {
 } from "./commands/GetMilestoneCommand";
 import { GetWorkloadCommand, GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import { ListAnswersCommand, ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
+import { ListLensesCommand, ListLensesCommandInput, ListLensesCommandOutput } from "./commands/ListLensesCommand";
 import {
   ListLensReviewImprovementsCommand,
   ListLensReviewImprovementsCommandInput,
@@ -67,7 +69,6 @@ import {
   ListLensReviewsCommandInput,
   ListLensReviewsCommandOutput,
 } from "./commands/ListLensReviewsCommand";
-import { ListLensesCommand, ListLensesCommandInput, ListLensesCommandOutput } from "./commands/ListLensesCommand";
 import {
   ListMilestonesCommand,
   ListMilestonesCommandInput,
@@ -89,15 +90,15 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
-  ListWorkloadSharesCommand,
-  ListWorkloadSharesCommandInput,
-  ListWorkloadSharesCommandOutput,
-} from "./commands/ListWorkloadSharesCommand";
-import {
   ListWorkloadsCommand,
   ListWorkloadsCommandInput,
   ListWorkloadsCommandOutput,
 } from "./commands/ListWorkloadsCommand";
+import {
+  ListWorkloadSharesCommand,
+  ListWorkloadSharesCommandInput,
+  ListWorkloadSharesCommandOutput,
+} from "./commands/ListWorkloadSharesCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -134,7 +135,7 @@ import {
   UpgradeLensReviewCommandInput,
   UpgradeLensReviewCommandOutput,
 } from "./commands/UpgradeLensReviewCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { WellArchitectedClient } from "./WellArchitectedClient";
 
 /**
  * <fullname>AWS Well-Architected Tool</fullname>

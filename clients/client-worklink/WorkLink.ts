@@ -1,4 +1,5 @@
-import { WorkLinkClient } from "./WorkLinkClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateDomainCommand,
   AssociateDomainCommandInput,
@@ -136,7 +137,7 @@ import {
   UpdateIdentityProviderConfigurationCommandInput,
   UpdateIdentityProviderConfigurationCommandOutput,
 } from "./commands/UpdateIdentityProviderConfigurationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { WorkLinkClient } from "./WorkLinkClient";
 
 /**
  * <p>Amazon WorkLink is a cloud-based service that provides secure access

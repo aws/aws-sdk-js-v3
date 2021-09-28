@@ -1,6 +1,7 @@
-import { RDSClient } from "../RDSClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeDBInstancesCommand, DescribeDBInstancesCommandInput } from "../commands/DescribeDBInstancesCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { RDSClient } from "../RDSClient";
 
 const checkState = async (client: RDSClient, input: DescribeDBInstancesCommandInput): Promise<WaiterResult> => {
   let reason;

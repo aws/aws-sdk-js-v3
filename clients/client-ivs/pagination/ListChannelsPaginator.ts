@@ -1,12 +1,13 @@
-import { Ivs } from "../Ivs";
-import { IvsClient } from "../IvsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListChannelsCommand,
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "../commands/ListChannelsCommand";
+import { Ivs } from "../Ivs";
+import { IvsClient } from "../IvsClient";
 import { IvsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

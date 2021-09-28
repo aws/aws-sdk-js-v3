@@ -1,12 +1,13 @@
-import { SWF } from "../SWF";
-import { SWFClient } from "../SWFClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetWorkflowExecutionHistoryCommand,
   GetWorkflowExecutionHistoryCommandInput,
   GetWorkflowExecutionHistoryCommandOutput,
 } from "../commands/GetWorkflowExecutionHistoryCommand";
+import { SWF } from "../SWF";
+import { SWFClient } from "../SWFClient";
 import { SWFPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

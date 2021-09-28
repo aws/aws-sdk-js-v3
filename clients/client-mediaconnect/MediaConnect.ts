@@ -1,4 +1,5 @@
-import { MediaConnectClient } from "./MediaConnectClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddFlowMediaStreamsCommand,
   AddFlowMediaStreamsCommandInput,
@@ -121,7 +122,7 @@ import {
   UpdateFlowSourceCommandInput,
   UpdateFlowSourceCommandOutput,
 } from "./commands/UpdateFlowSourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MediaConnectClient } from "./MediaConnectClient";
 
 /**
  * API for AWS Elemental MediaConnect

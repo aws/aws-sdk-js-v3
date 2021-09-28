@@ -1,12 +1,13 @@
-import { MachineLearning } from "../MachineLearning";
-import { MachineLearningClient } from "../MachineLearningClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeBatchPredictionsCommand,
   DescribeBatchPredictionsCommandInput,
   DescribeBatchPredictionsCommandOutput,
 } from "../commands/DescribeBatchPredictionsCommand";
+import { MachineLearning } from "../MachineLearning";
+import { MachineLearningClient } from "../MachineLearningClient";
 import { MachineLearningPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

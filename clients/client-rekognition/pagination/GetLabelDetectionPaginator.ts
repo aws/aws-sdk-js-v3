@@ -1,12 +1,13 @@
-import { Rekognition } from "../Rekognition";
-import { RekognitionClient } from "../RekognitionClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetLabelDetectionCommand,
   GetLabelDetectionCommandInput,
   GetLabelDetectionCommandOutput,
 } from "../commands/GetLabelDetectionCommand";
+import { Rekognition } from "../Rekognition";
+import { RekognitionClient } from "../RekognitionClient";
 import { RekognitionPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

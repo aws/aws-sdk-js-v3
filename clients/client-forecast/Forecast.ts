@@ -1,4 +1,5 @@
-import { ForecastClient } from "./ForecastClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateDatasetCommand,
   CreateDatasetCommandInput,
@@ -170,7 +171,7 @@ import {
   UpdateDatasetGroupCommandInput,
   UpdateDatasetGroupCommandOutput,
 } from "./commands/UpdateDatasetGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ForecastClient } from "./ForecastClient";
 
 /**
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>

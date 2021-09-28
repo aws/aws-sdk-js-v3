@@ -1,3 +1,5 @@
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
 import {
   Action,
   CodeGenEdge,
@@ -10,9 +12,9 @@ import {
   ConnectionsList,
   CrawlerTargets,
   CsvHeaderOption,
-  DataFormat,
   Database,
   DatabaseInput,
+  DataFormat,
   DevEndpoint,
   EncryptionConfiguration,
   ErrorDetail,
@@ -51,7 +53,6 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 export interface GetDatabaseResponse {
   /**

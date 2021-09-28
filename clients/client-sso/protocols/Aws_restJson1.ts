@@ -1,16 +1,3 @@
-import { GetRoleCredentialsCommandInput, GetRoleCredentialsCommandOutput } from "../commands/GetRoleCredentialsCommand";
-import { ListAccountRolesCommandInput, ListAccountRolesCommandOutput } from "../commands/ListAccountRolesCommand";
-import { ListAccountsCommandInput, ListAccountsCommandOutput } from "../commands/ListAccountsCommand";
-import { LogoutCommandInput, LogoutCommandOutput } from "../commands/LogoutCommand";
-import {
-  AccountInfo,
-  InvalidRequestException,
-  ResourceNotFoundException,
-  RoleCredentials,
-  RoleInfo,
-  TooManyRequestsException,
-  UnauthorizedException,
-} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectLong as __expectLong,
@@ -26,6 +13,20 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+import { GetRoleCredentialsCommandInput, GetRoleCredentialsCommandOutput } from "../commands/GetRoleCredentialsCommand";
+import { ListAccountRolesCommandInput, ListAccountRolesCommandOutput } from "../commands/ListAccountRolesCommand";
+import { ListAccountsCommandInput, ListAccountsCommandOutput } from "../commands/ListAccountsCommand";
+import { LogoutCommandInput, LogoutCommandOutput } from "../commands/LogoutCommand";
+import {
+  AccountInfo,
+  InvalidRequestException,
+  ResourceNotFoundException,
+  RoleCredentials,
+  RoleInfo,
+  TooManyRequestsException,
+  UnauthorizedException,
+} from "../models/models_0";
 
 export const serializeAws_restJson1GetRoleCredentialsCommand = async (
   input: GetRoleCredentialsCommandInput,
@@ -154,7 +155,7 @@ const deserializeAws_restJson1GetRoleCredentialsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
@@ -237,7 +238,7 @@ const deserializeAws_restJson1ListAccountRolesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
@@ -320,7 +321,7 @@ const deserializeAws_restJson1ListAccountsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
@@ -395,7 +396,7 @@ const deserializeAws_restJson1LogoutCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":

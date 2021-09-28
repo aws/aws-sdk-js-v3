@@ -1,12 +1,13 @@
-import { MWAA } from "../MWAA";
-import { MWAAClient } from "../MWAAClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEnvironmentsCommand,
   ListEnvironmentsCommandInput,
   ListEnvironmentsCommandOutput,
 } from "../commands/ListEnvironmentsCommand";
+import { MWAA } from "../MWAA";
+import { MWAAClient } from "../MWAAClient";
 import { MWAAPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,5 @@
-import { TranscribeClient } from "./TranscribeClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateCallAnalyticsCategoryCommand,
   CreateCallAnalyticsCategoryCommandInput,
@@ -190,7 +191,7 @@ import {
   UpdateVocabularyFilterCommandInput,
   UpdateVocabularyFilterCommandOutput,
 } from "./commands/UpdateVocabularyFilterCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { TranscribeClient } from "./TranscribeClient";
 
 /**
  * <p>Operations and objects for transcribing speech to text.</p>

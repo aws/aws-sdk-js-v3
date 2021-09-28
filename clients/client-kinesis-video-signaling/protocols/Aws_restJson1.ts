@@ -1,17 +1,3 @@
-import { GetIceServerConfigCommandInput, GetIceServerConfigCommandOutput } from "../commands/GetIceServerConfigCommand";
-import {
-  SendAlexaOfferToMasterCommandInput,
-  SendAlexaOfferToMasterCommandOutput,
-} from "../commands/SendAlexaOfferToMasterCommand";
-import {
-  ClientLimitExceededException,
-  IceServer,
-  InvalidArgumentException,
-  InvalidClientException,
-  NotAuthorizedException,
-  ResourceNotFoundException,
-  SessionExpiredException,
-} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
@@ -26,6 +12,21 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+import { GetIceServerConfigCommandInput, GetIceServerConfigCommandOutput } from "../commands/GetIceServerConfigCommand";
+import {
+  SendAlexaOfferToMasterCommandInput,
+  SendAlexaOfferToMasterCommandOutput,
+} from "../commands/SendAlexaOfferToMasterCommand";
+import {
+  ClientLimitExceededException,
+  IceServer,
+  InvalidArgumentException,
+  InvalidClientException,
+  NotAuthorizedException,
+  ResourceNotFoundException,
+  SessionExpiredException,
+} from "../models/models_0";
 
 export const serializeAws_restJson1GetIceServerConfigCommand = async (
   input: GetIceServerConfigCommandInput,
@@ -111,7 +112,7 @@ const deserializeAws_restJson1GetIceServerConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":
@@ -206,7 +207,7 @@ const deserializeAws_restJson1SendAlexaOfferToMasterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":

@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CodeStarClient } from "./CodeStarClient";
 import {
   AssociateTeamMemberCommand,
@@ -85,7 +87,6 @@ import {
   UpdateUserProfileCommandInput,
   UpdateUserProfileCommandOutput,
 } from "./commands/UpdateUserProfileCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS CodeStar</fullname>

@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { BackupClient } from "./BackupClient";
 import {
   CreateBackupPlanCommand,
@@ -175,6 +177,11 @@ import {
   ListBackupJobsCommandOutput,
 } from "./commands/ListBackupJobsCommand";
 import {
+  ListBackupPlansCommand,
+  ListBackupPlansCommandInput,
+  ListBackupPlansCommandOutput,
+} from "./commands/ListBackupPlansCommand";
+import {
   ListBackupPlanTemplatesCommand,
   ListBackupPlanTemplatesCommandInput,
   ListBackupPlanTemplatesCommandOutput,
@@ -184,11 +191,6 @@ import {
   ListBackupPlanVersionsCommandInput,
   ListBackupPlanVersionsCommandOutput,
 } from "./commands/ListBackupPlanVersionsCommand";
-import {
-  ListBackupPlansCommand,
-  ListBackupPlansCommandInput,
-  ListBackupPlansCommandOutput,
-} from "./commands/ListBackupPlansCommand";
 import {
   ListBackupSelectionsCommand,
   ListBackupSelectionsCommandInput,
@@ -311,7 +313,6 @@ import {
   UpdateReportPlanCommandInput,
   UpdateReportPlanCommandOutput,
 } from "./commands/UpdateReportPlanCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Backup</fullname>

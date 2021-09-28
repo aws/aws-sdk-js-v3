@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AppStreamClient } from "./AppStreamClient";
 import {
   AssociateFleetCommand,
@@ -113,15 +115,15 @@ import {
   DescribeUsageReportSubscriptionsCommandOutput,
 } from "./commands/DescribeUsageReportSubscriptionsCommand";
 import {
-  DescribeUserStackAssociationsCommand,
-  DescribeUserStackAssociationsCommandInput,
-  DescribeUserStackAssociationsCommandOutput,
-} from "./commands/DescribeUserStackAssociationsCommand";
-import {
   DescribeUsersCommand,
   DescribeUsersCommandInput,
   DescribeUsersCommandOutput,
 } from "./commands/DescribeUsersCommand";
+import {
+  DescribeUserStackAssociationsCommand,
+  DescribeUserStackAssociationsCommandInput,
+  DescribeUserStackAssociationsCommandOutput,
+} from "./commands/DescribeUserStackAssociationsCommand";
 import { DisableUserCommand, DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
 import {
   DisassociateFleetCommand,
@@ -179,7 +181,6 @@ import {
   UpdateImagePermissionsCommandOutput,
 } from "./commands/UpdateImagePermissionsCommand";
 import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon AppStream 2.0</fullname>

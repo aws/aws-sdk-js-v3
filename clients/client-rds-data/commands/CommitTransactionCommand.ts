@@ -1,9 +1,3 @@
-import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
-import { CommitTransactionRequest, CommitTransactionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CommitTransactionCommand,
-  serializeAws_restJson1CommitTransactionCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CommitTransactionRequest, CommitTransactionResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1CommitTransactionCommand,
+  serializeAws_restJson1CommitTransactionCommand,
+} from "../protocols/Aws_restJson1";
+import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 export interface CommitTransactionCommandInput extends CommitTransactionRequest {}
 export interface CommitTransactionCommandOutput extends CommitTransactionResponse, __MetadataBearer {}

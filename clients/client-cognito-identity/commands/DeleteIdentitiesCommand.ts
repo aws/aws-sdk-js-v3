@@ -1,9 +1,3 @@
-import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { DeleteIdentitiesInput, DeleteIdentitiesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteIdentitiesCommand,
-  serializeAws_json1_1DeleteIdentitiesCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
+import { DeleteIdentitiesInput, DeleteIdentitiesResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1DeleteIdentitiesCommand,
+  serializeAws_json1_1DeleteIdentitiesCommand,
+} from "../protocols/Aws_json1_1";
 
 export interface DeleteIdentitiesCommandInput extends DeleteIdentitiesInput {}
 export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse, __MetadataBearer {}

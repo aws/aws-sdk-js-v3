@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Batch } from "../Batch";
 import { BatchClient } from "../BatchClient";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeJobQueuesCommandOutput,
 } from "../commands/DescribeJobQueuesCommand";
 import { BatchPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

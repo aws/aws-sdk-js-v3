@@ -1,9 +1,10 @@
-import { RDSClient } from "../RDSClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeDBClusterSnapshotsCommand,
   DescribeDBClusterSnapshotsCommandInput,
 } from "../commands/DescribeDBClusterSnapshotsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { RDSClient } from "../RDSClient";
 
 const checkState = async (client: RDSClient, input: DescribeDBClusterSnapshotsCommandInput): Promise<WaiterResult> => {
   let reason;

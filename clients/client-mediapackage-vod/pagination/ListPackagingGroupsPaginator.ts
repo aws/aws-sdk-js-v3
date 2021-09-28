@@ -1,12 +1,13 @@
-import { MediaPackageVod } from "../MediaPackageVod";
-import { MediaPackageVodClient } from "../MediaPackageVodClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListPackagingGroupsCommand,
   ListPackagingGroupsCommandInput,
   ListPackagingGroupsCommandOutput,
 } from "../commands/ListPackagingGroupsCommand";
+import { MediaPackageVod } from "../MediaPackageVod";
+import { MediaPackageVodClient } from "../MediaPackageVodClient";
 import { MediaPackageVodPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

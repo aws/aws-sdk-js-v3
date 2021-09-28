@@ -1,4 +1,5 @@
-import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CancelChangeSetCommand,
   CancelChangeSetCommandInput,
@@ -29,7 +30,7 @@ import {
   StartChangeSetCommandInput,
   StartChangeSetCommandOutput,
 } from "./commands/StartChangeSetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient";
 
 /**
  * <p>Catalog API actions allow you to manage your entities through list, describe, and update

@@ -1,12 +1,13 @@
-import { DocDB } from "../DocDB";
-import { DocDBClient } from "../DocDBClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeDBClusterParametersCommand,
   DescribeDBClusterParametersCommandInput,
   DescribeDBClusterParametersCommandOutput,
 } from "../commands/DescribeDBClusterParametersCommand";
+import { DocDB } from "../DocDB";
+import { DocDBClient } from "../DocDBClient";
 import { DocDBPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,12 +1,13 @@
-import { DeviceFarm } from "../DeviceFarm";
-import { DeviceFarmClient } from "../DeviceFarmClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListOfferingTransactionsCommand,
   ListOfferingTransactionsCommandInput,
   ListOfferingTransactionsCommandOutput,
 } from "../commands/ListOfferingTransactionsCommand";
+import { DeviceFarm } from "../DeviceFarm";
+import { DeviceFarmClient } from "../DeviceFarmClient";
 import { DeviceFarmPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

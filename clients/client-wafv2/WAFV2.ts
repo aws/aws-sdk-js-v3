@@ -1,4 +1,5 @@
-import { WAFV2Client } from "./WAFV2Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateWebACLCommand,
   AssociateWebACLCommandInput,
@@ -109,15 +110,15 @@ import {
   GetWebACLForResourceCommandOutput,
 } from "./commands/GetWebACLForResourceCommand";
 import {
-  ListAvailableManagedRuleGroupVersionsCommand,
-  ListAvailableManagedRuleGroupVersionsCommandInput,
-  ListAvailableManagedRuleGroupVersionsCommandOutput,
-} from "./commands/ListAvailableManagedRuleGroupVersionsCommand";
-import {
   ListAvailableManagedRuleGroupsCommand,
   ListAvailableManagedRuleGroupsCommandInput,
   ListAvailableManagedRuleGroupsCommandOutput,
 } from "./commands/ListAvailableManagedRuleGroupsCommand";
+import {
+  ListAvailableManagedRuleGroupVersionsCommand,
+  ListAvailableManagedRuleGroupVersionsCommandInput,
+  ListAvailableManagedRuleGroupVersionsCommandOutput,
+} from "./commands/ListAvailableManagedRuleGroupVersionsCommand";
 import { ListIPSetsCommand, ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import {
   ListLoggingConfigurationsCommand,
@@ -192,7 +193,7 @@ import {
   UpdateWebACLCommandInput,
   UpdateWebACLCommandOutput,
 } from "./commands/UpdateWebACLCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { WAFV2Client } from "./WAFV2Client";
 
 /**
  * <fullname>WAF</fullname>

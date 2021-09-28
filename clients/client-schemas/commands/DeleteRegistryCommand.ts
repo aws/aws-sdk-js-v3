@@ -1,9 +1,3 @@
-import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { DeleteRegistryRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRegistryCommand,
-  serializeAws_restJson1DeleteRegistryCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DeleteRegistryRequest } from "../models/models_0";
+import {
+  deserializeAws_restJson1DeleteRegistryCommand,
+  serializeAws_restJson1DeleteRegistryCommand,
+} from "../protocols/Aws_restJson1";
+import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 export interface DeleteRegistryCommandInput extends DeleteRegistryRequest {}
 export interface DeleteRegistryCommandOutput extends __MetadataBearer {}

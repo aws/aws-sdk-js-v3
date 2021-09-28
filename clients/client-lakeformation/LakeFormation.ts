@@ -1,4 +1,5 @@
-import { LakeFormationClient } from "./LakeFormationClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddLFTagsToResourceCommand,
   AddLFTagsToResourceCommandInput,
@@ -94,7 +95,7 @@ import {
   UpdateResourceCommandInput,
   UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LakeFormationClient } from "./LakeFormationClient";
 
 /**
  * <fullname>AWS Lake Formation</fullname>

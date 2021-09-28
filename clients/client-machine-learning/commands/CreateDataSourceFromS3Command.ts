@@ -1,9 +1,3 @@
-import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { CreateDataSourceFromS3Input, CreateDataSourceFromS3Output } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDataSourceFromS3Command,
-  serializeAws_json1_1CreateDataSourceFromS3Command,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
+import { CreateDataSourceFromS3Input, CreateDataSourceFromS3Output } from "../models/models_0";
+import {
+  deserializeAws_json1_1CreateDataSourceFromS3Command,
+  serializeAws_json1_1CreateDataSourceFromS3Command,
+} from "../protocols/Aws_json1_1";
 
 export interface CreateDataSourceFromS3CommandInput extends CreateDataSourceFromS3Input {}
 export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFromS3Output, __MetadataBearer {}

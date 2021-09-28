@@ -1,12 +1,13 @@
-import { LexModelBuildingService } from "../LexModelBuildingService";
-import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetIntentVersionsCommand,
   GetIntentVersionsCommandInput,
   GetIntentVersionsCommandOutput,
 } from "../commands/GetIntentVersionsCommand";
+import { LexModelBuildingService } from "../LexModelBuildingService";
+import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
 import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

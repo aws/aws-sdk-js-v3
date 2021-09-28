@@ -1,4 +1,5 @@
-import { SupportClient } from "./SupportClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddAttachmentsToSetCommand,
   AddAttachmentsToSetCommandInput,
@@ -46,22 +47,22 @@ import {
   DescribeTrustedAdvisorCheckResultCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckResultCommand";
 import {
-  DescribeTrustedAdvisorCheckSummariesCommand,
-  DescribeTrustedAdvisorCheckSummariesCommandInput,
-  DescribeTrustedAdvisorCheckSummariesCommandOutput,
-} from "./commands/DescribeTrustedAdvisorCheckSummariesCommand";
-import {
   DescribeTrustedAdvisorChecksCommand,
   DescribeTrustedAdvisorChecksCommandInput,
   DescribeTrustedAdvisorChecksCommandOutput,
 } from "./commands/DescribeTrustedAdvisorChecksCommand";
+import {
+  DescribeTrustedAdvisorCheckSummariesCommand,
+  DescribeTrustedAdvisorCheckSummariesCommandInput,
+  DescribeTrustedAdvisorCheckSummariesCommandOutput,
+} from "./commands/DescribeTrustedAdvisorCheckSummariesCommand";
 import {
   RefreshTrustedAdvisorCheckCommand,
   RefreshTrustedAdvisorCheckCommandInput,
   RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
 import { ResolveCaseCommand, ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SupportClient } from "./SupportClient";
 
 /**
  * <fullname>AWS Support</fullname>

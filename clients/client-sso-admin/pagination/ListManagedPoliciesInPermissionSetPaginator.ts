@@ -1,12 +1,13 @@
-import { SSOAdmin } from "../SSOAdmin";
-import { SSOAdminClient } from "../SSOAdminClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListManagedPoliciesInPermissionSetCommand,
   ListManagedPoliciesInPermissionSetCommandInput,
   ListManagedPoliciesInPermissionSetCommandOutput,
 } from "../commands/ListManagedPoliciesInPermissionSetCommand";
+import { SSOAdmin } from "../SSOAdmin";
+import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

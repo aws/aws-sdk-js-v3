@@ -1,4 +1,5 @@
-import { DirectoryServiceClient } from "./DirectoryServiceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptSharedDirectoryCommand,
   AcceptSharedDirectoryCommandInput,
@@ -274,7 +275,7 @@ import {
 } from "./commands/UpdateRadiusCommand";
 import { UpdateTrustCommand, UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
 import { VerifyTrustCommand, VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DirectoryServiceClient } from "./DirectoryServiceClient";
 
 /**
  * <fullname>Directory Service</fullname>

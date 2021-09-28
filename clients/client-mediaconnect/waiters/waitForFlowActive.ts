@@ -1,6 +1,7 @@
-import { MediaConnectClient } from "../MediaConnectClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeFlowCommand, DescribeFlowCommandInput } from "../commands/DescribeFlowCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { MediaConnectClient } from "../MediaConnectClient";
 
 const checkState = async (client: MediaConnectClient, input: DescribeFlowCommandInput): Promise<WaiterResult> => {
   let reason;

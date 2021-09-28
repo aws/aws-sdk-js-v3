@@ -1,12 +1,13 @@
-import { Glacier } from "../Glacier";
-import { GlacierClient } from "../GlacierClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListMultipartUploadsCommand,
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput,
 } from "../commands/ListMultipartUploadsCommand";
+import { Glacier } from "../Glacier";
+import { GlacierClient } from "../GlacierClient";
 import { GlacierPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

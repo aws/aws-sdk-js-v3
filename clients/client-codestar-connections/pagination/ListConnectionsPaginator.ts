@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CodeStarConnections } from "../CodeStarConnections";
 import { CodeStarConnectionsClient } from "../CodeStarConnectionsClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListConnectionsCommandOutput,
 } from "../commands/ListConnectionsCommand";
 import { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

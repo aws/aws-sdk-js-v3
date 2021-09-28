@@ -1,10 +1,3 @@
-import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
-import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
-import { PutSessionCommandInput, PutSessionCommandOutput } from "./commands/PutSessionCommand";
-import { RecognizeTextCommandInput, RecognizeTextCommandOutput } from "./commands/RecognizeTextCommand";
-import { RecognizeUtteranceCommandInput, RecognizeUtteranceCommandOutput } from "./commands/RecognizeUtteranceCommand";
-import { StartConversationCommandInput, StartConversationCommandOutput } from "./commands/StartConversationCommand";
-import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -25,13 +18,13 @@ import {
   resolveEventStreamConfig,
 } from "@aws-sdk/middleware-eventstream";
 import {
+  getHostHeaderPlugin,
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -39,10 +32,10 @@ import {
   resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
+  UserAgentInputConfig,
+  UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
@@ -51,8 +44,6 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
-  Provider,
-  RegionInfoProvider,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -63,10 +54,20 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
+  Provider,
+  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
+
+import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { PutSessionCommandInput, PutSessionCommandOutput } from "./commands/PutSessionCommand";
+import { RecognizeTextCommandInput, RecognizeTextCommandOutput } from "./commands/RecognizeTextCommand";
+import { RecognizeUtteranceCommandInput, RecognizeUtteranceCommandOutput } from "./commands/RecognizeUtteranceCommand";
+import { StartConversationCommandInput, StartConversationCommandOutput } from "./commands/StartConversationCommand";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | DeleteSessionCommandInput

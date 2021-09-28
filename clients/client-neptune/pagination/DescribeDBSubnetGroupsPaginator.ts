@@ -1,12 +1,13 @@
-import { Neptune } from "../Neptune";
-import { NeptuneClient } from "../NeptuneClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeDBSubnetGroupsCommand,
   DescribeDBSubnetGroupsCommandInput,
   DescribeDBSubnetGroupsCommandOutput,
 } from "../commands/DescribeDBSubnetGroupsCommand";
+import { Neptune } from "../Neptune";
+import { NeptuneClient } from "../NeptuneClient";
 import { NeptunePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

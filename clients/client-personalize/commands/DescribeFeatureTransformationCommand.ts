@@ -1,9 +1,3 @@
-import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFeatureTransformationCommand,
-  serializeAws_json1_1DescribeFeatureTransformationCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse } from "../models/models_0";
+import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import {
+  deserializeAws_json1_1DescribeFeatureTransformationCommand,
+  serializeAws_json1_1DescribeFeatureTransformationCommand,
+} from "../protocols/Aws_json1_1";
 
 export interface DescribeFeatureTransformationCommandInput extends DescribeFeatureTransformationRequest {}
 export interface DescribeFeatureTransformationCommandOutput

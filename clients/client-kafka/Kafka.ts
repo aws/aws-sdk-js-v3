@@ -1,4 +1,5 @@
-import { KafkaClient } from "./KafkaClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchAssociateScramSecretCommand,
   BatchAssociateScramSecretCommandInput,
@@ -146,7 +147,7 @@ import {
   UpdateSecurityCommandInput,
   UpdateSecurityCommandOutput,
 } from "./commands/UpdateSecurityCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { KafkaClient } from "./KafkaClient";
 
 /**
  * <p>The operations for managing an Amazon MSK cluster.</p>

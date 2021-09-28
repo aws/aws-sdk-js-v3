@@ -1,4 +1,5 @@
-import { ElasticBeanstalkClient } from "./ElasticBeanstalkClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AbortEnvironmentUpdateCommand,
   AbortEnvironmentUpdateCommandInput,
@@ -85,15 +86,15 @@ import {
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
-  DescribeApplicationVersionsCommand,
-  DescribeApplicationVersionsCommandInput,
-  DescribeApplicationVersionsCommandOutput,
-} from "./commands/DescribeApplicationVersionsCommand";
-import {
   DescribeApplicationsCommand,
   DescribeApplicationsCommandInput,
   DescribeApplicationsCommandOutput,
 } from "./commands/DescribeApplicationsCommand";
+import {
+  DescribeApplicationVersionsCommand,
+  DescribeApplicationVersionsCommandInput,
+  DescribeApplicationVersionsCommandOutput,
+} from "./commands/DescribeApplicationVersionsCommand";
 import {
   DescribeConfigurationOptionsCommand,
   DescribeConfigurationOptionsCommandInput,
@@ -234,7 +235,7 @@ import {
   ValidateConfigurationSettingsCommandInput,
   ValidateConfigurationSettingsCommandOutput,
 } from "./commands/ValidateConfigurationSettingsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ElasticBeanstalkClient } from "./ElasticBeanstalkClient";
 
 /**
  * <fullname>AWS Elastic Beanstalk</fullname>

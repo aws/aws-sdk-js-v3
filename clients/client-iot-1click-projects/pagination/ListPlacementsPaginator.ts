@@ -1,12 +1,13 @@
-import { IoT1ClickProjects } from "../IoT1ClickProjects";
-import { IoT1ClickProjectsClient } from "../IoT1ClickProjectsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListPlacementsCommand,
   ListPlacementsCommandInput,
   ListPlacementsCommandOutput,
 } from "../commands/ListPlacementsCommand";
+import { IoT1ClickProjects } from "../IoT1ClickProjects";
+import { IoT1ClickProjectsClient } from "../IoT1ClickProjectsClient";
 import { IoT1ClickProjectsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

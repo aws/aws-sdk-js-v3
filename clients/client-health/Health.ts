@@ -1,4 +1,5 @@
-import { HealthClient } from "./HealthClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DescribeAffectedAccountsForOrganizationCommand,
   DescribeAffectedAccountsForOrganizationCommandInput,
@@ -35,11 +36,6 @@ import {
   DescribeEventDetailsForOrganizationCommandOutput,
 } from "./commands/DescribeEventDetailsForOrganizationCommand";
 import {
-  DescribeEventTypesCommand,
-  DescribeEventTypesCommandInput,
-  DescribeEventTypesCommandOutput,
-} from "./commands/DescribeEventTypesCommand";
-import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
@@ -49,6 +45,11 @@ import {
   DescribeEventsForOrganizationCommandInput,
   DescribeEventsForOrganizationCommandOutput,
 } from "./commands/DescribeEventsForOrganizationCommand";
+import {
+  DescribeEventTypesCommand,
+  DescribeEventTypesCommandInput,
+  DescribeEventTypesCommandOutput,
+} from "./commands/DescribeEventTypesCommand";
 import {
   DescribeHealthServiceStatusForOrganizationCommand,
   DescribeHealthServiceStatusForOrganizationCommandInput,
@@ -64,7 +65,7 @@ import {
   EnableHealthServiceAccessForOrganizationCommandInput,
   EnableHealthServiceAccessForOrganizationCommandOutput,
 } from "./commands/EnableHealthServiceAccessForOrganizationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { HealthClient } from "./HealthClient";
 
 /**
  * <fullname>AWS Health</fullname>

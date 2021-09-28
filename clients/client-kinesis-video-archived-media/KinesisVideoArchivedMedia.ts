@@ -1,4 +1,5 @@
-import { KinesisVideoArchivedMediaClient } from "./KinesisVideoArchivedMediaClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { GetClipCommand, GetClipCommandInput, GetClipCommandOutput } from "./commands/GetClipCommand";
 import {
   GetDASHStreamingSessionURLCommand,
@@ -20,7 +21,7 @@ import {
   ListFragmentsCommandInput,
   ListFragmentsCommandOutput,
 } from "./commands/ListFragmentsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { KinesisVideoArchivedMediaClient } from "./KinesisVideoArchivedMediaClient";
 
 /**
  * <p></p>

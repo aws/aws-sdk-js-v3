@@ -1,4 +1,5 @@
-import { LookoutVisionClient } from "./LookoutVisionClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateDatasetCommand,
   CreateDatasetCommandInput,
@@ -70,7 +71,7 @@ import {
   UpdateDatasetEntriesCommandInput,
   UpdateDatasetEntriesCommandOutput,
 } from "./commands/UpdateDatasetEntriesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LookoutVisionClient } from "./LookoutVisionClient";
 
 /**
  * <p>This is the Amazon Lookout for Vision API Reference. It provides descriptions of actions,

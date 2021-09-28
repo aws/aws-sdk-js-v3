@@ -1,4 +1,5 @@
-import { DirectConnectClient } from "./DirectConnectClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptDirectConnectGatewayAssociationProposalCommand,
   AcceptDirectConnectGatewayAssociationProposalCommandInput,
@@ -274,7 +275,7 @@ import {
   UpdateVirtualInterfaceAttributesCommandInput,
   UpdateVirtualInterfaceAttributesCommandOutput,
 } from "./commands/UpdateVirtualInterfaceAttributesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DirectConnectClient } from "./DirectConnectClient";
 
 /**
  * <p>Direct Connect links your internal network to an Direct Connect location over a standard Ethernet fiber-optic cable.

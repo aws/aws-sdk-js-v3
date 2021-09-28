@@ -1,19 +1,20 @@
-import { ElasticInferenceClient } from "./ElasticInferenceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DescribeAcceleratorOfferingsCommand,
   DescribeAcceleratorOfferingsCommandInput,
   DescribeAcceleratorOfferingsCommandOutput,
 } from "./commands/DescribeAcceleratorOfferingsCommand";
 import {
-  DescribeAcceleratorTypesCommand,
-  DescribeAcceleratorTypesCommandInput,
-  DescribeAcceleratorTypesCommandOutput,
-} from "./commands/DescribeAcceleratorTypesCommand";
-import {
   DescribeAcceleratorsCommand,
   DescribeAcceleratorsCommandInput,
   DescribeAcceleratorsCommandOutput,
 } from "./commands/DescribeAcceleratorsCommand";
+import {
+  DescribeAcceleratorTypesCommand,
+  DescribeAcceleratorTypesCommandInput,
+  DescribeAcceleratorTypesCommandOutput,
+} from "./commands/DescribeAcceleratorTypesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -25,7 +26,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ElasticInferenceClient } from "./ElasticInferenceClient";
 
 /**
  * <p>

@@ -1,9 +1,3 @@
-import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSuggesterCommand,
-  serializeAws_queryDeleteSuggesterCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
+import { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/models_0";
+import {
+  deserializeAws_queryDeleteSuggesterCommand,
+  serializeAws_queryDeleteSuggesterCommand,
+} from "../protocols/Aws_query";
 
 export interface DeleteSuggesterCommandInput extends DeleteSuggesterRequest {}
 export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, __MetadataBearer {}

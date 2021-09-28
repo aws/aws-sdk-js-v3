@@ -1,9 +1,3 @@
-import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { DescribeConfigurationRequest, DescribeConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeConfigurationCommand,
-  serializeAws_restJson1DescribeConfigurationCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeConfigurationRequest, DescribeConfigurationResponse } from "../models/models_0";
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
+import {
+  deserializeAws_restJson1DescribeConfigurationCommand,
+  serializeAws_restJson1DescribeConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface DescribeConfigurationCommandInput extends DescribeConfigurationRequest {}
 export interface DescribeConfigurationCommandOutput extends DescribeConfigurationResponse, __MetadataBearer {}

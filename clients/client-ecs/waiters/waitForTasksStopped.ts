@@ -1,6 +1,7 @@
-import { ECSClient } from "../ECSClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeTasksCommand, DescribeTasksCommandInput } from "../commands/DescribeTasksCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ECSClient } from "../ECSClient";
 
 const checkState = async (client: ECSClient, input: DescribeTasksCommandInput): Promise<WaiterResult> => {
   let reason;

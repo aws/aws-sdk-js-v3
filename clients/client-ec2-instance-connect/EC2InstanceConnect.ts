@@ -1,15 +1,16 @@
-import { EC2InstanceConnectClient } from "./EC2InstanceConnectClient";
-import {
-  SendSSHPublicKeyCommand,
-  SendSSHPublicKeyCommandInput,
-  SendSSHPublicKeyCommandOutput,
-} from "./commands/SendSSHPublicKeyCommand";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   SendSerialConsoleSSHPublicKeyCommand,
   SendSerialConsoleSSHPublicKeyCommandInput,
   SendSerialConsoleSSHPublicKeyCommandOutput,
 } from "./commands/SendSerialConsoleSSHPublicKeyCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import {
+  SendSSHPublicKeyCommand,
+  SendSSHPublicKeyCommandInput,
+  SendSSHPublicKeyCommandOutput,
+} from "./commands/SendSSHPublicKeyCommand";
+import { EC2InstanceConnectClient } from "./EC2InstanceConnectClient";
 
 /**
  * <p>Amazon EC2 Instance Connect enables system administrators to publish one-time use SSH

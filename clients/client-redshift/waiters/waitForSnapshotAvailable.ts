@@ -1,9 +1,10 @@
-import { RedshiftClient } from "../RedshiftClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeClusterSnapshotsCommand,
   DescribeClusterSnapshotsCommandInput,
 } from "../commands/DescribeClusterSnapshotsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { RedshiftClient } from "../RedshiftClient";
 
 const checkState = async (
   client: RedshiftClient,

@@ -1,12 +1,13 @@
-import { LookoutMetrics } from "../LookoutMetrics";
-import { LookoutMetricsClient } from "../LookoutMetricsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListMetricSetsCommand,
   ListMetricSetsCommandInput,
   ListMetricSetsCommandOutput,
 } from "../commands/ListMetricSetsCommand";
+import { LookoutMetrics } from "../LookoutMetrics";
+import { LookoutMetricsClient } from "../LookoutMetricsClient";
 import { LookoutMetricsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

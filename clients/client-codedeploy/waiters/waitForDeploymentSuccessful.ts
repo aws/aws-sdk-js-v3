@@ -1,6 +1,7 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { CodeDeployClient } from "../CodeDeployClient";
 import { GetDeploymentCommand, GetDeploymentCommandInput } from "../commands/GetDeploymentCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandInput): Promise<WaiterResult> => {
   let reason;

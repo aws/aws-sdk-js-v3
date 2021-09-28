@@ -1,9 +1,3 @@
-import {
-  GetPersonalizedRankingCommandInput,
-  GetPersonalizedRankingCommandOutput,
-} from "../commands/GetPersonalizedRankingCommand";
-import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
-import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectNonNull as __expectNonNull,
@@ -18,6 +12,13 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+import {
+  GetPersonalizedRankingCommandInput,
+  GetPersonalizedRankingCommandOutput,
+} from "../commands/GetPersonalizedRankingCommand";
+import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
+import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/models_0";
 
 export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
   input: GetPersonalizedRankingCommandInput,
@@ -114,7 +115,7 @@ const deserializeAws_restJson1GetPersonalizedRankingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -181,7 +182,7 @@ const deserializeAws_restJson1GetRecommendationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":

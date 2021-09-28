@@ -1,4 +1,5 @@
-import { FinspaceDataClient } from "./FinspaceDataClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateChangesetCommand,
   CreateChangesetCommandInput,
@@ -14,7 +15,7 @@ import {
   GetWorkingLocationCommandInput,
   GetWorkingLocationCommandOutput,
 } from "./commands/GetWorkingLocationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { FinspaceDataClient } from "./FinspaceDataClient";
 
 /**
  * <p> The FinSpace APIs let you take actions inside the FinSpace environment.  </p>

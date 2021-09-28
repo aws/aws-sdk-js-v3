@@ -1,6 +1,7 @@
-import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeEnvironmentsCommand, DescribeEnvironmentsCommandInput } from "../commands/DescribeEnvironmentsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
 
 const checkState = async (
   client: ElasticBeanstalkClient,

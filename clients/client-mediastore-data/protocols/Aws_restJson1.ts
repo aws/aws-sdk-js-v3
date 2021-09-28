@@ -1,15 +1,3 @@
-import { DeleteObjectCommandInput, DeleteObjectCommandOutput } from "../commands/DeleteObjectCommand";
-import { DescribeObjectCommandInput, DescribeObjectCommandOutput } from "../commands/DescribeObjectCommand";
-import { GetObjectCommandInput, GetObjectCommandOutput } from "../commands/GetObjectCommand";
-import { ListItemsCommandInput, ListItemsCommandOutput } from "../commands/ListItemsCommand";
-import { PutObjectCommandInput, PutObjectCommandOutput } from "../commands/PutObjectCommand";
-import {
-  ContainerNotFoundException,
-  InternalServerError,
-  Item,
-  ObjectNotFoundException,
-  RequestedRangeNotSatisfiableException,
-} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectLong as __expectLong,
@@ -29,6 +17,19 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+import { DeleteObjectCommandInput, DeleteObjectCommandOutput } from "../commands/DeleteObjectCommand";
+import { DescribeObjectCommandInput, DescribeObjectCommandOutput } from "../commands/DescribeObjectCommand";
+import { GetObjectCommandInput, GetObjectCommandOutput } from "../commands/GetObjectCommand";
+import { ListItemsCommandInput, ListItemsCommandOutput } from "../commands/ListItemsCommand";
+import { PutObjectCommandInput, PutObjectCommandOutput } from "../commands/PutObjectCommand";
+import {
+  ContainerNotFoundException,
+  InternalServerError,
+  Item,
+  ObjectNotFoundException,
+  RequestedRangeNotSatisfiableException,
+} from "../models/models_0";
 
 export const serializeAws_restJson1DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
@@ -228,7 +229,7 @@ const deserializeAws_restJson1DeleteObjectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":
@@ -315,7 +316,7 @@ const deserializeAws_restJson1DescribeObjectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":
@@ -412,7 +413,7 @@ const deserializeAws_restJson1GetObjectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":
@@ -495,7 +496,7 @@ const deserializeAws_restJson1ListItemsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":
@@ -566,7 +567,7 @@ const deserializeAws_restJson1PutObjectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContainerNotFoundException":

@@ -1,6 +1,7 @@
-import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribePortalCommand, DescribePortalCommandInput } from "../commands/DescribePortalCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 
 const checkState = async (client: IoTSiteWiseClient, input: DescribePortalCommandInput): Promise<WaiterResult> => {
   let reason;

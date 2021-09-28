@@ -1,3 +1,5 @@
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
 import {
   AccountDetails,
   Action,
@@ -58,7 +60,6 @@ import {
   RelatedFinding,
   SeverityLabel,
 } from "./models_0";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
  * <p>The details of network-related information about a finding.</p>

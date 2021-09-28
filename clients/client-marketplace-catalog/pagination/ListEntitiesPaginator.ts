@@ -1,12 +1,13 @@
-import { MarketplaceCatalog } from "../MarketplaceCatalog";
-import { MarketplaceCatalogClient } from "../MarketplaceCatalogClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEntitiesCommand,
   ListEntitiesCommandInput,
   ListEntitiesCommandOutput,
 } from "../commands/ListEntitiesCommand";
+import { MarketplaceCatalog } from "../MarketplaceCatalog";
+import { MarketplaceCatalogClient } from "../MarketplaceCatalogClient";
 import { MarketplaceCatalogPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

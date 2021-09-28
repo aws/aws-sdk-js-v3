@@ -1,9 +1,3 @@
-import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutRetentionConfigurationRequest, PutRetentionConfigurationResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutRetentionConfigurationCommand,
-  serializeAws_json1_1PutRetentionConfigurationCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { PutRetentionConfigurationRequest, PutRetentionConfigurationResponse } from "../models/models_1";
+import {
+  deserializeAws_json1_1PutRetentionConfigurationCommand,
+  serializeAws_json1_1PutRetentionConfigurationCommand,
+} from "../protocols/Aws_json1_1";
 
 export interface PutRetentionConfigurationCommandInput extends PutRetentionConfigurationRequest {}
 export interface PutRetentionConfigurationCommandOutput extends PutRetentionConfigurationResponse, __MetadataBearer {}

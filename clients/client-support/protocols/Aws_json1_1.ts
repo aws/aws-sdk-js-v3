@@ -1,3 +1,19 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectLong as __expectLong,
+  expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import {
   AddAttachmentsToSetCommandInput,
   AddAttachmentsToSetCommandOutput,
@@ -27,13 +43,13 @@ import {
   DescribeTrustedAdvisorCheckResultCommandOutput,
 } from "../commands/DescribeTrustedAdvisorCheckResultCommand";
 import {
-  DescribeTrustedAdvisorCheckSummariesCommandInput,
-  DescribeTrustedAdvisorCheckSummariesCommandOutput,
-} from "../commands/DescribeTrustedAdvisorCheckSummariesCommand";
-import {
   DescribeTrustedAdvisorChecksCommandInput,
   DescribeTrustedAdvisorChecksCommandOutput,
 } from "../commands/DescribeTrustedAdvisorChecksCommand";
+import {
+  DescribeTrustedAdvisorCheckSummariesCommandInput,
+  DescribeTrustedAdvisorCheckSummariesCommandOutput,
+} from "../commands/DescribeTrustedAdvisorCheckSummariesCommand";
 import {
   RefreshTrustedAdvisorCheckCommandInput,
   RefreshTrustedAdvisorCheckCommandOutput,
@@ -73,10 +89,10 @@ import {
   DescribeTrustedAdvisorCheckRefreshStatusesResponse,
   DescribeTrustedAdvisorCheckResultRequest,
   DescribeTrustedAdvisorCheckResultResponse,
-  DescribeTrustedAdvisorCheckSummariesRequest,
-  DescribeTrustedAdvisorCheckSummariesResponse,
   DescribeTrustedAdvisorChecksRequest,
   DescribeTrustedAdvisorChecksResponse,
+  DescribeTrustedAdvisorCheckSummariesRequest,
+  DescribeTrustedAdvisorCheckSummariesResponse,
   InternalServerError,
   RecentCaseCommunications,
   RefreshTrustedAdvisorCheckRequest,
@@ -94,21 +110,6 @@ import {
   TrustedAdvisorResourceDetail,
   TrustedAdvisorResourcesSummary,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectLong as __expectLong,
-  expectString as __expectString,
-  limitedParseDouble as __limitedParseDouble,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_json1_1AddAttachmentsToSetCommand = async (
   input: AddAttachmentsToSetCommandInput,
@@ -318,7 +319,7 @@ const deserializeAws_json1_1AddAttachmentsToSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AttachmentLimitExceeded":
@@ -404,7 +405,7 @@ const deserializeAws_json1_1AddCommunicationToCaseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AttachmentSetExpired":
@@ -482,7 +483,7 @@ const deserializeAws_json1_1CreateCaseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AttachmentSetExpired":
@@ -560,7 +561,7 @@ const deserializeAws_json1_1DescribeAttachmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AttachmentIdNotFound":
@@ -630,7 +631,7 @@ const deserializeAws_json1_1DescribeCasesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CaseIdNotFound":
@@ -692,7 +693,7 @@ const deserializeAws_json1_1DescribeCommunicationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CaseIdNotFound":
@@ -754,7 +755,7 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
@@ -808,7 +809,7 @@ const deserializeAws_json1_1DescribeSeverityLevelsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
@@ -862,7 +863,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
@@ -916,7 +917,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
@@ -970,7 +971,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
@@ -1024,7 +1025,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
@@ -1078,7 +1079,7 @@ const deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
@@ -1132,7 +1133,7 @@ const deserializeAws_json1_1ResolveCaseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CaseIdNotFound":

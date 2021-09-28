@@ -1,12 +1,13 @@
-import { ElasticsearchService } from "../ElasticsearchService";
-import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeOutboundCrossClusterSearchConnectionsCommand,
   DescribeOutboundCrossClusterSearchConnectionsCommandInput,
   DescribeOutboundCrossClusterSearchConnectionsCommandOutput,
 } from "../commands/DescribeOutboundCrossClusterSearchConnectionsCommand";
+import { ElasticsearchService } from "../ElasticsearchService";
+import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

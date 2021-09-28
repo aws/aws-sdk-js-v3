@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { ListAddonsCommand, ListAddonsCommandInput, ListAddonsCommandOutput } from "../commands/ListAddonsCommand";
 import { EKS } from "../EKS";
 import { EKSClient } from "../EKSClient";
-import { ListAddonsCommand, ListAddonsCommandInput, ListAddonsCommandOutput } from "../commands/ListAddonsCommand";
 import { EKSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,13 +1,3 @@
-import {
-  Route53RecoveryClusterClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryClusterClient";
-import { UpdateRoutingControlStateRequest, UpdateRoutingControlStateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateRoutingControlStateCommand,
-  serializeAws_json1_0UpdateRoutingControlStateCommand,
-} from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -15,11 +5,22 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { UpdateRoutingControlStateRequest, UpdateRoutingControlStateResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_0UpdateRoutingControlStateCommand,
+  serializeAws_json1_0UpdateRoutingControlStateCommand,
+} from "../protocols/Aws_json1_0";
+import {
+  Route53RecoveryClusterClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../Route53RecoveryClusterClient";
 
 export interface UpdateRoutingControlStateCommandInput extends UpdateRoutingControlStateRequest {}
 export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingControlStateResponse, __MetadataBearer {}

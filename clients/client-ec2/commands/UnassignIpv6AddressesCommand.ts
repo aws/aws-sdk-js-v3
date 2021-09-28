@@ -1,9 +1,3 @@
-import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_5";
-import {
-  deserializeAws_ec2UnassignIpv6AddressesCommand,
-  serializeAws_ec2UnassignIpv6AddressesCommand,
-} from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_5";
+import {
+  deserializeAws_ec2UnassignIpv6AddressesCommand,
+  serializeAws_ec2UnassignIpv6AddressesCommand,
+} from "../protocols/Aws_ec2";
 
 export interface UnassignIpv6AddressesCommandInput extends UnassignIpv6AddressesRequest {}
 export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6AddressesResult, __MetadataBearer {}

@@ -1,6 +1,7 @@
-import { EC2Client } from "../EC2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeKeyPairsCommand, DescribeKeyPairsCommandInput } from "../commands/DescribeKeyPairsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EC2Client } from "../EC2Client";
 
 const checkState = async (client: EC2Client, input: DescribeKeyPairsCommandInput): Promise<WaiterResult> => {
   let reason;

@@ -1,4 +1,5 @@
-import { Route53RecoveryClusterClient } from "./Route53RecoveryClusterClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   GetRoutingControlStateCommand,
   GetRoutingControlStateCommandInput,
@@ -14,7 +15,7 @@ import {
   UpdateRoutingControlStatesCommandInput,
   UpdateRoutingControlStatesCommandOutput,
 } from "./commands/UpdateRoutingControlStatesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { Route53RecoveryClusterClient } from "./Route53RecoveryClusterClient";
 
 /**
  * <p>Welcome to the Amazon Route 53 Application Recovery Controller API Reference Guide for Recovery Control Data Plane .</p>

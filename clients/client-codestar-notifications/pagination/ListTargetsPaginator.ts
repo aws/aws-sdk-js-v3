@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CodestarNotifications } from "../CodestarNotifications";
 import { CodestarNotificationsClient } from "../CodestarNotificationsClient";
 import { ListTargetsCommand, ListTargetsCommandInput, ListTargetsCommandOutput } from "../commands/ListTargetsCommand";
 import { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

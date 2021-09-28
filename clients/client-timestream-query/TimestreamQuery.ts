@@ -1,4 +1,5 @@
-import { TimestreamQueryClient } from "./TimestreamQueryClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CancelQueryCommand, CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import {
   DescribeEndpointsCommand,
@@ -6,7 +7,7 @@ import {
   DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { TimestreamQueryClient } from "./TimestreamQueryClient";
 
 /**
  * <p>

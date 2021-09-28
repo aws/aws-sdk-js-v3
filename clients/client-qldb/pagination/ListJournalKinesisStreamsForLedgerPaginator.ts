@@ -1,12 +1,13 @@
-import { QLDB } from "../QLDB";
-import { QLDBClient } from "../QLDBClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListJournalKinesisStreamsForLedgerCommand,
   ListJournalKinesisStreamsForLedgerCommandInput,
   ListJournalKinesisStreamsForLedgerCommandOutput,
 } from "../commands/ListJournalKinesisStreamsForLedgerCommand";
+import { QLDB } from "../QLDB";
+import { QLDBClient } from "../QLDBClient";
 import { QLDBPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

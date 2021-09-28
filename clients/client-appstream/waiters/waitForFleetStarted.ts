@@ -1,6 +1,7 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { AppStreamClient } from "../AppStreamClient";
 import { DescribeFleetsCommand, DescribeFleetsCommandInput } from "../commands/DescribeFleetsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandInput): Promise<WaiterResult> => {
   let reason;

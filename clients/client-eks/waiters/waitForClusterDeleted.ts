@@ -1,6 +1,7 @@
-import { EKSClient } from "../EKSClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeClusterCommand, DescribeClusterCommandInput } from "../commands/DescribeClusterCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EKSClient } from "../EKSClient";
 
 const checkState = async (client: EKSClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
   let reason;

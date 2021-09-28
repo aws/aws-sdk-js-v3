@@ -1,9 +1,10 @@
-import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeRoutingControlCommand,
   DescribeRoutingControlCommandInput,
 } from "../commands/DescribeRoutingControlCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
 
 const checkState = async (
   client: Route53RecoveryControlConfigClient,

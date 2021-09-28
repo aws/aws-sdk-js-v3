@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AutoScalingPlansClient } from "./AutoScalingPlansClient";
 import {
   CreateScalingPlanCommand,
@@ -29,7 +31,6 @@ import {
   UpdateScalingPlanCommandInput,
   UpdateScalingPlanCommandOutput,
 } from "./commands/UpdateScalingPlanCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS Auto Scaling</fullname>

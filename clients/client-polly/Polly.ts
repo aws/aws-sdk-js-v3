@@ -1,4 +1,5 @@
-import { PollyClient } from "./PollyClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DeleteLexiconCommand,
   DeleteLexiconCommandInput,
@@ -36,7 +37,7 @@ import {
   SynthesizeSpeechCommandInput,
   SynthesizeSpeechCommandOutput,
 } from "./commands/SynthesizeSpeechCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { PollyClient } from "./PollyClient";
 
 /**
  * <p>Amazon Polly is a web service that makes it easy to synthesize speech from

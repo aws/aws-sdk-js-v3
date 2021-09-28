@@ -1,9 +1,10 @@
-import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeReplicationInstancesCommand,
   DescribeReplicationInstancesCommandInput,
 } from "../commands/DescribeReplicationInstancesCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 
 const checkState = async (
   client: DatabaseMigrationServiceClient,

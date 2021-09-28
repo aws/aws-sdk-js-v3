@@ -1,12 +1,13 @@
-import { IoTSiteWise } from "../IoTSiteWise";
-import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListGatewaysCommand,
   ListGatewaysCommandInput,
   ListGatewaysCommandOutput,
 } from "../commands/ListGatewaysCommand";
+import { IoTSiteWise } from "../IoTSiteWise";
+import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

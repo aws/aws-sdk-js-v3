@@ -1,12 +1,3 @@
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import {
-  StartDBInstanceAutomatedBackupsReplicationMessage,
-  StartDBInstanceAutomatedBackupsReplicationResult,
-} from "../models/models_1";
-import {
-  deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,
-  serializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,
-} from "../protocols/Aws_query";
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -15,11 +6,21 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import {
+  StartDBInstanceAutomatedBackupsReplicationMessage,
+  StartDBInstanceAutomatedBackupsReplicationResult,
+} from "../models/models_1";
+import {
+  deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,
+  serializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,
+} from "../protocols/Aws_query";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 export interface StartDBInstanceAutomatedBackupsReplicationCommandInput
   extends StartDBInstanceAutomatedBackupsReplicationMessage {}

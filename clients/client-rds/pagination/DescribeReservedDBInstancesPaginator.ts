@@ -1,12 +1,13 @@
-import { RDS } from "../RDS";
-import { RDSClient } from "../RDSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeReservedDBInstancesCommand,
   DescribeReservedDBInstancesCommandInput,
   DescribeReservedDBInstancesCommandOutput,
 } from "../commands/DescribeReservedDBInstancesCommand";
+import { RDS } from "../RDS";
+import { RDSClient } from "../RDSClient";
 import { RDSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

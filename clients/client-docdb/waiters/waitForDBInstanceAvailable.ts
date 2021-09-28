@@ -1,6 +1,7 @@
-import { DocDBClient } from "../DocDBClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeDBInstancesCommand, DescribeDBInstancesCommandInput } from "../commands/DescribeDBInstancesCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { DocDBClient } from "../DocDBClient";
 
 const checkState = async (client: DocDBClient, input: DescribeDBInstancesCommandInput): Promise<WaiterResult> => {
   let reason;

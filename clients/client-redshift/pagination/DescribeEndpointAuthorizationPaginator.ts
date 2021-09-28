@@ -1,12 +1,13 @@
-import { Redshift } from "../Redshift";
-import { RedshiftClient } from "../RedshiftClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeEndpointAuthorizationCommand,
   DescribeEndpointAuthorizationCommandInput,
   DescribeEndpointAuthorizationCommandOutput,
 } from "../commands/DescribeEndpointAuthorizationCommand";
+import { Redshift } from "../Redshift";
+import { RedshiftClient } from "../RedshiftClient";
 import { RedshiftPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,13 +1,3 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SnowDeviceManagementClientResolvedConfig,
-} from "../SnowDeviceManagementClient";
-import { ListDeviceResourcesInput, ListDeviceResourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDeviceResourcesCommand,
-  serializeAws_restJson1ListDeviceResourcesCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -15,11 +5,22 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ListDeviceResourcesInput, ListDeviceResourcesOutput } from "../models/models_0";
+import {
+  deserializeAws_restJson1ListDeviceResourcesCommand,
+  serializeAws_restJson1ListDeviceResourcesCommand,
+} from "../protocols/Aws_restJson1";
+import {
+  ServiceInputTypes,
+  ServiceOutputTypes,
+  SnowDeviceManagementClientResolvedConfig,
+} from "../SnowDeviceManagementClient";
 
 export interface ListDeviceResourcesCommandInput extends ListDeviceResourcesInput {}
 export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOutput, __MetadataBearer {}

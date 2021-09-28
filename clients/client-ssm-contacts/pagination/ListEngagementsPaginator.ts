@@ -1,12 +1,13 @@
-import { SSMContacts } from "../SSMContacts";
-import { SSMContactsClient } from "../SSMContactsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEngagementsCommand,
   ListEngagementsCommandInput,
   ListEngagementsCommandOutput,
 } from "../commands/ListEngagementsCommand";
+import { SSMContacts } from "../SSMContacts";
+import { SSMContactsClient } from "../SSMContactsClient";
 import { SSMContactsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AuditManagerClient } from "./AuditManagerClient";
 import {
   AssociateAssessmentReportEvidenceFolderCommand,
@@ -238,7 +240,6 @@ import {
   ValidateAssessmentReportIntegrityCommandInput,
   ValidateAssessmentReportIntegrityCommandOutput,
 } from "./commands/ValidateAssessmentReportIntegrityCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Welcome to the Audit Manager API reference. This guide is for developers who need detailed information about the Audit Manager API operations, data types, and errors. </p>

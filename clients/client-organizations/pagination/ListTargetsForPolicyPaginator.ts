@@ -1,12 +1,13 @@
-import { Organizations } from "../Organizations";
-import { OrganizationsClient } from "../OrganizationsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListTargetsForPolicyCommand,
   ListTargetsForPolicyCommandInput,
   ListTargetsForPolicyCommandOutput,
 } from "../commands/ListTargetsForPolicyCommand";
+import { Organizations } from "../Organizations";
+import { OrganizationsClient } from "../OrganizationsClient";
 import { OrganizationsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

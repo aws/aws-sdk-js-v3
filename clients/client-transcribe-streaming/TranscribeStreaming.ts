@@ -1,4 +1,5 @@
-import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   StartMedicalStreamTranscriptionCommand,
   StartMedicalStreamTranscriptionCommandInput,
@@ -9,7 +10,7 @@ import {
   StartStreamTranscriptionCommandInput,
   StartStreamTranscriptionCommandOutput,
 } from "./commands/StartStreamTranscriptionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
 
 /**
  * <p>Operations and objects for transcribing streaming speech to text.</p>

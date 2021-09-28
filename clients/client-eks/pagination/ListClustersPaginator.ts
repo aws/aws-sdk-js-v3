@@ -1,12 +1,13 @@
-import { EKS } from "../EKS";
-import { EKSClient } from "../EKSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListClustersCommand,
   ListClustersCommandInput,
   ListClustersCommandOutput,
 } from "../commands/ListClustersCommand";
+import { EKS } from "../EKS";
+import { EKSClient } from "../EKSClient";
 import { EKSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

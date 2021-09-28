@@ -1,6 +1,7 @@
-import { ProtonClient } from "../ProtonClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { GetServiceInstanceCommand, GetServiceInstanceCommandInput } from "../commands/GetServiceInstanceCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ProtonClient } from "../ProtonClient";
 
 const checkState = async (client: ProtonClient, input: GetServiceInstanceCommandInput): Promise<WaiterResult> => {
   let reason;

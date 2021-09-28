@@ -1,10 +1,11 @@
-import { MarketplaceEntitlementServiceClient } from "./MarketplaceEntitlementServiceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   GetEntitlementsCommand,
   GetEntitlementsCommandInput,
   GetEntitlementsCommandOutput,
 } from "./commands/GetEntitlementsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MarketplaceEntitlementServiceClient } from "./MarketplaceEntitlementServiceClient";
 
 /**
  * <fullname>AWS Marketplace Entitlement Service</fullname>

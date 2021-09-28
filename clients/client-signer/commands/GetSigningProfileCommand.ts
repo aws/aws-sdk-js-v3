@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
-import { GetSigningProfileRequest, GetSigningProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSigningProfileCommand,
-  serializeAws_restJson1GetSigningProfileCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetSigningProfileRequest, GetSigningProfileResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1GetSigningProfileCommand,
+  serializeAws_restJson1GetSigningProfileCommand,
+} from "../protocols/Aws_restJson1";
+import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 export interface GetSigningProfileCommandInput extends GetSigningProfileRequest {}
 export interface GetSigningProfileCommandOutput extends GetSigningProfileResponse, __MetadataBearer {}

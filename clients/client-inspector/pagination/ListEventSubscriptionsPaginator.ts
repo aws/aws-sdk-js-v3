@@ -1,12 +1,13 @@
-import { Inspector } from "../Inspector";
-import { InspectorClient } from "../InspectorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEventSubscriptionsCommand,
   ListEventSubscriptionsCommandInput,
   ListEventSubscriptionsCommandOutput,
 } from "../commands/ListEventSubscriptionsCommand";
+import { Inspector } from "../Inspector";
+import { InspectorClient } from "../InspectorClient";
 import { InspectorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

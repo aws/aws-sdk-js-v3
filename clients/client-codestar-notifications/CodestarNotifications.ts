@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CodestarNotificationsClient } from "./CodestarNotificationsClient";
 import {
   CreateNotificationRuleCommand,
@@ -48,7 +50,6 @@ import {
   UpdateNotificationRuleCommandInput,
   UpdateNotificationRuleCommandOutput,
 } from "./commands/UpdateNotificationRuleCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>This AWS CodeStar Notifications API Reference provides descriptions and usage examples of the

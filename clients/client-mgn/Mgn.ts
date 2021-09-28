@@ -1,4 +1,5 @@
-import { MgnClient } from "./MgnClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   ChangeServerLifeCycleStateCommand,
   ChangeServerLifeCycleStateCommandInput,
@@ -112,7 +113,7 @@ import {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MgnClient } from "./MgnClient";
 
 /**
  * <p>The Application Migration Service service.</p>

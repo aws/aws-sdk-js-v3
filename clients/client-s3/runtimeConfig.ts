@@ -1,5 +1,3 @@
-import packageInfo from "./package.json";
-
 import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@aws-sdk/config-resolver";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
@@ -10,14 +8,16 @@ import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-e
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
+import { emitWarningIfUnsupportedVersion } from "@aws-sdk/smithy-client";
 import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
-import { S3ClientConfig } from "./S3Client";
+
+import packageInfo from "./package.json";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
-import { emitWarningIfUnsupportedVersion } from "@aws-sdk/smithy-client";
+import { S3ClientConfig } from "./S3Client";
 
 /**
  * @internal

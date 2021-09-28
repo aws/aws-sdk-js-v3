@@ -1,4 +1,5 @@
-import { WAFRegionalClient } from "./WAFRegionalClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateWebACLCommand,
   AssociateWebACLCommandInput,
@@ -352,7 +353,7 @@ import {
   UpdateXssMatchSetCommandInput,
   UpdateXssMatchSetCommandOutput,
 } from "./commands/UpdateXssMatchSetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { WAFRegionalClient } from "./WAFRegionalClient";
 
 /**
  * <note>

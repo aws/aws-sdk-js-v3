@@ -1,4 +1,5 @@
-import { DocDBClient } from "./DocDBClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddSourceIdentifierToSubscriptionCommand,
   AddSourceIdentifierToSubscriptionCommandInput,
@@ -110,6 +111,11 @@ import {
   DescribeDBClusterParametersCommandOutput,
 } from "./commands/DescribeDBClusterParametersCommand";
 import {
+  DescribeDBClustersCommand,
+  DescribeDBClustersCommandInput,
+  DescribeDBClustersCommandOutput,
+} from "./commands/DescribeDBClustersCommand";
+import {
   DescribeDBClusterSnapshotAttributesCommand,
   DescribeDBClusterSnapshotAttributesCommandInput,
   DescribeDBClusterSnapshotAttributesCommandOutput,
@@ -119,11 +125,6 @@ import {
   DescribeDBClusterSnapshotsCommandInput,
   DescribeDBClusterSnapshotsCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotsCommand";
-import {
-  DescribeDBClustersCommand,
-  DescribeDBClustersCommandInput,
-  DescribeDBClustersCommandOutput,
-} from "./commands/DescribeDBClustersCommand";
 import {
   DescribeDBEngineVersionsCommand,
   DescribeDBEngineVersionsCommandInput,
@@ -150,15 +151,15 @@ import {
   DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
-  DescribeEventSubscriptionsCommand,
-  DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput,
-} from "./commands/DescribeEventSubscriptionsCommand";
-import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
+import {
+  DescribeEventSubscriptionsCommand,
+  DescribeEventSubscriptionsCommandInput,
+  DescribeEventSubscriptionsCommandOutput,
+} from "./commands/DescribeEventSubscriptionsCommand";
 import {
   DescribeGlobalClustersCommand,
   DescribeGlobalClustersCommandInput,
@@ -264,7 +265,7 @@ import {
   StopDBClusterCommandInput,
   StopDBClusterCommandOutput,
 } from "./commands/StopDBClusterCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DocDBClient } from "./DocDBClient";
 
 /**
  * <p>Amazon DocumentDB API documentation</p>

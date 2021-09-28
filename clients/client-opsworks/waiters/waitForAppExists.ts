@@ -1,6 +1,7 @@
-import { OpsWorksClient } from "../OpsWorksClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeAppsCommand, DescribeAppsCommandInput } from "../commands/DescribeAppsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { OpsWorksClient } from "../OpsWorksClient";
 
 const checkState = async (client: OpsWorksClient, input: DescribeAppsCommandInput): Promise<WaiterResult> => {
   let reason;

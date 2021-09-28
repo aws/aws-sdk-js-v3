@@ -1,3 +1,5 @@
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
 import {
   AbortConfig,
   AggregationType,
@@ -8,9 +10,9 @@ import {
   AuditMitigationActionsTaskTarget,
   AuditNotificationTarget,
   AuthInfo,
-  AuthResult,
   AuthorizerConfig,
   AuthorizerStatus,
+  AuthResult,
   AutoRegistrationStatus,
   Behavior,
   BillingGroupProperties,
@@ -50,7 +52,6 @@ import {
   ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
  * <p>The definition of the thing type, including thing type name and description.</p>

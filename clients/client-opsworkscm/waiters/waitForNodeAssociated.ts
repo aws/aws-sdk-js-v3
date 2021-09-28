@@ -1,9 +1,10 @@
-import { OpsWorksCMClient } from "../OpsWorksCMClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeNodeAssociationStatusCommand,
   DescribeNodeAssociationStatusCommandInput,
 } from "../commands/DescribeNodeAssociationStatusCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { OpsWorksCMClient } from "../OpsWorksCMClient";
 
 const checkState = async (
   client: OpsWorksCMClient,

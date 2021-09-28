@@ -1,9 +1,3 @@
-import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateCustomMetricRequest, UpdateCustomMetricResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateCustomMetricCommand,
-  serializeAws_restJson1UpdateCustomMetricCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateCustomMetricRequest, UpdateCustomMetricResponse } from "../models/models_2";
+import {
+  deserializeAws_restJson1UpdateCustomMetricCommand,
+  serializeAws_restJson1UpdateCustomMetricCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface UpdateCustomMetricCommandInput extends UpdateCustomMetricRequest {}
 export interface UpdateCustomMetricCommandOutput extends UpdateCustomMetricResponse, __MetadataBearer {}

@@ -1,4 +1,5 @@
-import { PersonalizeClient } from "./PersonalizeClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateBatchInferenceJobCommand,
   CreateBatchInferenceJobCommandInput,
@@ -203,15 +204,15 @@ import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput }
 import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
 import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
-  ListSolutionVersionsCommand,
-  ListSolutionVersionsCommandInput,
-  ListSolutionVersionsCommandOutput,
-} from "./commands/ListSolutionVersionsCommand";
-import {
   ListSolutionsCommand,
   ListSolutionsCommandInput,
   ListSolutionsCommandOutput,
 } from "./commands/ListSolutionsCommand";
+import {
+  ListSolutionVersionsCommand,
+  ListSolutionVersionsCommandInput,
+  ListSolutionVersionsCommandOutput,
+} from "./commands/ListSolutionVersionsCommand";
 import {
   StopSolutionVersionCreationCommand,
   StopSolutionVersionCreationCommandInput,
@@ -222,7 +223,7 @@ import {
   UpdateCampaignCommandInput,
   UpdateCampaignCommandOutput,
 } from "./commands/UpdateCampaignCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { PersonalizeClient } from "./PersonalizeClient";
 
 /**
  * <p>Amazon Personalize is a machine learning service that makes it easy to add individualized

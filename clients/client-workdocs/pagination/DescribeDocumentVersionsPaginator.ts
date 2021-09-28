@@ -1,12 +1,13 @@
-import { WorkDocs } from "../WorkDocs";
-import { WorkDocsClient } from "../WorkDocsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeDocumentVersionsCommand,
   DescribeDocumentVersionsCommandInput,
   DescribeDocumentVersionsCommandOutput,
 } from "../commands/DescribeDocumentVersionsCommand";
+import { WorkDocs } from "../WorkDocs";
+import { WorkDocsClient } from "../WorkDocsClient";
 import { WorkDocsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

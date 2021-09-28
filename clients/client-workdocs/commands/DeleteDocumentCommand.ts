@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { DeleteDocumentRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDocumentCommand,
-  serializeAws_restJson1DeleteDocumentCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DeleteDocumentRequest } from "../models/models_0";
+import {
+  deserializeAws_restJson1DeleteDocumentCommand,
+  serializeAws_restJson1DeleteDocumentCommand,
+} from "../protocols/Aws_restJson1";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
 export interface DeleteDocumentCommandOutput extends __MetadataBearer {}

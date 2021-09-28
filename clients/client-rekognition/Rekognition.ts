@@ -1,4 +1,5 @@
-import { RekognitionClient } from "./RekognitionClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CompareFacesCommand,
   CompareFacesCommandInput,
@@ -51,15 +52,15 @@ import {
   DescribeCollectionCommandOutput,
 } from "./commands/DescribeCollectionCommand";
 import {
-  DescribeProjectVersionsCommand,
-  DescribeProjectVersionsCommandInput,
-  DescribeProjectVersionsCommandOutput,
-} from "./commands/DescribeProjectVersionsCommand";
-import {
   DescribeProjectsCommand,
   DescribeProjectsCommandInput,
   DescribeProjectsCommandOutput,
 } from "./commands/DescribeProjectsCommand";
+import {
+  DescribeProjectVersionsCommand,
+  DescribeProjectVersionsCommandInput,
+  DescribeProjectVersionsCommandOutput,
+} from "./commands/DescribeProjectVersionsCommand";
 import {
   DescribeStreamProcessorCommand,
   DescribeStreamProcessorCommandInput,
@@ -226,7 +227,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { RekognitionClient } from "./RekognitionClient";
 
 /**
  * <p>This is the Amazon Rekognition API reference.</p>

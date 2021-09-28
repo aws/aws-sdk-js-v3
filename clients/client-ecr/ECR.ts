@@ -1,4 +1,5 @@
-import { ECRClient } from "./ECRClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchCheckLayerAvailabilityCommand,
   BatchCheckLayerAvailabilityCommandInput,
@@ -162,7 +163,7 @@ import {
   UploadLayerPartCommandInput,
   UploadLayerPartCommandOutput,
 } from "./commands/UploadLayerPartCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ECRClient } from "./ECRClient";
 
 /**
  * <fullname>Amazon Elastic Container Registry</fullname>

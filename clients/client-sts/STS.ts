@@ -1,4 +1,5 @@
-import { STSClient } from "./STSClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AssumeRoleCommand, AssumeRoleCommandInput, AssumeRoleCommandOutput } from "./commands/AssumeRoleCommand";
 import {
   AssumeRoleWithSAMLCommand,
@@ -35,7 +36,7 @@ import {
   GetSessionTokenCommandInput,
   GetSessionTokenCommandOutput,
 } from "./commands/GetSessionTokenCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { STSClient } from "./STSClient";
 
 /**
  * <fullname>Security Token Service</fullname>

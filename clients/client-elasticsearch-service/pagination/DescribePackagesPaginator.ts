@@ -1,12 +1,13 @@
-import { ElasticsearchService } from "../ElasticsearchService";
-import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribePackagesCommand,
   DescribePackagesCommandInput,
   DescribePackagesCommandOutput,
 } from "../commands/DescribePackagesCommand";
+import { ElasticsearchService } from "../ElasticsearchService";
+import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

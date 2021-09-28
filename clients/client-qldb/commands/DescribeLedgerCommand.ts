@@ -1,9 +1,3 @@
-import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
-import { DescribeLedgerRequest, DescribeLedgerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeLedgerCommand,
-  serializeAws_restJson1DescribeLedgerCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeLedgerRequest, DescribeLedgerResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1DescribeLedgerCommand,
+  serializeAws_restJson1DescribeLedgerCommand,
+} from "../protocols/Aws_restJson1";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 export interface DescribeLedgerCommandInput extends DescribeLedgerRequest {}
 export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __MetadataBearer {}

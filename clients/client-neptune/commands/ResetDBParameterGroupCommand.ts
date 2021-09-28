@@ -1,9 +1,3 @@
-import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { DBParameterGroupNameMessage, ResetDBParameterGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryResetDBParameterGroupCommand,
-  serializeAws_queryResetDBParameterGroupCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DBParameterGroupNameMessage, ResetDBParameterGroupMessage } from "../models/models_0";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
+import {
+  deserializeAws_queryResetDBParameterGroupCommand,
+  serializeAws_queryResetDBParameterGroupCommand,
+} from "../protocols/Aws_query";
 
 export interface ResetDBParameterGroupCommandInput extends ResetDBParameterGroupMessage {}
 export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}

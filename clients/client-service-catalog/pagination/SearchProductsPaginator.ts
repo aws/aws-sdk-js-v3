@@ -1,12 +1,13 @@
-import { ServiceCatalog } from "../ServiceCatalog";
-import { ServiceCatalogClient } from "../ServiceCatalogClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   SearchProductsCommand,
   SearchProductsCommandInput,
   SearchProductsCommandOutput,
 } from "../commands/SearchProductsCommand";
+import { ServiceCatalog } from "../ServiceCatalog";
+import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

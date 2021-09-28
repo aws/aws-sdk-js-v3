@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CodeDeploy } from "../CodeDeploy";
 import { CodeDeployClient } from "../CodeDeployClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListDeploymentInstancesCommandOutput,
 } from "../commands/ListDeploymentInstancesCommand";
 import { CodeDeployPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

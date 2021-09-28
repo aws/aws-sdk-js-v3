@@ -1,12 +1,36 @@
-import { AttachInstancesCommandInput, AttachInstancesCommandOutput } from "../commands/AttachInstancesCommand";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  AttachLoadBalancerTargetGroupsCommandInput,
-  AttachLoadBalancerTargetGroupsCommandOutput,
-} from "../commands/AttachLoadBalancerTargetGroupsCommand";
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  serializeFloat as __serializeFloat,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt32 as __strictParseInt32,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
+import { AttachInstancesCommandInput, AttachInstancesCommandOutput } from "../commands/AttachInstancesCommand";
 import {
   AttachLoadBalancersCommandInput,
   AttachLoadBalancersCommandOutput,
 } from "../commands/AttachLoadBalancersCommand";
+import {
+  AttachLoadBalancerTargetGroupsCommandInput,
+  AttachLoadBalancerTargetGroupsCommandOutput,
+} from "../commands/AttachLoadBalancerTargetGroupsCommand";
 import {
   BatchDeleteScheduledActionCommandInput,
   BatchDeleteScheduledActionCommandOutput,
@@ -84,21 +108,21 @@ import {
   DescribeLaunchConfigurationsCommandOutput,
 } from "../commands/DescribeLaunchConfigurationsCommand";
 import {
-  DescribeLifecycleHookTypesCommandInput,
-  DescribeLifecycleHookTypesCommandOutput,
-} from "../commands/DescribeLifecycleHookTypesCommand";
-import {
   DescribeLifecycleHooksCommandInput,
   DescribeLifecycleHooksCommandOutput,
 } from "../commands/DescribeLifecycleHooksCommand";
 import {
-  DescribeLoadBalancerTargetGroupsCommandInput,
-  DescribeLoadBalancerTargetGroupsCommandOutput,
-} from "../commands/DescribeLoadBalancerTargetGroupsCommand";
+  DescribeLifecycleHookTypesCommandInput,
+  DescribeLifecycleHookTypesCommandOutput,
+} from "../commands/DescribeLifecycleHookTypesCommand";
 import {
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
 } from "../commands/DescribeLoadBalancersCommand";
+import {
+  DescribeLoadBalancerTargetGroupsCommandInput,
+  DescribeLoadBalancerTargetGroupsCommandOutput,
+} from "../commands/DescribeLoadBalancerTargetGroupsCommand";
 import {
   DescribeMetricCollectionTypesCommandInput,
   DescribeMetricCollectionTypesCommandOutput,
@@ -128,13 +152,13 @@ import {
 import { DescribeWarmPoolCommandInput, DescribeWarmPoolCommandOutput } from "../commands/DescribeWarmPoolCommand";
 import { DetachInstancesCommandInput, DetachInstancesCommandOutput } from "../commands/DetachInstancesCommand";
 import {
-  DetachLoadBalancerTargetGroupsCommandInput,
-  DetachLoadBalancerTargetGroupsCommandOutput,
-} from "../commands/DetachLoadBalancerTargetGroupsCommand";
-import {
   DetachLoadBalancersCommandInput,
   DetachLoadBalancersCommandOutput,
 } from "../commands/DetachLoadBalancersCommand";
+import {
+  DetachLoadBalancerTargetGroupsCommandInput,
+  DetachLoadBalancerTargetGroupsCommandOutput,
+} from "../commands/DetachLoadBalancerTargetGroupsCommand";
 import {
   DisableMetricsCollectionCommandInput,
   DisableMetricsCollectionCommandOutput,
@@ -194,10 +218,10 @@ import {
   Alarm,
   AlreadyExistsFault,
   AttachInstancesQuery,
-  AttachLoadBalancerTargetGroupsResultType,
-  AttachLoadBalancerTargetGroupsType,
   AttachLoadBalancersResultType,
   AttachLoadBalancersType,
+  AttachLoadBalancerTargetGroupsResultType,
+  AttachLoadBalancerTargetGroupsType,
   AutoScalingGroup,
   AutoScalingGroupNamesType,
   AutoScalingGroupsType,
@@ -232,13 +256,13 @@ import {
   DescribeAutoScalingNotificationTypesAnswer,
   DescribeInstanceRefreshesAnswer,
   DescribeInstanceRefreshesType,
-  DescribeLifecycleHookTypesAnswer,
   DescribeLifecycleHooksAnswer,
   DescribeLifecycleHooksType,
-  DescribeLoadBalancerTargetGroupsRequest,
-  DescribeLoadBalancerTargetGroupsResponse,
+  DescribeLifecycleHookTypesAnswer,
   DescribeLoadBalancersRequest,
   DescribeLoadBalancersResponse,
+  DescribeLoadBalancerTargetGroupsRequest,
+  DescribeLoadBalancerTargetGroupsResponse,
   DescribeMetricCollectionTypesAnswer,
   DescribeNotificationConfigurationsAnswer,
   DescribeNotificationConfigurationsType,
@@ -252,14 +276,14 @@ import {
   DesiredConfiguration,
   DetachInstancesAnswer,
   DetachInstancesQuery,
-  DetachLoadBalancerTargetGroupsResultType,
-  DetachLoadBalancerTargetGroupsType,
   DetachLoadBalancersResultType,
   DetachLoadBalancersType,
+  DetachLoadBalancerTargetGroupsResultType,
+  DetachLoadBalancerTargetGroupsType,
   DisableMetricsCollectionQuery,
   Ebs,
-  EnableMetricsCollectionQuery,
   EnabledMetric,
+  EnableMetricsCollectionQuery,
   EnterStandbyAnswer,
   EnterStandbyQuery,
   ExecutePolicyType,
@@ -280,8 +304,8 @@ import {
   InstancesDistribution,
   InvalidNextToken,
   LaunchConfiguration,
-  LaunchConfigurationNameType,
   LaunchConfigurationNamesType,
+  LaunchConfigurationNameType,
   LaunchConfigurationsType,
   LaunchTemplate,
   LaunchTemplateOverrides,
@@ -305,8 +329,8 @@ import {
   PredictiveScalingPredefinedLoadMetric,
   PredictiveScalingPredefinedMetricPair,
   PredictiveScalingPredefinedScalingMetric,
-  ProcessType,
   ProcessesType,
+  ProcessType,
   PutLifecycleHookAnswer,
   PutLifecycleHookType,
   PutNotificationConfigurationType,
@@ -342,29 +366,6 @@ import {
   UpdateAutoScalingGroupType,
   WarmPoolConfiguration,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  serializeFloat as __serializeFloat,
-  strictParseFloat as __strictParseFloat,
-  strictParseInt32 as __strictParseInt32,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_queryAttachInstancesCommand = async (
   input: AttachInstancesCommandInput,
@@ -1351,7 +1352,7 @@ const deserializeAws_queryAttachInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1413,7 +1414,7 @@ const deserializeAws_queryAttachLoadBalancersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1478,7 +1479,7 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1540,7 +1541,7 @@ const deserializeAws_queryBatchDeleteScheduledActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1597,7 +1598,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -1667,7 +1668,7 @@ const deserializeAws_queryCancelInstanceRefreshCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ActiveInstanceRefreshNotFoundFault":
@@ -1737,7 +1738,7 @@ const deserializeAws_queryCompleteLifecycleActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1788,7 +1789,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -1863,7 +1864,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -1930,7 +1931,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -2005,7 +2006,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2072,7 +2073,7 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2134,7 +2135,7 @@ const deserializeAws_queryDeleteLifecycleHookCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2185,7 +2186,7 @@ const deserializeAws_queryDeleteNotificationConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2236,7 +2237,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2295,7 +2296,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2346,7 +2347,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2408,7 +2409,7 @@ const deserializeAws_queryDeleteWarmPoolCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -2486,7 +2487,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2540,7 +2541,7 @@ const deserializeAws_queryDescribeAdjustmentTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2594,7 +2595,7 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2656,7 +2657,7 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2721,7 +2722,7 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2775,7 +2776,7 @@ const deserializeAws_queryDescribeInstanceRefreshesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2837,7 +2838,7 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2899,7 +2900,7 @@ const deserializeAws_queryDescribeLifecycleHooksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2953,7 +2954,7 @@ const deserializeAws_queryDescribeLifecycleHookTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3007,7 +3008,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3064,7 +3065,7 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3118,7 +3119,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3175,7 +3176,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3237,7 +3238,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3307,7 +3308,7 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3369,7 +3370,7 @@ const deserializeAws_queryDescribeScalingProcessTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3423,7 +3424,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3485,7 +3486,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3550,7 +3551,7 @@ const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3604,7 +3605,7 @@ const deserializeAws_queryDescribeWarmPoolCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3674,7 +3675,7 @@ const deserializeAws_queryDetachInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3728,7 +3729,7 @@ const deserializeAws_queryDetachLoadBalancersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3785,7 +3786,7 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3836,7 +3837,7 @@ const deserializeAws_queryDisableMetricsCollectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3887,7 +3888,7 @@ const deserializeAws_queryEnableMetricsCollectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3941,7 +3942,7 @@ const deserializeAws_queryEnterStandbyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3992,7 +3993,7 @@ const deserializeAws_queryExecutePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4054,7 +4055,7 @@ const deserializeAws_queryExitStandbyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4108,7 +4109,7 @@ const deserializeAws_queryGetPredictiveScalingForecastCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4162,7 +4163,7 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4221,7 +4222,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4291,7 +4292,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4358,7 +4359,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -4428,7 +4429,7 @@ const deserializeAws_queryPutWarmPoolCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4493,7 +4494,7 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4544,7 +4545,7 @@ const deserializeAws_queryResumeProcessesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4603,7 +4604,7 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4662,7 +4663,7 @@ const deserializeAws_querySetInstanceHealthCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4716,7 +4717,7 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4778,7 +4779,7 @@ const deserializeAws_queryStartInstanceRefreshCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstanceRefreshInProgressFault":
@@ -4845,7 +4846,7 @@ const deserializeAws_querySuspendProcessesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4907,7 +4908,7 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4966,7 +4967,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":

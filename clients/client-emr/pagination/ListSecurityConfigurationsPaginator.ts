@@ -1,12 +1,13 @@
-import { EMR } from "../EMR";
-import { EMRClient } from "../EMRClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListSecurityConfigurationsCommand,
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput,
 } from "../commands/ListSecurityConfigurationsCommand";
+import { EMR } from "../EMR";
+import { EMRClient } from "../EMRClient";
 import { EMRPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,12 +1,13 @@
-import { Comprehend } from "../Comprehend";
-import { ComprehendClient } from "../ComprehendClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEntityRecognizerSummariesCommand,
   ListEntityRecognizerSummariesCommandInput,
   ListEntityRecognizerSummariesCommandOutput,
 } from "../commands/ListEntityRecognizerSummariesCommand";
+import { Comprehend } from "../Comprehend";
+import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

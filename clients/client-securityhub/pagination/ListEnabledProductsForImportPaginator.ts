@@ -1,12 +1,13 @@
-import { SecurityHub } from "../SecurityHub";
-import { SecurityHubClient } from "../SecurityHubClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEnabledProductsForImportCommand,
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
 } from "../commands/ListEnabledProductsForImportCommand";
+import { SecurityHub } from "../SecurityHub";
+import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

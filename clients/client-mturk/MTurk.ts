@@ -1,4 +1,5 @@
-import { MTurkClient } from "./MTurkClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptQualificationRequestCommand,
   AcceptQualificationRequestCommandInput,
@@ -109,15 +110,15 @@ import {
   ListQualificationTypesCommandOutput,
 } from "./commands/ListQualificationTypesCommand";
 import {
-  ListReviewPolicyResultsForHITCommand,
-  ListReviewPolicyResultsForHITCommandInput,
-  ListReviewPolicyResultsForHITCommandOutput,
-} from "./commands/ListReviewPolicyResultsForHITCommand";
-import {
   ListReviewableHITsCommand,
   ListReviewableHITsCommandInput,
   ListReviewableHITsCommandOutput,
 } from "./commands/ListReviewableHITsCommand";
+import {
+  ListReviewPolicyResultsForHITCommand,
+  ListReviewPolicyResultsForHITCommandInput,
+  ListReviewPolicyResultsForHITCommandOutput,
+} from "./commands/ListReviewPolicyResultsForHITCommand";
 import {
   ListWorkerBlocksCommand,
   ListWorkerBlocksCommandInput,
@@ -174,7 +175,7 @@ import {
   UpdateQualificationTypeCommandInput,
   UpdateQualificationTypeCommandOutput,
 } from "./commands/UpdateQualificationTypeCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MTurkClient } from "./MTurkClient";
 
 /**
  * <fullname>Amazon Mechanical Turk API Reference</fullname>

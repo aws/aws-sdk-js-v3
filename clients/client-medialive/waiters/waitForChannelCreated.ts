@@ -1,6 +1,7 @@
-import { MediaLiveClient } from "../MediaLiveClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeChannelCommand, DescribeChannelCommandInput } from "../commands/DescribeChannelCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { MediaLiveClient } from "../MediaLiveClient";
 
 const checkState = async (client: MediaLiveClient, input: DescribeChannelCommandInput): Promise<WaiterResult> => {
   let reason;

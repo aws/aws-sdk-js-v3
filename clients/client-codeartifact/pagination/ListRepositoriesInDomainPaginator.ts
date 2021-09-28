@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Codeartifact } from "../Codeartifact";
 import { CodeartifactClient } from "../CodeartifactClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListRepositoriesInDomainCommandOutput,
 } from "../commands/ListRepositoriesInDomainCommand";
 import { CodeartifactPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

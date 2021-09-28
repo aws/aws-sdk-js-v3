@@ -1,4 +1,5 @@
-import { KinesisVideoClient } from "./KinesisVideoClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateSignalingChannelCommand,
   CreateSignalingChannelCommandInput,
@@ -78,7 +79,7 @@ import {
   UpdateStreamCommandInput,
   UpdateStreamCommandOutput,
 } from "./commands/UpdateStreamCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { KinesisVideoClient } from "./KinesisVideoClient";
 
 /**
  * <p></p>

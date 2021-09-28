@@ -1,12 +1,13 @@
-import { MigrationHubConfig } from "../MigrationHubConfig";
-import { MigrationHubConfigClient } from "../MigrationHubConfigClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeHomeRegionControlsCommand,
   DescribeHomeRegionControlsCommandInput,
   DescribeHomeRegionControlsCommandOutput,
 } from "../commands/DescribeHomeRegionControlsCommand";
+import { MigrationHubConfig } from "../MigrationHubConfig";
+import { MigrationHubConfigClient } from "../MigrationHubConfigClient";
 import { MigrationHubConfigPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,9 +1,3 @@
-import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
-import { GetRandomPasswordRequest, GetRandomPasswordResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRandomPasswordCommand,
-  serializeAws_json1_1GetRandomPasswordCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetRandomPasswordRequest, GetRandomPasswordResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1GetRandomPasswordCommand,
+  serializeAws_json1_1GetRandomPasswordCommand,
+} from "../protocols/Aws_json1_1";
+import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 export interface GetRandomPasswordCommandInput extends GetRandomPasswordRequest {}
 export interface GetRandomPasswordCommandOutput extends GetRandomPasswordResponse, __MetadataBearer {}

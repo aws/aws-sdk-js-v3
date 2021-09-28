@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CodestarNotifications } from "../CodestarNotifications";
 import { CodestarNotificationsClient } from "../CodestarNotificationsClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListNotificationRulesCommandOutput,
 } from "../commands/ListNotificationRulesCommand";
 import { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

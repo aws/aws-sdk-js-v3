@@ -1,5 +1,3 @@
-import packageInfo from "./package.json";
-
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { bodyChecksumGenerator } from "@aws-sdk/body-checksum-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
@@ -9,7 +7,9 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
+
 import { GlacierClientConfig } from "./GlacierClient";
+import packageInfo from "./package.json";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 
 /**

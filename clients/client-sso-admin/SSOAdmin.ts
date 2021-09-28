@@ -1,4 +1,5 @@
-import { SSOAdminClient } from "./SSOAdminClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AttachManagedPolicyToPermissionSetCommand,
   AttachManagedPolicyToPermissionSetCommandInput,
@@ -150,7 +151,7 @@ import {
   UpdatePermissionSetCommandInput,
   UpdatePermissionSetCommandOutput,
 } from "./commands/UpdatePermissionSetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SSOAdminClient } from "./SSOAdminClient";
 
 /**
  * <p>Amazon Web Services Single Sign On (SSO) is a cloud SSO service that makes it easy to centrally manage SSO

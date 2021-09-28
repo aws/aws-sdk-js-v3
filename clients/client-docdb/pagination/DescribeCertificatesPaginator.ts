@@ -1,12 +1,13 @@
-import { DocDB } from "../DocDB";
-import { DocDBClient } from "../DocDBClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeCertificatesCommand,
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
 } from "../commands/DescribeCertificatesCommand";
+import { DocDB } from "../DocDB";
+import { DocDBClient } from "../DocDBClient";
 import { DocDBPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

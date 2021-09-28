@@ -1,4 +1,5 @@
-import { OutpostsClient } from "./OutpostsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CreateOrderCommand, CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
 import {
   CreateOutpostCommand,
@@ -34,7 +35,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { OutpostsClient } from "./OutpostsClient";
 
 /**
  * <p>AWS Outposts is a fully managed service that extends AWS infrastructure, APIs, and tools

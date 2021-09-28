@@ -1,12 +1,13 @@
-import { Rekognition } from "../Rekognition";
-import { RekognitionClient } from "../RekognitionClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeProjectVersionsCommand,
   DescribeProjectVersionsCommandInput,
   DescribeProjectVersionsCommandOutput,
 } from "../commands/DescribeProjectVersionsCommand";
+import { Rekognition } from "../Rekognition";
+import { RekognitionClient } from "../RekognitionClient";
 import { RekognitionPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

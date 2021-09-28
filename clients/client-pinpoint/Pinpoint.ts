@@ -1,4 +1,5 @@
-import { PinpointClient } from "./PinpointClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateCampaignCommand,
@@ -220,6 +221,11 @@ import {
   GetCampaignDateRangeKpiCommandOutput,
 } from "./commands/GetCampaignDateRangeKpiCommand";
 import {
+  GetCampaignsCommand,
+  GetCampaignsCommandInput,
+  GetCampaignsCommandOutput,
+} from "./commands/GetCampaignsCommand";
+import {
   GetCampaignVersionCommand,
   GetCampaignVersionCommandInput,
   GetCampaignVersionCommandOutput,
@@ -229,11 +235,6 @@ import {
   GetCampaignVersionsCommandInput,
   GetCampaignVersionsCommandOutput,
 } from "./commands/GetCampaignVersionsCommand";
-import {
-  GetCampaignsCommand,
-  GetCampaignsCommandInput,
-  GetCampaignsCommandOutput,
-} from "./commands/GetCampaignsCommand";
 import { GetChannelsCommand, GetChannelsCommandInput, GetChannelsCommandOutput } from "./commands/GetChannelsCommand";
 import {
   GetEmailChannelCommand,
@@ -328,6 +329,7 @@ import {
   GetSegmentImportJobsCommandInput,
   GetSegmentImportJobsCommandOutput,
 } from "./commands/GetSegmentImportJobsCommand";
+import { GetSegmentsCommand, GetSegmentsCommandInput, GetSegmentsCommandOutput } from "./commands/GetSegmentsCommand";
 import {
   GetSegmentVersionCommand,
   GetSegmentVersionCommandInput,
@@ -338,7 +340,6 @@ import {
   GetSegmentVersionsCommandInput,
   GetSegmentVersionsCommandOutput,
 } from "./commands/GetSegmentVersionsCommand";
-import { GetSegmentsCommand, GetSegmentsCommandInput, GetSegmentsCommandOutput } from "./commands/GetSegmentsCommand";
 import {
   GetSmsChannelCommand,
   GetSmsChannelCommandInput,
@@ -375,26 +376,26 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
-  ListTemplateVersionsCommand,
-  ListTemplateVersionsCommandInput,
-  ListTemplateVersionsCommandOutput,
-} from "./commands/ListTemplateVersionsCommand";
-import {
   ListTemplatesCommand,
   ListTemplatesCommandInput,
   ListTemplatesCommandOutput,
 } from "./commands/ListTemplatesCommand";
 import {
+  ListTemplateVersionsCommand,
+  ListTemplateVersionsCommandInput,
+  ListTemplateVersionsCommandOutput,
+} from "./commands/ListTemplateVersionsCommand";
+import {
   PhoneNumberValidateCommand,
   PhoneNumberValidateCommandInput,
   PhoneNumberValidateCommandOutput,
 } from "./commands/PhoneNumberValidateCommand";
+import { PutEventsCommand, PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
 import {
   PutEventStreamCommand,
   PutEventStreamCommandInput,
   PutEventStreamCommandOutput,
 } from "./commands/PutEventStreamCommand";
-import { PutEventsCommand, PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
 import {
   RemoveAttributesCommand,
   RemoveAttributesCommandInput,
@@ -536,7 +537,7 @@ import {
   UpdateVoiceTemplateCommandInput,
   UpdateVoiceTemplateCommandOutput,
 } from "./commands/UpdateVoiceTemplateCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { PinpointClient } from "./PinpointClient";
 
 /**
  * <p>Doc Engage API - Amazon Pinpoint API</p>

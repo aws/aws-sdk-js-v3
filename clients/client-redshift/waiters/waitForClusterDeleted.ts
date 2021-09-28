@@ -1,6 +1,7 @@
-import { RedshiftClient } from "../RedshiftClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeClustersCommand, DescribeClustersCommandInput } from "../commands/DescribeClustersCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { RedshiftClient } from "../RedshiftClient";
 
 const checkState = async (client: RedshiftClient, input: DescribeClustersCommandInput): Promise<WaiterResult> => {
   let reason;

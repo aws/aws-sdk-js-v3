@@ -1,12 +1,13 @@
-import { SESv2 } from "../SESv2";
-import { SESv2Client } from "../SESv2Client";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEmailIdentitiesCommand,
   ListEmailIdentitiesCommandInput,
   ListEmailIdentitiesCommandOutput,
 } from "../commands/ListEmailIdentitiesCommand";
+import { SESv2 } from "../SESv2";
+import { SESv2Client } from "../SESv2Client";
 import { SESv2PaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

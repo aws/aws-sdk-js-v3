@@ -1,9 +1,10 @@
-import { ProtonClient } from "../ProtonClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   GetEnvironmentTemplateVersionCommand,
   GetEnvironmentTemplateVersionCommandInput,
 } from "../commands/GetEnvironmentTemplateVersionCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ProtonClient } from "../ProtonClient";
 
 const checkState = async (
   client: ProtonClient,

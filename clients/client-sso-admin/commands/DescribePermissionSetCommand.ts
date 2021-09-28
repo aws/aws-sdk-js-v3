@@ -1,9 +1,3 @@
-import { SSOAdminClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOAdminClient";
-import { DescribePermissionSetRequest, DescribePermissionSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePermissionSetCommand,
-  serializeAws_json1_1DescribePermissionSetCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribePermissionSetRequest, DescribePermissionSetResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1DescribePermissionSetCommand,
+  serializeAws_json1_1DescribePermissionSetCommand,
+} from "../protocols/Aws_json1_1";
+import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 export interface DescribePermissionSetCommandInput extends DescribePermissionSetRequest {}
 export interface DescribePermissionSetCommandOutput extends DescribePermissionSetResponse, __MetadataBearer {}

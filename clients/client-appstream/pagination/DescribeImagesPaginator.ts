@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { AppStream } from "../AppStream";
 import { AppStreamClient } from "../AppStreamClient";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeImagesCommandOutput,
 } from "../commands/DescribeImagesCommand";
 import { AppStreamPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

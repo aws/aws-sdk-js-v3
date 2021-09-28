@@ -1,12 +1,13 @@
-import { NetworkManager } from "../NetworkManager";
-import { NetworkManagerClient } from "../NetworkManagerClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetCustomerGatewayAssociationsCommand,
   GetCustomerGatewayAssociationsCommandInput,
   GetCustomerGatewayAssociationsCommandOutput,
 } from "../commands/GetCustomerGatewayAssociationsCommand";
+import { NetworkManager } from "../NetworkManager";
+import { NetworkManagerClient } from "../NetworkManagerClient";
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,7 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
+  _InstanceType,
   AddPrefixListEntry,
   AddressAttribute,
   Affinity,
@@ -41,7 +44,6 @@ import {
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
-  _InstanceType,
 } from "./models_0";
 import {
   AutoAcceptSharedAttachmentsValue,
@@ -106,7 +108,6 @@ import {
   VolumeModification,
   VolumeStatusItem,
 } from "./models_3";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 export interface DescribeVolumeStatusResult {
   /**

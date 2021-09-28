@@ -1,9 +1,3 @@
-import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { UpdateDatasetGroupRequest, UpdateDatasetGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDatasetGroupCommand,
-  serializeAws_json1_1UpdateDatasetGroupCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { UpdateDatasetGroupRequest, UpdateDatasetGroupResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1UpdateDatasetGroupCommand,
+  serializeAws_json1_1UpdateDatasetGroupCommand,
+} from "../protocols/Aws_json1_1";
 
 export interface UpdateDatasetGroupCommandInput extends UpdateDatasetGroupRequest {}
 export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupResponse, __MetadataBearer {}

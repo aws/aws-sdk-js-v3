@@ -1,9 +1,10 @@
-import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeLoadBalancersCommand,
   DescribeLoadBalancersCommandInput,
 } from "../commands/DescribeLoadBalancersCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
 
 const checkState = async (
   client: ElasticLoadBalancingV2Client,

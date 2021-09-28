@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { WAFV2ClientConfig } from "./WAFV2Client";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { WAFV2ClientConfig } from "./WAFV2Client";
 
 /**
  * @internal

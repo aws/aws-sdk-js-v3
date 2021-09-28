@@ -1,4 +1,5 @@
-import { IoTAnalyticsClient } from "./IoTAnalyticsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchPutMessageCommand,
   BatchPutMessageCommandInput,
@@ -165,7 +166,7 @@ import {
   UpdatePipelineCommandInput,
   UpdatePipelineCommandOutput,
 } from "./commands/UpdatePipelineCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTAnalyticsClient } from "./IoTAnalyticsClient";
 
 /**
  * <p>IoT Analytics allows you to collect large amounts of device data, process messages, and store them.

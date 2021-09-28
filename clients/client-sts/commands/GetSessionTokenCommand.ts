@@ -1,9 +1,3 @@
-import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
-import { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetSessionTokenCommand,
-  serializeAws_queryGetSessionTokenCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/models_0";
+import {
+  deserializeAws_queryGetSessionTokenCommand,
+  serializeAws_queryGetSessionTokenCommand,
+} from "../protocols/Aws_query";
+import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 export interface GetSessionTokenCommandInput extends GetSessionTokenRequest {}
 export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, __MetadataBearer {}

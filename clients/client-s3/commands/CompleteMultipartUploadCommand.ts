@@ -1,9 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { CompleteMultipartUploadOutput, CompleteMultipartUploadRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlCompleteMultipartUploadCommand,
-  serializeAws_restXmlCompleteMultipartUploadCommand,
-} from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -13,11 +7,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CompleteMultipartUploadOutput, CompleteMultipartUploadRequest } from "../models/models_0";
+import {
+  deserializeAws_restXmlCompleteMultipartUploadCommand,
+  serializeAws_restXmlCompleteMultipartUploadCommand,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUploadRequest {}
 export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartUploadOutput, __MetadataBearer {}

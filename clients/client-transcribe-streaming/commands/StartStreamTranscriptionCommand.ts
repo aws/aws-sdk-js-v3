@@ -1,27 +1,28 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TranscribeStreamingClientResolvedConfig,
-} from "../TranscribeStreamingClient";
-import { StartStreamTranscriptionRequest, StartStreamTranscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartStreamTranscriptionCommand,
-  serializeAws_restJson1StartStreamTranscriptionCommand,
-} from "../protocols/Aws_restJson1";
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  EventStreamSerdeContext as __EventStreamSerdeContext,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
-  EventStreamSerdeContext as __EventStreamSerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { StartStreamTranscriptionRequest, StartStreamTranscriptionResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1StartStreamTranscriptionCommand,
+  serializeAws_restJson1StartStreamTranscriptionCommand,
+} from "../protocols/Aws_restJson1";
+import {
+  ServiceInputTypes,
+  ServiceOutputTypes,
+  TranscribeStreamingClientResolvedConfig,
+} from "../TranscribeStreamingClient";
 
 export interface StartStreamTranscriptionCommandInput extends StartStreamTranscriptionRequest {}
 export interface StartStreamTranscriptionCommandOutput extends StartStreamTranscriptionResponse, __MetadataBearer {}

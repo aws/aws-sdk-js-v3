@@ -1,12 +1,13 @@
-import { Comprehend } from "../Comprehend";
-import { ComprehendClient } from "../ComprehendClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListKeyPhrasesDetectionJobsCommand,
   ListKeyPhrasesDetectionJobsCommandInput,
   ListKeyPhrasesDetectionJobsCommandOutput,
 } from "../commands/ListKeyPhrasesDetectionJobsCommand";
+import { Comprehend } from "../Comprehend";
+import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

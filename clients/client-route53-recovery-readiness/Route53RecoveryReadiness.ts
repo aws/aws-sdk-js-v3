@@ -1,4 +1,5 @@
-import { Route53RecoveryReadinessClient } from "./Route53RecoveryReadinessClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CreateCellCommand, CreateCellCommandInput, CreateCellCommandOutput } from "./commands/CreateCellCommand";
 import {
   CreateCrossAccountAuthorizationCommand,
@@ -131,7 +132,7 @@ import {
   UpdateResourceSetCommandInput,
   UpdateResourceSetCommandOutput,
 } from "./commands/UpdateResourceSetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { Route53RecoveryReadinessClient } from "./Route53RecoveryReadinessClient";
 
 /**
  * AWS Route53 Recovery Readiness

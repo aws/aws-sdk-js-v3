@@ -1,4 +1,5 @@
-import { IoTJobsDataPlaneClient } from "./IoTJobsDataPlaneClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DescribeJobExecutionCommand,
   DescribeJobExecutionCommandInput,
@@ -19,7 +20,7 @@ import {
   UpdateJobExecutionCommandInput,
   UpdateJobExecutionCommandOutput,
 } from "./commands/UpdateJobExecutionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTJobsDataPlaneClient } from "./IoTJobsDataPlaneClient";
 
 /**
  * <p>AWS IoT Jobs is a service that allows you to define a set of jobs — remote operations that are sent to

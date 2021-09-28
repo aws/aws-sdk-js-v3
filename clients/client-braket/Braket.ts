@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { BraketClient } from "./BraketClient";
 import {
   CancelQuantumTaskCommand,
@@ -36,7 +38,6 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>The Amazon Braket API Reference provides information about the operations and structures supported in Amazon Braket.</p>

@@ -1,12 +1,13 @@
-import { WorkMail } from "../WorkMail";
-import { WorkMailClient } from "../WorkMailClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListMailboxExportJobsCommand,
   ListMailboxExportJobsCommandInput,
   ListMailboxExportJobsCommandOutput,
 } from "../commands/ListMailboxExportJobsCommand";
+import { WorkMail } from "../WorkMail";
+import { WorkMailClient } from "../WorkMailClient";
 import { WorkMailPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

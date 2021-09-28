@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
-import { AnalyzeDocumentRequest, AnalyzeDocumentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AnalyzeDocumentCommand,
-  serializeAws_json1_1AnalyzeDocumentCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { AnalyzeDocumentRequest, AnalyzeDocumentResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1AnalyzeDocumentCommand,
+  serializeAws_json1_1AnalyzeDocumentCommand,
+} from "../protocols/Aws_json1_1";
+import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 export interface AnalyzeDocumentCommandInput extends AnalyzeDocumentRequest {}
 export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, __MetadataBearer {}

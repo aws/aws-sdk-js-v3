@@ -1,4 +1,5 @@
-import { ServiceCatalogClient } from "./ServiceCatalogClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptPortfolioShareCommand,
   AcceptPortfolioShareCommandInput,
@@ -136,15 +137,15 @@ import {
   DescribePortfolioCommandOutput,
 } from "./commands/DescribePortfolioCommand";
 import {
-  DescribePortfolioShareStatusCommand,
-  DescribePortfolioShareStatusCommandInput,
-  DescribePortfolioShareStatusCommandOutput,
-} from "./commands/DescribePortfolioShareStatusCommand";
-import {
   DescribePortfolioSharesCommand,
   DescribePortfolioSharesCommandInput,
   DescribePortfolioSharesCommandOutput,
 } from "./commands/DescribePortfolioSharesCommand";
+import {
+  DescribePortfolioShareStatusCommand,
+  DescribePortfolioShareStatusCommandInput,
+  DescribePortfolioShareStatusCommandOutput,
+} from "./commands/DescribePortfolioShareStatusCommand";
 import {
   DescribeProductAsAdminCommand,
   DescribeProductAsAdminCommandInput,
@@ -430,7 +431,7 @@ import {
   UpdateTagOptionCommandInput,
   UpdateTagOptionCommandOutput,
 } from "./commands/UpdateTagOptionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ServiceCatalogClient } from "./ServiceCatalogClient";
 
 /**
  * <fullname>AWS Service Catalog</fullname>

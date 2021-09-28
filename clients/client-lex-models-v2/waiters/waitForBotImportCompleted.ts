@@ -1,6 +1,7 @@
-import { LexModelsV2Client } from "../LexModelsV2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeImportCommand, DescribeImportCommandInput } from "../commands/DescribeImportCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { LexModelsV2Client } from "../LexModelsV2Client";
 
 const checkState = async (client: LexModelsV2Client, input: DescribeImportCommandInput): Promise<WaiterResult> => {
   let reason;

@@ -1,12 +1,13 @@
-import { Health } from "../Health";
-import { HealthClient } from "../HealthClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeAffectedEntitiesForOrganizationCommand,
   DescribeAffectedEntitiesForOrganizationCommandInput,
   DescribeAffectedEntitiesForOrganizationCommandOutput,
 } from "../commands/DescribeAffectedEntitiesForOrganizationCommand";
+import { Health } from "../Health";
+import { HealthClient } from "../HealthClient";
 import { HealthPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

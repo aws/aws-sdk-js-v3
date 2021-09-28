@@ -1,3 +1,23 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import {
   AddTagsToOnPremisesInstancesCommandInput,
   AddTagsToOnPremisesInstancesCommandOutput,
@@ -19,13 +39,13 @@ import {
   BatchGetDeploymentInstancesCommandOutput,
 } from "../commands/BatchGetDeploymentInstancesCommand";
 import {
-  BatchGetDeploymentTargetsCommandInput,
-  BatchGetDeploymentTargetsCommandOutput,
-} from "../commands/BatchGetDeploymentTargetsCommand";
-import {
   BatchGetDeploymentsCommandInput,
   BatchGetDeploymentsCommandOutput,
 } from "../commands/BatchGetDeploymentsCommand";
+import {
+  BatchGetDeploymentTargetsCommandInput,
+  BatchGetDeploymentTargetsCommandOutput,
+} from "../commands/BatchGetDeploymentTargetsCommand";
 import {
   BatchGetOnPremisesInstancesCommandInput,
   BatchGetOnPremisesInstancesCommandOutput,
@@ -102,11 +122,11 @@ import {
   ListDeploymentInstancesCommandInput,
   ListDeploymentInstancesCommandOutput,
 } from "../commands/ListDeploymentInstancesCommand";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "../commands/ListDeploymentsCommand";
 import {
   ListDeploymentTargetsCommandInput,
   ListDeploymentTargetsCommandOutput,
 } from "../commands/ListDeploymentTargetsCommand";
-import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "../commands/ListDeploymentsCommand";
 import {
   ListGitHubAccountTokenNamesCommandInput,
   ListGitHubAccountTokenNamesCommandOutput,
@@ -148,16 +168,17 @@ import {
   UpdateDeploymentGroupCommandOutput,
 } from "../commands/UpdateDeploymentGroupCommand";
 import {
+  _InstanceType,
   AddTagsToOnPremisesInstancesInput,
   Alarm,
   AlarmConfiguration,
   AlarmsLimitExceededException,
-  AppSpecContent,
   ApplicationAlreadyExistsException,
   ApplicationDoesNotExistException,
   ApplicationInfo,
   ApplicationLimitExceededException,
   ApplicationNameRequiredException,
+  AppSpecContent,
   ArnNotSupportedException,
   AutoRollbackConfiguration,
   AutoRollbackEvent,
@@ -170,10 +191,10 @@ import {
   BatchGetDeploymentGroupsOutput,
   BatchGetDeploymentInstancesInput,
   BatchGetDeploymentInstancesOutput,
-  BatchGetDeploymentTargetsInput,
-  BatchGetDeploymentTargetsOutput,
   BatchGetDeploymentsInput,
   BatchGetDeploymentsOutput,
+  BatchGetDeploymentTargetsInput,
+  BatchGetDeploymentTargetsOutput,
   BatchGetOnPremisesInstancesInput,
   BatchGetOnPremisesInstancesOutput,
   BatchLimitExceededException,
@@ -201,8 +222,8 @@ import {
   DeploymentAlreadyCompletedException,
   DeploymentConfigAlreadyExistsException,
   DeploymentConfigDoesNotExistException,
-  DeploymentConfigInUseException,
   DeploymentConfigInfo,
+  DeploymentConfigInUseException,
   DeploymentConfigLimitExceededException,
   DeploymentConfigNameRequiredException,
   DeploymentDoesNotExistException,
@@ -340,10 +361,10 @@ import {
   ListDeploymentGroupsOutput,
   ListDeploymentInstancesInput,
   ListDeploymentInstancesOutput,
-  ListDeploymentTargetsInput,
-  ListDeploymentTargetsOutput,
   ListDeploymentsInput,
   ListDeploymentsOutput,
+  ListDeploymentTargetsInput,
+  ListDeploymentTargetsOutput,
   ListGitHubAccountTokenNamesInput,
   ListGitHubAccountTokenNamesOutput,
   ListOnPremisesInstancesInput,
@@ -400,27 +421,7 @@ import {
   UpdateApplicationInput,
   UpdateDeploymentGroupInput,
   UpdateDeploymentGroupOutput,
-  _InstanceType,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectString as __expectString,
-  limitedParseDouble as __limitedParseDouble,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_json1_1AddTagsToOnPremisesInstancesCommand = async (
   input: AddTagsToOnPremisesInstancesCommandInput,
@@ -1056,7 +1057,7 @@ const deserializeAws_json1_1AddTagsToOnPremisesInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstanceLimitExceededException":
@@ -1158,7 +1159,7 @@ const deserializeAws_json1_1BatchGetApplicationRevisionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -1252,7 +1253,7 @@ const deserializeAws_json1_1BatchGetApplicationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -1330,7 +1331,7 @@ const deserializeAws_json1_1BatchGetDeploymentGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -1432,7 +1433,7 @@ const deserializeAws_json1_1BatchGetDeploymentInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchLimitExceededException":
@@ -1534,7 +1535,7 @@ const deserializeAws_json1_1BatchGetDeploymentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchLimitExceededException":
@@ -1604,7 +1605,7 @@ const deserializeAws_json1_1BatchGetDeploymentTargetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
@@ -1722,7 +1723,7 @@ const deserializeAws_json1_1BatchGetOnPremisesInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchLimitExceededException":
@@ -1789,7 +1790,7 @@ const deserializeAws_json1_1ContinueDeploymentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentAlreadyCompletedException":
@@ -1899,7 +1900,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationAlreadyExistsException":
@@ -1993,7 +1994,7 @@ const deserializeAws_json1_1CreateDeploymentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -2237,7 +2238,7 @@ const deserializeAws_json1_1CreateDeploymentConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentConfigAlreadyExistsException":
@@ -2339,7 +2340,7 @@ const deserializeAws_json1_1CreateDeploymentGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlarmsLimitExceededException":
@@ -2649,7 +2650,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationNameRequiredException":
@@ -2716,7 +2717,7 @@ const deserializeAws_json1_1DeleteDeploymentConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentConfigInUseException":
@@ -2794,7 +2795,7 @@ const deserializeAws_json1_1DeleteDeploymentGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationNameRequiredException":
@@ -2880,7 +2881,7 @@ const deserializeAws_json1_1DeleteGitHubAccountTokenCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GitHubAccountTokenDoesNotExistException":
@@ -2966,7 +2967,7 @@ const deserializeAws_json1_1DeleteResourcesByExternalIdCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3009,7 +3010,7 @@ const deserializeAws_json1_1DeregisterOnPremisesInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstanceNameRequiredException":
@@ -3071,7 +3072,7 @@ const deserializeAws_json1_1GetApplicationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -3141,7 +3142,7 @@ const deserializeAws_json1_1GetApplicationRevisionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -3235,7 +3236,7 @@ const deserializeAws_json1_1GetDeploymentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
@@ -3305,7 +3306,7 @@ const deserializeAws_json1_1GetDeploymentConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentConfigDoesNotExistException":
@@ -3383,7 +3384,7 @@ const deserializeAws_json1_1GetDeploymentGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -3485,7 +3486,7 @@ const deserializeAws_json1_1GetDeploymentInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
@@ -3587,7 +3588,7 @@ const deserializeAws_json1_1GetDeploymentTargetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
@@ -3697,7 +3698,7 @@ const deserializeAws_json1_1GetOnPremisesInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstanceNameRequiredException":
@@ -3767,7 +3768,7 @@ const deserializeAws_json1_1ListApplicationRevisionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -3893,7 +3894,7 @@ const deserializeAws_json1_1ListApplicationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -3947,7 +3948,7 @@ const deserializeAws_json1_1ListDeploymentConfigsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -4001,7 +4002,7 @@ const deserializeAws_json1_1ListDeploymentGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -4079,7 +4080,7 @@ const deserializeAws_json1_1ListDeploymentInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
@@ -4205,7 +4206,7 @@ const deserializeAws_json1_1ListDeploymentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -4339,7 +4340,7 @@ const deserializeAws_json1_1ListDeploymentTargetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
@@ -4449,7 +4450,7 @@ const deserializeAws_json1_1ListGitHubAccountTokenNamesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -4519,7 +4520,7 @@ const deserializeAws_json1_1ListOnPremisesInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -4589,7 +4590,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ArnNotSupportedException":
@@ -4659,7 +4660,7 @@ const deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
@@ -4761,7 +4762,7 @@ const deserializeAws_json1_1RegisterApplicationRevisionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -4852,7 +4853,7 @@ const deserializeAws_json1_1RegisterOnPremisesInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IamArnRequiredException":
@@ -4975,7 +4976,7 @@ const deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstanceLimitExceededException":
@@ -5074,7 +5075,7 @@ const deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentAlreadyCompletedException":
@@ -5168,7 +5169,7 @@ const deserializeAws_json1_1StopDeploymentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeploymentAlreadyCompletedException":
@@ -5262,7 +5263,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -5372,7 +5373,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
@@ -5479,7 +5480,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ApplicationAlreadyExistsException":
@@ -5557,7 +5558,7 @@ const deserializeAws_json1_1UpdateDeploymentGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlarmsLimitExceededException":

@@ -1,4 +1,5 @@
-import { EC2Client } from "./EC2Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptReservedInstancesExchangeQuoteCommand,
   AcceptReservedInstancesExchangeQuoteCommandInput,
@@ -759,15 +760,15 @@ import {
   DeleteVpcEndpointConnectionNotificationsCommandOutput,
 } from "./commands/DeleteVpcEndpointConnectionNotificationsCommand";
 import {
-  DeleteVpcEndpointServiceConfigurationsCommand,
-  DeleteVpcEndpointServiceConfigurationsCommandInput,
-  DeleteVpcEndpointServiceConfigurationsCommandOutput,
-} from "./commands/DeleteVpcEndpointServiceConfigurationsCommand";
-import {
   DeleteVpcEndpointsCommand,
   DeleteVpcEndpointsCommandInput,
   DeleteVpcEndpointsCommandOutput,
 } from "./commands/DeleteVpcEndpointsCommand";
+import {
+  DeleteVpcEndpointServiceConfigurationsCommand,
+  DeleteVpcEndpointServiceConfigurationsCommandInput,
+  DeleteVpcEndpointServiceConfigurationsCommandOutput,
+} from "./commands/DeleteVpcEndpointServiceConfigurationsCommand";
 import {
   DeleteVpcPeeringConnectionCommand,
   DeleteVpcPeeringConnectionCommandInput,
@@ -984,15 +985,15 @@ import {
   DescribeIamInstanceProfileAssociationsCommandOutput,
 } from "./commands/DescribeIamInstanceProfileAssociationsCommand";
 import {
-  DescribeIdFormatCommand,
-  DescribeIdFormatCommandInput,
-  DescribeIdFormatCommandOutput,
-} from "./commands/DescribeIdFormatCommand";
-import {
   DescribeIdentityIdFormatCommand,
   DescribeIdentityIdFormatCommandInput,
   DescribeIdentityIdFormatCommandOutput,
 } from "./commands/DescribeIdentityIdFormatCommand";
+import {
+  DescribeIdFormatCommand,
+  DescribeIdFormatCommandInput,
+  DescribeIdFormatCommandOutput,
+} from "./commands/DescribeIdFormatCommand";
 import {
   DescribeImageAttributeCommand,
   DescribeImageAttributeCommandInput,
@@ -1034,6 +1035,11 @@ import {
   DescribeInstanceEventWindowsCommandOutput,
 } from "./commands/DescribeInstanceEventWindowsCommand";
 import {
+  DescribeInstancesCommand,
+  DescribeInstancesCommandInput,
+  DescribeInstancesCommandOutput,
+} from "./commands/DescribeInstancesCommand";
+import {
   DescribeInstanceStatusCommand,
   DescribeInstanceStatusCommandInput,
   DescribeInstanceStatusCommandOutput,
@@ -1048,11 +1054,6 @@ import {
   DescribeInstanceTypesCommandInput,
   DescribeInstanceTypesCommandOutput,
 } from "./commands/DescribeInstanceTypesCommand";
-import {
-  DescribeInstancesCommand,
-  DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput,
-} from "./commands/DescribeInstancesCommand";
 import {
   DescribeInternetGatewaysCommand,
   DescribeInternetGatewaysCommandInput,
@@ -1069,15 +1070,20 @@ import {
   DescribeKeyPairsCommandOutput,
 } from "./commands/DescribeKeyPairsCommand";
 import {
+  DescribeLaunchTemplatesCommand,
+  DescribeLaunchTemplatesCommandInput,
+  DescribeLaunchTemplatesCommandOutput,
+} from "./commands/DescribeLaunchTemplatesCommand";
+import {
   DescribeLaunchTemplateVersionsCommand,
   DescribeLaunchTemplateVersionsCommandInput,
   DescribeLaunchTemplateVersionsCommandOutput,
 } from "./commands/DescribeLaunchTemplateVersionsCommand";
 import {
-  DescribeLaunchTemplatesCommand,
-  DescribeLaunchTemplatesCommandInput,
-  DescribeLaunchTemplatesCommandOutput,
-} from "./commands/DescribeLaunchTemplatesCommand";
+  DescribeLocalGatewayRouteTablesCommand,
+  DescribeLocalGatewayRouteTablesCommandInput,
+  DescribeLocalGatewayRouteTablesCommandOutput,
+} from "./commands/DescribeLocalGatewayRouteTablesCommand";
 import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
@@ -1089,10 +1095,10 @@ import {
   DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTableVpcAssociationsCommand";
 import {
-  DescribeLocalGatewayRouteTablesCommand,
-  DescribeLocalGatewayRouteTablesCommandInput,
-  DescribeLocalGatewayRouteTablesCommandOutput,
-} from "./commands/DescribeLocalGatewayRouteTablesCommand";
+  DescribeLocalGatewaysCommand,
+  DescribeLocalGatewaysCommandInput,
+  DescribeLocalGatewaysCommandOutput,
+} from "./commands/DescribeLocalGatewaysCommand";
 import {
   DescribeLocalGatewayVirtualInterfaceGroupsCommand,
   DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
@@ -1103,11 +1109,6 @@ import {
   DescribeLocalGatewayVirtualInterfacesCommandInput,
   DescribeLocalGatewayVirtualInterfacesCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfacesCommand";
-import {
-  DescribeLocalGatewaysCommand,
-  DescribeLocalGatewaysCommandInput,
-  DescribeLocalGatewaysCommandOutput,
-} from "./commands/DescribeLocalGatewaysCommand";
 import {
   DescribeManagedPrefixListsCommand,
   DescribeManagedPrefixListsCommandInput,
@@ -1339,15 +1340,15 @@ import {
   DescribeTransitGatewayRouteTablesCommandOutput,
 } from "./commands/DescribeTransitGatewayRouteTablesCommand";
 import {
-  DescribeTransitGatewayVpcAttachmentsCommand,
-  DescribeTransitGatewayVpcAttachmentsCommandInput,
-  DescribeTransitGatewayVpcAttachmentsCommandOutput,
-} from "./commands/DescribeTransitGatewayVpcAttachmentsCommand";
-import {
   DescribeTransitGatewaysCommand,
   DescribeTransitGatewaysCommandInput,
   DescribeTransitGatewaysCommandOutput,
 } from "./commands/DescribeTransitGatewaysCommand";
+import {
+  DescribeTransitGatewayVpcAttachmentsCommand,
+  DescribeTransitGatewayVpcAttachmentsCommandInput,
+  DescribeTransitGatewayVpcAttachmentsCommandOutput,
+} from "./commands/DescribeTransitGatewayVpcAttachmentsCommand";
 import {
   DescribeTrunkInterfaceAssociationsCommand,
   DescribeTrunkInterfaceAssociationsCommandInput,
@@ -1359,11 +1360,6 @@ import {
   DescribeVolumeAttributeCommandOutput,
 } from "./commands/DescribeVolumeAttributeCommand";
 import {
-  DescribeVolumeStatusCommand,
-  DescribeVolumeStatusCommandInput,
-  DescribeVolumeStatusCommandOutput,
-} from "./commands/DescribeVolumeStatusCommand";
-import {
   DescribeVolumesCommand,
   DescribeVolumesCommandInput,
   DescribeVolumesCommandOutput,
@@ -1373,6 +1369,11 @@ import {
   DescribeVolumesModificationsCommandInput,
   DescribeVolumesModificationsCommandOutput,
 } from "./commands/DescribeVolumesModificationsCommand";
+import {
+  DescribeVolumeStatusCommand,
+  DescribeVolumeStatusCommandInput,
+  DescribeVolumeStatusCommandOutput,
+} from "./commands/DescribeVolumeStatusCommand";
 import {
   DescribeVpcAttributeCommand,
   DescribeVpcAttributeCommandInput,
@@ -1399,6 +1400,11 @@ import {
   DescribeVpcEndpointConnectionsCommandOutput,
 } from "./commands/DescribeVpcEndpointConnectionsCommand";
 import {
+  DescribeVpcEndpointsCommand,
+  DescribeVpcEndpointsCommandInput,
+  DescribeVpcEndpointsCommandOutput,
+} from "./commands/DescribeVpcEndpointsCommand";
+import {
   DescribeVpcEndpointServiceConfigurationsCommand,
   DescribeVpcEndpointServiceConfigurationsCommandInput,
   DescribeVpcEndpointServiceConfigurationsCommandOutput,
@@ -1413,11 +1419,6 @@ import {
   DescribeVpcEndpointServicesCommandInput,
   DescribeVpcEndpointServicesCommandOutput,
 } from "./commands/DescribeVpcEndpointServicesCommand";
-import {
-  DescribeVpcEndpointsCommand,
-  DescribeVpcEndpointsCommandInput,
-  DescribeVpcEndpointsCommandOutput,
-} from "./commands/DescribeVpcEndpointsCommand";
 import {
   DescribeVpcPeeringConnectionsCommand,
   DescribeVpcPeeringConnectionsCommandInput,
@@ -1813,15 +1814,15 @@ import {
 } from "./commands/ModifyFpgaImageAttributeCommand";
 import { ModifyHostsCommand, ModifyHostsCommandInput, ModifyHostsCommandOutput } from "./commands/ModifyHostsCommand";
 import {
-  ModifyIdFormatCommand,
-  ModifyIdFormatCommandInput,
-  ModifyIdFormatCommandOutput,
-} from "./commands/ModifyIdFormatCommand";
-import {
   ModifyIdentityIdFormatCommand,
   ModifyIdentityIdFormatCommandInput,
   ModifyIdentityIdFormatCommandOutput,
 } from "./commands/ModifyIdentityIdFormatCommand";
+import {
+  ModifyIdFormatCommand,
+  ModifyIdFormatCommandInput,
+  ModifyIdFormatCommandOutput,
+} from "./commands/ModifyIdFormatCommand";
 import {
   ModifyImageAttributeCommand,
   ModifyImageAttributeCommandInput,
@@ -2282,7 +2283,7 @@ import {
   WithdrawByoipCidrCommandInput,
   WithdrawByoipCidrCommandOutput,
 } from "./commands/WithdrawByoipCidrCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { EC2Client } from "./EC2Client";
 
 /**
  * <fullname>Amazon Elastic Compute Cloud</fullname>

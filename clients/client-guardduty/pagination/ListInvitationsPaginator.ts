@@ -1,12 +1,13 @@
-import { GuardDuty } from "../GuardDuty";
-import { GuardDutyClient } from "../GuardDutyClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "../commands/ListInvitationsCommand";
+import { GuardDuty } from "../GuardDuty";
+import { GuardDutyClient } from "../GuardDutyClient";
 import { GuardDutyPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

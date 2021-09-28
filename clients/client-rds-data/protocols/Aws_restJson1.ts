@@ -1,35 +1,3 @@
-import {
-  BatchExecuteStatementCommandInput,
-  BatchExecuteStatementCommandOutput,
-} from "../commands/BatchExecuteStatementCommand";
-import { BeginTransactionCommandInput, BeginTransactionCommandOutput } from "../commands/BeginTransactionCommand";
-import { CommitTransactionCommandInput, CommitTransactionCommandOutput } from "../commands/CommitTransactionCommand";
-import { ExecuteSqlCommandInput, ExecuteSqlCommandOutput } from "../commands/ExecuteSqlCommand";
-import { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "../commands/ExecuteStatementCommand";
-import {
-  RollbackTransactionCommandInput,
-  RollbackTransactionCommandOutput,
-} from "../commands/RollbackTransactionCommand";
-import {
-  ArrayValue,
-  BadRequestException,
-  ColumnMetadata,
-  Field,
-  ForbiddenException,
-  InternalServerErrorException,
-  NotFoundException,
-  ResultFrame,
-  ResultSetMetadata,
-  ResultSetOptions,
-  ServiceUnavailableError,
-  SqlParameter,
-  SqlStatementResult,
-  StatementTimeoutException,
-  StructValue,
-  UpdateResult,
-  Value,
-  _Record,
-} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
@@ -50,6 +18,39 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+import {
+  BatchExecuteStatementCommandInput,
+  BatchExecuteStatementCommandOutput,
+} from "../commands/BatchExecuteStatementCommand";
+import { BeginTransactionCommandInput, BeginTransactionCommandOutput } from "../commands/BeginTransactionCommand";
+import { CommitTransactionCommandInput, CommitTransactionCommandOutput } from "../commands/CommitTransactionCommand";
+import { ExecuteSqlCommandInput, ExecuteSqlCommandOutput } from "../commands/ExecuteSqlCommand";
+import { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "../commands/ExecuteStatementCommand";
+import {
+  RollbackTransactionCommandInput,
+  RollbackTransactionCommandOutput,
+} from "../commands/RollbackTransactionCommand";
+import {
+  _Record,
+  ArrayValue,
+  BadRequestException,
+  ColumnMetadata,
+  Field,
+  ForbiddenException,
+  InternalServerErrorException,
+  NotFoundException,
+  ResultFrame,
+  ResultSetMetadata,
+  ResultSetOptions,
+  ServiceUnavailableError,
+  SqlParameter,
+  SqlStatementResult,
+  StatementTimeoutException,
+  StructValue,
+  UpdateResult,
+  Value,
+} from "../models/models_0";
 
 export const serializeAws_restJson1BatchExecuteStatementCommand = async (
   input: BatchExecuteStatementCommandInput,
@@ -259,7 +260,7 @@ const deserializeAws_restJson1BatchExecuteStatementCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -346,7 +347,7 @@ const deserializeAws_restJson1BeginTransactionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -433,7 +434,7 @@ const deserializeAws_restJson1CommitTransactionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -528,7 +529,7 @@ const deserializeAws_restJson1ExecuteSqlCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -619,7 +620,7 @@ const deserializeAws_restJson1ExecuteStatementCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -706,7 +707,7 @@ const deserializeAws_restJson1RollbackTransactionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":

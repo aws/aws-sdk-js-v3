@@ -1,4 +1,5 @@
-import { SFNClient } from "./SFNClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateActivityCommand,
   CreateActivityCommandInput,
@@ -110,7 +111,7 @@ import {
   UpdateStateMachineCommandInput,
   UpdateStateMachineCommandOutput,
 } from "./commands/UpdateStateMachineCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SFNClient } from "./SFNClient";
 
 /**
  * <fullname>AWS Step Functions</fullname>

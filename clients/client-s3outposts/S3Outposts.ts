@@ -1,4 +1,5 @@
-import { S3OutpostsClient } from "./S3OutpostsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateEndpointCommand,
   CreateEndpointCommandInput,
@@ -14,7 +15,7 @@ import {
   ListEndpointsCommandInput,
   ListEndpointsCommandOutput,
 } from "./commands/ListEndpointsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { S3OutpostsClient } from "./S3OutpostsClient";
 
 /**
  * <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>

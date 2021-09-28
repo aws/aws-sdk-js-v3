@@ -1,12 +1,13 @@
-import { LookoutEquipment } from "../LookoutEquipment";
-import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDatasetsCommand,
   ListDatasetsCommandInput,
   ListDatasetsCommandOutput,
 } from "../commands/ListDatasetsCommand";
+import { LookoutEquipment } from "../LookoutEquipment";
+import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
 import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

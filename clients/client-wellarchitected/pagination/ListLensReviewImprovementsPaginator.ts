@@ -1,12 +1,13 @@
-import { WellArchitected } from "../WellArchitected";
-import { WellArchitectedClient } from "../WellArchitectedClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListLensReviewImprovementsCommand,
   ListLensReviewImprovementsCommandInput,
   ListLensReviewImprovementsCommandOutput,
 } from "../commands/ListLensReviewImprovementsCommand";
+import { WellArchitected } from "../WellArchitected";
+import { WellArchitectedClient } from "../WellArchitectedClient";
 import { WellArchitectedPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

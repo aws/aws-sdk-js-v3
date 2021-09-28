@@ -1,4 +1,5 @@
-import { DetectiveClient } from "./DetectiveClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptInvitationCommand,
   AcceptInvitationCommandInput,
@@ -50,7 +51,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DetectiveClient } from "./DetectiveClient";
 
 /**
  * <p>Detective uses machine learning and purpose-built visualizations to help you analyze and

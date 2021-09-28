@@ -1,6 +1,7 @@
-import { KinesisClient } from "../KinesisClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeStreamCommand, DescribeStreamCommandInput } from "../commands/DescribeStreamCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { KinesisClient } from "../KinesisClient";
 
 const checkState = async (client: KinesisClient, input: DescribeStreamCommandInput): Promise<WaiterResult> => {
   let reason;

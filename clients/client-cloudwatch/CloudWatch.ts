@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CloudWatchClient } from "./CloudWatchClient";
 import {
   DeleteAlarmsCommand,
@@ -104,12 +106,12 @@ import {
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
+import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
   ListMetricStreamsCommand,
   ListMetricStreamsCommandInput,
   ListMetricStreamsCommandOutput,
 } from "./commands/ListMetricStreamsCommand";
-import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -171,7 +173,6 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services) resources and the

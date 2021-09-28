@@ -1,9 +1,10 @@
-import { ECRClient } from "../ECRClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeImageScanFindingsCommand,
   DescribeImageScanFindingsCommandInput,
 } from "../commands/DescribeImageScanFindingsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ECRClient } from "../ECRClient";
 
 const checkState = async (client: ECRClient, input: DescribeImageScanFindingsCommandInput): Promise<WaiterResult> => {
   let reason;

@@ -1,9 +1,10 @@
-import { SESClient } from "../SESClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   GetIdentityVerificationAttributesCommand,
   GetIdentityVerificationAttributesCommandInput,
 } from "../commands/GetIdentityVerificationAttributesCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { SESClient } from "../SESClient";
 
 const checkState = async (
   client: SESClient,

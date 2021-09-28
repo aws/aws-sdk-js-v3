@@ -1,4 +1,5 @@
-import { SecretsManagerClient } from "./SecretsManagerClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CancelRotateSecretCommand,
   CancelRotateSecretCommandInput,
@@ -39,12 +40,12 @@ import {
   GetSecretValueCommandInput,
   GetSecretValueCommandOutput,
 } from "./commands/GetSecretValueCommand";
+import { ListSecretsCommand, ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand";
 import {
   ListSecretVersionIdsCommand,
   ListSecretVersionIdsCommandInput,
   ListSecretVersionIdsCommandOutput,
 } from "./commands/ListSecretVersionIdsCommand";
-import { ListSecretsCommand, ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
@@ -101,7 +102,7 @@ import {
   ValidateResourcePolicyCommandInput,
   ValidateResourcePolicyCommandOutput,
 } from "./commands/ValidateResourcePolicyCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SecretsManagerClient } from "./SecretsManagerClient";
 
 /**
  * <fullname>Amazon Web Services Secrets Manager</fullname>

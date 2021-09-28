@@ -1,17 +1,17 @@
-import packageInfo from "./package.json";
-
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
-import { WebSocketHandler, eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
+import { eventStreamPayloadHandler, WebSocketHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
-import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
+
+import packageInfo from "./package.json";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
+import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
 
 /**
  * @internal

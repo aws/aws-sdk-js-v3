@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Athena } from "../Athena";
 import { AthenaClient } from "../AthenaClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListDataCatalogsCommandOutput,
 } from "../commands/ListDataCatalogsCommand";
 import { AthenaPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

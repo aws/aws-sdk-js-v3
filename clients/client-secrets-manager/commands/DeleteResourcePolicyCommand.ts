@@ -1,9 +1,3 @@
-import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
-import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResourcePolicyCommand,
-  serializeAws_json1_1DeleteResourcePolicyCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1DeleteResourcePolicyCommand,
+  serializeAws_json1_1DeleteResourcePolicyCommand,
+} from "../protocols/Aws_json1_1";
+import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}

@@ -1,4 +1,5 @@
-import { IdentitystoreClient } from "./IdentitystoreClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DescribeGroupCommand,
   DescribeGroupCommandInput,
@@ -11,7 +12,7 @@ import {
 } from "./commands/DescribeUserCommand";
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IdentitystoreClient } from "./IdentitystoreClient";
 
 /**
  * <p>The AWS Single Sign-On (SSO) Identity Store service provides a single place to retrieve all of your

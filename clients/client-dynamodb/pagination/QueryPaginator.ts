@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
 import { DynamoDB } from "../DynamoDB";
 import { DynamoDBClient } from "../DynamoDBClient";
-import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
 import { DynamoDBPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

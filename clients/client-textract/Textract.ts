@@ -1,4 +1,5 @@
-import { TextractClient } from "./TextractClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AnalyzeDocumentCommand,
   AnalyzeDocumentCommandInput,
@@ -34,7 +35,7 @@ import {
   StartDocumentTextDetectionCommandInput,
   StartDocumentTextDetectionCommandOutput,
 } from "./commands/StartDocumentTextDetectionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { TextractClient } from "./TextractClient";
 
 /**
  * <p>Amazon Textract detects and analyzes text in documents and converts it

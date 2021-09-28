@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { CreateFolderRequest, CreateFolderResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFolderCommand,
-  serializeAws_restJson1CreateFolderCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CreateFolderRequest, CreateFolderResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1CreateFolderCommand,
+  serializeAws_restJson1CreateFolderCommand,
+} from "../protocols/Aws_restJson1";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 export interface CreateFolderCommandInput extends CreateFolderRequest {}
 export interface CreateFolderCommandOutput extends CreateFolderResponse, __MetadataBearer {}

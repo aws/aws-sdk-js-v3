@@ -1,6 +1,7 @@
-import { LambdaClient } from "../LambdaClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { GetFunctionCommand, GetFunctionCommandInput } from "../commands/GetFunctionCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { LambdaClient } from "../LambdaClient";
 
 const checkState = async (client: LambdaClient, input: GetFunctionCommandInput): Promise<WaiterResult> => {
   let reason;

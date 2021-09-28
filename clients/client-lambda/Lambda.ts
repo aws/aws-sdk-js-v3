@@ -1,4 +1,5 @@
-import { LambdaClient } from "./LambdaClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddLayerVersionPermissionCommand,
   AddLayerVersionPermissionCommandInput,
@@ -152,12 +153,12 @@ import {
   ListFunctionsCommandInput,
   ListFunctionsCommandOutput,
 } from "./commands/ListFunctionsCommand";
+import { ListLayersCommand, ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
 import {
   ListLayerVersionsCommand,
   ListLayerVersionsCommandInput,
   ListLayerVersionsCommandOutput,
 } from "./commands/ListLayerVersionsCommand";
-import { ListLayersCommand, ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
 import {
   ListProvisionedConcurrencyConfigsCommand,
   ListProvisionedConcurrencyConfigsCommandInput,
@@ -241,7 +242,7 @@ import {
   UpdateFunctionEventInvokeConfigCommandInput,
   UpdateFunctionEventInvokeConfigCommandOutput,
 } from "./commands/UpdateFunctionEventInvokeConfigCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LambdaClient } from "./LambdaClient";
 
 /**
  * <fullname>Lambda</fullname>

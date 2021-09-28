@@ -1,6 +1,7 @@
-import { EMRClient } from "../EMRClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeStepCommand, DescribeStepCommandInput } from "../commands/DescribeStepCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EMRClient } from "../EMRClient";
 
 const checkState = async (client: EMRClient, input: DescribeStepCommandInput): Promise<WaiterResult> => {
   let reason;

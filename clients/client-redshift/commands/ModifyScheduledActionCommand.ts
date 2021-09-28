@@ -1,10 +1,3 @@
-import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ScheduledAction } from "../models/models_0";
-import { ModifyScheduledActionMessage } from "../models/models_1";
-import {
-  deserializeAws_queryModifyScheduledActionCommand,
-  serializeAws_queryModifyScheduledActionCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,11 +5,19 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ScheduledAction } from "../models/models_0";
+import { ModifyScheduledActionMessage } from "../models/models_1";
+import {
+  deserializeAws_queryModifyScheduledActionCommand,
+  serializeAws_queryModifyScheduledActionCommand,
+} from "../protocols/Aws_query";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 export interface ModifyScheduledActionCommandInput extends ModifyScheduledActionMessage {}
 export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __MetadataBearer {}

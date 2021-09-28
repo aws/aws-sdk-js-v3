@@ -1,12 +1,13 @@
-import { ConnectContactLens } from "../ConnectContactLens";
-import { ConnectContactLensClient } from "../ConnectContactLensClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListRealtimeContactAnalysisSegmentsCommand,
   ListRealtimeContactAnalysisSegmentsCommandInput,
   ListRealtimeContactAnalysisSegmentsCommandOutput,
 } from "../commands/ListRealtimeContactAnalysisSegmentsCommand";
+import { ConnectContactLens } from "../ConnectContactLens";
+import { ConnectContactLensClient } from "../ConnectContactLensClient";
 import { ConnectContactLensPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

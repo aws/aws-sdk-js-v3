@@ -1,12 +1,13 @@
-import { Macie } from "../Macie";
-import { MacieClient } from "../MacieClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListS3ResourcesCommand,
   ListS3ResourcesCommandInput,
   ListS3ResourcesCommandOutput,
 } from "../commands/ListS3ResourcesCommand";
+import { Macie } from "../Macie";
+import { MacieClient } from "../MacieClient";
 import { MaciePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

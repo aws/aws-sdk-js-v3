@@ -1,6 +1,7 @@
-import { S3Client } from "../S3Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { HeadBucketCommand, HeadBucketCommandInput } from "../commands/HeadBucketCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { S3Client } from "../S3Client";
 
 const checkState = async (client: S3Client, input: HeadBucketCommandInput): Promise<WaiterResult> => {
   let reason;

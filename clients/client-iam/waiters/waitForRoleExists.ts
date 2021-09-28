@@ -1,6 +1,7 @@
-import { IAMClient } from "../IAMClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { GetRoleCommand, GetRoleCommandInput } from "../commands/GetRoleCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { IAMClient } from "../IAMClient";
 
 const checkState = async (client: IAMClient, input: GetRoleCommandInput): Promise<WaiterResult> => {
   let reason;

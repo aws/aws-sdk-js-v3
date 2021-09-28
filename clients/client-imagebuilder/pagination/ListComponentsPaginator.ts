@@ -1,12 +1,13 @@
-import { Imagebuilder } from "../Imagebuilder";
-import { ImagebuilderClient } from "../ImagebuilderClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListComponentsCommand,
   ListComponentsCommandInput,
   ListComponentsCommandOutput,
 } from "../commands/ListComponentsCommand";
+import { Imagebuilder } from "../Imagebuilder";
+import { ImagebuilderClient } from "../ImagebuilderClient";
 import { ImagebuilderPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

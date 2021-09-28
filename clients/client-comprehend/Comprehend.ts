@@ -1,4 +1,5 @@
-import { ComprehendClient } from "./ComprehendClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchDetectDominantLanguageCommand,
   BatchDetectDominantLanguageCommandInput,
@@ -155,15 +156,15 @@ import {
   ListDocumentClassificationJobsCommandOutput,
 } from "./commands/ListDocumentClassificationJobsCommand";
 import {
-  ListDocumentClassifierSummariesCommand,
-  ListDocumentClassifierSummariesCommandInput,
-  ListDocumentClassifierSummariesCommandOutput,
-} from "./commands/ListDocumentClassifierSummariesCommand";
-import {
   ListDocumentClassifiersCommand,
   ListDocumentClassifiersCommandInput,
   ListDocumentClassifiersCommandOutput,
 } from "./commands/ListDocumentClassifiersCommand";
+import {
+  ListDocumentClassifierSummariesCommand,
+  ListDocumentClassifierSummariesCommandInput,
+  ListDocumentClassifierSummariesCommandOutput,
+} from "./commands/ListDocumentClassifierSummariesCommand";
 import {
   ListDominantLanguageDetectionJobsCommand,
   ListDominantLanguageDetectionJobsCommandInput,
@@ -180,15 +181,15 @@ import {
   ListEntitiesDetectionJobsCommandOutput,
 } from "./commands/ListEntitiesDetectionJobsCommand";
 import {
-  ListEntityRecognizerSummariesCommand,
-  ListEntityRecognizerSummariesCommandInput,
-  ListEntityRecognizerSummariesCommandOutput,
-} from "./commands/ListEntityRecognizerSummariesCommand";
-import {
   ListEntityRecognizersCommand,
   ListEntityRecognizersCommandInput,
   ListEntityRecognizersCommandOutput,
 } from "./commands/ListEntityRecognizersCommand";
+import {
+  ListEntityRecognizerSummariesCommand,
+  ListEntityRecognizerSummariesCommandInput,
+  ListEntityRecognizerSummariesCommandOutput,
+} from "./commands/ListEntityRecognizerSummariesCommand";
 import {
   ListEventsDetectionJobsCommand,
   ListEventsDetectionJobsCommandInput,
@@ -310,7 +311,7 @@ import {
   UpdateEndpointCommandInput,
   UpdateEndpointCommandOutput,
 } from "./commands/UpdateEndpointCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ComprehendClient } from "./ComprehendClient";
 
 /**
  * <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents.

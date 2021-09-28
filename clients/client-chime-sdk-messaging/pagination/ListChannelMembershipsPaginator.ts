@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { ChimeSDKMessaging } from "../ChimeSDKMessaging";
 import { ChimeSDKMessagingClient } from "../ChimeSDKMessagingClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListChannelMembershipsCommandOutput,
 } from "../commands/ListChannelMembershipsCommand";
 import { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

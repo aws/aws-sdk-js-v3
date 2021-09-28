@@ -1,4 +1,5 @@
-import { ImagebuilderClient } from "./ImagebuilderClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CancelImageCreationCommand,
   CancelImageCreationCommandInput,
@@ -224,7 +225,7 @@ import {
   UpdateInfrastructureConfigurationCommandInput,
   UpdateInfrastructureConfigurationCommandOutput,
 } from "./commands/UpdateInfrastructureConfigurationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ImagebuilderClient } from "./ImagebuilderClient";
 
 /**
  * <p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the

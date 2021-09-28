@@ -1,10 +1,3 @@
-import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
-import { RegisterClientCommandInput, RegisterClientCommandOutput } from "./commands/RegisterClientCommand";
-import {
-  StartDeviceAuthorizationCommandInput,
-  StartDeviceAuthorizationCommandOutput,
-} from "./commands/StartDeviceAuthorizationCommand";
-import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -15,18 +8,18 @@ import {
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
+  getHostHeaderPlugin,
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
 import {
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
+  UserAgentInputConfig,
+  UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
@@ -35,8 +28,6 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
-  Provider,
-  RegionInfoProvider,
   Decoder as __Decoder,
   Encoder as __Encoder,
   Hash as __Hash,
@@ -44,10 +35,20 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
+  Provider,
+  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
+
+import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
+import { RegisterClientCommandInput, RegisterClientCommandOutput } from "./commands/RegisterClientCommand";
+import {
+  StartDeviceAuthorizationCommandInput,
+  StartDeviceAuthorizationCommandOutput,
+} from "./commands/StartDeviceAuthorizationCommand";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateTokenCommandInput

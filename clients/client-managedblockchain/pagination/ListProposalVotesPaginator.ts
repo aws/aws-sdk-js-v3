@@ -1,12 +1,13 @@
-import { ManagedBlockchain } from "../ManagedBlockchain";
-import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListProposalVotesCommand,
   ListProposalVotesCommandInput,
   ListProposalVotesCommandOutput,
 } from "../commands/ListProposalVotesCommand";
+import { ManagedBlockchain } from "../ManagedBlockchain";
+import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
 import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

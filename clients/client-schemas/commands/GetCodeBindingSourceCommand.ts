@@ -1,9 +1,3 @@
-import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { GetCodeBindingSourceRequest, GetCodeBindingSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCodeBindingSourceCommand,
-  serializeAws_restJson1GetCodeBindingSourceCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetCodeBindingSourceRequest, GetCodeBindingSourceResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1GetCodeBindingSourceCommand,
+  serializeAws_restJson1GetCodeBindingSourceCommand,
+} from "../protocols/Aws_restJson1";
+import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 export interface GetCodeBindingSourceCommandInput extends GetCodeBindingSourceRequest {}
 export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceResponse, __MetadataBearer {}

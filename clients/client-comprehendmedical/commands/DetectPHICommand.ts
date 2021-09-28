@@ -1,10 +1,3 @@
-import {
-  ComprehendMedicalClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComprehendMedicalClient";
-import { DetectPHIRequest, DetectPHIResponse } from "../models/models_0";
-import { deserializeAws_json1_1DetectPHICommand, serializeAws_json1_1DetectPHICommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,11 +5,19 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import {
+  ComprehendMedicalClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ComprehendMedicalClient";
+import { DetectPHIRequest, DetectPHIResponse } from "../models/models_0";
+import { deserializeAws_json1_1DetectPHICommand, serializeAws_json1_1DetectPHICommand } from "../protocols/Aws_json1_1";
 
 export interface DetectPHICommandInput extends DetectPHIRequest {}
 export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBearer {}

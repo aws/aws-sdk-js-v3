@@ -1,12 +1,13 @@
-import { FraudDetector } from "../FraudDetector";
-import { FraudDetectorClient } from "../FraudDetectorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeModelVersionsCommand,
   DescribeModelVersionsCommandInput,
   DescribeModelVersionsCommandOutput,
 } from "../commands/DescribeModelVersionsCommand";
+import { FraudDetector } from "../FraudDetector";
+import { FraudDetectorClient } from "../FraudDetectorClient";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

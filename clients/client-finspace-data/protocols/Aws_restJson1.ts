@@ -1,19 +1,3 @@
-import { CreateChangesetCommandInput, CreateChangesetCommandOutput } from "../commands/CreateChangesetCommand";
-import {
-  GetProgrammaticAccessCredentialsCommandInput,
-  GetProgrammaticAccessCredentialsCommandOutput,
-} from "../commands/GetProgrammaticAccessCredentialsCommand";
-import { GetWorkingLocationCommandInput, GetWorkingLocationCommandOutput } from "../commands/GetWorkingLocationCommand";
-import {
-  AccessDeniedException,
-  ChangesetInfo,
-  Credentials,
-  ErrorInfo,
-  InternalServerException,
-  ResourceNotFoundException,
-  ThrottlingException,
-  ValidationException,
-} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectLong as __expectLong,
@@ -31,6 +15,23 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+import { CreateChangesetCommandInput, CreateChangesetCommandOutput } from "../commands/CreateChangesetCommand";
+import {
+  GetProgrammaticAccessCredentialsCommandInput,
+  GetProgrammaticAccessCredentialsCommandOutput,
+} from "../commands/GetProgrammaticAccessCredentialsCommand";
+import { GetWorkingLocationCommandInput, GetWorkingLocationCommandOutput } from "../commands/GetWorkingLocationCommand";
+import {
+  AccessDeniedException,
+  ChangesetInfo,
+  Credentials,
+  ErrorInfo,
+  InternalServerException,
+  ResourceNotFoundException,
+  ThrottlingException,
+  ValidationException,
+} from "../models/models_0";
 
 export const serializeAws_restJson1CreateChangesetCommand = async (
   input: CreateChangesetCommandInput,
@@ -150,7 +151,7 @@ const deserializeAws_restJson1CreateChangesetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -241,7 +242,7 @@ const deserializeAws_restJson1GetProgrammaticAccessCredentialsCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -320,7 +321,7 @@ const deserializeAws_restJson1GetWorkingLocationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":

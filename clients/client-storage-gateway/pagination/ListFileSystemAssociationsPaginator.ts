@@ -1,12 +1,13 @@
-import { StorageGateway } from "../StorageGateway";
-import { StorageGatewayClient } from "../StorageGatewayClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListFileSystemAssociationsCommand,
   ListFileSystemAssociationsCommandInput,
   ListFileSystemAssociationsCommandOutput,
 } from "../commands/ListFileSystemAssociationsCommand";
+import { StorageGateway } from "../StorageGateway";
+import { StorageGatewayClient } from "../StorageGatewayClient";
 import { StorageGatewayPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

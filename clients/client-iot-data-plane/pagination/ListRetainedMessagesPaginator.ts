@@ -1,12 +1,13 @@
-import { IoTDataPlane } from "../IoTDataPlane";
-import { IoTDataPlaneClient } from "../IoTDataPlaneClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListRetainedMessagesCommand,
   ListRetainedMessagesCommandInput,
   ListRetainedMessagesCommandOutput,
 } from "../commands/ListRetainedMessagesCommand";
+import { IoTDataPlane } from "../IoTDataPlane";
+import { IoTDataPlaneClient } from "../IoTDataPlaneClient";
 import { IoTDataPlanePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

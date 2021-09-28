@@ -1,9 +1,3 @@
-import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { UpdateTrackerRequest, UpdateTrackerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateTrackerCommand,
-  serializeAws_restJson1UpdateTrackerCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { UpdateTrackerRequest, UpdateTrackerResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1UpdateTrackerCommand,
+  serializeAws_restJson1UpdateTrackerCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface UpdateTrackerCommandInput extends UpdateTrackerRequest {}
 export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __MetadataBearer {}

@@ -1,4 +1,5 @@
-import { KendraClient } from "./KendraClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchDeleteDocumentCommand,
   BatchDeleteDocumentCommandInput,
@@ -95,15 +96,15 @@ import {
   GetQuerySuggestionsCommandOutput,
 } from "./commands/GetQuerySuggestionsCommand";
 import {
-  ListDataSourceSyncJobsCommand,
-  ListDataSourceSyncJobsCommandInput,
-  ListDataSourceSyncJobsCommandOutput,
-} from "./commands/ListDataSourceSyncJobsCommand";
-import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
+import {
+  ListDataSourceSyncJobsCommand,
+  ListDataSourceSyncJobsCommandInput,
+  ListDataSourceSyncJobsCommandOutput,
+} from "./commands/ListDataSourceSyncJobsCommand";
 import { ListFaqsCommand, ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import {
   ListGroupsOlderThanOrderingIdCommand,
@@ -174,7 +175,7 @@ import {
   UpdateThesaurusCommandInput,
   UpdateThesaurusCommandOutput,
 } from "./commands/UpdateThesaurusCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { KendraClient } from "./KendraClient";
 
 /**
  * <p>Amazon Kendra is a service for indexing large document sets.</p>

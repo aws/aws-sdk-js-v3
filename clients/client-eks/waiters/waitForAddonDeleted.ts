@@ -1,6 +1,7 @@
-import { EKSClient } from "../EKSClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeAddonCommand, DescribeAddonCommandInput } from "../commands/DescribeAddonCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EKSClient } from "../EKSClient";
 
 const checkState = async (client: EKSClient, input: DescribeAddonCommandInput): Promise<WaiterResult> => {
   let reason;

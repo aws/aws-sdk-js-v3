@@ -1,12 +1,13 @@
-import { SMS } from "../SMS";
-import { SMSClient } from "../SMSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetConnectorsCommand,
   GetConnectorsCommandInput,
   GetConnectorsCommandOutput,
 } from "../commands/GetConnectorsCommand";
+import { SMS } from "../SMS";
+import { SMSClient } from "../SMSClient";
 import { SMSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,5 @@
-import { DAXClient } from "./DAXClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateClusterCommand,
   CreateClusterCommandInput,
@@ -92,7 +93,7 @@ import {
   UpdateSubnetGroupCommandInput,
   UpdateSubnetGroupCommandOutput,
 } from "./commands/UpdateSubnetGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DAXClient } from "./DAXClient";
 
 /**
  * <p>DAX is a managed caching service engineered for Amazon DynamoDB. DAX

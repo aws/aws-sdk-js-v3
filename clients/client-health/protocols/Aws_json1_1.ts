@@ -1,3 +1,20 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import {
   DescribeAffectedAccountsForOrganizationCommandInput,
   DescribeAffectedAccountsForOrganizationCommandOutput,
@@ -26,12 +43,12 @@ import {
   DescribeEventDetailsForOrganizationCommandInput,
   DescribeEventDetailsForOrganizationCommandOutput,
 } from "../commands/DescribeEventDetailsForOrganizationCommand";
-import { DescribeEventTypesCommandInput, DescribeEventTypesCommandOutput } from "../commands/DescribeEventTypesCommand";
 import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "../commands/DescribeEventsCommand";
 import {
   DescribeEventsForOrganizationCommandInput,
   DescribeEventsForOrganizationCommandOutput,
 } from "../commands/DescribeEventsForOrganizationCommand";
+import { DescribeEventTypesCommandInput, DescribeEventTypesCommandOutput } from "../commands/DescribeEventTypesCommand";
 import {
   DescribeHealthServiceStatusForOrganizationCommandInput,
   DescribeHealthServiceStatusForOrganizationCommandOutput,
@@ -62,12 +79,12 @@ import {
   DescribeEventDetailsForOrganizationResponse,
   DescribeEventDetailsRequest,
   DescribeEventDetailsResponse,
-  DescribeEventTypesRequest,
-  DescribeEventTypesResponse,
   DescribeEventsForOrganizationRequest,
   DescribeEventsForOrganizationResponse,
   DescribeEventsRequest,
   DescribeEventsResponse,
+  DescribeEventTypesRequest,
+  DescribeEventTypesResponse,
   DescribeHealthServiceStatusForOrganizationResponse,
   EntityAggregate,
   EntityFilter,
@@ -91,22 +108,6 @@ import {
   OrganizationEventFilter,
   UnsupportedLocale,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectInt32 as __expectInt32,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectString as __expectString,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand = async (
   input: DescribeAffectedAccountsForOrganizationCommandInput,
@@ -300,7 +301,7 @@ const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidPaginationToken":
@@ -354,7 +355,7 @@ const deserializeAws_json1_1DescribeAffectedEntitiesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidPaginationToken":
@@ -416,7 +417,7 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidPaginationToken":
@@ -478,7 +479,7 @@ const deserializeAws_json1_1DescribeEntityAggregatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -524,7 +525,7 @@ const deserializeAws_json1_1DescribeEventAggregatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidPaginationToken":
@@ -578,7 +579,7 @@ const deserializeAws_json1_1DescribeEventDetailsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "UnsupportedLocale":
@@ -632,7 +633,7 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "UnsupportedLocale":
@@ -686,7 +687,7 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidPaginationToken":
@@ -748,7 +749,7 @@ const deserializeAws_json1_1DescribeEventsForOrganizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidPaginationToken":
@@ -810,7 +811,7 @@ const deserializeAws_json1_1DescribeEventTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidPaginationToken":
@@ -872,7 +873,7 @@ const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -915,7 +916,7 @@ const deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -966,7 +967,7 @@ const deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":

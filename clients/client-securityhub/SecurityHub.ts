@@ -1,4 +1,5 @@
-import { SecurityHubClient } from "./SecurityHubClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptAdministratorInvitationCommand,
   AcceptAdministratorInvitationCommandInput,
@@ -230,7 +231,7 @@ import {
   UpdateStandardsControlCommandInput,
   UpdateStandardsControlCommandOutput,
 } from "./commands/UpdateStandardsControlCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SecurityHubClient } from "./SecurityHubClient";
 
 /**
  * <p>Security Hub provides you with a comprehensive view of the security state of your Amazon Web Services environment and resources. It also provides you with the readiness status

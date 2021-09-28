@@ -1,9 +1,3 @@
-import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DescribeInsightRulesInput, DescribeInsightRulesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeInsightRulesCommand,
-  serializeAws_queryDescribeInsightRulesCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
+import { DescribeInsightRulesInput, DescribeInsightRulesOutput } from "../models/models_0";
+import {
+  deserializeAws_queryDescribeInsightRulesCommand,
+  serializeAws_queryDescribeInsightRulesCommand,
+} from "../protocols/Aws_query";
 
 export interface DescribeInsightRulesCommandInput extends DescribeInsightRulesInput {}
 export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesOutput, __MetadataBearer {}

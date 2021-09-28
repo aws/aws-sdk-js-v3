@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CodeCommitClient } from "./CodeCommitClient";
 import {
   AssociateApprovalRuleTemplateWithRepositoryCommand,
@@ -348,7 +350,6 @@ import {
   UpdateRepositoryNameCommandInput,
   UpdateRepositoryNameCommandOutput,
 } from "./commands/UpdateRepositoryNameCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS CodeCommit</fullname>

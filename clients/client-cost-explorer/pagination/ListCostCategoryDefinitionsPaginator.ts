@@ -1,12 +1,13 @@
-import { CostExplorer } from "../CostExplorer";
-import { CostExplorerClient } from "../CostExplorerClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListCostCategoryDefinitionsCommand,
   ListCostCategoryDefinitionsCommandInput,
   ListCostCategoryDefinitionsCommandOutput,
 } from "../commands/ListCostCategoryDefinitionsCommand";
+import { CostExplorer } from "../CostExplorer";
+import { CostExplorerClient } from "../CostExplorerClient";
 import { CostExplorerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

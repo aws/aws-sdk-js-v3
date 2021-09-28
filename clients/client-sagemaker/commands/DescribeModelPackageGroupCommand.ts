@@ -1,9 +1,3 @@
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeModelPackageGroupInput, DescribeModelPackageGroupOutput } from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribeModelPackageGroupCommand,
-  serializeAws_json1_1DescribeModelPackageGroupCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeModelPackageGroupInput, DescribeModelPackageGroupOutput } from "../models/models_1";
+import {
+  deserializeAws_json1_1DescribeModelPackageGroupCommand,
+  serializeAws_json1_1DescribeModelPackageGroupCommand,
+} from "../protocols/Aws_json1_1";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 export interface DescribeModelPackageGroupCommandInput extends DescribeModelPackageGroupInput {}
 export interface DescribeModelPackageGroupCommandOutput extends DescribeModelPackageGroupOutput, __MetadataBearer {}

@@ -1,9 +1,3 @@
-import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
-import { CreateActivityInput, CreateActivityOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateActivityCommand,
-  serializeAws_json1_0CreateActivityCommand,
-} from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CreateActivityInput, CreateActivityOutput } from "../models/models_0";
+import {
+  deserializeAws_json1_0CreateActivityCommand,
+  serializeAws_json1_0CreateActivityCommand,
+} from "../protocols/Aws_json1_0";
+import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 export interface CreateActivityCommandInput extends CreateActivityInput {}
 export interface CreateActivityCommandOutput extends CreateActivityOutput, __MetadataBearer {}

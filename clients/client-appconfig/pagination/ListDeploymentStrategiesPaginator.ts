@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { AppConfig } from "../AppConfig";
 import { AppConfigClient } from "../AppConfigClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListDeploymentStrategiesCommandOutput,
 } from "../commands/ListDeploymentStrategiesCommand";
 import { AppConfigPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

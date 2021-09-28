@@ -1,4 +1,5 @@
-import { SchemasClient } from "./SchemasClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateDiscovererCommand,
   CreateDiscovererCommandInput,
@@ -89,12 +90,12 @@ import {
   ListRegistriesCommandInput,
   ListRegistriesCommandOutput,
 } from "./commands/ListRegistriesCommand";
+import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
   ListSchemaVersionsCommand,
   ListSchemaVersionsCommandInput,
   ListSchemaVersionsCommandOutput,
 } from "./commands/ListSchemaVersionsCommand";
-import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -146,7 +147,7 @@ import {
   UpdateSchemaCommandInput,
   UpdateSchemaCommandOutput,
 } from "./commands/UpdateSchemaCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SchemasClient } from "./SchemasClient";
 
 /**
  * <p>Amazon EventBridge Schema Registry</p>

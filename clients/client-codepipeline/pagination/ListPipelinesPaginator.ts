@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CodePipeline } from "../CodePipeline";
 import { CodePipelineClient } from "../CodePipelineClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListPipelinesCommandOutput,
 } from "../commands/ListPipelinesCommand";
 import { CodePipelinePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

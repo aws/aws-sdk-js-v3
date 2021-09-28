@@ -1,4 +1,5 @@
-import { ServiceCatalogAppRegistryClient } from "./ServiceCatalogAppRegistryClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateAttributeGroupCommand,
   AssociateAttributeGroupCommandInput,
@@ -100,7 +101,7 @@ import {
   UpdateAttributeGroupCommandInput,
   UpdateAttributeGroupCommandOutput,
 } from "./commands/UpdateAttributeGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ServiceCatalogAppRegistryClient } from "./ServiceCatalogAppRegistryClient";
 
 /**
  * <p> Amazon Web Services Service Catalog AppRegistry enables organizations to understand the application context of their Amazon Web Services resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
