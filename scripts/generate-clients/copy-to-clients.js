@@ -9,13 +9,13 @@ const getOverwritableDirectories = (subDirectories, packageName) => {
   };
   const overwritableDirectories = [
     "src", // contains all source files
-    "tests", // protocol_tests
     "LICENCE",
     "README.md",
   ];
   return subDirectories.filter((subDirectory) => {
     return (
       overwritableDirectories.indexOf(subDirectory) >= 0 ||
+      (packageName.startsWith("aws-") && subDirectory === "tests") ||
       additionalGeneratedFiles[packageName]?.indexOf(subDirectory) >= 0
     );
   });
