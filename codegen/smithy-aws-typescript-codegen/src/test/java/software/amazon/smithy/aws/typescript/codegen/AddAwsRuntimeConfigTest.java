@@ -9,6 +9,7 @@ import software.amazon.smithy.build.MockManifest;
 import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 
@@ -40,13 +41,13 @@ public class AddAwsRuntimeConfigTest {
                 containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("serviceId?:"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("region?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("serviceId?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("region?:"));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("serviceId: config?.serviceId ?? \"Not Same\""));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("region: config?.region ?? invalidProvider"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("region: config?.region ?? loadNodeConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), containsString("serviceId: config?.serviceId ?? \"Not Same\""));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("region: config?.region ?? invalidProvider"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("region: config?.region ?? loadNodeConfig"));
     }
 
     @Test
@@ -76,13 +77,13 @@ public class AddAwsRuntimeConfigTest {
                 containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), not(containsString("serviceId?:")));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("region?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), not(containsString("serviceId?:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("region?:"));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), not(containsString("serviceId:")));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("region: config?.region ?? invalidProvider"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("region: config?.region ?? loadNodeConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), not(containsString("serviceId:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("region: config?.region ?? invalidProvider"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("region: config?.region ?? loadNodeConfig"));
     }
 
     @Test
@@ -112,12 +113,12 @@ public class AddAwsRuntimeConfigTest {
                 containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), not(containsString("serviceId?:")));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), not(containsString("region?:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("serviceId?:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("region?:")));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), not(containsString("serviceId:")));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), not(containsString("region:")));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), not(containsString("region:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), not(containsString("serviceId:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("region:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("region:")));
     }
 }

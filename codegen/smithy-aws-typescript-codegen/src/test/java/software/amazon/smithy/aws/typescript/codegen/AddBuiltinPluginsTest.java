@@ -9,6 +9,7 @@ import software.amazon.smithy.build.MockManifest;
 import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 
 public class AddBuiltinPluginsTest {
@@ -33,13 +34,13 @@ public class AddBuiltinPluginsTest {
         new TypeScriptCodegenPlugin().execute(context);
 
         // Check the config resolution and middleware plugin
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("resolveRegionConfig"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("resolveEndpointsConfig"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("resolveRetryConfig"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("getRetryPlugin"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("getContentLengthPlugin"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("getHostHeaderPlugin"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("getLoggerPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("resolveRegionConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("resolveEndpointsConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("resolveRetryConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("getRetryPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("getContentLengthPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("getHostHeaderPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("getLoggerPlugin"));
     }
 
     @Test
@@ -63,13 +64,13 @@ public class AddBuiltinPluginsTest {
         new TypeScriptCodegenPlugin().execute(context);
 
         // Check the config resolution and middleware plugin
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("resolveRegionConfig"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("resolveCustomEndpointsConfig"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("resolveRetryConfig"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("getRetryPlugin"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("getContentLengthPlugin"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("getHostHeaderPlugin"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("getLoggerPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("resolveRegionConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("resolveCustomEndpointsConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("resolveRetryConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("getRetryPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("getContentLengthPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("getHostHeaderPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("getLoggerPlugin"));
     }
 
     @Test
@@ -93,12 +94,12 @@ public class AddBuiltinPluginsTest {
         new TypeScriptCodegenPlugin().execute(context);
 
         // Check the config resolution and middleware plugin
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), not(containsString("resolveRegionConfig")));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("resolveCustomEndpointsConfig"));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("resolveRetryConfig"));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("getRetryPlugin"));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("getContentLengthPlugin"));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("getHostHeaderPlugin"));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("getLoggerPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("resolveRegionConfig")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("resolveCustomEndpointsConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("resolveRetryConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("getRetryPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("getContentLengthPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("getHostHeaderPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("getLoggerPlugin"));
     }
 }
