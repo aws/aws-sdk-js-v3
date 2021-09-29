@@ -5022,7 +5022,7 @@ esprima@^4.0.0, esprima@^4.0.1:
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
   integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
 
-esprint@^3.1.0:
+esprint@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/esprint/-/esprint-3.1.0.tgz#ec5d59c24d66bbe06fe8c64266718c7cfd92de5d"
   integrity sha512-UfD6iLycX/bZHxDJW3bfYTNj+RyD89nS6fVx57yS6tuup5ymUxGzopEwhwK2q8D0HKn0pxwaEwTjxBAfH7WggQ==
