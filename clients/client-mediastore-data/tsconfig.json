@@ -11,7 +11,8 @@
     "incremental": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "outDir": "dist/cjs",
+    "rootDir": "src",
+    "outDir": "dist-cjs",
     "removeComments": true,
     "types": ["mocha"]
   },
@@ -28,5 +29,6 @@
     "out": "docs",
     "theme": "minimal",
     "plugin": ["@aws-sdk/client-documentation-generator"]
-  }
+  },
+  "exclude": ["test/**/*"]
 }

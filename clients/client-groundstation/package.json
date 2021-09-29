@@ -11,18 +11,12 @@
     "clean": "yarn clean:dist && yarn clean:docs",
     "clean:dist": "rimraf ./dist",
     "clean:docs": "rimraf ./docs",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "exit 0"
   },
-  "main": "./dist/cjs/index.js",
-  "types": "./dist/types/index.d.ts",
-  "module": "./dist/es/index.js",
-  "browser": {
-    "./runtimeConfig": "./runtimeConfig.browser"
-  },
-  "react-native": {
-    "./runtimeConfig": "./runtimeConfig.native"
-  },
+  "main": "./dist-cjs/index.js",
+  "types": "./dist-types/index.d.ts",
+  "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
     "@aws-crypto/sha256-browser": "^1.0.0",
@@ -72,8 +66,8 @@
   },
   "typesVersions": {
     "<4.0": {
-      "dist/types/*": [
-        "dist/types/ts3.4/*"
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
       ]
     }
   },
@@ -82,6 +76,12 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "browser": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
+  },
+  "react-native": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
+  },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-groundstation",
   "repository": {
     "type": "git",

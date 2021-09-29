@@ -1,6 +1,7 @@
-import { TranscribeStreaming } from "../index";
 import { createReadStream } from "fs";
 import { join } from "path";
+
+import { TranscribeStreaming } from "../src/index";
 const audio = createReadStream(join(__dirname, "speech.wav"));
 
 describe("TranscribeStream client", () => {
