@@ -4,7 +4,7 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "noImplicitUseStrict": true,
-    "outDir": "dist/cjs",
+    "outDir": "dist-cjs",
     "rootDir": "src",
     "strict": false,
     "strictNullChecks": true

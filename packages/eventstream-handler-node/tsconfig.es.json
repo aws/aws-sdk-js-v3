@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "lib": ["es2018.asynciterable"],
-    "outDir": "dist/es",
+    "outDir": "dist-es",
     "rootDir": "src"
   },
   "extends": "../../tsconfig.es.json",
