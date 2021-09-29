@@ -9,6 +9,7 @@ import software.amazon.smithy.build.MockManifest;
 import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 
 public class AddUserAgentDependencyTest {
@@ -37,20 +38,20 @@ public class AddUserAgentDependencyTest {
                    containsString(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.packageName));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("defaultUserAgentProvider?"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("defaultUserAgentProvider?"));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("defaultUserAgent"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("packageInfo.version"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("clientSharedValues.serviceId"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("defaultUserAgent"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("packageInfo.version"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("clientSharedValues.serviceId"));
 
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("defaultUserAgent"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("packageInfo.version"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("clientSharedValues.serviceId"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("defaultUserAgent"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("packageInfo.version"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("clientSharedValues.serviceId"));
 
         // Check the config resolution and middleware plugin
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("resolveUserAgentConfig"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("getUserAgentPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("resolveUserAgentConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("getUserAgentPlugin"));
     }
 
     @Test
@@ -78,19 +79,19 @@ public class AddUserAgentDependencyTest {
                 containsString(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.packageName));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("ExampleServiceClient.ts").get(), containsString("defaultUserAgentProvider?"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/ExampleServiceClient.ts").get(), containsString("defaultUserAgentProvider?"));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("defaultUserAgent"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("packageInfo.version"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), not(containsString("ClientSharedValues.serviceId")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("defaultUserAgent"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("packageInfo.version"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("ClientSharedValues.serviceId")));
 
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("defaultUserAgent"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("packageInfo.version"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), not(containsString("ClientSharedValues.serviceId")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("defaultUserAgent"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("packageInfo.version"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("ClientSharedValues.serviceId")));
 
         // Check the config resolution and middleware plugin
-        assertThat(manifest.getFileString("ExampleServiceClient.ts").get(), containsString("resolveUserAgentConfig"));
-        assertThat(manifest.getFileString("ExampleServiceClient.ts").get(), containsString("getUserAgentPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/ExampleServiceClient.ts").get(), containsString("resolveUserAgentConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/ExampleServiceClient.ts").get(), containsString("getUserAgentPlugin"));
     }
 }

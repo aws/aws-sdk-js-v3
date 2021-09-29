@@ -8,30 +8,14 @@ const getOverwritableDirectories = (subDirectories, packageName) => {
     "@aws-sdk/client-sts": ["defaultRoleAssumers.ts", "defaultStsRoleAssumers.ts", "defaultRoleAssumers.spec.ts"],
   };
   const overwritableDirectories = [
-    "commands",
-    "models",
-    "protocols",
-    "pagination",
-    "tests",
-    "waiters",
+    "src", // contains all source files
     "LICENCE",
-    "runtimeConfig.ts",
-    "runtimeConfig.browser.ts",
-    "runtimeConfig.shared.ts",
-    "runtimeConfig.native.ts",
-    "index.ts",
-    "endpoints.ts",
     "README.md",
   ];
   return subDirectories.filter((subDirectory) => {
-    const isBareBoneClient =
-      subDirectory.endsWith("Client.ts") && subDirectories.indexOf(subDirectory.replace("Client.ts", ".ts")) >= 0;
-    const isAggregateClient =
-      subDirectory.endsWith(".ts") && subDirectories.indexOf(subDirectory.replace(".ts", "Client.ts")) >= 0;
     return (
-      isBareBoneClient ||
-      isAggregateClient ||
       overwritableDirectories.indexOf(subDirectory) >= 0 ||
+      (packageName.startsWith("aws-") && subDirectory === "test") ||
       additionalGeneratedFiles[packageName]?.indexOf(subDirectory) >= 0
     );
   });
@@ -152,6 +136,19 @@ const copyToClients = async (sourceDir, destinationDir) => {
         });
       }
     }
+
+    // Add @ts-ignore to packageInfo import from AddUserAgentDependency.java
+    ["src/runtimeConfig.ts", "src/runtimeConfig.browser.ts"].forEach((runtimeConfigFileName) => {
+      const runtimeConfigFilepath = join(destPath, runtimeConfigFileName);
+      const content = readFileSync(runtimeConfigFilepath).toString();
+      writeFileSync(
+        runtimeConfigFilepath,
+        content.replace(
+          `import packageInfo`,
+          `// @ts-ignore: package.json will be imported from dist folders\nimport packageInfo`
+        )
+      );
+    });
   }
 };
 

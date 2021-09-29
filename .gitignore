@@ -38,6 +38,7 @@ codegen/sdk-codegen/smithy-build.json
 
 coverage
 dist
+dist-*
 
 /verdaccio/*
 !/verdaccio/config.yaml

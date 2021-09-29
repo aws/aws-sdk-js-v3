@@ -8,6 +8,7 @@ import software.amazon.smithy.build.MockManifest;
 import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 
@@ -41,18 +42,18 @@ public class AddClientRuntimeConfigTest {
                 containsString(TypeScriptDependency.MIDDLEWARE_RETRY.packageName));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("maxAttempts?:"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("retryMode?:"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("logger?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("maxAttempts?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("retryMode?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("logger?:"));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("logger:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), containsString("logger:"));
 
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("retryMode:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("maxAttempts:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("retryMode:"));
 
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("retryMode:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("maxAttempts:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("retryMode:"));
     }
 
     @Test
@@ -84,18 +85,21 @@ public class AddClientRuntimeConfigTest {
                 containsString(TypeScriptDependency.MIDDLEWARE_RETRY.packageName));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("maxAttempts?:"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("retryMode?:"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("logger?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(),
+                containsString("maxAttempts?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(),
+                containsString("retryMode?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(),
+                containsString("logger?:"));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("logger:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), containsString("logger:"));
 
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("retryMode:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("maxAttempts:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("retryMode:"));
 
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("retryMode:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("maxAttempts:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("retryMode:"));
     }
 
     @Test
@@ -127,17 +131,17 @@ public class AddClientRuntimeConfigTest {
                 containsString(TypeScriptDependency.MIDDLEWARE_RETRY.packageName));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("maxAttempts?:"));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("retryMode?:"));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), containsString("logger?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("maxAttempts?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("retryMode?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), containsString("logger?:"));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("logger:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), containsString("logger:"));
 
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("retryMode:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("maxAttempts:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("retryMode:"));
 
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("maxAttempts:"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("retryMode:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("maxAttempts:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("retryMode:"));
     }
 }
