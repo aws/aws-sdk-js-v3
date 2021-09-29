@@ -12,7 +12,6 @@
     "clean:dist": "rimraf ./dist",
     "clean:docs": "rimraf ./docs",
     "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
-    "postbuild": "cp test/speech.wav dist-cjs/test",
     "pretest": "yarn build",
     "test": "jest --coverage --passWithNoTests",
     "test:integration": "jest --config jest.integ.config.js"
