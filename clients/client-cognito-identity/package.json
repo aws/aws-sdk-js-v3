@@ -12,9 +12,8 @@
     "clean:dist": "rimraf ./dist",
     "clean:docs": "rimraf ./docs",
     "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
-    "test": "yarn test:unit",
-    "test:e2e": "mocha **/cjs/**/*.ispec.js && karma start karma.conf.js",
-    "test:unit": "mocha **/cjs/**/*.spec.js"
+    "test": "exit 0",
+    "test:e2e": "mocha **/cjs/**/*.ispec.js && karma start karma.conf.js"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

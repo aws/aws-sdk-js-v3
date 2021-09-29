@@ -14,7 +14,7 @@
     "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "yarn test:unit",
     "test:e2e": "mocha **/cjs/**/*.ispec.js && karma start karma.conf.js",
-    "test:unit": "mocha **/cjs/**/*.spec.js"
+    "test:unit": "ts-mocha test/**/*.spec.ts"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
