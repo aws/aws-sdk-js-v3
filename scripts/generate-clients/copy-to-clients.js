@@ -15,7 +15,7 @@ const getOverwritableDirectories = (subDirectories, packageName) => {
   return subDirectories.filter((subDirectory) => {
     return (
       overwritableDirectories.indexOf(subDirectory) >= 0 ||
-      (packageName.startsWith("aws-") && subDirectory === "tests") ||
+      (packageName.startsWith("aws-") && subDirectory === "test") ||
       additionalGeneratedFiles[packageName]?.indexOf(subDirectory) >= 0
     );
   });
