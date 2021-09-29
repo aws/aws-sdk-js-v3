@@ -1,22 +1,23 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { ACMClient } from "../ACMClient";
 import { DescribeCertificateCommand, DescribeCertificateCommandInput } from "../commands/DescribeCertificateCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: ACMClient, input: DescribeCertificateCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCertificateCommand(input));
+    const result: any = await client.send(new DescribeCertificateCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.Certificate.DomainValidationOptions);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.Certificate.DomainValidationOptions);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.ValidationStatus;
         });
         return projection_3;
       };
       let allStringEq_5 = returnComparator().length > 0;
-      for (let element_4 of returnComparator()) {
+      for (const element_4 of returnComparator()) {
         allStringEq_5 = allStringEq_5 && element_4 == "SUCCESS";
       }
       if (allStringEq_5) {
@@ -24,21 +25,21 @@ const checkState = async (client: ACMClient, input: DescribeCertificateCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.Certificate.DomainValidationOptions);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.Certificate.DomainValidationOptions);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.ValidationStatus;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "PENDING_VALIDATION") {
           return { state: WaiterState.RETRY, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Certificate.Status;
       };
       if (returnComparator() === "FAILED") {

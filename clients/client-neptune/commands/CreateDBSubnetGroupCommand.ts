@@ -1,9 +1,3 @@
-import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBSubnetGroupCommand,
-  serializeAws_queryCreateDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/models_0";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
+import {
+  deserializeAws_queryCreateDBSubnetGroupCommand,
+  serializeAws_queryCreateDBSubnetGroupCommand,
+} from "../protocols/Aws_query";
 
 export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMessage {}
 export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}

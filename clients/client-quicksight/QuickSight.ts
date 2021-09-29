@@ -1,4 +1,5 @@
-import { QuickSightClient } from "./QuickSightClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CancelIngestionCommand,
   CancelIngestionCommandInput,
@@ -295,15 +296,15 @@ import {
   ListAnalysesCommandOutput,
 } from "./commands/ListAnalysesCommand";
 import {
-  ListDashboardVersionsCommand,
-  ListDashboardVersionsCommandInput,
-  ListDashboardVersionsCommandOutput,
-} from "./commands/ListDashboardVersionsCommand";
-import {
   ListDashboardsCommand,
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
+import {
+  ListDashboardVersionsCommand,
+  ListDashboardVersionsCommandInput,
+  ListDashboardVersionsCommandOutput,
+} from "./commands/ListDashboardVersionsCommand";
 import {
   ListDataSetsCommand,
   ListDataSetsCommandInput,
@@ -357,26 +358,26 @@ import {
   ListTemplateAliasesCommandOutput,
 } from "./commands/ListTemplateAliasesCommand";
 import {
-  ListTemplateVersionsCommand,
-  ListTemplateVersionsCommandInput,
-  ListTemplateVersionsCommandOutput,
-} from "./commands/ListTemplateVersionsCommand";
-import {
   ListTemplatesCommand,
   ListTemplatesCommandInput,
   ListTemplatesCommandOutput,
 } from "./commands/ListTemplatesCommand";
 import {
+  ListTemplateVersionsCommand,
+  ListTemplateVersionsCommandInput,
+  ListTemplateVersionsCommandOutput,
+} from "./commands/ListTemplateVersionsCommand";
+import {
   ListThemeAliasesCommand,
   ListThemeAliasesCommandInput,
   ListThemeAliasesCommandOutput,
 } from "./commands/ListThemeAliasesCommand";
+import { ListThemesCommand, ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
 import {
   ListThemeVersionsCommand,
   ListThemeVersionsCommandInput,
   ListThemeVersionsCommandOutput,
 } from "./commands/ListThemeVersionsCommand";
-import { ListThemesCommand, ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
 import {
   ListUserGroupsCommand,
   ListUserGroupsCommandInput,
@@ -512,7 +513,7 @@ import {
   UpdateThemePermissionsCommandOutput,
 } from "./commands/UpdateThemePermissionsCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { QuickSightClient } from "./QuickSightClient";
 
 /**
  * <fullname>Amazon QuickSight API Reference</fullname>

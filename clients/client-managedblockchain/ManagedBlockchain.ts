@@ -1,4 +1,5 @@
-import { ManagedBlockchainClient } from "./ManagedBlockchainClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateMemberCommand,
   CreateMemberCommandInput,
@@ -38,15 +39,15 @@ import {
 } from "./commands/ListNetworksCommand";
 import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
 import {
-  ListProposalVotesCommand,
-  ListProposalVotesCommandInput,
-  ListProposalVotesCommandOutput,
-} from "./commands/ListProposalVotesCommand";
-import {
   ListProposalsCommand,
   ListProposalsCommandInput,
   ListProposalsCommandOutput,
 } from "./commands/ListProposalsCommand";
+import {
+  ListProposalVotesCommand,
+  ListProposalVotesCommandInput,
+  ListProposalVotesCommandOutput,
+} from "./commands/ListProposalVotesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -74,7 +75,7 @@ import {
   VoteOnProposalCommandInput,
   VoteOnProposalCommandOutput,
 } from "./commands/VoteOnProposalCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ManagedBlockchainClient } from "./ManagedBlockchainClient";
 
 /**
  * <p></p>

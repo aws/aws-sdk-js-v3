@@ -1,12 +1,13 @@
-import { GlobalAccelerator } from "../GlobalAccelerator";
-import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListByoipCidrsCommand,
   ListByoipCidrsCommandInput,
   ListByoipCidrsCommandOutput,
 } from "../commands/ListByoipCidrsCommand";
+import { GlobalAccelerator } from "../GlobalAccelerator";
+import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
 import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,5 @@
-import { ElasticLoadBalancingClient } from "./ElasticLoadBalancingClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   ApplySecurityGroupsToLoadBalancerCommand,
@@ -136,7 +137,7 @@ import {
   SetLoadBalancerPoliciesOfListenerCommandInput,
   SetLoadBalancerPoliciesOfListenerCommandOutput,
 } from "./commands/SetLoadBalancerPoliciesOfListenerCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ElasticLoadBalancingClient } from "./ElasticLoadBalancingClient";
 
 /**
  * <fullname>Elastic Load Balancing</fullname>

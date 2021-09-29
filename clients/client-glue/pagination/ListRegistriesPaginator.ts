@@ -1,12 +1,13 @@
-import { Glue } from "../Glue";
-import { GlueClient } from "../GlueClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListRegistriesCommand,
   ListRegistriesCommandInput,
   ListRegistriesCommandOutput,
 } from "../commands/ListRegistriesCommand";
+import { Glue } from "../Glue";
+import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

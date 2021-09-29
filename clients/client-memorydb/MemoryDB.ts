@@ -1,4 +1,5 @@
-import { MemoryDBClient } from "./MemoryDBClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchUpdateClusterCommand,
   BatchUpdateClusterCommandInput,
@@ -142,7 +143,7 @@ import {
   UpdateSubnetGroupCommandOutput,
 } from "./commands/UpdateSubnetGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MemoryDBClient } from "./MemoryDBClient";
 
 /**
  * <p>MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database that delivers ultra-fast performance and Multi-AZ durability for modern applications built using microservices architectures.

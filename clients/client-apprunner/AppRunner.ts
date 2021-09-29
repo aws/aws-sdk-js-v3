@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AppRunnerClient } from "./AppRunnerClient";
 import {
   AssociateCustomDomainCommand,
@@ -105,7 +107,6 @@ import {
   UpdateServiceCommandInput,
   UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS App Runner</fullname>

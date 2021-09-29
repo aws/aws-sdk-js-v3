@@ -1,12 +1,13 @@
-import { ElasticLoadBalancing } from "../ElasticLoadBalancing";
-import { ElasticLoadBalancingClient } from "../ElasticLoadBalancingClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeLoadBalancersCommand,
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
 } from "../commands/DescribeLoadBalancersCommand";
+import { ElasticLoadBalancing } from "../ElasticLoadBalancing";
+import { ElasticLoadBalancingClient } from "../ElasticLoadBalancingClient";
 import { ElasticLoadBalancingPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

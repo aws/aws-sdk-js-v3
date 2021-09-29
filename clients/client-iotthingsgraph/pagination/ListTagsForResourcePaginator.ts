@@ -1,12 +1,13 @@
-import { IoTThingsGraph } from "../IoTThingsGraph";
-import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { IoTThingsGraph } from "../IoTThingsGraph";
+import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
 import { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

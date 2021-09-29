@@ -1,12 +1,13 @@
-import { SSM } from "../SSM";
-import { SSMClient } from "../SSMClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeMaintenanceWindowExecutionTaskInvocationsCommand,
   DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
   DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput,
 } from "../commands/DescribeMaintenanceWindowExecutionTaskInvocationsCommand";
+import { SSM } from "../SSM";
+import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,12 +1,13 @@
-import { SSM } from "../SSM";
-import { SSMClient } from "../SSMClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeInstancePatchStatesForPatchGroupCommand,
   DescribeInstancePatchStatesForPatchGroupCommandInput,
   DescribeInstancePatchStatesForPatchGroupCommandOutput,
 } from "../commands/DescribeInstancePatchStatesForPatchGroupCommand";
+import { SSM } from "../SSM";
+import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,9 +1,3 @@
-import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribePlacementGroupsCommand,
-  serializeAws_ec2DescribePlacementGroupsCommand,
-} from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_3";
+import {
+  deserializeAws_ec2DescribePlacementGroupsCommand,
+  serializeAws_ec2DescribePlacementGroupsCommand,
+} from "../protocols/Aws_ec2";
 
 export interface DescribePlacementGroupsCommandInput extends DescribePlacementGroupsRequest {}
 export interface DescribePlacementGroupsCommandOutput extends DescribePlacementGroupsResult, __MetadataBearer {}

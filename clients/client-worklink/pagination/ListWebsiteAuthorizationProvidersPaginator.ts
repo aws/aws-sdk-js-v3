@@ -1,12 +1,13 @@
-import { WorkLink } from "../WorkLink";
-import { WorkLinkClient } from "../WorkLinkClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListWebsiteAuthorizationProvidersCommand,
   ListWebsiteAuthorizationProvidersCommandInput,
   ListWebsiteAuthorizationProvidersCommandOutput,
 } from "../commands/ListWebsiteAuthorizationProvidersCommand";
+import { WorkLink } from "../WorkLink";
+import { WorkLinkClient } from "../WorkLinkClient";
 import { WorkLinkPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

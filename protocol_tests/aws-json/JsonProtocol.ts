@@ -1,4 +1,5 @@
-import { JsonProtocolClient } from "./JsonProtocolClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   EmptyOperationCommand,
   EmptyOperationCommandInput,
@@ -46,7 +47,7 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { JsonProtocolClient } from "./JsonProtocolClient";
 
 export class JsonProtocol extends JsonProtocolClient {
   public emptyOperation(

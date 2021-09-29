@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CloudWatch } from "../CloudWatch";
 import { CloudWatchClient } from "../CloudWatchClient";
 import {
@@ -6,7 +8,6 @@ import {
   GetMetricDataCommandOutput,
 } from "../commands/GetMetricDataCommand";
 import { CloudWatchPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,12 +1,13 @@
-import { SecurityHub } from "../SecurityHub";
-import { SecurityHubClient } from "../SecurityHubClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "../commands/ListInvitationsCommand";
+import { SecurityHub } from "../SecurityHub";
+import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

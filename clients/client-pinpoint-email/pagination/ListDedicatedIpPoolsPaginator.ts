@@ -1,12 +1,13 @@
-import { PinpointEmail } from "../PinpointEmail";
-import { PinpointEmailClient } from "../PinpointEmailClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDedicatedIpPoolsCommand,
   ListDedicatedIpPoolsCommandInput,
   ListDedicatedIpPoolsCommandOutput,
 } from "../commands/ListDedicatedIpPoolsCommand";
+import { PinpointEmail } from "../PinpointEmail";
+import { PinpointEmailClient } from "../PinpointEmailClient";
 import { PinpointEmailPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

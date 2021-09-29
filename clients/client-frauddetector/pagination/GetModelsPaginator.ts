@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "../commands/GetModelsCommand";
 import { FraudDetector } from "../FraudDetector";
 import { FraudDetectorClient } from "../FraudDetectorClient";
-import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "../commands/GetModelsCommand";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

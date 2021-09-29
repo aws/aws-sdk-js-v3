@@ -1,12 +1,13 @@
-import { TimestreamWrite } from "../TimestreamWrite";
-import { TimestreamWriteClient } from "../TimestreamWriteClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDatabasesCommand,
   ListDatabasesCommandInput,
   ListDatabasesCommandOutput,
 } from "../commands/ListDatabasesCommand";
+import { TimestreamWrite } from "../TimestreamWrite";
+import { TimestreamWriteClient } from "../TimestreamWriteClient";
 import { TimestreamWritePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

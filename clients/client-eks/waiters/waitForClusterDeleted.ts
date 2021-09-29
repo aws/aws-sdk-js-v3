@@ -1,14 +1,15 @@
-import { EKSClient } from "../EKSClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeClusterCommand, DescribeClusterCommandInput } from "../commands/DescribeClusterCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EKSClient } from "../EKSClient";
 
 const checkState = async (client: EKSClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeClusterCommand(input));
+    const result: any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.cluster.status;
       };
       if (returnComparator() === "ACTIVE") {
@@ -16,7 +17,7 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.cluster.status;
       };
       if (returnComparator() === "CREATING") {
@@ -24,7 +25,7 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.cluster.status;
       };
       if (returnComparator() === "PENDING") {

@@ -1,12 +1,13 @@
-import { SnowDeviceManagement } from "../SnowDeviceManagement";
-import { SnowDeviceManagementClient } from "../SnowDeviceManagementClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListExecutionsCommand,
   ListExecutionsCommandInput,
   ListExecutionsCommandOutput,
 } from "../commands/ListExecutionsCommand";
+import { SnowDeviceManagement } from "../SnowDeviceManagement";
+import { SnowDeviceManagementClient } from "../SnowDeviceManagementClient";
 import { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

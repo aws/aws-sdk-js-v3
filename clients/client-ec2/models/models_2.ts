@@ -1,4 +1,5 @@
 import {
+  _InstanceType,
   AccountAttribute,
   AccountAttributeName,
   ActiveInstance,
@@ -49,7 +50,6 @@ import {
   TransitGatewayVpcAttachment,
   TransportProtocol,
   UnsuccessfulItem,
-  _InstanceType,
 } from "./models_0";
 import {
   GroupIdentifier,

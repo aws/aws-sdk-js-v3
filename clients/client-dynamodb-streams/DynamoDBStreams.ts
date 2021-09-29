@@ -1,4 +1,5 @@
-import { DynamoDBStreamsClient } from "./DynamoDBStreamsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DescribeStreamCommand,
   DescribeStreamCommandInput,
@@ -11,7 +12,7 @@ import {
   GetShardIteratorCommandOutput,
 } from "./commands/GetShardIteratorCommand";
 import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DynamoDBStreamsClient } from "./DynamoDBStreamsClient";
 
 /**
  * <fullname>Amazon DynamoDB</fullname>

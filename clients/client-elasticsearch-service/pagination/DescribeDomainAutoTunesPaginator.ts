@@ -1,12 +1,13 @@
-import { ElasticsearchService } from "../ElasticsearchService";
-import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeDomainAutoTunesCommand,
   DescribeDomainAutoTunesCommandInput,
   DescribeDomainAutoTunesCommandOutput,
 } from "../commands/DescribeDomainAutoTunesCommand";
+import { ElasticsearchService } from "../ElasticsearchService";
+import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

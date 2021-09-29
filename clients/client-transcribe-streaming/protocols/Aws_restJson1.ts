@@ -1,3 +1,21 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
+  parseBoolean as __parseBoolean,
+  strictParseInt32 as __strictParseInt32,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  EventStreamSerdeContext as __EventStreamSerdeContext,
+  Message as __Message,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import {
   StartMedicalStreamTranscriptionCommandInput,
   StartMedicalStreamTranscriptionCommandOutput,
@@ -29,23 +47,6 @@ import {
   TranscriptEvent,
   TranscriptResultStream,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectString as __expectString,
-  limitedParseDouble as __limitedParseDouble,
-  parseBoolean as __parseBoolean,
-  strictParseInt32 as __strictParseInt32,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  EventStreamSerdeContext as __EventStreamSerdeContext,
-  Message as __Message,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_restJson1StartMedicalStreamTranscriptionCommand = async (
   input: StartMedicalStreamTranscriptionCommandInput,
@@ -77,7 +78,7 @@ export const serializeAws_restJson1StartMedicalStreamTranscriptionCommand = asyn
       "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
     }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/medical-stream-transcription";
   let body: any;
   if (input.AudioStream !== undefined) {
@@ -142,7 +143,7 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
       "x-amzn-transcribe-pii-entity-types": input.PiiEntityTypes!,
     }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stream-transcription";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stream-transcription";
   let body: any;
   if (input.AudioStream !== undefined) {
     body = context.eventStreamMarshaller.serialize(input.AudioStream, (event) =>
@@ -249,7 +250,7 @@ const deserializeAws_restJson1StartMedicalStreamTranscriptionCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -416,7 +417,7 @@ const deserializeAws_restJson1StartStreamTranscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":

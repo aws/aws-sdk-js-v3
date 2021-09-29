@@ -1,12 +1,13 @@
-import { OpsWorks } from "../OpsWorks";
-import { OpsWorksClient } from "../OpsWorksClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeEcsClustersCommand,
   DescribeEcsClustersCommandInput,
   DescribeEcsClustersCommandOutput,
 } from "../commands/DescribeEcsClustersCommand";
+import { OpsWorks } from "../OpsWorks";
+import { OpsWorksClient } from "../OpsWorksClient";
 import { OpsWorksPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

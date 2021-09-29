@@ -1,12 +1,13 @@
-import { MediaLive } from "../MediaLive";
-import { MediaLiveClient } from "../MediaLiveClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListMultiplexProgramsCommand,
   ListMultiplexProgramsCommandInput,
   ListMultiplexProgramsCommandOutput,
 } from "../commands/ListMultiplexProgramsCommand";
+import { MediaLive } from "../MediaLive";
+import { MediaLiveClient } from "../MediaLiveClient";
 import { MediaLivePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,9 +1,3 @@
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { DescribeJobsRequest, DescribeJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobsCommand,
-  serializeAws_restJson1DescribeJobsCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { DescribeJobsRequest, DescribeJobsResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1DescribeJobsCommand,
+  serializeAws_restJson1DescribeJobsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface DescribeJobsCommandInput extends DescribeJobsRequest {}
 export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __MetadataBearer {}

@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "../commands/ScanCommand";
 import { DynamoDB } from "../DynamoDB";
 import { DynamoDBClient } from "../DynamoDBClient";
-import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "../commands/ScanCommand";
 import { DynamoDBPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

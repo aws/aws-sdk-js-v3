@@ -1,12 +1,13 @@
-import { Connect } from "../Connect";
-import { ConnectClient } from "../ConnectClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListApprovedOriginsCommand,
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "../commands/ListApprovedOriginsCommand";
+import { Connect } from "../Connect";
+import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,12 +1,13 @@
-import { IoT } from "../IoT";
-import { IoTClient } from "../IoTClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListAuditFindingsCommand,
   ListAuditFindingsCommandInput,
   ListAuditFindingsCommandOutput,
 } from "../commands/ListAuditFindingsCommand";
+import { IoT } from "../IoT";
+import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

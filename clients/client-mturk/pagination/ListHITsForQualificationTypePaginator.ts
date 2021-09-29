@@ -1,12 +1,13 @@
-import { MTurk } from "../MTurk";
-import { MTurkClient } from "../MTurkClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListHITsForQualificationTypeCommand,
   ListHITsForQualificationTypeCommandInput,
   ListHITsForQualificationTypeCommandOutput,
 } from "../commands/ListHITsForQualificationTypeCommand";
+import { MTurk } from "../MTurk";
+import { MTurkClient } from "../MTurkClient";
 import { MTurkPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

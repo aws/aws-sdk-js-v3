@@ -1,12 +1,13 @@
-import { Schemas } from "../Schemas";
-import { SchemasClient } from "../SchemasClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListRegistriesCommand,
   ListRegistriesCommandInput,
   ListRegistriesCommandOutput,
 } from "../commands/ListRegistriesCommand";
+import { Schemas } from "../Schemas";
+import { SchemasClient } from "../SchemasClient";
 import { SchemasPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

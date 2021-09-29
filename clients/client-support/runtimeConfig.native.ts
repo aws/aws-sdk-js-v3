@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { SupportClientConfig } from "./SupportClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { SupportClientConfig } from "./SupportClient";
 
 /**
  * @internal

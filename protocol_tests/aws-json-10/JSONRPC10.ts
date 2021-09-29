@@ -1,4 +1,5 @@
-import { JSONRPC10Client } from "./JSONRPC10Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
@@ -35,7 +36,7 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { JSONRPC10Client } from "./JSONRPC10Client";
 
 export class JSONRPC10 extends JSONRPC10Client {
   /**

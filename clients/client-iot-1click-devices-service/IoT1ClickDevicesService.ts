@@ -1,4 +1,5 @@
-import { IoT1ClickDevicesServiceClient } from "./IoT1ClickDevicesServiceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   ClaimDevicesByClaimCodeCommand,
   ClaimDevicesByClaimCodeCommandInput,
@@ -56,7 +57,7 @@ import {
   UpdateDeviceStateCommandInput,
   UpdateDeviceStateCommandOutput,
 } from "./commands/UpdateDeviceStateCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoT1ClickDevicesServiceClient } from "./IoT1ClickDevicesServiceClient";
 
 /**
  * <p>Describes all of the AWS IoT 1-Click device-related API operations for the service.

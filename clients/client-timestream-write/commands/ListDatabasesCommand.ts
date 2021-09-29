@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
-import { ListDatabasesRequest, ListDatabasesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListDatabasesCommand,
-  serializeAws_json1_0ListDatabasesCommand,
-} from "../protocols/Aws_json1_0";
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ListDatabasesRequest, ListDatabasesResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_0ListDatabasesCommand,
+  serializeAws_json1_0ListDatabasesCommand,
+} from "../protocols/Aws_json1_0";
+import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 export interface ListDatabasesCommandInput extends ListDatabasesRequest {}
 export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __MetadataBearer {}

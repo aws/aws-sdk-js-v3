@@ -1,4 +1,5 @@
-import { LookoutMetricsClient } from "./LookoutMetricsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   ActivateAnomalyDetectorCommand,
   ActivateAnomalyDetectorCommandInput,
@@ -100,7 +101,7 @@ import {
   UpdateMetricSetCommandInput,
   UpdateMetricSetCommandOutput,
 } from "./commands/UpdateMetricSetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LookoutMetricsClient } from "./LookoutMetricsClient";
 
 /**
  * <p>This is the <i>Amazon Lookout for Metrics API Reference</i>. For an introduction to the service

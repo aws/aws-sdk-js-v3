@@ -1,9 +1,3 @@
-import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { ListPartnerEventSourcesRequest, ListPartnerEventSourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPartnerEventSourcesCommand,
-  serializeAws_json1_1ListPartnerEventSourcesCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
+import { ListPartnerEventSourcesRequest, ListPartnerEventSourcesResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1ListPartnerEventSourcesCommand,
+  serializeAws_json1_1ListPartnerEventSourcesCommand,
+} from "../protocols/Aws_json1_1";
 
 export interface ListPartnerEventSourcesCommandInput extends ListPartnerEventSourcesRequest {}
 export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSourcesResponse, __MetadataBearer {}

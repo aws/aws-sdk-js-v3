@@ -1,4 +1,5 @@
-import { RestXmlProtocolClient } from "./RestXmlProtocolClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AllQueryStringTypesCommand,
   AllQueryStringTypesCommandInput,
@@ -244,7 +245,7 @@ import {
   XmlTimestampsCommandOutput,
 } from "./commands/XmlTimestampsCommand";
 import { XmlUnionsCommand, XmlUnionsCommandInput, XmlUnionsCommandOutput } from "./commands/XmlUnionsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { RestXmlProtocolClient } from "./RestXmlProtocolClient";
 
 /**
  * A REST XML service that sends XML requests and responses.

@@ -1,3 +1,54 @@
+import {
+  EndpointsInputConfig,
+  EndpointsResolvedConfig,
+  RegionInputConfig,
+  RegionResolvedConfig,
+  resolveEndpointsConfig,
+  resolveRegionConfig,
+} from "@aws-sdk/config-resolver";
+import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import {
+  getHostHeaderPlugin,
+  HostHeaderInputConfig,
+  HostHeaderResolvedConfig,
+  resolveHostHeaderConfig,
+} from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import {
+  AwsAuthInputConfig,
+  AwsAuthResolvedConfig,
+  getAwsAuthPlugin,
+  resolveAwsAuthConfig,
+} from "@aws-sdk/middleware-signing";
+import {
+  getUserAgentPlugin,
+  resolveUserAgentConfig,
+  UserAgentInputConfig,
+  UserAgentResolvedConfig,
+} from "@aws-sdk/middleware-user-agent";
+import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import {
+  Client as __Client,
+  SmithyConfiguration as __SmithyConfiguration,
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
+} from "@aws-sdk/smithy-client";
+import {
+  Credentials as __Credentials,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  Hash as __Hash,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  Provider,
+  RegionInfoProvider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
+  UserAgent as __UserAgent,
+} from "@aws-sdk/types";
+
 import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
 import {
   AssociateOpsItemRelatedItemCommandInput,
@@ -73,13 +124,13 @@ import {
   DescribeAssociationCommandOutput,
 } from "./commands/DescribeAssociationCommand";
 import {
-  DescribeAssociationExecutionTargetsCommandInput,
-  DescribeAssociationExecutionTargetsCommandOutput,
-} from "./commands/DescribeAssociationExecutionTargetsCommand";
-import {
   DescribeAssociationExecutionsCommandInput,
   DescribeAssociationExecutionsCommandOutput,
 } from "./commands/DescribeAssociationExecutionsCommand";
+import {
+  DescribeAssociationExecutionTargetsCommandInput,
+  DescribeAssociationExecutionTargetsCommandOutput,
+} from "./commands/DescribeAssociationExecutionTargetsCommand";
 import {
   DescribeAutomationExecutionsCommandInput,
   DescribeAutomationExecutionsCommandOutput,
@@ -114,6 +165,10 @@ import {
   DescribeInstanceInformationCommandOutput,
 } from "./commands/DescribeInstanceInformationCommand";
 import {
+  DescribeInstancePatchesCommandInput,
+  DescribeInstancePatchesCommandOutput,
+} from "./commands/DescribeInstancePatchesCommand";
+import {
   DescribeInstancePatchStatesCommandInput,
   DescribeInstancePatchStatesCommandOutput,
 } from "./commands/DescribeInstancePatchStatesCommand";
@@ -122,13 +177,13 @@ import {
   DescribeInstancePatchStatesForPatchGroupCommandOutput,
 } from "./commands/DescribeInstancePatchStatesForPatchGroupCommand";
 import {
-  DescribeInstancePatchesCommandInput,
-  DescribeInstancePatchesCommandOutput,
-} from "./commands/DescribeInstancePatchesCommand";
-import {
   DescribeInventoryDeletionsCommandInput,
   DescribeInventoryDeletionsCommandOutput,
 } from "./commands/DescribeInventoryDeletionsCommand";
+import {
+  DescribeMaintenanceWindowExecutionsCommandInput,
+  DescribeMaintenanceWindowExecutionsCommandOutput,
+} from "./commands/DescribeMaintenanceWindowExecutionsCommand";
 import {
   DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
   DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput,
@@ -138,21 +193,9 @@ import {
   DescribeMaintenanceWindowExecutionTasksCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionTasksCommand";
 import {
-  DescribeMaintenanceWindowExecutionsCommandInput,
-  DescribeMaintenanceWindowExecutionsCommandOutput,
-} from "./commands/DescribeMaintenanceWindowExecutionsCommand";
-import {
   DescribeMaintenanceWindowScheduleCommandInput,
   DescribeMaintenanceWindowScheduleCommandOutput,
 } from "./commands/DescribeMaintenanceWindowScheduleCommand";
-import {
-  DescribeMaintenanceWindowTargetsCommandInput,
-  DescribeMaintenanceWindowTargetsCommandOutput,
-} from "./commands/DescribeMaintenanceWindowTargetsCommand";
-import {
-  DescribeMaintenanceWindowTasksCommandInput,
-  DescribeMaintenanceWindowTasksCommandOutput,
-} from "./commands/DescribeMaintenanceWindowTasksCommand";
 import {
   DescribeMaintenanceWindowsCommandInput,
   DescribeMaintenanceWindowsCommandOutput,
@@ -161,6 +204,14 @@ import {
   DescribeMaintenanceWindowsForTargetCommandInput,
   DescribeMaintenanceWindowsForTargetCommandOutput,
 } from "./commands/DescribeMaintenanceWindowsForTargetCommand";
+import {
+  DescribeMaintenanceWindowTargetsCommandInput,
+  DescribeMaintenanceWindowTargetsCommandOutput,
+} from "./commands/DescribeMaintenanceWindowTargetsCommand";
+import {
+  DescribeMaintenanceWindowTasksCommandInput,
+  DescribeMaintenanceWindowTasksCommandOutput,
+} from "./commands/DescribeMaintenanceWindowTasksCommand";
 import { DescribeOpsItemsCommandInput, DescribeOpsItemsCommandOutput } from "./commands/DescribeOpsItemsCommand";
 import { DescribeParametersCommandInput, DescribeParametersCommandOutput } from "./commands/DescribeParametersCommand";
 import {
@@ -168,13 +219,13 @@ import {
   DescribePatchBaselinesCommandOutput,
 } from "./commands/DescribePatchBaselinesCommand";
 import {
-  DescribePatchGroupStateCommandInput,
-  DescribePatchGroupStateCommandOutput,
-} from "./commands/DescribePatchGroupStateCommand";
-import {
   DescribePatchGroupsCommandInput,
   DescribePatchGroupsCommandOutput,
 } from "./commands/DescribePatchGroupsCommand";
+import {
+  DescribePatchGroupStateCommandInput,
+  DescribePatchGroupStateCommandOutput,
+} from "./commands/DescribePatchGroupStateCommand";
 import {
   DescribePatchPropertiesCommandInput,
   DescribePatchPropertiesCommandOutput,
@@ -251,11 +302,11 @@ import {
   LabelParameterVersionCommandInput,
   LabelParameterVersionCommandOutput,
 } from "./commands/LabelParameterVersionCommand";
+import { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
 import {
   ListAssociationVersionsCommandInput,
   ListAssociationVersionsCommandOutput,
 } from "./commands/ListAssociationVersionsCommand";
-import { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
 import {
   ListCommandInvocationsCommandInput,
   ListCommandInvocationsCommandOutput,
@@ -273,11 +324,11 @@ import {
   ListDocumentMetadataHistoryCommandInput,
   ListDocumentMetadataHistoryCommandOutput,
 } from "./commands/ListDocumentMetadataHistoryCommand";
+import { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "./commands/ListDocumentsCommand";
 import {
   ListDocumentVersionsCommandInput,
   ListDocumentVersionsCommandOutput,
 } from "./commands/ListDocumentVersionsCommand";
-import { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "./commands/ListDocumentsCommand";
 import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
@@ -404,56 +455,6 @@ import {
   UpdateServiceSettingCommandOutput,
 } from "./commands/UpdateServiceSettingCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
-import {
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
-  resolveHostHeaderConfig,
-} from "@aws-sdk/middleware-host-header";
-import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
-import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
-  getUserAgentPlugin,
-  resolveUserAgentConfig,
-} from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
-import {
-  Client as __Client,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
-import {
-  Provider,
-  RegionInfoProvider,
-  Credentials as __Credentials,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
-  Hash as __Hash,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  Logger as __Logger,
-  Provider as __Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
-  UserAgent as __UserAgent,
-} from "@aws-sdk/types";
 
 export type ServiceInputTypes =
   | AddTagsToResourceCommandInput
@@ -913,13 +914,13 @@ export class SSMClient extends __Client<
   readonly config: SSMClientResolvedConfig;
 
   constructor(configuration: SSMClientConfig) {
-    let _config_0 = __getRuntimeConfig(configuration);
-    let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveEndpointsConfig(_config_1);
-    let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveAwsAuthConfig(_config_4);
-    let _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_0 = __getRuntimeConfig(configuration);
+    const _config_1 = resolveRegionConfig(_config_0);
+    const _config_2 = resolveEndpointsConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveHostHeaderConfig(_config_3);
+    const _config_5 = resolveAwsAuthConfig(_config_4);
+    const _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
     this.middlewareStack.use(getRetryPlugin(this.config));

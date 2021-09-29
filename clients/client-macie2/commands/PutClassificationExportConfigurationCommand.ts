@@ -1,3 +1,16 @@
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   PutClassificationExportConfigurationRequest,
@@ -7,18 +20,6 @@ import {
   deserializeAws_restJson1PutClassificationExportConfigurationCommand,
   serializeAws_restJson1PutClassificationExportConfigurationCommand,
 } from "../protocols/Aws_restJson1";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  MiddlewareStack,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
 
 export interface PutClassificationExportConfigurationCommandInput extends PutClassificationExportConfigurationRequest {}
 export interface PutClassificationExportConfigurationCommandOutput

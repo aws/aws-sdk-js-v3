@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
-import { CreateFleetRequest, CreateFleetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFleetCommand,
-  serializeAws_restJson1CreateFleetCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CreateFleetRequest, CreateFleetResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1CreateFleetCommand,
+  serializeAws_restJson1CreateFleetCommand,
+} from "../protocols/Aws_restJson1";
+import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 export interface CreateFleetCommandInput extends CreateFleetRequest {}
 export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}

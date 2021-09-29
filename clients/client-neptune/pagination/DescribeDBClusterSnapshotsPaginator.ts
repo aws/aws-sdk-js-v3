@@ -1,12 +1,13 @@
-import { Neptune } from "../Neptune";
-import { NeptuneClient } from "../NeptuneClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeDBClusterSnapshotsCommand,
   DescribeDBClusterSnapshotsCommandInput,
   DescribeDBClusterSnapshotsCommandOutput,
 } from "../commands/DescribeDBClusterSnapshotsCommand";
+import { Neptune } from "../Neptune";
+import { NeptuneClient } from "../NeptuneClient";
 import { NeptunePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

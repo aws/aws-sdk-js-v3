@@ -1,3 +1,6 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
 import {
   LoggingInfo,
   MaintenanceWindowTaskCutoffBehavior,
@@ -24,8 +27,6 @@ import {
   OpsResultAttribute,
   ResultAttribute,
 } from "./models_1";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 export interface UpdateMaintenanceWindowResult {
   /**

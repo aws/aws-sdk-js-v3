@@ -1,9 +1,3 @@
-import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { AliasConfiguration, UpdateAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAliasCommand,
-  serializeAws_restJson1UpdateAliasCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { AliasConfiguration, UpdateAliasRequest } from "../models/models_0";
+import {
+  deserializeAws_restJson1UpdateAliasCommand,
+  serializeAws_restJson1UpdateAliasCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface UpdateAliasCommandInput extends UpdateAliasRequest {}
 export interface UpdateAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}

@@ -1,12 +1,13 @@
-import { ECR } from "../ECR";
-import { ECRClient } from "../ECRClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeImagesCommand,
   DescribeImagesCommandInput,
   DescribeImagesCommandOutput,
 } from "../commands/DescribeImagesCommand";
+import { ECR } from "../ECR";
+import { ECRClient } from "../ECRClient";
 import { ECRPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

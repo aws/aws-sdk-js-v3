@@ -1,12 +1,13 @@
-import { MigrationHub } from "../MigrationHub";
-import { MigrationHubClient } from "../MigrationHubClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListCreatedArtifactsCommand,
   ListCreatedArtifactsCommandInput,
   ListCreatedArtifactsCommandOutput,
 } from "../commands/ListCreatedArtifactsCommand";
+import { MigrationHub } from "../MigrationHub";
+import { MigrationHubClient } from "../MigrationHubClient";
 import { MigrationHubPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

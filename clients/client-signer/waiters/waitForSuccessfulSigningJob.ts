@@ -1,14 +1,15 @@
-import { SignerClient } from "../SignerClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeSigningJobCommand, DescribeSigningJobCommandInput } from "../commands/DescribeSigningJobCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { SignerClient } from "../SignerClient";
 
 const checkState = async (client: SignerClient, input: DescribeSigningJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeSigningJobCommand(input));
+    const result: any = await client.send(new DescribeSigningJobCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       };
       if (returnComparator() === "Succeeded") {
@@ -16,7 +17,7 @@ const checkState = async (client: SignerClient, input: DescribeSigningJobCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       };
       if (returnComparator() === "Failed") {

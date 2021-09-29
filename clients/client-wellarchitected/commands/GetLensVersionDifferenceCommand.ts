@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
-import { GetLensVersionDifferenceInput, GetLensVersionDifferenceOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLensVersionDifferenceCommand,
-  serializeAws_restJson1GetLensVersionDifferenceCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetLensVersionDifferenceInput, GetLensVersionDifferenceOutput } from "../models/models_0";
+import {
+  deserializeAws_restJson1GetLensVersionDifferenceCommand,
+  serializeAws_restJson1GetLensVersionDifferenceCommand,
+} from "../protocols/Aws_restJson1";
+import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 export interface GetLensVersionDifferenceCommandInput extends GetLensVersionDifferenceInput {}
 export interface GetLensVersionDifferenceCommandOutput extends GetLensVersionDifferenceOutput, __MetadataBearer {}

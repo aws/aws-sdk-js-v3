@@ -1,14 +1,15 @@
-import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribePortalCommand, DescribePortalCommandInput } from "../commands/DescribePortalCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 
 const checkState = async (client: IoTSiteWiseClient, input: DescribePortalCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribePortalCommand(input));
+    const result: any = await client.send(new DescribePortalCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.portalStatus.state;
       };
       if (returnComparator() === "ACTIVE") {

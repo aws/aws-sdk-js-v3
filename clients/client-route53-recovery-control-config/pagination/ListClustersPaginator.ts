@@ -1,12 +1,13 @@
-import { Route53RecoveryControlConfig } from "../Route53RecoveryControlConfig";
-import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListClustersCommand,
   ListClustersCommandInput,
   ListClustersCommandOutput,
 } from "../commands/ListClustersCommand";
+import { Route53RecoveryControlConfig } from "../Route53RecoveryControlConfig";
+import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
 import { Route53RecoveryControlConfigPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

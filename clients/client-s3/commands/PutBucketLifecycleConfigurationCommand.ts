@@ -1,9 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutBucketLifecycleConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketLifecycleConfigurationCommand,
-  serializeAws_restXmlPutBucketLifecycleConfigurationCommand,
-} from "../protocols/Aws_restXml";
 import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -13,11 +7,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { PutBucketLifecycleConfigurationRequest } from "../models/models_0";
+import {
+  deserializeAws_restXmlPutBucketLifecycleConfigurationCommand,
+  serializeAws_restXmlPutBucketLifecycleConfigurationCommand,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLifecycleConfigurationRequest {}
 export interface PutBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}

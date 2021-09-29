@@ -1,4 +1,5 @@
-import { RedshiftClient } from "./RedshiftClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptReservedNodeExchangeCommand,
   AcceptReservedNodeExchangeCommandInput,
@@ -228,6 +229,11 @@ import {
   DescribeClusterParametersCommandOutput,
 } from "./commands/DescribeClusterParametersCommand";
 import {
+  DescribeClustersCommand,
+  DescribeClustersCommandInput,
+  DescribeClustersCommandOutput,
+} from "./commands/DescribeClustersCommand";
+import {
   DescribeClusterSecurityGroupsCommand,
   DescribeClusterSecurityGroupsCommandInput,
   DescribeClusterSecurityGroupsCommandOutput,
@@ -252,11 +258,6 @@ import {
   DescribeClusterVersionsCommandInput,
   DescribeClusterVersionsCommandOutput,
 } from "./commands/DescribeClusterVersionsCommand";
-import {
-  DescribeClustersCommand,
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput,
-} from "./commands/DescribeClustersCommand";
 import {
   DescribeDataSharesCommand,
   DescribeDataSharesCommandInput,
@@ -293,15 +294,15 @@ import {
   DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
-  DescribeEventSubscriptionsCommand,
-  DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput,
-} from "./commands/DescribeEventSubscriptionsCommand";
-import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
+import {
+  DescribeEventSubscriptionsCommand,
+  DescribeEventSubscriptionsCommandInput,
+  DescribeEventSubscriptionsCommandOutput,
+} from "./commands/DescribeEventSubscriptionsCommand";
 import {
   DescribeHsmClientCertificatesCommand,
   DescribeHsmClientCertificatesCommandInput,
@@ -567,7 +568,7 @@ import {
   UpdatePartnerStatusCommandInput,
   UpdatePartnerStatusCommandOutput,
 } from "./commands/UpdatePartnerStatusCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { RedshiftClient } from "./RedshiftClient";
 
 /**
  * <fullname>Amazon Redshift</fullname>

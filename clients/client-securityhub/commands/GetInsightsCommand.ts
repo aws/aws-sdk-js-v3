@@ -1,9 +1,3 @@
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { GetInsightsRequest, GetInsightsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetInsightsCommand,
-  serializeAws_restJson1GetInsightsCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetInsightsRequest, GetInsightsResponse } from "../models/models_1";
+import {
+  deserializeAws_restJson1GetInsightsCommand,
+  serializeAws_restJson1GetInsightsCommand,
+} from "../protocols/Aws_restJson1";
+import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 export interface GetInsightsCommandInput extends GetInsightsRequest {}
 export interface GetInsightsCommandOutput extends GetInsightsResponse, __MetadataBearer {}

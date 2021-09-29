@@ -1,4 +1,5 @@
-import { SESClient } from "./SESClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CloneReceiptRuleSetCommand,
   CloneReceiptRuleSetCommandInput,
@@ -342,7 +343,7 @@ import {
   VerifyEmailIdentityCommandInput,
   VerifyEmailIdentityCommandOutput,
 } from "./commands/VerifyEmailIdentityCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SESClient } from "./SESClient";
 
 /**
  * <fullname>Amazon Simple Email Service</fullname>

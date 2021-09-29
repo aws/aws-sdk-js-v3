@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { DescribeAttackRequest, DescribeAttackResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAttackCommand,
-  serializeAws_json1_1DescribeAttackCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeAttackRequest, DescribeAttackResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1DescribeAttackCommand,
+  serializeAws_json1_1DescribeAttackCommand,
+} from "../protocols/Aws_json1_1";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 export interface DescribeAttackCommandInput extends DescribeAttackRequest {}
 export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __MetadataBearer {}

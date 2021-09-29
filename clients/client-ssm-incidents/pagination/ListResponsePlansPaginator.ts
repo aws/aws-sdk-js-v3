@@ -1,12 +1,13 @@
-import { SSMIncidents } from "../SSMIncidents";
-import { SSMIncidentsClient } from "../SSMIncidentsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListResponsePlansCommand,
   ListResponsePlansCommandInput,
   ListResponsePlansCommandOutput,
 } from "../commands/ListResponsePlansCommand";
+import { SSMIncidents } from "../SSMIncidents";
+import { SSMIncidentsClient } from "../SSMIncidentsClient";
 import { SSMIncidentsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

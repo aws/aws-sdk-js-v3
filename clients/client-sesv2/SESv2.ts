@@ -1,4 +1,5 @@
-import { SESv2Client } from "./SESv2Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateConfigurationSetCommand,
   CreateConfigurationSetCommandInput,
@@ -388,7 +389,7 @@ import {
   UpdateEmailTemplateCommandInput,
   UpdateEmailTemplateCommandOutput,
 } from "./commands/UpdateEmailTemplateCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SESv2Client } from "./SESv2Client";
 
 /**
  * <fullname>Amazon SES API v2</fullname>

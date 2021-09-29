@@ -1,9 +1,3 @@
-import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVoicesCommand,
-  serializeAws_restJson1DescribeVoicesCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/models_0";
+import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
+import {
+  deserializeAws_restJson1DescribeVoicesCommand,
+  serializeAws_restJson1DescribeVoicesCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface DescribeVoicesCommandInput extends DescribeVoicesInput {}
 export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __MetadataBearer {}

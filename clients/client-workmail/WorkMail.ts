@@ -1,4 +1,5 @@
-import { WorkMailClient } from "./WorkMailClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateDelegateToResourceCommand,
   AssociateDelegateToResourceCommandInput,
@@ -229,7 +230,7 @@ import {
   UpdateResourceCommandInput,
   UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { WorkMailClient } from "./WorkMailClient";
 
 /**
  * <p>Amazon WorkMail is a secure, managed business email and calendaring service with support for

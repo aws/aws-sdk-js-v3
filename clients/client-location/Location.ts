@@ -1,4 +1,5 @@
-import { LocationClient } from "./LocationClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateTrackerConsumerCommand,
   AssociateTrackerConsumerCommandInput,
@@ -213,7 +214,7 @@ import {
   UpdateTrackerCommandInput,
   UpdateTrackerCommandOutput,
 } from "./commands/UpdateTrackerCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LocationClient } from "./LocationClient";
 
 /**
  * Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing

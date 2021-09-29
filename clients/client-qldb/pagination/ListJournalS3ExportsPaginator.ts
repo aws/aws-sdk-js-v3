@@ -1,12 +1,13 @@
-import { QLDB } from "../QLDB";
-import { QLDBClient } from "../QLDBClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListJournalS3ExportsCommand,
   ListJournalS3ExportsCommandInput,
   ListJournalS3ExportsCommandOutput,
 } from "../commands/ListJournalS3ExportsCommand";
+import { QLDB } from "../QLDB";
+import { QLDBClient } from "../QLDBClient";
 import { QLDBPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

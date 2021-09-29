@@ -1,12 +1,13 @@
-import { FMS } from "../FMS";
-import { FMSClient } from "../FMSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListMemberAccountsCommand,
   ListMemberAccountsCommandInput,
   ListMemberAccountsCommandOutput,
 } from "../commands/ListMemberAccountsCommand";
+import { FMS } from "../FMS";
+import { FMSClient } from "../FMSClient";
 import { FMSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

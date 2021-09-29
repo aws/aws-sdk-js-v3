@@ -1,4 +1,5 @@
-import { IoTFleetHubClient } from "./IoTFleetHubClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
@@ -35,7 +36,7 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTFleetHubClient } from "./IoTFleetHubClient";
 
 /**
  * <p>With Fleet Hub for AWS IoT Device Management you can build stand-alone web applications for monitoring the health of your device fleets.</p>

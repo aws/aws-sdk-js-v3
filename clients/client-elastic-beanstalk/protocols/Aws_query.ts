@@ -1,3 +1,27 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
 import {
   AbortEnvironmentUpdateCommandInput,
   AbortEnvironmentUpdateCommandOutput,
@@ -58,13 +82,13 @@ import {
   DescribeAccountAttributesCommandOutput,
 } from "../commands/DescribeAccountAttributesCommand";
 import {
-  DescribeApplicationVersionsCommandInput,
-  DescribeApplicationVersionsCommandOutput,
-} from "../commands/DescribeApplicationVersionsCommand";
-import {
   DescribeApplicationsCommandInput,
   DescribeApplicationsCommandOutput,
 } from "../commands/DescribeApplicationsCommand";
+import {
+  DescribeApplicationVersionsCommandInput,
+  DescribeApplicationVersionsCommandOutput,
+} from "../commands/DescribeApplicationVersionsCommand";
 import {
   DescribeConfigurationOptionsCommandInput,
   DescribeConfigurationOptionsCommandOutput,
@@ -180,17 +204,17 @@ import {
   AutoScalingGroup,
   BuildConfiguration,
   Builder,
-  CPUUtilization,
   CheckDNSAvailabilityMessage,
   CheckDNSAvailabilityResultMessage,
   CodeBuildNotInServiceRegionException,
   ComposeEnvironmentsMessage,
   ConfigurationOptionDescription,
-  ConfigurationOptionSetting,
   ConfigurationOptionsDescription,
+  ConfigurationOptionSetting,
   ConfigurationSettingsDescription,
   ConfigurationSettingsDescriptions,
   ConfigurationSettingsValidationMessages,
+  CPUUtilization,
   CreateApplicationMessage,
   CreateApplicationVersionMessage,
   CreateConfigurationTemplateMessage,
@@ -207,8 +231,8 @@ import {
   DeletePlatformVersionResult,
   Deployment,
   DescribeAccountAttributesResult,
-  DescribeApplicationVersionsMessage,
   DescribeApplicationsMessage,
+  DescribeApplicationVersionsMessage,
   DescribeConfigurationOptionsMessage,
   DescribeConfigurationSettingsMessage,
   DescribeEnvironmentHealthRequest,
@@ -246,12 +270,12 @@ import {
   LaunchConfiguration,
   LaunchTemplate,
   ListAvailableSolutionStacksResultMessage,
+  Listener,
   ListPlatformBranchesRequest,
   ListPlatformBranchesResult,
   ListPlatformVersionsRequest,
   ListPlatformVersionsResult,
   ListTagsForResourceMessage,
-  Listener,
   LoadBalancer,
   LoadBalancerDescription,
   ManagedAction,
@@ -294,8 +318,8 @@ import {
   SystemStatus,
   Tag,
   TerminateEnvironmentMessage,
-  TooManyApplicationVersionsException,
   TooManyApplicationsException,
+  TooManyApplicationVersionsException,
   TooManyBucketsException,
   TooManyConfigurationTemplatesException,
   TooManyEnvironmentsException,
@@ -311,29 +335,6 @@ import {
   ValidateConfigurationSettingsMessage,
   ValidationMessage,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  strictParseFloat as __strictParseFloat,
-  strictParseInt32 as __strictParseInt32,
-  strictParseLong as __strictParseLong,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_queryAbortEnvironmentUpdateCommand = async (
   input: AbortEnvironmentUpdateCommandInput,
@@ -1104,7 +1105,7 @@ const deserializeAws_queryAbortEnvironmentUpdateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -1158,7 +1159,7 @@ const deserializeAws_queryApplyEnvironmentManagedActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
@@ -1217,7 +1218,7 @@ const deserializeAws_queryAssociateEnvironmentOperationsRoleCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -1271,7 +1272,7 @@ const deserializeAws_queryCheckDNSAvailabilityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1317,7 +1318,7 @@ const deserializeAws_queryComposeEnvironmentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -1379,7 +1380,7 @@ const deserializeAws_queryCreateApplicationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "TooManyApplicationsException":
@@ -1433,7 +1434,7 @@ const deserializeAws_queryCreateApplicationVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CodeBuildNotInServiceRegionException":
@@ -1519,7 +1520,7 @@ const deserializeAws_queryCreateConfigurationTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -1589,7 +1590,7 @@ const deserializeAws_queryCreateEnvironmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -1651,7 +1652,7 @@ const deserializeAws_queryCreatePlatformVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
@@ -1721,7 +1722,7 @@ const deserializeAws_queryCreateStorageLocationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -1788,7 +1789,7 @@ const deserializeAws_queryDeleteApplicationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationInProgressException":
@@ -1839,7 +1840,7 @@ const deserializeAws_queryDeleteApplicationVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -1914,7 +1915,7 @@ const deserializeAws_queryDeleteConfigurationTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationInProgressException":
@@ -1965,7 +1966,7 @@ const deserializeAws_queryDeleteEnvironmentConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2011,7 +2012,7 @@ const deserializeAws_queryDeletePlatformVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
@@ -2089,7 +2090,7 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -2143,7 +2144,7 @@ const deserializeAws_queryDescribeApplicationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2189,7 +2190,7 @@ const deserializeAws_queryDescribeApplicationVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2235,7 +2236,7 @@ const deserializeAws_queryDescribeConfigurationOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "TooManyBucketsException":
@@ -2289,7 +2290,7 @@ const deserializeAws_queryDescribeConfigurationSettingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "TooManyBucketsException":
@@ -2343,7 +2344,7 @@ const deserializeAws_queryDescribeEnvironmentHealthCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
@@ -2408,7 +2409,7 @@ const deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
@@ -2465,7 +2466,7 @@ const deserializeAws_queryDescribeEnvironmentManagedActionsCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
@@ -2522,7 +2523,7 @@ const deserializeAws_queryDescribeEnvironmentResourcesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -2576,7 +2577,7 @@ const deserializeAws_queryDescribeEnvironmentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2622,7 +2623,7 @@ const deserializeAws_queryDescribeEventsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2668,7 +2669,7 @@ const deserializeAws_queryDescribeInstancesHealthCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
@@ -2730,7 +2731,7 @@ const deserializeAws_queryDescribePlatformVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
@@ -2789,7 +2790,7 @@ const deserializeAws_queryDisassociateEnvironmentOperationsRoleCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -2846,7 +2847,7 @@ const deserializeAws_queryListAvailableSolutionStacksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2892,7 +2893,7 @@ const deserializeAws_queryListPlatformBranchesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2938,7 +2939,7 @@ const deserializeAws_queryListPlatformVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ElasticBeanstalkServiceException":
@@ -3000,7 +3001,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -3067,7 +3068,7 @@ const deserializeAws_queryRebuildEnvironmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -3118,7 +3119,7 @@ const deserializeAws_queryRequestEnvironmentInfoCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3161,7 +3162,7 @@ const deserializeAws_queryRestartAppServerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3207,7 +3208,7 @@ const deserializeAws_queryRetrieveEnvironmentInfoCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3250,7 +3251,7 @@ const deserializeAws_querySwapEnvironmentCNAMEsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3296,7 +3297,7 @@ const deserializeAws_queryTerminateEnvironmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -3350,7 +3351,7 @@ const deserializeAws_queryUpdateApplicationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3399,7 +3400,7 @@ const deserializeAws_queryUpdateApplicationResourceLifecycleCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -3453,7 +3454,7 @@ const deserializeAws_queryUpdateApplicationVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3499,7 +3500,7 @@ const deserializeAws_queryUpdateConfigurationTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -3561,7 +3562,7 @@ const deserializeAws_queryUpdateEnvironmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -3620,7 +3621,7 @@ const deserializeAws_queryUpdateTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -3709,7 +3710,7 @@ const deserializeAws_queryValidateConfigurationSettingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPrivilegesException":
@@ -4047,7 +4048,7 @@ const serializeAws_queryAbortEnvironmentUpdateMessage = (
 const serializeAws_queryApplicationNamesList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4206,7 +4207,7 @@ const serializeAws_queryConfigurationOptionSettingsList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4801,7 +4802,7 @@ const serializeAws_queryEnvironmentHealthAttributes = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4814,7 +4815,7 @@ const serializeAws_queryEnvironmentHealthAttributes = (
 const serializeAws_queryEnvironmentIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4827,7 +4828,7 @@ const serializeAws_queryEnvironmentIdList = (input: string[], context: __SerdeCo
 const serializeAws_queryEnvironmentNamesList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4857,7 +4858,7 @@ const serializeAws_queryInstancesHealthAttributes = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4965,7 +4966,7 @@ const serializeAws_queryOptionSpecification = (input: OptionSpecification, conte
 const serializeAws_queryOptionsSpecifierList = (input: OptionSpecification[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4999,7 +5000,7 @@ const serializeAws_queryPlatformFilter = (input: PlatformFilter, context: __Serd
 const serializeAws_queryPlatformFilters = (input: PlatformFilter[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5015,7 +5016,7 @@ const serializeAws_queryPlatformFilters = (input: PlatformFilter[], context: __S
 const serializeAws_queryPlatformFilterValueList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5116,7 +5117,7 @@ const serializeAws_querySearchFilter = (input: SearchFilter, context: __SerdeCon
 const serializeAws_querySearchFilters = (input: SearchFilter[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5132,7 +5133,7 @@ const serializeAws_querySearchFilters = (input: SearchFilter[], context: __Serde
 const serializeAws_querySearchFilterValues = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5201,7 +5202,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5214,7 +5215,7 @@ const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext):
 const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5230,7 +5231,7 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
 const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5445,7 +5446,7 @@ const serializeAws_queryValidateConfigurationSettingsMessage = (
 const serializeAws_queryVersionLabels = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5458,7 +5459,7 @@ const serializeAws_queryVersionLabels = (input: string[], context: __SerdeContex
 const serializeAws_queryVersionLabelsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5469,7 +5470,7 @@ const serializeAws_queryVersionLabelsList = (input: string[], context: __SerdeCo
 };
 
 const deserializeAws_queryApplicationDescription = (output: any, context: __SerdeContext): ApplicationDescription => {
-  let contents: any = {
+  const contents: any = {
     ApplicationArn: undefined,
     ApplicationName: undefined,
     Description: undefined,
@@ -5539,7 +5540,7 @@ const deserializeAws_queryApplicationDescriptionMessage = (
   output: any,
   context: __SerdeContext
 ): ApplicationDescriptionMessage => {
-  let contents: any = {
+  const contents: any = {
     Application: undefined,
   };
   if (output["Application"] !== undefined) {
@@ -5552,7 +5553,7 @@ const deserializeAws_queryApplicationDescriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): ApplicationDescriptionsMessage => {
-  let contents: any = {
+  const contents: any = {
     Applications: undefined,
   };
   if (output.Applications === "") {
@@ -5568,7 +5569,7 @@ const deserializeAws_queryApplicationDescriptionsMessage = (
 };
 
 const deserializeAws_queryApplicationMetrics = (output: any, context: __SerdeContext): ApplicationMetrics => {
-  let contents: any = {
+  const contents: any = {
     Duration: undefined,
     RequestCount: undefined,
     StatusCodes: undefined,
@@ -5593,7 +5594,7 @@ const deserializeAws_queryApplicationResourceLifecycleConfig = (
   output: any,
   context: __SerdeContext
 ): ApplicationResourceLifecycleConfig => {
-  let contents: any = {
+  const contents: any = {
     ServiceRole: undefined,
     VersionLifecycleConfig: undefined,
   };
@@ -5613,7 +5614,7 @@ const deserializeAws_queryApplicationResourceLifecycleDescriptionMessage = (
   output: any,
   context: __SerdeContext
 ): ApplicationResourceLifecycleDescriptionMessage => {
-  let contents: any = {
+  const contents: any = {
     ApplicationName: undefined,
     ResourceLifecycleConfig: undefined,
   };
@@ -5633,7 +5634,7 @@ const deserializeAws_queryApplicationVersionDescription = (
   output: any,
   context: __SerdeContext
 ): ApplicationVersionDescription => {
-  let contents: any = {
+  const contents: any = {
     ApplicationVersionArn: undefined,
     ApplicationName: undefined,
     Description: undefined,
@@ -5699,7 +5700,7 @@ const deserializeAws_queryApplicationVersionDescriptionMessage = (
   output: any,
   context: __SerdeContext
 ): ApplicationVersionDescriptionMessage => {
-  let contents: any = {
+  const contents: any = {
     ApplicationVersion: undefined,
   };
   if (output["ApplicationVersion"] !== undefined) {
@@ -5715,7 +5716,7 @@ const deserializeAws_queryApplicationVersionDescriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): ApplicationVersionDescriptionsMessage => {
-  let contents: any = {
+  const contents: any = {
     ApplicationVersions: undefined,
     NextToken: undefined,
   };
@@ -5738,7 +5739,7 @@ const deserializeAws_queryApplicationVersionLifecycleConfig = (
   output: any,
   context: __SerdeContext
 ): ApplicationVersionLifecycleConfig => {
-  let contents: any = {
+  const contents: any = {
     MaxCountRule: undefined,
     MaxAgeRule: undefined,
   };
@@ -5755,7 +5756,7 @@ const deserializeAws_queryApplyEnvironmentManagedActionResult = (
   output: any,
   context: __SerdeContext
 ): ApplyEnvironmentManagedActionResult => {
-  let contents: any = {
+  const contents: any = {
     ActionId: undefined,
     ActionDescription: undefined,
     ActionType: undefined,
@@ -5777,7 +5778,7 @@ const deserializeAws_queryApplyEnvironmentManagedActionResult = (
 };
 
 const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
@@ -5823,7 +5824,7 @@ const deserializeAws_queryAvailableSolutionStackNamesList = (output: any, contex
 };
 
 const deserializeAws_queryBuilder = (output: any, context: __SerdeContext): Builder => {
-  let contents: any = {
+  const contents: any = {
     ARN: undefined,
   };
   if (output["ARN"] !== undefined) {
@@ -5847,7 +5848,7 @@ const deserializeAws_queryCheckDNSAvailabilityResultMessage = (
   output: any,
   context: __SerdeContext
 ): CheckDNSAvailabilityResultMessage => {
-  let contents: any = {
+  const contents: any = {
     Available: undefined,
     FullyQualifiedCNAME: undefined,
   };
@@ -5864,7 +5865,7 @@ const deserializeAws_queryCodeBuildNotInServiceRegionException = (
   output: any,
   context: __SerdeContext
 ): CodeBuildNotInServiceRegionException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5877,7 +5878,7 @@ const deserializeAws_queryConfigurationOptionDescription = (
   output: any,
   context: __SerdeContext
 ): ConfigurationOptionDescription => {
-  let contents: any = {
+  const contents: any = {
     Namespace: undefined,
     Name: undefined,
     DefaultValue: undefined,
@@ -5961,7 +5962,7 @@ const deserializeAws_queryConfigurationOptionsDescription = (
   output: any,
   context: __SerdeContext
 ): ConfigurationOptionsDescription => {
-  let contents: any = {
+  const contents: any = {
     SolutionStackName: undefined,
     PlatformArn: undefined,
     Options: undefined,
@@ -5988,7 +5989,7 @@ const deserializeAws_queryConfigurationOptionSetting = (
   output: any,
   context: __SerdeContext
 ): ConfigurationOptionSetting => {
-  let contents: any = {
+  const contents: any = {
     ResourceName: undefined,
     Namespace: undefined,
     OptionName: undefined,
@@ -6027,7 +6028,7 @@ const deserializeAws_queryConfigurationSettingsDescription = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSettingsDescription => {
-  let contents: any = {
+  const contents: any = {
     SolutionStackName: undefined,
     PlatformArn: undefined,
     ApplicationName: undefined,
@@ -6096,7 +6097,7 @@ const deserializeAws_queryConfigurationSettingsDescriptions = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSettingsDescriptions => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSettings: undefined,
   };
   if (output.ConfigurationSettings === "") {
@@ -6115,7 +6116,7 @@ const deserializeAws_queryConfigurationSettingsValidationMessages = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSettingsValidationMessages => {
-  let contents: any = {
+  const contents: any = {
     Messages: undefined,
   };
   if (output.Messages === "") {
@@ -6142,7 +6143,7 @@ const deserializeAws_queryConfigurationTemplateNamesList = (output: any, context
 };
 
 const deserializeAws_queryCPUUtilization = (output: any, context: __SerdeContext): CPUUtilization => {
-  let contents: any = {
+  const contents: any = {
     User: undefined,
     Nice: undefined,
     System: undefined,
@@ -6183,7 +6184,7 @@ const deserializeAws_queryCreatePlatformVersionResult = (
   output: any,
   context: __SerdeContext
 ): CreatePlatformVersionResult => {
-  let contents: any = {
+  const contents: any = {
     PlatformSummary: undefined,
     Builder: undefined,
   };
@@ -6200,7 +6201,7 @@ const deserializeAws_queryCreateStorageLocationResultMessage = (
   output: any,
   context: __SerdeContext
 ): CreateStorageLocationResultMessage => {
-  let contents: any = {
+  const contents: any = {
     S3Bucket: undefined,
   };
   if (output["S3Bucket"] !== undefined) {
@@ -6210,7 +6211,7 @@ const deserializeAws_queryCreateStorageLocationResultMessage = (
 };
 
 const deserializeAws_queryCustomAmi = (output: any, context: __SerdeContext): CustomAmi => {
-  let contents: any = {
+  const contents: any = {
     VirtualizationType: undefined,
     ImageId: undefined,
   };
@@ -6238,7 +6239,7 @@ const deserializeAws_queryDeletePlatformVersionResult = (
   output: any,
   context: __SerdeContext
 ): DeletePlatformVersionResult => {
-  let contents: any = {
+  const contents: any = {
     PlatformSummary: undefined,
   };
   if (output["PlatformSummary"] !== undefined) {
@@ -6248,7 +6249,7 @@ const deserializeAws_queryDeletePlatformVersionResult = (
 };
 
 const deserializeAws_queryDeployment = (output: any, context: __SerdeContext): Deployment => {
-  let contents: any = {
+  const contents: any = {
     VersionLabel: undefined,
     DeploymentId: undefined,
     Status: undefined,
@@ -6273,7 +6274,7 @@ const deserializeAws_queryDescribeAccountAttributesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAccountAttributesResult => {
-  let contents: any = {
+  const contents: any = {
     ResourceQuotas: undefined,
   };
   if (output["ResourceQuotas"] !== undefined) {
@@ -6286,7 +6287,7 @@ const deserializeAws_queryDescribeEnvironmentHealthResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentHealthResult => {
-  let contents: any = {
+  const contents: any = {
     EnvironmentName: undefined,
     HealthStatus: undefined,
     Status: undefined,
@@ -6330,7 +6331,7 @@ const deserializeAws_queryDescribeEnvironmentManagedActionHistoryResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentManagedActionHistoryResult => {
-  let contents: any = {
+  const contents: any = {
     ManagedActionHistoryItems: undefined,
     NextToken: undefined,
   };
@@ -6356,7 +6357,7 @@ const deserializeAws_queryDescribeEnvironmentManagedActionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentManagedActionsResult => {
-  let contents: any = {
+  const contents: any = {
     ManagedActions: undefined,
   };
   if (output.ManagedActions === "") {
@@ -6375,7 +6376,7 @@ const deserializeAws_queryDescribeInstancesHealthResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstancesHealthResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceHealthList: undefined,
     RefreshedAt: undefined,
     NextToken: undefined,
@@ -6402,7 +6403,7 @@ const deserializeAws_queryDescribePlatformVersionResult = (
   output: any,
   context: __SerdeContext
 ): DescribePlatformVersionResult => {
-  let contents: any = {
+  const contents: any = {
     PlatformDescription: undefined,
   };
   if (output["PlatformDescription"] !== undefined) {
@@ -6415,7 +6416,7 @@ const deserializeAws_queryElasticBeanstalkServiceException = (
   output: any,
   context: __SerdeContext
 ): ElasticBeanstalkServiceException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6425,7 +6426,7 @@ const deserializeAws_queryElasticBeanstalkServiceException = (
 };
 
 const deserializeAws_queryEnvironmentDescription = (output: any, context: __SerdeContext): EnvironmentDescription => {
-  let contents: any = {
+  const contents: any = {
     EnvironmentName: undefined,
     EnvironmentId: undefined,
     ApplicationName: undefined,
@@ -6538,7 +6539,7 @@ const deserializeAws_queryEnvironmentDescriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): EnvironmentDescriptionsMessage => {
-  let contents: any = {
+  const contents: any = {
     Environments: undefined,
     NextToken: undefined,
   };
@@ -6561,7 +6562,7 @@ const deserializeAws_queryEnvironmentInfoDescription = (
   output: any,
   context: __SerdeContext
 ): EnvironmentInfoDescription => {
-  let contents: any = {
+  const contents: any = {
     InfoType: undefined,
     Ec2InstanceId: undefined,
     SampleTimestamp: undefined,
@@ -6597,7 +6598,7 @@ const deserializeAws_queryEnvironmentInfoDescriptionList = (
 };
 
 const deserializeAws_queryEnvironmentLink = (output: any, context: __SerdeContext): EnvironmentLink => {
-  let contents: any = {
+  const contents: any = {
     LinkName: undefined,
     EnvironmentName: undefined,
   };
@@ -6625,7 +6626,7 @@ const deserializeAws_queryEnvironmentResourceDescription = (
   output: any,
   context: __SerdeContext
 ): EnvironmentResourceDescription => {
-  let contents: any = {
+  const contents: any = {
     EnvironmentName: undefined,
     AutoScalingGroups: undefined,
     Instances: undefined,
@@ -6702,7 +6703,7 @@ const deserializeAws_queryEnvironmentResourceDescriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): EnvironmentResourceDescriptionsMessage => {
-  let contents: any = {
+  const contents: any = {
     EnvironmentResources: undefined,
   };
   if (output["EnvironmentResources"] !== undefined) {
@@ -6718,7 +6719,7 @@ const deserializeAws_queryEnvironmentResourcesDescription = (
   output: any,
   context: __SerdeContext
 ): EnvironmentResourcesDescription => {
-  let contents: any = {
+  const contents: any = {
     LoadBalancer: undefined,
   };
   if (output["LoadBalancer"] !== undefined) {
@@ -6728,7 +6729,7 @@ const deserializeAws_queryEnvironmentResourcesDescription = (
 };
 
 const deserializeAws_queryEnvironmentTier = (output: any, context: __SerdeContext): EnvironmentTier => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Type: undefined,
     Version: undefined,
@@ -6746,7 +6747,7 @@ const deserializeAws_queryEnvironmentTier = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryEventDescription = (output: any, context: __SerdeContext): EventDescription => {
-  let contents: any = {
+  const contents: any = {
     EventDate: undefined,
     Message: undefined,
     ApplicationName: undefined,
@@ -6802,7 +6803,7 @@ const deserializeAws_queryEventDescriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): EventDescriptionsMessage => {
-  let contents: any = {
+  const contents: any = {
     Events: undefined,
     NextToken: undefined,
   };
@@ -6822,7 +6823,7 @@ const deserializeAws_queryEventDescriptionsMessage = (
 };
 
 const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Instance => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
   };
   if (output["Id"] !== undefined) {
@@ -6843,7 +6844,7 @@ const deserializeAws_queryInstanceHealthList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryInstanceHealthSummary = (output: any, context: __SerdeContext): InstanceHealthSummary => {
-  let contents: any = {
+  const contents: any = {
     NoData: undefined,
     Unknown: undefined,
     Pending: undefined,
@@ -6895,7 +6896,7 @@ const deserializeAws_queryInsufficientPrivilegesException = (
   output: any,
   context: __SerdeContext
 ): InsufficientPrivilegesException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6905,7 +6906,7 @@ const deserializeAws_queryInsufficientPrivilegesException = (
 };
 
 const deserializeAws_queryInvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6915,7 +6916,7 @@ const deserializeAws_queryInvalidRequestException = (output: any, context: __Ser
 };
 
 const deserializeAws_queryLatency = (output: any, context: __SerdeContext): Latency => {
-  let contents: any = {
+  const contents: any = {
     P999: undefined,
     P99: undefined,
     P95: undefined,
@@ -6953,7 +6954,7 @@ const deserializeAws_queryLatency = (output: any, context: __SerdeContext): Late
 };
 
 const deserializeAws_queryLaunchConfiguration = (output: any, context: __SerdeContext): LaunchConfiguration => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
@@ -6974,7 +6975,7 @@ const deserializeAws_queryLaunchConfigurationList = (output: any, context: __Ser
 };
 
 const deserializeAws_queryLaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
   };
   if (output["Id"] !== undefined) {
@@ -6998,7 +6999,7 @@ const deserializeAws_queryListAvailableSolutionStacksResultMessage = (
   output: any,
   context: __SerdeContext
 ): ListAvailableSolutionStacksResultMessage => {
-  let contents: any = {
+  const contents: any = {
     SolutionStacks: undefined,
     SolutionStackDetails: undefined,
   };
@@ -7024,7 +7025,7 @@ const deserializeAws_queryListAvailableSolutionStacksResultMessage = (
 };
 
 const deserializeAws_queryListener = (output: any, context: __SerdeContext): Listener => {
-  let contents: any = {
+  const contents: any = {
     Protocol: undefined,
     Port: undefined,
   };
@@ -7041,7 +7042,7 @@ const deserializeAws_queryListPlatformBranchesResult = (
   output: any,
   context: __SerdeContext
 ): ListPlatformBranchesResult => {
-  let contents: any = {
+  const contents: any = {
     PlatformBranchSummaryList: undefined,
     NextToken: undefined,
   };
@@ -7067,7 +7068,7 @@ const deserializeAws_queryListPlatformVersionsResult = (
   output: any,
   context: __SerdeContext
 ): ListPlatformVersionsResult => {
-  let contents: any = {
+  const contents: any = {
     PlatformSummaryList: undefined,
     NextToken: undefined,
   };
@@ -7098,7 +7099,7 @@ const deserializeAws_queryLoadAverage = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
@@ -7108,7 +7109,7 @@ const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryLoadBalancerDescription = (output: any, context: __SerdeContext): LoadBalancerDescription => {
-  let contents: any = {
+  const contents: any = {
     LoadBalancerName: undefined,
     Domain: undefined,
     Listeners: undefined,
@@ -7154,7 +7155,7 @@ const deserializeAws_queryLoadBalancerListenersDescription = (output: any, conte
 };
 
 const deserializeAws_queryManagedAction = (output: any, context: __SerdeContext): ManagedAction => {
-  let contents: any = {
+  const contents: any = {
     ActionId: undefined,
     ActionDescription: undefined,
     ActionType: undefined,
@@ -7183,7 +7184,7 @@ const deserializeAws_queryManagedActionHistoryItem = (
   output: any,
   context: __SerdeContext
 ): ManagedActionHistoryItem => {
-  let contents: any = {
+  const contents: any = {
     ActionId: undefined,
     ActionType: undefined,
     ActionDescription: undefined,
@@ -7238,7 +7239,7 @@ const deserializeAws_queryManagedActionInvalidStateException = (
   output: any,
   context: __SerdeContext
 ): ManagedActionInvalidStateException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7259,7 +7260,7 @@ const deserializeAws_queryManagedActions = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryMaxAgeRule = (output: any, context: __SerdeContext): MaxAgeRule => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     MaxAgeInDays: undefined,
     DeleteSourceFromS3: undefined,
@@ -7277,7 +7278,7 @@ const deserializeAws_queryMaxAgeRule = (output: any, context: __SerdeContext): M
 };
 
 const deserializeAws_queryMaxCountRule = (output: any, context: __SerdeContext): MaxCountRule => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     MaxCount: undefined,
     DeleteSourceFromS3: undefined,
@@ -7298,7 +7299,7 @@ const deserializeAws_queryOperationInProgressException = (
   output: any,
   context: __SerdeContext
 ): OperationInProgressException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7308,7 +7309,7 @@ const deserializeAws_queryOperationInProgressException = (
 };
 
 const deserializeAws_queryOptionRestrictionRegex = (output: any, context: __SerdeContext): OptionRestrictionRegex => {
-  let contents: any = {
+  const contents: any = {
     Pattern: undefined,
     Label: undefined,
   };
@@ -7322,7 +7323,7 @@ const deserializeAws_queryOptionRestrictionRegex = (output: any, context: __Serd
 };
 
 const deserializeAws_queryPlatformBranchSummary = (output: any, context: __SerdeContext): PlatformBranchSummary => {
-  let contents: any = {
+  const contents: any = {
     PlatformName: undefined,
     BranchName: undefined,
     LifecycleState: undefined,
@@ -7368,7 +7369,7 @@ const deserializeAws_queryPlatformBranchSummaryList = (
 };
 
 const deserializeAws_queryPlatformDescription = (output: any, context: __SerdeContext): PlatformDescription => {
-  let contents: any = {
+  const contents: any = {
     PlatformArn: undefined,
     PlatformOwner: undefined,
     PlatformName: undefined,
@@ -7488,7 +7489,7 @@ const deserializeAws_queryPlatformDescription = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryPlatformFramework = (output: any, context: __SerdeContext): PlatformFramework => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Version: undefined,
   };
@@ -7516,7 +7517,7 @@ const deserializeAws_queryPlatformProgrammingLanguage = (
   output: any,
   context: __SerdeContext
 ): PlatformProgrammingLanguage => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Version: undefined,
   };
@@ -7544,7 +7545,7 @@ const deserializeAws_queryPlatformProgrammingLanguages = (
 };
 
 const deserializeAws_queryPlatformSummary = (output: any, context: __SerdeContext): PlatformSummary => {
-  let contents: any = {
+  const contents: any = {
     PlatformArn: undefined,
     PlatformOwner: undefined,
     PlatformStatus: undefined,
@@ -7624,7 +7625,7 @@ const deserializeAws_queryPlatformVersionStillReferencedException = (
   output: any,
   context: __SerdeContext
 ): PlatformVersionStillReferencedException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7634,7 +7635,7 @@ const deserializeAws_queryPlatformVersionStillReferencedException = (
 };
 
 const deserializeAws_queryQueue = (output: any, context: __SerdeContext): Queue => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     URL: undefined,
   };
@@ -7662,7 +7663,7 @@ const deserializeAws_queryResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7672,7 +7673,7 @@ const deserializeAws_queryResourceNotFoundException = (
 };
 
 const deserializeAws_queryResourceQuota = (output: any, context: __SerdeContext): ResourceQuota => {
-  let contents: any = {
+  const contents: any = {
     Maximum: undefined,
   };
   if (output["Maximum"] !== undefined) {
@@ -7682,7 +7683,7 @@ const deserializeAws_queryResourceQuota = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryResourceQuotas = (output: any, context: __SerdeContext): ResourceQuotas => {
-  let contents: any = {
+  const contents: any = {
     ApplicationQuota: undefined,
     ApplicationVersionQuota: undefined,
     EnvironmentQuota: undefined,
@@ -7714,7 +7715,7 @@ const deserializeAws_queryResourceTagsDescriptionMessage = (
   output: any,
   context: __SerdeContext
 ): ResourceTagsDescriptionMessage => {
-  let contents: any = {
+  const contents: any = {
     ResourceArn: undefined,
     ResourceTags: undefined,
   };
@@ -7737,7 +7738,7 @@ const deserializeAws_queryResourceTypeNotSupportedException = (
   output: any,
   context: __SerdeContext
 ): ResourceTypeNotSupportedException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7750,7 +7751,7 @@ const deserializeAws_queryRetrieveEnvironmentInfoResultMessage = (
   output: any,
   context: __SerdeContext
 ): RetrieveEnvironmentInfoResultMessage => {
-  let contents: any = {
+  const contents: any = {
     EnvironmentInfo: undefined,
   };
   if (output.EnvironmentInfo === "") {
@@ -7766,7 +7767,7 @@ const deserializeAws_queryRetrieveEnvironmentInfoResultMessage = (
 };
 
 const deserializeAws_queryS3Location = (output: any, context: __SerdeContext): S3Location => {
-  let contents: any = {
+  const contents: any = {
     S3Bucket: undefined,
     S3Key: undefined,
   };
@@ -7783,7 +7784,7 @@ const deserializeAws_queryS3LocationNotInServiceRegionException = (
   output: any,
   context: __SerdeContext
 ): S3LocationNotInServiceRegionException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7796,7 +7797,7 @@ const deserializeAws_queryS3SubscriptionRequiredException = (
   output: any,
   context: __SerdeContext
 ): S3SubscriptionRequiredException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7806,7 +7807,7 @@ const deserializeAws_queryS3SubscriptionRequiredException = (
 };
 
 const deserializeAws_querySingleInstanceHealth = (output: any, context: __SerdeContext): SingleInstanceHealth => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     HealthStatus: undefined,
     Color: undefined,
@@ -7858,7 +7859,7 @@ const deserializeAws_querySolutionStackDescription = (
   output: any,
   context: __SerdeContext
 ): SolutionStackDescription => {
-  let contents: any = {
+  const contents: any = {
     SolutionStackName: undefined,
     PermittedFileTypes: undefined,
   };
@@ -7889,7 +7890,7 @@ const deserializeAws_querySolutionStackFileTypeList = (output: any, context: __S
 };
 
 const deserializeAws_querySourceBuildInformation = (output: any, context: __SerdeContext): SourceBuildInformation => {
-  let contents: any = {
+  const contents: any = {
     SourceType: undefined,
     SourceRepository: undefined,
     SourceLocation: undefined,
@@ -7910,7 +7911,7 @@ const deserializeAws_querySourceBundleDeletionException = (
   output: any,
   context: __SerdeContext
 ): SourceBundleDeletionException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7920,7 +7921,7 @@ const deserializeAws_querySourceBundleDeletionException = (
 };
 
 const deserializeAws_queryStatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
-  let contents: any = {
+  const contents: any = {
     Status2xx: undefined,
     Status3xx: undefined,
     Status4xx: undefined,
@@ -7964,7 +7965,7 @@ const deserializeAws_querySupportedTierList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySystemStatus = (output: any, context: __SerdeContext): SystemStatus => {
-  let contents: any = {
+  const contents: any = {
     CPUUtilization: undefined,
     LoadAverage: undefined,
   };
@@ -7984,7 +7985,7 @@ const deserializeAws_querySystemStatus = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -8012,7 +8013,7 @@ const deserializeAws_queryTooManyApplicationsException = (
   output: any,
   context: __SerdeContext
 ): TooManyApplicationsException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8025,7 +8026,7 @@ const deserializeAws_queryTooManyApplicationVersionsException = (
   output: any,
   context: __SerdeContext
 ): TooManyApplicationVersionsException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8035,7 +8036,7 @@ const deserializeAws_queryTooManyApplicationVersionsException = (
 };
 
 const deserializeAws_queryTooManyBucketsException = (output: any, context: __SerdeContext): TooManyBucketsException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8048,7 +8049,7 @@ const deserializeAws_queryTooManyConfigurationTemplatesException = (
   output: any,
   context: __SerdeContext
 ): TooManyConfigurationTemplatesException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8061,7 +8062,7 @@ const deserializeAws_queryTooManyEnvironmentsException = (
   output: any,
   context: __SerdeContext
 ): TooManyEnvironmentsException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8074,7 +8075,7 @@ const deserializeAws_queryTooManyPlatformsException = (
   output: any,
   context: __SerdeContext
 ): TooManyPlatformsException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8084,7 +8085,7 @@ const deserializeAws_queryTooManyPlatformsException = (
 };
 
 const deserializeAws_queryTooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8094,7 +8095,7 @@ const deserializeAws_queryTooManyTagsException = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryTrigger = (output: any, context: __SerdeContext): Trigger => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
@@ -8115,7 +8116,7 @@ const deserializeAws_queryTriggerList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryValidationMessage = (output: any, context: __SerdeContext): ValidationMessage => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
     Severity: undefined,
     Namespace: undefined,

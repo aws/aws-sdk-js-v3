@@ -1,22 +1,23 @@
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  EventStreamSerdeContext as __EventStreamSerdeContext,
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { SubscribeToShardInput, SubscribeToShardOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1SubscribeToShardCommand,
   serializeAws_json1_1SubscribeToShardCommand,
 } from "../protocols/Aws_json1_1";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  MiddlewareStack,
-  EventStreamSerdeContext as __EventStreamSerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
 
 export interface SubscribeToShardCommandInput extends SubscribeToShardInput {}
 export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, __MetadataBearer {}

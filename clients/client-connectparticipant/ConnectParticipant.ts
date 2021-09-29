@@ -1,4 +1,5 @@
-import { ConnectParticipantClient } from "./ConnectParticipantClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CompleteAttachmentUploadCommand,
   CompleteAttachmentUploadCommandInput,
@@ -31,7 +32,7 @@ import {
   StartAttachmentUploadCommandInput,
   StartAttachmentUploadCommandOutput,
 } from "./commands/StartAttachmentUploadCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ConnectParticipantClient } from "./ConnectParticipantClient";
 
 /**
  * <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage

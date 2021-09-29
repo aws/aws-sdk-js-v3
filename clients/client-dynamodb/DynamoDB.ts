@@ -1,4 +1,5 @@
-import { DynamoDBClient } from "./DynamoDBClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchExecuteStatementCommand,
   BatchExecuteStatementCommandInput,
@@ -197,7 +198,7 @@ import {
   UpdateTimeToLiveCommandInput,
   UpdateTimeToLiveCommandOutput,
 } from "./commands/UpdateTimeToLiveCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DynamoDBClient } from "./DynamoDBClient";
 
 /**
  * <fullname>Amazon DynamoDB</fullname>

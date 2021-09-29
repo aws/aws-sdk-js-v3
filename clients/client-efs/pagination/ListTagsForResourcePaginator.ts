@@ -1,12 +1,13 @@
-import { EFS } from "../EFS";
-import { EFSClient } from "../EFSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { EFS } from "../EFS";
+import { EFSClient } from "../EFSClient";
 import { EFSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,20 +1,3 @@
-import { SearchCommandInput, SearchCommandOutput } from "../commands/SearchCommand";
-import { SuggestCommandInput, SuggestCommandOutput } from "../commands/SuggestCommand";
-import { UploadDocumentsCommandInput, UploadDocumentsCommandOutput } from "../commands/UploadDocumentsCommand";
-import {
-  Bucket,
-  BucketInfo,
-  DocumentServiceException,
-  DocumentServiceWarning,
-  FieldStats,
-  Hit,
-  Hits,
-  SearchException,
-  SearchStatus,
-  SuggestModel,
-  SuggestStatus,
-  SuggestionMatch,
-} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectLong as __expectLong,
@@ -32,13 +15,31 @@ import {
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
+import { SearchCommandInput, SearchCommandOutput } from "../commands/SearchCommand";
+import { SuggestCommandInput, SuggestCommandOutput } from "../commands/SuggestCommand";
+import { UploadDocumentsCommandInput, UploadDocumentsCommandOutput } from "../commands/UploadDocumentsCommand";
+import {
+  Bucket,
+  BucketInfo,
+  DocumentServiceException,
+  DocumentServiceWarning,
+  FieldStats,
+  Hit,
+  Hits,
+  SearchException,
+  SearchStatus,
+  SuggestionMatch,
+  SuggestModel,
+  SuggestStatus,
+} from "../models/models_0";
+
 export const serializeAws_restJson1SearchCommand = async (
   input: SearchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/search";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/search";
   const query: any = {
     format: "sdk",
     pretty: "true",
@@ -76,7 +77,7 @@ export const serializeAws_restJson1SuggestCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/suggest";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/suggest";
   const query: any = {
     format: "sdk",
     pretty: "true",
@@ -106,7 +107,7 @@ export const serializeAws_restJson1UploadDocumentsCommand = async (
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.contentType) && { "content-type": input.contentType! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/documents/batch";
   const query: any = {
     format: "sdk",
@@ -166,7 +167,7 @@ const deserializeAws_restJson1SearchCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SearchException":
@@ -225,7 +226,7 @@ const deserializeAws_restJson1SuggestCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SearchException":
@@ -292,7 +293,7 @@ const deserializeAws_restJson1UploadDocumentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DocumentServiceException":

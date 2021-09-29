@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CloudWatchLogs } from "../CloudWatchLogs";
 import { CloudWatchLogsClient } from "../CloudWatchLogsClient";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeLogGroupsCommandOutput,
 } from "../commands/DescribeLogGroupsCommand";
 import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

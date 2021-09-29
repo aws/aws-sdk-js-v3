@@ -1,14 +1,15 @@
-import { SchemasClient } from "../SchemasClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeCodeBindingCommand, DescribeCodeBindingCommandInput } from "../commands/DescribeCodeBindingCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { SchemasClient } from "../SchemasClient";
 
 const checkState = async (client: SchemasClient, input: DescribeCodeBindingCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCodeBindingCommand(input));
+    const result: any = await client.send(new DescribeCodeBindingCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       };
       if (returnComparator() === "CREATE_COMPLETE") {
@@ -16,7 +17,7 @@ const checkState = async (client: SchemasClient, input: DescribeCodeBindingComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       };
       if (returnComparator() === "CREATE_IN_PROGRESS") {
@@ -24,7 +25,7 @@ const checkState = async (client: SchemasClient, input: DescribeCodeBindingComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       };
       if (returnComparator() === "CREATE_FAILED") {

@@ -1,11 +1,12 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { ACMPCAClient } from "../ACMPCAClient";
 import { GetCertificateCommand, GetCertificateCommandInput } from "../commands/GetCertificateCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: ACMPCAClient, input: GetCertificateCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetCertificateCommand(input));
+    const result: any = await client.send(new GetCertificateCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

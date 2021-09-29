@@ -1,12 +1,13 @@
-import { DocDB } from "../DocDB";
-import { DocDBClient } from "../DocDBClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeEventSubscriptionsCommand,
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput,
 } from "../commands/DescribeEventSubscriptionsCommand";
+import { DocDB } from "../DocDB";
+import { DocDBClient } from "../DocDBClient";
 import { DocDBPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

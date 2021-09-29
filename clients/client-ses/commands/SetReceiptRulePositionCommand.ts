@@ -1,9 +1,3 @@
-import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { SetReceiptRulePositionRequest, SetReceiptRulePositionResponse } from "../models/models_0";
-import {
-  deserializeAws_querySetReceiptRulePositionCommand,
-  serializeAws_querySetReceiptRulePositionCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { SetReceiptRulePositionRequest, SetReceiptRulePositionResponse } from "../models/models_0";
+import {
+  deserializeAws_querySetReceiptRulePositionCommand,
+  serializeAws_querySetReceiptRulePositionCommand,
+} from "../protocols/Aws_query";
+import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 export interface SetReceiptRulePositionCommandInput extends SetReceiptRulePositionRequest {}
 export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePositionResponse, __MetadataBearer {}

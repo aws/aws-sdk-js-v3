@@ -1,9 +1,3 @@
-import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteChannelCommand,
-  serializeAws_restJson1DeleteChannelCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_1";
+import {
+  deserializeAws_restJson1DeleteChannelCommand,
+  serializeAws_restJson1DeleteChannelCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __MetadataBearer {}

@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { ACMPCA } from "../ACMPCA";
 import { ACMPCAClient } from "../ACMPCAClient";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import { ACMPCAPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

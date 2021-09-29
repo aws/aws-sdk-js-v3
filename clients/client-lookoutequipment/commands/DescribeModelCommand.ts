@@ -1,9 +1,3 @@
-import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { DescribeModelRequest, DescribeModelResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeModelCommand,
-  serializeAws_json1_0DescribeModelCommand,
-} from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
+import { DescribeModelRequest, DescribeModelResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_0DescribeModelCommand,
+  serializeAws_json1_0DescribeModelCommand,
+} from "../protocols/Aws_json1_0";
 
 export interface DescribeModelCommandInput extends DescribeModelRequest {}
 export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}

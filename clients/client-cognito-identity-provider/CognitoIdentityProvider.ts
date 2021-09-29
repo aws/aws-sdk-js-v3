@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CognitoIdentityProviderClient } from "./CognitoIdentityProviderClient";
 import {
   AddCustomAttributesCommand,
@@ -452,7 +454,6 @@ import {
   VerifyUserAttributeCommandInput,
   VerifyUserAttributeCommandOutput,
 } from "./commands/VerifyUserAttributeCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Using the Amazon Cognito User Pools API, you can create a user pool to manage

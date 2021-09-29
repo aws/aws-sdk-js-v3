@@ -1,4 +1,5 @@
-import { HoneycodeClient } from "./HoneycodeClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchCreateTableRowsCommand,
   BatchCreateTableRowsCommandInput,
@@ -55,7 +56,7 @@ import {
   StartTableDataImportJobCommandInput,
   StartTableDataImportJobCommandOutput,
 } from "./commands/StartTableDataImportJobCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { HoneycodeClient } from "./HoneycodeClient";
 
 /**
  * <p>

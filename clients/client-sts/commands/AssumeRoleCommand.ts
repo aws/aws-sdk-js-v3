@@ -1,6 +1,3 @@
-import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
-import { AssumeRoleRequest, AssumeRoleResponse } from "../models/models_0";
-import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -9,11 +6,15 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { AssumeRoleRequest, AssumeRoleResponse } from "../models/models_0";
+import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleCommand } from "../protocols/Aws_query";
+import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 export interface AssumeRoleCommandInput extends AssumeRoleRequest {}
 export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataBearer {}

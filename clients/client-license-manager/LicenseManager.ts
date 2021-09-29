@@ -1,4 +1,5 @@
-import { LicenseManagerClient } from "./LicenseManagerClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AcceptGrantCommand, AcceptGrantCommandInput, AcceptGrantCommandOutput } from "./commands/AcceptGrantCommand";
 import {
   CheckInLicenseCommand,
@@ -132,6 +133,11 @@ import {
   ListLicenseManagerReportGeneratorsCommandOutput,
 } from "./commands/ListLicenseManagerReportGeneratorsCommand";
 import {
+  ListLicensesCommand,
+  ListLicensesCommandInput,
+  ListLicensesCommandOutput,
+} from "./commands/ListLicensesCommand";
+import {
   ListLicenseSpecificationsForResourceCommand,
   ListLicenseSpecificationsForResourceCommandInput,
   ListLicenseSpecificationsForResourceCommandOutput,
@@ -141,11 +147,6 @@ import {
   ListLicenseVersionsCommandInput,
   ListLicenseVersionsCommandOutput,
 } from "./commands/ListLicenseVersionsCommand";
-import {
-  ListLicensesCommand,
-  ListLicensesCommandInput,
-  ListLicensesCommandOutput,
-} from "./commands/ListLicensesCommand";
 import {
   ListReceivedGrantsCommand,
   ListReceivedGrantsCommandInput,
@@ -199,7 +200,7 @@ import {
   UpdateServiceSettingsCommandInput,
   UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LicenseManagerClient } from "./LicenseManagerClient";
 
 /**
  * <p>License Manager makes it easier to manage licenses from software vendors across multiple

@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { APIGatewayClient } from "./APIGatewayClient";
 import {
   CreateApiKeyCommand,
@@ -279,12 +281,12 @@ import {
   GetMethodResponseCommandOutput,
 } from "./commands/GetMethodResponseCommand";
 import { GetModelCommand, GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand";
+import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import {
   GetModelTemplateCommand,
   GetModelTemplateCommandInput,
   GetModelTemplateCommandOutput,
 } from "./commands/GetModelTemplateCommand";
-import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import {
   GetRequestValidatorCommand,
   GetRequestValidatorCommandInput,
@@ -483,7 +485,6 @@ import {
   UpdateVpcLinkCommandInput,
   UpdateVpcLinkCommandOutput,
 } from "./commands/UpdateVpcLinkCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon API Gateway</fullname>

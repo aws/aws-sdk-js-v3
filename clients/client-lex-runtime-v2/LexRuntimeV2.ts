@@ -1,4 +1,5 @@
-import { LexRuntimeV2Client } from "./LexRuntimeV2Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DeleteSessionCommand,
   DeleteSessionCommandInput,
@@ -21,7 +22,7 @@ import {
   StartConversationCommandInput,
   StartConversationCommandOutput,
 } from "./commands/StartConversationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LexRuntimeV2Client } from "./LexRuntimeV2Client";
 
 /**
  * <p></p>

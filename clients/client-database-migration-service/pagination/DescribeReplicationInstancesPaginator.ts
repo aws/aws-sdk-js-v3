@@ -1,12 +1,13 @@
-import { DatabaseMigrationService } from "../DatabaseMigrationService";
-import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeReplicationInstancesCommand,
   DescribeReplicationInstancesCommandInput,
   DescribeReplicationInstancesCommandOutput,
 } from "../commands/DescribeReplicationInstancesCommand";
+import { DatabaseMigrationService } from "../DatabaseMigrationService";
+import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

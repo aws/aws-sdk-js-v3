@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AppflowClient } from "./AppflowClient";
 import {
   CreateConnectorProfileCommand,
@@ -61,7 +63,6 @@ import {
   UpdateConnectorProfileCommandOutput,
 } from "./commands/UpdateConnectorProfileCommand";
 import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Welcome to the Amazon AppFlow API reference. This guide is for developers who need

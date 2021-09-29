@@ -1,12 +1,13 @@
-import { MediaConnect } from "../MediaConnect";
-import { MediaConnectClient } from "../MediaConnectClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListOfferingsCommand,
   ListOfferingsCommandInput,
   ListOfferingsCommandOutput,
 } from "../commands/ListOfferingsCommand";
+import { MediaConnect } from "../MediaConnect";
+import { MediaConnectClient } from "../MediaConnectClient";
 import { MediaConnectPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

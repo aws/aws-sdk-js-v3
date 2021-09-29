@@ -1,12 +1,13 @@
-import { OpsWorksCM } from "../OpsWorksCM";
-import { OpsWorksCMClient } from "../OpsWorksCMClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { OpsWorksCM } from "../OpsWorksCM";
+import { OpsWorksCMClient } from "../OpsWorksCMClient";
 import { OpsWorksCMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

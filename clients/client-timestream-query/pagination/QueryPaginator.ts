@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
 import { TimestreamQuery } from "../TimestreamQuery";
 import { TimestreamQueryClient } from "../TimestreamQueryClient";
-import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
 import { TimestreamQueryPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

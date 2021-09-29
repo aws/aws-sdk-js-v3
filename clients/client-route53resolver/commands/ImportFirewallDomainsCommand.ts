@@ -1,9 +1,3 @@
-import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
-import { ImportFirewallDomainsRequest, ImportFirewallDomainsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportFirewallDomainsCommand,
-  serializeAws_json1_1ImportFirewallDomainsCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ImportFirewallDomainsRequest, ImportFirewallDomainsResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1ImportFirewallDomainsCommand,
+  serializeAws_json1_1ImportFirewallDomainsCommand,
+} from "../protocols/Aws_json1_1";
+import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 export interface ImportFirewallDomainsCommandInput extends ImportFirewallDomainsRequest {}
 export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomainsResponse, __MetadataBearer {}

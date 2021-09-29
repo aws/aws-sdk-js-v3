@@ -1,4 +1,5 @@
-import { QLDBClient } from "./QLDBClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CancelJournalKinesisStreamCommand,
   CancelJournalKinesisStreamCommandInput,
@@ -79,7 +80,7 @@ import {
   UpdateLedgerPermissionsModeCommandInput,
   UpdateLedgerPermissionsModeCommandOutput,
 } from "./commands/UpdateLedgerPermissionsModeCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { QLDBClient } from "./QLDBClient";
 
 /**
  * <p>The control plane for Amazon QLDB</p>

@@ -1,12 +1,13 @@
-import { ServiceQuotas } from "../ServiceQuotas";
-import { ServiceQuotasClient } from "../ServiceQuotasClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListServiceQuotasCommand,
   ListServiceQuotasCommandInput,
   ListServiceQuotasCommandOutput,
 } from "../commands/ListServiceQuotasCommand";
+import { ServiceQuotas } from "../ServiceQuotas";
+import { ServiceQuotasClient } from "../ServiceQuotasClient";
 import { ServiceQuotasPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,5 @@
-import { SSOClient } from "./SSOClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   GetRoleCredentialsCommand,
   GetRoleCredentialsCommandInput,
@@ -15,7 +16,7 @@ import {
   ListAccountsCommandOutput,
 } from "./commands/ListAccountsCommand";
 import { LogoutCommand, LogoutCommandInput, LogoutCommandOutput } from "./commands/LogoutCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SSOClient } from "./SSOClient";
 
 /**
  * <p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user

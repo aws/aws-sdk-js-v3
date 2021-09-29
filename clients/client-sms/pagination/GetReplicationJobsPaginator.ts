@@ -1,12 +1,13 @@
-import { SMS } from "../SMS";
-import { SMSClient } from "../SMSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetReplicationJobsCommand,
   GetReplicationJobsCommandInput,
   GetReplicationJobsCommandOutput,
 } from "../commands/GetReplicationJobsCommand";
+import { SMS } from "../SMS";
+import { SMSClient } from "../SMSClient";
 import { SMSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

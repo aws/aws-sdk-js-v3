@@ -1,9 +1,3 @@
-import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import { CreateFirewallRequest, CreateFirewallResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateFirewallCommand,
-  serializeAws_json1_0CreateFirewallCommand,
-} from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CreateFirewallRequest, CreateFirewallResponse } from "../models/models_0";
+import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
+import {
+  deserializeAws_json1_0CreateFirewallCommand,
+  serializeAws_json1_0CreateFirewallCommand,
+} from "../protocols/Aws_json1_0";
 
 export interface CreateFirewallCommandInput extends CreateFirewallRequest {}
 export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __MetadataBearer {}

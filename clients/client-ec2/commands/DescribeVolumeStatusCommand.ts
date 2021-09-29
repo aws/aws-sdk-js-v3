@@ -1,10 +1,3 @@
-import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVolumeStatusRequest } from "../models/models_3";
-import { DescribeVolumeStatusResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeVolumeStatusCommand,
-  serializeAws_ec2DescribeVolumeStatusCommand,
-} from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,11 +5,19 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeVolumeStatusRequest } from "../models/models_3";
+import { DescribeVolumeStatusResult } from "../models/models_4";
+import {
+  deserializeAws_ec2DescribeVolumeStatusCommand,
+  serializeAws_ec2DescribeVolumeStatusCommand,
+} from "../protocols/Aws_ec2";
 
 export interface DescribeVolumeStatusCommandInput extends DescribeVolumeStatusRequest {}
 export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusResult, __MetadataBearer {}

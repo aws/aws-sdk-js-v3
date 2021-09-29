@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { WorkSpacesClientConfig } from "./WorkSpacesClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { WorkSpacesClientConfig } from "./WorkSpacesClient";
 
 /**
  * @internal

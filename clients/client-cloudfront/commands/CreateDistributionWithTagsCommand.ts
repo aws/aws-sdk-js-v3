@@ -1,9 +1,3 @@
-import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { CreateDistributionWithTagsRequest, CreateDistributionWithTagsResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateDistributionWithTagsCommand,
-  serializeAws_restXmlCreateDistributionWithTagsCommand,
-} from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { CreateDistributionWithTagsRequest, CreateDistributionWithTagsResult } from "../models/models_0";
+import {
+  deserializeAws_restXmlCreateDistributionWithTagsCommand,
+  serializeAws_restXmlCreateDistributionWithTagsCommand,
+} from "../protocols/Aws_restXml";
 
 export interface CreateDistributionWithTagsCommandInput extends CreateDistributionWithTagsRequest {}
 export interface CreateDistributionWithTagsCommandOutput extends CreateDistributionWithTagsResult, __MetadataBearer {}

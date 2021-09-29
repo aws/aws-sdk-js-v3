@@ -1,12 +1,13 @@
-import { Transcribe } from "../Transcribe";
-import { TranscribeClient } from "../TranscribeClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListTranscriptionJobsCommand,
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput,
 } from "../commands/ListTranscriptionJobsCommand";
+import { Transcribe } from "../Transcribe";
+import { TranscribeClient } from "../TranscribeClient";
 import { TranscribePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

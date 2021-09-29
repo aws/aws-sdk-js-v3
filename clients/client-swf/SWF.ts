@@ -1,4 +1,5 @@
-import { SWFClient } from "./SWFClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CountClosedWorkflowExecutionsCommand,
   CountClosedWorkflowExecutionsCommandInput,
@@ -176,7 +177,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SWFClient } from "./SWFClient";
 
 /**
  * <fullname>Amazon Simple Workflow Service</fullname>

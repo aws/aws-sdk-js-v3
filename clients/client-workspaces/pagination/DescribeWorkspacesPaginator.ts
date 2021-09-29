@@ -1,12 +1,13 @@
-import { WorkSpaces } from "../WorkSpaces";
-import { WorkSpacesClient } from "../WorkSpacesClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeWorkspacesCommand,
   DescribeWorkspacesCommandInput,
   DescribeWorkspacesCommandOutput,
 } from "../commands/DescribeWorkspacesCommand";
+import { WorkSpaces } from "../WorkSpaces";
+import { WorkSpacesClient } from "../WorkSpacesClient";
 import { WorkSpacesPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

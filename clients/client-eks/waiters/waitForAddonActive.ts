@@ -1,14 +1,15 @@
-import { EKSClient } from "../EKSClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeAddonCommand, DescribeAddonCommandInput } from "../commands/DescribeAddonCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EKSClient } from "../EKSClient";
 
 const checkState = async (client: EKSClient, input: DescribeAddonCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeAddonCommand(input));
+    const result: any = await client.send(new DescribeAddonCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.addon.status;
       };
       if (returnComparator() === "CREATE_FAILED") {
@@ -16,7 +17,7 @@ const checkState = async (client: EKSClient, input: DescribeAddonCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.addon.status;
       };
       if (returnComparator() === "DEGRADED") {
@@ -24,7 +25,7 @@ const checkState = async (client: EKSClient, input: DescribeAddonCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.addon.status;
       };
       if (returnComparator() === "ACTIVE") {

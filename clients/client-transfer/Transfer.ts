@@ -1,4 +1,5 @@
-import { TransferClient } from "./TransferClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateAccessCommand,
   CreateAccessCommandInput,
@@ -127,7 +128,7 @@ import {
   UpdateServerCommandOutput,
 } from "./commands/UpdateServerCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { TransferClient } from "./TransferClient";
 
 /**
  * <p>Amazon Web Services Transfer Family is a fully managed service that enables the transfer of files over the

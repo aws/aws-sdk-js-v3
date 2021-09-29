@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { SESv2ClientConfig } from "./SESv2Client";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { SESv2ClientConfig } from "./SESv2Client";
 
 /**
  * @internal

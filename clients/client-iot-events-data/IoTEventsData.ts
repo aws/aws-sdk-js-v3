@@ -1,4 +1,5 @@
-import { IoTEventsDataClient } from "./IoTEventsDataClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchAcknowledgeAlarmCommand,
   BatchAcknowledgeAlarmCommandInput,
@@ -50,7 +51,7 @@ import {
   ListDetectorsCommandInput,
   ListDetectorsCommandOutput,
 } from "./commands/ListDetectorsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTEventsDataClient } from "./IoTEventsDataClient";
 
 /**
  * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and

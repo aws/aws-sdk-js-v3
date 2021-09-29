@@ -1,9 +1,3 @@
-import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetTrafficPolicyInstanceRequest, GetTrafficPolicyInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetTrafficPolicyInstanceCommand,
-  serializeAws_restXmlGetTrafficPolicyInstanceCommand,
-} from "../protocols/Aws_restXml";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetTrafficPolicyInstanceRequest, GetTrafficPolicyInstanceResponse } from "../models/models_0";
+import {
+  deserializeAws_restXmlGetTrafficPolicyInstanceCommand,
+  serializeAws_restXmlGetTrafficPolicyInstanceCommand,
+} from "../protocols/Aws_restXml";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 export interface GetTrafficPolicyInstanceCommandInput extends GetTrafficPolicyInstanceRequest {}
 export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyInstanceResponse, __MetadataBearer {}

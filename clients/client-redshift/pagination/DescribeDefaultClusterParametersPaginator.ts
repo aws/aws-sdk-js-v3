@@ -1,12 +1,13 @@
-import { Redshift } from "../Redshift";
-import { RedshiftClient } from "../RedshiftClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeDefaultClusterParametersCommand,
   DescribeDefaultClusterParametersCommandInput,
   DescribeDefaultClusterParametersCommandOutput,
 } from "../commands/DescribeDefaultClusterParametersCommand";
+import { Redshift } from "../Redshift";
+import { RedshiftClient } from "../RedshiftClient";
 import { RedshiftPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

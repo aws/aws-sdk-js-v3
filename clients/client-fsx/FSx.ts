@@ -1,4 +1,5 @@
-import { FSxClient } from "./FSxClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateFileSystemAliasesCommand,
   AssociateFileSystemAliasesCommandInput,
@@ -126,7 +127,7 @@ import {
   UpdateVolumeCommandInput,
   UpdateVolumeCommandOutput,
 } from "./commands/UpdateVolumeCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { FSxClient } from "./FSxClient";
 
 /**
  * <p>Amazon FSx is a fully managed service that makes it easy for storage and

@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { ACMPCAClient } from "./ACMPCAClient";
 import {
   CreateCertificateAuthorityAuditReportCommand,
@@ -102,7 +104,6 @@ import {
   UpdateCertificateAuthorityCommandInput,
   UpdateCertificateAuthorityCommandOutput,
 } from "./commands/UpdateCertificateAuthorityCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,

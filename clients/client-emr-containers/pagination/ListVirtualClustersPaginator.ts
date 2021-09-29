@@ -1,12 +1,13 @@
-import { EMRContainers } from "../EMRContainers";
-import { EMRContainersClient } from "../EMRContainersClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListVirtualClustersCommand,
   ListVirtualClustersCommandInput,
   ListVirtualClustersCommandOutput,
 } from "../commands/ListVirtualClustersCommand";
+import { EMRContainers } from "../EMRContainers";
+import { EMRContainersClient } from "../EMRContainersClient";
 import { EMRContainersPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

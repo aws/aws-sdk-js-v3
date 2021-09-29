@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CodeBuild } from "../CodeBuild";
 import { CodeBuildClient } from "../CodeBuildClient";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeTestCasesCommandOutput,
 } from "../commands/DescribeTestCasesCommand";
 import { CodeBuildPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

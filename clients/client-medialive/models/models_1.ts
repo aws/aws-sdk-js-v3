@@ -1,3 +1,6 @@
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { Readable } from "stream";
+
 import {
   ArchiveGroupSettings,
   AudioDescription,
@@ -63,8 +66,6 @@ import {
   SmoothGroupSegmentationMode,
   VpcOutputSettingsDescription,
 } from "./models_0";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
-import { Readable } from "stream";
 
 export enum SmoothGroupSparseTrackType {
   NONE = "NONE",

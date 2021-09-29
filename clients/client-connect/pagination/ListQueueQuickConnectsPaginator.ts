@@ -1,12 +1,13 @@
-import { Connect } from "../Connect";
-import { ConnectClient } from "../ConnectClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListQueueQuickConnectsCommand,
   ListQueueQuickConnectsCommandInput,
   ListQueueQuickConnectsCommandOutput,
 } from "../commands/ListQueueQuickConnectsCommand";
+import { Connect } from "../Connect";
+import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

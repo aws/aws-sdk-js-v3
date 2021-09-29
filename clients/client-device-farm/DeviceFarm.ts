@@ -1,4 +1,5 @@
-import { DeviceFarmClient } from "./DeviceFarmClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateDevicePoolCommand,
   CreateDevicePoolCommandInput,
@@ -185,15 +186,15 @@ import {
   ListOfferingPromotionsCommandOutput,
 } from "./commands/ListOfferingPromotionsCommand";
 import {
-  ListOfferingTransactionsCommand,
-  ListOfferingTransactionsCommandInput,
-  ListOfferingTransactionsCommandOutput,
-} from "./commands/ListOfferingTransactionsCommand";
-import {
   ListOfferingsCommand,
   ListOfferingsCommandInput,
   ListOfferingsCommandOutput,
 } from "./commands/ListOfferingsCommand";
+import {
+  ListOfferingTransactionsCommand,
+  ListOfferingTransactionsCommandInput,
+  ListOfferingTransactionsCommandOutput,
+} from "./commands/ListOfferingTransactionsCommand";
 import {
   ListProjectsCommand,
   ListProjectsCommandInput,
@@ -308,7 +309,7 @@ import {
   UpdateVPCEConfigurationCommandInput,
   UpdateVPCEConfigurationCommandOutput,
 } from "./commands/UpdateVPCEConfigurationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DeviceFarmClient } from "./DeviceFarmClient";
 
 /**
  * <p>Welcome to the AWS Device Farm API documentation, which contains APIs for:</p>

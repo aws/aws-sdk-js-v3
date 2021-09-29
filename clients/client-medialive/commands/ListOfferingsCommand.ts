@@ -1,9 +1,3 @@
-import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ListOfferingsRequest, ListOfferingsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListOfferingsCommand,
-  serializeAws_restJson1ListOfferingsCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { ListOfferingsRequest, ListOfferingsResponse } from "../models/models_1";
+import {
+  deserializeAws_restJson1ListOfferingsCommand,
+  serializeAws_restJson1ListOfferingsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface ListOfferingsCommandInput extends ListOfferingsRequest {}
 export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __MetadataBearer {}

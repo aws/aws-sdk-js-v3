@@ -1,12 +1,13 @@
-import { Pricing } from "../Pricing";
-import { PricingClient } from "../PricingClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetAttributeValuesCommand,
   GetAttributeValuesCommandInput,
   GetAttributeValuesCommandOutput,
 } from "../commands/GetAttributeValuesCommand";
+import { Pricing } from "../Pricing";
+import { PricingClient } from "../PricingClient";
 import { PricingPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

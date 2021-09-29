@@ -1,12 +1,13 @@
-import { GroundStation } from "../GroundStation";
-import { GroundStationClient } from "../GroundStationClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListContactsCommand,
   ListContactsCommandInput,
   ListContactsCommandOutput,
 } from "../commands/ListContactsCommand";
+import { GroundStation } from "../GroundStation";
+import { GroundStationClient } from "../GroundStationClient";
 import { GroundStationPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

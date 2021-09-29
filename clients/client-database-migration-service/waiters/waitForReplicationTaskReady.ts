@@ -1,9 +1,10 @@
-import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeReplicationTasksCommand,
   DescribeReplicationTasksCommandInput,
 } from "../commands/DescribeReplicationTasksCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
 
 const checkState = async (
   client: DatabaseMigrationServiceClient,
@@ -11,18 +12,18 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeReplicationTasksCommand(input));
+    const result: any = await client.send(new DescribeReplicationTasksCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ReplicationTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ReplicationTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
       let allStringEq_5 = returnComparator().length > 0;
-      for (let element_4 of returnComparator()) {
+      for (const element_4 of returnComparator()) {
         allStringEq_5 = allStringEq_5 && element_4 == "ready";
       }
       if (allStringEq_5) {
@@ -30,112 +31,112 @@ const checkState = async (
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ReplicationTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ReplicationTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "starting") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ReplicationTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ReplicationTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "running") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ReplicationTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ReplicationTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "stopping") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ReplicationTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ReplicationTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "stopped") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ReplicationTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ReplicationTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "failed") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ReplicationTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ReplicationTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "modifying") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ReplicationTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ReplicationTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "testing") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ReplicationTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ReplicationTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "deleting") {
           return { state: WaiterState.FAILURE, reason };
         }

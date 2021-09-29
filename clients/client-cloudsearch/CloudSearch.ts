@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CloudSearchClient } from "./CloudSearchClient";
 import {
   BuildSuggestersCommand,
@@ -129,7 +131,6 @@ import {
   UpdateServiceAccessPoliciesCommandInput,
   UpdateServiceAccessPoliciesCommandOutput,
 } from "./commands/UpdateServiceAccessPoliciesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon CloudSearch Configuration Service</fullname>

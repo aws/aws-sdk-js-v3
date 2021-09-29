@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CloudFormation } from "../CloudFormation";
 import { CloudFormationClient } from "../CloudFormationClient";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeStackEventsCommandOutput,
 } from "../commands/DescribeStackEventsCommand";
 import { CloudFormationPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

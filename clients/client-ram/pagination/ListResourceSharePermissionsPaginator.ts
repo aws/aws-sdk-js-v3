@@ -1,12 +1,13 @@
-import { RAM } from "../RAM";
-import { RAMClient } from "../RAMClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListResourceSharePermissionsCommand,
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput,
 } from "../commands/ListResourceSharePermissionsCommand";
+import { RAM } from "../RAM";
+import { RAMClient } from "../RAMClient";
 import { RAMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

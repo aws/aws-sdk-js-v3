@@ -1,4 +1,5 @@
-import { IoTEventsClient } from "./IoTEventsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateAlarmModelCommand,
   CreateAlarmModelCommandInput,
@@ -52,25 +53,25 @@ import {
   GetDetectorModelAnalysisResultsCommandOutput,
 } from "./commands/GetDetectorModelAnalysisResultsCommand";
 import {
-  ListAlarmModelVersionsCommand,
-  ListAlarmModelVersionsCommandInput,
-  ListAlarmModelVersionsCommandOutput,
-} from "./commands/ListAlarmModelVersionsCommand";
-import {
   ListAlarmModelsCommand,
   ListAlarmModelsCommandInput,
   ListAlarmModelsCommandOutput,
 } from "./commands/ListAlarmModelsCommand";
 import {
-  ListDetectorModelVersionsCommand,
-  ListDetectorModelVersionsCommandInput,
-  ListDetectorModelVersionsCommandOutput,
-} from "./commands/ListDetectorModelVersionsCommand";
+  ListAlarmModelVersionsCommand,
+  ListAlarmModelVersionsCommandInput,
+  ListAlarmModelVersionsCommandOutput,
+} from "./commands/ListAlarmModelVersionsCommand";
 import {
   ListDetectorModelsCommand,
   ListDetectorModelsCommandInput,
   ListDetectorModelsCommandOutput,
 } from "./commands/ListDetectorModelsCommand";
+import {
+  ListDetectorModelVersionsCommand,
+  ListDetectorModelVersionsCommandInput,
+  ListDetectorModelVersionsCommandOutput,
+} from "./commands/ListDetectorModelVersionsCommand";
 import {
   ListInputRoutingsCommand,
   ListInputRoutingsCommandInput,
@@ -109,7 +110,7 @@ import {
   UpdateDetectorModelCommandOutput,
 } from "./commands/UpdateDetectorModelCommand";
 import { UpdateInputCommand, UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTEventsClient } from "./IoTEventsClient";
 
 /**
  * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and

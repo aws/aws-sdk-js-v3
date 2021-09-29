@@ -1,12 +1,13 @@
-import { SNS } from "../SNS";
-import { SNSClient } from "../SNSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListSubscriptionsByTopicCommand,
   ListSubscriptionsByTopicCommandInput,
   ListSubscriptionsByTopicCommandOutput,
 } from "../commands/ListSubscriptionsByTopicCommand";
+import { SNS } from "../SNS";
+import { SNSClient } from "../SNSClient";
 import { SNSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

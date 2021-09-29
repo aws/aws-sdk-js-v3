@@ -1,3 +1,6 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { Readable } from "stream";
+
 import {
   GlacierJobParameters,
   Grant,
@@ -12,8 +15,6 @@ import {
   Tagging,
   Tier,
 } from "./models_0";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { Readable } from "stream";
 
 /**
  * <p>Contains the type of server-side encryption used.</p>

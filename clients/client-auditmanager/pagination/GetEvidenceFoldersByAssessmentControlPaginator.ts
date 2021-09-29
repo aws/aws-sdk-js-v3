@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { AuditManager } from "../AuditManager";
 import { AuditManagerClient } from "../AuditManagerClient";
 import {
@@ -6,7 +8,6 @@ import {
   GetEvidenceFoldersByAssessmentControlCommandOutput,
 } from "../commands/GetEvidenceFoldersByAssessmentControlCommand";
 import { AuditManagerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

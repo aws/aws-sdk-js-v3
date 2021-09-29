@@ -1,12 +1,13 @@
-import { KMS } from "../KMS";
-import { KMSClient } from "../KMSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListKeyPoliciesCommand,
   ListKeyPoliciesCommandInput,
   ListKeyPoliciesCommandOutput,
 } from "../commands/ListKeyPoliciesCommand";
+import { KMS } from "../KMS";
+import { KMSClient } from "../KMSClient";
 import { KMSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

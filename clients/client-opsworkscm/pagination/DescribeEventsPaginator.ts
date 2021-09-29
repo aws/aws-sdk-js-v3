@@ -1,12 +1,13 @@
-import { OpsWorksCM } from "../OpsWorksCM";
-import { OpsWorksCMClient } from "../OpsWorksCMClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
 } from "../commands/DescribeEventsCommand";
+import { OpsWorksCM } from "../OpsWorksCM";
+import { OpsWorksCMClient } from "../OpsWorksCMClient";
 import { OpsWorksCMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

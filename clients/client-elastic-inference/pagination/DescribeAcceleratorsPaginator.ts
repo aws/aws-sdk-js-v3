@@ -1,12 +1,13 @@
-import { ElasticInference } from "../ElasticInference";
-import { ElasticInferenceClient } from "../ElasticInferenceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeAcceleratorsCommand,
   DescribeAcceleratorsCommandInput,
   DescribeAcceleratorsCommandOutput,
 } from "../commands/DescribeAcceleratorsCommand";
+import { ElasticInference } from "../ElasticInference";
+import { ElasticInferenceClient } from "../ElasticInferenceClient";
 import { ElasticInferencePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

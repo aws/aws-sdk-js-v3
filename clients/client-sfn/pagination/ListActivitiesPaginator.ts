@@ -1,12 +1,13 @@
-import { SFN } from "../SFN";
-import { SFNClient } from "../SFNClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListActivitiesCommand,
   ListActivitiesCommandInput,
   ListActivitiesCommandOutput,
 } from "../commands/ListActivitiesCommand";
+import { SFN } from "../SFN";
+import { SFNClient } from "../SFNClient";
 import { SFNPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

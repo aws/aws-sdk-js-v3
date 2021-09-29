@@ -1,14 +1,15 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { CloudFrontClient } from "../CloudFrontClient";
 import { GetInvalidationCommand, GetInvalidationCommandInput } from "../commands/GetInvalidationCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: CloudFrontClient, input: GetInvalidationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetInvalidationCommand(input));
+    const result: any = await client.send(new GetInvalidationCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Invalidation.Status;
       };
       if (returnComparator() === "Completed") {

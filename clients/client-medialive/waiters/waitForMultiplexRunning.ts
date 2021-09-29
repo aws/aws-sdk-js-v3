@@ -1,14 +1,15 @@
-import { MediaLiveClient } from "../MediaLiveClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeMultiplexCommand, DescribeMultiplexCommandInput } from "../commands/DescribeMultiplexCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { MediaLiveClient } from "../MediaLiveClient";
 
 const checkState = async (client: MediaLiveClient, input: DescribeMultiplexCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeMultiplexCommand(input));
+    const result: any = await client.send(new DescribeMultiplexCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       };
       if (returnComparator() === "RUNNING") {
@@ -16,7 +17,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeMultiplexComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       };
       if (returnComparator() === "STARTING") {

@@ -1,12 +1,13 @@
-import { HealthLake } from "../HealthLake";
-import { HealthLakeClient } from "../HealthLakeClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListFHIRImportJobsCommand,
   ListFHIRImportJobsCommandInput,
   ListFHIRImportJobsCommandOutput,
 } from "../commands/ListFHIRImportJobsCommand";
+import { HealthLake } from "../HealthLake";
+import { HealthLakeClient } from "../HealthLakeClient";
 import { HealthLakePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

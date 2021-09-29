@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { SMSClientConfig } from "./SMSClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { SMSClientConfig } from "./SMSClient";
 
 /**
  * @internal

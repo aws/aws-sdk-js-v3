@@ -1,4 +1,5 @@
-import { ConfigServiceClient } from "./ConfigServiceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchGetAggregateResourceConfigCommand,
   BatchGetAggregateResourceConfigCommandInput,
@@ -125,70 +126,70 @@ import {
   DescribeConfigRulesCommandOutput,
 } from "./commands/DescribeConfigRulesCommand";
 import {
-  DescribeConfigurationAggregatorSourcesStatusCommand,
-  DescribeConfigurationAggregatorSourcesStatusCommandInput,
-  DescribeConfigurationAggregatorSourcesStatusCommandOutput,
-} from "./commands/DescribeConfigurationAggregatorSourcesStatusCommand";
-import {
   DescribeConfigurationAggregatorsCommand,
   DescribeConfigurationAggregatorsCommandInput,
   DescribeConfigurationAggregatorsCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorsCommand";
 import {
-  DescribeConfigurationRecorderStatusCommand,
-  DescribeConfigurationRecorderStatusCommandInput,
-  DescribeConfigurationRecorderStatusCommandOutput,
-} from "./commands/DescribeConfigurationRecorderStatusCommand";
+  DescribeConfigurationAggregatorSourcesStatusCommand,
+  DescribeConfigurationAggregatorSourcesStatusCommandInput,
+  DescribeConfigurationAggregatorSourcesStatusCommandOutput,
+} from "./commands/DescribeConfigurationAggregatorSourcesStatusCommand";
 import {
   DescribeConfigurationRecordersCommand,
   DescribeConfigurationRecordersCommandInput,
   DescribeConfigurationRecordersCommandOutput,
 } from "./commands/DescribeConfigurationRecordersCommand";
 import {
+  DescribeConfigurationRecorderStatusCommand,
+  DescribeConfigurationRecorderStatusCommandInput,
+  DescribeConfigurationRecorderStatusCommandOutput,
+} from "./commands/DescribeConfigurationRecorderStatusCommand";
+import {
   DescribeConformancePackComplianceCommand,
   DescribeConformancePackComplianceCommandInput,
   DescribeConformancePackComplianceCommandOutput,
 } from "./commands/DescribeConformancePackComplianceCommand";
-import {
-  DescribeConformancePackStatusCommand,
-  DescribeConformancePackStatusCommandInput,
-  DescribeConformancePackStatusCommandOutput,
-} from "./commands/DescribeConformancePackStatusCommand";
 import {
   DescribeConformancePacksCommand,
   DescribeConformancePacksCommandInput,
   DescribeConformancePacksCommandOutput,
 } from "./commands/DescribeConformancePacksCommand";
 import {
-  DescribeDeliveryChannelStatusCommand,
-  DescribeDeliveryChannelStatusCommandInput,
-  DescribeDeliveryChannelStatusCommandOutput,
-} from "./commands/DescribeDeliveryChannelStatusCommand";
+  DescribeConformancePackStatusCommand,
+  DescribeConformancePackStatusCommandInput,
+  DescribeConformancePackStatusCommandOutput,
+} from "./commands/DescribeConformancePackStatusCommand";
 import {
   DescribeDeliveryChannelsCommand,
   DescribeDeliveryChannelsCommandInput,
   DescribeDeliveryChannelsCommandOutput,
 } from "./commands/DescribeDeliveryChannelsCommand";
 import {
-  DescribeOrganizationConfigRuleStatusesCommand,
-  DescribeOrganizationConfigRuleStatusesCommandInput,
-  DescribeOrganizationConfigRuleStatusesCommandOutput,
-} from "./commands/DescribeOrganizationConfigRuleStatusesCommand";
+  DescribeDeliveryChannelStatusCommand,
+  DescribeDeliveryChannelStatusCommandInput,
+  DescribeDeliveryChannelStatusCommandOutput,
+} from "./commands/DescribeDeliveryChannelStatusCommand";
 import {
   DescribeOrganizationConfigRulesCommand,
   DescribeOrganizationConfigRulesCommandInput,
   DescribeOrganizationConfigRulesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRulesCommand";
 import {
-  DescribeOrganizationConformancePackStatusesCommand,
-  DescribeOrganizationConformancePackStatusesCommandInput,
-  DescribeOrganizationConformancePackStatusesCommandOutput,
-} from "./commands/DescribeOrganizationConformancePackStatusesCommand";
+  DescribeOrganizationConfigRuleStatusesCommand,
+  DescribeOrganizationConfigRuleStatusesCommandInput,
+  DescribeOrganizationConfigRuleStatusesCommandOutput,
+} from "./commands/DescribeOrganizationConfigRuleStatusesCommand";
 import {
   DescribeOrganizationConformancePacksCommand,
   DescribeOrganizationConformancePacksCommandInput,
   DescribeOrganizationConformancePacksCommandOutput,
 } from "./commands/DescribeOrganizationConformancePacksCommand";
+import {
+  DescribeOrganizationConformancePackStatusesCommand,
+  DescribeOrganizationConformancePackStatusesCommandInput,
+  DescribeOrganizationConformancePackStatusesCommandOutput,
+} from "./commands/DescribeOrganizationConformancePackStatusesCommand";
 import {
   DescribePendingAggregationRequestsCommand,
   DescribePendingAggregationRequestsCommandInput,
@@ -425,7 +426,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ConfigServiceClient } from "./ConfigServiceClient";
 
 /**
  * <fullname>Config</fullname>

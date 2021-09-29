@@ -1,12 +1,13 @@
-import { ECS } from "../ECS";
-import { ECSClient } from "../ECSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListAccountSettingsCommand,
   ListAccountSettingsCommandInput,
   ListAccountSettingsCommandOutput,
 } from "../commands/ListAccountSettingsCommand";
+import { ECS } from "../ECS";
+import { ECSClient } from "../ECSClient";
 import { ECSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

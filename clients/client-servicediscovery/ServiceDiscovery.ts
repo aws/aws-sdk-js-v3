@@ -1,4 +1,5 @@
-import { ServiceDiscoveryClient } from "./ServiceDiscoveryClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateHttpNamespaceCommand,
   CreateHttpNamespaceCommandInput,
@@ -117,7 +118,7 @@ import {
   UpdateServiceCommandInput,
   UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ServiceDiscoveryClient } from "./ServiceDiscoveryClient";
 
 /**
  * <fullname>Cloud Map</fullname>

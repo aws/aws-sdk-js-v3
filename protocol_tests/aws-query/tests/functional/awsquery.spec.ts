@@ -1,4 +1,7 @@
-import { QueryProtocolClient } from "../../QueryProtocolClient";
+import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
+import { Readable } from "stream";
+
 import { EmptyInputAndEmptyOutputCommand } from "../../commands/EmptyInputAndEmptyOutputCommand";
 import { EndpointOperationCommand } from "../../commands/EndpointOperationCommand";
 import { EndpointWithHostLabelOperationCommand } from "../../commands/EndpointWithHostLabelOperationCommand";
@@ -28,9 +31,7 @@ import { XmlMapsXmlNameCommand } from "../../commands/XmlMapsXmlNameCommand";
 import { XmlNamespacesCommand } from "../../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../commands/XmlTimestampsCommand";
 import { ComplexError, CustomCodeError, InvalidGreeting } from "../../models/models_0";
-import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { Readable } from "stream";
+import { QueryProtocolClient } from "../../QueryProtocolClient";
 
 /**
  * Throws an expected exception that contains the serialized request.
@@ -120,7 +121,7 @@ const compareParts = (expectedParts: comparableParts, generatedParts: comparable
  * properties that have defined values.
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
-  let localExpected = expected;
+  const localExpected = expected;
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -144,7 +145,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   }
 
   // Compare properties directly.
-  for (var index = 0; index < expectedProperties.length; index++) {
+  for (let index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
     if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;

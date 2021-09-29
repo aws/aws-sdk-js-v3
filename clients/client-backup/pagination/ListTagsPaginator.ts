@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Backup } from "../Backup";
 import { BackupClient } from "../BackupClient";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import { BackupPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

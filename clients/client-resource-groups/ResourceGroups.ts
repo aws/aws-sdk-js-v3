@@ -1,4 +1,5 @@
-import { ResourceGroupsClient } from "./ResourceGroupsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
@@ -47,7 +48,7 @@ import {
   UpdateGroupQueryCommandInput,
   UpdateGroupQueryCommandOutput,
 } from "./commands/UpdateGroupQueryCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ResourceGroupsClient } from "./ResourceGroupsClient";
 
 /**
  * <fullname>AWS Resource Groups</fullname>

@@ -1,9 +1,10 @@
-import { ProtonClient } from "../ProtonClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   GetServiceTemplateVersionCommand,
   GetServiceTemplateVersionCommandInput,
 } from "../commands/GetServiceTemplateVersionCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ProtonClient } from "../ProtonClient";
 
 const checkState = async (
   client: ProtonClient,
@@ -11,10 +12,10 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetServiceTemplateVersionCommand(input));
+    const result: any = await client.send(new GetServiceTemplateVersionCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.serviceTemplateVersion.status;
       };
       if (returnComparator() === "DRAFT") {
@@ -22,7 +23,7 @@ const checkState = async (
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.serviceTemplateVersion.status;
       };
       if (returnComparator() === "PUBLISHED") {
@@ -30,7 +31,7 @@ const checkState = async (
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.serviceTemplateVersion.status;
       };
       if (returnComparator() === "REGISTRATION_FAILED") {

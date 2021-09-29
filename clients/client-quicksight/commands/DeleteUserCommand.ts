@@ -1,9 +1,3 @@
-import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteUserRequest, DeleteUserResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUserCommand,
-  serializeAws_restJson1DeleteUserCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DeleteUserRequest, DeleteUserResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1DeleteUserCommand,
+  serializeAws_restJson1DeleteUserCommand,
+} from "../protocols/Aws_restJson1";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}

@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AppSyncClient } from "./AppSyncClient";
 import {
   CreateApiCacheCommand,
@@ -164,7 +166,6 @@ import {
   UpdateResolverCommandOutput,
 } from "./commands/UpdateResolverCommand";
 import { UpdateTypeCommand, UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>AppSync provides API actions for creating and interacting with data

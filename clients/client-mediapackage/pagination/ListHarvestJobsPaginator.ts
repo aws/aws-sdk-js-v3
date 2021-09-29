@@ -1,12 +1,13 @@
-import { MediaPackage } from "../MediaPackage";
-import { MediaPackageClient } from "../MediaPackageClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListHarvestJobsCommand,
   ListHarvestJobsCommandInput,
   ListHarvestJobsCommandOutput,
 } from "../commands/ListHarvestJobsCommand";
+import { MediaPackage } from "../MediaPackage";
+import { MediaPackageClient } from "../MediaPackageClient";
 import { MediaPackagePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

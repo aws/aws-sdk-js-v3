@@ -1,12 +1,13 @@
-import { DeviceFarm } from "../DeviceFarm";
-import { DeviceFarmClient } from "../DeviceFarmClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListTestGridSessionActionsCommand,
   ListTestGridSessionActionsCommandInput,
   ListTestGridSessionActionsCommandOutput,
 } from "../commands/ListTestGridSessionActionsCommand";
+import { DeviceFarm } from "../DeviceFarm";
+import { DeviceFarmClient } from "../DeviceFarmClient";
 import { DeviceFarmPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

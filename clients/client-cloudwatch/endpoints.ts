@@ -1,4 +1,4 @@
-import { PartitionHash, RegionHash, getRegionInfo } from "@aws-sdk/config-resolver";
+import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {

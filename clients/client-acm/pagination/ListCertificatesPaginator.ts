@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { ACM } from "../ACM";
 import { ACMClient } from "../ACMClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListCertificatesCommandOutput,
 } from "../commands/ListCertificatesCommand";
 import { ACMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

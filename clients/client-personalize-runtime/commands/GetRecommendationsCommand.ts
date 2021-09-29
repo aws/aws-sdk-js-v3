@@ -1,13 +1,3 @@
-import {
-  PersonalizeRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PersonalizeRuntimeClient";
-import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRecommendationsCommand,
-  serializeAws_restJson1GetRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -15,11 +5,22 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/models_0";
+import {
+  PersonalizeRuntimeClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../PersonalizeRuntimeClient";
+import {
+  deserializeAws_restJson1GetRecommendationsCommand,
+  serializeAws_restJson1GetRecommendationsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface GetRecommendationsCommandInput extends GetRecommendationsRequest {}
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}

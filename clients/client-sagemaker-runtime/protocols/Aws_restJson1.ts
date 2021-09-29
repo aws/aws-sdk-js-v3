@@ -1,9 +1,3 @@
-import {
-  InvokeEndpointAsyncCommandInput,
-  InvokeEndpointAsyncCommandOutput,
-} from "../commands/InvokeEndpointAsyncCommand";
-import { InvokeEndpointCommandInput, InvokeEndpointCommandOutput } from "../commands/InvokeEndpointCommand";
-import { InternalFailure, ModelError, ServiceUnavailable, ValidationError } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectInt32 as __expectInt32,
@@ -19,6 +13,13 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+import {
+  InvokeEndpointAsyncCommandInput,
+  InvokeEndpointAsyncCommandOutput,
+} from "../commands/InvokeEndpointAsyncCommand";
+import { InvokeEndpointCommandInput, InvokeEndpointCommandOutput } from "../commands/InvokeEndpointCommand";
+import { InternalFailure, ModelError, ServiceUnavailable, ValidationError } from "../models/models_0";
 
 export const serializeAws_restJson1InvokeEndpointCommand = async (
   input: InvokeEndpointCommandInput,
@@ -143,7 +144,7 @@ const deserializeAws_restJson1InvokeEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailure":
@@ -226,7 +227,7 @@ const deserializeAws_restJson1InvokeEndpointAsyncCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailure":

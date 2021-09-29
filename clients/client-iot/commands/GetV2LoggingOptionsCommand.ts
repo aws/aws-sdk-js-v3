@@ -1,9 +1,3 @@
-import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetV2LoggingOptionsRequest, GetV2LoggingOptionsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetV2LoggingOptionsCommand,
-  serializeAws_restJson1GetV2LoggingOptionsCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { GetV2LoggingOptionsRequest, GetV2LoggingOptionsResponse } from "../models/models_1";
+import {
+  deserializeAws_restJson1GetV2LoggingOptionsCommand,
+  serializeAws_restJson1GetV2LoggingOptionsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface GetV2LoggingOptionsCommandInput extends GetV2LoggingOptionsRequest {}
 export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsResponse, __MetadataBearer {}

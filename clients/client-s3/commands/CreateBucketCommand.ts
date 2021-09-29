@@ -1,9 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { CreateBucketOutput, CreateBucketRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateBucketCommand,
-  serializeAws_restXmlCreateBucketCommand,
-} from "../protocols/Aws_restXml";
 import { getLocationConstraintPlugin } from "@aws-sdk/middleware-location-constraint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CreateBucketOutput, CreateBucketRequest } from "../models/models_0";
+import {
+  deserializeAws_restXmlCreateBucketCommand,
+  serializeAws_restXmlCreateBucketCommand,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface CreateBucketCommandInput extends CreateBucketRequest {}
 export interface CreateBucketCommandOutput extends CreateBucketOutput, __MetadataBearer {}

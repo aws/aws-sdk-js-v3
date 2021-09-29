@@ -1,14 +1,15 @@
-import { ProtonClient } from "../ProtonClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { GetServiceInstanceCommand, GetServiceInstanceCommandInput } from "../commands/GetServiceInstanceCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ProtonClient } from "../ProtonClient";
 
 const checkState = async (client: ProtonClient, input: GetServiceInstanceCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetServiceInstanceCommand(input));
+    const result: any = await client.send(new GetServiceInstanceCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.serviceInstance.deploymentStatus;
       };
       if (returnComparator() === "SUCCEEDED") {
@@ -16,7 +17,7 @@ const checkState = async (client: ProtonClient, input: GetServiceInstanceCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.serviceInstance.deploymentStatus;
       };
       if (returnComparator() === "FAILED") {

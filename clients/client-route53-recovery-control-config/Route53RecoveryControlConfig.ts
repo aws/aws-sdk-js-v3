@@ -1,4 +1,5 @@
-import { Route53RecoveryControlConfigClient } from "./Route53RecoveryControlConfigClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateClusterCommand,
   CreateClusterCommandInput,
@@ -99,7 +100,7 @@ import {
   UpdateSafetyRuleCommandInput,
   UpdateSafetyRuleCommandOutput,
 } from "./commands/UpdateSafetyRuleCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { Route53RecoveryControlConfigClient } from "./Route53RecoveryControlConfigClient";
 
 /**
  * <p>Recovery Control Configuration API Reference for Amazon Route 53 Application Recovery Controller</p>

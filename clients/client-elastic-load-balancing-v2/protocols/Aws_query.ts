@@ -1,3 +1,26 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
 import {
   AddListenerCertificatesCommandInput,
   AddListenerCertificatesCommandOutput,
@@ -69,13 +92,13 @@ import { SetRulePrioritiesCommandInput, SetRulePrioritiesCommandOutput } from ".
 import { SetSecurityGroupsCommandInput, SetSecurityGroupsCommandOutput } from "../commands/SetSecurityGroupsCommand";
 import { SetSubnetsCommandInput, SetSubnetsCommandOutput } from "../commands/SetSubnetsCommand";
 import {
-  ALPNPolicyNotSupportedException,
   Action,
   AddListenerCertificatesInput,
   AddListenerCertificatesOutput,
   AddTagsInput,
   AddTagsOutput,
   AllocationIdNotFoundException,
+  ALPNPolicyNotSupportedException,
   AuthenticateCognitoActionConfig,
   AuthenticateOidcActionConfig,
   AvailabilityZone,
@@ -176,7 +199,6 @@ import {
   RuleCondition,
   RuleNotFoundException,
   RulePriorityPair,
-  SSLPolicyNotFoundException,
   SetIpAddressTypeInput,
   SetIpAddressTypeOutput,
   SetRulePrioritiesInput,
@@ -187,6 +209,7 @@ import {
   SetSubnetsOutput,
   SourceIpConditionConfig,
   SslPolicy,
+  SSLPolicyNotFoundException,
   SubnetMapping,
   SubnetNotFoundException,
   Tag,
@@ -212,28 +235,6 @@ import {
   TooManyUniqueTargetGroupsPerLoadBalancerException,
   UnsupportedProtocolException,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  strictParseInt32 as __strictParseInt32,
-  strictParseLong as __strictParseLong,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_queryAddListenerCertificatesCommand = async (
   input: AddListenerCertificatesCommandInput,
@@ -805,7 +806,7 @@ const deserializeAws_queryAddListenerCertificatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundException":
@@ -875,7 +876,7 @@ const deserializeAws_queryAddTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateTagKeysException":
@@ -953,7 +954,7 @@ const deserializeAws_queryCreateListenerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ALPNPolicyNotSupportedException":
@@ -1143,7 +1144,7 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AllocationIdNotFoundException":
@@ -1293,7 +1294,7 @@ const deserializeAws_queryCreateRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleProtocolsException":
@@ -1459,7 +1460,7 @@ const deserializeAws_queryCreateTargetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateTargetGroupNameException":
@@ -1537,7 +1538,7 @@ const deserializeAws_queryDeleteListenerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
@@ -1591,7 +1592,7 @@ const deserializeAws_queryDeleteLoadBalancerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
@@ -1661,7 +1662,7 @@ const deserializeAws_queryDeleteRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedException":
@@ -1723,7 +1724,7 @@ const deserializeAws_queryDeleteTargetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceInUseException":
@@ -1777,7 +1778,7 @@ const deserializeAws_queryDeregisterTargetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTargetException":
@@ -1839,7 +1840,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1885,7 +1886,7 @@ const deserializeAws_queryDescribeListenerCertificatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
@@ -1939,7 +1940,7 @@ const deserializeAws_queryDescribeListenersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
@@ -2012,7 +2013,7 @@ const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
@@ -2066,7 +2067,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
@@ -2120,7 +2121,7 @@ const deserializeAws_queryDescribeRulesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
@@ -2190,7 +2191,7 @@ const deserializeAws_queryDescribeSSLPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SSLPolicyNotFoundException":
@@ -2244,7 +2245,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
@@ -2322,7 +2323,7 @@ const deserializeAws_queryDescribeTargetGroupAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "TargetGroupNotFoundException":
@@ -2376,7 +2377,7 @@ const deserializeAws_queryDescribeTargetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
@@ -2438,7 +2439,7 @@ const deserializeAws_queryDescribeTargetHealthCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthUnavailableException":
@@ -2508,7 +2509,7 @@ const deserializeAws_queryModifyListenerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ALPNPolicyNotSupportedException":
@@ -2690,7 +2691,7 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
@@ -2752,7 +2753,7 @@ const deserializeAws_queryModifyRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleProtocolsException":
@@ -2886,7 +2887,7 @@ const deserializeAws_queryModifyTargetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
@@ -2948,7 +2949,7 @@ const deserializeAws_queryModifyTargetGroupAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
@@ -3010,7 +3011,7 @@ const deserializeAws_queryRegisterTargetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTargetException":
@@ -3088,7 +3089,7 @@ const deserializeAws_queryRemoveListenerCertificatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
@@ -3150,7 +3151,7 @@ const deserializeAws_queryRemoveTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ListenerNotFoundException":
@@ -3236,7 +3237,7 @@ const deserializeAws_querySetIpAddressTypeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
@@ -3306,7 +3307,7 @@ const deserializeAws_querySetRulePrioritiesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedException":
@@ -3376,7 +3377,7 @@ const deserializeAws_querySetSecurityGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
@@ -3446,7 +3447,7 @@ const deserializeAws_querySetSubnetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AllocationIdNotFoundException":
@@ -4121,7 +4122,7 @@ const serializeAws_queryAction = (input: Action, context: __SerdeContext): any =
 const serializeAws_queryActions = (input: Action[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4174,7 +4175,7 @@ const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeCon
 const serializeAws_queryAlpnPolicyName = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4320,7 +4321,7 @@ const serializeAws_queryCertificate = (input: Certificate, context: __SerdeConte
 const serializeAws_queryCertificateList = (input: Certificate[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4855,7 +4856,7 @@ const serializeAws_queryHttpRequestMethodConditionConfig = (
 const serializeAws_queryListenerArns = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4868,7 +4869,7 @@ const serializeAws_queryListenerArns = (input: string[], context: __SerdeContext
 const serializeAws_queryListOfString = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4881,7 +4882,7 @@ const serializeAws_queryListOfString = (input: string[], context: __SerdeContext
 const serializeAws_queryLoadBalancerArns = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4905,7 +4906,7 @@ const serializeAws_queryLoadBalancerAttribute = (input: LoadBalancerAttribute, c
 const serializeAws_queryLoadBalancerAttributes = (input: LoadBalancerAttribute[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4921,7 +4922,7 @@ const serializeAws_queryLoadBalancerAttributes = (input: LoadBalancerAttribute[]
 const serializeAws_queryLoadBalancerNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5124,7 +5125,7 @@ const serializeAws_queryQueryStringKeyValuePairList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5215,7 +5216,7 @@ const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __Se
 const serializeAws_queryResourceArns = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5228,7 +5229,7 @@ const serializeAws_queryResourceArns = (input: string[], context: __SerdeContext
 const serializeAws_queryRuleArns = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5298,7 +5299,7 @@ const serializeAws_queryRuleCondition = (input: RuleCondition, context: __SerdeC
 const serializeAws_queryRuleConditionList = (input: RuleCondition[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5314,7 +5315,7 @@ const serializeAws_queryRuleConditionList = (input: RuleCondition[], context: __
 const serializeAws_queryRulePriorityList = (input: RulePriorityPair[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5341,7 +5342,7 @@ const serializeAws_queryRulePriorityPair = (input: RulePriorityPair, context: __
 const serializeAws_querySecurityGroups = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5429,7 +5430,7 @@ const serializeAws_querySourceIpConditionConfig = (input: SourceIpConditionConfi
 const serializeAws_querySslPolicyNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5459,7 +5460,7 @@ const serializeAws_querySubnetMapping = (input: SubnetMapping, context: __SerdeC
 const serializeAws_querySubnetMappings = (input: SubnetMapping[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5475,7 +5476,7 @@ const serializeAws_querySubnetMappings = (input: SubnetMapping[], context: __Ser
 const serializeAws_querySubnets = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5499,7 +5500,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 const serializeAws_queryTagKeys = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5512,7 +5513,7 @@ const serializeAws_queryTagKeys = (input: string[], context: __SerdeContext): an
 const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5542,7 +5543,7 @@ const serializeAws_queryTargetDescription = (input: TargetDescription, context: 
 const serializeAws_queryTargetDescriptions = (input: TargetDescription[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5558,7 +5559,7 @@ const serializeAws_queryTargetDescriptions = (input: TargetDescription[], contex
 const serializeAws_queryTargetGroupArns = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5582,7 +5583,7 @@ const serializeAws_queryTargetGroupAttribute = (input: TargetGroupAttribute, con
 const serializeAws_queryTargetGroupAttributes = (input: TargetGroupAttribute[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5598,7 +5599,7 @@ const serializeAws_queryTargetGroupAttributes = (input: TargetGroupAttribute[], 
 const serializeAws_queryTargetGroupList = (input: TargetGroupTuple[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5614,7 +5615,7 @@ const serializeAws_queryTargetGroupList = (input: TargetGroupTuple[], context: _
 const serializeAws_queryTargetGroupNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5650,7 +5651,7 @@ const serializeAws_queryTargetGroupTuple = (input: TargetGroupTuple, context: __
 };
 
 const deserializeAws_queryAction = (output: any, context: __SerdeContext): Action => {
-  let contents: any = {
+  const contents: any = {
     Type: undefined,
     TargetGroupArn: undefined,
     AuthenticateOidcConfig: undefined,
@@ -5711,7 +5712,7 @@ const deserializeAws_queryAddListenerCertificatesOutput = (
   output: any,
   context: __SerdeContext
 ): AddListenerCertificatesOutput => {
-  let contents: any = {
+  const contents: any = {
     Certificates: undefined,
   };
   if (output.Certificates === "") {
@@ -5727,7 +5728,7 @@ const deserializeAws_queryAddListenerCertificatesOutput = (
 };
 
 const deserializeAws_queryAddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -5735,7 +5736,7 @@ const deserializeAws_queryAllocationIdNotFoundException = (
   output: any,
   context: __SerdeContext
 ): AllocationIdNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -5759,7 +5760,7 @@ const deserializeAws_queryALPNPolicyNotSupportedException = (
   output: any,
   context: __SerdeContext
 ): ALPNPolicyNotSupportedException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -5787,7 +5788,7 @@ const deserializeAws_queryAuthenticateCognitoActionConfig = (
   output: any,
   context: __SerdeContext
 ): AuthenticateCognitoActionConfig => {
-  let contents: any = {
+  const contents: any = {
     UserPoolArn: undefined,
     UserPoolClientId: undefined,
     UserPoolDomain: undefined,
@@ -5853,7 +5854,7 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
   output: any,
   context: __SerdeContext
 ): AuthenticateOidcActionConfig => {
-  let contents: any = {
+  const contents: any = {
     Issuer: undefined,
     AuthorizationEndpoint: undefined,
     TokenEndpoint: undefined,
@@ -5917,7 +5918,7 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
 };
 
 const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
-  let contents: any = {
+  const contents: any = {
     ZoneName: undefined,
     SubnetId: undefined,
     OutpostId: undefined,
@@ -5948,7 +5949,7 @@ const deserializeAws_queryAvailabilityZoneNotSupportedException = (
   output: any,
   context: __SerdeContext
 ): AvailabilityZoneNotSupportedException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -5969,7 +5970,7 @@ const deserializeAws_queryAvailabilityZones = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): Certificate => {
-  let contents: any = {
+  const contents: any = {
     CertificateArn: undefined,
     IsDefault: undefined,
   };
@@ -5997,7 +5998,7 @@ const deserializeAws_queryCertificateNotFoundException = (
   output: any,
   context: __SerdeContext
 ): CertificateNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6007,7 +6008,7 @@ const deserializeAws_queryCertificateNotFoundException = (
 };
 
 const deserializeAws_queryCipher = (output: any, context: __SerdeContext): Cipher => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Priority: undefined,
   };
@@ -6032,7 +6033,7 @@ const deserializeAws_queryCiphers = (output: any, context: __SerdeContext): Ciph
 };
 
 const deserializeAws_queryCreateListenerOutput = (output: any, context: __SerdeContext): CreateListenerOutput => {
-  let contents: any = {
+  const contents: any = {
     Listeners: undefined,
   };
   if (output.Listeners === "") {
@@ -6048,7 +6049,7 @@ const deserializeAws_queryCreateLoadBalancerOutput = (
   output: any,
   context: __SerdeContext
 ): CreateLoadBalancerOutput => {
-  let contents: any = {
+  const contents: any = {
     LoadBalancers: undefined,
   };
   if (output.LoadBalancers === "") {
@@ -6064,7 +6065,7 @@ const deserializeAws_queryCreateLoadBalancerOutput = (
 };
 
 const deserializeAws_queryCreateRuleOutput = (output: any, context: __SerdeContext): CreateRuleOutput => {
-  let contents: any = {
+  const contents: any = {
     Rules: undefined,
   };
   if (output.Rules === "") {
@@ -6077,7 +6078,7 @@ const deserializeAws_queryCreateRuleOutput = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryCreateTargetGroupOutput = (output: any, context: __SerdeContext): CreateTargetGroupOutput => {
-  let contents: any = {
+  const contents: any = {
     TargetGroups: undefined,
   };
   if (output.TargetGroups === "") {
@@ -6093,7 +6094,7 @@ const deserializeAws_queryCreateTargetGroupOutput = (output: any, context: __Ser
 };
 
 const deserializeAws_queryDeleteListenerOutput = (output: any, context: __SerdeContext): DeleteListenerOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -6101,22 +6102,22 @@ const deserializeAws_queryDeleteLoadBalancerOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteLoadBalancerOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeleteRuleOutput = (output: any, context: __SerdeContext): DeleteRuleOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeleteTargetGroupOutput = (output: any, context: __SerdeContext): DeleteTargetGroupOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeregisterTargetsOutput = (output: any, context: __SerdeContext): DeregisterTargetsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -6124,7 +6125,7 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeAccountLimitsOutput => {
-  let contents: any = {
+  const contents: any = {
     Limits: undefined,
     NextMarker: undefined,
   };
@@ -6144,7 +6145,7 @@ const deserializeAws_queryDescribeListenerCertificatesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeListenerCertificatesOutput => {
-  let contents: any = {
+  const contents: any = {
     Certificates: undefined,
     NextMarker: undefined,
   };
@@ -6164,7 +6165,7 @@ const deserializeAws_queryDescribeListenerCertificatesOutput = (
 };
 
 const deserializeAws_queryDescribeListenersOutput = (output: any, context: __SerdeContext): DescribeListenersOutput => {
-  let contents: any = {
+  const contents: any = {
     Listeners: undefined,
     NextMarker: undefined,
   };
@@ -6184,7 +6185,7 @@ const deserializeAws_queryDescribeLoadBalancerAttributesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeLoadBalancerAttributesOutput => {
-  let contents: any = {
+  const contents: any = {
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -6203,7 +6204,7 @@ const deserializeAws_queryDescribeLoadBalancersOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeLoadBalancersOutput => {
-  let contents: any = {
+  const contents: any = {
     LoadBalancers: undefined,
     NextMarker: undefined,
   };
@@ -6223,7 +6224,7 @@ const deserializeAws_queryDescribeLoadBalancersOutput = (
 };
 
 const deserializeAws_queryDescribeRulesOutput = (output: any, context: __SerdeContext): DescribeRulesOutput => {
-  let contents: any = {
+  const contents: any = {
     Rules: undefined,
     NextMarker: undefined,
   };
@@ -6243,7 +6244,7 @@ const deserializeAws_queryDescribeSSLPoliciesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeSSLPoliciesOutput => {
-  let contents: any = {
+  const contents: any = {
     SslPolicies: undefined,
     NextMarker: undefined,
   };
@@ -6263,7 +6264,7 @@ const deserializeAws_queryDescribeSSLPoliciesOutput = (
 };
 
 const deserializeAws_queryDescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
-  let contents: any = {
+  const contents: any = {
     TagDescriptions: undefined,
   };
   if (output.TagDescriptions === "") {
@@ -6282,7 +6283,7 @@ const deserializeAws_queryDescribeTargetGroupAttributesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeTargetGroupAttributesOutput => {
-  let contents: any = {
+  const contents: any = {
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -6301,7 +6302,7 @@ const deserializeAws_queryDescribeTargetGroupsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeTargetGroupsOutput => {
-  let contents: any = {
+  const contents: any = {
     TargetGroups: undefined,
     NextMarker: undefined,
   };
@@ -6324,7 +6325,7 @@ const deserializeAws_queryDescribeTargetHealthOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeTargetHealthOutput => {
-  let contents: any = {
+  const contents: any = {
     TargetHealthDescriptions: undefined,
   };
   if (output.TargetHealthDescriptions === "") {
@@ -6343,7 +6344,7 @@ const deserializeAws_queryDuplicateListenerException = (
   output: any,
   context: __SerdeContext
 ): DuplicateListenerException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6356,7 +6357,7 @@ const deserializeAws_queryDuplicateLoadBalancerNameException = (
   output: any,
   context: __SerdeContext
 ): DuplicateLoadBalancerNameException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6369,7 +6370,7 @@ const deserializeAws_queryDuplicateTagKeysException = (
   output: any,
   context: __SerdeContext
 ): DuplicateTagKeysException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6382,7 +6383,7 @@ const deserializeAws_queryDuplicateTargetGroupNameException = (
   output: any,
   context: __SerdeContext
 ): DuplicateTargetGroupNameException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6395,7 +6396,7 @@ const deserializeAws_queryFixedResponseActionConfig = (
   output: any,
   context: __SerdeContext
 ): FixedResponseActionConfig => {
-  let contents: any = {
+  const contents: any = {
     MessageBody: undefined,
     StatusCode: undefined,
     ContentType: undefined,
@@ -6413,7 +6414,7 @@ const deserializeAws_queryFixedResponseActionConfig = (
 };
 
 const deserializeAws_queryForwardActionConfig = (output: any, context: __SerdeContext): ForwardActionConfig => {
-  let contents: any = {
+  const contents: any = {
     TargetGroups: undefined,
     TargetGroupStickinessConfig: undefined,
   };
@@ -6439,7 +6440,7 @@ const deserializeAws_queryHealthUnavailableException = (
   output: any,
   context: __SerdeContext
 ): HealthUnavailableException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6452,7 +6453,7 @@ const deserializeAws_queryHostHeaderConditionConfig = (
   output: any,
   context: __SerdeContext
 ): HostHeaderConditionConfig => {
-  let contents: any = {
+  const contents: any = {
     Values: undefined,
   };
   if (output.Values === "") {
@@ -6468,7 +6469,7 @@ const deserializeAws_queryHttpHeaderConditionConfig = (
   output: any,
   context: __SerdeContext
 ): HttpHeaderConditionConfig => {
-  let contents: any = {
+  const contents: any = {
     HttpHeaderName: undefined,
     Values: undefined,
   };
@@ -6488,7 +6489,7 @@ const deserializeAws_queryHttpRequestMethodConditionConfig = (
   output: any,
   context: __SerdeContext
 ): HttpRequestMethodConditionConfig => {
-  let contents: any = {
+  const contents: any = {
     Values: undefined,
   };
   if (output.Values === "") {
@@ -6504,7 +6505,7 @@ const deserializeAws_queryIncompatibleProtocolsException = (
   output: any,
   context: __SerdeContext
 ): IncompatibleProtocolsException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6517,7 +6518,7 @@ const deserializeAws_queryInvalidConfigurationRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidConfigurationRequestException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6530,7 +6531,7 @@ const deserializeAws_queryInvalidLoadBalancerActionException = (
   output: any,
   context: __SerdeContext
 ): InvalidLoadBalancerActionException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6540,7 +6541,7 @@ const deserializeAws_queryInvalidLoadBalancerActionException = (
 };
 
 const deserializeAws_queryInvalidSchemeException = (output: any, context: __SerdeContext): InvalidSchemeException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6553,7 +6554,7 @@ const deserializeAws_queryInvalidSecurityGroupException = (
   output: any,
   context: __SerdeContext
 ): InvalidSecurityGroupException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6563,7 +6564,7 @@ const deserializeAws_queryInvalidSecurityGroupException = (
 };
 
 const deserializeAws_queryInvalidSubnetException = (output: any, context: __SerdeContext): InvalidSubnetException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6573,7 +6574,7 @@ const deserializeAws_queryInvalidSubnetException = (output: any, context: __Serd
 };
 
 const deserializeAws_queryInvalidTargetException = (output: any, context: __SerdeContext): InvalidTargetException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6583,7 +6584,7 @@ const deserializeAws_queryInvalidTargetException = (output: any, context: __Serd
 };
 
 const deserializeAws_queryLimit = (output: any, context: __SerdeContext): Limit => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Max: undefined,
   };
@@ -6608,7 +6609,7 @@ const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit
 };
 
 const deserializeAws_queryListener = (output: any, context: __SerdeContext): Listener => {
-  let contents: any = {
+  const contents: any = {
     ListenerArn: undefined,
     LoadBalancerArn: undefined,
     Port: undefined,
@@ -6667,7 +6668,7 @@ const deserializeAws_queryListenerNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ListenerNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6699,7 +6700,7 @@ const deserializeAws_queryListOfString = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
-  let contents: any = {
+  const contents: any = {
     LoadBalancerArn: undefined,
     DNSName: undefined,
     CanonicalHostedZoneId: undefined,
@@ -6769,7 +6770,7 @@ const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryLoadBalancerAddress = (output: any, context: __SerdeContext): LoadBalancerAddress => {
-  let contents: any = {
+  const contents: any = {
     IpAddress: undefined,
     AllocationId: undefined,
     PrivateIPv4Address: undefined,
@@ -6813,7 +6814,7 @@ const deserializeAws_queryLoadBalancerArns = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryLoadBalancerAttribute = (output: any, context: __SerdeContext): LoadBalancerAttribute => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -6841,7 +6842,7 @@ const deserializeAws_queryLoadBalancerNotFoundException = (
   output: any,
   context: __SerdeContext
 ): LoadBalancerNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6862,7 +6863,7 @@ const deserializeAws_queryLoadBalancers = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryLoadBalancerState = (output: any, context: __SerdeContext): LoadBalancerState => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Reason: undefined,
   };
@@ -6876,7 +6877,7 @@ const deserializeAws_queryLoadBalancerState = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryMatcher = (output: any, context: __SerdeContext): Matcher => {
-  let contents: any = {
+  const contents: any = {
     HttpCode: undefined,
     GrpcCode: undefined,
   };
@@ -6890,7 +6891,7 @@ const deserializeAws_queryMatcher = (output: any, context: __SerdeContext): Matc
 };
 
 const deserializeAws_queryModifyListenerOutput = (output: any, context: __SerdeContext): ModifyListenerOutput => {
-  let contents: any = {
+  const contents: any = {
     Listeners: undefined,
   };
   if (output.Listeners === "") {
@@ -6906,7 +6907,7 @@ const deserializeAws_queryModifyLoadBalancerAttributesOutput = (
   output: any,
   context: __SerdeContext
 ): ModifyLoadBalancerAttributesOutput => {
-  let contents: any = {
+  const contents: any = {
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -6922,7 +6923,7 @@ const deserializeAws_queryModifyLoadBalancerAttributesOutput = (
 };
 
 const deserializeAws_queryModifyRuleOutput = (output: any, context: __SerdeContext): ModifyRuleOutput => {
-  let contents: any = {
+  const contents: any = {
     Rules: undefined,
   };
   if (output.Rules === "") {
@@ -6938,7 +6939,7 @@ const deserializeAws_queryModifyTargetGroupAttributesOutput = (
   output: any,
   context: __SerdeContext
 ): ModifyTargetGroupAttributesOutput => {
-  let contents: any = {
+  const contents: any = {
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -6954,7 +6955,7 @@ const deserializeAws_queryModifyTargetGroupAttributesOutput = (
 };
 
 const deserializeAws_queryModifyTargetGroupOutput = (output: any, context: __SerdeContext): ModifyTargetGroupOutput => {
-  let contents: any = {
+  const contents: any = {
     TargetGroups: undefined,
   };
   if (output.TargetGroups === "") {
@@ -6973,7 +6974,7 @@ const deserializeAws_queryOperationNotPermittedException = (
   output: any,
   context: __SerdeContext
 ): OperationNotPermittedException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6986,7 +6987,7 @@ const deserializeAws_queryPathPatternConditionConfig = (
   output: any,
   context: __SerdeContext
 ): PathPatternConditionConfig => {
-  let contents: any = {
+  const contents: any = {
     Values: undefined,
   };
   if (output.Values === "") {
@@ -6999,7 +7000,7 @@ const deserializeAws_queryPathPatternConditionConfig = (
 };
 
 const deserializeAws_queryPriorityInUseException = (output: any, context: __SerdeContext): PriorityInUseException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7012,7 +7013,7 @@ const deserializeAws_queryQueryStringConditionConfig = (
   output: any,
   context: __SerdeContext
 ): QueryStringConditionConfig => {
-  let contents: any = {
+  const contents: any = {
     Values: undefined,
   };
   if (output.Values === "") {
@@ -7028,7 +7029,7 @@ const deserializeAws_queryQueryStringConditionConfig = (
 };
 
 const deserializeAws_queryQueryStringKeyValuePair = (output: any, context: __SerdeContext): QueryStringKeyValuePair => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -7056,7 +7057,7 @@ const deserializeAws_queryQueryStringKeyValuePairList = (
 };
 
 const deserializeAws_queryRedirectActionConfig = (output: any, context: __SerdeContext): RedirectActionConfig => {
-  let contents: any = {
+  const contents: any = {
     Protocol: undefined,
     Port: undefined,
     Host: undefined,
@@ -7086,7 +7087,7 @@ const deserializeAws_queryRedirectActionConfig = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryRegisterTargetsOutput = (output: any, context: __SerdeContext): RegisterTargetsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -7094,17 +7095,17 @@ const deserializeAws_queryRemoveListenerCertificatesOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveListenerCertificatesOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryRemoveTagsOutput = (output: any, context: __SerdeContext): RemoveTagsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7114,7 +7115,7 @@ const deserializeAws_queryResourceInUseException = (output: any, context: __Serd
 };
 
 const deserializeAws_queryRule = (output: any, context: __SerdeContext): Rule => {
-  let contents: any = {
+  const contents: any = {
     RuleArn: undefined,
     Priority: undefined,
     Conditions: undefined,
@@ -7149,7 +7150,7 @@ const deserializeAws_queryRule = (output: any, context: __SerdeContext): Rule =>
 };
 
 const deserializeAws_queryRuleCondition = (output: any, context: __SerdeContext): RuleCondition => {
-  let contents: any = {
+  const contents: any = {
     Field: undefined,
     Values: undefined,
     HostHeaderConfig: undefined,
@@ -7204,7 +7205,7 @@ const deserializeAws_queryRuleConditionList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryRuleNotFoundException = (output: any, context: __SerdeContext): RuleNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7236,7 +7237,7 @@ const deserializeAws_querySecurityGroups = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_querySetIpAddressTypeOutput = (output: any, context: __SerdeContext): SetIpAddressTypeOutput => {
-  let contents: any = {
+  const contents: any = {
     IpAddressType: undefined,
   };
   if (output["IpAddressType"] !== undefined) {
@@ -7246,7 +7247,7 @@ const deserializeAws_querySetIpAddressTypeOutput = (output: any, context: __Serd
 };
 
 const deserializeAws_querySetRulePrioritiesOutput = (output: any, context: __SerdeContext): SetRulePrioritiesOutput => {
-  let contents: any = {
+  const contents: any = {
     Rules: undefined,
   };
   if (output.Rules === "") {
@@ -7259,7 +7260,7 @@ const deserializeAws_querySetRulePrioritiesOutput = (output: any, context: __Ser
 };
 
 const deserializeAws_querySetSecurityGroupsOutput = (output: any, context: __SerdeContext): SetSecurityGroupsOutput => {
-  let contents: any = {
+  const contents: any = {
     SecurityGroupIds: undefined,
   };
   if (output.SecurityGroupIds === "") {
@@ -7275,7 +7276,7 @@ const deserializeAws_querySetSecurityGroupsOutput = (output: any, context: __Ser
 };
 
 const deserializeAws_querySetSubnetsOutput = (output: any, context: __SerdeContext): SetSubnetsOutput => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZones: undefined,
     IpAddressType: undefined,
   };
@@ -7295,7 +7296,7 @@ const deserializeAws_querySetSubnetsOutput = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_querySourceIpConditionConfig = (output: any, context: __SerdeContext): SourceIpConditionConfig => {
-  let contents: any = {
+  const contents: any = {
     Values: undefined,
   };
   if (output.Values === "") {
@@ -7319,7 +7320,7 @@ const deserializeAws_querySslPolicies = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_querySslPolicy = (output: any, context: __SerdeContext): SslPolicy => {
-  let contents: any = {
+  const contents: any = {
     SslProtocols: undefined,
     Ciphers: undefined,
     Name: undefined,
@@ -7349,7 +7350,7 @@ const deserializeAws_querySSLPolicyNotFoundException = (
   output: any,
   context: __SerdeContext
 ): SSLPolicyNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7370,7 +7371,7 @@ const deserializeAws_querySslProtocols = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_querySubnetNotFoundException = (output: any, context: __SerdeContext): SubnetNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7380,7 +7381,7 @@ const deserializeAws_querySubnetNotFoundException = (output: any, context: __Ser
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -7394,7 +7395,7 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
 };
 
 const deserializeAws_queryTagDescription = (output: any, context: __SerdeContext): TagDescription => {
-  let contents: any = {
+  const contents: any = {
     ResourceArn: undefined,
     Tags: undefined,
   };
@@ -7433,7 +7434,7 @@ const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[
 };
 
 const deserializeAws_queryTargetDescription = (output: any, context: __SerdeContext): TargetDescription => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     Port: undefined,
     AvailabilityZone: undefined,
@@ -7451,7 +7452,7 @@ const deserializeAws_queryTargetDescription = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): TargetGroup => {
-  let contents: any = {
+  const contents: any = {
     TargetGroupArn: undefined,
     TargetGroupName: undefined,
     Protocol: undefined,
@@ -7534,7 +7535,7 @@ const deserializeAws_queryTargetGroupAssociationLimitException = (
   output: any,
   context: __SerdeContext
 ): TargetGroupAssociationLimitException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7544,7 +7545,7 @@ const deserializeAws_queryTargetGroupAssociationLimitException = (
 };
 
 const deserializeAws_queryTargetGroupAttribute = (output: any, context: __SerdeContext): TargetGroupAttribute => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -7583,7 +7584,7 @@ const deserializeAws_queryTargetGroupNotFoundException = (
   output: any,
   context: __SerdeContext
 ): TargetGroupNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7607,7 +7608,7 @@ const deserializeAws_queryTargetGroupStickinessConfig = (
   output: any,
   context: __SerdeContext
 ): TargetGroupStickinessConfig => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     DurationSeconds: undefined,
   };
@@ -7621,7 +7622,7 @@ const deserializeAws_queryTargetGroupStickinessConfig = (
 };
 
 const deserializeAws_queryTargetGroupTuple = (output: any, context: __SerdeContext): TargetGroupTuple => {
-  let contents: any = {
+  const contents: any = {
     TargetGroupArn: undefined,
     Weight: undefined,
   };
@@ -7635,7 +7636,7 @@ const deserializeAws_queryTargetGroupTuple = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryTargetHealth = (output: any, context: __SerdeContext): TargetHealth => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     Reason: undefined,
     Description: undefined,
@@ -7653,7 +7654,7 @@ const deserializeAws_queryTargetHealth = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryTargetHealthDescription = (output: any, context: __SerdeContext): TargetHealthDescription => {
-  let contents: any = {
+  const contents: any = {
     Target: undefined,
     HealthCheckPort: undefined,
     TargetHealth: undefined,
@@ -7685,7 +7686,7 @@ const deserializeAws_queryTargetHealthDescriptions = (
 };
 
 const deserializeAws_queryTooManyActionsException = (output: any, context: __SerdeContext): TooManyActionsException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7698,7 +7699,7 @@ const deserializeAws_queryTooManyCertificatesException = (
   output: any,
   context: __SerdeContext
 ): TooManyCertificatesException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7711,7 +7712,7 @@ const deserializeAws_queryTooManyListenersException = (
   output: any,
   context: __SerdeContext
 ): TooManyListenersException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7724,7 +7725,7 @@ const deserializeAws_queryTooManyLoadBalancersException = (
   output: any,
   context: __SerdeContext
 ): TooManyLoadBalancersException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7737,7 +7738,7 @@ const deserializeAws_queryTooManyRegistrationsForTargetIdException = (
   output: any,
   context: __SerdeContext
 ): TooManyRegistrationsForTargetIdException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7747,7 +7748,7 @@ const deserializeAws_queryTooManyRegistrationsForTargetIdException = (
 };
 
 const deserializeAws_queryTooManyRulesException = (output: any, context: __SerdeContext): TooManyRulesException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7757,7 +7758,7 @@ const deserializeAws_queryTooManyRulesException = (output: any, context: __Serde
 };
 
 const deserializeAws_queryTooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7770,7 +7771,7 @@ const deserializeAws_queryTooManyTargetGroupsException = (
   output: any,
   context: __SerdeContext
 ): TooManyTargetGroupsException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7780,7 +7781,7 @@ const deserializeAws_queryTooManyTargetGroupsException = (
 };
 
 const deserializeAws_queryTooManyTargetsException = (output: any, context: __SerdeContext): TooManyTargetsException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7793,7 +7794,7 @@ const deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerException = (
   output: any,
   context: __SerdeContext
 ): TooManyUniqueTargetGroupsPerLoadBalancerException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7806,7 +7807,7 @@ const deserializeAws_queryUnsupportedProtocolException = (
   output: any,
   context: __SerdeContext
 ): UnsupportedProtocolException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {

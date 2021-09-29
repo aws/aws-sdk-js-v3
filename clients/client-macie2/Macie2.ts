@@ -1,4 +1,5 @@
-import { Macie2Client } from "./Macie2Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptInvitationCommand,
   AcceptInvitationCommandInput,
@@ -130,11 +131,6 @@ import {
   GetCustomDataIdentifierCommandInput,
   GetCustomDataIdentifierCommandOutput,
 } from "./commands/GetCustomDataIdentifierCommand";
-import {
-  GetFindingStatisticsCommand,
-  GetFindingStatisticsCommandInput,
-  GetFindingStatisticsCommandOutput,
-} from "./commands/GetFindingStatisticsCommand";
 import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
 import {
   GetFindingsFilterCommand,
@@ -146,6 +142,11 @@ import {
   GetFindingsPublicationConfigurationCommandInput,
   GetFindingsPublicationConfigurationCommandOutput,
 } from "./commands/GetFindingsPublicationConfigurationCommand";
+import {
+  GetFindingStatisticsCommand,
+  GetFindingStatisticsCommandInput,
+  GetFindingStatisticsCommandOutput,
+} from "./commands/GetFindingStatisticsCommand";
 import {
   GetInvitationsCountCommand,
   GetInvitationsCountCommandInput,
@@ -264,7 +265,7 @@ import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { Macie2Client } from "./Macie2Client";
 
 /**
  * <p>Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS. Macie automates the discovery of sensitive data, such as PII and intellectual property, to provide you with insight into the data that your organization stores in AWS. Macie also provides an inventory of your Amazon S3 buckets, which it continually monitors for you. If Macie detects sensitive data or potential data access issues, it generates detailed findings for you to review and act upon as necessary.</p>

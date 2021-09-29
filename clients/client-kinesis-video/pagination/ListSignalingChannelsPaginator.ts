@@ -1,12 +1,13 @@
-import { KinesisVideo } from "../KinesisVideo";
-import { KinesisVideoClient } from "../KinesisVideoClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListSignalingChannelsCommand,
   ListSignalingChannelsCommandInput,
   ListSignalingChannelsCommandOutput,
 } from "../commands/ListSignalingChannelsCommand";
+import { KinesisVideo } from "../KinesisVideo";
+import { KinesisVideoClient } from "../KinesisVideoClient";
 import { KinesisVideoPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

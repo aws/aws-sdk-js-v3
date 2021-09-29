@@ -1,4 +1,5 @@
-import { ComputeOptimizerClient } from "./ComputeOptimizerClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DescribeRecommendationExportJobsCommand,
   DescribeRecommendationExportJobsCommandInput,
@@ -69,7 +70,7 @@ import {
   UpdateEnrollmentStatusCommandInput,
   UpdateEnrollmentStatusCommandOutput,
 } from "./commands/UpdateEnrollmentStatusCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ComputeOptimizerClient } from "./ComputeOptimizerClient";
 
 /**
  * <p>Compute Optimizer is a service that analyzes the configuration and utilization

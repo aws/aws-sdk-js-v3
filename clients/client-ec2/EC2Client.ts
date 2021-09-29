@@ -1,4 +1,55 @@
 import {
+  EndpointsInputConfig,
+  EndpointsResolvedConfig,
+  RegionInputConfig,
+  RegionResolvedConfig,
+  resolveEndpointsConfig,
+  resolveRegionConfig,
+} from "@aws-sdk/config-resolver";
+import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import {
+  getHostHeaderPlugin,
+  HostHeaderInputConfig,
+  HostHeaderResolvedConfig,
+  resolveHostHeaderConfig,
+} from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import {
+  AwsAuthInputConfig,
+  AwsAuthResolvedConfig,
+  getAwsAuthPlugin,
+  resolveAwsAuthConfig,
+} from "@aws-sdk/middleware-signing";
+import {
+  getUserAgentPlugin,
+  resolveUserAgentConfig,
+  UserAgentInputConfig,
+  UserAgentResolvedConfig,
+} from "@aws-sdk/middleware-user-agent";
+import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import {
+  Client as __Client,
+  SmithyConfiguration as __SmithyConfiguration,
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
+} from "@aws-sdk/smithy-client";
+import {
+  Credentials as __Credentials,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  Hash as __Hash,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  Provider,
+  RegionInfoProvider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
+  UserAgent as __UserAgent,
+} from "@aws-sdk/types";
+
+import {
   AcceptReservedInstancesExchangeQuoteCommandInput,
   AcceptReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/AcceptReservedInstancesExchangeQuoteCommand";
@@ -496,11 +547,11 @@ import {
   DeleteVpcEndpointConnectionNotificationsCommandInput,
   DeleteVpcEndpointConnectionNotificationsCommandOutput,
 } from "./commands/DeleteVpcEndpointConnectionNotificationsCommand";
+import { DeleteVpcEndpointsCommandInput, DeleteVpcEndpointsCommandOutput } from "./commands/DeleteVpcEndpointsCommand";
 import {
   DeleteVpcEndpointServiceConfigurationsCommandInput,
   DeleteVpcEndpointServiceConfigurationsCommandOutput,
 } from "./commands/DeleteVpcEndpointServiceConfigurationsCommand";
-import { DeleteVpcEndpointsCommandInput, DeleteVpcEndpointsCommandOutput } from "./commands/DeleteVpcEndpointsCommand";
 import {
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput,
@@ -646,11 +697,11 @@ import {
   DescribeIamInstanceProfileAssociationsCommandInput,
   DescribeIamInstanceProfileAssociationsCommandOutput,
 } from "./commands/DescribeIamInstanceProfileAssociationsCommand";
-import { DescribeIdFormatCommandInput, DescribeIdFormatCommandOutput } from "./commands/DescribeIdFormatCommand";
 import {
   DescribeIdentityIdFormatCommandInput,
   DescribeIdentityIdFormatCommandOutput,
 } from "./commands/DescribeIdentityIdFormatCommand";
+import { DescribeIdFormatCommandInput, DescribeIdFormatCommandOutput } from "./commands/DescribeIdFormatCommand";
 import {
   DescribeImageAttributeCommandInput,
   DescribeImageAttributeCommandOutput,
@@ -680,6 +731,7 @@ import {
   DescribeInstanceEventWindowsCommandInput,
   DescribeInstanceEventWindowsCommandOutput,
 } from "./commands/DescribeInstanceEventWindowsCommand";
+import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "./commands/DescribeInstancesCommand";
 import {
   DescribeInstanceStatusCommandInput,
   DescribeInstanceStatusCommandOutput,
@@ -692,7 +744,6 @@ import {
   DescribeInstanceTypesCommandInput,
   DescribeInstanceTypesCommandOutput,
 } from "./commands/DescribeInstanceTypesCommand";
-import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "./commands/DescribeInstancesCommand";
 import {
   DescribeInternetGatewaysCommandInput,
   DescribeInternetGatewaysCommandOutput,
@@ -700,13 +751,17 @@ import {
 import { DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput } from "./commands/DescribeIpv6PoolsCommand";
 import { DescribeKeyPairsCommandInput, DescribeKeyPairsCommandOutput } from "./commands/DescribeKeyPairsCommand";
 import {
+  DescribeLaunchTemplatesCommandInput,
+  DescribeLaunchTemplatesCommandOutput,
+} from "./commands/DescribeLaunchTemplatesCommand";
+import {
   DescribeLaunchTemplateVersionsCommandInput,
   DescribeLaunchTemplateVersionsCommandOutput,
 } from "./commands/DescribeLaunchTemplateVersionsCommand";
 import {
-  DescribeLaunchTemplatesCommandInput,
-  DescribeLaunchTemplatesCommandOutput,
-} from "./commands/DescribeLaunchTemplatesCommand";
+  DescribeLocalGatewayRouteTablesCommandInput,
+  DescribeLocalGatewayRouteTablesCommandOutput,
+} from "./commands/DescribeLocalGatewayRouteTablesCommand";
 import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput,
@@ -716,9 +771,9 @@ import {
   DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTableVpcAssociationsCommand";
 import {
-  DescribeLocalGatewayRouteTablesCommandInput,
-  DescribeLocalGatewayRouteTablesCommandOutput,
-} from "./commands/DescribeLocalGatewayRouteTablesCommand";
+  DescribeLocalGatewaysCommandInput,
+  DescribeLocalGatewaysCommandOutput,
+} from "./commands/DescribeLocalGatewaysCommand";
 import {
   DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
   DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput,
@@ -727,10 +782,6 @@ import {
   DescribeLocalGatewayVirtualInterfacesCommandInput,
   DescribeLocalGatewayVirtualInterfacesCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfacesCommand";
-import {
-  DescribeLocalGatewaysCommandInput,
-  DescribeLocalGatewaysCommandOutput,
-} from "./commands/DescribeLocalGatewaysCommand";
 import {
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
@@ -904,13 +955,13 @@ import {
   DescribeTransitGatewayRouteTablesCommandOutput,
 } from "./commands/DescribeTransitGatewayRouteTablesCommand";
 import {
-  DescribeTransitGatewayVpcAttachmentsCommandInput,
-  DescribeTransitGatewayVpcAttachmentsCommandOutput,
-} from "./commands/DescribeTransitGatewayVpcAttachmentsCommand";
-import {
   DescribeTransitGatewaysCommandInput,
   DescribeTransitGatewaysCommandOutput,
 } from "./commands/DescribeTransitGatewaysCommand";
+import {
+  DescribeTransitGatewayVpcAttachmentsCommandInput,
+  DescribeTransitGatewayVpcAttachmentsCommandOutput,
+} from "./commands/DescribeTransitGatewayVpcAttachmentsCommand";
 import {
   DescribeTrunkInterfaceAssociationsCommandInput,
   DescribeTrunkInterfaceAssociationsCommandOutput,
@@ -919,15 +970,15 @@ import {
   DescribeVolumeAttributeCommandInput,
   DescribeVolumeAttributeCommandOutput,
 } from "./commands/DescribeVolumeAttributeCommand";
-import {
-  DescribeVolumeStatusCommandInput,
-  DescribeVolumeStatusCommandOutput,
-} from "./commands/DescribeVolumeStatusCommand";
 import { DescribeVolumesCommandInput, DescribeVolumesCommandOutput } from "./commands/DescribeVolumesCommand";
 import {
   DescribeVolumesModificationsCommandInput,
   DescribeVolumesModificationsCommandOutput,
 } from "./commands/DescribeVolumesModificationsCommand";
+import {
+  DescribeVolumeStatusCommandInput,
+  DescribeVolumeStatusCommandOutput,
+} from "./commands/DescribeVolumeStatusCommand";
 import {
   DescribeVpcAttributeCommandInput,
   DescribeVpcAttributeCommandOutput,
@@ -949,6 +1000,10 @@ import {
   DescribeVpcEndpointConnectionsCommandOutput,
 } from "./commands/DescribeVpcEndpointConnectionsCommand";
 import {
+  DescribeVpcEndpointsCommandInput,
+  DescribeVpcEndpointsCommandOutput,
+} from "./commands/DescribeVpcEndpointsCommand";
+import {
   DescribeVpcEndpointServiceConfigurationsCommandInput,
   DescribeVpcEndpointServiceConfigurationsCommandOutput,
 } from "./commands/DescribeVpcEndpointServiceConfigurationsCommand";
@@ -960,10 +1015,6 @@ import {
   DescribeVpcEndpointServicesCommandInput,
   DescribeVpcEndpointServicesCommandOutput,
 } from "./commands/DescribeVpcEndpointServicesCommand";
-import {
-  DescribeVpcEndpointsCommandInput,
-  DescribeVpcEndpointsCommandOutput,
-} from "./commands/DescribeVpcEndpointsCommand";
 import {
   DescribeVpcPeeringConnectionsCommandInput,
   DescribeVpcPeeringConnectionsCommandOutput,
@@ -1247,11 +1298,11 @@ import {
   ModifyFpgaImageAttributeCommandOutput,
 } from "./commands/ModifyFpgaImageAttributeCommand";
 import { ModifyHostsCommandInput, ModifyHostsCommandOutput } from "./commands/ModifyHostsCommand";
-import { ModifyIdFormatCommandInput, ModifyIdFormatCommandOutput } from "./commands/ModifyIdFormatCommand";
 import {
   ModifyIdentityIdFormatCommandInput,
   ModifyIdentityIdFormatCommandOutput,
 } from "./commands/ModifyIdentityIdFormatCommand";
+import { ModifyIdFormatCommandInput, ModifyIdFormatCommandOutput } from "./commands/ModifyIdFormatCommand";
 import {
   ModifyImageAttributeCommandInput,
   ModifyImageAttributeCommandOutput,
@@ -1564,56 +1615,6 @@ import {
 } from "./commands/UpdateSecurityGroupRuleDescriptionsIngressCommand";
 import { WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput } from "./commands/WithdrawByoipCidrCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
-import {
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
-  resolveHostHeaderConfig,
-} from "@aws-sdk/middleware-host-header";
-import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
-import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
-  getUserAgentPlugin,
-  resolveUserAgentConfig,
-} from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
-import {
-  Client as __Client,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
-import {
-  Provider,
-  RegionInfoProvider,
-  Credentials as __Credentials,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
-  Hash as __Hash,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  Logger as __Logger,
-  Provider as __Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
-  UserAgent as __UserAgent,
-} from "@aws-sdk/types";
 
 export type ServiceInputTypes =
   | AcceptReservedInstancesExchangeQuoteCommandInput
@@ -2731,13 +2732,13 @@ export class EC2Client extends __Client<
   readonly config: EC2ClientResolvedConfig;
 
   constructor(configuration: EC2ClientConfig) {
-    let _config_0 = __getRuntimeConfig(configuration);
-    let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveEndpointsConfig(_config_1);
-    let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveAwsAuthConfig(_config_4);
-    let _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_0 = __getRuntimeConfig(configuration);
+    const _config_1 = resolveRegionConfig(_config_0);
+    const _config_2 = resolveEndpointsConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveHostHeaderConfig(_config_3);
+    const _config_5 = resolveAwsAuthConfig(_config_4);
+    const _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
     this.middlewareStack.use(getRetryPlugin(this.config));

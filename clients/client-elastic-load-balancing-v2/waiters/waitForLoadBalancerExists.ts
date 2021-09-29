@@ -1,9 +1,10 @@
-import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeLoadBalancersCommand,
   DescribeLoadBalancersCommandInput,
 } from "../commands/DescribeLoadBalancersCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
 
 const checkState = async (
   client: ElasticLoadBalancingV2Client,
@@ -11,7 +12,7 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeLoadBalancersCommand(input));
+    const result: any = await client.send(new DescribeLoadBalancersCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

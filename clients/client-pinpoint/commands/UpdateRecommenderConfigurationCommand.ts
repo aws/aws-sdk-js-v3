@@ -1,9 +1,3 @@
-import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { UpdateRecommenderConfigurationRequest, UpdateRecommenderConfigurationResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateRecommenderConfigurationCommand,
-  serializeAws_restJson1UpdateRecommenderConfigurationCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { UpdateRecommenderConfigurationRequest, UpdateRecommenderConfigurationResponse } from "../models/models_1";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import {
+  deserializeAws_restJson1UpdateRecommenderConfigurationCommand,
+  serializeAws_restJson1UpdateRecommenderConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface UpdateRecommenderConfigurationCommandInput extends UpdateRecommenderConfigurationRequest {}
 export interface UpdateRecommenderConfigurationCommandOutput

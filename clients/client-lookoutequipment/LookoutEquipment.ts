@@ -1,4 +1,5 @@
-import { LookoutEquipmentClient } from "./LookoutEquipmentClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateDatasetCommand,
   CreateDatasetCommandInput,
@@ -93,7 +94,7 @@ import {
   UpdateInferenceSchedulerCommandInput,
   UpdateInferenceSchedulerCommandOutput,
 } from "./commands/UpdateInferenceSchedulerCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LookoutEquipmentClient } from "./LookoutEquipmentClient";
 
 /**
  * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify

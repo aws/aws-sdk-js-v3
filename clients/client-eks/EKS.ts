@@ -1,4 +1,5 @@
-import { EKSClient } from "./EKSClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateEncryptionConfigCommand,
   AssociateEncryptionConfigCommandInput,
@@ -145,7 +146,7 @@ import {
   UpdateNodegroupVersionCommandInput,
   UpdateNodegroupVersionCommandOutput,
 } from "./commands/UpdateNodegroupVersionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { EKSClient } from "./EKSClient";
 
 /**
  * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on

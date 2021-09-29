@@ -1,12 +1,13 @@
-import { Outposts } from "../Outposts";
-import { OutpostsClient } from "../OutpostsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListOutpostsCommand,
   ListOutpostsCommandInput,
   ListOutpostsCommandOutput,
 } from "../commands/ListOutpostsCommand";
+import { Outposts } from "../Outposts";
+import { OutpostsClient } from "../OutpostsClient";
 import { OutpostsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

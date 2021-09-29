@@ -1,4 +1,5 @@
-import { ServiceQuotasClient } from "./ServiceQuotasClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateServiceQuotaTemplateCommand,
   AssociateServiceQuotaTemplateCommandInput,
@@ -15,15 +16,15 @@ import {
   DisassociateServiceQuotaTemplateCommandOutput,
 } from "./commands/DisassociateServiceQuotaTemplateCommand";
 import {
-  GetAWSDefaultServiceQuotaCommand,
-  GetAWSDefaultServiceQuotaCommandInput,
-  GetAWSDefaultServiceQuotaCommandOutput,
-} from "./commands/GetAWSDefaultServiceQuotaCommand";
-import {
   GetAssociationForServiceQuotaTemplateCommand,
   GetAssociationForServiceQuotaTemplateCommandInput,
   GetAssociationForServiceQuotaTemplateCommandOutput,
 } from "./commands/GetAssociationForServiceQuotaTemplateCommand";
+import {
+  GetAWSDefaultServiceQuotaCommand,
+  GetAWSDefaultServiceQuotaCommandInput,
+  GetAWSDefaultServiceQuotaCommandOutput,
+} from "./commands/GetAWSDefaultServiceQuotaCommand";
 import {
   GetRequestedServiceQuotaChangeCommand,
   GetRequestedServiceQuotaChangeCommandInput,
@@ -90,7 +91,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ServiceQuotasClient } from "./ServiceQuotasClient";
 
 /**
  * <p>With Service Quotas, you can view and manage your quotas easily as your AWS workloads

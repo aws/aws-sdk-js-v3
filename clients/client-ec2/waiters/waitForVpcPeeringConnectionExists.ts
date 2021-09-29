@@ -1,9 +1,10 @@
-import { EC2Client } from "../EC2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeVpcPeeringConnectionsCommand,
   DescribeVpcPeeringConnectionsCommandInput,
 } from "../commands/DescribeVpcPeeringConnectionsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EC2Client } from "../EC2Client";
 
 const checkState = async (
   client: EC2Client,
@@ -11,7 +12,7 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeVpcPeeringConnectionsCommand(input));
+    const result: any = await client.send(new DescribeVpcPeeringConnectionsCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

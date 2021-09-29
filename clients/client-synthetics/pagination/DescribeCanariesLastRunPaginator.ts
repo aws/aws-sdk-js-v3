@@ -1,12 +1,13 @@
-import { Synthetics } from "../Synthetics";
-import { SyntheticsClient } from "../SyntheticsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeCanariesLastRunCommand,
   DescribeCanariesLastRunCommandInput,
   DescribeCanariesLastRunCommandOutput,
 } from "../commands/DescribeCanariesLastRunCommand";
+import { Synthetics } from "../Synthetics";
+import { SyntheticsClient } from "../SyntheticsClient";
 import { SyntheticsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,35 +1,36 @@
-import { ECSClient } from "../ECSClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeServicesCommand, DescribeServicesCommandInput } from "../commands/DescribeServicesCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ECSClient } from "../ECSClient";
 
 const checkState = async (client: ECSClient, input: DescribeServicesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeServicesCommand(input));
+    const result: any = await client.send(new DescribeServicesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.failures);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.failures);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.reason;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "MISSING") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.services);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.services);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "INACTIVE") {
           return { state: WaiterState.SUCCESS, reason };
         }

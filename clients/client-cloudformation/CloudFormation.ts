@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CloudFormationClient } from "./CloudFormationClient";
 import {
   ActivateTypeCommand,
@@ -107,6 +109,11 @@ import {
   DescribeStackResourcesCommandOutput,
 } from "./commands/DescribeStackResourcesCommand";
 import {
+  DescribeStacksCommand,
+  DescribeStacksCommandInput,
+  DescribeStacksCommandOutput,
+} from "./commands/DescribeStacksCommand";
+import {
   DescribeStackSetCommand,
   DescribeStackSetCommandInput,
   DescribeStackSetCommandOutput,
@@ -116,11 +123,6 @@ import {
   DescribeStackSetOperationCommandInput,
   DescribeStackSetOperationCommandOutput,
 } from "./commands/DescribeStackSetOperationCommand";
-import {
-  DescribeStacksCommand,
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput,
-} from "./commands/DescribeStacksCommand";
 import {
   DescribeTypeCommand,
   DescribeTypeCommandInput,
@@ -189,6 +191,7 @@ import {
   ListStackResourcesCommandInput,
   ListStackResourcesCommandOutput,
 } from "./commands/ListStackResourcesCommand";
+import { ListStacksCommand, ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
   ListStackSetOperationResultsCommand,
   ListStackSetOperationResultsCommandInput,
@@ -204,18 +207,17 @@ import {
   ListStackSetsCommandInput,
   ListStackSetsCommandOutput,
 } from "./commands/ListStackSetsCommand";
-import { ListStacksCommand, ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
   ListTypeRegistrationsCommand,
   ListTypeRegistrationsCommandInput,
   ListTypeRegistrationsCommandOutput,
 } from "./commands/ListTypeRegistrationsCommand";
+import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   ListTypeVersionsCommand,
   ListTypeVersionsCommandInput,
   ListTypeVersionsCommandOutput,
 } from "./commands/ListTypeVersionsCommand";
-import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import { PublishTypeCommand, PublishTypeCommandInput, PublishTypeCommandOutput } from "./commands/PublishTypeCommand";
 import {
   RecordHandlerProgressCommand,
@@ -284,7 +286,6 @@ import {
   ValidateTemplateCommandInput,
   ValidateTemplateCommandOutput,
 } from "./commands/ValidateTemplateCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS CloudFormation</fullname>

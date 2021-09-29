@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { BatchClient } from "./BatchClient";
 import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import {
@@ -78,7 +80,6 @@ import {
   UpdateJobQueueCommandInput,
   UpdateJobQueueCommandOutput,
 } from "./commands/UpdateJobQueueCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Batch</fullname>

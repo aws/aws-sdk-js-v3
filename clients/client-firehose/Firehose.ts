@@ -1,4 +1,5 @@
-import { FirehoseClient } from "./FirehoseClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateDeliveryStreamCommand,
   CreateDeliveryStreamCommandInput,
@@ -55,7 +56,7 @@ import {
   UpdateDestinationCommandInput,
   UpdateDestinationCommandOutput,
 } from "./commands/UpdateDestinationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { FirehoseClient } from "./FirehoseClient";
 
 /**
  * <fullname>Amazon Kinesis Data Firehose API Reference</fullname>

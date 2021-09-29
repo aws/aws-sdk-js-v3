@@ -1,4 +1,5 @@
-import { ECRPUBLICClient } from "./ECRPUBLICClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchCheckLayerAvailabilityCommand,
   BatchCheckLayerAvailabilityCommandInput,
@@ -30,15 +31,15 @@ import {
   DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
-  DescribeImageTagsCommand,
-  DescribeImageTagsCommandInput,
-  DescribeImageTagsCommandOutput,
-} from "./commands/DescribeImageTagsCommand";
-import {
   DescribeImagesCommand,
   DescribeImagesCommandInput,
   DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
+import {
+  DescribeImageTagsCommand,
+  DescribeImageTagsCommandInput,
+  DescribeImageTagsCommandOutput,
+} from "./commands/DescribeImageTagsCommand";
 import {
   DescribeRegistriesCommand,
   DescribeRegistriesCommandInput,
@@ -106,7 +107,7 @@ import {
   UploadLayerPartCommandInput,
   UploadLayerPartCommandOutput,
 } from "./commands/UploadLayerPartCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ECRPUBLICClient } from "./ECRPUBLICClient";
 
 /**
  * <fullname>Amazon Elastic Container Registry Public</fullname>

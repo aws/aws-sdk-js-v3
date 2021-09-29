@@ -1,9 +1,10 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { ACMPCAClient } from "../ACMPCAClient";
 import {
   DescribeCertificateAuthorityAuditReportCommand,
   DescribeCertificateAuthorityAuditReportCommandInput,
 } from "../commands/DescribeCertificateAuthorityAuditReportCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (
   client: ACMPCAClient,
@@ -11,10 +12,10 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCertificateAuthorityAuditReportCommand(input));
+    const result: any = await client.send(new DescribeCertificateAuthorityAuditReportCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.AuditReportStatus;
       };
       if (returnComparator() === "SUCCESS") {
@@ -22,7 +23,7 @@ const checkState = async (
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.AuditReportStatus;
       };
       if (returnComparator() === "FAILED") {

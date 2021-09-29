@@ -1,12 +1,13 @@
-import { FSx } from "../FSx";
-import { FSxClient } from "../FSxClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeDataRepositoryTasksCommand,
   DescribeDataRepositoryTasksCommandInput,
   DescribeDataRepositoryTasksCommandOutput,
 } from "../commands/DescribeDataRepositoryTasksCommand";
+import { FSx } from "../FSx";
+import { FSxClient } from "../FSxClient";
 import { FSxPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

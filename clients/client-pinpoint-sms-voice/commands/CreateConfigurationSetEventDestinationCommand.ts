@@ -1,12 +1,3 @@
-import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
-import {
-  CreateConfigurationSetEventDestinationRequest,
-  CreateConfigurationSetEventDestinationResponse,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1CreateConfigurationSetEventDestinationCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -14,11 +5,21 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import {
+  CreateConfigurationSetEventDestinationRequest,
+  CreateConfigurationSetEventDestinationResponse,
+} from "../models/models_0";
+import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
+import {
+  deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand,
+  serializeAws_restJson1CreateConfigurationSetEventDestinationCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface CreateConfigurationSetEventDestinationCommandInput
   extends CreateConfigurationSetEventDestinationRequest {}

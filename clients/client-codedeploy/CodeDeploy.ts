@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CodeDeployClient } from "./CodeDeployClient";
 import {
   AddTagsToOnPremisesInstancesCommand,
@@ -25,15 +27,15 @@ import {
   BatchGetDeploymentInstancesCommandOutput,
 } from "./commands/BatchGetDeploymentInstancesCommand";
 import {
-  BatchGetDeploymentTargetsCommand,
-  BatchGetDeploymentTargetsCommandInput,
-  BatchGetDeploymentTargetsCommandOutput,
-} from "./commands/BatchGetDeploymentTargetsCommand";
-import {
   BatchGetDeploymentsCommand,
   BatchGetDeploymentsCommandInput,
   BatchGetDeploymentsCommandOutput,
 } from "./commands/BatchGetDeploymentsCommand";
+import {
+  BatchGetDeploymentTargetsCommand,
+  BatchGetDeploymentTargetsCommandInput,
+  BatchGetDeploymentTargetsCommandOutput,
+} from "./commands/BatchGetDeploymentTargetsCommand";
 import {
   BatchGetOnPremisesInstancesCommand,
   BatchGetOnPremisesInstancesCommandInput,
@@ -160,15 +162,15 @@ import {
   ListDeploymentInstancesCommandOutput,
 } from "./commands/ListDeploymentInstancesCommand";
 import {
-  ListDeploymentTargetsCommand,
-  ListDeploymentTargetsCommandInput,
-  ListDeploymentTargetsCommandOutput,
-} from "./commands/ListDeploymentTargetsCommand";
-import {
   ListDeploymentsCommand,
   ListDeploymentsCommandInput,
   ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
+import {
+  ListDeploymentTargetsCommand,
+  ListDeploymentTargetsCommandInput,
+  ListDeploymentTargetsCommandOutput,
+} from "./commands/ListDeploymentTargetsCommand";
 import {
   ListGitHubAccountTokenNamesCommand,
   ListGitHubAccountTokenNamesCommandInput,
@@ -230,7 +232,6 @@ import {
   UpdateDeploymentGroupCommandInput,
   UpdateDeploymentGroupCommandOutput,
 } from "./commands/UpdateDeploymentGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS CodeDeploy</fullname>

@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { AlexaForBusiness } from "../AlexaForBusiness";
 import { AlexaForBusinessClient } from "../AlexaForBusinessClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListConferenceProvidersCommandOutput,
 } from "../commands/ListConferenceProvidersCommand";
 import { AlexaForBusinessPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

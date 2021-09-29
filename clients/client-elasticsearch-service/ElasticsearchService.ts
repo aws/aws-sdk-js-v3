@@ -1,4 +1,5 @@
-import { ElasticsearchServiceClient } from "./ElasticsearchServiceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptInboundCrossClusterSearchConnectionCommand,
   AcceptInboundCrossClusterSearchConnectionCommandInput,
@@ -187,7 +188,7 @@ import {
   UpgradeElasticsearchDomainCommandInput,
   UpgradeElasticsearchDomainCommandOutput,
 } from "./commands/UpgradeElasticsearchDomainCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ElasticsearchServiceClient } from "./ElasticsearchServiceClient";
 
 /**
  * <fullname>Amazon Elasticsearch Configuration Service</fullname>

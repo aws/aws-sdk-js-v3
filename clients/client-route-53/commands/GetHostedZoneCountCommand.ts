@@ -1,9 +1,3 @@
-import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetHostedZoneCountRequest, GetHostedZoneCountResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetHostedZoneCountCommand,
-  serializeAws_restXmlGetHostedZoneCountCommand,
-} from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetHostedZoneCountRequest, GetHostedZoneCountResponse } from "../models/models_0";
+import {
+  deserializeAws_restXmlGetHostedZoneCountCommand,
+  serializeAws_restXmlGetHostedZoneCountCommand,
+} from "../protocols/Aws_restXml";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 export interface GetHostedZoneCountCommandInput extends GetHostedZoneCountRequest {}
 export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountResponse, __MetadataBearer {}

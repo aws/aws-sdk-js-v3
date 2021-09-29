@@ -1,4 +1,5 @@
-import { FraudDetectorClient } from "./FraudDetectorClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchCreateVariableCommand,
   BatchCreateVariableCommandInput,
@@ -101,15 +102,15 @@ import {
   GetBatchPredictionJobsCommandOutput,
 } from "./commands/GetBatchPredictionJobsCommand";
 import {
-  GetDetectorVersionCommand,
-  GetDetectorVersionCommandInput,
-  GetDetectorVersionCommandOutput,
-} from "./commands/GetDetectorVersionCommand";
-import {
   GetDetectorsCommand,
   GetDetectorsCommandInput,
   GetDetectorsCommandOutput,
 } from "./commands/GetDetectorsCommand";
+import {
+  GetDetectorVersionCommand,
+  GetDetectorVersionCommandInput,
+  GetDetectorVersionCommandOutput,
+} from "./commands/GetDetectorVersionCommand";
 import {
   GetEntityTypesCommand,
   GetEntityTypesCommandInput,
@@ -136,12 +137,12 @@ import {
   GetKMSEncryptionKeyCommandOutput,
 } from "./commands/GetKMSEncryptionKeyCommand";
 import { GetLabelsCommand, GetLabelsCommandInput, GetLabelsCommandOutput } from "./commands/GetLabelsCommand";
+import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import {
   GetModelVersionCommand,
   GetModelVersionCommandInput,
   GetModelVersionCommandOutput,
 } from "./commands/GetModelVersionCommand";
-import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import { GetOutcomesCommand, GetOutcomesCommandInput, GetOutcomesCommandOutput } from "./commands/GetOutcomesCommand";
 import { GetRulesCommand, GetRulesCommandInput, GetRulesCommandOutput } from "./commands/GetRulesCommand";
 import {
@@ -224,7 +225,7 @@ import {
   UpdateVariableCommandInput,
   UpdateVariableCommandOutput,
 } from "./commands/UpdateVariableCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { FraudDetectorClient } from "./FraudDetectorClient";
 
 /**
  * <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need

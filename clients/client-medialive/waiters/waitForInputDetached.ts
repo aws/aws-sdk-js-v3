@@ -1,14 +1,15 @@
-import { MediaLiveClient } from "../MediaLiveClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeInputCommand, DescribeInputCommandInput } from "../commands/DescribeInputCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { MediaLiveClient } from "../MediaLiveClient";
 
 const checkState = async (client: MediaLiveClient, input: DescribeInputCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeInputCommand(input));
+    const result: any = await client.send(new DescribeInputCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       };
       if (returnComparator() === "DETACHED") {
@@ -16,7 +17,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeInputCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       };
       if (returnComparator() === "CREATING") {
@@ -24,7 +25,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeInputCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       };
       if (returnComparator() === "ATTACHED") {

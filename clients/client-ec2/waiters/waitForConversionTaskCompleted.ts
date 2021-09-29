@@ -1,25 +1,26 @@
-import { EC2Client } from "../EC2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeConversionTasksCommand,
   DescribeConversionTasksCommandInput,
 } from "../commands/DescribeConversionTasksCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EC2Client } from "../EC2Client";
 
 const checkState = async (client: EC2Client, input: DescribeConversionTasksCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeConversionTasksCommand(input));
+    const result: any = await client.send(new DescribeConversionTasksCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ConversionTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ConversionTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
         });
         return projection_3;
       };
       let allStringEq_5 = returnComparator().length > 0;
-      for (let element_4 of returnComparator()) {
+      for (const element_4 of returnComparator()) {
         allStringEq_5 = allStringEq_5 && element_4 == "completed";
       }
       if (allStringEq_5) {
@@ -27,28 +28,28 @@ const checkState = async (client: EC2Client, input: DescribeConversionTasksComma
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ConversionTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ConversionTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "cancelled") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ConversionTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.ConversionTasks);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "cancelling") {
           return { state: WaiterState.FAILURE, reason };
         }

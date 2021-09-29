@@ -1,12 +1,13 @@
-import { PinpointEmail } from "../PinpointEmail";
-import { PinpointEmailClient } from "../PinpointEmailClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEmailIdentitiesCommand,
   ListEmailIdentitiesCommandInput,
   ListEmailIdentitiesCommandOutput,
 } from "../commands/ListEmailIdentitiesCommand";
+import { PinpointEmail } from "../PinpointEmail";
+import { PinpointEmailClient } from "../PinpointEmailClient";
 import { PinpointEmailPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

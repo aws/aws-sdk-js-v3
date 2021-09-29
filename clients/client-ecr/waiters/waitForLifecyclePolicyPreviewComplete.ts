@@ -1,17 +1,18 @@
-import { ECRClient } from "../ECRClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   GetLifecyclePolicyPreviewCommand,
   GetLifecyclePolicyPreviewCommandInput,
 } from "../commands/GetLifecyclePolicyPreviewCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ECRClient } from "../ECRClient";
 
 const checkState = async (client: ECRClient, input: GetLifecyclePolicyPreviewCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetLifecyclePolicyPreviewCommand(input));
+    const result: any = await client.send(new GetLifecyclePolicyPreviewCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       };
       if (returnComparator() === "COMPLETE") {
@@ -19,7 +20,7 @@ const checkState = async (client: ECRClient, input: GetLifecyclePolicyPreviewCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.status;
       };
       if (returnComparator() === "FAILED") {

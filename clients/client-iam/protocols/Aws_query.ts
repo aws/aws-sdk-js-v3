@@ -1,3 +1,25 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  strictParseInt32 as __strictParseInt32,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
 import {
   AddClientIDToOpenIDConnectProviderCommandInput,
   AddClientIDToOpenIDConnectProviderCommandOutput,
@@ -76,7 +98,6 @@ import {
 } from "../commands/DeleteRolePermissionsBoundaryCommand";
 import { DeleteRolePolicyCommandInput, DeleteRolePolicyCommandOutput } from "../commands/DeleteRolePolicyCommand";
 import { DeleteSAMLProviderCommandInput, DeleteSAMLProviderCommandOutput } from "../commands/DeleteSAMLProviderCommand";
-import { DeleteSSHPublicKeyCommandInput, DeleteSSHPublicKeyCommandOutput } from "../commands/DeleteSSHPublicKeyCommand";
 import {
   DeleteServerCertificateCommandInput,
   DeleteServerCertificateCommandOutput,
@@ -93,6 +114,7 @@ import {
   DeleteSigningCertificateCommandInput,
   DeleteSigningCertificateCommandOutput,
 } from "../commands/DeleteSigningCertificateCommand";
+import { DeleteSSHPublicKeyCommandInput, DeleteSSHPublicKeyCommandOutput } from "../commands/DeleteSSHPublicKeyCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
 import {
   DeleteUserPermissionsBoundaryCommandInput,
@@ -161,7 +183,6 @@ import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "../
 import { GetRoleCommandInput, GetRoleCommandOutput } from "../commands/GetRoleCommand";
 import { GetRolePolicyCommandInput, GetRolePolicyCommandOutput } from "../commands/GetRolePolicyCommand";
 import { GetSAMLProviderCommandInput, GetSAMLProviderCommandOutput } from "../commands/GetSAMLProviderCommand";
-import { GetSSHPublicKeyCommandInput, GetSSHPublicKeyCommandOutput } from "../commands/GetSSHPublicKeyCommand";
 import {
   GetServerCertificateCommandInput,
   GetServerCertificateCommandOutput,
@@ -178,6 +199,7 @@ import {
   GetServiceLinkedRoleDeletionStatusCommandInput,
   GetServiceLinkedRoleDeletionStatusCommandOutput,
 } from "../commands/GetServiceLinkedRoleDeletionStatusCommand";
+import { GetSSHPublicKeyCommandInput, GetSSHPublicKeyCommandOutput } from "../commands/GetSSHPublicKeyCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "../commands/GetUserCommand";
 import { GetUserPolicyCommandInput, GetUserPolicyCommandOutput } from "../commands/GetUserPolicyCommand";
 import { ListAccessKeysCommandInput, ListAccessKeysCommandOutput } from "../commands/ListAccessKeysCommand";
@@ -202,10 +224,6 @@ import { ListGroupPoliciesCommandInput, ListGroupPoliciesCommandOutput } from ".
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import { ListGroupsForUserCommandInput, ListGroupsForUserCommandOutput } from "../commands/ListGroupsForUserCommand";
 import {
-  ListInstanceProfileTagsCommandInput,
-  ListInstanceProfileTagsCommandOutput,
-} from "../commands/ListInstanceProfileTagsCommand";
-import {
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput,
 } from "../commands/ListInstanceProfilesCommand";
@@ -213,16 +231,20 @@ import {
   ListInstanceProfilesForRoleCommandInput,
   ListInstanceProfilesForRoleCommandOutput,
 } from "../commands/ListInstanceProfilesForRoleCommand";
-import { ListMFADeviceTagsCommandInput, ListMFADeviceTagsCommandOutput } from "../commands/ListMFADeviceTagsCommand";
-import { ListMFADevicesCommandInput, ListMFADevicesCommandOutput } from "../commands/ListMFADevicesCommand";
 import {
-  ListOpenIDConnectProviderTagsCommandInput,
-  ListOpenIDConnectProviderTagsCommandOutput,
-} from "../commands/ListOpenIDConnectProviderTagsCommand";
+  ListInstanceProfileTagsCommandInput,
+  ListInstanceProfileTagsCommandOutput,
+} from "../commands/ListInstanceProfileTagsCommand";
+import { ListMFADevicesCommandInput, ListMFADevicesCommandOutput } from "../commands/ListMFADevicesCommand";
+import { ListMFADeviceTagsCommandInput, ListMFADeviceTagsCommandOutput } from "../commands/ListMFADeviceTagsCommand";
 import {
   ListOpenIDConnectProvidersCommandInput,
   ListOpenIDConnectProvidersCommandOutput,
 } from "../commands/ListOpenIDConnectProvidersCommand";
+import {
+  ListOpenIDConnectProviderTagsCommandInput,
+  ListOpenIDConnectProviderTagsCommandOutput,
+} from "../commands/ListOpenIDConnectProviderTagsCommand";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "../commands/ListPoliciesCommand";
 import {
   ListPoliciesGrantingServiceAccessCommandInput,
@@ -231,22 +253,21 @@ import {
 import { ListPolicyTagsCommandInput, ListPolicyTagsCommandOutput } from "../commands/ListPolicyTagsCommand";
 import { ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput } from "../commands/ListPolicyVersionsCommand";
 import { ListRolePoliciesCommandInput, ListRolePoliciesCommandOutput } from "../commands/ListRolePoliciesCommand";
-import { ListRoleTagsCommandInput, ListRoleTagsCommandOutput } from "../commands/ListRoleTagsCommand";
 import { ListRolesCommandInput, ListRolesCommandOutput } from "../commands/ListRolesCommand";
+import { ListRoleTagsCommandInput, ListRoleTagsCommandOutput } from "../commands/ListRoleTagsCommand";
+import { ListSAMLProvidersCommandInput, ListSAMLProvidersCommandOutput } from "../commands/ListSAMLProvidersCommand";
 import {
   ListSAMLProviderTagsCommandInput,
   ListSAMLProviderTagsCommandOutput,
 } from "../commands/ListSAMLProviderTagsCommand";
-import { ListSAMLProvidersCommandInput, ListSAMLProvidersCommandOutput } from "../commands/ListSAMLProvidersCommand";
-import { ListSSHPublicKeysCommandInput, ListSSHPublicKeysCommandOutput } from "../commands/ListSSHPublicKeysCommand";
-import {
-  ListServerCertificateTagsCommandInput,
-  ListServerCertificateTagsCommandOutput,
-} from "../commands/ListServerCertificateTagsCommand";
 import {
   ListServerCertificatesCommandInput,
   ListServerCertificatesCommandOutput,
 } from "../commands/ListServerCertificatesCommand";
+import {
+  ListServerCertificateTagsCommandInput,
+  ListServerCertificateTagsCommandOutput,
+} from "../commands/ListServerCertificateTagsCommand";
 import {
   ListServiceSpecificCredentialsCommandInput,
   ListServiceSpecificCredentialsCommandOutput,
@@ -255,9 +276,10 @@ import {
   ListSigningCertificatesCommandInput,
   ListSigningCertificatesCommandOutput,
 } from "../commands/ListSigningCertificatesCommand";
+import { ListSSHPublicKeysCommandInput, ListSSHPublicKeysCommandOutput } from "../commands/ListSSHPublicKeysCommand";
 import { ListUserPoliciesCommandInput, ListUserPoliciesCommandOutput } from "../commands/ListUserPoliciesCommand";
-import { ListUserTagsCommandInput, ListUserTagsCommandOutput } from "../commands/ListUserTagsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { ListUserTagsCommandInput, ListUserTagsCommandOutput } from "../commands/ListUserTagsCommand";
 import {
   ListVirtualMFADevicesCommandInput,
   ListVirtualMFADevicesCommandOutput,
@@ -358,7 +380,6 @@ import {
   UpdateRoleDescriptionCommandOutput,
 } from "../commands/UpdateRoleDescriptionCommand";
 import { UpdateSAMLProviderCommandInput, UpdateSAMLProviderCommandOutput } from "../commands/UpdateSAMLProviderCommand";
-import { UpdateSSHPublicKeyCommandInput, UpdateSSHPublicKeyCommandOutput } from "../commands/UpdateSSHPublicKeyCommand";
 import {
   UpdateServerCertificateCommandInput,
   UpdateServerCertificateCommandOutput,
@@ -371,8 +392,8 @@ import {
   UpdateSigningCertificateCommandInput,
   UpdateSigningCertificateCommandOutput,
 } from "../commands/UpdateSigningCertificateCommand";
+import { UpdateSSHPublicKeyCommandInput, UpdateSSHPublicKeyCommandOutput } from "../commands/UpdateSSHPublicKeyCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
-import { UploadSSHPublicKeyCommandInput, UploadSSHPublicKeyCommandOutput } from "../commands/UploadSSHPublicKeyCommand";
 import {
   UploadServerCertificateCommandInput,
   UploadServerCertificateCommandOutput,
@@ -381,6 +402,7 @@ import {
   UploadSigningCertificateCommandInput,
   UploadSigningCertificateCommandOutput,
 } from "../commands/UploadSigningCertificateCommand";
+import { UploadSSHPublicKeyCommandInput, UploadSSHPublicKeyCommandOutput } from "../commands/UploadSSHPublicKeyCommand";
 import {
   AccessDetail,
   AccessKey,
@@ -389,11 +411,11 @@ import {
   AddClientIDToOpenIDConnectProviderRequest,
   AddRoleToInstanceProfileRequest,
   AddUserToGroupRequest,
+  AttachedPermissionsBoundary,
+  AttachedPolicy,
   AttachGroupPolicyRequest,
   AttachRolePolicyRequest,
   AttachUserPolicyRequest,
-  AttachedPermissionsBoundary,
-  AttachedPolicy,
   ChangePasswordRequest,
   ConcurrentModificationException,
   ContextEntry,
@@ -442,12 +464,12 @@ import {
   DeleteRolePolicyRequest,
   DeleteRoleRequest,
   DeleteSAMLProviderRequest,
-  DeleteSSHPublicKeyRequest,
   DeleteServerCertificateRequest,
   DeleteServiceLinkedRoleRequest,
   DeleteServiceLinkedRoleResponse,
   DeleteServiceSpecificCredentialRequest,
   DeleteSigningCertificateRequest,
+  DeleteSSHPublicKeyRequest,
   DeleteUserPermissionsBoundaryRequest,
   DeleteUserPolicyRequest,
   DeleteUserRequest,
@@ -501,8 +523,6 @@ import {
   GetRoleResponse,
   GetSAMLProviderRequest,
   GetSAMLProviderResponse,
-  GetSSHPublicKeyRequest,
-  GetSSHPublicKeyResponse,
   GetServerCertificateRequest,
   GetServerCertificateResponse,
   GetServiceLastAccessedDetailsRequest,
@@ -511,6 +531,8 @@ import {
   GetServiceLastAccessedDetailsWithEntitiesResponse,
   GetServiceLinkedRoleDeletionStatusRequest,
   GetServiceLinkedRoleDeletionStatusResponse,
+  GetSSHPublicKeyRequest,
+  GetSSHPublicKeyResponse,
   GetUserPolicyRequest,
   GetUserPolicyResponse,
   GetUserRequest,
@@ -540,20 +562,20 @@ import {
   ListGroupsForUserResponse,
   ListGroupsRequest,
   ListGroupsResponse,
-  ListInstanceProfileTagsRequest,
-  ListInstanceProfileTagsResponse,
   ListInstanceProfilesForRoleRequest,
   ListInstanceProfilesForRoleResponse,
   ListInstanceProfilesRequest,
   ListInstanceProfilesResponse,
-  ListMFADeviceTagsRequest,
-  ListMFADeviceTagsResponse,
+  ListInstanceProfileTagsRequest,
+  ListInstanceProfileTagsResponse,
   ListMFADevicesRequest,
   ListMFADevicesResponse,
-  ListOpenIDConnectProviderTagsRequest,
-  ListOpenIDConnectProviderTagsResponse,
+  ListMFADeviceTagsRequest,
+  ListMFADeviceTagsResponse,
   ListOpenIDConnectProvidersRequest,
   ListOpenIDConnectProvidersResponse,
+  ListOpenIDConnectProviderTagsRequest,
+  ListOpenIDConnectProviderTagsResponse,
   ListPoliciesGrantingServiceAccessEntry,
   ListPoliciesGrantingServiceAccessRequest,
   ListPoliciesGrantingServiceAccessResponse,
@@ -565,36 +587,36 @@ import {
   ListPolicyVersionsResponse,
   ListRolePoliciesRequest,
   ListRolePoliciesResponse,
-  ListRoleTagsRequest,
-  ListRoleTagsResponse,
   ListRolesRequest,
   ListRolesResponse,
-  ListSAMLProviderTagsRequest,
-  ListSAMLProviderTagsResponse,
+  ListRoleTagsRequest,
+  ListRoleTagsResponse,
   ListSAMLProvidersRequest,
   ListSAMLProvidersResponse,
-  ListSSHPublicKeysRequest,
-  ListSSHPublicKeysResponse,
-  ListServerCertificateTagsRequest,
-  ListServerCertificateTagsResponse,
+  ListSAMLProviderTagsRequest,
+  ListSAMLProviderTagsResponse,
   ListServerCertificatesRequest,
   ListServerCertificatesResponse,
+  ListServerCertificateTagsRequest,
+  ListServerCertificateTagsResponse,
   ListServiceSpecificCredentialsRequest,
   ListServiceSpecificCredentialsResponse,
   ListSigningCertificatesRequest,
   ListSigningCertificatesResponse,
+  ListSSHPublicKeysRequest,
+  ListSSHPublicKeysResponse,
   ListUserPoliciesRequest,
   ListUserPoliciesResponse,
-  ListUserTagsRequest,
-  ListUserTagsResponse,
   ListUsersRequest,
   ListUsersResponse,
+  ListUserTagsRequest,
+  ListUserTagsResponse,
   ListVirtualMFADevicesRequest,
   ListVirtualMFADevicesResponse,
   LoginProfile,
-  MFADevice,
   MalformedPolicyDocumentException,
   ManagedPolicyDetail,
+  MFADevice,
   NoSuchEntityException,
   OpenIDConnectProviderListEntry,
   OrganizationsDecisionDetail,
@@ -630,8 +652,6 @@ import {
   RoleLastUsed,
   RoleUsageType,
   SAMLProviderListEntry,
-  SSHPublicKey,
-  SSHPublicKeyMetadata,
   ServerCertificate,
   ServerCertificateMetadata,
   ServiceFailureException,
@@ -645,6 +665,8 @@ import {
   SimulateCustomPolicyRequest,
   SimulatePolicyResponse,
   SimulatePrincipalPolicyRequest,
+  SSHPublicKey,
+  SSHPublicKeyMetadata,
   Statement,
   Tag,
   TagInstanceProfileRequest,
@@ -689,39 +711,18 @@ import {
   UpdateRoleResponse,
   UpdateSAMLProviderRequest,
   UpdateSAMLProviderResponse,
-  UpdateSSHPublicKeyRequest,
   UpdateServerCertificateRequest,
   UpdateServiceSpecificCredentialRequest,
   UpdateSigningCertificateRequest,
+  UpdateSSHPublicKeyRequest,
   UpdateUserRequest,
-  UploadSSHPublicKeyRequest,
-  UploadSSHPublicKeyResponse,
   UploadServerCertificateRequest,
   UploadServerCertificateResponse,
   UploadSigningCertificateRequest,
   UploadSigningCertificateResponse,
+  UploadSSHPublicKeyRequest,
+  UploadSSHPublicKeyResponse,
 } from "../models/models_1";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  strictParseInt32 as __strictParseInt32,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_queryAddClientIDToOpenIDConnectProviderCommand = async (
   input: AddClientIDToOpenIDConnectProviderCommandInput,
@@ -3264,7 +3265,7 @@ const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -3339,7 +3340,7 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -3422,7 +3423,7 @@ const deserializeAws_queryAddUserToGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -3489,7 +3490,7 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -3572,7 +3573,7 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -3663,7 +3664,7 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -3746,7 +3747,7 @@ const deserializeAws_queryChangePasswordCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
@@ -3840,7 +3841,7 @@ const deserializeAws_queryCreateAccessKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -3907,7 +3908,7 @@ const deserializeAws_queryCreateAccountAliasCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -3977,7 +3978,7 @@ const deserializeAws_queryCreateGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -4055,7 +4056,7 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4141,7 +4142,7 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -4227,7 +4228,7 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4313,7 +4314,7 @@ const deserializeAws_queryCreatePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4407,7 +4408,7 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -4493,7 +4494,7 @@ const deserializeAws_queryCreateRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4587,7 +4588,7 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4673,7 +4674,7 @@ const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -4754,7 +4755,7 @@ const deserializeAws_queryCreateServiceSpecificCredentialCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -4824,7 +4825,7 @@ const deserializeAws_queryCreateUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4918,7 +4919,7 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -5001,7 +5002,7 @@ const deserializeAws_queryDeactivateMFADeviceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
@@ -5076,7 +5077,7 @@ const deserializeAws_queryDeleteAccessKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -5143,7 +5144,7 @@ const deserializeAws_queryDeleteAccountAliasCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -5210,7 +5211,7 @@ const deserializeAws_queryDeleteAccountPasswordPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -5277,7 +5278,7 @@ const deserializeAws_queryDeleteGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -5352,7 +5353,7 @@ const deserializeAws_queryDeleteGroupPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -5419,7 +5420,7 @@ const deserializeAws_queryDeleteInstanceProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -5494,7 +5495,7 @@ const deserializeAws_queryDeleteLoginProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
@@ -5569,7 +5570,7 @@ const deserializeAws_queryDeleteOpenIDConnectProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -5636,7 +5637,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -5719,7 +5720,7 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -5802,7 +5803,7 @@ const deserializeAws_queryDeleteRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -5893,7 +5894,7 @@ const deserializeAws_queryDeleteRolePermissionsBoundaryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -5960,7 +5961,7 @@ const deserializeAws_queryDeleteRolePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -6035,7 +6036,7 @@ const deserializeAws_queryDeleteSAMLProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6110,7 +6111,7 @@ const deserializeAws_queryDeleteServerCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -6188,7 +6189,7 @@ const deserializeAws_queryDeleteServiceLinkedRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -6255,7 +6256,7 @@ const deserializeAws_queryDeleteServiceSpecificCredentialCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6306,7 +6307,7 @@ const deserializeAws_queryDeleteSigningCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -6373,7 +6374,7 @@ const deserializeAws_queryDeleteSSHPublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6424,7 +6425,7 @@ const deserializeAws_queryDeleteUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -6507,7 +6508,7 @@ const deserializeAws_queryDeleteUserPermissionsBoundaryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6566,7 +6567,7 @@ const deserializeAws_queryDeleteUserPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -6633,7 +6634,7 @@ const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -6708,7 +6709,7 @@ const deserializeAws_queryDetachGroupPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6783,7 +6784,7 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6866,7 +6867,7 @@ const deserializeAws_queryDetachUserPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6941,7 +6942,7 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -7035,7 +7036,7 @@ const deserializeAws_queryGenerateCredentialReportCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -7100,7 +7101,7 @@ const deserializeAws_queryGenerateOrganizationsAccessReportCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReportGenerationLimitExceededException":
@@ -7157,7 +7158,7 @@ const deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7219,7 +7220,7 @@ const deserializeAws_queryGetAccessKeyLastUsedCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7276,7 +7277,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -7330,7 +7331,7 @@ const deserializeAws_queryGetAccountPasswordPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7392,7 +7393,7 @@ const deserializeAws_queryGetAccountSummaryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -7446,7 +7447,7 @@ const deserializeAws_queryGetContextKeysForCustomPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7500,7 +7501,7 @@ const deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7562,7 +7563,7 @@ const deserializeAws_queryGetCredentialReportCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CredentialReportExpiredException":
@@ -7640,7 +7641,7 @@ const deserializeAws_queryGetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7702,7 +7703,7 @@ const deserializeAws_queryGetGroupPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7764,7 +7765,7 @@ const deserializeAws_queryGetInstanceProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7826,7 +7827,7 @@ const deserializeAws_queryGetLoginProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7888,7 +7889,7 @@ const deserializeAws_queryGetOpenIDConnectProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7958,7 +7959,7 @@ const deserializeAws_queryGetOrganizationsAccessReportCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8012,7 +8013,7 @@ const deserializeAws_queryGetPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8082,7 +8083,7 @@ const deserializeAws_queryGetPolicyVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8152,7 +8153,7 @@ const deserializeAws_queryGetRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8214,7 +8215,7 @@ const deserializeAws_queryGetRolePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8276,7 +8277,7 @@ const deserializeAws_queryGetSAMLProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8346,7 +8347,7 @@ const deserializeAws_queryGetServerCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8411,7 +8412,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8476,7 +8477,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8541,7 +8542,7 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8611,7 +8612,7 @@ const deserializeAws_queryGetSSHPublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8673,7 +8674,7 @@ const deserializeAws_queryGetUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8735,7 +8736,7 @@ const deserializeAws_queryGetUserPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8797,7 +8798,7 @@ const deserializeAws_queryListAccessKeysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8859,7 +8860,7 @@ const deserializeAws_queryListAccountAliasesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -8913,7 +8914,7 @@ const deserializeAws_queryListAttachedGroupPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8983,7 +8984,7 @@ const deserializeAws_queryListAttachedRolePoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -9053,7 +9054,7 @@ const deserializeAws_queryListAttachedUserPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -9123,7 +9124,7 @@ const deserializeAws_queryListEntitiesForPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -9193,7 +9194,7 @@ const deserializeAws_queryListGroupPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -9255,7 +9256,7 @@ const deserializeAws_queryListGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -9309,7 +9310,7 @@ const deserializeAws_queryListGroupsForUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -9371,7 +9372,7 @@ const deserializeAws_queryListInstanceProfilesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -9425,7 +9426,7 @@ const deserializeAws_queryListInstanceProfilesForRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -9487,7 +9488,7 @@ const deserializeAws_queryListInstanceProfileTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -9549,7 +9550,7 @@ const deserializeAws_queryListMFADevicesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -9611,7 +9612,7 @@ const deserializeAws_queryListMFADeviceTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -9681,7 +9682,7 @@ const deserializeAws_queryListOpenIDConnectProvidersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -9738,7 +9739,7 @@ const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -9808,7 +9809,7 @@ const deserializeAws_queryListPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -9865,7 +9866,7 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -9927,7 +9928,7 @@ const deserializeAws_queryListPolicyTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -9997,7 +9998,7 @@ const deserializeAws_queryListPolicyVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -10067,7 +10068,7 @@ const deserializeAws_queryListRolePoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10129,7 +10130,7 @@ const deserializeAws_queryListRolesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -10183,7 +10184,7 @@ const deserializeAws_queryListRoleTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10245,7 +10246,7 @@ const deserializeAws_queryListSAMLProvidersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -10299,7 +10300,7 @@ const deserializeAws_queryListSAMLProviderTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -10369,7 +10370,7 @@ const deserializeAws_queryListServerCertificatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -10423,7 +10424,7 @@ const deserializeAws_queryListServerCertificateTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10488,7 +10489,7 @@ const deserializeAws_queryListServiceSpecificCredentialsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10550,7 +10551,7 @@ const deserializeAws_queryListSigningCertificatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10612,7 +10613,7 @@ const deserializeAws_queryListSSHPublicKeysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10666,7 +10667,7 @@ const deserializeAws_queryListUserPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10728,7 +10729,7 @@ const deserializeAws_queryListUsersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -10782,7 +10783,7 @@ const deserializeAws_queryListUserTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10844,7 +10845,7 @@ const deserializeAws_queryListVirtualMFADevicesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10887,7 +10888,7 @@ const deserializeAws_queryPutGroupPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -10962,7 +10963,7 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -11045,7 +11046,7 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -11128,7 +11129,7 @@ const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -11203,7 +11204,7 @@ const deserializeAws_queryPutUserPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -11278,7 +11279,7 @@ const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -11345,7 +11346,7 @@ const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -11420,7 +11421,7 @@ const deserializeAws_queryRemoveUserFromGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -11493,7 +11494,7 @@ const deserializeAws_queryResetServiceSpecificCredentialCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -11544,7 +11545,7 @@ const deserializeAws_queryResyncMFADeviceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAuthenticationCodeException":
@@ -11619,7 +11620,7 @@ const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -11694,7 +11695,7 @@ const deserializeAws_querySetSecurityTokenServicePreferencesCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -11748,7 +11749,7 @@ const deserializeAws_querySimulateCustomPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -11810,7 +11811,7 @@ const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -11877,7 +11878,7 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -11960,7 +11961,7 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12043,7 +12044,7 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12126,7 +12127,7 @@ const deserializeAws_queryTagPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12209,7 +12210,7 @@ const deserializeAws_queryTagRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12292,7 +12293,7 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12375,7 +12376,7 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12458,7 +12459,7 @@ const deserializeAws_queryTagUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12541,7 +12542,7 @@ const deserializeAws_queryUntagInstanceProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12616,7 +12617,7 @@ const deserializeAws_queryUntagMFADeviceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12691,7 +12692,7 @@ const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12766,7 +12767,7 @@ const deserializeAws_queryUntagPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12841,7 +12842,7 @@ const deserializeAws_queryUntagRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12908,7 +12909,7 @@ const deserializeAws_queryUntagSAMLProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -12983,7 +12984,7 @@ const deserializeAws_queryUntagServerCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -13058,7 +13059,7 @@ const deserializeAws_queryUntagUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -13125,7 +13126,7 @@ const deserializeAws_queryUpdateAccessKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -13192,7 +13193,7 @@ const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -13267,7 +13268,7 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -13350,7 +13351,7 @@ const deserializeAws_queryUpdateGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -13425,7 +13426,7 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
@@ -13508,7 +13509,7 @@ const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -13578,7 +13579,7 @@ const deserializeAws_queryUpdateRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -13648,7 +13649,7 @@ const deserializeAws_queryUpdateRoleDescriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -13718,7 +13719,7 @@ const deserializeAws_queryUpdateSAMLProviderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -13793,7 +13794,7 @@ const deserializeAws_queryUpdateServerCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -13868,7 +13869,7 @@ const deserializeAws_queryUpdateServiceSpecificCredentialCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -13919,7 +13920,7 @@ const deserializeAws_queryUpdateSigningCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -13986,7 +13987,7 @@ const deserializeAws_queryUpdateSSHPublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -14037,7 +14038,7 @@ const deserializeAws_queryUpdateUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -14131,7 +14132,7 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -14233,7 +14234,7 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateCertificateException":
@@ -14335,7 +14336,7 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateSSHPublicKeyException":
@@ -14803,7 +14804,7 @@ const deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse = async
 const serializeAws_queryActionNameListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -14899,7 +14900,7 @@ const serializeAws_queryChangePasswordRequest = (input: ChangePasswordRequest, c
 const serializeAws_queryclientIDListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -14930,7 +14931,7 @@ const serializeAws_queryContextEntry = (input: ContextEntry, context: __SerdeCon
 const serializeAws_queryContextEntryListType = (input: ContextEntry[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -14946,7 +14947,7 @@ const serializeAws_queryContextEntryListType = (input: ContextEntry[], context: 
 const serializeAws_queryContextKeyValueListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -15530,7 +15531,7 @@ const serializeAws_queryEnableMFADeviceRequest = (input: EnableMFADeviceRequest,
 const serializeAws_queryentityListType = (input: (EntityType | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -16512,7 +16513,7 @@ const serializeAws_queryResetServiceSpecificCredentialRequest = (
 const serializeAws_queryResourceNameListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -16542,7 +16543,7 @@ const serializeAws_queryResyncMFADeviceRequest = (input: ResyncMFADeviceRequest,
 const serializeAws_queryserviceNamespaceListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -16705,7 +16706,7 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
 const serializeAws_querySimulationPolicyListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -16747,7 +16748,7 @@ const serializeAws_queryTagInstanceProfileRequest = (
 const serializeAws_querytagKeyListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -16760,7 +16761,7 @@ const serializeAws_querytagKeyListType = (input: string[], context: __SerdeConte
 const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -16887,7 +16888,7 @@ const serializeAws_queryTagUserRequest = (input: TagUserRequest, context: __Serd
 const serializeAws_querythumbprintListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -17321,7 +17322,7 @@ const serializeAws_queryUploadSSHPublicKeyRequest = (
 };
 
 const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext): AccessDetail => {
-  let contents: any = {
+  const contents: any = {
     ServiceName: undefined,
     ServiceNamespace: undefined,
     Region: undefined,
@@ -17362,7 +17363,7 @@ const deserializeAws_queryAccessDetails = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryAccessKey = (output: any, context: __SerdeContext): AccessKey => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     AccessKeyId: undefined,
     Status: undefined,
@@ -17388,7 +17389,7 @@ const deserializeAws_queryAccessKey = (output: any, context: __SerdeContext): Ac
 };
 
 const deserializeAws_queryAccessKeyLastUsed = (output: any, context: __SerdeContext): AccessKeyLastUsed => {
-  let contents: any = {
+  const contents: any = {
     LastUsedDate: undefined,
     ServiceName: undefined,
     Region: undefined,
@@ -17406,7 +17407,7 @@ const deserializeAws_queryAccessKeyLastUsed = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryAccessKeyMetadata = (output: any, context: __SerdeContext): AccessKeyMetadata => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     AccessKeyId: undefined,
     Status: undefined,
@@ -17464,7 +17465,7 @@ const deserializeAws_queryAttachedPermissionsBoundary = (
   output: any,
   context: __SerdeContext
 ): AttachedPermissionsBoundary => {
-  let contents: any = {
+  const contents: any = {
     PermissionsBoundaryType: undefined,
     PermissionsBoundaryArn: undefined,
   };
@@ -17489,7 +17490,7 @@ const deserializeAws_queryattachedPoliciesListType = (output: any, context: __Se
 };
 
 const deserializeAws_queryAttachedPolicy = (output: any, context: __SerdeContext): AttachedPolicy => {
-  let contents: any = {
+  const contents: any = {
     PolicyName: undefined,
     PolicyArn: undefined,
   };
@@ -17528,7 +17529,7 @@ const deserializeAws_queryConcurrentModificationException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentModificationException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17549,7 +17550,7 @@ const deserializeAws_queryContextKeyNamesResultListType = (output: any, context:
 };
 
 const deserializeAws_queryCreateAccessKeyResponse = (output: any, context: __SerdeContext): CreateAccessKeyResponse => {
-  let contents: any = {
+  const contents: any = {
     AccessKey: undefined,
   };
   if (output["AccessKey"] !== undefined) {
@@ -17559,7 +17560,7 @@ const deserializeAws_queryCreateAccessKeyResponse = (output: any, context: __Ser
 };
 
 const deserializeAws_queryCreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
-  let contents: any = {
+  const contents: any = {
     Group: undefined,
   };
   if (output["Group"] !== undefined) {
@@ -17572,7 +17573,7 @@ const deserializeAws_queryCreateInstanceProfileResponse = (
   output: any,
   context: __SerdeContext
 ): CreateInstanceProfileResponse => {
-  let contents: any = {
+  const contents: any = {
     InstanceProfile: undefined,
   };
   if (output["InstanceProfile"] !== undefined) {
@@ -17585,7 +17586,7 @@ const deserializeAws_queryCreateLoginProfileResponse = (
   output: any,
   context: __SerdeContext
 ): CreateLoginProfileResponse => {
-  let contents: any = {
+  const contents: any = {
     LoginProfile: undefined,
   };
   if (output["LoginProfile"] !== undefined) {
@@ -17598,7 +17599,7 @@ const deserializeAws_queryCreateOpenIDConnectProviderResponse = (
   output: any,
   context: __SerdeContext
 ): CreateOpenIDConnectProviderResponse => {
-  let contents: any = {
+  const contents: any = {
     OpenIDConnectProviderArn: undefined,
     Tags: undefined,
   };
@@ -17615,7 +17616,7 @@ const deserializeAws_queryCreateOpenIDConnectProviderResponse = (
 };
 
 const deserializeAws_queryCreatePolicyResponse = (output: any, context: __SerdeContext): CreatePolicyResponse => {
-  let contents: any = {
+  const contents: any = {
     Policy: undefined,
   };
   if (output["Policy"] !== undefined) {
@@ -17628,7 +17629,7 @@ const deserializeAws_queryCreatePolicyVersionResponse = (
   output: any,
   context: __SerdeContext
 ): CreatePolicyVersionResponse => {
-  let contents: any = {
+  const contents: any = {
     PolicyVersion: undefined,
   };
   if (output["PolicyVersion"] !== undefined) {
@@ -17638,7 +17639,7 @@ const deserializeAws_queryCreatePolicyVersionResponse = (
 };
 
 const deserializeAws_queryCreateRoleResponse = (output: any, context: __SerdeContext): CreateRoleResponse => {
-  let contents: any = {
+  const contents: any = {
     Role: undefined,
   };
   if (output["Role"] !== undefined) {
@@ -17651,7 +17652,7 @@ const deserializeAws_queryCreateSAMLProviderResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSAMLProviderResponse => {
-  let contents: any = {
+  const contents: any = {
     SAMLProviderArn: undefined,
     Tags: undefined,
   };
@@ -17671,7 +17672,7 @@ const deserializeAws_queryCreateServiceLinkedRoleResponse = (
   output: any,
   context: __SerdeContext
 ): CreateServiceLinkedRoleResponse => {
-  let contents: any = {
+  const contents: any = {
     Role: undefined,
   };
   if (output["Role"] !== undefined) {
@@ -17684,7 +17685,7 @@ const deserializeAws_queryCreateServiceSpecificCredentialResponse = (
   output: any,
   context: __SerdeContext
 ): CreateServiceSpecificCredentialResponse => {
-  let contents: any = {
+  const contents: any = {
     ServiceSpecificCredential: undefined,
   };
   if (output["ServiceSpecificCredential"] !== undefined) {
@@ -17697,7 +17698,7 @@ const deserializeAws_queryCreateServiceSpecificCredentialResponse = (
 };
 
 const deserializeAws_queryCreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
-  let contents: any = {
+  const contents: any = {
     User: undefined,
   };
   if (output["User"] !== undefined) {
@@ -17710,7 +17711,7 @@ const deserializeAws_queryCreateVirtualMFADeviceResponse = (
   output: any,
   context: __SerdeContext
 ): CreateVirtualMFADeviceResponse => {
-  let contents: any = {
+  const contents: any = {
     VirtualMFADevice: undefined,
   };
   if (output["VirtualMFADevice"] !== undefined) {
@@ -17723,7 +17724,7 @@ const deserializeAws_queryCredentialReportExpiredException = (
   output: any,
   context: __SerdeContext
 ): CredentialReportExpiredException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17736,7 +17737,7 @@ const deserializeAws_queryCredentialReportNotPresentException = (
   output: any,
   context: __SerdeContext
 ): CredentialReportNotPresentException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17749,7 +17750,7 @@ const deserializeAws_queryCredentialReportNotReadyException = (
   output: any,
   context: __SerdeContext
 ): CredentialReportNotReadyException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17759,7 +17760,7 @@ const deserializeAws_queryCredentialReportNotReadyException = (
 };
 
 const deserializeAws_queryDeleteConflictException = (output: any, context: __SerdeContext): DeleteConflictException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17772,7 +17773,7 @@ const deserializeAws_queryDeleteServiceLinkedRoleResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteServiceLinkedRoleResponse => {
-  let contents: any = {
+  const contents: any = {
     DeletionTaskId: undefined,
   };
   if (output["DeletionTaskId"] !== undefined) {
@@ -17785,7 +17786,7 @@ const deserializeAws_queryDeletionTaskFailureReasonType = (
   output: any,
   context: __SerdeContext
 ): DeletionTaskFailureReasonType => {
-  let contents: any = {
+  const contents: any = {
     Reason: undefined,
     RoleUsageList: undefined,
   };
@@ -17808,7 +17809,7 @@ const deserializeAws_queryDuplicateCertificateException = (
   output: any,
   context: __SerdeContext
 ): DuplicateCertificateException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17821,7 +17822,7 @@ const deserializeAws_queryDuplicateSSHPublicKeyException = (
   output: any,
   context: __SerdeContext
 ): DuplicateSSHPublicKeyException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17834,7 +17835,7 @@ const deserializeAws_queryEntityAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): EntityAlreadyExistsException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17844,7 +17845,7 @@ const deserializeAws_queryEntityAlreadyExistsException = (
 };
 
 const deserializeAws_queryEntityDetails = (output: any, context: __SerdeContext): EntityDetails => {
-  let contents: any = {
+  const contents: any = {
     EntityInfo: undefined,
     LastAuthenticated: undefined,
   };
@@ -17869,7 +17870,7 @@ const deserializeAws_queryentityDetailsListType = (output: any, context: __Serde
 };
 
 const deserializeAws_queryEntityInfo = (output: any, context: __SerdeContext): EntityInfo => {
-  let contents: any = {
+  const contents: any = {
     Arn: undefined,
     Name: undefined,
     Type: undefined,
@@ -17898,7 +17899,7 @@ const deserializeAws_queryEntityTemporarilyUnmodifiableException = (
   output: any,
   context: __SerdeContext
 ): EntityTemporarilyUnmodifiableException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17908,7 +17909,7 @@ const deserializeAws_queryEntityTemporarilyUnmodifiableException = (
 };
 
 const deserializeAws_queryErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
     Code: undefined,
   };
@@ -17937,7 +17938,7 @@ const deserializeAws_queryEvalDecisionDetailsType = (
 };
 
 const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
-  let contents: any = {
+  const contents: any = {
     EvalActionName: undefined,
     EvalResourceName: undefined,
     EvalDecision: undefined,
@@ -18023,7 +18024,7 @@ const deserializeAws_queryGenerateCredentialReportResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateCredentialReportResponse => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     Description: undefined,
   };
@@ -18040,7 +18041,7 @@ const deserializeAws_queryGenerateOrganizationsAccessReportResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateOrganizationsAccessReportResponse => {
-  let contents: any = {
+  const contents: any = {
     JobId: undefined,
   };
   if (output["JobId"] !== undefined) {
@@ -18053,7 +18054,7 @@ const deserializeAws_queryGenerateServiceLastAccessedDetailsResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateServiceLastAccessedDetailsResponse => {
-  let contents: any = {
+  const contents: any = {
     JobId: undefined,
   };
   if (output["JobId"] !== undefined) {
@@ -18066,7 +18067,7 @@ const deserializeAws_queryGetAccessKeyLastUsedResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccessKeyLastUsedResponse => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     AccessKeyLastUsed: undefined,
   };
@@ -18083,7 +18084,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccountAuthorizationDetailsResponse => {
-  let contents: any = {
+  const contents: any = {
     UserDetailList: undefined,
     GroupDetailList: undefined,
     RoleDetailList: undefined,
@@ -18140,7 +18141,7 @@ const deserializeAws_queryGetAccountPasswordPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccountPasswordPolicyResponse => {
-  let contents: any = {
+  const contents: any = {
     PasswordPolicy: undefined,
   };
   if (output["PasswordPolicy"] !== undefined) {
@@ -18153,7 +18154,7 @@ const deserializeAws_queryGetAccountSummaryResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccountSummaryResponse => {
-  let contents: any = {
+  const contents: any = {
     SummaryMap: undefined,
   };
   if (output.SummaryMap === "") {
@@ -18172,7 +18173,7 @@ const deserializeAws_queryGetContextKeysForPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetContextKeysForPolicyResponse => {
-  let contents: any = {
+  const contents: any = {
     ContextKeyNames: undefined,
   };
   if (output.ContextKeyNames === "") {
@@ -18191,7 +18192,7 @@ const deserializeAws_queryGetCredentialReportResponse = (
   output: any,
   context: __SerdeContext
 ): GetCredentialReportResponse => {
-  let contents: any = {
+  const contents: any = {
     Content: undefined,
     ReportFormat: undefined,
     GeneratedTime: undefined,
@@ -18209,7 +18210,7 @@ const deserializeAws_queryGetCredentialReportResponse = (
 };
 
 const deserializeAws_queryGetGroupPolicyResponse = (output: any, context: __SerdeContext): GetGroupPolicyResponse => {
-  let contents: any = {
+  const contents: any = {
     GroupName: undefined,
     PolicyName: undefined,
     PolicyDocument: undefined,
@@ -18227,7 +18228,7 @@ const deserializeAws_queryGetGroupPolicyResponse = (output: any, context: __Serd
 };
 
 const deserializeAws_queryGetGroupResponse = (output: any, context: __SerdeContext): GetGroupResponse => {
-  let contents: any = {
+  const contents: any = {
     Group: undefined,
     Users: undefined,
     IsTruncated: undefined,
@@ -18255,7 +18256,7 @@ const deserializeAws_queryGetInstanceProfileResponse = (
   output: any,
   context: __SerdeContext
 ): GetInstanceProfileResponse => {
-  let contents: any = {
+  const contents: any = {
     InstanceProfile: undefined,
   };
   if (output["InstanceProfile"] !== undefined) {
@@ -18265,7 +18266,7 @@ const deserializeAws_queryGetInstanceProfileResponse = (
 };
 
 const deserializeAws_queryGetLoginProfileResponse = (output: any, context: __SerdeContext): GetLoginProfileResponse => {
-  let contents: any = {
+  const contents: any = {
     LoginProfile: undefined,
   };
   if (output["LoginProfile"] !== undefined) {
@@ -18278,7 +18279,7 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
   output: any,
   context: __SerdeContext
 ): GetOpenIDConnectProviderResponse => {
-  let contents: any = {
+  const contents: any = {
     Url: undefined,
     ClientIDList: undefined,
     ThumbprintList: undefined,
@@ -18322,7 +18323,7 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
   output: any,
   context: __SerdeContext
 ): GetOrganizationsAccessReportResponse => {
-  let contents: any = {
+  const contents: any = {
     JobStatus: undefined,
     JobCreationDate: undefined,
     JobCompletionDate: undefined,
@@ -18370,7 +18371,7 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
 };
 
 const deserializeAws_queryGetPolicyResponse = (output: any, context: __SerdeContext): GetPolicyResponse => {
-  let contents: any = {
+  const contents: any = {
     Policy: undefined,
   };
   if (output["Policy"] !== undefined) {
@@ -18383,7 +18384,7 @@ const deserializeAws_queryGetPolicyVersionResponse = (
   output: any,
   context: __SerdeContext
 ): GetPolicyVersionResponse => {
-  let contents: any = {
+  const contents: any = {
     PolicyVersion: undefined,
   };
   if (output["PolicyVersion"] !== undefined) {
@@ -18393,7 +18394,7 @@ const deserializeAws_queryGetPolicyVersionResponse = (
 };
 
 const deserializeAws_queryGetRolePolicyResponse = (output: any, context: __SerdeContext): GetRolePolicyResponse => {
-  let contents: any = {
+  const contents: any = {
     RoleName: undefined,
     PolicyName: undefined,
     PolicyDocument: undefined,
@@ -18411,7 +18412,7 @@ const deserializeAws_queryGetRolePolicyResponse = (output: any, context: __Serde
 };
 
 const deserializeAws_queryGetRoleResponse = (output: any, context: __SerdeContext): GetRoleResponse => {
-  let contents: any = {
+  const contents: any = {
     Role: undefined,
   };
   if (output["Role"] !== undefined) {
@@ -18421,7 +18422,7 @@ const deserializeAws_queryGetRoleResponse = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryGetSAMLProviderResponse = (output: any, context: __SerdeContext): GetSAMLProviderResponse => {
-  let contents: any = {
+  const contents: any = {
     SAMLMetadataDocument: undefined,
     CreateDate: undefined,
     ValidUntil: undefined,
@@ -18449,7 +18450,7 @@ const deserializeAws_queryGetServerCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): GetServerCertificateResponse => {
-  let contents: any = {
+  const contents: any = {
     ServerCertificate: undefined,
   };
   if (output["ServerCertificate"] !== undefined) {
@@ -18462,7 +18463,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
   output: any,
   context: __SerdeContext
 ): GetServiceLastAccessedDetailsResponse => {
-  let contents: any = {
+  const contents: any = {
     JobStatus: undefined,
     JobType: undefined,
     JobCreationDate: undefined,
@@ -18509,7 +18510,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
   output: any,
   context: __SerdeContext
 ): GetServiceLastAccessedDetailsWithEntitiesResponse => {
-  let contents: any = {
+  const contents: any = {
     JobStatus: undefined,
     JobCreationDate: undefined,
     JobCompletionDate: undefined,
@@ -18552,7 +18553,7 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetServiceLinkedRoleDeletionStatusResponse => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
     Reason: undefined,
   };
@@ -18566,7 +18567,7 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusResponse = (
 };
 
 const deserializeAws_queryGetSSHPublicKeyResponse = (output: any, context: __SerdeContext): GetSSHPublicKeyResponse => {
-  let contents: any = {
+  const contents: any = {
     SSHPublicKey: undefined,
   };
   if (output["SSHPublicKey"] !== undefined) {
@@ -18576,7 +18577,7 @@ const deserializeAws_queryGetSSHPublicKeyResponse = (output: any, context: __Ser
 };
 
 const deserializeAws_queryGetUserPolicyResponse = (output: any, context: __SerdeContext): GetUserPolicyResponse => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     PolicyName: undefined,
     PolicyDocument: undefined,
@@ -18594,7 +18595,7 @@ const deserializeAws_queryGetUserPolicyResponse = (output: any, context: __Serde
 };
 
 const deserializeAws_queryGetUserResponse = (output: any, context: __SerdeContext): GetUserResponse => {
-  let contents: any = {
+  const contents: any = {
     User: undefined,
   };
   if (output["User"] !== undefined) {
@@ -18604,7 +18605,7 @@ const deserializeAws_queryGetUserResponse = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryGroup = (output: any, context: __SerdeContext): Group => {
-  let contents: any = {
+  const contents: any = {
     Path: undefined,
     GroupName: undefined,
     GroupId: undefined,
@@ -18630,7 +18631,7 @@ const deserializeAws_queryGroup = (output: any, context: __SerdeContext): Group 
 };
 
 const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): GroupDetail => {
-  let contents: any = {
+  const contents: any = {
     Path: undefined,
     GroupName: undefined,
     GroupId: undefined,
@@ -18709,7 +18710,7 @@ const deserializeAws_querygroupNameListType = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
-  let contents: any = {
+  const contents: any = {
     Path: undefined,
     InstanceProfileName: undefined,
     InstanceProfileId: undefined,
@@ -18763,7 +18764,7 @@ const deserializeAws_queryInvalidAuthenticationCodeException = (
   output: any,
   context: __SerdeContext
 ): InvalidAuthenticationCodeException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18776,7 +18777,7 @@ const deserializeAws_queryInvalidCertificateException = (
   output: any,
   context: __SerdeContext
 ): InvalidCertificateException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18786,7 +18787,7 @@ const deserializeAws_queryInvalidCertificateException = (
 };
 
 const deserializeAws_queryInvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18799,7 +18800,7 @@ const deserializeAws_queryInvalidPublicKeyException = (
   output: any,
   context: __SerdeContext
 ): InvalidPublicKeyException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18812,7 +18813,7 @@ const deserializeAws_queryInvalidUserTypeException = (
   output: any,
   context: __SerdeContext
 ): InvalidUserTypeException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18825,7 +18826,7 @@ const deserializeAws_queryKeyPairMismatchException = (
   output: any,
   context: __SerdeContext
 ): KeyPairMismatchException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18835,7 +18836,7 @@ const deserializeAws_queryKeyPairMismatchException = (
 };
 
 const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18845,7 +18846,7 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
 };
 
 const deserializeAws_queryListAccessKeysResponse = (output: any, context: __SerdeContext): ListAccessKeysResponse => {
-  let contents: any = {
+  const contents: any = {
     AccessKeyMetadata: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -18872,7 +18873,7 @@ const deserializeAws_queryListAccountAliasesResponse = (
   output: any,
   context: __SerdeContext
 ): ListAccountAliasesResponse => {
-  let contents: any = {
+  const contents: any = {
     AccountAliases: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -18899,7 +18900,7 @@ const deserializeAws_queryListAttachedGroupPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListAttachedGroupPoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     AttachedPolicies: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -18926,7 +18927,7 @@ const deserializeAws_queryListAttachedRolePoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListAttachedRolePoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     AttachedPolicies: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -18953,7 +18954,7 @@ const deserializeAws_queryListAttachedUserPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListAttachedUserPoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     AttachedPolicies: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -18980,7 +18981,7 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): ListEntitiesForPolicyResponse => {
-  let contents: any = {
+  const contents: any = {
     PolicyGroups: undefined,
     PolicyUsers: undefined,
     PolicyRoles: undefined,
@@ -19027,7 +19028,7 @@ const deserializeAws_queryListGroupPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListGroupPoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     PolicyNames: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19054,7 +19055,7 @@ const deserializeAws_queryListGroupsForUserResponse = (
   output: any,
   context: __SerdeContext
 ): ListGroupsForUserResponse => {
-  let contents: any = {
+  const contents: any = {
     Groups: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19075,7 +19076,7 @@ const deserializeAws_queryListGroupsForUserResponse = (
 };
 
 const deserializeAws_queryListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
-  let contents: any = {
+  const contents: any = {
     Groups: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19099,7 +19100,7 @@ const deserializeAws_queryListInstanceProfilesForRoleResponse = (
   output: any,
   context: __SerdeContext
 ): ListInstanceProfilesForRoleResponse => {
-  let contents: any = {
+  const contents: any = {
     InstanceProfiles: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19126,7 +19127,7 @@ const deserializeAws_queryListInstanceProfilesResponse = (
   output: any,
   context: __SerdeContext
 ): ListInstanceProfilesResponse => {
-  let contents: any = {
+  const contents: any = {
     InstanceProfiles: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19153,7 +19154,7 @@ const deserializeAws_queryListInstanceProfileTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListInstanceProfileTagsResponse => {
-  let contents: any = {
+  const contents: any = {
     Tags: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19174,7 +19175,7 @@ const deserializeAws_queryListInstanceProfileTagsResponse = (
 };
 
 const deserializeAws_queryListMFADevicesResponse = (output: any, context: __SerdeContext): ListMFADevicesResponse => {
-  let contents: any = {
+  const contents: any = {
     MFADevices: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19201,7 +19202,7 @@ const deserializeAws_queryListMFADeviceTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListMFADeviceTagsResponse => {
-  let contents: any = {
+  const contents: any = {
     Tags: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19225,7 +19226,7 @@ const deserializeAws_queryListOpenIDConnectProvidersResponse = (
   output: any,
   context: __SerdeContext
 ): ListOpenIDConnectProvidersResponse => {
-  let contents: any = {
+  const contents: any = {
     OpenIDConnectProviderList: undefined,
   };
   if (output.OpenIDConnectProviderList === "") {
@@ -19247,7 +19248,7 @@ const deserializeAws_queryListOpenIDConnectProviderTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListOpenIDConnectProviderTagsResponse => {
-  let contents: any = {
+  const contents: any = {
     Tags: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19271,7 +19272,7 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessEntry = (
   output: any,
   context: __SerdeContext
 ): ListPoliciesGrantingServiceAccessEntry => {
-  let contents: any = {
+  const contents: any = {
     ServiceNamespace: undefined,
     Policies: undefined,
   };
@@ -19294,7 +19295,7 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
   output: any,
   context: __SerdeContext
 ): ListPoliciesGrantingServiceAccessResponse => {
-  let contents: any = {
+  const contents: any = {
     PoliciesGrantingServiceAccess: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19321,7 +19322,7 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
 };
 
 const deserializeAws_queryListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     Policies: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19359,7 +19360,7 @@ const deserializeAws_querylistPolicyGrantingServiceAccessResponseListType = (
 };
 
 const deserializeAws_queryListPolicyTagsResponse = (output: any, context: __SerdeContext): ListPolicyTagsResponse => {
-  let contents: any = {
+  const contents: any = {
     Tags: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19383,7 +19384,7 @@ const deserializeAws_queryListPolicyVersionsResponse = (
   output: any,
   context: __SerdeContext
 ): ListPolicyVersionsResponse => {
-  let contents: any = {
+  const contents: any = {
     Versions: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19410,7 +19411,7 @@ const deserializeAws_queryListRolePoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListRolePoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     PolicyNames: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19434,7 +19435,7 @@ const deserializeAws_queryListRolePoliciesResponse = (
 };
 
 const deserializeAws_queryListRolesResponse = (output: any, context: __SerdeContext): ListRolesResponse => {
-  let contents: any = {
+  const contents: any = {
     Roles: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19455,7 +19456,7 @@ const deserializeAws_queryListRolesResponse = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryListRoleTagsResponse = (output: any, context: __SerdeContext): ListRoleTagsResponse => {
-  let contents: any = {
+  const contents: any = {
     Tags: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19479,7 +19480,7 @@ const deserializeAws_queryListSAMLProvidersResponse = (
   output: any,
   context: __SerdeContext
 ): ListSAMLProvidersResponse => {
-  let contents: any = {
+  const contents: any = {
     SAMLProviderList: undefined,
   };
   if (output.SAMLProviderList === "") {
@@ -19498,7 +19499,7 @@ const deserializeAws_queryListSAMLProviderTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSAMLProviderTagsResponse => {
-  let contents: any = {
+  const contents: any = {
     Tags: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19522,7 +19523,7 @@ const deserializeAws_queryListServerCertificatesResponse = (
   output: any,
   context: __SerdeContext
 ): ListServerCertificatesResponse => {
-  let contents: any = {
+  const contents: any = {
     ServerCertificateMetadataList: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19552,7 +19553,7 @@ const deserializeAws_queryListServerCertificateTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListServerCertificateTagsResponse => {
-  let contents: any = {
+  const contents: any = {
     Tags: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19576,7 +19577,7 @@ const deserializeAws_queryListServiceSpecificCredentialsResponse = (
   output: any,
   context: __SerdeContext
 ): ListServiceSpecificCredentialsResponse => {
-  let contents: any = {
+  const contents: any = {
     ServiceSpecificCredentials: undefined,
   };
   if (output.ServiceSpecificCredentials === "") {
@@ -19598,7 +19599,7 @@ const deserializeAws_queryListSigningCertificatesResponse = (
   output: any,
   context: __SerdeContext
 ): ListSigningCertificatesResponse => {
-  let contents: any = {
+  const contents: any = {
     Certificates: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19625,7 +19626,7 @@ const deserializeAws_queryListSSHPublicKeysResponse = (
   output: any,
   context: __SerdeContext
 ): ListSSHPublicKeysResponse => {
-  let contents: any = {
+  const contents: any = {
     SSHPublicKeys: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19652,7 +19653,7 @@ const deserializeAws_queryListUserPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListUserPoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     PolicyNames: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19676,7 +19677,7 @@ const deserializeAws_queryListUserPoliciesResponse = (
 };
 
 const deserializeAws_queryListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
-  let contents: any = {
+  const contents: any = {
     Users: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19697,7 +19698,7 @@ const deserializeAws_queryListUsersResponse = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryListUserTagsResponse = (output: any, context: __SerdeContext): ListUserTagsResponse => {
-  let contents: any = {
+  const contents: any = {
     Tags: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19721,7 +19722,7 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
   output: any,
   context: __SerdeContext
 ): ListVirtualMFADevicesResponse => {
-  let contents: any = {
+  const contents: any = {
     VirtualMFADevices: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -19745,7 +19746,7 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
 };
 
 const deserializeAws_queryLoginProfile = (output: any, context: __SerdeContext): LoginProfile => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     CreateDate: undefined,
     PasswordResetRequired: undefined,
@@ -19766,7 +19767,7 @@ const deserializeAws_queryMalformedCertificateException = (
   output: any,
   context: __SerdeContext
 ): MalformedCertificateException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -19779,7 +19780,7 @@ const deserializeAws_queryMalformedPolicyDocumentException = (
   output: any,
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -19789,7 +19790,7 @@ const deserializeAws_queryMalformedPolicyDocumentException = (
 };
 
 const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeContext): ManagedPolicyDetail => {
-  let contents: any = {
+  const contents: any = {
     PolicyName: undefined,
     PolicyId: undefined,
     Arn: undefined,
@@ -19863,7 +19864,7 @@ const deserializeAws_queryManagedPolicyDetailListType = (
 };
 
 const deserializeAws_queryMFADevice = (output: any, context: __SerdeContext): MFADevice => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     SerialNumber: undefined,
     EnableDate: undefined,
@@ -19892,7 +19893,7 @@ const deserializeAws_querymfaDeviceListType = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryNoSuchEntityException = (output: any, context: __SerdeContext): NoSuchEntityException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -19905,7 +19906,7 @@ const deserializeAws_queryOpenIDConnectProviderListEntry = (
   output: any,
   context: __SerdeContext
 ): OpenIDConnectProviderListEntry => {
-  let contents: any = {
+  const contents: any = {
     Arn: undefined,
   };
   if (output["Arn"] !== undefined) {
@@ -19932,7 +19933,7 @@ const deserializeAws_queryOrganizationsDecisionDetail = (
   output: any,
   context: __SerdeContext
 ): OrganizationsDecisionDetail => {
-  let contents: any = {
+  const contents: any = {
     AllowedByOrganizations: undefined,
   };
   if (output["AllowedByOrganizations"] !== undefined) {
@@ -19942,7 +19943,7 @@ const deserializeAws_queryOrganizationsDecisionDetail = (
 };
 
 const deserializeAws_queryPasswordPolicy = (output: any, context: __SerdeContext): PasswordPolicy => {
-  let contents: any = {
+  const contents: any = {
     MinimumPasswordLength: undefined,
     RequireSymbols: undefined,
     RequireNumbers: undefined,
@@ -19991,7 +19992,7 @@ const deserializeAws_queryPasswordPolicyViolationException = (
   output: any,
   context: __SerdeContext
 ): PasswordPolicyViolationException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -20004,7 +20005,7 @@ const deserializeAws_queryPermissionsBoundaryDecisionDetail = (
   output: any,
   context: __SerdeContext
 ): PermissionsBoundaryDecisionDetail => {
-  let contents: any = {
+  const contents: any = {
     AllowedByPermissionsBoundary: undefined,
   };
   if (output["AllowedByPermissionsBoundary"] !== undefined) {
@@ -20014,7 +20015,7 @@ const deserializeAws_queryPermissionsBoundaryDecisionDetail = (
 };
 
 const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Policy => {
-  let contents: any = {
+  const contents: any = {
     PolicyName: undefined,
     PolicyId: undefined,
     Arn: undefined,
@@ -20071,7 +20072,7 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
 };
 
 const deserializeAws_queryPolicyDetail = (output: any, context: __SerdeContext): PolicyDetail => {
-  let contents: any = {
+  const contents: any = {
     PolicyName: undefined,
     PolicyDocument: undefined,
   };
@@ -20110,7 +20111,7 @@ const deserializeAws_queryPolicyEvaluationException = (
   output: any,
   context: __SerdeContext
 ): PolicyEvaluationException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -20123,7 +20124,7 @@ const deserializeAws_queryPolicyGrantingServiceAccess = (
   output: any,
   context: __SerdeContext
 ): PolicyGrantingServiceAccess => {
-  let contents: any = {
+  const contents: any = {
     PolicyName: undefined,
     PolicyType: undefined,
     PolicyArn: undefined,
@@ -20163,7 +20164,7 @@ const deserializeAws_querypolicyGrantingServiceAccessListType = (
 };
 
 const deserializeAws_queryPolicyGroup = (output: any, context: __SerdeContext): PolicyGroup => {
-  let contents: any = {
+  const contents: any = {
     GroupName: undefined,
     GroupId: undefined,
   };
@@ -20213,7 +20214,7 @@ const deserializeAws_queryPolicyNotAttachableException = (
   output: any,
   context: __SerdeContext
 ): PolicyNotAttachableException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -20223,7 +20224,7 @@ const deserializeAws_queryPolicyNotAttachableException = (
 };
 
 const deserializeAws_queryPolicyRole = (output: any, context: __SerdeContext): PolicyRole => {
-  let contents: any = {
+  const contents: any = {
     RoleName: undefined,
     RoleId: undefined,
   };
@@ -20248,7 +20249,7 @@ const deserializeAws_queryPolicyRoleListType = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryPolicyUser = (output: any, context: __SerdeContext): PolicyUser => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     UserId: undefined,
   };
@@ -20273,7 +20274,7 @@ const deserializeAws_queryPolicyUserListType = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext): PolicyVersion => {
-  let contents: any = {
+  const contents: any = {
     Document: undefined,
     VersionId: undefined,
     IsDefaultVersion: undefined,
@@ -20295,7 +20296,7 @@ const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryPosition = (output: any, context: __SerdeContext): Position => {
-  let contents: any = {
+  const contents: any = {
     Line: undefined,
     Column: undefined,
   };
@@ -20312,7 +20313,7 @@ const deserializeAws_queryReportGenerationLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): ReportGenerationLimitExceededException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -20325,7 +20326,7 @@ const deserializeAws_queryResetServiceSpecificCredentialResponse = (
   output: any,
   context: __SerdeContext
 ): ResetServiceSpecificCredentialResponse => {
-  let contents: any = {
+  const contents: any = {
     ServiceSpecificCredential: undefined,
   };
   if (output["ServiceSpecificCredential"] !== undefined) {
@@ -20338,7 +20339,7 @@ const deserializeAws_queryResetServiceSpecificCredentialResponse = (
 };
 
 const deserializeAws_queryResourceSpecificResult = (output: any, context: __SerdeContext): ResourceSpecificResult => {
-  let contents: any = {
+  const contents: any = {
     EvalResourceName: undefined,
     EvalResourceDecision: undefined,
     MatchedStatements: undefined,
@@ -20403,7 +20404,7 @@ const deserializeAws_queryResourceSpecificResultListType = (
 };
 
 const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role => {
-  let contents: any = {
+  const contents: any = {
     Path: undefined,
     RoleName: undefined,
     RoleId: undefined,
@@ -20459,7 +20460,7 @@ const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role =>
 };
 
 const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): RoleDetail => {
-  let contents: any = {
+  const contents: any = {
     Path: undefined,
     RoleName: undefined,
     RoleId: undefined,
@@ -20548,7 +20549,7 @@ const deserializeAws_queryroleDetailListType = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryRoleLastUsed = (output: any, context: __SerdeContext): RoleLastUsed => {
-  let contents: any = {
+  const contents: any = {
     LastUsedDate: undefined,
     Region: undefined,
   };
@@ -20584,7 +20585,7 @@ const deserializeAws_queryRoleUsageListType = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryRoleUsageType = (output: any, context: __SerdeContext): RoleUsageType => {
-  let contents: any = {
+  const contents: any = {
     Region: undefined,
     Resources: undefined,
   };
@@ -20604,7 +20605,7 @@ const deserializeAws_queryRoleUsageType = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_querySAMLProviderListEntry = (output: any, context: __SerdeContext): SAMLProviderListEntry => {
-  let contents: any = {
+  const contents: any = {
     Arn: undefined,
     ValidUntil: undefined,
     CreateDate: undefined,
@@ -20633,7 +20634,7 @@ const deserializeAws_querySAMLProviderListType = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryServerCertificate = (output: any, context: __SerdeContext): ServerCertificate => {
-  let contents: any = {
+  const contents: any = {
     ServerCertificateMetadata: undefined,
     CertificateBody: undefined,
     CertificateChain: undefined,
@@ -20664,7 +20665,7 @@ const deserializeAws_queryServerCertificateMetadata = (
   output: any,
   context: __SerdeContext
 ): ServerCertificateMetadata => {
-  let contents: any = {
+  const contents: any = {
     Path: undefined,
     ServerCertificateName: undefined,
     ServerCertificateId: undefined,
@@ -20708,7 +20709,7 @@ const deserializeAws_queryserverCertificateMetadataListType = (
 };
 
 const deserializeAws_queryServiceFailureException = (output: any, context: __SerdeContext): ServiceFailureException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -20718,7 +20719,7 @@ const deserializeAws_queryServiceFailureException = (output: any, context: __Ser
 };
 
 const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeContext): ServiceLastAccessed => {
-  let contents: any = {
+  const contents: any = {
     ServiceName: undefined,
     LastAuthenticated: undefined,
     ServiceNamespace: undefined,
@@ -20764,7 +20765,7 @@ const deserializeAws_queryServiceNotSupportedException = (
   output: any,
   context: __SerdeContext
 ): ServiceNotSupportedException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -20788,7 +20789,7 @@ const deserializeAws_queryServiceSpecificCredential = (
   output: any,
   context: __SerdeContext
 ): ServiceSpecificCredential => {
-  let contents: any = {
+  const contents: any = {
     CreateDate: undefined,
     ServiceName: undefined,
     ServiceUserName: undefined,
@@ -20825,7 +20826,7 @@ const deserializeAws_queryServiceSpecificCredentialMetadata = (
   output: any,
   context: __SerdeContext
 ): ServiceSpecificCredentialMetadata => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     Status: undefined,
     ServiceUserName: undefined,
@@ -20869,7 +20870,7 @@ const deserializeAws_queryServiceSpecificCredentialsListType = (
 };
 
 const deserializeAws_querySigningCertificate = (output: any, context: __SerdeContext): SigningCertificate => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     CertificateId: undefined,
     CertificateBody: undefined,
@@ -20895,7 +20896,7 @@ const deserializeAws_querySigningCertificate = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_querySimulatePolicyResponse = (output: any, context: __SerdeContext): SimulatePolicyResponse => {
-  let contents: any = {
+  const contents: any = {
     EvaluationResults: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -20919,7 +20920,7 @@ const deserializeAws_querySimulatePolicyResponse = (output: any, context: __Serd
 };
 
 const deserializeAws_querySSHPublicKey = (output: any, context: __SerdeContext): SSHPublicKey => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     SSHPublicKeyId: undefined,
     Fingerprint: undefined,
@@ -20960,7 +20961,7 @@ const deserializeAws_querySSHPublicKeyListType = (output: any, context: __SerdeC
 };
 
 const deserializeAws_querySSHPublicKeyMetadata = (output: any, context: __SerdeContext): SSHPublicKeyMetadata => {
-  let contents: any = {
+  const contents: any = {
     UserName: undefined,
     SSHPublicKeyId: undefined,
     Status: undefined,
@@ -20982,7 +20983,7 @@ const deserializeAws_querySSHPublicKeyMetadata = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryStatement = (output: any, context: __SerdeContext): Statement => {
-  let contents: any = {
+  const contents: any = {
     SourcePolicyId: undefined,
     SourcePolicyType: undefined,
     StartPosition: undefined,
@@ -21027,7 +21028,7 @@ const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -21066,7 +21067,7 @@ const deserializeAws_queryTrackedActionLastAccessed = (
   output: any,
   context: __SerdeContext
 ): TrackedActionLastAccessed => {
-  let contents: any = {
+  const contents: any = {
     ActionName: undefined,
     LastAccessedEntity: undefined,
     LastAccessedTime: undefined,
@@ -21105,7 +21106,7 @@ const deserializeAws_queryUnmodifiableEntityException = (
   output: any,
   context: __SerdeContext
 ): UnmodifiableEntityException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -21118,7 +21119,7 @@ const deserializeAws_queryUnrecognizedPublicKeyEncodingException = (
   output: any,
   context: __SerdeContext
 ): UnrecognizedPublicKeyEncodingException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -21131,7 +21132,7 @@ const deserializeAws_queryUpdateRoleDescriptionResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateRoleDescriptionResponse => {
-  let contents: any = {
+  const contents: any = {
     Role: undefined,
   };
   if (output["Role"] !== undefined) {
@@ -21141,7 +21142,7 @@ const deserializeAws_queryUpdateRoleDescriptionResponse = (
 };
 
 const deserializeAws_queryUpdateRoleResponse = (output: any, context: __SerdeContext): UpdateRoleResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -21149,7 +21150,7 @@ const deserializeAws_queryUpdateSAMLProviderResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSAMLProviderResponse => {
-  let contents: any = {
+  const contents: any = {
     SAMLProviderArn: undefined,
   };
   if (output["SAMLProviderArn"] !== undefined) {
@@ -21162,7 +21163,7 @@ const deserializeAws_queryUploadServerCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): UploadServerCertificateResponse => {
-  let contents: any = {
+  const contents: any = {
     ServerCertificateMetadata: undefined,
     Tags: undefined,
   };
@@ -21185,7 +21186,7 @@ const deserializeAws_queryUploadSigningCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): UploadSigningCertificateResponse => {
-  let contents: any = {
+  const contents: any = {
     Certificate: undefined,
   };
   if (output["Certificate"] !== undefined) {
@@ -21198,7 +21199,7 @@ const deserializeAws_queryUploadSSHPublicKeyResponse = (
   output: any,
   context: __SerdeContext
 ): UploadSSHPublicKeyResponse => {
-  let contents: any = {
+  const contents: any = {
     SSHPublicKey: undefined,
   };
   if (output["SSHPublicKey"] !== undefined) {
@@ -21208,7 +21209,7 @@ const deserializeAws_queryUploadSSHPublicKeyResponse = (
 };
 
 const deserializeAws_queryUser = (output: any, context: __SerdeContext): User => {
-  let contents: any = {
+  const contents: any = {
     Path: undefined,
     UserName: undefined,
     UserId: undefined,
@@ -21252,7 +21253,7 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
 };
 
 const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): UserDetail => {
-  let contents: any = {
+  const contents: any = {
     Path: undefined,
     UserName: undefined,
     UserId: undefined,
@@ -21344,7 +21345,7 @@ const deserializeAws_queryuserListType = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeContext): VirtualMFADevice => {
-  let contents: any = {
+  const contents: any = {
     SerialNumber: undefined,
     Base32StringSeed: undefined,
     QRCodePNG: undefined,

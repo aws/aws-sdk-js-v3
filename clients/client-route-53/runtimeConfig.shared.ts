@@ -1,6 +1,7 @@
-import { defaultRegionInfoProvider } from "./endpoints";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+
+import { defaultRegionInfoProvider } from "./endpoints";
 import { Route53ClientConfig } from "./Route53Client";
 
 /**

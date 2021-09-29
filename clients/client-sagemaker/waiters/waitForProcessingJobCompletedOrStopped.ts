@@ -1,17 +1,18 @@
-import { SageMakerClient } from "../SageMakerClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeProcessingJobCommand,
   DescribeProcessingJobCommandInput,
 } from "../commands/DescribeProcessingJobCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { SageMakerClient } from "../SageMakerClient";
 
 const checkState = async (client: SageMakerClient, input: DescribeProcessingJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeProcessingJobCommand(input));
+    const result: any = await client.send(new DescribeProcessingJobCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ProcessingJobStatus;
       };
       if (returnComparator() === "Completed") {
@@ -19,7 +20,7 @@ const checkState = async (client: SageMakerClient, input: DescribeProcessingJobC
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ProcessingJobStatus;
       };
       if (returnComparator() === "Stopped") {
@@ -27,7 +28,7 @@ const checkState = async (client: SageMakerClient, input: DescribeProcessingJobC
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ProcessingJobStatus;
       };
       if (returnComparator() === "Failed") {

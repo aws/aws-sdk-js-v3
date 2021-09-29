@@ -1,4 +1,5 @@
-import { IoTDataPlaneClient } from "./IoTDataPlaneClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DeleteThingShadowCommand,
   DeleteThingShadowCommandInput,
@@ -30,7 +31,7 @@ import {
   UpdateThingShadowCommandInput,
   UpdateThingShadowCommandOutput,
 } from "./commands/UpdateThingShadowCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTDataPlaneClient } from "./IoTDataPlaneClient";
 
 /**
  * <fullname>IoT data</fullname>

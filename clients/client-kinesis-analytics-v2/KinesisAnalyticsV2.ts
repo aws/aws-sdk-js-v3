@@ -1,4 +1,5 @@
-import { KinesisAnalyticsV2Client } from "./KinesisAnalyticsV2Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddApplicationCloudWatchLoggingOptionCommand,
   AddApplicationCloudWatchLoggingOptionCommandInput,
@@ -100,6 +101,11 @@ import {
   DiscoverInputSchemaCommandOutput,
 } from "./commands/DiscoverInputSchemaCommand";
 import {
+  ListApplicationsCommand,
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput,
+} from "./commands/ListApplicationsCommand";
+import {
   ListApplicationSnapshotsCommand,
   ListApplicationSnapshotsCommandInput,
   ListApplicationSnapshotsCommandOutput,
@@ -109,11 +115,6 @@ import {
   ListApplicationVersionsCommandInput,
   ListApplicationVersionsCommandOutput,
 } from "./commands/ListApplicationVersionsCommand";
-import {
-  ListApplicationsCommand,
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
-} from "./commands/ListApplicationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -150,7 +151,7 @@ import {
   UpdateApplicationMaintenanceConfigurationCommandInput,
   UpdateApplicationMaintenanceConfigurationCommandOutput,
 } from "./commands/UpdateApplicationMaintenanceConfigurationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { KinesisAnalyticsV2Client } from "./KinesisAnalyticsV2Client";
 
 /**
  * <p>Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service

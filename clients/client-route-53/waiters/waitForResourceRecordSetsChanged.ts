@@ -1,14 +1,15 @@
-import { Route53Client } from "../Route53Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { GetChangeCommand, GetChangeCommandInput } from "../commands/GetChangeCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { Route53Client } from "../Route53Client";
 
 const checkState = async (client: Route53Client, input: GetChangeCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetChangeCommand(input));
+    const result: any = await client.send(new GetChangeCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ChangeInfo.Status;
       };
       if (returnComparator() === "INSYNC") {

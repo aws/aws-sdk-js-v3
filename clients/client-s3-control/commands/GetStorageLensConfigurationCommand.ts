@@ -1,9 +1,3 @@
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetStorageLensConfigurationRequest, GetStorageLensConfigurationResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetStorageLensConfigurationCommand,
-  serializeAws_restXmlGetStorageLensConfigurationCommand,
-} from "../protocols/Aws_restXml";
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetStorageLensConfigurationRequest, GetStorageLensConfigurationResult } from "../models/models_0";
+import {
+  deserializeAws_restXmlGetStorageLensConfigurationCommand,
+  serializeAws_restXmlGetStorageLensConfigurationCommand,
+} from "../protocols/Aws_restXml";
+import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 export interface GetStorageLensConfigurationCommandInput extends GetStorageLensConfigurationRequest {}
 export interface GetStorageLensConfigurationCommandOutput extends GetStorageLensConfigurationResult, __MetadataBearer {}

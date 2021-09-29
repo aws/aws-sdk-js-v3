@@ -1,9 +1,3 @@
-import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DeleteMeshInput, DeleteMeshOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMeshCommand,
-  serializeAws_restJson1DeleteMeshCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
+import { DeleteMeshInput, DeleteMeshOutput } from "../models/models_0";
+import {
+  deserializeAws_restJson1DeleteMeshCommand,
+  serializeAws_restJson1DeleteMeshCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface DeleteMeshCommandInput extends DeleteMeshInput {}
 export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBearer {}

@@ -1,12 +1,13 @@
-import { OpenSearch } from "../OpenSearch";
-import { OpenSearchClient } from "../OpenSearchClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetPackageVersionHistoryCommand,
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
 } from "../commands/GetPackageVersionHistoryCommand";
+import { OpenSearch } from "../OpenSearch";
+import { OpenSearchClient } from "../OpenSearchClient";
 import { OpenSearchPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

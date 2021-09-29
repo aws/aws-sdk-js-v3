@@ -1,9 +1,3 @@
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { DisableSecurityHubRequest, DisableSecurityHubResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DisableSecurityHubCommand,
-  serializeAws_restJson1DisableSecurityHubCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DisableSecurityHubRequest, DisableSecurityHubResponse } from "../models/models_1";
+import {
+  deserializeAws_restJson1DisableSecurityHubCommand,
+  serializeAws_restJson1DisableSecurityHubCommand,
+} from "../protocols/Aws_restJson1";
+import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 export interface DisableSecurityHubCommandInput extends DisableSecurityHubRequest {}
 export interface DisableSecurityHubCommandOutput extends DisableSecurityHubResponse, __MetadataBearer {}

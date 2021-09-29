@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { AppMesh } from "../AppMesh";
 import { AppMeshClient } from "../AppMeshClient";
 import { ListRoutesCommand, ListRoutesCommandInput, ListRoutesCommandOutput } from "../commands/ListRoutesCommand";
 import { AppMeshPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

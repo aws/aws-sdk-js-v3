@@ -1,4 +1,5 @@
-import { MachineLearningClient } from "./MachineLearningClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   CreateBatchPredictionCommand,
@@ -123,7 +124,7 @@ import {
   UpdateMLModelCommandInput,
   UpdateMLModelCommandOutput,
 } from "./commands/UpdateMLModelCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MachineLearningClient } from "./MachineLearningClient";
 
 /**
  * Definition of the public APIs

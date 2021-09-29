@@ -1,12 +1,13 @@
-import { Redshift } from "../Redshift";
-import { RedshiftClient } from "../RedshiftClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeUsageLimitsCommand,
   DescribeUsageLimitsCommandInput,
   DescribeUsageLimitsCommandOutput,
 } from "../commands/DescribeUsageLimitsCommand";
+import { Redshift } from "../Redshift";
+import { RedshiftClient } from "../RedshiftClient";
 import { RedshiftPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

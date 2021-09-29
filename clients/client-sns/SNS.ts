@@ -1,4 +1,5 @@
-import { SNSClient } from "./SNSClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddPermissionCommand,
   AddPermissionCommandInput,
@@ -166,7 +167,7 @@ import {
   VerifySMSSandboxPhoneNumberCommandInput,
   VerifySMSSandboxPhoneNumberCommandOutput,
 } from "./commands/VerifySMSSandboxPhoneNumberCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SNSClient } from "./SNSClient";
 
 /**
  * <fullname>Amazon Simple Notification Service</fullname>

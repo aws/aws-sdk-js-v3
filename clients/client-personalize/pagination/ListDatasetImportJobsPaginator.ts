@@ -1,12 +1,13 @@
-import { Personalize } from "../Personalize";
-import { PersonalizeClient } from "../PersonalizeClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDatasetImportJobsCommand,
   ListDatasetImportJobsCommandInput,
   ListDatasetImportJobsCommandOutput,
 } from "../commands/ListDatasetImportJobsCommand";
+import { Personalize } from "../Personalize";
+import { PersonalizeClient } from "../PersonalizeClient";
 import { PersonalizePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

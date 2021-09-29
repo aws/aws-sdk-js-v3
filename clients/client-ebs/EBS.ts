@@ -1,4 +1,5 @@
-import { EBSClient } from "./EBSClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CompleteSnapshotCommand,
   CompleteSnapshotCommandInput,
@@ -29,7 +30,7 @@ import {
   StartSnapshotCommandInput,
   StartSnapshotCommandOutput,
 } from "./commands/StartSnapshotCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { EBSClient } from "./EBSClient";
 
 /**
  * <p>You can use the Amazon Elastic Block Store (Amazon EBS) direct APIs to create Amazon EBS snapshots, write data directly to

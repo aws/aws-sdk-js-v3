@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CognitoIdentityProvider } from "../CognitoIdentityProvider";
 import { CognitoIdentityProviderClient } from "../CognitoIdentityProviderClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListUserPoolsCommandOutput,
 } from "../commands/ListUserPoolsCommand";
 import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

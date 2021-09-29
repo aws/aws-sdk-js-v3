@@ -1,9 +1,3 @@
-import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
-import { UpdateScalingPlanRequest, UpdateScalingPlanResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateScalingPlanCommand,
-  serializeAws_json1_1UpdateScalingPlanCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
+import { UpdateScalingPlanRequest, UpdateScalingPlanResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1UpdateScalingPlanCommand,
+  serializeAws_json1_1UpdateScalingPlanCommand,
+} from "../protocols/Aws_json1_1";
 
 export interface UpdateScalingPlanCommandInput extends UpdateScalingPlanRequest {}
 export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanResponse, __MetadataBearer {}

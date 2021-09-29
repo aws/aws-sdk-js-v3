@@ -1,3 +1,17 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectString as __expectString,
+  LazyJsonString as __LazyJsonString,
+  serializeFloat as __serializeFloat,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import { PutEventsCommandInput, PutEventsCommandOutput } from "../commands/PutEventsCommand";
 import { PutItemsCommandInput, PutItemsCommandOutput } from "../commands/PutItemsCommand";
 import { PutUsersCommandInput, PutUsersCommandOutput } from "../commands/PutUsersCommand";
@@ -9,19 +23,6 @@ import {
   ResourceNotFoundException,
   User,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  LazyJsonString as __LazyJsonString,
-  expectString as __expectString,
-  serializeFloat as __serializeFloat,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_restJson1PutEventsCommand = async (
   input: PutEventsCommandInput,
@@ -31,7 +32,7 @@ export const serializeAws_restJson1PutEventsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events";
   let body: any;
   body = JSON.stringify({
     ...(input.eventList !== undefined &&
@@ -59,7 +60,7 @@ export const serializeAws_restJson1PutItemsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/items";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/items";
   let body: any;
   body = JSON.stringify({
     ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
@@ -85,7 +86,7 @@ export const serializeAws_restJson1PutUsersCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users";
   let body: any;
   body = JSON.stringify({
     ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
@@ -126,7 +127,7 @@ const deserializeAws_restJson1PutEventsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -177,7 +178,7 @@ const deserializeAws_restJson1PutItemsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -244,7 +245,7 @@ const deserializeAws_restJson1PutUsersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":

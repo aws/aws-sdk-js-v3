@@ -1,12 +1,13 @@
-import { IoTWireless } from "../IoTWireless";
-import { IoTWirelessClient } from "../IoTWirelessClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDestinationsCommand,
   ListDestinationsCommandInput,
   ListDestinationsCommandOutput,
 } from "../commands/ListDestinationsCommand";
+import { IoTWireless } from "../IoTWireless";
+import { IoTWirelessClient } from "../IoTWirelessClient";
 import { IoTWirelessPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

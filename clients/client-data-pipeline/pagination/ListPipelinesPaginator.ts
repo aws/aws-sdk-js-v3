@@ -1,12 +1,13 @@
-import { DataPipeline } from "../DataPipeline";
-import { DataPipelineClient } from "../DataPipelineClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListPipelinesCommand,
   ListPipelinesCommandInput,
   ListPipelinesCommandOutput,
 } from "../commands/ListPipelinesCommand";
+import { DataPipeline } from "../DataPipeline";
+import { DataPipelineClient } from "../DataPipelineClient";
 import { DataPipelinePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

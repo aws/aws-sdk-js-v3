@@ -1,12 +1,13 @@
-import { GreengrassV2 } from "../GreengrassV2";
-import { GreengrassV2Client } from "../GreengrassV2Client";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListComponentVersionsCommand,
   ListComponentVersionsCommandInput,
   ListComponentVersionsCommandOutput,
 } from "../commands/ListComponentVersionsCommand";
+import { GreengrassV2 } from "../GreengrassV2";
+import { GreengrassV2Client } from "../GreengrassV2Client";
 import { GreengrassV2PaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

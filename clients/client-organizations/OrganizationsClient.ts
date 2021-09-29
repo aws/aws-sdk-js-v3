@@ -1,3 +1,54 @@
+import {
+  EndpointsInputConfig,
+  EndpointsResolvedConfig,
+  RegionInputConfig,
+  RegionResolvedConfig,
+  resolveEndpointsConfig,
+  resolveRegionConfig,
+} from "@aws-sdk/config-resolver";
+import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import {
+  getHostHeaderPlugin,
+  HostHeaderInputConfig,
+  HostHeaderResolvedConfig,
+  resolveHostHeaderConfig,
+} from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import {
+  AwsAuthInputConfig,
+  AwsAuthResolvedConfig,
+  getAwsAuthPlugin,
+  resolveAwsAuthConfig,
+} from "@aws-sdk/middleware-signing";
+import {
+  getUserAgentPlugin,
+  resolveUserAgentConfig,
+  UserAgentInputConfig,
+  UserAgentResolvedConfig,
+} from "@aws-sdk/middleware-user-agent";
+import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import {
+  Client as __Client,
+  SmithyConfiguration as __SmithyConfiguration,
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
+} from "@aws-sdk/smithy-client";
+import {
+  Credentials as __Credentials,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  Hash as __Hash,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  Provider,
+  RegionInfoProvider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
+  UserAgent as __UserAgent,
+} from "@aws-sdk/types";
+
 import { AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput } from "./commands/AcceptHandshakeCommand";
 import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand";
 import { CancelHandshakeCommandInput, CancelHandshakeCommandOutput } from "./commands/CancelHandshakeCommand";
@@ -6,18 +57,18 @@ import {
   CreateGovCloudAccountCommandInput,
   CreateGovCloudAccountCommandOutput,
 } from "./commands/CreateGovCloudAccountCommand";
-import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "./commands/CreateOrganizationCommand";
 import {
   CreateOrganizationalUnitCommandInput,
   CreateOrganizationalUnitCommandOutput,
 } from "./commands/CreateOrganizationalUnitCommand";
+import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "./commands/CreateOrganizationCommand";
 import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
 import { DeclineHandshakeCommandInput, DeclineHandshakeCommandOutput } from "./commands/DeclineHandshakeCommand";
-import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "./commands/DeleteOrganizationCommand";
 import {
   DeleteOrganizationalUnitCommandInput,
   DeleteOrganizationalUnitCommandOutput,
 } from "./commands/DeleteOrganizationalUnitCommand";
+import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "./commands/DeleteOrganizationCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
   DeregisterDelegatedAdministratorCommandInput,
@@ -34,13 +85,13 @@ import {
 } from "./commands/DescribeEffectivePolicyCommand";
 import { DescribeHandshakeCommandInput, DescribeHandshakeCommandOutput } from "./commands/DescribeHandshakeCommand";
 import {
-  DescribeOrganizationCommandInput,
-  DescribeOrganizationCommandOutput,
-} from "./commands/DescribeOrganizationCommand";
-import {
   DescribeOrganizationalUnitCommandInput,
   DescribeOrganizationalUnitCommandOutput,
 } from "./commands/DescribeOrganizationalUnitCommand";
+import {
+  DescribeOrganizationCommandInput,
+  DescribeOrganizationCommandOutput,
+} from "./commands/DescribeOrganizationCommand";
 import { DescribePolicyCommandInput, DescribePolicyCommandOutput } from "./commands/DescribePolicyCommand";
 import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand";
 import {
@@ -48,26 +99,26 @@ import {
   DisableAWSServiceAccessCommandOutput,
 } from "./commands/DisableAWSServiceAccessCommand";
 import { DisablePolicyTypeCommandInput, DisablePolicyTypeCommandOutput } from "./commands/DisablePolicyTypeCommand";
+import { EnableAllFeaturesCommandInput, EnableAllFeaturesCommandOutput } from "./commands/EnableAllFeaturesCommand";
 import {
   EnableAWSServiceAccessCommandInput,
   EnableAWSServiceAccessCommandOutput,
 } from "./commands/EnableAWSServiceAccessCommand";
-import { EnableAllFeaturesCommandInput, EnableAllFeaturesCommandOutput } from "./commands/EnableAllFeaturesCommand";
 import { EnablePolicyTypeCommandInput, EnablePolicyTypeCommandOutput } from "./commands/EnablePolicyTypeCommand";
 import {
   InviteAccountToOrganizationCommandInput,
   InviteAccountToOrganizationCommandOutput,
 } from "./commands/InviteAccountToOrganizationCommand";
 import { LeaveOrganizationCommandInput, LeaveOrganizationCommandOutput } from "./commands/LeaveOrganizationCommand";
-import {
-  ListAWSServiceAccessForOrganizationCommandInput,
-  ListAWSServiceAccessForOrganizationCommandOutput,
-} from "./commands/ListAWSServiceAccessForOrganizationCommand";
 import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand";
 import {
   ListAccountsForParentCommandInput,
   ListAccountsForParentCommandOutput,
 } from "./commands/ListAccountsForParentCommand";
+import {
+  ListAWSServiceAccessForOrganizationCommandInput,
+  ListAWSServiceAccessForOrganizationCommandOutput,
+} from "./commands/ListAWSServiceAccessForOrganizationCommand";
 import { ListChildrenCommandInput, ListChildrenCommandOutput } from "./commands/ListChildrenCommand";
 import {
   ListCreateAccountStatusCommandInput,
@@ -125,56 +176,6 @@ import {
 } from "./commands/UpdateOrganizationalUnitCommand";
 import { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
-import {
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
-  resolveHostHeaderConfig,
-} from "@aws-sdk/middleware-host-header";
-import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
-import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
-  getUserAgentPlugin,
-  resolveUserAgentConfig,
-} from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
-import {
-  Client as __Client,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
-import {
-  Provider,
-  RegionInfoProvider,
-  Credentials as __Credentials,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
-  Hash as __Hash,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  Logger as __Logger,
-  Provider as __Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
-  UserAgent as __UserAgent,
-} from "@aws-sdk/types";
 
 export type ServiceInputTypes =
   | AcceptHandshakeCommandInput
@@ -505,13 +506,13 @@ export class OrganizationsClient extends __Client<
   readonly config: OrganizationsClientResolvedConfig;
 
   constructor(configuration: OrganizationsClientConfig) {
-    let _config_0 = __getRuntimeConfig(configuration);
-    let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveEndpointsConfig(_config_1);
-    let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveAwsAuthConfig(_config_4);
-    let _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_0 = __getRuntimeConfig(configuration);
+    const _config_1 = resolveRegionConfig(_config_0);
+    const _config_2 = resolveEndpointsConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveHostHeaderConfig(_config_3);
+    const _config_5 = resolveAwsAuthConfig(_config_4);
+    const _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
     this.middlewareStack.use(getRetryPlugin(this.config));

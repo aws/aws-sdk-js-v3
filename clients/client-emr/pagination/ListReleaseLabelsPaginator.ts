@@ -1,12 +1,13 @@
-import { EMR } from "../EMR";
-import { EMRClient } from "../EMRClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListReleaseLabelsCommand,
   ListReleaseLabelsCommandInput,
   ListReleaseLabelsCommandOutput,
 } from "../commands/ListReleaseLabelsCommand";
+import { EMR } from "../EMR";
+import { EMRClient } from "../EMRClient";
 import { EMRPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

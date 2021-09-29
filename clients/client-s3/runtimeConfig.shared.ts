@@ -1,7 +1,8 @@
-import { defaultRegionInfoProvider } from "./endpoints";
 import { S3SignatureV4 } from "@aws-sdk/middleware-sdk-s3";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+
+import { defaultRegionInfoProvider } from "./endpoints";
 import { S3ClientConfig } from "./S3Client";
 
 /**

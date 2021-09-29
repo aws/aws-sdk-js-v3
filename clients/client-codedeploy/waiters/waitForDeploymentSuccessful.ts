@@ -1,14 +1,15 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { CodeDeployClient } from "../CodeDeployClient";
 import { GetDeploymentCommand, GetDeploymentCommandInput } from "../commands/GetDeploymentCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetDeploymentCommand(input));
+    const result: any = await client.send(new GetDeploymentCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.deploymentInfo.status;
       };
       if (returnComparator() === "Succeeded") {
@@ -16,7 +17,7 @@ const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandI
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.deploymentInfo.status;
       };
       if (returnComparator() === "Failed") {
@@ -24,7 +25,7 @@ const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandI
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.deploymentInfo.status;
       };
       if (returnComparator() === "Stopped") {

@@ -1,12 +1,13 @@
-import { Snowball } from "../Snowball";
-import { SnowballClient } from "../SnowballClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeAddressesCommand,
   DescribeAddressesCommandInput,
   DescribeAddressesCommandOutput,
 } from "../commands/DescribeAddressesCommand";
+import { Snowball } from "../Snowball";
+import { SnowballClient } from "../SnowballClient";
 import { SnowballPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

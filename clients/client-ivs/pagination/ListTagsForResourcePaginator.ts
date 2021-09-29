@@ -1,12 +1,13 @@
-import { Ivs } from "../Ivs";
-import { IvsClient } from "../IvsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { Ivs } from "../Ivs";
+import { IvsClient } from "../IvsClient";
 import { IvsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

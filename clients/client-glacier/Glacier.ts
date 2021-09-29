@@ -1,4 +1,5 @@
-import { GlacierClient } from "./GlacierClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AbortMultipartUploadCommand,
   AbortMultipartUploadCommandInput,
@@ -136,7 +137,7 @@ import {
   UploadMultipartPartCommandInput,
   UploadMultipartPartCommandOutput,
 } from "./commands/UploadMultipartPartCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { GlacierClient } from "./GlacierClient";
 
 /**
  * <p> Amazon S3 Glacier (Glacier) is a storage solution for "cold data."</p>

@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Backup } from "../Backup";
 import { BackupClient } from "../BackupClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListBackupPlansCommandOutput,
 } from "../commands/ListBackupPlansCommand";
 import { BackupPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

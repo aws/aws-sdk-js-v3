@@ -1,4 +1,5 @@
-import { InspectorClient } from "./InspectorClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddAttributesToFindingsCommand,
   AddAttributesToFindingsCommandInput,
@@ -184,7 +185,7 @@ import {
   UpdateAssessmentTargetCommandInput,
   UpdateAssessmentTargetCommandOutput,
 } from "./commands/UpdateAssessmentTargetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { InspectorClient } from "./InspectorClient";
 
 /**
  * <fullname>Amazon Inspector</fullname>

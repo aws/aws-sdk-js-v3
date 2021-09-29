@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { BudgetsClient } from "./BudgetsClient";
 import {
   CreateBudgetActionCommand,
@@ -109,7 +111,6 @@ import {
   UpdateSubscriberCommandInput,
   UpdateSubscriberCommandOutput,
 } from "./commands/UpdateSubscriberCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>The AWS Budgets API enables you to use AWS Budgets to plan your service usage, service costs, and instance reservations. The API reference provides descriptions, syntax, and usage examples for each of the actions and data types for AWS Budgets. </p>

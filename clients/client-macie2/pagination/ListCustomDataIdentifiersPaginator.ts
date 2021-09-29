@@ -1,12 +1,13 @@
-import { Macie2 } from "../Macie2";
-import { Macie2Client } from "../Macie2Client";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListCustomDataIdentifiersCommand,
   ListCustomDataIdentifiersCommandInput,
   ListCustomDataIdentifiersCommandOutput,
 } from "../commands/ListCustomDataIdentifiersCommand";
+import { Macie2 } from "../Macie2";
+import { Macie2Client } from "../Macie2Client";
 import { Macie2PaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

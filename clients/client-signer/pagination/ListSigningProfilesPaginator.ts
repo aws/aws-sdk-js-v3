@@ -1,12 +1,13 @@
-import { Signer } from "../Signer";
-import { SignerClient } from "../SignerClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListSigningProfilesCommand,
   ListSigningProfilesCommandInput,
   ListSigningProfilesCommandOutput,
 } from "../commands/ListSigningProfilesCommand";
+import { Signer } from "../Signer";
+import { SignerClient } from "../SignerClient";
 import { SignerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,12 +1,13 @@
-import { EMR } from "../EMR";
-import { EMRClient } from "../EMRClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListInstanceGroupsCommand,
   ListInstanceGroupsCommandInput,
   ListInstanceGroupsCommandOutput,
 } from "../commands/ListInstanceGroupsCommand";
+import { EMR } from "../EMR";
+import { EMRClient } from "../EMRClient";
 import { EMRPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

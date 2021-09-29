@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { TimestreamQueryClientConfig } from "./TimestreamQueryClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { TimestreamQueryClientConfig } from "./TimestreamQueryClient";
 
 /**
  * @internal

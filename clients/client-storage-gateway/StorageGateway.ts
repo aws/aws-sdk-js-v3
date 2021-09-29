@@ -1,4 +1,5 @@
-import { StorageGatewayClient } from "./StorageGatewayClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   ActivateGatewayCommand,
   ActivateGatewayCommandInput,
@@ -80,12 +81,12 @@ import {
   CreateTapePoolCommandInput,
   CreateTapePoolCommandOutput,
 } from "./commands/CreateTapePoolCommand";
+import { CreateTapesCommand, CreateTapesCommandInput, CreateTapesCommandOutput } from "./commands/CreateTapesCommand";
 import {
   CreateTapeWithBarcodeCommand,
   CreateTapeWithBarcodeCommandInput,
   CreateTapeWithBarcodeCommandOutput,
 } from "./commands/CreateTapeWithBarcodeCommand";
-import { CreateTapesCommand, CreateTapesCommandInput, CreateTapesCommandOutput } from "./commands/CreateTapesCommand";
 import {
   DeleteAutomaticTapeCreationPolicyCommand,
   DeleteAutomaticTapeCreationPolicyCommandInput,
@@ -416,7 +417,7 @@ import {
   UpdateVTLDeviceTypeCommandInput,
   UpdateVTLDeviceTypeCommandOutput,
 } from "./commands/UpdateVTLDeviceTypeCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { StorageGatewayClient } from "./StorageGatewayClient";
 
 /**
  * <fullname>Storage Gateway Service</fullname>

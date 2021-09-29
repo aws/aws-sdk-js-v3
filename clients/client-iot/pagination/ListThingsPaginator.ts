@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { ListThingsCommand, ListThingsCommandInput, ListThingsCommandOutput } from "../commands/ListThingsCommand";
 import { IoT } from "../IoT";
 import { IoTClient } from "../IoTClient";
-import { ListThingsCommand, ListThingsCommandInput, ListThingsCommandOutput } from "../commands/ListThingsCommand";
 import { IoTPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

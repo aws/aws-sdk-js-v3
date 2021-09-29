@@ -1,4 +1,5 @@
-import { KinesisAnalyticsClient } from "./KinesisAnalyticsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddApplicationCloudWatchLoggingOptionCommand,
   AddApplicationCloudWatchLoggingOptionCommandInput,
@@ -95,7 +96,7 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { KinesisAnalyticsClient } from "./KinesisAnalyticsClient";
 
 /**
  * <fullname>Amazon Kinesis Analytics</fullname>

@@ -1,12 +1,13 @@
-import { S3Outposts } from "../S3Outposts";
-import { S3OutpostsClient } from "../S3OutpostsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEndpointsCommand,
   ListEndpointsCommandInput,
   ListEndpointsCommandOutput,
 } from "../commands/ListEndpointsCommand";
+import { S3Outposts } from "../S3Outposts";
+import { S3OutpostsClient } from "../S3OutpostsClient";
 import { S3OutpostsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

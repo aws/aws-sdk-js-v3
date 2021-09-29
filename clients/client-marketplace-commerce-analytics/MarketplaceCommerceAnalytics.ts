@@ -1,4 +1,5 @@
-import { MarketplaceCommerceAnalyticsClient } from "./MarketplaceCommerceAnalyticsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   GenerateDataSetCommand,
   GenerateDataSetCommandInput,
@@ -9,7 +10,7 @@ import {
   StartSupportDataExportCommandInput,
   StartSupportDataExportCommandOutput,
 } from "./commands/StartSupportDataExportCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MarketplaceCommerceAnalyticsClient } from "./MarketplaceCommerceAnalyticsClient";
 
 /**
  * Provides AWS Marketplace business intelligence data on-demand.

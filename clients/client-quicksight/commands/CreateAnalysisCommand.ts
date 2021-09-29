@@ -1,9 +1,3 @@
-import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { CreateAnalysisRequest, CreateAnalysisResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAnalysisCommand,
-  serializeAws_restJson1CreateAnalysisCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CreateAnalysisRequest, CreateAnalysisResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1CreateAnalysisCommand,
+  serializeAws_restJson1CreateAnalysisCommand,
+} from "../protocols/Aws_restJson1";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 export interface CreateAnalysisCommandInput extends CreateAnalysisRequest {}
 export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __MetadataBearer {}

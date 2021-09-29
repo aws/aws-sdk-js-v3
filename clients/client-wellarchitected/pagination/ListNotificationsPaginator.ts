@@ -1,12 +1,13 @@
-import { WellArchitected } from "../WellArchitected";
-import { WellArchitectedClient } from "../WellArchitectedClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListNotificationsCommand,
   ListNotificationsCommandInput,
   ListNotificationsCommandOutput,
 } from "../commands/ListNotificationsCommand";
+import { WellArchitected } from "../WellArchitected";
+import { WellArchitectedClient } from "../WellArchitectedClient";
 import { WellArchitectedPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

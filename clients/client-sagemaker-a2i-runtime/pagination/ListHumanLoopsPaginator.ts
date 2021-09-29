@@ -1,12 +1,13 @@
-import { SageMakerA2IRuntime } from "../SageMakerA2IRuntime";
-import { SageMakerA2IRuntimeClient } from "../SageMakerA2IRuntimeClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListHumanLoopsCommand,
   ListHumanLoopsCommandInput,
   ListHumanLoopsCommandOutput,
 } from "../commands/ListHumanLoopsCommand";
+import { SageMakerA2IRuntime } from "../SageMakerA2IRuntime";
+import { SageMakerA2IRuntimeClient } from "../SageMakerA2IRuntimeClient";
 import { SageMakerA2IRuntimePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

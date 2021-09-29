@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { ACMPCA } from "../ACMPCA";
 import { ACMPCAClient } from "../ACMPCAClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListPermissionsCommandOutput,
 } from "../commands/ListPermissionsCommand";
 import { ACMPCAPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private
