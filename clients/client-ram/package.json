@@ -17,12 +17,6 @@
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
   "module": "./dist-es/index.js",
-  "browser": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
-  },
-  "react-native": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
-  },
   "sideEffects": false,
   "dependencies": {
     "@aws-crypto/sha256-browser": "^1.0.0",
@@ -82,6 +76,12 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "browser": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
+  },
+  "react-native": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
+  },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-ram",
   "repository": {
     "type": "git",
