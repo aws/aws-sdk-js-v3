@@ -13,7 +13,7 @@
     "clean:docs": "rimraf ./docs",
     "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "yarn test:unit",
-    "test:e2e": "mocha **/cjs/**/*.ispec.js && karma start karma.conf.js",
+    "test:e2e": "ts-mocha test/**/*.ispec.ts && karma start karma.conf.js",
     "test:unit": "ts-mocha test/**/*.spec.ts"
   },
   "main": "./dist-cjs/index.js",

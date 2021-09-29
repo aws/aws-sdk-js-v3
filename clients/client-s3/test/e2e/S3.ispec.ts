@@ -3,10 +3,11 @@
  * This is the integration test that make sure the client can make request cross-platform-ly
  * in NodeJS, Chromium and Firefox. This test is written in mocha.
  */
+import { Credentials } from "@aws-sdk/types";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
-import { S3 } from "../index";
-import { Credentials } from "@aws-sdk/types";
+
+import { S3 } from "../../src/index";
 import { createBuffer } from "./helpers";
 chai.use(chaiAsPromised);
 const { expect } = chai;
